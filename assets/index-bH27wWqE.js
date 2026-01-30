@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-m7v32Z3B.js","assets/secp256k1-CcQr8Jku.js","assets/dist-BhWfyDEC.js","assets/index.es-uNe8xkQw.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-D-uE5r95.js","assets/secp256k1-CpFrsr2x.js","assets/dist-__iKiQVa.js","assets/index.es-CvizEGMU.js"])))=>i.map(i=>d[i]);
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -16899,7 +16899,7 @@ async function call(client, args) {
 	} catch (err) {
 		const data$1 = getRevertErrorData(err);
 		const { offchainLookup, offchainLookupSignature } = await __vitePreload(async () => {
-			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-BvdBeDht.js");
+			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-D_vOSXMK.js");
 			return {
 				offchainLookup: offchainLookup$1,
 				offchainLookupSignature: offchainLookupSignature$1
@@ -17400,7 +17400,7 @@ function publicKeyToAddress(publicKey) {
 async function recoverPublicKey({ hash: hash$3, signature }) {
 	const hashHex = isHex(hash$3) ? hash$3 : toHex(hash$3);
 	const { secp256k1: secp256k1$1 } = await __vitePreload(async () => {
-		const { secp256k1: secp256k1$2 } = await import("./secp256k1-m7v32Z3B.js");
+		const { secp256k1: secp256k1$2 } = await import("./secp256k1-D-uE5r95.js");
 		return { secp256k1: secp256k1$2 };
 	}, __vite__mapDeps([0,1]));
 	return `0x${(() => {
@@ -23203,14 +23203,14 @@ function safe(parameters = {}) {
 			if (!(typeof window !== "undefined" && window?.parent !== window)) return;
 			if (!provider_) {
 				const { default: SDK } = await __vitePreload(async () => {
-					const { default: SDK$1 } = await import("./esm-dMGU1_tK.js");
+					const { default: SDK$1 } = await import("./esm-uc4wE6dx.js");
 					return { default: SDK$1 };
 				}, []);
 				const sdk = new SDK(parameters);
 				const safe$1 = await withTimeout(() => sdk.safe.getInfo(), { timeout: parameters.unstable_getInfoTimeout ?? 10 });
 				if (!safe$1) throw new Error("Could not load Safe information");
 				provider_ = new (await ((async () => {
-					const Provider = await __vitePreload(() => import("./dist-vNSqB3LH.js").then(__toDynamicImportESM(1)), []);
+					const Provider = await __vitePreload(() => import("./dist-BAgKjJiI.js").then(__toDynamicImportESM(1)), []);
 					if (typeof Provider.SafeAppProvider !== "function" && typeof Provider.default.SafeAppProvider === "function") return Provider.default.SafeAppProvider;
 					return Provider.SafeAppProvider;
 				})()))(safe$1, sdk);
@@ -23370,7 +23370,7 @@ function walletConnect(parameters) {
 				const optionalChains = config.chains.map((x$2) => x$2.id);
 				if (!optionalChains.length) return;
 				const { EthereumProvider: EthereumProvider$1 } = await __vitePreload(async () => {
-					const { EthereumProvider: EthereumProvider$2 } = await import("./dist-BhWfyDEC.js");
+					const { EthereumProvider: EthereumProvider$2 } = await import("./dist-__iKiQVa.js");
 					return { EthereumProvider: EthereumProvider$2 };
 				}, __vite__mapDeps([2,3,1]));
 				return await EthereumProvider$1.init({
@@ -53401,7 +53401,7 @@ styled.div`
 var CONNECTKIT_VERSION = "1.9.1";
 const getEnvVariable = (variableName) => {
 	return {
-		"BASE_URL": "/no-rekt_draft/",
+		"BASE_URL": "/no-rekt_draft",
 		"DEV": false,
 		"MODE": "production",
 		"PROD": true,
@@ -80857,7 +80857,10 @@ function App() {
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Web3Provider_default, { children: [
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { id: "ModalContainer" }),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Toasts_default, {}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(BrowserRouter, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Context_default, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(AppContent, {}) }) })
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(BrowserRouter, {
+				basename: "/no-rekt_draft",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Context_default, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(AppContent, {}) })
+			})
 		] })
 	});
 }
