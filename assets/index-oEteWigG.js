@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-Cm2UXPRZ.js","assets/secp256k1-Dh4od8f1.js","assets/dist-LXnwmsUJ.js","assets/index.es-grW1aVTg.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-CSUstKOZ.js","assets/secp256k1-lt-dzBct.js","assets/dist-BaTUkY_W.js","assets/index.es-BScWwfLb.js"])))=>i.map(i=>d[i]);
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -16899,7 +16899,7 @@ async function call(client, args) {
 	} catch (err) {
 		const data$1 = getRevertErrorData(err);
 		const { offchainLookup, offchainLookupSignature } = await __vitePreload(async () => {
-			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-DKggbuRx.js");
+			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-ZoW1g9kY.js");
 			return {
 				offchainLookup: offchainLookup$1,
 				offchainLookupSignature: offchainLookupSignature$1
@@ -17400,7 +17400,7 @@ function publicKeyToAddress(publicKey) {
 async function recoverPublicKey({ hash: hash$3, signature }) {
 	const hashHex = isHex(hash$3) ? hash$3 : toHex(hash$3);
 	const { secp256k1: secp256k1$1 } = await __vitePreload(async () => {
-		const { secp256k1: secp256k1$2 } = await import("./secp256k1-Cm2UXPRZ.js");
+		const { secp256k1: secp256k1$2 } = await import("./secp256k1-CSUstKOZ.js");
 		return { secp256k1: secp256k1$2 };
 	}, __vite__mapDeps([0,1]));
 	return `0x${(() => {
@@ -23203,14 +23203,14 @@ function safe(parameters = {}) {
 			if (!(typeof window !== "undefined" && window?.parent !== window)) return;
 			if (!provider_) {
 				const { default: SDK } = await __vitePreload(async () => {
-					const { default: SDK$1 } = await import("./esm-C-scB7IZ.js");
+					const { default: SDK$1 } = await import("./esm-BqhLjpiE.js");
 					return { default: SDK$1 };
 				}, []);
 				const sdk = new SDK(parameters);
 				const safe$1 = await withTimeout(() => sdk.safe.getInfo(), { timeout: parameters.unstable_getInfoTimeout ?? 10 });
 				if (!safe$1) throw new Error("Could not load Safe information");
 				provider_ = new (await ((async () => {
-					const Provider = await __vitePreload(() => import("./dist-KklUbh41.js").then(__toDynamicImportESM(1)), []);
+					const Provider = await __vitePreload(() => import("./dist-C1GXN0ui.js").then(__toDynamicImportESM(1)), []);
 					if (typeof Provider.SafeAppProvider !== "function" && typeof Provider.default.SafeAppProvider === "function") return Provider.default.SafeAppProvider;
 					return Provider.SafeAppProvider;
 				})()))(safe$1, sdk);
@@ -23370,7 +23370,7 @@ function walletConnect(parameters) {
 				const optionalChains = config.chains.map((x$2) => x$2.id);
 				if (!optionalChains.length) return;
 				const { EthereumProvider: EthereumProvider$1 } = await __vitePreload(async () => {
-					const { EthereumProvider: EthereumProvider$2 } = await import("./dist-LXnwmsUJ.js");
+					const { EthereumProvider: EthereumProvider$2 } = await import("./dist-BaTUkY_W.js");
 					return { EthereumProvider: EthereumProvider$2 };
 				}, __vite__mapDeps([2,3,1]));
 				return await EthereumProvider$1.init({
@@ -80422,7 +80422,7 @@ var Dashboard_default = Dashboard;
 var AppRoutes = () => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Routes, { children: [
 		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
-			path: "/",
+			path: "/dashboard",
 			element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Dashboard_default, {})
 		}),
 		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
@@ -80436,7 +80436,7 @@ var AppRoutes = () => {
 		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
 			path: "*",
 			element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Navigate, {
-				to: "/",
+				to: "/dashboard",
 				replace: true
 			})
 		})
