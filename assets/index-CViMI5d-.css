@@ -2,18 +2,18 @@
 /* Title font */
 @font-face {
   font-family: "Nohemi";
-  src: url("/assets/Nohemi-Regular-DFZ7gdOf.woff2") format("woff2"), url("/assets/Nohemi-Regular-Bftn7TPj.woff") format("woff");
+  src: url("/no-rekt_draft/assets/Nohemi-Regular-DFZ7gdOf.woff2") format("woff2"), url("/no-rekt_draft/assets/Nohemi-Regular-Bftn7TPj.woff") format("woff");
   font-weight: 400;
 }
 /* Common font */
 @font-face {
   font-family: "Unageo";
-  src: url("/assets/Unageo-Regular-Cn3y2pFC.woff2") format("woff2"), url("/assets/Unageo-Regular-DgxdqFLA.woff") format("woff");
+  src: url("/no-rekt_draft/assets/Unageo-Regular-Cn3y2pFC.woff2") format("woff2"), url("/no-rekt_draft/assets/Unageo-Regular-DgxdqFLA.woff") format("woff");
   font-weight: 400;
 }
 @font-face {
   font-family: "Unageo";
-  src: url("/assets/Unageo-Medium-9ic-fuf1.woff2") format("woff2"), url("/assets/Unageo-Medium-C8L6_8k6.woff") format("woff");
+  src: url("/no-rekt_draft/assets/Unageo-Medium-9ic-fuf1.woff2") format("woff2"), url("/no-rekt_draft/assets/Unageo-Medium-C8L6_8k6.woff") format("woff");
   font-weight: 500;
 }
 @layer base {
