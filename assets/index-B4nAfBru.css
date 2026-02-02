@@ -250,6 +250,7 @@
     stroke-dashoffset: -300;
   }
 }.GetStarted {
+  grid-column: 1/13;
   text-align: center;
   background-color: #1D1446;
   padding: 43px;
