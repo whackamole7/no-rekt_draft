@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-DrukuJhl.js","assets/secp256k1-DG7DyKxr.js","assets/dist-AOGfCtGO.js","assets/index.es-BUYSfUm-.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-C-8lUe9b.js","assets/secp256k1-BIzL0Wcw.js","assets/dist-mBeK2owH.js","assets/index.es-Dui7bBtM.js"])))=>i.map(i=>d[i]);
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -12618,8 +12618,8 @@ var InvalidDefinitionTypeError = class extends BaseError$3 {
 	}
 };
 var InvalidAddressError = class extends BaseError$3 {
-	constructor({ address: address$4 }) {
-		super(`Address "${address$4}" is invalid.`, {
+	constructor({ address: address$5 }) {
+		super(`Address "${address$5}" is invalid.`, {
 			metaMessages: ["- Address must be a hex value of 20 bytes (40 hex characters).", "- Address must match its checksum counterpart."],
 			name: "InvalidAddressError"
 		});
@@ -13149,14 +13149,14 @@ var LruMap = class extends Map {
 };
 var addressRegex = /^0x[a-fA-F0-9]{40}$/;
 const isAddressCache = /* @__PURE__ */ new LruMap(8192);
-function isAddress(address$4, options$2) {
+function isAddress(address$5, options$2) {
 	const { strict = true } = options$2 ?? {};
-	const cacheKey$1 = `${address$4}.${strict}`;
+	const cacheKey$1 = `${address$5}.${strict}`;
 	if (isAddressCache.has(cacheKey$1)) return isAddressCache.get(cacheKey$1);
 	const result = (() => {
-		if (!addressRegex.test(address$4)) return false;
-		if (address$4.toLowerCase() === address$4) return true;
-		if (strict) return checksumAddress(address$4) === address$4;
+		if (!addressRegex.test(address$5)) return false;
+		if (address$5.toLowerCase() === address$5) return true;
+		if (strict) return checksumAddress(address$5) === address$5;
 		return true;
 	})();
 	isAddressCache.set(cacheKey$1, result);
@@ -13167,18 +13167,18 @@ function checksumAddress(address_, chainId) {
 	if (checksumAddressCache.has(`${address_}.${chainId}`)) return checksumAddressCache.get(`${address_}.${chainId}`);
 	const hexAddress = chainId ? `${chainId}${address_.toLowerCase()}` : address_.substring(2).toLowerCase();
 	const hash$3 = keccak256$1(stringToBytes(hexAddress), "bytes");
-	const address$4 = (chainId ? hexAddress.substring(`${chainId}0x`.length) : hexAddress).split("");
+	const address$5 = (chainId ? hexAddress.substring(`${chainId}0x`.length) : hexAddress).split("");
 	for (let i$3 = 0; i$3 < 40; i$3 += 2) {
-		if (hash$3[i$3 >> 1] >> 4 >= 8 && address$4[i$3]) address$4[i$3] = address$4[i$3].toUpperCase();
-		if ((hash$3[i$3 >> 1] & 15) >= 8 && address$4[i$3 + 1]) address$4[i$3 + 1] = address$4[i$3 + 1].toUpperCase();
+		if (hash$3[i$3 >> 1] >> 4 >= 8 && address$5[i$3]) address$5[i$3] = address$5[i$3].toUpperCase();
+		if ((hash$3[i$3 >> 1] & 15) >= 8 && address$5[i$3 + 1]) address$5[i$3 + 1] = address$5[i$3 + 1].toUpperCase();
 	}
-	const result = `0x${address$4.join("")}`;
+	const result = `0x${address$5.join("")}`;
 	checksumAddressCache.set(`${address_}.${chainId}`, result);
 	return result;
 }
-function getAddress$1(address$4, chainId) {
-	if (!isAddress(address$4, { strict: false })) throw new InvalidAddressError({ address: address$4 });
-	return checksumAddress(address$4, chainId);
+function getAddress$1(address$5, chainId) {
+	if (!isAddress(address$5, { strict: false })) throw new InvalidAddressError({ address: address$5 });
+	return checksumAddress(address$5, chainId);
 }
 var NegativeOffsetError = class extends BaseError$3 {
 	constructor({ offset: offset$1 }) {
@@ -14496,14 +14496,14 @@ function resolveStructs(abiParameters = [], structs = {}, ancestors = /* @__PURE
 }
 function parseAbi(signatures) {
 	const structs = parseStructs(signatures);
-	const abi$4 = [];
+	const abi$5 = [];
 	const length$1 = signatures.length;
 	for (let i$3 = 0; i$3 < length$1; i$3++) {
 		const signature = signatures[i$3];
 		if (isStructSignature(signature)) continue;
-		abi$4.push(parseSignature(signature, structs));
+		abi$5.push(parseSignature(signature, structs));
 	}
-	return abi$4;
+	return abi$5;
 }
 function normalizeSignature(signature) {
 	let active = true;
@@ -14561,9 +14561,9 @@ function toSignatureHash(fn) {
 const toEventSelector = toSignatureHash;
 const toFunctionSelector = (fn) => slice$1(toSignatureHash(fn), 0, 4);
 function getAbiItem(parameters) {
-	const { abi: abi$4, args = [], name } = parameters;
+	const { abi: abi$5, args = [], name } = parameters;
 	const isSelector = isHex(name, { strict: false });
-	const abiItems = abi$4.filter((abiItem) => {
+	const abiItems = abi$5.filter((abiItem) => {
 		if (isSelector) {
 			if (abiItem.type === "function") return toFunctionSelector(abiItem) === name;
 			if (abiItem.type === "event") return toEventSelector(abiItem) === name;
@@ -14641,11 +14641,11 @@ function getAmbiguousTypes(sourceParameters, targetParameters, args) {
 }
 var docsPath$4 = "/docs/contract/decodeFunctionResult";
 function decodeFunctionResult(parameters) {
-	const { abi: abi$4, args, functionName, data } = parameters;
-	let abiItem = abi$4[0];
+	const { abi: abi$5, args, functionName, data } = parameters;
+	let abiItem = abi$5[0];
 	if (functionName) {
 		const item = getAbiItem({
-			abi: abi$4,
+			abi: abi$5,
 			args,
 			name: functionName
 		});
@@ -14660,11 +14660,11 @@ function decodeFunctionResult(parameters) {
 }
 var docsPath$3 = "/docs/contract/encodeFunctionData";
 function prepareEncodeFunctionData(parameters) {
-	const { abi: abi$4, args, functionName } = parameters;
-	let abiItem = abi$4[0];
+	const { abi: abi$5, args, functionName } = parameters;
+	let abiItem = abi$5[0];
 	if (functionName) {
 		const item = getAbiItem({
-			abi: abi$4,
+			abi: abi$5,
 			args,
 			name: functionName
 		});
@@ -14679,11 +14679,11 @@ function prepareEncodeFunctionData(parameters) {
 }
 function encodeFunctionData(parameters) {
 	const { args } = parameters;
-	const { abi: abi$4, functionName } = (() => {
+	const { abi: abi$5, functionName } = (() => {
 		if (parameters.abi.length === 1 && parameters.functionName?.startsWith("0x")) return parameters;
 		return prepareEncodeFunctionData(parameters);
 	})();
-	const abiItem = abi$4[0];
+	const abiItem = abi$5[0];
 	return concatHex([functionName, ("inputs" in abiItem && abiItem.inputs ? encodeAbiParameters(abiItem.inputs, args ?? []) : void 0) ?? "0x"]);
 }
 var ChainDoesNotSupportContract = class extends BaseError$3 {
@@ -14768,11 +14768,11 @@ const solidityPanic = {
 	type: "error"
 };
 function decodeErrorResult(parameters) {
-	const { abi: abi$4, data } = parameters;
+	const { abi: abi$5, data } = parameters;
 	const signature = slice$1(data, 0, 4);
 	if (signature === "0x") throw new AbiDecodingZeroDataError();
 	const abiItem = [
-		...abi$4 || [],
+		...abi$5 || [],
 		solidityError,
 		solidityPanic
 	].find((x$2) => x$2.type === "error" && signature === toFunctionSelector(formatAbiItem(x$2)));
@@ -14817,8 +14817,8 @@ function formatGwei(wei, unit = "wei") {
 	return formatUnits$1(wei, gweiUnits[unit]);
 }
 var AccountStateConflictError = class extends BaseError$3 {
-	constructor({ address: address$4 }) {
-		super(`State for account "${address$4}" is set multiple times.`, { name: "AccountStateConflictError" });
+	constructor({ address: address$5 }) {
+		super(`State for account "${address$5}" is set multiple times.`, { name: "AccountStateConflictError" });
 	}
 };
 var StateAssignmentConflictError = class extends BaseError$3 {
@@ -14832,8 +14832,8 @@ function prettyStateMapping(stateMapping) {
 	}, "");
 }
 function prettyStateOverride(stateOverride) {
-	return stateOverride.reduce((pretty, { address: address$4, ...state }) => {
-		let val = `${pretty}    ${address$4}:\n`;
+	return stateOverride.reduce((pretty, { address: address$5, ...state }) => {
+		let val = `${pretty}    ${address$5}:\n`;
 		if (state.nonce) val += `      nonce: ${state.nonce}\n`;
 		if (state.balance) val += `      balance: ${state.balance}\n`;
 		if (state.code) val += `      code: ${state.code}\n`;
@@ -14961,7 +14961,7 @@ var WaitForTransactionReceiptTimeoutError = class extends BaseError$3 {
 		super(`Timed out while waiting for transaction with hash "${hash$3}" to be confirmed.`, { name: "WaitForTransactionReceiptTimeoutError" });
 	}
 };
-const getContractAddress = (address$4) => address$4;
+const getContractAddress = (address$5) => address$5;
 const getUrl = (url) => url;
 var CallExecutionError = class extends BaseError$3 {
 	constructor(cause, { account: account_, docsPath: docsPath$5, chain, data, gas, gasPrice, maxFeePerGas, maxPriorityFeePerGas, nonce, to: to$1, value, stateOverride }) {
@@ -14997,9 +14997,9 @@ var CallExecutionError = class extends BaseError$3 {
 	}
 };
 var ContractFunctionExecutionError = class extends BaseError$3 {
-	constructor(cause, { abi: abi$4, args, contractAddress, docsPath: docsPath$5, functionName, sender }) {
+	constructor(cause, { abi: abi$5, args, contractAddress, docsPath: docsPath$5, functionName, sender }) {
 		const abiItem = getAbiItem({
-			abi: abi$4,
+			abi: abi$5,
 			args,
 			name: functionName
 		});
@@ -15068,7 +15068,7 @@ var ContractFunctionExecutionError = class extends BaseError$3 {
 			writable: true,
 			value: void 0
 		});
-		this.abi = abi$4;
+		this.abi = abi$5;
 		this.args = args;
 		this.cause = cause;
 		this.contractAddress = contractAddress;
@@ -15077,14 +15077,14 @@ var ContractFunctionExecutionError = class extends BaseError$3 {
 	}
 };
 var ContractFunctionRevertedError = class extends BaseError$3 {
-	constructor({ abi: abi$4, data, functionName, message }) {
+	constructor({ abi: abi$5, data, functionName, message }) {
 		let cause;
 		let decodedData;
 		let metaMessages;
 		let reason;
 		if (data && data !== "0x") try {
 			decodedData = decodeErrorResult({
-				abi: abi$4,
+				abi: abi$5,
 				data
 			});
 			const { abiItem, errorName, args: errorArgs } = decodedData;
@@ -15206,9 +15206,9 @@ function isNullUniversalResolverError(err) {
 	return false;
 }
 function decodeFunctionData(parameters) {
-	const { abi: abi$4, data } = parameters;
+	const { abi: abi$5, data } = parameters;
 	const signature = slice$1(data, 0, 4);
-	const description = abi$4.find((x$2) => x$2.type === "function" && signature === toFunctionSelector(formatAbiItem(x$2)));
+	const description = abi$5.find((x$2) => x$2.type === "function" && signature === toFunctionSelector(formatAbiItem(x$2)));
 	if (!description) throw new AbiFunctionSignatureNotFoundError(signature, { docsPath: "/docs/contract/decodeFunctionData" });
 	return {
 		functionName: description.name,
@@ -15217,11 +15217,11 @@ function decodeFunctionData(parameters) {
 }
 var docsPath$2 = "/docs/contract/encodeErrorResult";
 function encodeErrorResult(parameters) {
-	const { abi: abi$4, errorName, args } = parameters;
-	let abiItem = abi$4[0];
+	const { abi: abi$5, errorName, args } = parameters;
+	let abiItem = abi$5[0];
 	if (errorName) {
 		const item = getAbiItem({
-			abi: abi$4,
+			abi: abi$5,
 			args,
 			name: errorName
 		});
@@ -15239,11 +15239,11 @@ function encodeErrorResult(parameters) {
 }
 var docsPath$1 = "/docs/contract/encodeFunctionResult";
 function encodeFunctionResult(parameters) {
-	const { abi: abi$4, functionName, result } = parameters;
-	let abiItem = abi$4[0];
+	const { abi: abi$5, functionName, result } = parameters;
+	let abiItem = abi$5[0];
 	if (functionName) {
 		const item = getAbiItem({
-			abi: abi$4,
+			abi: abi$5,
 			name: functionName
 		});
 		if (!item) throw new AbiFunctionNotFoundError(functionName, { docsPath: docsPath$1 });
@@ -15858,22 +15858,22 @@ var UnknownRpcError = class extends RpcError$1 {
 	}
 };
 var EXECUTION_REVERTED_ERROR_CODE = 3;
-function getContractError(err, { abi: abi$4, address: address$4, args, docsPath: docsPath$5, functionName, sender }) {
+function getContractError(err, { abi: abi$5, address: address$5, args, docsPath: docsPath$5, functionName, sender }) {
 	const error = err instanceof RawContractError ? err : err instanceof BaseError$3 ? err.walk((err$1) => "data" in err$1) || err.walk() : {};
 	const { code: code$1, data, details, message, shortMessage } = error;
 	return new ContractFunctionExecutionError((() => {
 		if (err instanceof AbiDecodingZeroDataError) return new ContractFunctionZeroDataError({ functionName });
 		if ([EXECUTION_REVERTED_ERROR_CODE, InternalRpcError.code].includes(code$1) && (data || details || message || shortMessage) || code$1 === InvalidInputRpcError.code && details === "execution reverted" && data) return new ContractFunctionRevertedError({
-			abi: abi$4,
+			abi: abi$5,
 			data: typeof data === "object" ? data.data : data,
 			functionName,
 			message: error instanceof RpcRequestError ? details : shortMessage ?? message
 		});
 		return err;
 	})(), {
-		abi: abi$4,
+		abi: abi$5,
 		args,
-		contractAddress: address$4,
+		contractAddress: address$5,
 		docsPath: docsPath$5,
 		functionName,
 		sender
@@ -16277,9 +16277,9 @@ const deploylessCallViaFactoryBytecode = "0x608060405234801561001057600080fd5b50
 const multicall3Bytecode = "0x608060405234801561001057600080fd5b506115b9806100206000396000f3fe6080604052600436106100f35760003560e01c80634d2301cc1161008a578063a8b0574e11610059578063a8b0574e14610325578063bce38bd714610350578063c3077fa914610380578063ee82ac5e146103b2576100f3565b80634d2301cc1461026257806372425d9d1461029f57806382ad56cb146102ca57806386d516e8146102fa576100f3565b80633408e470116100c65780633408e470146101af578063399542e9146101da5780633e64a6961461020c57806342cbb15c14610237576100f3565b80630f28c97d146100f8578063174dea7114610123578063252dba421461015357806327e86d6e14610184575b600080fd5b34801561010457600080fd5b5061010d6103ef565b60405161011a9190610c0a565b60405180910390f35b61013d60048036038101906101389190610c94565b6103f7565b60405161014a9190610e94565b60405180910390f35b61016d60048036038101906101689190610f0c565b610615565b60405161017b92919061101b565b60405180910390f35b34801561019057600080fd5b506101996107ab565b6040516101a69190611064565b60405180910390f35b3480156101bb57600080fd5b506101c46107b7565b6040516101d19190610c0a565b60405180910390f35b6101f460048036038101906101ef91906110ab565b6107bf565b6040516102039392919061110b565b60405180910390f35b34801561021857600080fd5b506102216107e1565b60405161022e9190610c0a565b60405180910390f35b34801561024357600080fd5b5061024c6107e9565b6040516102599190610c0a565b60405180910390f35b34801561026e57600080fd5b50610289600480360381019061028491906111a7565b6107f1565b6040516102969190610c0a565b60405180910390f35b3480156102ab57600080fd5b506102b4610812565b6040516102c19190610c0a565b60405180910390f35b6102e460048036038101906102df919061122a565b61081a565b6040516102f19190610e94565b60405180910390f35b34801561030657600080fd5b5061030f6109e4565b60405161031c9190610c0a565b60405180910390f35b34801561033157600080fd5b5061033a6109ec565b6040516103479190611286565b60405180910390f35b61036a600480360381019061036591906110ab565b6109f4565b6040516103779190610e94565b60405180910390f35b61039a60048036038101906103959190610f0c565b610ba6565b6040516103a99392919061110b565b60405180910390f35b3480156103be57600080fd5b506103d960048036038101906103d491906112cd565b610bca565b6040516103e69190611064565b60405180910390f35b600042905090565b60606000808484905090508067ffffffffffffffff81111561041c5761041b6112fa565b5b60405190808252806020026020018201604052801561045557816020015b610442610bd5565b81526020019060019003908161043a5790505b5092503660005b828110156105c957600085828151811061047957610478611329565b5b6020026020010151905087878381811061049657610495611329565b5b90506020028101906104a89190611367565b925060008360400135905080860195508360000160208101906104cb91906111a7565b73ffffffffffffffffffffffffffffffffffffffff16818580606001906104f2919061138f565b604051610500929190611431565b60006040518083038185875af1925050503d806000811461053d576040519150601f19603f3d011682016040523d82523d6000602084013e610542565b606091505b5083600001846020018290528215151515815250505081516020850135176105bc577f08c379a000000000000000000000000000000000000000000000000000000000600052602060045260176024527f4d756c746963616c6c333a2063616c6c206661696c656400000000000000000060445260846000fd5b826001019250505061045c565b5082341461060c576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401610603906114a7565b60405180910390fd5b50505092915050565b6000606043915060008484905090508067ffffffffffffffff81111561063e5761063d6112fa565b5b60405190808252806020026020018201604052801561067157816020015b606081526020019060019003908161065c5790505b5091503660005b828110156107a157600087878381811061069557610694611329565b5b90506020028101906106a791906114c7565b92508260000160208101906106bc91906111a7565b73ffffffffffffffffffffffffffffffffffffffff168380602001906106e2919061138f565b6040516106f0929190611431565b6000604051808303816000865af19150503d806000811461072d576040519150601f19603f3d011682016040523d82523d6000602084013e610732565b606091505b5086848151811061074657610745611329565b5b60200260200101819052819250505080610795576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040161078c9061153b565b60405180910390fd5b81600101915050610678565b5050509250929050565b60006001430340905090565b600046905090565b6000806060439250434091506107d68686866109f4565b905093509350939050565b600048905090565b600043905090565b60008173ffffffffffffffffffffffffffffffffffffffff16319050919050565b600044905090565b606060008383905090508067ffffffffffffffff81111561083e5761083d6112fa565b5b60405190808252806020026020018201604052801561087757816020015b610864610bd5565b81526020019060019003908161085c5790505b5091503660005b828110156109db57600084828151811061089b5761089a611329565b5b602002602001015190508686838181106108b8576108b7611329565b5b90506020028101906108ca919061155b565b92508260000160208101906108df91906111a7565b73ffffffffffffffffffffffffffffffffffffffff16838060400190610905919061138f565b604051610913929190611431565b6000604051808303816000865af19150503d8060008114610950576040519150601f19603f3d011682016040523d82523d6000602084013e610955565b606091505b5082600001836020018290528215151515815250505080516020840135176109cf577f08c379a000000000000000000000000000000000000000000000000000000000600052602060045260176024527f4d756c746963616c6c333a2063616c6c206661696c656400000000000000000060445260646000fd5b8160010191505061087e565b50505092915050565b600045905090565b600041905090565b606060008383905090508067ffffffffffffffff811115610a1857610a176112fa565b5b604051908082528060200260200182016040528015610a5157816020015b610a3e610bd5565b815260200190600190039081610a365790505b5091503660005b82811015610b9c576000848281518110610a7557610a74611329565b5b60200260200101519050868683818110610a9257610a91611329565b5b9050602002810190610aa491906114c7565b9250826000016020810190610ab991906111a7565b73ffffffffffffffffffffffffffffffffffffffff16838060200190610adf919061138f565b604051610aed929190611431565b6000604051808303816000865af19150503d8060008114610b2a576040519150601f19603f3d011682016040523d82523d6000602084013e610b2f565b606091505b508260000183602001829052821515151581525050508715610b90578060000151610b8f576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401610b869061153b565b60405180910390fd5b5b81600101915050610a58565b5050509392505050565b6000806060610bb7600186866107bf565b8093508194508295505050509250925092565b600081409050919050565b6040518060400160405280600015158152602001606081525090565b6000819050919050565b610c0481610bf1565b82525050565b6000602082019050610c1f6000830184610bfb565b92915050565b600080fd5b600080fd5b600080fd5b600080fd5b600080fd5b60008083601f840112610c5457610c53610c2f565b5b8235905067ffffffffffffffff811115610c7157610c70610c34565b5b602083019150836020820283011115610c8d57610c8c610c39565b5b9250929050565b60008060208385031215610cab57610caa610c25565b5b600083013567ffffffffffffffff811115610cc957610cc8610c2a565b5b610cd585828601610c3e565b92509250509250929050565b600081519050919050565b600082825260208201905092915050565b6000819050602082019050919050565b60008115159050919050565b610d2281610d0d565b82525050565b600081519050919050565b600082825260208201905092915050565b60005b83811015610d62578082015181840152602081019050610d47565b83811115610d71576000848401525b50505050565b6000601f19601f8301169050919050565b6000610d9382610d28565b610d9d8185610d33565b9350610dad818560208601610d44565b610db681610d77565b840191505092915050565b6000604083016000830151610dd96000860182610d19565b5060208301518482036020860152610df18282610d88565b9150508091505092915050565b6000610e0a8383610dc1565b905092915050565b6000602082019050919050565b6000610e2a82610ce1565b610e348185610cec565b935083602082028501610e4685610cfd565b8060005b85811015610e825784840389528151610e638582610dfe565b9450610e6e83610e12565b925060208a01995050600181019050610e4a565b50829750879550505050505092915050565b60006020820190508181036000830152610eae8184610e1f565b905092915050565b60008083601f840112610ecc57610ecb610c2f565b5b8235905067ffffffffffffffff811115610ee957610ee8610c34565b5b602083019150836020820283011115610f0557610f04610c39565b5b9250929050565b60008060208385031215610f2357610f22610c25565b5b600083013567ffffffffffffffff811115610f4157610f40610c2a565b5b610f4d85828601610eb6565b92509250509250929050565b600081519050919050565b600082825260208201905092915050565b6000819050602082019050919050565b6000610f918383610d88565b905092915050565b6000602082019050919050565b6000610fb182610f59565b610fbb8185610f64565b935083602082028501610fcd85610f75565b8060005b858110156110095784840389528151610fea8582610f85565b9450610ff583610f99565b925060208a01995050600181019050610fd1565b50829750879550505050505092915050565b60006040820190506110306000830185610bfb565b81810360208301526110428184610fa6565b90509392505050565b6000819050919050565b61105e8161104b565b82525050565b60006020820190506110796000830184611055565b92915050565b61108881610d0d565b811461109357600080fd5b50565b6000813590506110a58161107f565b92915050565b6000806000604084860312156110c4576110c3610c25565b5b60006110d286828701611096565b935050602084013567ffffffffffffffff8111156110f3576110f2610c2a565b5b6110ff86828701610eb6565b92509250509250925092565b60006060820190506111206000830186610bfb565b61112d6020830185611055565b818103604083015261113f8184610e1f565b9050949350505050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b600061117482611149565b9050919050565b61118481611169565b811461118f57600080fd5b50565b6000813590506111a18161117b565b92915050565b6000602082840312156111bd576111bc610c25565b5b60006111cb84828501611192565b91505092915050565b60008083601f8401126111ea576111e9610c2f565b5b8235905067ffffffffffffffff81111561120757611206610c34565b5b60208301915083602082028301111561122357611222610c39565b5b9250929050565b6000806020838503121561124157611240610c25565b5b600083013567ffffffffffffffff81111561125f5761125e610c2a565b5b61126b858286016111d4565b92509250509250929050565b61128081611169565b82525050565b600060208201905061129b6000830184611277565b92915050565b6112aa81610bf1565b81146112b557600080fd5b50565b6000813590506112c7816112a1565b92915050565b6000602082840312156112e3576112e2610c25565b5b60006112f1848285016112b8565b91505092915050565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052604160045260246000fd5b7f4e487b7100000000000000000000000000000000000000000000000000000000600052603260045260246000fd5b600080fd5b600080fd5b600080fd5b60008235600160800383360303811261138357611382611358565b5b80830191505092915050565b600080833560016020038436030381126113ac576113ab611358565b5b80840192508235915067ffffffffffffffff8211156113ce576113cd61135d565b5b6020830192506001820236038313156113ea576113e9611362565b5b509250929050565b600081905092915050565b82818337600083830152505050565b600061141883856113f2565b93506114258385846113fd565b82840190509392505050565b600061143e82848661140c565b91508190509392505050565b600082825260208201905092915050565b7f4d756c746963616c6c333a2076616c7565206d69736d61746368000000000000600082015250565b6000611491601a8361144a565b915061149c8261145b565b602082019050919050565b600060208201905081810360008301526114c081611484565b9050919050565b6000823560016040038336030381126114e3576114e2611358565b5b80830191505092915050565b7f4d756c746963616c6c333a2063616c6c206661696c6564000000000000000000600082015250565b600061152560178361144a565b9150611530826114ef565b602082019050919050565b6000602082019050818103600083015261155481611518565b9050919050565b60008235600160600383360303811261157757611576611358565b5b8083019150509291505056fea264697066735822122020c1bc9aacf8e4a6507193432a895a8e77094f45a1395583f07b24e860ef06cd64736f6c634300080c0033";
 var docsPath = "/docs/contract/encodeDeployData";
 function encodeDeployData(parameters) {
-	const { abi: abi$4, args, bytecode } = parameters;
+	const { abi: abi$5, args, bytecode } = parameters;
 	if (!args || args.length === 0) return bytecode;
-	const description = abi$4.find((x$2) => "type" in x$2 && x$2.type === "constructor");
+	const description = abi$5.find((x$2) => "type" in x$2 && x$2.type === "constructor");
 	if (!description) throw new AbiConstructorNotFoundError({ docsPath });
 	if (!("inputs" in description)) throw new AbiConstructorParamsNotFoundError({ docsPath });
 	if (!description.inputs || description.inputs.length === 0) throw new AbiConstructorParamsNotFoundError({ docsPath });
@@ -16682,10 +16682,10 @@ function serializeAccountStateOverride(parameters) {
 function serializeStateOverride(parameters) {
 	if (!parameters) return void 0;
 	const rpcStateOverride = {};
-	for (const { address: address$4, ...accountState } of parameters) {
-		if (!isAddress(address$4, { strict: false })) throw new InvalidAddressError({ address: address$4 });
-		if (rpcStateOverride[address$4]) throw new AccountStateConflictError({ address: address$4 });
-		rpcStateOverride[address$4] = serializeAccountStateOverride(accountState);
+	for (const { address: address$5, ...accountState } of parameters) {
+		if (!isAddress(address$5, { strict: false })) throw new InvalidAddressError({ address: address$5 });
+		if (rpcStateOverride[address$5]) throw new AccountStateConflictError({ address: address$5 });
+		rpcStateOverride[address$5] = serializeAccountStateOverride(accountState);
 	}
 	return rpcStateOverride;
 }
@@ -16899,7 +16899,7 @@ async function call(client, args) {
 	} catch (err) {
 		const data$1 = getRevertErrorData(err);
 		const { offchainLookup, offchainLookupSignature } = await __vitePreload(async () => {
-			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-BmBZ316P.js");
+			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-Cr2A0SPr.js");
 			return {
 				offchainLookup: offchainLookup$1,
 				offchainLookupSignature: offchainLookupSignature$1
@@ -17009,9 +17009,9 @@ function getRevertErrorData(err) {
 	return typeof error?.data === "object" ? error.data?.data : error.data;
 }
 async function readContract(client, parameters) {
-	const { abi: abi$4, address: address$4, args, functionName, ...rest } = parameters;
+	const { abi: abi$5, address: address$5, args, functionName, ...rest } = parameters;
 	const calldata = encodeFunctionData({
-		abi: abi$4,
+		abi: abi$5,
 		args,
 		functionName
 	});
@@ -17019,18 +17019,18 @@ async function readContract(client, parameters) {
 		const { data } = await getAction$1(client, call, "call")({
 			...rest,
 			data: calldata,
-			to: address$4
+			to: address$5
 		});
 		return decodeFunctionResult({
-			abi: abi$4,
+			abi: abi$5,
 			args,
 			functionName,
 			data: data || "0x"
 		});
 	} catch (error) {
 		throw getContractError(error, {
-			abi: abi$4,
-			address: address$4,
+			abi: abi$5,
+			address: address$5,
 			args,
 			docsPath: "/docs/contract/readContract",
 			functionName
@@ -17075,15 +17075,15 @@ async function getEnsAddress$1(client, parameters) {
 		};
 		const res = await getAction$1(client, readContract, "readContract")(readContractParameters);
 		if (res[0] === "0x") return null;
-		const address$4 = decodeFunctionResult({
+		const address$5 = decodeFunctionResult({
 			abi: addressResolverAbi,
 			args,
 			functionName: "addr",
 			data: res[0]
 		});
-		if (address$4 === "0x") return null;
-		if (trim$1(address$4) === "0x00") return null;
-		return address$4;
+		if (address$5 === "0x") return null;
+		if (trim$1(address$5) === "0x00") return null;
+		return address$5;
 	} catch (err) {
 		if (strict) throw err;
 		if (isNullUniversalResolverError(err)) return null;
@@ -17362,7 +17362,7 @@ async function getEnsAvatar$1(client, { blockNumber, blockTag, assetGatewayUrls,
 	}
 }
 async function getEnsName$1(client, parameters) {
-	const { address: address$4, blockNumber, blockTag, coinType = 60n, gatewayUrls, strict } = parameters;
+	const { address: address$5, blockNumber, blockTag, coinType = 60n, gatewayUrls, strict } = parameters;
 	const { chain } = client;
 	const universalResolverAddress = (() => {
 		if (parameters.universalResolverAddress) return parameters.universalResolverAddress;
@@ -17378,7 +17378,7 @@ async function getEnsName$1(client, parameters) {
 			address: universalResolverAddress,
 			abi: universalResolverReverseAbi,
 			args: [
-				address$4,
+				address$5,
 				coinType,
 				gatewayUrls ?? ["x-batch-gateway:true"]
 			],
@@ -17400,7 +17400,7 @@ function publicKeyToAddress(publicKey) {
 async function recoverPublicKey({ hash: hash$3, signature }) {
 	const hashHex = isHex(hash$3) ? hash$3 : toHex(hash$3);
 	const { secp256k1: secp256k1$1 } = await __vitePreload(async () => {
-		const { secp256k1: secp256k1$2 } = await import("./secp256k1-DrukuJhl.js");
+		const { secp256k1: secp256k1$2 } = await import("./secp256k1-C-8lUe9b.js");
 		return { secp256k1: secp256k1$2 };
 	}, __vite__mapDeps([0,1]));
 	return `0x${(() => {
@@ -17493,10 +17493,10 @@ function getSizeOfLength(length$1) {
 }
 function hashAuthorization(parameters) {
 	const { chainId, nonce, to: to$1 } = parameters;
-	const address$4 = parameters.contractAddress ?? parameters.address;
+	const address$5 = parameters.contractAddress ?? parameters.address;
 	const hash$3 = keccak256$1(concatHex(["0x05", toRlp([
 		chainId ? numberToHex(chainId) : "0x",
-		address$4,
+		address$5,
 		nonce ? numberToHex(nonce) : "0x"
 	])]));
 	if (to$1 === "bytes") return hexToBytes$1(hash$3);
@@ -17743,10 +17743,10 @@ async function internal_estimateFeesPerGas(client, args) {
 	}
 	return { gasPrice: request?.gasPrice ?? multiply(await getAction$1(client, getGasPrice, "getGasPrice")({})) };
 }
-async function getTransactionCount(client, { address: address$4, blockTag = "latest", blockNumber }) {
+async function getTransactionCount(client, { address: address$5, blockTag = "latest", blockNumber }) {
 	return hexToNumber$1(await client.request({
 		method: "eth_getTransactionCount",
-		params: [address$4, typeof blockNumber === "bigint" ? numberToHex(blockNumber) : blockTag]
+		params: [address$5, typeof blockNumber === "bigint" ? numberToHex(blockNumber) : blockTag]
 	}, { dedupe: Boolean(blockNumber) }));
 }
 function blobsToCommitments(parameters) {
@@ -18477,11 +18477,11 @@ async function estimateGas(client, args) {
 		});
 	}
 }
-async function getBalance$1(client, { address: address$4, blockNumber, blockTag = client.experimental_blockTag ?? "latest" }) {
+async function getBalance$1(client, { address: address$5, blockNumber, blockTag = client.experimental_blockTag ?? "latest" }) {
 	const blockNumberHex = typeof blockNumber === "bigint" ? numberToHex(blockNumber) : void 0;
 	const balance = await client.request({
 		method: "eth_getBalance",
-		params: [address$4, blockNumberHex || blockTag]
+		params: [address$5, blockNumberHex || blockTag]
 	});
 	return BigInt(balance);
 }
@@ -18558,8 +18558,8 @@ function assertTransactionEIP7702(transaction) {
 	const { authorizationList } = transaction;
 	if (authorizationList) for (const authorization of authorizationList) {
 		const { chainId } = authorization;
-		const address$4 = authorization.address;
-		if (!isAddress(address$4)) throw new InvalidAddressError({ address: address$4 });
+		const address$5 = authorization.address;
+		if (!isAddress(address$5)) throw new InvalidAddressError({ address: address$5 });
 		if (chainId < 0) throw new InvalidChainIdError({ chainId });
 	}
 	assertTransactionEIP1559(transaction);
@@ -18611,10 +18611,10 @@ function serializeAccessList(accessList) {
 	if (!accessList || accessList.length === 0) return [];
 	const serializedAccessList = [];
 	for (let i$3 = 0; i$3 < accessList.length; i$3++) {
-		const { address: address$4, storageKeys } = accessList[i$3];
+		const { address: address$5, storageKeys } = accessList[i$3];
 		for (let j$3 = 0; j$3 < storageKeys.length; j$3++) if (storageKeys[j$3].length - 2 !== 64) throw new InvalidStorageKeySizeError({ storageKey: storageKeys[j$3] });
-		if (!isAddress(address$4, { strict: false })) throw new InvalidAddressError({ address: address$4 });
-		serializedAccessList.push([address$4, storageKeys]);
+		if (!isAddress(address$5, { strict: false })) throw new InvalidAddressError({ address: address$5 });
+		serializedAccessList.push([address$5, storageKeys]);
 	}
 	return serializedAccessList;
 }
@@ -19629,9 +19629,9 @@ async function sendTransaction(client, parameters) {
 	}
 }
 function deployContract(walletClient, parameters) {
-	const { abi: abi$4, args, bytecode, ...request } = parameters;
+	const { abi: abi$5, args, bytecode, ...request } = parameters;
 	const calldata = encodeDeployData({
-		abi: abi$4,
+		abi: abi$5,
 		args,
 		bytecode
 	});
@@ -19643,7 +19643,7 @@ function deployContract(walletClient, parameters) {
 }
 async function getAddresses(client) {
 	if (client.account?.type === "local") return [client.account.address];
-	return (await client.request({ method: "eth_accounts" }, { dedupe: true })).map((address$4) => checksumAddress(address$4));
+	return (await client.request({ method: "eth_accounts" }, { dedupe: true })).map((address$5) => checksumAddress(address$5));
 }
 const fallbackMagicIdentifier = "0x5792579257925792579257925792579257925792579257925792579257925792";
 const fallbackTransactionErrorMagicIdentifier = numberToHex(0, { size: 32 });
@@ -19823,7 +19823,7 @@ async function requestAddresses(client) {
 	return (await client.request({ method: "eth_requestAccounts" }, {
 		dedupe: true,
 		retryCount: 0
-	})).map((address$4) => getAddress$1(address$4));
+	})).map((address$5) => getAddress$1(address$5));
 }
 async function requestPermissions(client, permissions) {
 	return client.request({
@@ -20151,25 +20151,25 @@ async function writeContract(client, parameters) {
 }
 (function(writeContract$1) {
 	async function internal$2(client, actionFn, name, parameters) {
-		const { abi: abi$4, account: account_ = client.account, address: address$4, args, dataSuffix, functionName, ...request } = parameters;
+		const { abi: abi$5, account: account_ = client.account, address: address$5, args, dataSuffix, functionName, ...request } = parameters;
 		if (typeof account_ === "undefined") throw new AccountNotFoundError({ docsPath: "/docs/contract/writeContract" });
 		const account = account_ ? parseAccount(account_) : null;
 		const data = encodeFunctionData({
-			abi: abi$4,
+			abi: abi$5,
 			args,
 			functionName
 		});
 		try {
 			return await getAction$1(client, actionFn, name)({
 				data: `${data}${dataSuffix ? dataSuffix.replace("0x", "") : ""}`,
-				to: address$4,
+				to: address$5,
 				account,
 				...request
 			});
 		} catch (error) {
 			throw getContractError(error, {
-				abi: abi$4,
-				address: address$4,
+				abi: abi$5,
+				address: address$5,
 				args,
 				docsPath: "/docs/contract/writeContract",
 				functionName,
@@ -20296,8 +20296,8 @@ var ConnectorNotConnectedError = class extends BaseError$2 {
 	}
 };
 var ConnectorAccountNotFoundError = class extends BaseError$2 {
-	constructor({ address: address$4, connector }) {
-		super(`Account "${address$4}" not found for connector "${connector.name}".`);
+	constructor({ address: address$5, connector }) {
+		super(`Account "${address$5}" not found for connector "${connector.name}".`);
 		Object.defineProperty(this, "name", {
 			enumerable: true,
 			configurable: true,
@@ -20360,8 +20360,8 @@ async function connect$1(config, parameters) {
 			status: "connected"
 		}));
 		return {
-			accounts: rest.withCapabilities ? data.accounts.map((address$4) => typeof address$4 === "object" ? address$4 : {
-				address: address$4,
+			accounts: rest.withCapabilities ? data.accounts.map((address$5) => typeof address$5 === "object" ? address$5 : {
+				address: address$5,
 				capabilities: {}
 			}) : data.accounts,
 			chainId: data.chainId
@@ -20640,13 +20640,13 @@ async function disconnect$1(config, parameters = {}) {
 	}
 }
 async function getBalance(config, parameters) {
-	const { address: address$4, blockNumber, blockTag, chainId } = parameters;
+	const { address: address$5, blockNumber, blockTag, chainId } = parameters;
 	const client = config.getClient({ chainId });
 	const value = await getAction(client, getBalance$1, "getBalance")(blockNumber ? {
-		address: address$4,
+		address: address$5,
 		blockNumber
 	} : {
-		address: address$4,
+		address: address$5,
 		blockTag
 	});
 	const chain = config.chains.find((x$2) => x$2.id === chainId) ?? client.chain;
@@ -20700,12 +20700,12 @@ function getConnection(config) {
 	const uid$2 = config.state.current;
 	const connection = config.state.connections.get(uid$2);
 	const addresses = connection?.accounts;
-	const address$4 = addresses?.[0];
+	const address$5 = addresses?.[0];
 	const chain = config.chains.find((chain$1) => chain$1.id === connection?.chainId);
 	const status = config.state.status;
 	switch (status) {
 		case "connected": return {
-			address: address$4,
+			address: address$5,
 			addresses,
 			chain,
 			chainId: connection?.chainId,
@@ -20717,19 +20717,19 @@ function getConnection(config) {
 			status
 		};
 		case "reconnecting": return {
-			address: address$4,
+			address: address$5,
 			addresses,
 			chain,
 			chainId: connection?.chainId,
 			connector: connection?.connector,
-			isConnected: !!address$4,
+			isConnected: !!address$5,
 			isConnecting: false,
 			isDisconnected: false,
 			isReconnecting: true,
 			status
 		};
 		case "connecting": return {
-			address: address$4,
+			address: address$5,
 			addresses,
 			chain,
 			chainId: connection?.chainId,
@@ -21029,8 +21029,8 @@ function injected$1(parameters = {}) {
 				if (shimDisconnect) await config.storage?.removeItem(`${this.id}.disconnected`);
 				if (!parameters.target) await config.storage?.setItem("injected.connected", true);
 				return {
-					accounts: withCapabilities ? accounts.map((address$4) => ({
-						address: address$4,
+					accounts: withCapabilities ? accounts.map((address$5) => ({
+						address: address$5,
 						capabilities: {}
 					})) : accounts,
 					chainId: currentChainId
@@ -22261,11 +22261,11 @@ function disconnectMutationOptions(config) {
 function getBalanceQueryOptions(config, options$2 = {}) {
 	return {
 		async queryFn({ queryKey }) {
-			const { address: address$4, scopeKey: _$1, ...parameters } = queryKey[1];
-			if (!address$4) throw new Error("address is required");
+			const { address: address$5, scopeKey: _$1, ...parameters } = queryKey[1];
+			if (!address$5) throw new Error("address is required");
 			return await getBalance(config, {
 				...parameters,
-				address: address$4
+				address: address$5
 			}) ?? null;
 		},
 		queryKey: getBalanceQueryKey(options$2)
@@ -22343,11 +22343,11 @@ function getEnsAvatarQueryKey(options$2 = {}) {
 function getEnsNameQueryOptions(config, options$2 = {}) {
 	return {
 		async queryFn({ queryKey }) {
-			const { address: address$4, scopeKey: _$1, ...parameters } = queryKey[1];
-			if (!address$4) throw new Error("address is required");
+			const { address: address$5, scopeKey: _$1, ...parameters } = queryKey[1];
+			if (!address$5) throw new Error("address is required");
 			return getEnsName(config, {
 				...parameters,
-				address: address$4
+				address: address$5
 			});
 		},
 		queryKey: getEnsNameQueryKey(options$2)
@@ -22403,14 +22403,14 @@ function useChainId(parameters = {}) {
 	return (0, import_react.useSyncExternalStore)((onChange) => watchChainId(config, { onChange }), () => getChainId(config), () => getChainId(config));
 }
 function useBalance(parameters = {}) {
-	const { address: address$4, query = {} } = parameters;
+	const { address: address$5, query = {} } = parameters;
 	const config = useConfig(parameters);
 	const chainId = useChainId({ config });
 	const options$2 = getBalanceQueryOptions(config, {
 		...parameters,
 		chainId: parameters.chainId ?? chainId
 	});
-	const enabled = Boolean(address$4 && (query.enabled ?? true));
+	const enabled = Boolean(address$5 && (query.enabled ?? true));
 	return useQuery$1({
 		...query,
 		...options$2,
@@ -22487,9 +22487,9 @@ var require_use_sync_external_store_shim_production$1 = /* @__PURE__ */ __common
 	function is$2(x$2, y$3) {
 		return x$2 === y$3 && (0 !== x$2 || 1 / x$2 === 1 / y$3) || x$2 !== x$2 && y$3 !== y$3;
 	}
-	var objectIs$2 = "function" === typeof Object.is ? Object.is : is$2, useState$18 = React$9.useState, useEffect$28 = React$9.useEffect, useLayoutEffect$6 = React$9.useLayoutEffect, useDebugValue$3 = React$9.useDebugValue;
+	var objectIs$2 = "function" === typeof Object.is ? Object.is : is$2, useState$20 = React$9.useState, useEffect$29 = React$9.useEffect, useLayoutEffect$6 = React$9.useLayoutEffect, useDebugValue$3 = React$9.useDebugValue;
 	function useSyncExternalStore$2$6(subscribe$1, getSnapshot) {
-		var value = getSnapshot(), _useState = useState$18({ inst: {
+		var value = getSnapshot(), _useState = useState$20({ inst: {
 			value,
 			getSnapshot
 		} }), inst = _useState[0].inst, forceUpdate = _useState[1];
@@ -22502,7 +22502,7 @@ var require_use_sync_external_store_shim_production$1 = /* @__PURE__ */ __common
 			value,
 			getSnapshot
 		]);
-		useEffect$28(function() {
+		useEffect$29(function() {
 			checkIfSnapshotChanged$1(inst) && forceUpdate({ inst });
 			return subscribe$1(function() {
 				checkIfSnapshotChanged$1(inst) && forceUpdate({ inst });
@@ -22544,9 +22544,9 @@ var require_with_selector_production = /* @__PURE__ */ __commonJSMin(((exports) 
 	function is$1(x$2, y$3) {
 		return x$2 === y$3 && (0 !== x$2 || 1 / x$2 === 1 / y$3) || x$2 !== x$2 && y$3 !== y$3;
 	}
-	var objectIs$1 = "function" === typeof Object.is ? Object.is : is$1, useSyncExternalStore$6 = shim$1.useSyncExternalStore, useRef$17 = React$8.useRef, useEffect$27 = React$8.useEffect, useMemo$14 = React$8.useMemo, useDebugValue$2 = React$8.useDebugValue;
+	var objectIs$1 = "function" === typeof Object.is ? Object.is : is$1, useSyncExternalStore$6 = shim$1.useSyncExternalStore, useRef$18 = React$8.useRef, useEffect$28 = React$8.useEffect, useMemo$14 = React$8.useMemo, useDebugValue$2 = React$8.useDebugValue;
 	exports.useSyncExternalStoreWithSelector = function(subscribe$1, getSnapshot, getServerSnapshot, selector, isEqual$1) {
-		var instRef = useRef$17(null);
+		var instRef = useRef$18(null);
 		if (null === instRef.current) {
 			var inst = {
 				hasValue: !1,
@@ -22586,7 +22586,7 @@ var require_with_selector_production = /* @__PURE__ */ __commonJSMin(((exports) 
 			isEqual$1
 		]);
 		var value = useSyncExternalStore$6(subscribe$1, instRef[0], instRef[1]);
-		useEffect$27(function() {
+		useEffect$28(function() {
 			inst.hasValue = !0;
 			inst.value = value;
 		}, [value]);
@@ -22665,10 +22665,10 @@ function useConnectionEffect(parameters = {}) {
 	(0, import_react.useEffect)(() => {
 		return watchConnection(config, { onChange(data, prevData) {
 			if ((prevData.status === "reconnecting" || prevData.status === "connecting" && prevData.address === void 0) && data.status === "connected") {
-				const { address: address$4, addresses, chain, chainId, connector } = data;
+				const { address: address$5, addresses, chain, chainId, connector } = data;
 				const isReconnected = prevData.status === "reconnecting" || prevData.status === void 0;
 				onConnect?.({
-					address: address$4,
+					address: address$5,
 					addresses,
 					chain,
 					chainId,
@@ -22691,7 +22691,7 @@ function useConnectorClient(parameters = {}) {
 	const { query = {}, ...rest } = parameters;
 	const config = useConfig(rest);
 	const queryClient$1 = useQueryClient();
-	const { address: address$4, connector, status } = useConnection({ config });
+	const { address: address$5, connector, status } = useConnection({ config });
 	const chainId = useChainId({ config });
 	const activeConnector = parameters.connector ?? connector;
 	const { queryKey, ...options$2 } = getConnectorClientQueryOptions(config, {
@@ -22700,17 +22700,17 @@ function useConnectorClient(parameters = {}) {
 		connector: activeConnector
 	});
 	const enabled = Boolean((status === "connected" || status === "reconnecting" && activeConnector?.getProvider) && (query.enabled ?? true));
-	const addressRef = (0, import_react.useRef)(address$4);
+	const addressRef = (0, import_react.useRef)(address$5);
 	(0, import_react.useEffect)(() => {
 		const previousAddress = addressRef.current;
-		if (!address$4 && previousAddress) {
+		if (!address$5 && previousAddress) {
 			queryClient$1.removeQueries({ queryKey });
 			addressRef.current = void 0;
-		} else if (address$4 !== previousAddress) {
+		} else if (address$5 !== previousAddress) {
 			queryClient$1.invalidateQueries({ queryKey });
-			addressRef.current = address$4;
+			addressRef.current = address$5;
 		}
-	}, [address$4, queryClient$1]);
+	}, [address$5, queryClient$1]);
 	return useQuery$1({
 		...query,
 		...options$2,
@@ -22764,14 +22764,14 @@ function useEnsAvatar(parameters = {}) {
 	});
 }
 function useEnsName(parameters = {}) {
-	const { address: address$4, query = {} } = parameters;
+	const { address: address$5, query = {} } = parameters;
 	const config = useConfig(parameters);
 	const chainId = useChainId({ config });
 	const options$2 = getEnsNameQueryOptions(config, {
 		...parameters,
 		chainId: parameters.chainId ?? chainId
 	});
-	const enabled = Boolean(address$4 && (query.enabled ?? true));
+	const enabled = Boolean(address$5 && (query.enabled ?? true));
 	return useQuery$1({
 		...query,
 		...options$2,
@@ -22798,7 +22798,7 @@ function useWalletClient(parameters = {}) {
 	const { query = {}, ...rest } = parameters;
 	const config = useConfig(rest);
 	const queryClient$1 = useQueryClient();
-	const { address: address$4, connector, status } = useConnection({ config });
+	const { address: address$5, connector, status } = useConnection({ config });
 	const chainId = useChainId({ config });
 	const activeConnector = parameters.connector ?? connector;
 	const { queryKey, ...options$2 } = getWalletClientQueryOptions(config, {
@@ -22807,17 +22807,17 @@ function useWalletClient(parameters = {}) {
 		connector: parameters.connector ?? connector
 	});
 	const enabled = Boolean((status === "connected" || status === "reconnecting" && activeConnector?.getProvider) && (query.enabled ?? true));
-	const addressRef = (0, import_react.useRef)(address$4);
+	const addressRef = (0, import_react.useRef)(address$5);
 	(0, import_react.useEffect)(() => {
 		const previousAddress = addressRef.current;
-		if (!address$4 && previousAddress) {
+		if (!address$5 && previousAddress) {
 			queryClient$1.removeQueries({ queryKey });
 			addressRef.current = void 0;
-		} else if (address$4 !== previousAddress) {
+		} else if (address$5 !== previousAddress) {
 			queryClient$1.invalidateQueries({ queryKey });
-			addressRef.current = address$4;
+			addressRef.current = address$5;
 		}
-	}, [address$4, queryClient$1]);
+	}, [address$5, queryClient$1]);
 	return useQuery$1({
 		...query,
 		...options$2,
@@ -23036,8 +23036,8 @@ function coinbaseWallet(parameters = {}) {
 					return { id: currentChainId };
 				}))?.id ?? currentChainId;
 				return {
-					accounts: withCapabilities ? accounts.map((address$4) => ({
-						address: address$4,
+					accounts: withCapabilities ? accounts.map((address$5) => ({
+						address: address$5,
 						capabilities: {}
 					})) : accounts,
 					chainId: currentChainId
@@ -23178,8 +23178,8 @@ function safe(parameters = {}) {
 			}
 			if (shimDisconnect) await config.storage?.removeItem("safe.disconnected");
 			return {
-				accounts: withCapabilities ? accounts.map((address$4) => ({
-					address: address$4,
+				accounts: withCapabilities ? accounts.map((address$5) => ({
+					address: address$5,
 					capabilities: {}
 				})) : accounts,
 				chainId
@@ -23203,14 +23203,14 @@ function safe(parameters = {}) {
 			if (!(typeof window !== "undefined" && window?.parent !== window)) return;
 			if (!provider_) {
 				const { default: SDK } = await __vitePreload(async () => {
-					const { default: SDK$1 } = await import("./esm-DNaxxrtT.js");
+					const { default: SDK$1 } = await import("./esm-CWLY6N1x.js");
 					return { default: SDK$1 };
 				}, []);
 				const sdk = new SDK(parameters);
 				const safe$1 = await withTimeout(() => sdk.safe.getInfo(), { timeout: parameters.unstable_getInfoTimeout ?? 10 });
 				if (!safe$1) throw new Error("Could not load Safe information");
 				provider_ = new (await ((async () => {
-					const Provider = await __vitePreload(() => import("./dist-BQ1G262Y.js").then(__toDynamicImportESM(1)), []);
+					const Provider = await __vitePreload(() => import("./dist-BTU2P2lH.js").then(__toDynamicImportESM(1)), []);
 					if (typeof Provider.SafeAppProvider !== "function" && typeof Provider.default.SafeAppProvider === "function") return Provider.default.SafeAppProvider;
 					return Provider.SafeAppProvider;
 				})()))(safe$1, sdk);
@@ -23321,8 +23321,8 @@ function walletConnect(parameters) {
 					provider.on("session_delete", sessionDelete);
 				}
 				return {
-					accounts: withCapabilities ? accounts.map((address$4) => ({
-						address: address$4,
+					accounts: withCapabilities ? accounts.map((address$5) => ({
+						address: address$5,
 						capabilities: {}
 					})) : accounts,
 					chainId: currentChainId
@@ -23370,7 +23370,7 @@ function walletConnect(parameters) {
 				const optionalChains = config.chains.map((x$2) => x$2.id);
 				if (!optionalChains.length) return;
 				const { EthereumProvider: EthereumProvider$1 } = await __vitePreload(async () => {
-					const { EthereumProvider: EthereumProvider$2 } = await import("./dist-AOGfCtGO.js");
+					const { EthereumProvider: EthereumProvider$2 } = await import("./dist-mBeK2owH.js");
 					return { EthereumProvider: EthereumProvider$2 };
 				}, __vite__mapDeps([2,3,1]));
 				return await EthereumProvider$1.init({
@@ -39317,10 +39317,10 @@ var Logos = {
 	Talisman
 };
 var truncateRegex = /^(0x[a-zA-Z0-9]{4})[a-zA-Z0-9]+([a-zA-Z0-9]{4})$/;
-var truncateEthAddress = (address$4, separator = "••••") => {
-	if (!address$4) return "";
-	const match$1 = address$4.match(truncateRegex);
-	if (!match$1) return address$4;
+var truncateEthAddress = (address$5, separator = "••••") => {
+	if (!address$5) return "";
+	const match$1 = address$5.match(truncateRegex);
+	if (!match$1) return address$5;
 	return `${match$1[1]}${separator}${match$1[2]}`;
 };
 var truncateENSAddress = (ensName, maxLength) => {
@@ -41785,19 +41785,19 @@ var useSIWE = ({ onSignIn, onSignOut } = {}) => {
 		signOut: () => Promise.reject()
 	};
 	const { session, nonce, status, signOut, signIn, resetStatus } = siweContextValue;
-	const { address: address$4, chainId } = session.data || {};
-	const currentStatus = address$4 ? StatusState.SUCCESS : session.isLoading || nonce.isLoading ? StatusState.LOADING : status;
+	const { address: address$5, chainId } = session.data || {};
+	const currentStatus = address$5 ? StatusState.SUCCESS : session.isLoading || nonce.isLoading ? StatusState.LOADING : status;
 	const isLoading = currentStatus === StatusState.LOADING;
 	const isSuccess = currentStatus === StatusState.SUCCESS;
 	const isRejected = currentStatus === StatusState.REJECTED;
 	const isError$1 = currentStatus === StatusState.ERROR;
-	const isReady = !address$4 || nonce.isFetching || isLoading || isSuccess;
+	const isReady = !address$5 || nonce.isFetching || isLoading || isSuccess;
 	const reset = () => resetStatus();
-	const isSignedIn = !!address$4;
+	const isSignedIn = !!address$5;
 	return {
 		isSignedIn,
 		data: isSignedIn ? {
-			address: address$4,
+			address: address$5,
 			chainId
 		} : void 0,
 		status: currentStatus,
@@ -49634,8 +49634,8 @@ var LoadingBalance = styled(motion.div)`
     animation: ${PlaceholderKeyframes$1} 1000ms linear infinite both;
   }
 `;
-function addressToNumber(address$4) {
-	return address$4.split("").map((l$2) => l$2.charCodeAt(0)).reduce((a$2, b$4) => a$2 + b$4) % 100 / 100;
+function addressToNumber(address$5) {
+	return address$5.split("").map((l$2) => l$2.charCodeAt(0)).reduce((a$2, b$4) => a$2 + b$4) % 100 / 100;
 }
 var EnsAvatar = styled(motion.div)`
   will-change: transform; // Needed for Safari
@@ -49693,7 +49693,7 @@ var ensFallbackConfig = createConfig({
 function useEnsFallbackConfig() {
 	return !useChainIsSupported(1) ? ensFallbackConfig : void 0;
 }
-var Avatar = ({ address: address$4, name, size: size$4 = 96, radius = 96 }) => {
+var Avatar = ({ address: address$5, name, size: size$4 = 96, radius = 96 }) => {
 	var _a, _b, _c;
 	const isMounted = useIsMounted();
 	const context = useContext$8();
@@ -49707,7 +49707,7 @@ var Avatar = ({ address: address$4, name, size: size$4 = 96, radius = 96 }) => {
 	});
 	const { data: ensName } = useEnsName({
 		chainId: 1,
-		address: (_a = address$4 !== null && address$4 !== void 0 ? address$4 : ensAddress) !== null && _a !== void 0 ? _a : void 0,
+		address: (_a = address$5 !== null && address$5 !== void 0 ? address$5 : ensAddress) !== null && _a !== void 0 ? _a : void 0,
 		config: ensFallbackConfig$1
 	});
 	const { data: ensAvatar } = useEnsAvatar({
@@ -49716,7 +49716,7 @@ var Avatar = ({ address: address$4, name, size: size$4 = 96, radius = 96 }) => {
 		config: ensFallbackConfig$1
 	});
 	const ens = {
-		address: ensAddress !== null && ensAddress !== void 0 ? ensAddress : address$4,
+		address: ensAddress !== null && ensAddress !== void 0 ? ensAddress : address$5,
 		name: ensName !== null && ensName !== void 0 ? ensName : name,
 		avatar: ensAvatar !== null && ensAvatar !== void 0 ? ensAvatar : void 0
 	};
@@ -49736,7 +49736,7 @@ var Avatar = ({ address: address$4, name, size: size$4 = 96, radius = 96 }) => {
 			overflow: "hidden"
 		},
 		children: (_c = context.options) === null || _c === void 0 ? void 0 : _c.customAvatar({
-			address: address$4 !== null && address$4 !== void 0 ? address$4 : ens === null || ens === void 0 ? void 0 : ens.address,
+			address: address$5 !== null && address$5 !== void 0 ? address$5 : ens === null || ens === void 0 ? void 0 : ens.address,
 			ensName: name !== null && name !== void 0 ? name : ens === null || ens === void 0 ? void 0 : ens.name,
 			ensImage: ens === null || ens === void 0 ? void 0 : ens.avatar,
 			size: size$4,
@@ -51797,15 +51797,15 @@ var Profile = ({ closeModal }) => {
 	const locales = useLocales();
 	const { reset } = useConnect();
 	const { disconnect: disconnect$2 } = useDisconnect();
-	const { address: address$4, isConnected: isConnected$1, connector, chain } = useConnection();
+	const { address: address$5, isConnected: isConnected$1, connector, chain } = useConnection();
 	const isFamilyConnector = isFamilyAccountsConnector(connector === null || connector === void 0 ? void 0 : connector.id);
 	const { data: connectorClient } = useConnectorClient({ connector });
 	const { data: ensName } = useEnsName({
 		chainId: 1,
-		address: address$4,
+		address: address$5,
 		config: useEnsFallbackConfig()
 	});
-	const { data: balance } = useBalance({ address: address$4 });
+	const { data: balance } = useBalance({ address: address$5 });
 	const [shouldDisconnect, setShouldDisconnect] = (0, import_react.useState)(false);
 	(0, import_react.useEffect)(() => {
 		if (!isConnected$1) context.setOpen(false);
@@ -51835,10 +51835,10 @@ var Profile = ({ closeModal }) => {
 				gap: 6
 			},
 			children: [
-				(0, import_jsx_runtime.jsx)(AvatarContainer, { children: (0, import_jsx_runtime.jsxs)(AvatarInner, { children: [(0, import_jsx_runtime.jsx)(ChainSelectorContainer, { children: (0, import_jsx_runtime.jsx)(ChainSelector, {}) }), (0, import_jsx_runtime.jsx)(Avatar, { address: address$4 })] }) }),
+				(0, import_jsx_runtime.jsx)(AvatarContainer, { children: (0, import_jsx_runtime.jsxs)(AvatarInner, { children: [(0, import_jsx_runtime.jsx)(ChainSelectorContainer, { children: (0, import_jsx_runtime.jsx)(ChainSelector, {}) }), (0, import_jsx_runtime.jsx)(Avatar, { address: address$5 })] }) }),
 				(0, import_jsx_runtime.jsx)(ModalH1, { children: (0, import_jsx_runtime.jsx)(CopyToClipboard, {
-					string: address$4,
-					children: ensName !== null && ensName !== void 0 ? ensName : truncateEthAddress(address$4, separator)
+					string: address$5,
+					children: ensName !== null && ensName !== void 0 ? ensName : truncateEthAddress(address$5, separator)
 				}) }),
 				((_c = context === null || context === void 0 ? void 0 : context.options) === null || _c === void 0 ? void 0 : _c.hideBalance) ? null : (0, import_jsx_runtime.jsx)(ModalBody, { children: (0, import_jsx_runtime.jsx)(BalanceContainer, { children: (0, import_jsx_runtime.jsxs)(AnimatePresence, {
 					exitBeforeEnter: true,
@@ -52253,7 +52253,7 @@ var SignInWithEthereum = () => {
 	(0, import_react.useEffect)(() => {
 		if (!isSignedIn) setStatus("signedOut");
 	}, [isSignedIn]);
-	const { address: address$4 } = useConnection();
+	const { address: address$5 } = useConnection();
 	const getFavicons = () => {
 		const favicons$1 = {
 			svg: null,
@@ -52341,7 +52341,7 @@ var SignInWithEthereum = () => {
 							},
 							transition,
 							children: (0, import_jsx_runtime.jsx)(LogoContainer, { children: (0, import_jsx_runtime.jsx)(Avatar, {
-								address: address$4,
+								address: address$5,
 								size: 64
 							}) })
 						}, "avatarImage"),
@@ -52511,9 +52511,9 @@ function useThemeFont(theme) {
 }
 var useConnectCallback = ({ onConnect, onDisconnect }) => {
 	useConnectionEffect({
-		onConnect: ({ address: address$4, connector, isReconnected }) => {
+		onConnect: ({ address: address$5, connector, isReconnected }) => {
 			if (!isReconnected) onConnect === null || onConnect === void 0 || onConnect({
-				address: address$4,
+				address: address$5,
 				connectorId: connector === null || connector === void 0 ? void 0 : connector.id
 			});
 		},
@@ -52957,13 +52957,13 @@ var PulseContainer = styled.div`
 var Balance = ({ hideIcon, hideSymbol }) => {
 	const isMounted = useIsMounted();
 	const [isInitial, setIsInitial] = (0, import_react.useState)(true);
-	const { address: address$4, chain } = useConnection();
+	const { address: address$5, chain } = useConnection();
 	useChains();
 	const isChainSupported = useChainIsSupported(chain === null || chain === void 0 ? void 0 : chain.id);
 	const queryClient$1 = useQueryClient();
 	const { data: blockNumber } = useBlockNumber({ watch: true });
 	const { data: balance, queryKey } = useBalance({
-		address: address$4,
+		address: address$5,
 		chainId: chain === null || chain === void 0 ? void 0 : chain.id
 	});
 	(0, import_react.useEffect)(() => {
@@ -53007,7 +53007,7 @@ var Balance = ({ hideIcon, hideSymbol }) => {
 					],
 					delay: .4
 				},
-				children: !address$4 || !isMounted || (balance === null || balance === void 0 ? void 0 : balance.formatted) === void 0 ? (0, import_jsx_runtime.jsxs)(Container$1, { children: [!hideIcon && (0, import_jsx_runtime.jsx)(Chain$1, { id: chain === null || chain === void 0 ? void 0 : chain.id }), (0, import_jsx_runtime.jsx)("span", {
+				children: !address$5 || !isMounted || (balance === null || balance === void 0 ? void 0 : balance.formatted) === void 0 ? (0, import_jsx_runtime.jsxs)(Container$1, { children: [!hideIcon && (0, import_jsx_runtime.jsx)(Chain$1, { id: chain === null || chain === void 0 ? void 0 : chain.id }), (0, import_jsx_runtime.jsx)("span", {
 					style: { minWidth: 32 },
 					children: (0, import_jsx_runtime.jsxs)(PulseContainer, { children: [
 						(0, import_jsx_runtime.jsx)("span", { style: { animationDelay: "0ms" } }),
@@ -53133,11 +53133,11 @@ var ConnectButtonRenderer = ({ children }) => {
 	const isMounted = useIsMounted();
 	const context = useContext$8();
 	const { open, setOpen } = useModal();
-	const { address: address$4, isConnected: isConnected$1, chain } = useConnection();
+	const { address: address$5, isConnected: isConnected$1, chain } = useConnection();
 	const isChainSupported = useChainIsSupported(chain === null || chain === void 0 ? void 0 : chain.id);
 	const { data: ensName } = useEnsName({
 		chainId: 1,
-		address: address$4,
+		address: address$5,
 		config: useEnsFallbackConfig()
 	});
 	function hide$2() {
@@ -53154,10 +53154,10 @@ var ConnectButtonRenderer = ({ children }) => {
 		hide: hide$2,
 		chain,
 		unsupported: !isChainSupported,
-		isConnected: !!address$4,
+		isConnected: !!address$5,
 		isConnecting: open,
-		address: address$4,
-		truncatedAddress: address$4 ? truncateEthAddress(address$4) : void 0,
+		address: address$5,
+		truncatedAddress: address$5 ? truncateEthAddress(address$5) : void 0,
 		ensName: ensName === null || ensName === void 0 ? void 0 : ensName.toString()
 	}) });
 };
@@ -53167,17 +53167,17 @@ function ConnectKitButtonInner({ label, showAvatar, separator }) {
 	const locales = useLocales({});
 	const context = useContext$8();
 	const { isSignedIn } = useSIWE();
-	const { address: address$4, chain } = useConnection();
+	const { address: address$5, chain } = useConnection();
 	const isChainSupported = useChainIsSupported(chain === null || chain === void 0 ? void 0 : chain.id);
 	const { data: ensName } = useEnsName({
 		chainId: 1,
-		address: address$4,
+		address: address$5,
 		config: useEnsFallbackConfig()
 	});
 	const defaultLabel = locales.connectWallet;
 	return (0, import_jsx_runtime.jsx)(AnimatePresence, {
 		initial: false,
-		children: address$4 ? (0, import_jsx_runtime.jsxs)(TextContainer, {
+		children: address$5 ? (0, import_jsx_runtime.jsxs)(TextContainer, {
 			initial: "initial",
 			animate: "animate",
 			exit: "exit",
@@ -53214,7 +53214,7 @@ function ConnectKitButtonInner({ label, showAvatar, separator }) {
 				})]
 			}), (0, import_jsx_runtime.jsx)(Avatar, {
 				size: 24,
-				address: address$4
+				address: address$5
 			})] }), (0, import_jsx_runtime.jsx)("div", {
 				style: {
 					position: "relative",
@@ -53235,7 +53235,7 @@ function ConnectKitButtonInner({ label, showAvatar, separator }) {
 						exit: "exit",
 						variants: textVariants,
 						style: { position: ensName ? "absolute" : "relative" },
-						children: [truncateEthAddress(address$4, separator), " "]
+						children: [truncateEthAddress(address$5, separator), " "]
 					}, "ckTruncatedAddress")
 				})
 			})]
@@ -53253,7 +53253,7 @@ function ConnectKitButton({ label, showBalance = false, showAvatar = true, theme
 	var _a;
 	const isMounted = useIsMounted();
 	const context = useContext$8();
-	const { isConnected: isConnected$1, address: address$4, chain } = useConnection();
+	const { isConnected: isConnected$1, address: address$5, chain } = useConnection();
 	const chainIsSupported = useChainIsSupported(chain === null || chain === void 0 ? void 0 : chain.id);
 	function show$1() {
 		context.setOpen(true);
@@ -53266,7 +53266,7 @@ function ConnectKitButton({ label, showBalance = false, showAvatar = true, theme
 	].includes((_a = theme !== null && theme !== void 0 ? theme : context.theme) !== null && _a !== void 0 ? _a : "") ? "...." : void 0;
 	if (!isMounted) return null;
 	const shouldShowBalance = showBalance && chainIsSupported;
-	const willShowBalance = address$4 && shouldShowBalance;
+	const willShowBalance = address$5 && shouldShowBalance;
 	return (0, import_jsx_runtime.jsx)(ResetContainer, {
 		"$useTheme": theme !== null && theme !== void 0 ? theme : context.theme,
 		"$useMode": mode$1 !== null && mode$1 !== void 0 ? mode$1 : context.mode,
@@ -53331,7 +53331,7 @@ function ConnectKitButton({ label, showBalance = false, showAvatar = true, theme
 				theme: theme !== null && theme !== void 0 ? theme : context.theme,
 				mode: mode$1 !== null && mode$1 !== void 0 ? mode$1 : context.mode,
 				customTheme: customTheme !== null && customTheme !== void 0 ? customTheme : context.customTheme,
-				style: shouldShowBalance && showBalance && address$4 && (theme === "retro" || context.theme === "retro") ? {
+				style: shouldShowBalance && showBalance && address$5 && (theme === "retro" || context.theme === "retro") ? {
 					boxShadow: "var(--ck-connectbutton-balance-connectbutton-box-shadow)",
 					borderRadius: "var(--ck-connectbutton-balance-connectbutton-border-radius)",
 					overflow: "hidden"
@@ -53421,11 +53421,6 @@ const CHAINS_METADATA = { [ARBITRUM]: {
 		url: "https://arbiscan.io"
 	}
 } };
-const ButtonLabels = {
-	LOADING: "Please wait...",
-	SUBMITTING: "Submitting...",
-	APPROVING: "Approving..."
-};
 const Colors = {
 	GREEN: "#09AF8E",
 	RED: "#D8563C",
@@ -53440,6 +53435,11 @@ const Colors = {
 	BG_COLOR: "#0D0534",
 	BORDER_COLOR: "rgba(172, 169, 187, 0.08)",
 	MODAL_OVERLAY_COLOR: "rgba(13, 11, 58, 0.7)"
+};
+const ButtonLabels = {
+	LOADING: "Please wait...",
+	SUBMITTING: "Submitting...",
+	APPROVING: "Approving..."
 };
 const ErrorMsg = {
 	SHORT: "An error occurred",
@@ -59604,9 +59604,9 @@ var SigningKey = class SigningKey {
 };
 var BN_0$6 = BigInt(0);
 var BN_36 = BigInt(36);
-function getChecksumAddress(address$4) {
-	address$4 = address$4.toLowerCase();
-	const chars = address$4.substring(2).split("");
+function getChecksumAddress(address$5) {
+	address$5 = address$5.toLowerCase();
+	const chars = address$5.substring(2).split("");
 	const expanded = new Uint8Array(40);
 	for (let i$3 = 0; i$3 < 40; i$3++) expanded[i$3] = chars[i$3].charCodeAt(0);
 	const hashed = getBytes(keccak256(expanded));
@@ -59620,10 +59620,10 @@ var ibanLookup = {};
 for (let i$3 = 0; i$3 < 10; i$3++) ibanLookup[String(i$3)] = String(i$3);
 for (let i$3 = 0; i$3 < 26; i$3++) ibanLookup[String.fromCharCode(65 + i$3)] = String(10 + i$3);
 var safeDigits = 15;
-function ibanChecksum(address$4) {
-	address$4 = address$4.toUpperCase();
-	address$4 = address$4.substring(4) + address$4.substring(0, 2) + "00";
-	let expanded = address$4.split("").map((c$3) => {
+function ibanChecksum(address$5) {
+	address$5 = address$5.toUpperCase();
+	address$5 = address$5.substring(4) + address$5.substring(0, 2) + "00";
+	let expanded = address$5.split("").map((c$3) => {
 		return ibanLookup[c$3];
 	}).join("");
 	while (expanded.length >= safeDigits) {
@@ -59648,21 +59648,21 @@ function fromBase36(value) {
 	for (let i$3 = 0; i$3 < value.length; i$3++) result = result * BN_36 + Base36[value[i$3]];
 	return result;
 }
-function getAddress(address$4) {
-	assertArgument(typeof address$4 === "string", "invalid address", "address", address$4);
-	if (address$4.match(/^(0x)?[0-9a-fA-F]{40}$/)) {
-		if (!address$4.startsWith("0x")) address$4 = "0x" + address$4;
-		const result = getChecksumAddress(address$4);
-		assertArgument(!address$4.match(/([A-F].*[a-f])|([a-f].*[A-F])/) || result === address$4, "bad address checksum", "address", address$4);
+function getAddress(address$5) {
+	assertArgument(typeof address$5 === "string", "invalid address", "address", address$5);
+	if (address$5.match(/^(0x)?[0-9a-fA-F]{40}$/)) {
+		if (!address$5.startsWith("0x")) address$5 = "0x" + address$5;
+		const result = getChecksumAddress(address$5);
+		assertArgument(!address$5.match(/([A-F].*[a-f])|([a-f].*[A-F])/) || result === address$5, "bad address checksum", "address", address$5);
 		return result;
 	}
-	if (address$4.match(/^XE[0-9]{2}[0-9A-Za-z]{30,31}$/)) {
-		assertArgument(address$4.substring(2, 4) === ibanChecksum(address$4), "bad icap checksum", "address", address$4);
-		let result = fromBase36(address$4.substring(4)).toString(16);
+	if (address$5.match(/^XE[0-9]{2}[0-9A-Za-z]{30,31}$/)) {
+		assertArgument(address$5.substring(2, 4) === ibanChecksum(address$5), "bad icap checksum", "address", address$5);
+		let result = fromBase36(address$5.substring(4)).toString(16);
 		while (result.length < 40) result = "0" + result;
 		return getChecksumAddress("0x" + result);
 	}
-	assertArgument(false, "invalid address", "address", address$4);
+	assertArgument(false, "invalid address", "address", address$5);
 }
 function getCreateAddress(tx) {
 	const from$2 = getAddress(tx.from);
@@ -63463,14 +63463,14 @@ var Interface = class Interface {
 	#functions;
 	#abiCoder;
 	constructor(fragments) {
-		let abi$4 = [];
-		if (typeof fragments === "string") abi$4 = JSON.parse(fragments);
-		else abi$4 = fragments;
+		let abi$5 = [];
+		if (typeof fragments === "string") abi$5 = JSON.parse(fragments);
+		else abi$5 = fragments;
 		this.#functions = /* @__PURE__ */ new Map();
 		this.#errors = /* @__PURE__ */ new Map();
 		this.#events = /* @__PURE__ */ new Map();
 		const frags = [];
-		for (const a$2 of abi$4) try {
+		for (const a$2 of abi$5) try {
 			frags.push(Fragment$1.from(a$2));
 		} catch (error) {
 			console.log(`[Warning] Invalid Fragment ${JSON.stringify(a$2)}:`, error.message);
@@ -63523,8 +63523,8 @@ var Interface = class Interface {
 		return this.fragments.map((f$1) => f$1.format(format));
 	}
 	formatJson() {
-		const abi$4 = this.fragments.map((f$1) => f$1.format("json"));
-		return JSON.stringify(abi$4.map((j$3) => JSON.parse(j$3)));
+		const abi$5 = this.fragments.map((f$1) => f$1.format("json"));
+		return JSON.stringify(abi$5.map((j$3) => JSON.parse(j$3)));
 	}
 	getAbiCoder() {
 		return AbiCoder.defaultAbiCoder();
@@ -64150,10 +64150,10 @@ var Log = class {
 		});
 	}
 	toJSON() {
-		const { address: address$4, blockHash, blockNumber, data, index: index$6, removed, topics, transactionHash, transactionIndex } = this;
+		const { address: address$5, blockHash, blockNumber, data, index: index$6, removed, topics, transactionHash, transactionIndex } = this;
 		return {
 			_type: "log",
-			address: address$4,
+			address: address$5,
 			blockHash,
 			blockNumber,
 			data,
@@ -65064,10 +65064,10 @@ var BaseContract = class BaseContract {
 	filters;
 	[internal];
 	fallback;
-	constructor(target, abi$4, runner, _deployTx) {
+	constructor(target, abi$5, runner, _deployTx) {
 		assertArgument(typeof target === "string" || isAddressable(target), "invalid value for Contract target", "target", target);
 		if (runner == null) runner = null;
-		const iface = Interface.from(abi$4);
+		const iface = Interface.from(abi$5);
 		defineProperties(this, {
 			target,
 			runner,
@@ -65191,10 +65191,10 @@ var BaseContract = class BaseContract {
 		if (fromBlock == null) fromBlock = 0;
 		if (toBlock == null) toBlock = "latest";
 		const { addr, addrPromise } = getInternal(this);
-		const address$4 = addr ? addr : await addrPromise;
+		const address$5 = addr ? addr : await addrPromise;
 		const { fragment, topics } = await getSubInfo(this, event);
 		const filter$1 = {
-			address: address$4,
+			address: address$5,
 			topics,
 			fromBlock,
 			toBlock
@@ -65291,17 +65291,17 @@ var BaseContract = class BaseContract {
 	async removeListener(event, listener) {
 		return await this.off(event, listener);
 	}
-	static buildClass(abi$4) {
+	static buildClass(abi$5) {
 		class CustomContract extends BaseContract {
-			constructor(address$4, runner = null) {
-				super(address$4, abi$4, runner);
+			constructor(address$5, runner = null) {
+				super(address$5, abi$5, runner);
 			}
 		}
 		return CustomContract;
 	}
-	static from(target, abi$4, runner) {
+	static from(target, abi$5, runner) {
 		if (runner == null) runner = null;
-		return new this(target, abi$4, runner);
+		return new this(target, abi$5, runner);
 	}
 };
 function _ContractBase() {
@@ -65325,7 +65325,7 @@ var MulticoinProviderPlugin = class {
 	supportsCoinType(coinType) {
 		return false;
 	}
-	async encodeAddress(coinType, address$4) {
+	async encodeAddress(coinType, address$5) {
 		throw new Error("unsupported coin");
 	}
 	async decodeAddress(coinType, data) {
@@ -65345,14 +65345,14 @@ var EnsResolver = class EnsResolver {
 	name;
 	#supports2544;
 	#resolver;
-	constructor(provider, address$4, name) {
+	constructor(provider, address$5, name) {
 		defineProperties(this, {
 			provider,
-			address: address$4,
+			address: address$5,
 			name
 		});
 		this.#supports2544 = null;
-		this.#resolver = new Contract(address$4, [
+		this.#resolver = new Contract(address$5, [
 			"function supportsInterface(bytes4) view returns (bool)",
 			"function resolve(bytes, bytes) view returns (bytes)",
 			"function addr(bytes32) view returns (address)",
@@ -65420,8 +65420,8 @@ var EnsResolver = class EnsResolver {
 		if (coinPlugin == null) return null;
 		const data = await this.#fetch("addr(bytes32,uint)", [coinType]);
 		if (data == null || data === "0x") return null;
-		const address$4 = await coinPlugin.decodeAddress(coinType, data);
-		if (address$4 != null) return address$4;
+		const address$5 = await coinPlugin.decodeAddress(coinType, data);
+		if (address$5 != null) return address$5;
 		assert(false, `invalid coin data`, "UNSUPPORTED_OPERATION", {
 			operation: `getAddress(${coinType})`,
 			info: {
@@ -65955,10 +65955,10 @@ var GasCostPlugin = class GasCostPlugin extends NetworkPlugin {
 var EnsPlugin = class EnsPlugin extends NetworkPlugin {
 	address;
 	targetNetwork;
-	constructor(address$4, targetNetwork) {
+	constructor(address$5, targetNetwork) {
 		super("org.ethers.plugins.network.Ens");
 		defineProperties(this, {
-			address: address$4 || EnsAddress,
+			address: address$5 || EnsAddress,
 			targetNetwork: targetNetwork == null ? 1 : targetNetwork
 		});
 	}
@@ -66650,8 +66650,8 @@ var AbstractProvider = class {
 		if (this.#lastBlockNumber >= 0) this.#lastBlockNumber = blockNumber;
 		return blockNumber;
 	}
-	_getAddress(address$4) {
-		return resolveAddress(address$4, this);
+	_getAddress(address$5) {
+		return resolveAddress(address$5, this);
 	}
 	_getBlockTag(blockTag) {
 		if (blockTag == null) return "latest";
@@ -66682,42 +66682,42 @@ var AbstractProvider = class {
 		});
 		const blockHash = "blockHash" in filter$1 ? filter$1.blockHash : void 0;
 		const resolve = (_address, fromBlock$1, toBlock$1) => {
-			let address$5 = void 0;
+			let address$6 = void 0;
 			switch (_address.length) {
 				case 0: break;
 				case 1:
-					address$5 = _address[0];
+					address$6 = _address[0];
 					break;
 				default:
 					_address.sort();
-					address$5 = _address;
+					address$6 = _address;
 			}
 			if (blockHash) {
 				if (fromBlock$1 != null || toBlock$1 != null) throw new Error("invalid filter");
 			}
 			const filter$2 = {};
-			if (address$5) filter$2.address = address$5;
+			if (address$6) filter$2.address = address$6;
 			if (topics.length) filter$2.topics = topics;
 			if (fromBlock$1) filter$2.fromBlock = fromBlock$1;
 			if (toBlock$1) filter$2.toBlock = toBlock$1;
 			if (blockHash) filter$2.blockHash = blockHash;
 			return filter$2;
 		};
-		let address$4 = [];
-		if (filter$1.address) if (Array.isArray(filter$1.address)) for (const addr of filter$1.address) address$4.push(this._getAddress(addr));
-		else address$4.push(this._getAddress(filter$1.address));
+		let address$5 = [];
+		if (filter$1.address) if (Array.isArray(filter$1.address)) for (const addr of filter$1.address) address$5.push(this._getAddress(addr));
+		else address$5.push(this._getAddress(filter$1.address));
 		let fromBlock = void 0;
 		if ("fromBlock" in filter$1) fromBlock = this._getBlockTag(filter$1.fromBlock);
 		let toBlock = void 0;
 		if ("toBlock" in filter$1) toBlock = this._getBlockTag(filter$1.toBlock);
-		if (address$4.filter((a$2) => typeof a$2 !== "string").length || fromBlock != null && typeof fromBlock !== "string" || toBlock != null && typeof toBlock !== "string") return Promise.all([
-			Promise.all(address$4),
+		if (address$5.filter((a$2) => typeof a$2 !== "string").length || fromBlock != null && typeof fromBlock !== "string" || toBlock != null && typeof toBlock !== "string") return Promise.all([
+			Promise.all(address$5),
 			fromBlock,
 			toBlock
 		]).then((result) => {
 			return resolve(result[0], result[1], result[2]);
 		});
-		return resolve(address$4, fromBlock, toBlock);
+		return resolve(address$5, fromBlock, toBlock);
 	}
 	_getTransactionRequest(_request) {
 		const request = copyRequest(_request);
@@ -66902,29 +66902,29 @@ var AbstractProvider = class {
 		return await this.#checkNetwork(this.#call(tx, blockTag, _tx.enableCcipRead ? 0 : -1));
 	}
 	async #getAccountValue(request, _address, _blockTag) {
-		let address$4 = this._getAddress(_address);
+		let address$5 = this._getAddress(_address);
 		let blockTag = this._getBlockTag(_blockTag);
-		if (typeof address$4 !== "string" || typeof blockTag !== "string") [address$4, blockTag] = await Promise.all([address$4, blockTag]);
+		if (typeof address$5 !== "string" || typeof blockTag !== "string") [address$5, blockTag] = await Promise.all([address$5, blockTag]);
 		return await this.#checkNetwork(this.#perform(Object.assign(request, {
-			address: address$4,
+			address: address$5,
 			blockTag
 		})));
 	}
-	async getBalance(address$4, blockTag) {
-		return getBigInt(await this.#getAccountValue({ method: "getBalance" }, address$4, blockTag), "%response");
+	async getBalance(address$5, blockTag) {
+		return getBigInt(await this.#getAccountValue({ method: "getBalance" }, address$5, blockTag), "%response");
 	}
-	async getTransactionCount(address$4, blockTag) {
-		return getNumber(await this.#getAccountValue({ method: "getTransactionCount" }, address$4, blockTag), "%response");
+	async getTransactionCount(address$5, blockTag) {
+		return getNumber(await this.#getAccountValue({ method: "getTransactionCount" }, address$5, blockTag), "%response");
 	}
-	async getCode(address$4, blockTag) {
-		return hexlify(await this.#getAccountValue({ method: "getCode" }, address$4, blockTag));
+	async getCode(address$5, blockTag) {
+		return hexlify(await this.#getAccountValue({ method: "getCode" }, address$5, blockTag));
 	}
-	async getStorage(address$4, _position, blockTag) {
+	async getStorage(address$5, _position, blockTag) {
 		const position$1 = getBigInt(_position, "position");
 		return hexlify(await this.#getAccountValue({
 			method: "getStorage",
 			position: position$1
-		}, address$4, blockTag));
+		}, address$5, blockTag));
 	}
 	async broadcastTransaction(signedTx) {
 		const { blockNumber, hash: hash$3, network } = await resolveProperties({
@@ -67030,14 +67030,14 @@ var AbstractProvider = class {
 		if (resolver) return await resolver.getAddress();
 		return null;
 	}
-	async lookupAddress(address$4) {
-		address$4 = getAddress(address$4);
-		const node$1 = namehash(address$4.substring(2).toLowerCase() + ".addr.reverse");
+	async lookupAddress(address$5) {
+		address$5 = getAddress(address$5);
+		const node$1 = namehash(address$5.substring(2).toLowerCase() + ".addr.reverse");
 		try {
 			const resolver = await new Contract(await EnsResolver.getEnsAddress(this), ["function resolver(bytes32) view returns (address)"], this).resolver(node$1);
 			if (resolver == null || resolver === "0x0000000000000000000000000000000000000000") return null;
 			const name = await new Contract(resolver, ["function name(bytes32) view returns (string)"], this).name(node$1);
-			if (await this.resolveName(name) !== address$4) return null;
+			if (await this.resolveName(name) !== address$5) return null;
 			return name;
 		} catch (error) {
 			if (isError(error, "BAD_DATA") && error.value === "0x") return null;
@@ -67400,9 +67400,9 @@ async function populate(signer, tx) {
 	if (pop$2.to != null) pop$2.to = resolveAddress(pop$2.to, signer);
 	if (pop$2.from != null) {
 		const from$2 = pop$2.from;
-		pop$2.from = Promise.all([signer.getAddress(), resolveAddress(from$2, signer)]).then(([address$4, from$3]) => {
-			assertArgument(address$4.toLowerCase() === from$3.toLowerCase(), "transaction from mismatch", "tx.from", from$3);
-			return address$4;
+		pop$2.from = Promise.all([signer.getAddress(), resolveAddress(from$2, signer)]).then(([address$5, from$3]) => {
+			assertArgument(address$5.toLowerCase() === from$3.toLowerCase(), "transaction from mismatch", "tx.from", from$3);
+			return address$5;
 		});
 	} else pop$2.from = signer.getAddress();
 	return await resolveProperties(pop$2);
@@ -67643,10 +67643,10 @@ var defaultOptions = {
 };
 var JsonRpcSigner = class extends AbstractSigner {
 	address;
-	constructor(provider, address$4) {
+	constructor(provider, address$5) {
 		super(provider);
-		address$4 = getAddress(address$4);
-		defineProperties(this, { address: address$4 });
+		address$5 = getAddress(address$5);
+		defineProperties(this, { address: address$5 });
 	}
 	connect(provider) {
 		assert(false, "cannot reconnect JsonRpcSigner", "UNSUPPORTED_OPERATION", { operation: "signer.connect" });
@@ -67739,9 +67739,9 @@ var JsonRpcSigner = class extends AbstractSigner {
 	async signTypedData(domain, types$1, _value) {
 		const value = deepCopy(_value);
 		const populated = await TypedDataEncoder.resolveNames(domain, types$1, value, async (value$1) => {
-			const address$4 = await resolveAddress(value$1);
-			assertArgument(address$4 != null, "TypedData does not support null address", "value", value$1);
-			return address$4;
+			const address$5 = await resolveAddress(value$1);
+			assertArgument(address$5 != null, "TypedData does not support null address", "value", value$1);
+			return address$5;
 		});
 		return await this.provider.send("eth_signTypedData_v4", [this.address.toLowerCase(), JSON.stringify(TypedDataEncoder.getPayload(populated.domain, types$1, populated.value))]);
 	}
@@ -68179,20 +68179,20 @@ var JsonRpcApiProvider = class extends AbstractProvider {
 		this.#scheduleDrain();
 		return promise;
 	}
-	async getSigner(address$4) {
-		if (address$4 == null) address$4 = 0;
+	async getSigner(address$5) {
+		if (address$5 == null) address$5 = 0;
 		const accountsPromise = this.send("eth_accounts", []);
-		if (typeof address$4 === "number") {
+		if (typeof address$5 === "number") {
 			const accounts$1 = await accountsPromise;
-			if (address$4 >= accounts$1.length) throw new Error("no such account");
-			return new JsonRpcSigner(this, accounts$1[address$4]);
+			if (address$5 >= accounts$1.length) throw new Error("no such account");
+			return new JsonRpcSigner(this, accounts$1[address$5]);
 		}
 		const { accounts } = await resolveProperties({
 			network: this.getNetwork(),
 			accounts: accountsPromise
 		});
-		address$4 = getAddress(address$4);
-		for (const account of accounts) if (getAddress(account) === address$4) return new JsonRpcSigner(this, address$4);
+		address$5 = getAddress(address$5);
+		for (const account of accounts) if (getAddress(account) === address$5) return new JsonRpcSigner(this, address$5);
 		throw new Error("invalid account");
 	}
 	async listAccounts() {
@@ -68444,16 +68444,16 @@ var BrowserProvider = class BrowserProvider extends JsonRpcApiPollingProvider {
 		}
 		return super.getRpcError(payload, error);
 	}
-	async hasSigner(address$4) {
-		if (address$4 == null) address$4 = 0;
+	async hasSigner(address$5) {
+		if (address$5 == null) address$5 = 0;
 		const accounts = await this.send("eth_accounts", []);
-		if (typeof address$4 === "number") return accounts.length > address$4;
-		address$4 = address$4.toLowerCase();
-		return accounts.filter((a$2) => a$2.toLowerCase() === address$4).length !== 0;
+		if (typeof address$5 === "number") return accounts.length > address$5;
+		address$5 = address$5.toLowerCase();
+		return accounts.filter((a$2) => a$2.toLowerCase() === address$5).length !== 0;
 	}
-	async getSigner(address$4) {
-		if (address$4 == null) address$4 = 0;
-		if (!await this.hasSigner(address$4)) try {
+	async getSigner(address$5) {
+		if (address$5 == null) address$5 = 0;
+		if (!await this.hasSigner(address$5)) try {
 			await this.#request("eth_requestAccounts", []);
 		} catch (error) {
 			const payload = error.payload;
@@ -68462,7 +68462,7 @@ var BrowserProvider = class BrowserProvider extends JsonRpcApiPollingProvider {
 				error
 			});
 		}
-		return await super.getSigner(address$4);
+		return await super.getSigner(address$5);
 	}
 	static async discover(options$2) {
 		if (options$2 == null) options$2 = {};
@@ -68537,9 +68537,9 @@ var require_use_sync_external_store_shim_production = /* @__PURE__ */ __commonJS
 	function is(x$2, y$3) {
 		return x$2 === y$3 && (0 !== x$2 || 1 / x$2 === 1 / y$3) || x$2 !== x$2 && y$3 !== y$3;
 	}
-	var objectIs = "function" === typeof Object.is ? Object.is : is, useState$12 = React$6.useState, useEffect$11 = React$6.useEffect, useLayoutEffect$3 = React$6.useLayoutEffect, useDebugValue$1 = React$6.useDebugValue;
+	var objectIs = "function" === typeof Object.is ? Object.is : is, useState$14 = React$6.useState, useEffect$12 = React$6.useEffect, useLayoutEffect$3 = React$6.useLayoutEffect, useDebugValue$1 = React$6.useDebugValue;
 	function useSyncExternalStore$2(subscribe$1, getSnapshot) {
-		var value = getSnapshot(), _useState = useState$12({ inst: {
+		var value = getSnapshot(), _useState = useState$14({ inst: {
 			value,
 			getSnapshot
 		} }), inst = _useState[0].inst, forceUpdate = _useState[1];
@@ -68552,7 +68552,7 @@ var require_use_sync_external_store_shim_production = /* @__PURE__ */ __commonJS
 			value,
 			getSnapshot
 		]);
-		useEffect$11(function() {
+		useEffect$12(function() {
 			checkIfSnapshotChanged(inst) && forceUpdate({ inst });
 			return subscribe$1(function() {
 				checkIfSnapshotChanged(inst) && forceUpdate({ inst });
@@ -69422,6 +69422,13 @@ const bringToDec = (bigInt, initDec, resultDec) => {
 const bringToDefaultDec = (bigInt, initDec) => {
 	return bringToDec(bigInt, initDec, Decimals.DEFAULT);
 };
+const bringFromDefaultDec = (bigInt, resultDec) => {
+	return bringToDec(bigInt, Decimals.DEFAULT, resultDec);
+};
+const get1eToken = (bigInt, token$1) => {
+	const tokenDec = Tokens[token$1.symbol ?? token$1].decimals;
+	return bringFromDefaultDec(bigInt, tokenDec);
+};
 const bring1eTokenToDefault = (bigInt, token$1) => {
 	const tokenDec = Tokens[token$1.symbol ?? token$1].decimals;
 	return bringToDefaultDec(bigInt, tokenDec);
@@ -69458,9 +69465,9 @@ const _useGodEyeSetup = () => {
 	const [godEyeAddress, setGodEyeAddress] = (0, import_react.useState)(void 0);
 	const [godEyeAccountId, setGodEyeAccountId] = (0, import_react.useState)(void 0);
 	const loc = useLocation();
-	const enableGodEyeWallet = (address$4) => {
-		setGodEyeAddress(address$4);
-		console.log("God Eye Wallet enabled:", address$4);
+	const enableGodEyeWallet = (address$5) => {
+		setGodEyeAddress(address$5);
+		console.log("God Eye Wallet enabled:", address$5);
 	};
 	const enableGodEyeAccountId = (accountId) => {
 		setGodEyeAccountId(accountId);
@@ -69475,8 +69482,8 @@ const _useGodEyeSetup = () => {
 		const [cheatcode, cheatcodeValue] = getLast(loc.pathname.split("/")).split("=");
 		switch (cheatcode) {
 			case WALLET_CHEATCODE: {
-				const address$4 = cheatcodeValue;
-				if (isAddress(address$4)) enableGodEyeWallet(address$4);
+				const address$5 = cheatcodeValue;
+				if (isAddress(address$5)) enableGodEyeWallet(address$5);
 				else disableGodEye(`Invalid address: ${cheatcodeValue}`);
 				break;
 			}
@@ -72410,6 +72417,416 @@ var MarginTrading_default = {
 		}
 	]
 };
+var OneClickTrading_default = {
+	address: "0x3D2a69A3BE7649CEa370685596cba9cD4e715C6D",
+	abi: [
+		{
+			"inputs": [
+				{
+					"internalType": "contract IMarginAccountManager",
+					"name": "_marginAccountManager",
+					"type": "address"
+				},
+				{
+					"internalType": "contract IOneClickProxy",
+					"name": "_oneClickProxy",
+					"type": "address"
+				},
+				{
+					"internalType": "contract IMarginAccount",
+					"name": "_marginAccount",
+					"type": "address"
+				},
+				{
+					"internalType": "contract IFacadeInput",
+					"name": "_facadeInput",
+					"type": "address"
+				},
+				{
+					"internalType": "contract IFacadeOutput",
+					"name": "_facadeOutput",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "_weth",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "_usdc",
+					"type": "address"
+				}
+			],
+			"stateMutability": "nonpayable",
+			"type": "constructor"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "bytes32",
+					"name": "role",
+					"type": "bytes32"
+				},
+				{
+					"indexed": true,
+					"internalType": "bytes32",
+					"name": "previousAdminRole",
+					"type": "bytes32"
+				},
+				{
+					"indexed": true,
+					"internalType": "bytes32",
+					"name": "newAdminRole",
+					"type": "bytes32"
+				}
+			],
+			"name": "RoleAdminChanged",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "bytes32",
+					"name": "role",
+					"type": "bytes32"
+				},
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "account",
+					"type": "address"
+				},
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "sender",
+					"type": "address"
+				}
+			],
+			"name": "RoleGranted",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "bytes32",
+					"name": "role",
+					"type": "bytes32"
+				},
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "account",
+					"type": "address"
+				},
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "sender",
+					"type": "address"
+				}
+			],
+			"name": "RoleRevoked",
+			"type": "event"
+		},
+		{
+			"inputs": [],
+			"name": "DEFAULT_ADMIN_ROLE",
+			"outputs": [{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "token",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "to",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "amount",
+					"type": "uint256"
+				}
+			],
+			"name": "approveERC20",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "marginAccountID",
+					"type": "uint256"
+				},
+				{
+					"internalType": "address",
+					"name": "token",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "amount",
+					"type": "uint256"
+				},
+				{
+					"internalType": "bool",
+					"name": "isETH",
+					"type": "bool"
+				}
+			],
+			"name": "borrowWithdraw",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "facadeInput",
+			"outputs": [{
+				"internalType": "contract IFacadeInput",
+				"name": "",
+				"type": "address"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "facadeOutput",
+			"outputs": [{
+				"internalType": "contract IFacadeOutput",
+				"name": "",
+				"type": "address"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			}],
+			"name": "getRoleAdmin",
+			"outputs": [{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			}, {
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}],
+			"name": "grantRole",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			}, {
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}],
+			"name": "hasRole",
+			"outputs": [{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "marginAccount",
+			"outputs": [{
+				"internalType": "contract IMarginAccount",
+				"name": "",
+				"type": "address"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "marginAccountManager",
+			"outputs": [{
+				"internalType": "contract IMarginAccountManager",
+				"name": "",
+				"type": "address"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "oneClickProxy",
+			"outputs": [{
+				"internalType": "contract IOneClickProxy",
+				"name": "",
+				"type": "address"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "marginAccountID",
+					"type": "uint256"
+				},
+				{
+					"internalType": "address",
+					"name": "token",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "amount",
+					"type": "uint256"
+				}
+			],
+			"name": "provideERC20Repay",
+			"outputs": [],
+			"stateMutability": "payable",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "uint256",
+				"name": "marginAccountID",
+				"type": "uint256"
+			}],
+			"name": "provideETH",
+			"outputs": [],
+			"stateMutability": "payable",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			}, {
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}],
+			"name": "renounceRole",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			}, {
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}],
+			"name": "revokeRole",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "bytes4",
+				"name": "interfaceId",
+				"type": "bytes4"
+			}],
+			"name": "supportsInterface",
+			"outputs": [{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "usdc",
+			"outputs": [{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "weth",
+			"outputs": [{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "uint256",
+				"name": "marginAccountID",
+				"type": "uint256"
+			}, {
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			}],
+			"name": "withdrawETH",
+			"outputs": [],
+			"stateMutability": "payable",
+			"type": "function"
+		},
+		{
+			"stateMutability": "payable",
+			"type": "receive"
+		}
+	]
+};
+const capitalizeFirstLetter = (str) => {
+	return str.charAt(0).toUpperCase() + str.slice(1);
+};
 const getIsLoadingAndError = (value, customName = void 0) => {
 	const isLoading = isUndefined(value);
 	const hasError = value === null;
@@ -72433,6 +72850,15 @@ const getIsLoadingAndErrorForMultiple = (valuesArr) => {
 		hasError: valuesArr.map((value) => value === null).includes(true)
 	};
 };
+var useContractJsons = () => {
+	return {
+		LendingMarginAccountManager: LendingMarginAccountManager_default,
+		MarginAccount: MarginAccount_default,
+		MarginAccountManager: MarginAccountManager_default,
+		MarginTrading: MarginTrading_default,
+		OneClickTrading: OneClickTrading_default
+	};
+};
 var useContracts = () => {
 	const viewContracts = useViewContracts();
 	const signedContracts = useSignedContracts();
@@ -72449,8 +72875,8 @@ var useViewContracts = () => {
 	const alchemyProvider = getAlchemyProvider();
 	const contracts$1 = {};
 	Object.keys(contractJsons).forEach((name) => {
-		const { address: address$4, abi: abi$4 } = contractJsons[name];
-		contracts$1[name] = new Contract(address$4, abi$4, alchemyProvider);
+		const { address: address$5, abi: abi$5 } = contractJsons[name];
+		contracts$1[name] = new Contract(address$5, abi$5, alchemyProvider);
 	});
 	return contracts$1;
 };
@@ -72465,14 +72891,6 @@ var useSignedContracts = () => {
 		signedContracts[name] = viewContracts[name].connect(signer);
 	});
 	return signedContracts;
-};
-var useContractJsons = () => {
-	return {
-		LendingMarginAccountManager: LendingMarginAccountManager_default,
-		MarginAccount: MarginAccount_default,
-		MarginAccountManager: MarginAccountManager_default,
-		MarginTrading: MarginTrading_default
-	};
 };
 var useSigner = () => {
 	const [signer, setSigner] = (0, import_react.useState)(void 0);
@@ -72749,7 +73167,7 @@ var require_classnames = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 		else window.classNames = classNames$1;
 	})();
 }));
-var import_classnames$9 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$11 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 const animateFancyButtons = () => {
 	const createSVG = (width, height, radius) => {
 		const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
@@ -72800,40 +73218,56 @@ var Button = ({ type = "primary", isDisabled = false, className, children, ...pr
 		animateFancyButtons();
 	}, []);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-		className: (0, import_classnames$9.default)(className, "Button", `_${type}`),
+		className: (0, import_classnames$11.default)(className, "Button", `_${type}`),
 		disabled: isDisabled,
 		...props,
 		children
 	});
 };
 var Button_default = Button;
+var useAccountId = () => {
+	const accountState = useAccountState_default();
+	if (accountState.id === -1n) return;
+	return accountState.id;
+};
+var useAccountId_default = useAccountId;
 var useProtocolActions = () => {
 	const contracts$1 = useContracts_default();
-	return { createAccount: () => createAccount(contracts$1) };
+	const accountId = useAccountId_default();
+	return {
+		createAccount: () => createAccount(contracts$1),
+		supply: (amount) => supply(accountId, contracts$1, amount)
+	};
 };
 var createAccount = async (contracts$1) => {
 	const { LendingMarginAccountManager } = contracts$1.signed;
 	return LendingMarginAccountManager.createLendingMarginAccount();
 };
+var supply = async (accountId, contracts$1, amount) => {
+	const { OneClickTrading } = contracts$1.signed;
+	const amount1eToken = get1eToken(amount, "ETH");
+	return OneClickTrading.provideETH(accountId, { value: amount1eToken });
+};
 var useProtocolActions_default = useProtocolActions;
-var sendTx = async (executedTx, successMsg, setIsSubmitting = void 0, onSuccess, onError) => {
-	if (setIsSubmitting) setIsSubmitting(true);
+var sendTx = async (executedTx, successMsg, setIsSubmitting, onSuccess, onError) => {
+	setIsSubmitting(true);
 	const chainId = await queryChainId();
 	const handleError = (e$2) => {
 		console.log(e$2);
 		onError(e$2);
+		setIsSubmitting(false);
 	};
 	executedTx.then((tx) => {
 		console.log("Submitting:", tx);
 		tx.wait().then((res) => {
 			logSuccessMsg(chainId, tx.hash, successMsg);
-			if (setIsSubmitting) setIsSubmitting(false);
 			onSuccess({
 				res,
 				tx
 			});
+			setIsSubmitting(false);
 		}).catch(handleError);
-	}).catch(handleError).finally(() => setIsSubmitting(false));
+	}).catch(handleError);
 };
 var queryChainId = async () => {
 	return (await getWalletClient(WAGMI_CONFIG)).chain.id;
@@ -74048,7 +74482,7 @@ var import_lib = /* @__PURE__ */ __toESM((/* @__PURE__ */ __commonJSMin(((export
 	exports.default = _Modal2.default;
 	module.exports = exports["default"];
 })))(), 1);
-var import_classnames$8 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$10 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 import_lib.default.setAppElement("#root");
 import_lib.default.defaultStyles = {};
 var TRANSITION_DURATION = 300;
@@ -74061,7 +74495,7 @@ var Modal = ({ isOpen, setIsOpen, isObligatory = false, reset = () => {}, classN
 		setIsOpen(false);
 	};
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_lib.default, {
-		className: (0, import_classnames$8.default)(isScrollable && "_scrollable"),
+		className: (0, import_classnames$10.default)(isScrollable && "_scrollable"),
 		isOpen,
 		onRequestClose: () => {
 			if (isObligatory) return;
@@ -74075,7 +74509,7 @@ var Modal = ({ isOpen, setIsOpen, isObligatory = false, reset = () => {}, classN
 			else setIsScrollable(false);
 		},
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-			className: (0, import_classnames$8.default)(className, "ReactModal__box", "box"),
+			className: (0, import_classnames$10.default)(className, "ReactModal__box", "box"),
 			children
 		}), !isObligatory && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
 			className: "ReactModal__close-btn",
@@ -74087,7 +74521,7 @@ var Modal_default = Modal;
 var confirm_default = "data:image/svg+xml,%3csvg%20width='40'%20height='40'%20viewBox='0%200%2040%2040'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_284_1636)'%3e%3ccircle%20cx='20'%20cy='20'%20r='20'%20fill='%23112540'/%3e%3cpath%20d='M11%2019.9333L17%2026L29%2013'%20stroke='%2309AF8E'%20stroke-width='3'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_284_1636'%3e%3crect%20width='40'%20height='40'%20fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e";
 var error_default = "data:image/svg+xml,%3csvg%20width='40'%20height='40'%20viewBox='0%200%2040%2040'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_1129_5414)'%3e%3ccircle%20cx='20'%20cy='20'%20r='20'%20fill='%23361536'/%3e%3cpath%20d='M21.4969%2020L25.6868%2015.8101C25.8856%2015.6116%2025.9975%2015.3422%2025.9977%2015.0613C25.998%2014.7803%2025.8866%2014.5107%2025.6881%2014.3119C25.4896%2014.113%2025.2202%2014.0012%2024.9393%2014.0009C24.6583%2014.0007%2024.3887%2014.1121%2024.1899%2014.3106L20%2018.5005L15.8101%2014.3106C15.6113%2014.1117%2015.3416%2014%2015.0603%2014C14.7791%2014%2014.5094%2014.1117%2014.3106%2014.3106C14.1117%2014.5094%2014%2014.7791%2014%2015.0603C14%2015.3416%2014.1117%2015.6113%2014.3106%2015.8101L18.5005%2020L14.3106%2024.1899C14.1117%2024.3887%2014%2024.6584%2014%2024.9397C14%2025.2209%2014.1117%2025.4906%2014.3106%2025.6894C14.5094%2025.8883%2014.7791%2026%2015.0603%2026C15.3416%2026%2015.6113%2025.8883%2015.8101%2025.6894L20%2021.4995L24.1899%2025.6894C24.3887%2025.8883%2024.6584%2026%2024.9397%2026C25.2209%2026%2025.4906%2025.8883%2025.6894%2025.6894C25.8883%2025.4906%2026%2025.2209%2026%2024.9397C26%2024.6584%2025.8883%2024.3887%2025.6894%2024.1899L21.4969%2020Z'%20fill='%23D8563C'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_1129_5414'%3e%3crect%20width='40'%20height='40'%20fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e";
 var tick_default = "data:image/svg+xml,%3csvg%20width='12'%20height='10'%20viewBox='0%200%2012%2010'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M1%205.26667L4.33333%209L11%201'%20stroke='white'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3c/svg%3e";
-var import_classnames$7 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$9 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var TxModal = ({ isOpen, setIsOpen, reset = () => {}, txResult, setTxResult, className, children }) => {
 	const closeModal = () => setIsOpen(false);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Modal_default, {
@@ -74106,11 +74540,11 @@ var TxModal = ({ isOpen, setIsOpen, reset = () => {}, txResult, setTxResult, cla
 };
 var TxResult = ({ result, closeModal }) => {
 	const chainId = useChainId();
-	const { isSuccess, title, text, hash: hash$3, error } = result;
+	const { title, text, hash: hash$3, error } = result;
 	const txUrl = hash$3 ? getTxUrl(chainId, hash$3) : "";
 	const hashStr = hash$3 ? hash$3.slice(0, 5) + "..." + hash$3.slice(-4) : "";
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: (0, import_classnames$7.default)("Modal__tx-result", isSuccess ? "_success" : "_error"),
+		className: (0, import_classnames$9.default)("Modal__tx-result", error && "_error"),
 		children: [
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 				className: "Modal__tx-result-icon",
@@ -74118,8 +74552,8 @@ var TxResult = ({ result, closeModal }) => {
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "_ripple" }),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "_ripple" }),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
-						src: isSuccess ? confirm_default : error_default,
-						alt: isSuccess ? "green confirmed icon" : "red error icon"
+						src: error ? error_default : confirm_default,
+						alt: error ? "red error icon" : "green confirmed icon"
 					})
 				]
 			}),
@@ -74143,7 +74577,7 @@ var TxResult = ({ result, closeModal }) => {
 					children: hashStr
 				})]
 			}),
-			isSuccess ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(BackButton, { closeModal }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CopyButton, { error })
+			error ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CopyButton, { error }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(BackButton, { closeModal })
 		]
 	});
 };
@@ -74165,7 +74599,7 @@ var CopyButton = ({ error }) => {
 		setTimeout(() => setIsCopied(false), 2 * SECOND);
 	};
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
-		className: (0, import_classnames$7.default)("Modal__tx-result-button", isCopied && "_copied"),
+		className: (0, import_classnames$9.default)("Modal__tx-result-button", isCopied && "_copied"),
 		onClick: handleClick,
 		children: isCopied ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: ["Copied", /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
 			src: tick_default,
@@ -74235,123 +74669,159 @@ var CreateAccountModal = ({ isOpen, setIsOpen }) => {
 	});
 };
 var CreateAccountModal_default = CreateAccountModal;
-var SupplyModal = ({ isOpen, setIsOpen }) => {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(TxModal_default, {
-		className: "SupplyModal",
-		isOpen,
-		setIsOpen,
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
-			className: "SupplyModal__title",
-			children: "Supply"
-		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-			className: "SupplyModal__input",
-			children: "in progress"
-		})]
-	});
+const roundNumber = (num, decimals = 0) => {
+	return Math.round(num * 10 ** decimals) / 10 ** decimals;
 };
-var SupplyModal_default = SupplyModal;
-var _DashboardContext = (0, import_react.createContext)(null);
-var DashboardContext = ({ children }) => {
-	const [isCreateModalOpen, setIsCreateModalOpen] = (0, import_react.useState)(false);
-	const [isSupplyModalOpen, setIsSupplyModalOpen] = (0, import_react.useState)(false);
-	const data = {
-		isCreateModalOpen,
-		setIsCreateModalOpen,
-		openCreateModal: () => setIsCreateModalOpen(true),
-		isSupplyModalOpen,
-		setIsSupplyModalOpen,
-		openSupplyModal: () => setIsSupplyModalOpen(true)
-	};
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(_DashboardContext.Provider, {
-		value: data,
-		children: [
-			children,
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CreateAccountModal_default, {
-				isOpen: isCreateModalOpen,
-				setIsOpen: setIsCreateModalOpen
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SupplyModal_default, {
-				isOpen: isSupplyModalOpen,
-				setIsOpen: setIsSupplyModalOpen
-			})
-		]
-	});
-};
-const useDashboardContext = () => {
-	return (0, import_react.useContext)(_DashboardContext);
-};
-var DashboardContext_default = DashboardContext;
-var GetStarted = () => {
-	const { openCreateModal } = useDashboardContext();
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: "GetStarted box",
-		children: [
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
-				className: "GetStarted__title",
-				children: "Ready to get started?"
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "GetStarted__text text",
-				children: "Create your Lending Account now"
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
-				className: "GetStarted__button",
-				onClick: openCreateModal,
-				children: "Create account"
-			})
-		]
-	});
-};
-var GetStarted_default = GetStarted;
-var useAccountId = () => {
-	const accountState = useAccountState_default();
-	if (accountState.id === -1n) return;
-	return accountState.id;
-};
-var useAccountId_default = useAccountId;
-var useAccount = () => {
-	const accountSetup = useAccountSetup();
-	if (accountSetup === null) return null;
-	return accountSetup?.account;
-};
-var useAccountSetup = () => {
-	const accountId = useAccountId_default();
-	const contracts$1 = useContracts_default();
-	const { data: account, error: accountError, mutate: mutate$1 } = useSWR(accountId && contracts$1 && [accountId, "useAccount"], async () => {
-		const [balance, equity, supplied] = await Promise.all([
-			queryBalance(accountId, contracts$1),
-			queryEquity(accountId, contracts$1),
-			querySupplied(accountId, contracts$1)
-		]);
-		return {
-			id: accountId,
-			balance,
-			equity,
-			supplied
-		};
-	}, {
-		revalidateOnFocus: false,
-		refreshInterval: 5 * MINUTE
-	});
-	if (isUndefined(accountId)) return {
-		account: {},
-		mutate: mutate$1
-	};
-	if (accountError) {
-		console.log("useAccount error!\n", accountError);
-		return null;
+const bigIntFromString = (str) => {
+	str = String(str);
+	if (str.includes("e")) str = convertExponentToStr(str);
+	if (str.includes(".")) {
+		const [intPart, decPart] = str.split(".");
+		if (decPart.length > Decimals.DEFAULT) str = `${intPart}.${decPart.slice(0, Decimals.DEFAULT)}`;
 	}
-	return {
-		account,
-		mutate: mutate$1
-	};
+	str = parseEther(str);
+	return BigInt(str);
 };
-var querySupplied = async (accountId, contracts$1) => {
-	const { MarginAccount } = contracts$1.view;
-	const { ETH } = Tokens;
-	return await MarginAccount.getErc20ByContract(accountId, ETH.address);
+const stringFromBigInt = (bigInt) => {
+	let str = formatEther(bigInt);
+	if (str.endsWith(".0")) str = str.replace(/\.0$/, "");
+	return str;
 };
-var useAccount_default = useAccount;
+const multiplyBigInts = (bigInt, multiplier) => {
+	return reduceBigIntDec(bigInt * multiplier, Decimals.DEFAULT);
+};
+const absBigInt = (bigInt) => {
+	return bigInt < 0n ? -bigInt : bigInt;
+};
+const roundBigInt = (bigInt, roundDecimals = 0) => {
+	return bigIntFromString(roundNumber(Number(stringFromBigInt(bigInt)), roundDecimals));
+};
+var convertExponentToStr = (expStr) => {
+	let str = String(expStr);
+	const [base, exp] = str.split("e");
+	let exponent = parseInt(exp, 10);
+	let [intPart, decPart = ""] = base.split(".");
+	let digits = intPart + decPart;
+	if (exponent >= 0) if (exponent >= decPart.length) str = digits + "0".repeat(exponent - decPart.length);
+	else str = intPart + decPart.slice(0, exponent) + "." + decPart.slice(exponent);
+	else {
+		exponent = -exponent;
+		const isNegative = digits.startsWith("-");
+		const absDigits = digits.replace(/-/g, "");
+		str = (isNegative ? "-" : "") + "0." + "0".repeat(exponent - 1) + absDigits;
+	}
+	return str;
+};
+var formatBigInt = (bigInt, displayDecimals, onlySufficientDecimals) => {
+	let result = stringFromBigInt(bigInt);
+	result = limitDecimals(result, displayDecimals, onlySufficientDecimals);
+	result = trimTrailingZeros(result);
+	result = separateThousands(result);
+	result = formatExtraSmallValue(result, bigInt);
+	if (bigInt < 0n) result = formatNegativeValue(result);
+	return result;
+};
+const formatStable = (bigInt, displayDecimals = Decimals.STABLE, onlySufficientDecimals = false) => {
+	return formatBigInt(bigInt, displayDecimals, onlySufficientDecimals);
+};
+const formatBase = (bigInt, displayDecimals = Decimals.BASE, onlySufficientDecimals = true) => {
+	return formatBigInt(bigInt, displayDecimals, onlySufficientDecimals);
+};
+const formatTokenAmount = (tokenAmount, tokenSymb, displayDecimals = void 0) => {
+	const { isStable } = Tokens[tokenSymb];
+	displayDecimals = displayDecimals ?? (isStable ? Decimals.STABLE : Decimals.BASE);
+	return (isStable ? formatStable : formatBase)(tokenAmount, displayDecimals);
+};
+const formatDollarStr = (bigInt, isSigned = false, displayDecimals = Decimals.STABLE) => {
+	const positiveSign = isSigned ? SentimentSigns.PLUS : "";
+	const sign = bigInt < 0n ? SentimentSigns.MINUS : bigInt > 0n ? positiveSign : "";
+	bigInt = absBigInt(bigInt);
+	bigInt = roundBigInt(bigInt, displayDecimals);
+	let result = stringFromBigInt(bigInt);
+	result = padDecimals(result, displayDecimals);
+	result = `${sign}$${separateThousands(result)}`;
+	return result;
+};
+const bigIntFromInputString = (inputStr) => {
+	return bigIntFromString(strFromInputString(inputStr));
+};
+const inputStringFromBigInt = (bigInt) => {
+	return inputStringFromStr(stringFromBigInt(bigInt));
+};
+const inputStringFromStr = (str, symb, shouldRemoveDecimals) => {
+	return separateThousands(removeNonNumeric(str, shouldRemoveDecimals), symb);
+};
+var limitDecimals = (str, maxDecimals = 0, onlySufficientDecimals = true) => {
+	str = String(str);
+	if (!str.includes(".")) return str;
+	if (str.endsWith(".")) return str;
+	let [intPart, decPart] = str.split(".");
+	let cutFrac = decPart.slice(0, maxDecimals);
+	if (onlySufficientDecimals && intPart === "0") {
+		if (/^0*$/.test(cutFrac)) {
+			const firstNonZeroIndex = decPart.search(/[1-9]/);
+			if (firstNonZeroIndex !== -1) cutFrac = decPart.slice(0, firstNonZeroIndex + 1);
+			else cutFrac = cutFrac.slice(0, maxDecimals);
+		}
+	}
+	return cutFrac.length > 0 ? `${intPart}.${cutFrac}` : intPart;
+};
+var trimTrailingZeros = (str) => {
+	str = String(str);
+	let result = "";
+	if (str.includes(".")) {
+		let [intPart, decPart] = str.split(".");
+		decPart = decPart.replace(/0+$/, "");
+		if (decPart === "") result = intPart;
+		else result = `${intPart}.${decPart}`;
+	} else result = str;
+	return result;
+};
+var separateThousands = (str, symb = ",") => {
+	str = String(str);
+	let [intPart, decPart] = str.split(".");
+	intPart = intPart.replace(/\B(?=(\d{3})+(?!\d))/g, symb);
+	if (decPart || str.endsWith(".")) return [intPart, decPart].join(".");
+	return intPart;
+};
+var formatNegativeValue = (str) => {
+	const absStr = str.replace(/-/g, "");
+	return `${SentimentSigns.MINUS}${absStr}`;
+};
+var formatExtraSmallValue = (str, bigInt) => {
+	if (str === "0" && bigInt !== 0n) return EXTRA_SMALL_VALUE;
+	if (!str.includes(".")) return str;
+	const [intPart, decPart] = str.split(".");
+	if (intPart !== "0") return str;
+	const leadingZeros = decPart.match(/^0+/);
+	if ((leadingZeros ? leadingZeros[0].length : 0) > 8) return EXTRA_SMALL_VALUE;
+	return str;
+};
+var padDecimals = (str, minDecimals) => {
+	str = String(str);
+	const [intPart, decPart] = str.split(".");
+	const decimals = decPart ? decPart.length : 0;
+	if (decimals < minDecimals) {
+		str += decPart ? "" : ".";
+		str += "0".repeat(minDecimals - decimals);
+	}
+	if (Number(str.split(".")[1]) === 0) return intPart;
+	return str;
+};
+var strFromInputString = (inputStr, symb = ",") => {
+	return inputStr.split(symb).join("") || "0";
+};
+var removeNonNumeric = (str, shouldRemoveDecimals) => {
+	let numericString = str.toString().replace(/^\./g, "").replace(/[^0-9.]/g, "").replace(/^0\d/, "");
+	if (numericString.match(/\./g)?.length > 1) {
+		const trimLastDot = (str$1) => {
+			return str$1.replace(/\.$/, "");
+		};
+		numericString = trimLastDot(numericString);
+	}
+	numericString = limitDecimals(numericString, shouldRemoveDecimals ? 0 : Decimals.DEFAULT, false);
+	return numericString;
+};
 var ChainlinkOracle_abi_default = [
 	{
 		"inputs": [{
@@ -74818,49 +75288,6 @@ const unwrapTokenSymbol = (symbol) => {
 	if (Tokens[symbol].name.startsWith("Wrapped")) return symbol.split("W")[1];
 	return symbol;
 };
-const roundNumber = (num, decimals = 0) => {
-	return Math.round(num * 10 ** decimals) / 10 ** decimals;
-};
-const bigIntFromString = (str) => {
-	str = String(str);
-	if (str.includes("e")) str = convertExponentToStr(str);
-	if (str.includes(".")) {
-		const [intPart, decPart] = str.split(".");
-		if (decPart.length > Decimals.DEFAULT) str = `${intPart}.${decPart.slice(0, Decimals.DEFAULT)}`;
-	}
-	str = parseEther(str);
-	return BigInt(str);
-};
-const stringFromBigInt = (bigInt) => {
-	let str = formatEther(bigInt);
-	if (str.endsWith(".0")) str = str.replace(/\.0$/, "");
-	return str;
-};
-const multiplyBigInts = (bigInt, multiplier) => {
-	return reduceBigIntDec(bigInt * multiplier, Decimals.DEFAULT);
-};
-const absBigInt = (bigInt) => {
-	return bigInt < 0n ? -bigInt : bigInt;
-};
-const roundBigInt = (bigInt, roundDecimals = 0) => {
-	return bigIntFromString(roundNumber(Number(stringFromBigInt(bigInt)), roundDecimals));
-};
-var convertExponentToStr = (expStr) => {
-	let str = String(expStr);
-	const [base, exp] = str.split("e");
-	let exponent = parseInt(exp, 10);
-	let [intPart, decPart = ""] = base.split(".");
-	let digits = intPart + decPart;
-	if (exponent >= 0) if (exponent >= decPart.length) str = digits + "0".repeat(exponent - decPart.length);
-	else str = intPart + decPart.slice(0, exponent) + "." + decPart.slice(exponent);
-	else {
-		exponent = -exponent;
-		const isNegative = digits.startsWith("-");
-		const absDigits = digits.replace(/-/g, "");
-		str = (isNegative ? "-" : "") + "0." + "0".repeat(exponent - 1) + absDigits;
-	}
-	return str;
-};
 var useTokenPrices = () => {
 	const { data: tokenPricesData, error: tokenPricesError } = useSWR("useTokenPrices", async () => {
 		const tokenPrices = {};
@@ -74889,93 +75316,6 @@ const useConvertValueToUsd = (value, tokenSymb) => {
 	const tokenPrice = useTokenPrice(tokenSymb);
 	if (!tokenPrice) return;
 	return multiplyBigInts(value, tokenPrice);
-};
-var formatBigInt = (bigInt, displayDecimals, onlySufficientDecimals) => {
-	let result = stringFromBigInt(bigInt);
-	result = limitDecimals(result, displayDecimals, onlySufficientDecimals);
-	result = trimTrailingZeros(result);
-	result = separateThousands(result);
-	result = formatExtraSmallValue(result, bigInt);
-	if (bigInt < 0n) result = formatNegativeValue(result);
-	return result;
-};
-const formatStable = (bigInt, displayDecimals = Decimals.STABLE, onlySufficientDecimals = false) => {
-	return formatBigInt(bigInt, displayDecimals, onlySufficientDecimals);
-};
-const formatBase = (bigInt, displayDecimals = Decimals.BASE, onlySufficientDecimals = true) => {
-	return formatBigInt(bigInt, displayDecimals, onlySufficientDecimals);
-};
-const formatTokenAmount = (tokenAmount, tokenSymb, displayDecimals = void 0) => {
-	const { isStable } = Tokens[tokenSymb];
-	displayDecimals = displayDecimals ?? (isStable ? Decimals.STABLE : Decimals.BASE);
-	return (isStable ? formatStable : formatBase)(tokenAmount, displayDecimals);
-};
-const formatDollarStr = (bigInt, isSigned = false, displayDecimals = Decimals.STABLE) => {
-	const positiveSign = isSigned ? SentimentSigns.PLUS : "";
-	const sign = bigInt < 0n ? SentimentSigns.MINUS : bigInt > 0n ? positiveSign : "";
-	bigInt = absBigInt(bigInt);
-	bigInt = roundBigInt(bigInt, displayDecimals);
-	let result = stringFromBigInt(bigInt);
-	result = padDecimals(result, displayDecimals);
-	result = `${sign}$${separateThousands(result)}`;
-	return result;
-};
-var limitDecimals = (str, maxDecimals = 0, onlySufficientDecimals = true) => {
-	str = String(str);
-	if (!str.includes(".")) return str;
-	if (str.endsWith(".")) return str;
-	let [intPart, decPart] = str.split(".");
-	let cutFrac = decPart.slice(0, maxDecimals);
-	if (onlySufficientDecimals && intPart === "0") {
-		if (/^0*$/.test(cutFrac)) {
-			const firstNonZeroIndex = decPart.search(/[1-9]/);
-			if (firstNonZeroIndex !== -1) cutFrac = decPart.slice(0, firstNonZeroIndex + 1);
-			else cutFrac = cutFrac.slice(0, maxDecimals);
-		}
-	}
-	return cutFrac.length > 0 ? `${intPart}.${cutFrac}` : intPart;
-};
-var trimTrailingZeros = (str) => {
-	str = String(str);
-	let result = "";
-	if (str.includes(".")) {
-		let [intPart, decPart] = str.split(".");
-		decPart = decPart.replace(/0+$/, "");
-		if (decPart === "") result = intPart;
-		else result = `${intPart}.${decPart}`;
-	} else result = str;
-	return result;
-};
-var separateThousands = (str, symb = ",") => {
-	str = String(str);
-	let [intPart, decPart] = str.split(".");
-	intPart = intPart.replace(/\B(?=(\d{3})+(?!\d))/g, symb);
-	if (decPart) return [intPart, decPart].join(".");
-	return intPart;
-};
-var formatNegativeValue = (str) => {
-	const absStr = str.replace(/-/g, "");
-	return `${SentimentSigns.MINUS}${absStr}`;
-};
-var formatExtraSmallValue = (str, bigInt) => {
-	if (str === "0" && bigInt !== 0n) return EXTRA_SMALL_VALUE;
-	if (!str.includes(".")) return str;
-	const [intPart, decPart] = str.split(".");
-	if (intPart !== "0") return str;
-	const leadingZeros = decPart.match(/^0+/);
-	if ((leadingZeros ? leadingZeros[0].length : 0) > 8) return EXTRA_SMALL_VALUE;
-	return str;
-};
-var padDecimals = (str, minDecimals) => {
-	str = String(str);
-	const [intPart, decPart] = str.split(".");
-	const decimals = decPart ? decPart.length : 0;
-	if (decimals < minDecimals) {
-		str += decPart ? "" : ".";
-		str += "0".repeat(minDecimals - decimals);
-	}
-	if (Number(str.split(".")[1]) === 0) return intPart;
-	return str;
 };
 var DefaultContext = {
 	color: void 0,
@@ -75111,10 +75451,10 @@ function ImSpinner2(props) {
 		}]
 	})(props);
 }
-var import_classnames$6 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$8 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var Spinner = ({ className }) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: (0, import_classnames$6.default)("Spinner", className),
+		className: (0, import_classnames$8.default)("Spinner", className),
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ImSpinner2, { className: "Spinner__icon" })
 	});
 };
@@ -75152,6 +75492,346 @@ var UsdValue = ({ tokenValue, tokenSymb }) => {
 	});
 };
 var TokenAmount_default = TokenAmount;
+var import_classnames$7 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var Input = ({ setValue, maxData = void 0, placeholder = "0", isDisabled = false }) => {
+	const [valueStr, setValueStr] = (0, import_react.useState)("");
+	const [isFocused, setIsFocused] = (0, import_react.useState)(false);
+	const inputRef = (0, import_react.useRef)(null);
+	(0, import_react.useEffect)(() => {
+		setValue(bigIntFromInputString(valueStr));
+	}, [valueStr]);
+	const focusInput = () => {
+		inputRef.current?.focus();
+	};
+	const setMaxValue = () => {
+		setValueStr(inputStringFromBigInt(maxData.value));
+	};
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: (0, import_classnames$7.default)("Input", isFocused && "_focused"),
+		onClick: focusInput,
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputNative, {
+			ref: inputRef,
+			valueStr,
+			setValueStr,
+			maxValue: maxData?.value,
+			placeholder,
+			isDisabled,
+			isFocused,
+			setIsFocused
+		}), !isUndefined(maxData) && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "Input__max",
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "Input__max-title",
+					children: maxData.title
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "Input__max-value",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmount_default, {
+						value: maxData.value,
+						symbol: maxData.token,
+						showsUsdValue: true
+					})
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
+					className: "Input__max-button",
+					onClick: setMaxValue,
+					children: "Max"
+				})
+			]
+		})]
+	});
+};
+var InputNative = (0, import_react.forwardRef)(function InputNative$1({ valueStr, setValueStr, maxValue: maxValue$1, placeholder, isDisabled, isFocused, setIsFocused }, ref) {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+		autoFocus: isFocused,
+		type: "text",
+		ref,
+		value: valueStr,
+		disabled: isDisabled,
+		placeholder,
+		onChange: (e$2) => {
+			const inputStr = inputStringFromStr(e$2.target.value);
+			const value = bigIntFromInputString(inputStr);
+			if (!isUndefined(maxValue$1) && value > maxValue$1) setValueStr(inputStringFromBigInt(maxValue$1));
+			else setValueStr(inputStr);
+		},
+		onFocus: () => {
+			setIsFocused(true);
+		},
+		onBlur: () => {
+			setIsFocused(false);
+		}
+	});
+});
+var Input_default = Input;
+var useBalanceETH = () => {
+	const { userAddress } = useWallet_default();
+	const { data } = useBalance({ address: userAddress });
+	return data?.value;
+};
+var useBalanceETH_default = useBalanceETH;
+var BalanceInput = ({ setValue, title = "Amount" }) => {
+	const balanceETH = useBalanceETH_default();
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "BalanceInput",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "BalanceInput__title",
+			children: title
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "BalanceInput__input",
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Input_default, {
+				maxData: {
+					title: "Balance",
+					token: "ETH",
+					value: balanceETH
+				},
+				setValue
+			})
+		})]
+	});
+};
+var BalanceInput_default = BalanceInput;
+var useAccount = () => {
+	const accountSetup = useAccountSetup();
+	if (accountSetup === null) return null;
+	return accountSetup?.account;
+};
+var useAccountSetup = () => {
+	const accountId = useAccountId_default();
+	const contracts$1 = useContracts_default();
+	const { data: account, error: accountError, mutate: mutate$1 } = useSWR(accountId && contracts$1 && [accountId, "useAccount"], async () => {
+		const [balance, equity, supplied] = await Promise.all([
+			queryBalance(accountId, contracts$1),
+			queryEquity(accountId, contracts$1),
+			querySupplied(accountId, contracts$1)
+		]);
+		return {
+			id: accountId,
+			balance,
+			equity,
+			supplied
+		};
+	}, {
+		revalidateOnFocus: false,
+		refreshInterval: 5 * MINUTE
+	});
+	if (isUndefined(accountId)) return {
+		account: {},
+		mutate: mutate$1
+	};
+	if (accountError) {
+		console.log("useAccount error!\n", accountError);
+		return null;
+	}
+	return {
+		account,
+		mutate: mutate$1
+	};
+};
+var querySupplied = async (accountId, contracts$1) => {
+	const { MarginAccount } = contracts$1.view;
+	const { ETH } = Tokens;
+	return await MarginAccount.getErc20ByContract(accountId, ETH.address);
+};
+var useAccount_default = useAccount;
+var ArrowChangeSvg = () => {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
+		className: "ArrowChangeSvg",
+		xmlns: "http://www.w3.org/2000/svg",
+		width: "16",
+		height: "16",
+		viewBox: "0 0 16 16",
+		fill: "none",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("g", {
+			clipPath: "url(#clip0_1222_219)",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
+				cx: "8",
+				cy: "8",
+				r: "8",
+				fill: "#ACA9BB",
+				fillOpacity: "0.08"
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
+				d: "M4 7.5C3.72386 7.5 3.5 7.72386 3.5 8C3.5 8.27614 3.72386 8.5 4 8.5V8V7.5ZM12.3536 8.35355C12.5488 8.15829 12.5488 7.84171 12.3536 7.64645L9.17157 4.46447C8.97631 4.2692 8.65973 4.2692 8.46447 4.46447C8.2692 4.65973 8.2692 4.97631 8.46447 5.17157L11.2929 8L8.46447 10.8284C8.2692 11.0237 8.2692 11.3403 8.46447 11.5355C8.65973 11.7308 8.97631 11.7308 9.17157 11.5355L12.3536 8.35355ZM4 8V8.5L12 8.5V8V7.5L4 7.5V8Z",
+				fill: "#9A94B8"
+			})]
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("defs", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("clipPath", {
+			id: "clip0_1222_219",
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
+				width: "16",
+				height: "16",
+				fill: "white"
+			})
+		}) })]
+	});
+};
+var ArrowChangeSvg_default = ArrowChangeSvg;
+const isSufficient = (value) => {
+	return !isUndefined(value) && value !== null;
+};
+var import_classnames$6 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var ValueChange = ({ curValue, estValue }) => {
+	const hasEstValue = isSufficient(estValue);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: (0, import_classnames$6.default)("ValueChange", hasEstValue && "_active"),
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "ValueChange__cur",
+			children: curValue
+		}), hasEstValue && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowChangeSvg_default, {}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "ValueChange__est",
+			children: estValue
+		})] })]
+	});
+};
+var ValueChange_default = ValueChange;
+var TokenAmountChange = ({ curAmount, estAmount, symbol }) => {
+	const { isCurAmountLoading } = getIsLoadingAndError(curAmount, "curAmount");
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ValueChange_default, {
+		curValue: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmount_default, {
+			value: curAmount,
+			symbol
+		}),
+		estValue: isCurAmountLoading ? null : estAmount !== null ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmount_default, {
+			value: estAmount,
+			symbol
+		}) : null
+	});
+};
+var TokenAmountChange_default = TokenAmountChange;
+var SupplyModal = ({ isOpen, setIsOpen }) => {
+	const [supplyAmount, setSupplyAmount] = (0, import_react.useState)(void 0);
+	const [isSubmitting, setIsSubmitting] = (0, import_react.useState)(false);
+	const [txResult, setTxResult] = (0, import_react.useState)(void 0);
+	const account = useAccount_default();
+	const { supply: supply$1 } = useProtocolActions_default();
+	const txSuccessData = {
+		title: "Supply confirmed!",
+		text: "Your collateral is now in your Lending Account. You’re all set to borrow USDC against it"
+	};
+	const txErrorData = {
+		title: "Action failed",
+		text: "Something went wrong while supplying collateral"
+	};
+	const estSuppliedAmount = isUndefined(account?.supplied) || !supplyAmount ? null : account.supplied + supplyAmount;
+	const getError = () => {
+		if (!supplyAmount) return "Enter Amount";
+		if (isSubmitting) return ButtonLabels.SUBMITTING;
+	};
+	const getBtnText = () => {
+		const error = getError();
+		if (error) return error;
+		return "Supply";
+	};
+	const getIsDisabled = () => {
+		const error = getError();
+		return Boolean(error);
+	};
+	const handleClick = () => {
+		sendTx_default(supply$1(supplyAmount), `Supplied ${inputStringFromBigInt(supplyAmount)} ETH.`, setIsSubmitting, ({ tx }) => setTxResult({
+			...txSuccessData,
+			hash: tx.hash
+		}), (e$2) => setTxResult({
+			...txErrorData,
+			error: e$2
+		}));
+	};
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(TxModal_default, {
+		className: "SupplyModal",
+		isOpen,
+		setIsOpen,
+		txResult,
+		setTxResult,
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+				className: "SupplyModal__title",
+				children: "Supply"
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "SupplyModal__input",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(BalanceInput_default, { setValue: setSupplyAmount })
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "SupplyModal__changes",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "SupplyModal__changes-row",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "SupplyModal__changes-row-title",
+						children: "Supply Change"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "SupplyModal__changes-row-value",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmountChange_default, {
+							symbol: "ETH",
+							curAmount: account?.supplied,
+							estAmount: estSuppliedAmount
+						})
+					})]
+				})
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "SupplyModal__button",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
+					onClick: handleClick,
+					isDisabled: getIsDisabled(),
+					children: getBtnText()
+				})
+			})
+		]
+	});
+};
+var SupplyModal_default = SupplyModal;
+var _DashboardContext = (0, import_react.createContext)(null);
+var DashboardContext = ({ children }) => {
+	const [isCreateModalOpen, setIsCreateModalOpen] = (0, import_react.useState)(false);
+	const [isSupplyModalOpen, setIsSupplyModalOpen] = (0, import_react.useState)(false);
+	const data = {
+		isCreateModalOpen,
+		setIsCreateModalOpen,
+		openCreateModal: () => setIsCreateModalOpen(true),
+		isSupplyModalOpen,
+		setIsSupplyModalOpen,
+		openSupplyModal: () => setIsSupplyModalOpen(true)
+	};
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(_DashboardContext.Provider, {
+		value: data,
+		children: [
+			children,
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CreateAccountModal_default, {
+				isOpen: isCreateModalOpen,
+				setIsOpen: setIsCreateModalOpen
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SupplyModal_default, {
+				isOpen: isSupplyModalOpen,
+				setIsOpen: setIsSupplyModalOpen
+			})
+		]
+	});
+};
+const useDashboardContext = () => {
+	return (0, import_react.useContext)(_DashboardContext);
+};
+var DashboardContext_default = DashboardContext;
+var GetStarted = () => {
+	const { openCreateModal } = useDashboardContext();
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "GetStarted box",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
+				className: "GetStarted__title",
+				children: "Ready to get started?"
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "GetStarted__text text",
+				children: "Create your Lending Account now"
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
+				className: "GetStarted__button",
+				onClick: openCreateModal,
+				children: "Create account"
+			})
+		]
+	});
+};
+var GetStarted_default = GetStarted;
 function _typeof(o$1) {
 	"@babel/helpers - typeof";
 	return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(o$2) {
@@ -76262,9 +76942,9 @@ var jsx = function jsx$4(type, props) {
 	for (var i$3 = 2; i$3 < argsLength; i$3++) createElementArgArray[i$3] = args[i$3];
 	return import_react.createElement.apply(null, createElementArgArray);
 };
-(function(_jsx$31) {
+(function(_jsx$36) {
 	var JSX;
-	(function(_JSX) {})(JSX || (JSX = _jsx$31.JSX || (_jsx$31.JSX = {})));
+	(function(_JSX) {})(JSX || (JSX = _jsx$36.JSX || (_jsx$36.JSX = {})));
 })(jsx || (jsx = {}));
 function css$2() {
 	for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) args[_key] = arguments[_key];
@@ -76639,10 +77319,10 @@ var cleanCommonProps = function cleanCommonProps$1(props) {
 	return _objectSpread2({}, _objectWithoutProperties(props, _excluded$4));
 };
 var getStyleProps = function getStyleProps$1(props, name, classNamesState) {
-	var cx$10 = props.cx, getStyles = props.getStyles, getClassNames = props.getClassNames, className = props.className;
+	var cx$12 = props.cx, getStyles = props.getStyles, getClassNames = props.getClassNames, className = props.className;
 	return {
 		css: getStyles(name, props),
-		className: cx$10(classNamesState !== null && classNamesState !== void 0 ? classNamesState : {}, getClassNames(name, props), className)
+		className: cx$12(classNamesState !== null && classNamesState !== void 0 ? classNamesState : {}, getClassNames(name, props), className)
 	};
 };
 function isDocumentElement(el) {
@@ -77241,13 +77921,13 @@ var groupCSS = function groupCSS$1(_ref$1, unstyled) {
 	};
 };
 var Group = function Group$2(props) {
-	var children = props.children, cx$10 = props.cx, getStyles = props.getStyles, getClassNames = props.getClassNames, Heading = props.Heading, headingProps = props.headingProps, innerProps = props.innerProps, label = props.label, theme = props.theme, selectProps = props.selectProps;
+	var children = props.children, cx$12 = props.cx, getStyles = props.getStyles, getClassNames = props.getClassNames, Heading = props.Heading, headingProps = props.headingProps, innerProps = props.innerProps, label = props.label, theme = props.theme, selectProps = props.selectProps;
 	return jsx("div", _extends({}, getStyleProps(props, "group", { group: true }), innerProps), jsx(Heading, _extends({}, headingProps, {
 		selectProps,
 		theme,
 		getStyles,
 		getClassNames,
-		cx: cx$10
+		cx: cx$12
 	}), label), jsx("div", null, children));
 };
 var groupHeadingCSS = function groupHeadingCSS$1(_ref2$3, unstyled) {
@@ -77320,11 +78000,11 @@ var inputStyle = function inputStyle$1(isHidden) {
 		width: "100%"
 	}, spacingStyle);
 };
-var Input$1 = function Input(props) {
-	var cx$10 = props.cx, value = props.value;
+var Input$1 = function Input$2(props) {
+	var cx$12 = props.cx, value = props.value;
 	var _cleanCommonProps = cleanCommonProps(props), innerRef = _cleanCommonProps.innerRef, isDisabled = _cleanCommonProps.isDisabled, isHidden = _cleanCommonProps.isHidden, inputClassName = _cleanCommonProps.inputClassName, innerProps = _objectWithoutProperties(_cleanCommonProps, _excluded$5);
 	return jsx("div", _extends({}, getStyleProps(props, "input", { "input-container": true }), { "data-value": value || "" }), jsx("input", _extends({
-		className: cx$10({ input: true }, inputClassName),
+		className: cx$12({ input: true }, inputClassName),
 		ref: innerRef,
 		style: inputStyle(isHidden),
 		disabled: isDisabled
@@ -79147,11 +79827,11 @@ var Select = /* @__PURE__ */ function(_Component) {
 		{
 			key: "getCommonProps",
 			value: function getCommonProps() {
-				var clearValue = this.clearValue, cx$10 = this.cx, getStyles = this.getStyles, getClassNames = this.getClassNames, getValue$2 = this.getValue, selectOption = this.selectOption, setValue = this.setValue, props = this.props;
+				var clearValue = this.clearValue, cx$12 = this.cx, getStyles = this.getStyles, getClassNames = this.getClassNames, getValue$2 = this.getValue, selectOption = this.selectOption, setValue = this.setValue, props = this.props;
 				var isMulti = props.isMulti, isRtl = props.isRtl, options$2 = props.options;
 				return {
 					clearValue,
-					cx: cx$10,
+					cx: cx$12,
 					getStyles,
 					getClassNames,
 					getValue: getValue$2,
@@ -79266,7 +79946,7 @@ var Select = /* @__PURE__ */ function(_Component) {
 			key: "renderInput",
 			value: function renderInput() {
 				var _this$props8 = this.props, isDisabled = _this$props8.isDisabled, isSearchable = _this$props8.isSearchable, inputId = _this$props8.inputId, inputValue = _this$props8.inputValue, tabIndex = _this$props8.tabIndex, form = _this$props8.form, menuIsOpen = _this$props8.menuIsOpen, required = _this$props8.required;
-				var Input = this.getComponents().Input;
+				var Input$2 = this.getComponents().Input;
 				var _this$state4 = this.state, inputIsHidden = _this$state4.inputIsHidden, ariaSelection = _this$state4.ariaSelection;
 				var commonProps = this.commonProps;
 				var id$2 = inputId || this.getElementId("input");
@@ -79294,7 +79974,7 @@ var Select = /* @__PURE__ */ function(_Component) {
 					form,
 					value: ""
 				}, ariaAttributes));
-				return /* @__PURE__ */ import_react.createElement(Input, _extends({}, commonProps, {
+				return /* @__PURE__ */ import_react.createElement(Input$2, _extends({}, commonProps, {
 					autoCapitalize: "none",
 					autoComplete: "off",
 					autoCorrect: "off",
