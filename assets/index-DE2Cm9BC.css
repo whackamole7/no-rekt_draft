@@ -634,6 +634,7 @@
   border-color: #3C1B68;
 }
 .Input input {
+  min-width: 70px;
   flex-grow: 1;
   font-family: "Unageo", sans-serif;
   font-size: 15px;
@@ -669,6 +670,11 @@
   font-size: 12px;
   border-radius: 10px;
   padding: 2px 8px;
+}
+@media (max-width: 360px) {
+  .Input__max-title {
+    display: none;
+  }
 }.TokenAmount {
   display: flex;
   align-items: center;
