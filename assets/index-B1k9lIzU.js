@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-vq4dC2JZ.js","assets/secp256k1-LTdOln9n.js","assets/dist-CGP33oTn.js","assets/index.es-BKZzWSju.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-GOSUj-hE.js","assets/secp256k1-B5-O8nPL.js","assets/dist-ickhAPV_.js","assets/index.es-iM7oF5TI.js"])))=>i.map(i=>d[i]);
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -12618,8 +12618,8 @@ var InvalidDefinitionTypeError = class extends BaseError$3 {
 	}
 };
 var InvalidAddressError = class extends BaseError$3 {
-	constructor({ address: address$5 }) {
-		super(`Address "${address$5}" is invalid.`, {
+	constructor({ address: address$7 }) {
+		super(`Address "${address$7}" is invalid.`, {
 			metaMessages: ["- Address must be a hex value of 20 bytes (40 hex characters).", "- Address must match its checksum counterpart."],
 			name: "InvalidAddressError"
 		});
@@ -13149,14 +13149,14 @@ var LruMap = class extends Map {
 };
 var addressRegex = /^0x[a-fA-F0-9]{40}$/;
 const isAddressCache = /* @__PURE__ */ new LruMap(8192);
-function isAddress(address$5, options$2) {
+function isAddress(address$7, options$2) {
 	const { strict = true } = options$2 ?? {};
-	const cacheKey$1 = `${address$5}.${strict}`;
+	const cacheKey$1 = `${address$7}.${strict}`;
 	if (isAddressCache.has(cacheKey$1)) return isAddressCache.get(cacheKey$1);
 	const result = (() => {
-		if (!addressRegex.test(address$5)) return false;
-		if (address$5.toLowerCase() === address$5) return true;
-		if (strict) return checksumAddress(address$5) === address$5;
+		if (!addressRegex.test(address$7)) return false;
+		if (address$7.toLowerCase() === address$7) return true;
+		if (strict) return checksumAddress(address$7) === address$7;
 		return true;
 	})();
 	isAddressCache.set(cacheKey$1, result);
@@ -13167,18 +13167,18 @@ function checksumAddress(address_, chainId) {
 	if (checksumAddressCache.has(`${address_}.${chainId}`)) return checksumAddressCache.get(`${address_}.${chainId}`);
 	const hexAddress = chainId ? `${chainId}${address_.toLowerCase()}` : address_.substring(2).toLowerCase();
 	const hash$3 = keccak256$1(stringToBytes(hexAddress), "bytes");
-	const address$5 = (chainId ? hexAddress.substring(`${chainId}0x`.length) : hexAddress).split("");
+	const address$7 = (chainId ? hexAddress.substring(`${chainId}0x`.length) : hexAddress).split("");
 	for (let i$3 = 0; i$3 < 40; i$3 += 2) {
-		if (hash$3[i$3 >> 1] >> 4 >= 8 && address$5[i$3]) address$5[i$3] = address$5[i$3].toUpperCase();
-		if ((hash$3[i$3 >> 1] & 15) >= 8 && address$5[i$3 + 1]) address$5[i$3 + 1] = address$5[i$3 + 1].toUpperCase();
+		if (hash$3[i$3 >> 1] >> 4 >= 8 && address$7[i$3]) address$7[i$3] = address$7[i$3].toUpperCase();
+		if ((hash$3[i$3 >> 1] & 15) >= 8 && address$7[i$3 + 1]) address$7[i$3 + 1] = address$7[i$3 + 1].toUpperCase();
 	}
-	const result = `0x${address$5.join("")}`;
+	const result = `0x${address$7.join("")}`;
 	checksumAddressCache.set(`${address_}.${chainId}`, result);
 	return result;
 }
-function getAddress$1(address$5, chainId) {
-	if (!isAddress(address$5, { strict: false })) throw new InvalidAddressError({ address: address$5 });
-	return checksumAddress(address$5, chainId);
+function getAddress$1(address$7, chainId) {
+	if (!isAddress(address$7, { strict: false })) throw new InvalidAddressError({ address: address$7 });
+	return checksumAddress(address$7, chainId);
 }
 var NegativeOffsetError = class extends BaseError$3 {
 	constructor({ offset: offset$1 }) {
@@ -14496,14 +14496,14 @@ function resolveStructs(abiParameters = [], structs = {}, ancestors = /* @__PURE
 }
 function parseAbi(signatures) {
 	const structs = parseStructs(signatures);
-	const abi$5 = [];
+	const abi$7 = [];
 	const length$1 = signatures.length;
 	for (let i$3 = 0; i$3 < length$1; i$3++) {
 		const signature = signatures[i$3];
 		if (isStructSignature(signature)) continue;
-		abi$5.push(parseSignature(signature, structs));
+		abi$7.push(parseSignature(signature, structs));
 	}
-	return abi$5;
+	return abi$7;
 }
 function normalizeSignature(signature) {
 	let active = true;
@@ -14561,9 +14561,9 @@ function toSignatureHash(fn) {
 const toEventSelector = toSignatureHash;
 const toFunctionSelector = (fn) => slice$1(toSignatureHash(fn), 0, 4);
 function getAbiItem(parameters) {
-	const { abi: abi$5, args = [], name } = parameters;
+	const { abi: abi$7, args = [], name } = parameters;
 	const isSelector = isHex(name, { strict: false });
-	const abiItems = abi$5.filter((abiItem) => {
+	const abiItems = abi$7.filter((abiItem) => {
 		if (isSelector) {
 			if (abiItem.type === "function") return toFunctionSelector(abiItem) === name;
 			if (abiItem.type === "event") return toEventSelector(abiItem) === name;
@@ -14641,11 +14641,11 @@ function getAmbiguousTypes(sourceParameters, targetParameters, args) {
 }
 var docsPath$4 = "/docs/contract/decodeFunctionResult";
 function decodeFunctionResult(parameters) {
-	const { abi: abi$5, args, functionName, data } = parameters;
-	let abiItem = abi$5[0];
+	const { abi: abi$7, args, functionName, data } = parameters;
+	let abiItem = abi$7[0];
 	if (functionName) {
 		const item = getAbiItem({
-			abi: abi$5,
+			abi: abi$7,
 			args,
 			name: functionName
 		});
@@ -14660,11 +14660,11 @@ function decodeFunctionResult(parameters) {
 }
 var docsPath$3 = "/docs/contract/encodeFunctionData";
 function prepareEncodeFunctionData(parameters) {
-	const { abi: abi$5, args, functionName } = parameters;
-	let abiItem = abi$5[0];
+	const { abi: abi$7, args, functionName } = parameters;
+	let abiItem = abi$7[0];
 	if (functionName) {
 		const item = getAbiItem({
-			abi: abi$5,
+			abi: abi$7,
 			args,
 			name: functionName
 		});
@@ -14679,11 +14679,11 @@ function prepareEncodeFunctionData(parameters) {
 }
 function encodeFunctionData(parameters) {
 	const { args } = parameters;
-	const { abi: abi$5, functionName } = (() => {
+	const { abi: abi$7, functionName } = (() => {
 		if (parameters.abi.length === 1 && parameters.functionName?.startsWith("0x")) return parameters;
 		return prepareEncodeFunctionData(parameters);
 	})();
-	const abiItem = abi$5[0];
+	const abiItem = abi$7[0];
 	return concatHex([functionName, ("inputs" in abiItem && abiItem.inputs ? encodeAbiParameters(abiItem.inputs, args ?? []) : void 0) ?? "0x"]);
 }
 var ChainDoesNotSupportContract = class extends BaseError$3 {
@@ -14768,11 +14768,11 @@ const solidityPanic = {
 	type: "error"
 };
 function decodeErrorResult(parameters) {
-	const { abi: abi$5, data } = parameters;
+	const { abi: abi$7, data } = parameters;
 	const signature = slice$1(data, 0, 4);
 	if (signature === "0x") throw new AbiDecodingZeroDataError();
 	const abiItem = [
-		...abi$5 || [],
+		...abi$7 || [],
 		solidityError,
 		solidityPanic
 	].find((x$2) => x$2.type === "error" && signature === toFunctionSelector(formatAbiItem(x$2)));
@@ -14817,8 +14817,8 @@ function formatGwei(wei, unit = "wei") {
 	return formatUnits$1(wei, gweiUnits[unit]);
 }
 var AccountStateConflictError = class extends BaseError$3 {
-	constructor({ address: address$5 }) {
-		super(`State for account "${address$5}" is set multiple times.`, { name: "AccountStateConflictError" });
+	constructor({ address: address$7 }) {
+		super(`State for account "${address$7}" is set multiple times.`, { name: "AccountStateConflictError" });
 	}
 };
 var StateAssignmentConflictError = class extends BaseError$3 {
@@ -14832,8 +14832,8 @@ function prettyStateMapping(stateMapping) {
 	}, "");
 }
 function prettyStateOverride(stateOverride) {
-	return stateOverride.reduce((pretty, { address: address$5, ...state }) => {
-		let val = `${pretty}    ${address$5}:\n`;
+	return stateOverride.reduce((pretty, { address: address$7, ...state }) => {
+		let val = `${pretty}    ${address$7}:\n`;
 		if (state.nonce) val += `      nonce: ${state.nonce}\n`;
 		if (state.balance) val += `      balance: ${state.balance}\n`;
 		if (state.code) val += `      code: ${state.code}\n`;
@@ -14961,7 +14961,7 @@ var WaitForTransactionReceiptTimeoutError = class extends BaseError$3 {
 		super(`Timed out while waiting for transaction with hash "${hash$3}" to be confirmed.`, { name: "WaitForTransactionReceiptTimeoutError" });
 	}
 };
-const getContractAddress = (address$5) => address$5;
+const getContractAddress = (address$7) => address$7;
 const getUrl = (url) => url;
 var CallExecutionError = class extends BaseError$3 {
 	constructor(cause, { account: account_, docsPath: docsPath$5, chain, data, gas, gasPrice, maxFeePerGas, maxPriorityFeePerGas, nonce, to: to$1, value, stateOverride }) {
@@ -14997,9 +14997,9 @@ var CallExecutionError = class extends BaseError$3 {
 	}
 };
 var ContractFunctionExecutionError = class extends BaseError$3 {
-	constructor(cause, { abi: abi$5, args, contractAddress, docsPath: docsPath$5, functionName, sender }) {
+	constructor(cause, { abi: abi$7, args, contractAddress, docsPath: docsPath$5, functionName, sender }) {
 		const abiItem = getAbiItem({
-			abi: abi$5,
+			abi: abi$7,
 			args,
 			name: functionName
 		});
@@ -15068,7 +15068,7 @@ var ContractFunctionExecutionError = class extends BaseError$3 {
 			writable: true,
 			value: void 0
 		});
-		this.abi = abi$5;
+		this.abi = abi$7;
 		this.args = args;
 		this.cause = cause;
 		this.contractAddress = contractAddress;
@@ -15077,14 +15077,14 @@ var ContractFunctionExecutionError = class extends BaseError$3 {
 	}
 };
 var ContractFunctionRevertedError = class extends BaseError$3 {
-	constructor({ abi: abi$5, data, functionName, message }) {
+	constructor({ abi: abi$7, data, functionName, message }) {
 		let cause;
 		let decodedData;
 		let metaMessages;
 		let reason;
 		if (data && data !== "0x") try {
 			decodedData = decodeErrorResult({
-				abi: abi$5,
+				abi: abi$7,
 				data
 			});
 			const { abiItem, errorName, args: errorArgs } = decodedData;
@@ -15206,9 +15206,9 @@ function isNullUniversalResolverError(err) {
 	return false;
 }
 function decodeFunctionData(parameters) {
-	const { abi: abi$5, data } = parameters;
+	const { abi: abi$7, data } = parameters;
 	const signature = slice$1(data, 0, 4);
-	const description = abi$5.find((x$2) => x$2.type === "function" && signature === toFunctionSelector(formatAbiItem(x$2)));
+	const description = abi$7.find((x$2) => x$2.type === "function" && signature === toFunctionSelector(formatAbiItem(x$2)));
 	if (!description) throw new AbiFunctionSignatureNotFoundError(signature, { docsPath: "/docs/contract/decodeFunctionData" });
 	return {
 		functionName: description.name,
@@ -15217,11 +15217,11 @@ function decodeFunctionData(parameters) {
 }
 var docsPath$2 = "/docs/contract/encodeErrorResult";
 function encodeErrorResult(parameters) {
-	const { abi: abi$5, errorName, args } = parameters;
-	let abiItem = abi$5[0];
+	const { abi: abi$7, errorName, args } = parameters;
+	let abiItem = abi$7[0];
 	if (errorName) {
 		const item = getAbiItem({
-			abi: abi$5,
+			abi: abi$7,
 			args,
 			name: errorName
 		});
@@ -15239,11 +15239,11 @@ function encodeErrorResult(parameters) {
 }
 var docsPath$1 = "/docs/contract/encodeFunctionResult";
 function encodeFunctionResult(parameters) {
-	const { abi: abi$5, functionName, result } = parameters;
-	let abiItem = abi$5[0];
+	const { abi: abi$7, functionName, result } = parameters;
+	let abiItem = abi$7[0];
 	if (functionName) {
 		const item = getAbiItem({
-			abi: abi$5,
+			abi: abi$7,
 			name: functionName
 		});
 		if (!item) throw new AbiFunctionNotFoundError(functionName, { docsPath: docsPath$1 });
@@ -15858,22 +15858,22 @@ var UnknownRpcError = class extends RpcError$1 {
 	}
 };
 var EXECUTION_REVERTED_ERROR_CODE = 3;
-function getContractError(err, { abi: abi$5, address: address$5, args, docsPath: docsPath$5, functionName, sender }) {
+function getContractError(err, { abi: abi$7, address: address$7, args, docsPath: docsPath$5, functionName, sender }) {
 	const error = err instanceof RawContractError ? err : err instanceof BaseError$3 ? err.walk((err$1) => "data" in err$1) || err.walk() : {};
 	const { code: code$1, data, details, message, shortMessage } = error;
 	return new ContractFunctionExecutionError((() => {
 		if (err instanceof AbiDecodingZeroDataError) return new ContractFunctionZeroDataError({ functionName });
 		if ([EXECUTION_REVERTED_ERROR_CODE, InternalRpcError.code].includes(code$1) && (data || details || message || shortMessage) || code$1 === InvalidInputRpcError.code && details === "execution reverted" && data) return new ContractFunctionRevertedError({
-			abi: abi$5,
+			abi: abi$7,
 			data: typeof data === "object" ? data.data : data,
 			functionName,
 			message: error instanceof RpcRequestError ? details : shortMessage ?? message
 		});
 		return err;
 	})(), {
-		abi: abi$5,
+		abi: abi$7,
 		args,
-		contractAddress: address$5,
+		contractAddress: address$7,
 		docsPath: docsPath$5,
 		functionName,
 		sender
@@ -16277,9 +16277,9 @@ const deploylessCallViaFactoryBytecode = "0x608060405234801561001057600080fd5b50
 const multicall3Bytecode = "0x608060405234801561001057600080fd5b506115b9806100206000396000f3fe6080604052600436106100f35760003560e01c80634d2301cc1161008a578063a8b0574e11610059578063a8b0574e14610325578063bce38bd714610350578063c3077fa914610380578063ee82ac5e146103b2576100f3565b80634d2301cc1461026257806372425d9d1461029f57806382ad56cb146102ca57806386d516e8146102fa576100f3565b80633408e470116100c65780633408e470146101af578063399542e9146101da5780633e64a6961461020c57806342cbb15c14610237576100f3565b80630f28c97d146100f8578063174dea7114610123578063252dba421461015357806327e86d6e14610184575b600080fd5b34801561010457600080fd5b5061010d6103ef565b60405161011a9190610c0a565b60405180910390f35b61013d60048036038101906101389190610c94565b6103f7565b60405161014a9190610e94565b60405180910390f35b61016d60048036038101906101689190610f0c565b610615565b60405161017b92919061101b565b60405180910390f35b34801561019057600080fd5b506101996107ab565b6040516101a69190611064565b60405180910390f35b3480156101bb57600080fd5b506101c46107b7565b6040516101d19190610c0a565b60405180910390f35b6101f460048036038101906101ef91906110ab565b6107bf565b6040516102039392919061110b565b60405180910390f35b34801561021857600080fd5b506102216107e1565b60405161022e9190610c0a565b60405180910390f35b34801561024357600080fd5b5061024c6107e9565b6040516102599190610c0a565b60405180910390f35b34801561026e57600080fd5b50610289600480360381019061028491906111a7565b6107f1565b6040516102969190610c0a565b60405180910390f35b3480156102ab57600080fd5b506102b4610812565b6040516102c19190610c0a565b60405180910390f35b6102e460048036038101906102df919061122a565b61081a565b6040516102f19190610e94565b60405180910390f35b34801561030657600080fd5b5061030f6109e4565b60405161031c9190610c0a565b60405180910390f35b34801561033157600080fd5b5061033a6109ec565b6040516103479190611286565b60405180910390f35b61036a600480360381019061036591906110ab565b6109f4565b6040516103779190610e94565b60405180910390f35b61039a60048036038101906103959190610f0c565b610ba6565b6040516103a99392919061110b565b60405180910390f35b3480156103be57600080fd5b506103d960048036038101906103d491906112cd565b610bca565b6040516103e69190611064565b60405180910390f35b600042905090565b60606000808484905090508067ffffffffffffffff81111561041c5761041b6112fa565b5b60405190808252806020026020018201604052801561045557816020015b610442610bd5565b81526020019060019003908161043a5790505b5092503660005b828110156105c957600085828151811061047957610478611329565b5b6020026020010151905087878381811061049657610495611329565b5b90506020028101906104a89190611367565b925060008360400135905080860195508360000160208101906104cb91906111a7565b73ffffffffffffffffffffffffffffffffffffffff16818580606001906104f2919061138f565b604051610500929190611431565b60006040518083038185875af1925050503d806000811461053d576040519150601f19603f3d011682016040523d82523d6000602084013e610542565b606091505b5083600001846020018290528215151515815250505081516020850135176105bc577f08c379a000000000000000000000000000000000000000000000000000000000600052602060045260176024527f4d756c746963616c6c333a2063616c6c206661696c656400000000000000000060445260846000fd5b826001019250505061045c565b5082341461060c576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401610603906114a7565b60405180910390fd5b50505092915050565b6000606043915060008484905090508067ffffffffffffffff81111561063e5761063d6112fa565b5b60405190808252806020026020018201604052801561067157816020015b606081526020019060019003908161065c5790505b5091503660005b828110156107a157600087878381811061069557610694611329565b5b90506020028101906106a791906114c7565b92508260000160208101906106bc91906111a7565b73ffffffffffffffffffffffffffffffffffffffff168380602001906106e2919061138f565b6040516106f0929190611431565b6000604051808303816000865af19150503d806000811461072d576040519150601f19603f3d011682016040523d82523d6000602084013e610732565b606091505b5086848151811061074657610745611329565b5b60200260200101819052819250505080610795576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040161078c9061153b565b60405180910390fd5b81600101915050610678565b5050509250929050565b60006001430340905090565b600046905090565b6000806060439250434091506107d68686866109f4565b905093509350939050565b600048905090565b600043905090565b60008173ffffffffffffffffffffffffffffffffffffffff16319050919050565b600044905090565b606060008383905090508067ffffffffffffffff81111561083e5761083d6112fa565b5b60405190808252806020026020018201604052801561087757816020015b610864610bd5565b81526020019060019003908161085c5790505b5091503660005b828110156109db57600084828151811061089b5761089a611329565b5b602002602001015190508686838181106108b8576108b7611329565b5b90506020028101906108ca919061155b565b92508260000160208101906108df91906111a7565b73ffffffffffffffffffffffffffffffffffffffff16838060400190610905919061138f565b604051610913929190611431565b6000604051808303816000865af19150503d8060008114610950576040519150601f19603f3d011682016040523d82523d6000602084013e610955565b606091505b5082600001836020018290528215151515815250505080516020840135176109cf577f08c379a000000000000000000000000000000000000000000000000000000000600052602060045260176024527f4d756c746963616c6c333a2063616c6c206661696c656400000000000000000060445260646000fd5b8160010191505061087e565b50505092915050565b600045905090565b600041905090565b606060008383905090508067ffffffffffffffff811115610a1857610a176112fa565b5b604051908082528060200260200182016040528015610a5157816020015b610a3e610bd5565b815260200190600190039081610a365790505b5091503660005b82811015610b9c576000848281518110610a7557610a74611329565b5b60200260200101519050868683818110610a9257610a91611329565b5b9050602002810190610aa491906114c7565b9250826000016020810190610ab991906111a7565b73ffffffffffffffffffffffffffffffffffffffff16838060200190610adf919061138f565b604051610aed929190611431565b6000604051808303816000865af19150503d8060008114610b2a576040519150601f19603f3d011682016040523d82523d6000602084013e610b2f565b606091505b508260000183602001829052821515151581525050508715610b90578060000151610b8f576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401610b869061153b565b60405180910390fd5b5b81600101915050610a58565b5050509392505050565b6000806060610bb7600186866107bf565b8093508194508295505050509250925092565b600081409050919050565b6040518060400160405280600015158152602001606081525090565b6000819050919050565b610c0481610bf1565b82525050565b6000602082019050610c1f6000830184610bfb565b92915050565b600080fd5b600080fd5b600080fd5b600080fd5b600080fd5b60008083601f840112610c5457610c53610c2f565b5b8235905067ffffffffffffffff811115610c7157610c70610c34565b5b602083019150836020820283011115610c8d57610c8c610c39565b5b9250929050565b60008060208385031215610cab57610caa610c25565b5b600083013567ffffffffffffffff811115610cc957610cc8610c2a565b5b610cd585828601610c3e565b92509250509250929050565b600081519050919050565b600082825260208201905092915050565b6000819050602082019050919050565b60008115159050919050565b610d2281610d0d565b82525050565b600081519050919050565b600082825260208201905092915050565b60005b83811015610d62578082015181840152602081019050610d47565b83811115610d71576000848401525b50505050565b6000601f19601f8301169050919050565b6000610d9382610d28565b610d9d8185610d33565b9350610dad818560208601610d44565b610db681610d77565b840191505092915050565b6000604083016000830151610dd96000860182610d19565b5060208301518482036020860152610df18282610d88565b9150508091505092915050565b6000610e0a8383610dc1565b905092915050565b6000602082019050919050565b6000610e2a82610ce1565b610e348185610cec565b935083602082028501610e4685610cfd565b8060005b85811015610e825784840389528151610e638582610dfe565b9450610e6e83610e12565b925060208a01995050600181019050610e4a565b50829750879550505050505092915050565b60006020820190508181036000830152610eae8184610e1f565b905092915050565b60008083601f840112610ecc57610ecb610c2f565b5b8235905067ffffffffffffffff811115610ee957610ee8610c34565b5b602083019150836020820283011115610f0557610f04610c39565b5b9250929050565b60008060208385031215610f2357610f22610c25565b5b600083013567ffffffffffffffff811115610f4157610f40610c2a565b5b610f4d85828601610eb6565b92509250509250929050565b600081519050919050565b600082825260208201905092915050565b6000819050602082019050919050565b6000610f918383610d88565b905092915050565b6000602082019050919050565b6000610fb182610f59565b610fbb8185610f64565b935083602082028501610fcd85610f75565b8060005b858110156110095784840389528151610fea8582610f85565b9450610ff583610f99565b925060208a01995050600181019050610fd1565b50829750879550505050505092915050565b60006040820190506110306000830185610bfb565b81810360208301526110428184610fa6565b90509392505050565b6000819050919050565b61105e8161104b565b82525050565b60006020820190506110796000830184611055565b92915050565b61108881610d0d565b811461109357600080fd5b50565b6000813590506110a58161107f565b92915050565b6000806000604084860312156110c4576110c3610c25565b5b60006110d286828701611096565b935050602084013567ffffffffffffffff8111156110f3576110f2610c2a565b5b6110ff86828701610eb6565b92509250509250925092565b60006060820190506111206000830186610bfb565b61112d6020830185611055565b818103604083015261113f8184610e1f565b9050949350505050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b600061117482611149565b9050919050565b61118481611169565b811461118f57600080fd5b50565b6000813590506111a18161117b565b92915050565b6000602082840312156111bd576111bc610c25565b5b60006111cb84828501611192565b91505092915050565b60008083601f8401126111ea576111e9610c2f565b5b8235905067ffffffffffffffff81111561120757611206610c34565b5b60208301915083602082028301111561122357611222610c39565b5b9250929050565b6000806020838503121561124157611240610c25565b5b600083013567ffffffffffffffff81111561125f5761125e610c2a565b5b61126b858286016111d4565b92509250509250929050565b61128081611169565b82525050565b600060208201905061129b6000830184611277565b92915050565b6112aa81610bf1565b81146112b557600080fd5b50565b6000813590506112c7816112a1565b92915050565b6000602082840312156112e3576112e2610c25565b5b60006112f1848285016112b8565b91505092915050565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052604160045260246000fd5b7f4e487b7100000000000000000000000000000000000000000000000000000000600052603260045260246000fd5b600080fd5b600080fd5b600080fd5b60008235600160800383360303811261138357611382611358565b5b80830191505092915050565b600080833560016020038436030381126113ac576113ab611358565b5b80840192508235915067ffffffffffffffff8211156113ce576113cd61135d565b5b6020830192506001820236038313156113ea576113e9611362565b5b509250929050565b600081905092915050565b82818337600083830152505050565b600061141883856113f2565b93506114258385846113fd565b82840190509392505050565b600061143e82848661140c565b91508190509392505050565b600082825260208201905092915050565b7f4d756c746963616c6c333a2076616c7565206d69736d61746368000000000000600082015250565b6000611491601a8361144a565b915061149c8261145b565b602082019050919050565b600060208201905081810360008301526114c081611484565b9050919050565b6000823560016040038336030381126114e3576114e2611358565b5b80830191505092915050565b7f4d756c746963616c6c333a2063616c6c206661696c6564000000000000000000600082015250565b600061152560178361144a565b9150611530826114ef565b602082019050919050565b6000602082019050818103600083015261155481611518565b9050919050565b60008235600160600383360303811261157757611576611358565b5b8083019150509291505056fea264697066735822122020c1bc9aacf8e4a6507193432a895a8e77094f45a1395583f07b24e860ef06cd64736f6c634300080c0033";
 var docsPath = "/docs/contract/encodeDeployData";
 function encodeDeployData(parameters) {
-	const { abi: abi$5, args, bytecode } = parameters;
+	const { abi: abi$7, args, bytecode } = parameters;
 	if (!args || args.length === 0) return bytecode;
-	const description = abi$5.find((x$2) => "type" in x$2 && x$2.type === "constructor");
+	const description = abi$7.find((x$2) => "type" in x$2 && x$2.type === "constructor");
 	if (!description) throw new AbiConstructorNotFoundError({ docsPath });
 	if (!("inputs" in description)) throw new AbiConstructorParamsNotFoundError({ docsPath });
 	if (!description.inputs || description.inputs.length === 0) throw new AbiConstructorParamsNotFoundError({ docsPath });
@@ -16682,10 +16682,10 @@ function serializeAccountStateOverride(parameters) {
 function serializeStateOverride(parameters) {
 	if (!parameters) return void 0;
 	const rpcStateOverride = {};
-	for (const { address: address$5, ...accountState } of parameters) {
-		if (!isAddress(address$5, { strict: false })) throw new InvalidAddressError({ address: address$5 });
-		if (rpcStateOverride[address$5]) throw new AccountStateConflictError({ address: address$5 });
-		rpcStateOverride[address$5] = serializeAccountStateOverride(accountState);
+	for (const { address: address$7, ...accountState } of parameters) {
+		if (!isAddress(address$7, { strict: false })) throw new InvalidAddressError({ address: address$7 });
+		if (rpcStateOverride[address$7]) throw new AccountStateConflictError({ address: address$7 });
+		rpcStateOverride[address$7] = serializeAccountStateOverride(accountState);
 	}
 	return rpcStateOverride;
 }
@@ -16899,7 +16899,7 @@ async function call(client, args) {
 	} catch (err) {
 		const data$1 = getRevertErrorData(err);
 		const { offchainLookup, offchainLookupSignature } = await __vitePreload(async () => {
-			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-BB5_RHD2.js");
+			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-CbgA1tLL.js");
 			return {
 				offchainLookup: offchainLookup$1,
 				offchainLookupSignature: offchainLookupSignature$1
@@ -17009,9 +17009,9 @@ function getRevertErrorData(err) {
 	return typeof error?.data === "object" ? error.data?.data : error.data;
 }
 async function readContract(client, parameters) {
-	const { abi: abi$5, address: address$5, args, functionName, ...rest } = parameters;
+	const { abi: abi$7, address: address$7, args, functionName, ...rest } = parameters;
 	const calldata = encodeFunctionData({
-		abi: abi$5,
+		abi: abi$7,
 		args,
 		functionName
 	});
@@ -17019,18 +17019,18 @@ async function readContract(client, parameters) {
 		const { data } = await getAction$1(client, call, "call")({
 			...rest,
 			data: calldata,
-			to: address$5
+			to: address$7
 		});
 		return decodeFunctionResult({
-			abi: abi$5,
+			abi: abi$7,
 			args,
 			functionName,
 			data: data || "0x"
 		});
 	} catch (error) {
 		throw getContractError(error, {
-			abi: abi$5,
-			address: address$5,
+			abi: abi$7,
+			address: address$7,
 			args,
 			docsPath: "/docs/contract/readContract",
 			functionName
@@ -17075,15 +17075,15 @@ async function getEnsAddress$1(client, parameters) {
 		};
 		const res = await getAction$1(client, readContract, "readContract")(readContractParameters);
 		if (res[0] === "0x") return null;
-		const address$5 = decodeFunctionResult({
+		const address$7 = decodeFunctionResult({
 			abi: addressResolverAbi,
 			args,
 			functionName: "addr",
 			data: res[0]
 		});
-		if (address$5 === "0x") return null;
-		if (trim$1(address$5) === "0x00") return null;
-		return address$5;
+		if (address$7 === "0x") return null;
+		if (trim$1(address$7) === "0x00") return null;
+		return address$7;
 	} catch (err) {
 		if (strict) throw err;
 		if (isNullUniversalResolverError(err)) return null;
@@ -17362,7 +17362,7 @@ async function getEnsAvatar$1(client, { blockNumber, blockTag, assetGatewayUrls,
 	}
 }
 async function getEnsName$1(client, parameters) {
-	const { address: address$5, blockNumber, blockTag, coinType = 60n, gatewayUrls, strict } = parameters;
+	const { address: address$7, blockNumber, blockTag, coinType = 60n, gatewayUrls, strict } = parameters;
 	const { chain } = client;
 	const universalResolverAddress = (() => {
 		if (parameters.universalResolverAddress) return parameters.universalResolverAddress;
@@ -17378,7 +17378,7 @@ async function getEnsName$1(client, parameters) {
 			address: universalResolverAddress,
 			abi: universalResolverReverseAbi,
 			args: [
-				address$5,
+				address$7,
 				coinType,
 				gatewayUrls ?? ["x-batch-gateway:true"]
 			],
@@ -17400,7 +17400,7 @@ function publicKeyToAddress(publicKey) {
 async function recoverPublicKey({ hash: hash$3, signature }) {
 	const hashHex = isHex(hash$3) ? hash$3 : toHex(hash$3);
 	const { secp256k1: secp256k1$1 } = await __vitePreload(async () => {
-		const { secp256k1: secp256k1$2 } = await import("./secp256k1-vq4dC2JZ.js");
+		const { secp256k1: secp256k1$2 } = await import("./secp256k1-GOSUj-hE.js");
 		return { secp256k1: secp256k1$2 };
 	}, __vite__mapDeps([0,1]));
 	return `0x${(() => {
@@ -17493,10 +17493,10 @@ function getSizeOfLength(length$1) {
 }
 function hashAuthorization(parameters) {
 	const { chainId, nonce, to: to$1 } = parameters;
-	const address$5 = parameters.contractAddress ?? parameters.address;
+	const address$7 = parameters.contractAddress ?? parameters.address;
 	const hash$3 = keccak256$1(concatHex(["0x05", toRlp([
 		chainId ? numberToHex(chainId) : "0x",
-		address$5,
+		address$7,
 		nonce ? numberToHex(nonce) : "0x"
 	])]));
 	if (to$1 === "bytes") return hexToBytes$1(hash$3);
@@ -17743,10 +17743,10 @@ async function internal_estimateFeesPerGas(client, args) {
 	}
 	return { gasPrice: request?.gasPrice ?? multiply(await getAction$1(client, getGasPrice, "getGasPrice")({})) };
 }
-async function getTransactionCount(client, { address: address$5, blockTag = "latest", blockNumber }) {
+async function getTransactionCount(client, { address: address$7, blockTag = "latest", blockNumber }) {
 	return hexToNumber$1(await client.request({
 		method: "eth_getTransactionCount",
-		params: [address$5, typeof blockNumber === "bigint" ? numberToHex(blockNumber) : blockTag]
+		params: [address$7, typeof blockNumber === "bigint" ? numberToHex(blockNumber) : blockTag]
 	}, { dedupe: Boolean(blockNumber) }));
 }
 function blobsToCommitments(parameters) {
@@ -18477,11 +18477,11 @@ async function estimateGas(client, args) {
 		});
 	}
 }
-async function getBalance$1(client, { address: address$5, blockNumber, blockTag = client.experimental_blockTag ?? "latest" }) {
+async function getBalance$1(client, { address: address$7, blockNumber, blockTag = client.experimental_blockTag ?? "latest" }) {
 	const blockNumberHex = typeof blockNumber === "bigint" ? numberToHex(blockNumber) : void 0;
 	const balance = await client.request({
 		method: "eth_getBalance",
-		params: [address$5, blockNumberHex || blockTag]
+		params: [address$7, blockNumberHex || blockTag]
 	});
 	return BigInt(balance);
 }
@@ -18558,8 +18558,8 @@ function assertTransactionEIP7702(transaction) {
 	const { authorizationList } = transaction;
 	if (authorizationList) for (const authorization of authorizationList) {
 		const { chainId } = authorization;
-		const address$5 = authorization.address;
-		if (!isAddress(address$5)) throw new InvalidAddressError({ address: address$5 });
+		const address$7 = authorization.address;
+		if (!isAddress(address$7)) throw new InvalidAddressError({ address: address$7 });
 		if (chainId < 0) throw new InvalidChainIdError({ chainId });
 	}
 	assertTransactionEIP1559(transaction);
@@ -18611,10 +18611,10 @@ function serializeAccessList(accessList) {
 	if (!accessList || accessList.length === 0) return [];
 	const serializedAccessList = [];
 	for (let i$3 = 0; i$3 < accessList.length; i$3++) {
-		const { address: address$5, storageKeys } = accessList[i$3];
+		const { address: address$7, storageKeys } = accessList[i$3];
 		for (let j$3 = 0; j$3 < storageKeys.length; j$3++) if (storageKeys[j$3].length - 2 !== 64) throw new InvalidStorageKeySizeError({ storageKey: storageKeys[j$3] });
-		if (!isAddress(address$5, { strict: false })) throw new InvalidAddressError({ address: address$5 });
-		serializedAccessList.push([address$5, storageKeys]);
+		if (!isAddress(address$7, { strict: false })) throw new InvalidAddressError({ address: address$7 });
+		serializedAccessList.push([address$7, storageKeys]);
 	}
 	return serializedAccessList;
 }
@@ -19629,9 +19629,9 @@ async function sendTransaction(client, parameters) {
 	}
 }
 function deployContract(walletClient, parameters) {
-	const { abi: abi$5, args, bytecode, ...request } = parameters;
+	const { abi: abi$7, args, bytecode, ...request } = parameters;
 	const calldata = encodeDeployData({
-		abi: abi$5,
+		abi: abi$7,
 		args,
 		bytecode
 	});
@@ -19643,7 +19643,7 @@ function deployContract(walletClient, parameters) {
 }
 async function getAddresses(client) {
 	if (client.account?.type === "local") return [client.account.address];
-	return (await client.request({ method: "eth_accounts" }, { dedupe: true })).map((address$5) => checksumAddress(address$5));
+	return (await client.request({ method: "eth_accounts" }, { dedupe: true })).map((address$7) => checksumAddress(address$7));
 }
 const fallbackMagicIdentifier = "0x5792579257925792579257925792579257925792579257925792579257925792";
 const fallbackTransactionErrorMagicIdentifier = numberToHex(0, { size: 32 });
@@ -19823,7 +19823,7 @@ async function requestAddresses(client) {
 	return (await client.request({ method: "eth_requestAccounts" }, {
 		dedupe: true,
 		retryCount: 0
-	})).map((address$5) => getAddress$1(address$5));
+	})).map((address$7) => getAddress$1(address$7));
 }
 async function requestPermissions(client, permissions) {
 	return client.request({
@@ -20151,25 +20151,25 @@ async function writeContract(client, parameters) {
 }
 (function(writeContract$1) {
 	async function internal$2(client, actionFn, name, parameters) {
-		const { abi: abi$5, account: account_ = client.account, address: address$5, args, dataSuffix, functionName, ...request } = parameters;
+		const { abi: abi$7, account: account_ = client.account, address: address$7, args, dataSuffix, functionName, ...request } = parameters;
 		if (typeof account_ === "undefined") throw new AccountNotFoundError({ docsPath: "/docs/contract/writeContract" });
 		const account = account_ ? parseAccount(account_) : null;
 		const data = encodeFunctionData({
-			abi: abi$5,
+			abi: abi$7,
 			args,
 			functionName
 		});
 		try {
 			return await getAction$1(client, actionFn, name)({
 				data: `${data}${dataSuffix ? dataSuffix.replace("0x", "") : ""}`,
-				to: address$5,
+				to: address$7,
 				account,
 				...request
 			});
 		} catch (error) {
 			throw getContractError(error, {
-				abi: abi$5,
-				address: address$5,
+				abi: abi$7,
+				address: address$7,
 				args,
 				docsPath: "/docs/contract/writeContract",
 				functionName,
@@ -20296,8 +20296,8 @@ var ConnectorNotConnectedError = class extends BaseError$2 {
 	}
 };
 var ConnectorAccountNotFoundError = class extends BaseError$2 {
-	constructor({ address: address$5, connector }) {
-		super(`Account "${address$5}" not found for connector "${connector.name}".`);
+	constructor({ address: address$7, connector }) {
+		super(`Account "${address$7}" not found for connector "${connector.name}".`);
 		Object.defineProperty(this, "name", {
 			enumerable: true,
 			configurable: true,
@@ -20360,8 +20360,8 @@ async function connect$1(config, parameters) {
 			status: "connected"
 		}));
 		return {
-			accounts: rest.withCapabilities ? data.accounts.map((address$5) => typeof address$5 === "object" ? address$5 : {
-				address: address$5,
+			accounts: rest.withCapabilities ? data.accounts.map((address$7) => typeof address$7 === "object" ? address$7 : {
+				address: address$7,
 				capabilities: {}
 			}) : data.accounts,
 			chainId: data.chainId
@@ -20640,13 +20640,13 @@ async function disconnect$1(config, parameters = {}) {
 	}
 }
 async function getBalance(config, parameters) {
-	const { address: address$5, blockNumber, blockTag, chainId } = parameters;
+	const { address: address$7, blockNumber, blockTag, chainId } = parameters;
 	const client = config.getClient({ chainId });
 	const value = await getAction(client, getBalance$1, "getBalance")(blockNumber ? {
-		address: address$5,
+		address: address$7,
 		blockNumber
 	} : {
-		address: address$5,
+		address: address$7,
 		blockTag
 	});
 	const chain = config.chains.find((x$2) => x$2.id === chainId) ?? client.chain;
@@ -20700,12 +20700,12 @@ function getConnection(config) {
 	const uid$2 = config.state.current;
 	const connection = config.state.connections.get(uid$2);
 	const addresses = connection?.accounts;
-	const address$5 = addresses?.[0];
+	const address$7 = addresses?.[0];
 	const chain = config.chains.find((chain$1) => chain$1.id === connection?.chainId);
 	const status = config.state.status;
 	switch (status) {
 		case "connected": return {
-			address: address$5,
+			address: address$7,
 			addresses,
 			chain,
 			chainId: connection?.chainId,
@@ -20717,19 +20717,19 @@ function getConnection(config) {
 			status
 		};
 		case "reconnecting": return {
-			address: address$5,
+			address: address$7,
 			addresses,
 			chain,
 			chainId: connection?.chainId,
 			connector: connection?.connector,
-			isConnected: !!address$5,
+			isConnected: !!address$7,
 			isConnecting: false,
 			isDisconnected: false,
 			isReconnecting: true,
 			status
 		};
 		case "connecting": return {
-			address: address$5,
+			address: address$7,
 			addresses,
 			chain,
 			chainId: connection?.chainId,
@@ -21029,8 +21029,8 @@ function injected$1(parameters = {}) {
 				if (shimDisconnect) await config.storage?.removeItem(`${this.id}.disconnected`);
 				if (!parameters.target) await config.storage?.setItem("injected.connected", true);
 				return {
-					accounts: withCapabilities ? accounts.map((address$5) => ({
-						address: address$5,
+					accounts: withCapabilities ? accounts.map((address$7) => ({
+						address: address$7,
 						capabilities: {}
 					})) : accounts,
 					chainId: currentChainId
@@ -22261,11 +22261,11 @@ function disconnectMutationOptions(config) {
 function getBalanceQueryOptions(config, options$2 = {}) {
 	return {
 		async queryFn({ queryKey }) {
-			const { address: address$5, scopeKey: _$1, ...parameters } = queryKey[1];
-			if (!address$5) throw new Error("address is required");
+			const { address: address$7, scopeKey: _$1, ...parameters } = queryKey[1];
+			if (!address$7) throw new Error("address is required");
 			return await getBalance(config, {
 				...parameters,
-				address: address$5
+				address: address$7
 			}) ?? null;
 		},
 		queryKey: getBalanceQueryKey(options$2)
@@ -22343,11 +22343,11 @@ function getEnsAvatarQueryKey(options$2 = {}) {
 function getEnsNameQueryOptions(config, options$2 = {}) {
 	return {
 		async queryFn({ queryKey }) {
-			const { address: address$5, scopeKey: _$1, ...parameters } = queryKey[1];
-			if (!address$5) throw new Error("address is required");
+			const { address: address$7, scopeKey: _$1, ...parameters } = queryKey[1];
+			if (!address$7) throw new Error("address is required");
 			return getEnsName(config, {
 				...parameters,
-				address: address$5
+				address: address$7
 			});
 		},
 		queryKey: getEnsNameQueryKey(options$2)
@@ -22403,14 +22403,14 @@ function useChainId(parameters = {}) {
 	return (0, import_react.useSyncExternalStore)((onChange) => watchChainId(config, { onChange }), () => getChainId(config), () => getChainId(config));
 }
 function useBalance(parameters = {}) {
-	const { address: address$5, query = {} } = parameters;
+	const { address: address$7, query = {} } = parameters;
 	const config = useConfig(parameters);
 	const chainId = useChainId({ config });
 	const options$2 = getBalanceQueryOptions(config, {
 		...parameters,
 		chainId: parameters.chainId ?? chainId
 	});
-	const enabled = Boolean(address$5 && (query.enabled ?? true));
+	const enabled = Boolean(address$7 && (query.enabled ?? true));
 	return useQuery$1({
 		...query,
 		...options$2,
@@ -22487,7 +22487,7 @@ var require_use_sync_external_store_shim_production$1 = /* @__PURE__ */ __common
 	function is$2(x$2, y$3) {
 		return x$2 === y$3 && (0 !== x$2 || 1 / x$2 === 1 / y$3) || x$2 !== x$2 && y$3 !== y$3;
 	}
-	var objectIs$2 = "function" === typeof Object.is ? Object.is : is$2, useState$21 = React$9.useState, useEffect$29 = React$9.useEffect, useLayoutEffect$6 = React$9.useLayoutEffect, useDebugValue$3 = React$9.useDebugValue;
+	var objectIs$2 = "function" === typeof Object.is ? Object.is : is$2, useState$21 = React$9.useState, useEffect$32 = React$9.useEffect, useLayoutEffect$6 = React$9.useLayoutEffect, useDebugValue$3 = React$9.useDebugValue;
 	function useSyncExternalStore$2$6(subscribe$1, getSnapshot) {
 		var value = getSnapshot(), _useState = useState$21({ inst: {
 			value,
@@ -22502,7 +22502,7 @@ var require_use_sync_external_store_shim_production$1 = /* @__PURE__ */ __common
 			value,
 			getSnapshot
 		]);
-		useEffect$29(function() {
+		useEffect$32(function() {
 			checkIfSnapshotChanged$1(inst) && forceUpdate({ inst });
 			return subscribe$1(function() {
 				checkIfSnapshotChanged$1(inst) && forceUpdate({ inst });
@@ -22544,9 +22544,9 @@ var require_with_selector_production = /* @__PURE__ */ __commonJSMin(((exports) 
 	function is$1(x$2, y$3) {
 		return x$2 === y$3 && (0 !== x$2 || 1 / x$2 === 1 / y$3) || x$2 !== x$2 && y$3 !== y$3;
 	}
-	var objectIs$1 = "function" === typeof Object.is ? Object.is : is$1, useSyncExternalStore$6 = shim$1.useSyncExternalStore, useRef$18 = React$8.useRef, useEffect$28 = React$8.useEffect, useMemo$14 = React$8.useMemo, useDebugValue$2 = React$8.useDebugValue;
+	var objectIs$1 = "function" === typeof Object.is ? Object.is : is$1, useSyncExternalStore$6 = shim$1.useSyncExternalStore, useRef$19 = React$8.useRef, useEffect$31 = React$8.useEffect, useMemo$14 = React$8.useMemo, useDebugValue$2 = React$8.useDebugValue;
 	exports.useSyncExternalStoreWithSelector = function(subscribe$1, getSnapshot, getServerSnapshot, selector, isEqual$1) {
-		var instRef = useRef$18(null);
+		var instRef = useRef$19(null);
 		if (null === instRef.current) {
 			var inst = {
 				hasValue: !1,
@@ -22586,7 +22586,7 @@ var require_with_selector_production = /* @__PURE__ */ __commonJSMin(((exports) 
 			isEqual$1
 		]);
 		var value = useSyncExternalStore$6(subscribe$1, instRef[0], instRef[1]);
-		useEffect$28(function() {
+		useEffect$31(function() {
 			inst.hasValue = !0;
 			inst.value = value;
 		}, [value]);
@@ -22665,10 +22665,10 @@ function useConnectionEffect(parameters = {}) {
 	(0, import_react.useEffect)(() => {
 		return watchConnection(config, { onChange(data, prevData) {
 			if ((prevData.status === "reconnecting" || prevData.status === "connecting" && prevData.address === void 0) && data.status === "connected") {
-				const { address: address$5, addresses, chain, chainId, connector } = data;
+				const { address: address$7, addresses, chain, chainId, connector } = data;
 				const isReconnected = prevData.status === "reconnecting" || prevData.status === void 0;
 				onConnect?.({
-					address: address$5,
+					address: address$7,
 					addresses,
 					chain,
 					chainId,
@@ -22691,7 +22691,7 @@ function useConnectorClient(parameters = {}) {
 	const { query = {}, ...rest } = parameters;
 	const config = useConfig(rest);
 	const queryClient$1 = useQueryClient();
-	const { address: address$5, connector, status } = useConnection({ config });
+	const { address: address$7, connector, status } = useConnection({ config });
 	const chainId = useChainId({ config });
 	const activeConnector = parameters.connector ?? connector;
 	const { queryKey, ...options$2 } = getConnectorClientQueryOptions(config, {
@@ -22700,17 +22700,17 @@ function useConnectorClient(parameters = {}) {
 		connector: activeConnector
 	});
 	const enabled = Boolean((status === "connected" || status === "reconnecting" && activeConnector?.getProvider) && (query.enabled ?? true));
-	const addressRef = (0, import_react.useRef)(address$5);
+	const addressRef = (0, import_react.useRef)(address$7);
 	(0, import_react.useEffect)(() => {
 		const previousAddress = addressRef.current;
-		if (!address$5 && previousAddress) {
+		if (!address$7 && previousAddress) {
 			queryClient$1.removeQueries({ queryKey });
 			addressRef.current = void 0;
-		} else if (address$5 !== previousAddress) {
+		} else if (address$7 !== previousAddress) {
 			queryClient$1.invalidateQueries({ queryKey });
-			addressRef.current = address$5;
+			addressRef.current = address$7;
 		}
-	}, [address$5, queryClient$1]);
+	}, [address$7, queryClient$1]);
 	return useQuery$1({
 		...query,
 		...options$2,
@@ -22764,14 +22764,14 @@ function useEnsAvatar(parameters = {}) {
 	});
 }
 function useEnsName(parameters = {}) {
-	const { address: address$5, query = {} } = parameters;
+	const { address: address$7, query = {} } = parameters;
 	const config = useConfig(parameters);
 	const chainId = useChainId({ config });
 	const options$2 = getEnsNameQueryOptions(config, {
 		...parameters,
 		chainId: parameters.chainId ?? chainId
 	});
-	const enabled = Boolean(address$5 && (query.enabled ?? true));
+	const enabled = Boolean(address$7 && (query.enabled ?? true));
 	return useQuery$1({
 		...query,
 		...options$2,
@@ -22798,7 +22798,7 @@ function useWalletClient(parameters = {}) {
 	const { query = {}, ...rest } = parameters;
 	const config = useConfig(rest);
 	const queryClient$1 = useQueryClient();
-	const { address: address$5, connector, status } = useConnection({ config });
+	const { address: address$7, connector, status } = useConnection({ config });
 	const chainId = useChainId({ config });
 	const activeConnector = parameters.connector ?? connector;
 	const { queryKey, ...options$2 } = getWalletClientQueryOptions(config, {
@@ -22807,17 +22807,17 @@ function useWalletClient(parameters = {}) {
 		connector: parameters.connector ?? connector
 	});
 	const enabled = Boolean((status === "connected" || status === "reconnecting" && activeConnector?.getProvider) && (query.enabled ?? true));
-	const addressRef = (0, import_react.useRef)(address$5);
+	const addressRef = (0, import_react.useRef)(address$7);
 	(0, import_react.useEffect)(() => {
 		const previousAddress = addressRef.current;
-		if (!address$5 && previousAddress) {
+		if (!address$7 && previousAddress) {
 			queryClient$1.removeQueries({ queryKey });
 			addressRef.current = void 0;
-		} else if (address$5 !== previousAddress) {
+		} else if (address$7 !== previousAddress) {
 			queryClient$1.invalidateQueries({ queryKey });
-			addressRef.current = address$5;
+			addressRef.current = address$7;
 		}
-	}, [address$5, queryClient$1]);
+	}, [address$7, queryClient$1]);
 	return useQuery$1({
 		...query,
 		...options$2,
@@ -23036,8 +23036,8 @@ function coinbaseWallet(parameters = {}) {
 					return { id: currentChainId };
 				}))?.id ?? currentChainId;
 				return {
-					accounts: withCapabilities ? accounts.map((address$5) => ({
-						address: address$5,
+					accounts: withCapabilities ? accounts.map((address$7) => ({
+						address: address$7,
 						capabilities: {}
 					})) : accounts,
 					chainId: currentChainId
@@ -23178,8 +23178,8 @@ function safe(parameters = {}) {
 			}
 			if (shimDisconnect) await config.storage?.removeItem("safe.disconnected");
 			return {
-				accounts: withCapabilities ? accounts.map((address$5) => ({
-					address: address$5,
+				accounts: withCapabilities ? accounts.map((address$7) => ({
+					address: address$7,
 					capabilities: {}
 				})) : accounts,
 				chainId
@@ -23203,14 +23203,14 @@ function safe(parameters = {}) {
 			if (!(typeof window !== "undefined" && window?.parent !== window)) return;
 			if (!provider_) {
 				const { default: SDK } = await __vitePreload(async () => {
-					const { default: SDK$1 } = await import("./esm-CONpLD5F.js");
+					const { default: SDK$1 } = await import("./esm-DX-uq8Pl.js");
 					return { default: SDK$1 };
 				}, []);
 				const sdk = new SDK(parameters);
 				const safe$1 = await withTimeout(() => sdk.safe.getInfo(), { timeout: parameters.unstable_getInfoTimeout ?? 10 });
 				if (!safe$1) throw new Error("Could not load Safe information");
 				provider_ = new (await ((async () => {
-					const Provider = await __vitePreload(() => import("./dist-dyzn6EDh.js").then(__toDynamicImportESM(1)), []);
+					const Provider = await __vitePreload(() => import("./dist-erf3FTVv.js").then(__toDynamicImportESM(1)), []);
 					if (typeof Provider.SafeAppProvider !== "function" && typeof Provider.default.SafeAppProvider === "function") return Provider.default.SafeAppProvider;
 					return Provider.SafeAppProvider;
 				})()))(safe$1, sdk);
@@ -23321,8 +23321,8 @@ function walletConnect(parameters) {
 					provider.on("session_delete", sessionDelete);
 				}
 				return {
-					accounts: withCapabilities ? accounts.map((address$5) => ({
-						address: address$5,
+					accounts: withCapabilities ? accounts.map((address$7) => ({
+						address: address$7,
 						capabilities: {}
 					})) : accounts,
 					chainId: currentChainId
@@ -23370,7 +23370,7 @@ function walletConnect(parameters) {
 				const optionalChains = config.chains.map((x$2) => x$2.id);
 				if (!optionalChains.length) return;
 				const { EthereumProvider: EthereumProvider$1 } = await __vitePreload(async () => {
-					const { EthereumProvider: EthereumProvider$2 } = await import("./dist-CGP33oTn.js");
+					const { EthereumProvider: EthereumProvider$2 } = await import("./dist-ickhAPV_.js");
 					return { EthereumProvider: EthereumProvider$2 };
 				}, __vite__mapDeps([2,3,1]));
 				return await EthereumProvider$1.init({
@@ -39317,10 +39317,10 @@ var Logos = {
 	Talisman
 };
 var truncateRegex = /^(0x[a-zA-Z0-9]{4})[a-zA-Z0-9]+([a-zA-Z0-9]{4})$/;
-var truncateEthAddress = (address$5, separator = "••••") => {
-	if (!address$5) return "";
-	const match$1 = address$5.match(truncateRegex);
-	if (!match$1) return address$5;
+var truncateEthAddress = (address$7, separator = "••••") => {
+	if (!address$7) return "";
+	const match$1 = address$7.match(truncateRegex);
+	if (!match$1) return address$7;
 	return `${match$1[1]}${separator}${match$1[2]}`;
 };
 var truncateENSAddress = (ensName, maxLength) => {
@@ -41785,19 +41785,19 @@ var useSIWE = ({ onSignIn, onSignOut } = {}) => {
 		signOut: () => Promise.reject()
 	};
 	const { session, nonce, status, signOut, signIn, resetStatus } = siweContextValue;
-	const { address: address$5, chainId } = session.data || {};
-	const currentStatus = address$5 ? StatusState.SUCCESS : session.isLoading || nonce.isLoading ? StatusState.LOADING : status;
+	const { address: address$7, chainId } = session.data || {};
+	const currentStatus = address$7 ? StatusState.SUCCESS : session.isLoading || nonce.isLoading ? StatusState.LOADING : status;
 	const isLoading = currentStatus === StatusState.LOADING;
 	const isSuccess = currentStatus === StatusState.SUCCESS;
 	const isRejected = currentStatus === StatusState.REJECTED;
 	const isError$1 = currentStatus === StatusState.ERROR;
-	const isReady = !address$5 || nonce.isFetching || isLoading || isSuccess;
+	const isReady = !address$7 || nonce.isFetching || isLoading || isSuccess;
 	const reset = () => resetStatus();
-	const isSignedIn = !!address$5;
+	const isSignedIn = !!address$7;
 	return {
 		isSignedIn,
 		data: isSignedIn ? {
-			address: address$5,
+			address: address$7,
 			chainId
 		} : void 0,
 		status: currentStatus,
@@ -49634,8 +49634,8 @@ var LoadingBalance = styled(motion.div)`
     animation: ${PlaceholderKeyframes$1} 1000ms linear infinite both;
   }
 `;
-function addressToNumber(address$5) {
-	return address$5.split("").map((l$2) => l$2.charCodeAt(0)).reduce((a$2, b$4) => a$2 + b$4) % 100 / 100;
+function addressToNumber(address$7) {
+	return address$7.split("").map((l$2) => l$2.charCodeAt(0)).reduce((a$2, b$4) => a$2 + b$4) % 100 / 100;
 }
 var EnsAvatar = styled(motion.div)`
   will-change: transform; // Needed for Safari
@@ -49693,7 +49693,7 @@ var ensFallbackConfig = createConfig({
 function useEnsFallbackConfig() {
 	return !useChainIsSupported(1) ? ensFallbackConfig : void 0;
 }
-var Avatar = ({ address: address$5, name, size: size$4 = 96, radius = 96 }) => {
+var Avatar = ({ address: address$7, name, size: size$4 = 96, radius = 96 }) => {
 	var _a, _b, _c;
 	const isMounted = useIsMounted();
 	const context = useContext$8();
@@ -49707,7 +49707,7 @@ var Avatar = ({ address: address$5, name, size: size$4 = 96, radius = 96 }) => {
 	});
 	const { data: ensName } = useEnsName({
 		chainId: 1,
-		address: (_a = address$5 !== null && address$5 !== void 0 ? address$5 : ensAddress) !== null && _a !== void 0 ? _a : void 0,
+		address: (_a = address$7 !== null && address$7 !== void 0 ? address$7 : ensAddress) !== null && _a !== void 0 ? _a : void 0,
 		config: ensFallbackConfig$1
 	});
 	const { data: ensAvatar } = useEnsAvatar({
@@ -49716,7 +49716,7 @@ var Avatar = ({ address: address$5, name, size: size$4 = 96, radius = 96 }) => {
 		config: ensFallbackConfig$1
 	});
 	const ens = {
-		address: ensAddress !== null && ensAddress !== void 0 ? ensAddress : address$5,
+		address: ensAddress !== null && ensAddress !== void 0 ? ensAddress : address$7,
 		name: ensName !== null && ensName !== void 0 ? ensName : name,
 		avatar: ensAvatar !== null && ensAvatar !== void 0 ? ensAvatar : void 0
 	};
@@ -49736,7 +49736,7 @@ var Avatar = ({ address: address$5, name, size: size$4 = 96, radius = 96 }) => {
 			overflow: "hidden"
 		},
 		children: (_c = context.options) === null || _c === void 0 ? void 0 : _c.customAvatar({
-			address: address$5 !== null && address$5 !== void 0 ? address$5 : ens === null || ens === void 0 ? void 0 : ens.address,
+			address: address$7 !== null && address$7 !== void 0 ? address$7 : ens === null || ens === void 0 ? void 0 : ens.address,
 			ensName: name !== null && name !== void 0 ? name : ens === null || ens === void 0 ? void 0 : ens.name,
 			ensImage: ens === null || ens === void 0 ? void 0 : ens.avatar,
 			size: size$4,
@@ -51797,15 +51797,15 @@ var Profile = ({ closeModal }) => {
 	const locales = useLocales();
 	const { reset } = useConnect();
 	const { disconnect: disconnect$2 } = useDisconnect();
-	const { address: address$5, isConnected: isConnected$1, connector, chain } = useConnection();
+	const { address: address$7, isConnected: isConnected$1, connector, chain } = useConnection();
 	const isFamilyConnector = isFamilyAccountsConnector(connector === null || connector === void 0 ? void 0 : connector.id);
 	const { data: connectorClient } = useConnectorClient({ connector });
 	const { data: ensName } = useEnsName({
 		chainId: 1,
-		address: address$5,
+		address: address$7,
 		config: useEnsFallbackConfig()
 	});
-	const { data: balance } = useBalance({ address: address$5 });
+	const { data: balance } = useBalance({ address: address$7 });
 	const [shouldDisconnect, setShouldDisconnect] = (0, import_react.useState)(false);
 	(0, import_react.useEffect)(() => {
 		if (!isConnected$1) context.setOpen(false);
@@ -51835,10 +51835,10 @@ var Profile = ({ closeModal }) => {
 				gap: 6
 			},
 			children: [
-				(0, import_jsx_runtime.jsx)(AvatarContainer, { children: (0, import_jsx_runtime.jsxs)(AvatarInner, { children: [(0, import_jsx_runtime.jsx)(ChainSelectorContainer, { children: (0, import_jsx_runtime.jsx)(ChainSelector, {}) }), (0, import_jsx_runtime.jsx)(Avatar, { address: address$5 })] }) }),
+				(0, import_jsx_runtime.jsx)(AvatarContainer, { children: (0, import_jsx_runtime.jsxs)(AvatarInner, { children: [(0, import_jsx_runtime.jsx)(ChainSelectorContainer, { children: (0, import_jsx_runtime.jsx)(ChainSelector, {}) }), (0, import_jsx_runtime.jsx)(Avatar, { address: address$7 })] }) }),
 				(0, import_jsx_runtime.jsx)(ModalH1, { children: (0, import_jsx_runtime.jsx)(CopyToClipboard, {
-					string: address$5,
-					children: ensName !== null && ensName !== void 0 ? ensName : truncateEthAddress(address$5, separator)
+					string: address$7,
+					children: ensName !== null && ensName !== void 0 ? ensName : truncateEthAddress(address$7, separator)
 				}) }),
 				((_c = context === null || context === void 0 ? void 0 : context.options) === null || _c === void 0 ? void 0 : _c.hideBalance) ? null : (0, import_jsx_runtime.jsx)(ModalBody, { children: (0, import_jsx_runtime.jsx)(BalanceContainer, { children: (0, import_jsx_runtime.jsxs)(AnimatePresence, {
 					exitBeforeEnter: true,
@@ -52253,7 +52253,7 @@ var SignInWithEthereum = () => {
 	(0, import_react.useEffect)(() => {
 		if (!isSignedIn) setStatus("signedOut");
 	}, [isSignedIn]);
-	const { address: address$5 } = useConnection();
+	const { address: address$7 } = useConnection();
 	const getFavicons = () => {
 		const favicons$1 = {
 			svg: null,
@@ -52341,7 +52341,7 @@ var SignInWithEthereum = () => {
 							},
 							transition,
 							children: (0, import_jsx_runtime.jsx)(LogoContainer, { children: (0, import_jsx_runtime.jsx)(Avatar, {
-								address: address$5,
+								address: address$7,
 								size: 64
 							}) })
 						}, "avatarImage"),
@@ -52511,9 +52511,9 @@ function useThemeFont(theme) {
 }
 var useConnectCallback = ({ onConnect, onDisconnect }) => {
 	useConnectionEffect({
-		onConnect: ({ address: address$5, connector, isReconnected }) => {
+		onConnect: ({ address: address$7, connector, isReconnected }) => {
 			if (!isReconnected) onConnect === null || onConnect === void 0 || onConnect({
-				address: address$5,
+				address: address$7,
 				connectorId: connector === null || connector === void 0 ? void 0 : connector.id
 			});
 		},
@@ -52957,13 +52957,13 @@ var PulseContainer = styled.div`
 var Balance = ({ hideIcon, hideSymbol }) => {
 	const isMounted = useIsMounted();
 	const [isInitial, setIsInitial] = (0, import_react.useState)(true);
-	const { address: address$5, chain } = useConnection();
+	const { address: address$7, chain } = useConnection();
 	useChains();
 	const isChainSupported = useChainIsSupported(chain === null || chain === void 0 ? void 0 : chain.id);
 	const queryClient$1 = useQueryClient();
 	const { data: blockNumber } = useBlockNumber({ watch: true });
 	const { data: balance, queryKey } = useBalance({
-		address: address$5,
+		address: address$7,
 		chainId: chain === null || chain === void 0 ? void 0 : chain.id
 	});
 	(0, import_react.useEffect)(() => {
@@ -53007,7 +53007,7 @@ var Balance = ({ hideIcon, hideSymbol }) => {
 					],
 					delay: .4
 				},
-				children: !address$5 || !isMounted || (balance === null || balance === void 0 ? void 0 : balance.formatted) === void 0 ? (0, import_jsx_runtime.jsxs)(Container$1, { children: [!hideIcon && (0, import_jsx_runtime.jsx)(Chain$1, { id: chain === null || chain === void 0 ? void 0 : chain.id }), (0, import_jsx_runtime.jsx)("span", {
+				children: !address$7 || !isMounted || (balance === null || balance === void 0 ? void 0 : balance.formatted) === void 0 ? (0, import_jsx_runtime.jsxs)(Container$1, { children: [!hideIcon && (0, import_jsx_runtime.jsx)(Chain$1, { id: chain === null || chain === void 0 ? void 0 : chain.id }), (0, import_jsx_runtime.jsx)("span", {
 					style: { minWidth: 32 },
 					children: (0, import_jsx_runtime.jsxs)(PulseContainer, { children: [
 						(0, import_jsx_runtime.jsx)("span", { style: { animationDelay: "0ms" } }),
@@ -53133,11 +53133,11 @@ var ConnectButtonRenderer = ({ children }) => {
 	const isMounted = useIsMounted();
 	const context = useContext$8();
 	const { open, setOpen } = useModal();
-	const { address: address$5, isConnected: isConnected$1, chain } = useConnection();
+	const { address: address$7, isConnected: isConnected$1, chain } = useConnection();
 	const isChainSupported = useChainIsSupported(chain === null || chain === void 0 ? void 0 : chain.id);
 	const { data: ensName } = useEnsName({
 		chainId: 1,
-		address: address$5,
+		address: address$7,
 		config: useEnsFallbackConfig()
 	});
 	function hide$2() {
@@ -53154,10 +53154,10 @@ var ConnectButtonRenderer = ({ children }) => {
 		hide: hide$2,
 		chain,
 		unsupported: !isChainSupported,
-		isConnected: !!address$5,
+		isConnected: !!address$7,
 		isConnecting: open,
-		address: address$5,
-		truncatedAddress: address$5 ? truncateEthAddress(address$5) : void 0,
+		address: address$7,
+		truncatedAddress: address$7 ? truncateEthAddress(address$7) : void 0,
 		ensName: ensName === null || ensName === void 0 ? void 0 : ensName.toString()
 	}) });
 };
@@ -53167,17 +53167,17 @@ function ConnectKitButtonInner({ label, showAvatar, separator }) {
 	const locales = useLocales({});
 	const context = useContext$8();
 	const { isSignedIn } = useSIWE();
-	const { address: address$5, chain } = useConnection();
+	const { address: address$7, chain } = useConnection();
 	const isChainSupported = useChainIsSupported(chain === null || chain === void 0 ? void 0 : chain.id);
 	const { data: ensName } = useEnsName({
 		chainId: 1,
-		address: address$5,
+		address: address$7,
 		config: useEnsFallbackConfig()
 	});
 	const defaultLabel = locales.connectWallet;
 	return (0, import_jsx_runtime.jsx)(AnimatePresence, {
 		initial: false,
-		children: address$5 ? (0, import_jsx_runtime.jsxs)(TextContainer, {
+		children: address$7 ? (0, import_jsx_runtime.jsxs)(TextContainer, {
 			initial: "initial",
 			animate: "animate",
 			exit: "exit",
@@ -53214,7 +53214,7 @@ function ConnectKitButtonInner({ label, showAvatar, separator }) {
 				})]
 			}), (0, import_jsx_runtime.jsx)(Avatar, {
 				size: 24,
-				address: address$5
+				address: address$7
 			})] }), (0, import_jsx_runtime.jsx)("div", {
 				style: {
 					position: "relative",
@@ -53235,7 +53235,7 @@ function ConnectKitButtonInner({ label, showAvatar, separator }) {
 						exit: "exit",
 						variants: textVariants,
 						style: { position: ensName ? "absolute" : "relative" },
-						children: [truncateEthAddress(address$5, separator), " "]
+						children: [truncateEthAddress(address$7, separator), " "]
 					}, "ckTruncatedAddress")
 				})
 			})]
@@ -53253,7 +53253,7 @@ function ConnectKitButton({ label, showBalance = false, showAvatar = true, theme
 	var _a;
 	const isMounted = useIsMounted();
 	const context = useContext$8();
-	const { isConnected: isConnected$1, address: address$5, chain } = useConnection();
+	const { isConnected: isConnected$1, address: address$7, chain } = useConnection();
 	const chainIsSupported = useChainIsSupported(chain === null || chain === void 0 ? void 0 : chain.id);
 	function show$1() {
 		context.setOpen(true);
@@ -53266,7 +53266,7 @@ function ConnectKitButton({ label, showBalance = false, showAvatar = true, theme
 	].includes((_a = theme !== null && theme !== void 0 ? theme : context.theme) !== null && _a !== void 0 ? _a : "") ? "...." : void 0;
 	if (!isMounted) return null;
 	const shouldShowBalance = showBalance && chainIsSupported;
-	const willShowBalance = address$5 && shouldShowBalance;
+	const willShowBalance = address$7 && shouldShowBalance;
 	return (0, import_jsx_runtime.jsx)(ResetContainer, {
 		"$useTheme": theme !== null && theme !== void 0 ? theme : context.theme,
 		"$useMode": mode$1 !== null && mode$1 !== void 0 ? mode$1 : context.mode,
@@ -53331,7 +53331,7 @@ function ConnectKitButton({ label, showBalance = false, showAvatar = true, theme
 				theme: theme !== null && theme !== void 0 ? theme : context.theme,
 				mode: mode$1 !== null && mode$1 !== void 0 ? mode$1 : context.mode,
 				customTheme: customTheme !== null && customTheme !== void 0 ? customTheme : context.customTheme,
-				style: shouldShowBalance && showBalance && address$5 && (theme === "retro" || context.theme === "retro") ? {
+				style: shouldShowBalance && showBalance && address$7 && (theme === "retro" || context.theme === "retro") ? {
 					boxShadow: "var(--ck-connectbutton-balance-connectbutton-box-shadow)",
 					borderRadius: "var(--ck-connectbutton-balance-connectbutton-border-radius)",
 					overflow: "hidden"
@@ -53424,7 +53424,7 @@ const CHAINS_METADATA = { [ARBITRUM]: {
 const Colors = {
 	GREEN: "#09AF8E",
 	RED: "#D8563C",
-	ORANGE: "#FE9673",
+	yellow: "#FE9673",
 	BLUE: "#5069DD",
 	VIOLET: "#8E3ECD",
 	VIOLET_DIM: "#3C1B68",
@@ -59604,9 +59604,9 @@ var SigningKey = class SigningKey {
 };
 var BN_0$6 = BigInt(0);
 var BN_36 = BigInt(36);
-function getChecksumAddress(address$5) {
-	address$5 = address$5.toLowerCase();
-	const chars = address$5.substring(2).split("");
+function getChecksumAddress(address$7) {
+	address$7 = address$7.toLowerCase();
+	const chars = address$7.substring(2).split("");
 	const expanded = new Uint8Array(40);
 	for (let i$3 = 0; i$3 < 40; i$3++) expanded[i$3] = chars[i$3].charCodeAt(0);
 	const hashed = getBytes(keccak256(expanded));
@@ -59620,10 +59620,10 @@ var ibanLookup = {};
 for (let i$3 = 0; i$3 < 10; i$3++) ibanLookup[String(i$3)] = String(i$3);
 for (let i$3 = 0; i$3 < 26; i$3++) ibanLookup[String.fromCharCode(65 + i$3)] = String(10 + i$3);
 var safeDigits = 15;
-function ibanChecksum(address$5) {
-	address$5 = address$5.toUpperCase();
-	address$5 = address$5.substring(4) + address$5.substring(0, 2) + "00";
-	let expanded = address$5.split("").map((c$3) => {
+function ibanChecksum(address$7) {
+	address$7 = address$7.toUpperCase();
+	address$7 = address$7.substring(4) + address$7.substring(0, 2) + "00";
+	let expanded = address$7.split("").map((c$3) => {
 		return ibanLookup[c$3];
 	}).join("");
 	while (expanded.length >= safeDigits) {
@@ -59648,21 +59648,21 @@ function fromBase36(value) {
 	for (let i$3 = 0; i$3 < value.length; i$3++) result = result * BN_36 + Base36[value[i$3]];
 	return result;
 }
-function getAddress(address$5) {
-	assertArgument(typeof address$5 === "string", "invalid address", "address", address$5);
-	if (address$5.match(/^(0x)?[0-9a-fA-F]{40}$/)) {
-		if (!address$5.startsWith("0x")) address$5 = "0x" + address$5;
-		const result = getChecksumAddress(address$5);
-		assertArgument(!address$5.match(/([A-F].*[a-f])|([a-f].*[A-F])/) || result === address$5, "bad address checksum", "address", address$5);
+function getAddress(address$7) {
+	assertArgument(typeof address$7 === "string", "invalid address", "address", address$7);
+	if (address$7.match(/^(0x)?[0-9a-fA-F]{40}$/)) {
+		if (!address$7.startsWith("0x")) address$7 = "0x" + address$7;
+		const result = getChecksumAddress(address$7);
+		assertArgument(!address$7.match(/([A-F].*[a-f])|([a-f].*[A-F])/) || result === address$7, "bad address checksum", "address", address$7);
 		return result;
 	}
-	if (address$5.match(/^XE[0-9]{2}[0-9A-Za-z]{30,31}$/)) {
-		assertArgument(address$5.substring(2, 4) === ibanChecksum(address$5), "bad icap checksum", "address", address$5);
-		let result = fromBase36(address$5.substring(4)).toString(16);
+	if (address$7.match(/^XE[0-9]{2}[0-9A-Za-z]{30,31}$/)) {
+		assertArgument(address$7.substring(2, 4) === ibanChecksum(address$7), "bad icap checksum", "address", address$7);
+		let result = fromBase36(address$7.substring(4)).toString(16);
 		while (result.length < 40) result = "0" + result;
 		return getChecksumAddress("0x" + result);
 	}
-	assertArgument(false, "invalid address", "address", address$5);
+	assertArgument(false, "invalid address", "address", address$7);
 }
 function getCreateAddress(tx) {
 	const from$2 = getAddress(tx.from);
@@ -63463,14 +63463,14 @@ var Interface = class Interface {
 	#functions;
 	#abiCoder;
 	constructor(fragments) {
-		let abi$5 = [];
-		if (typeof fragments === "string") abi$5 = JSON.parse(fragments);
-		else abi$5 = fragments;
+		let abi$7 = [];
+		if (typeof fragments === "string") abi$7 = JSON.parse(fragments);
+		else abi$7 = fragments;
 		this.#functions = /* @__PURE__ */ new Map();
 		this.#errors = /* @__PURE__ */ new Map();
 		this.#events = /* @__PURE__ */ new Map();
 		const frags = [];
-		for (const a$2 of abi$5) try {
+		for (const a$2 of abi$7) try {
 			frags.push(Fragment$1.from(a$2));
 		} catch (error) {
 			console.log(`[Warning] Invalid Fragment ${JSON.stringify(a$2)}:`, error.message);
@@ -63523,8 +63523,8 @@ var Interface = class Interface {
 		return this.fragments.map((f$1) => f$1.format(format));
 	}
 	formatJson() {
-		const abi$5 = this.fragments.map((f$1) => f$1.format("json"));
-		return JSON.stringify(abi$5.map((j$3) => JSON.parse(j$3)));
+		const abi$7 = this.fragments.map((f$1) => f$1.format("json"));
+		return JSON.stringify(abi$7.map((j$3) => JSON.parse(j$3)));
 	}
 	getAbiCoder() {
 		return AbiCoder.defaultAbiCoder();
@@ -64150,10 +64150,10 @@ var Log = class {
 		});
 	}
 	toJSON() {
-		const { address: address$5, blockHash, blockNumber, data, index: index$6, removed, topics, transactionHash, transactionIndex } = this;
+		const { address: address$7, blockHash, blockNumber, data, index: index$6, removed, topics, transactionHash, transactionIndex } = this;
 		return {
 			_type: "log",
-			address: address$5,
+			address: address$7,
 			blockHash,
 			blockNumber,
 			data,
@@ -65064,10 +65064,10 @@ var BaseContract = class BaseContract {
 	filters;
 	[internal];
 	fallback;
-	constructor(target, abi$5, runner, _deployTx) {
+	constructor(target, abi$7, runner, _deployTx) {
 		assertArgument(typeof target === "string" || isAddressable(target), "invalid value for Contract target", "target", target);
 		if (runner == null) runner = null;
-		const iface = Interface.from(abi$5);
+		const iface = Interface.from(abi$7);
 		defineProperties(this, {
 			target,
 			runner,
@@ -65191,10 +65191,10 @@ var BaseContract = class BaseContract {
 		if (fromBlock == null) fromBlock = 0;
 		if (toBlock == null) toBlock = "latest";
 		const { addr, addrPromise } = getInternal(this);
-		const address$5 = addr ? addr : await addrPromise;
+		const address$7 = addr ? addr : await addrPromise;
 		const { fragment, topics } = await getSubInfo(this, event);
 		const filter$1 = {
-			address: address$5,
+			address: address$7,
 			topics,
 			fromBlock,
 			toBlock
@@ -65291,17 +65291,17 @@ var BaseContract = class BaseContract {
 	async removeListener(event, listener) {
 		return await this.off(event, listener);
 	}
-	static buildClass(abi$5) {
+	static buildClass(abi$7) {
 		class CustomContract extends BaseContract {
-			constructor(address$5, runner = null) {
-				super(address$5, abi$5, runner);
+			constructor(address$7, runner = null) {
+				super(address$7, abi$7, runner);
 			}
 		}
 		return CustomContract;
 	}
-	static from(target, abi$5, runner) {
+	static from(target, abi$7, runner) {
 		if (runner == null) runner = null;
-		return new this(target, abi$5, runner);
+		return new this(target, abi$7, runner);
 	}
 };
 function _ContractBase() {
@@ -65325,7 +65325,7 @@ var MulticoinProviderPlugin = class {
 	supportsCoinType(coinType) {
 		return false;
 	}
-	async encodeAddress(coinType, address$5) {
+	async encodeAddress(coinType, address$7) {
 		throw new Error("unsupported coin");
 	}
 	async decodeAddress(coinType, data) {
@@ -65345,14 +65345,14 @@ var EnsResolver = class EnsResolver {
 	name;
 	#supports2544;
 	#resolver;
-	constructor(provider, address$5, name) {
+	constructor(provider, address$7, name) {
 		defineProperties(this, {
 			provider,
-			address: address$5,
+			address: address$7,
 			name
 		});
 		this.#supports2544 = null;
-		this.#resolver = new Contract(address$5, [
+		this.#resolver = new Contract(address$7, [
 			"function supportsInterface(bytes4) view returns (bool)",
 			"function resolve(bytes, bytes) view returns (bytes)",
 			"function addr(bytes32) view returns (address)",
@@ -65420,8 +65420,8 @@ var EnsResolver = class EnsResolver {
 		if (coinPlugin == null) return null;
 		const data = await this.#fetch("addr(bytes32,uint)", [coinType]);
 		if (data == null || data === "0x") return null;
-		const address$5 = await coinPlugin.decodeAddress(coinType, data);
-		if (address$5 != null) return address$5;
+		const address$7 = await coinPlugin.decodeAddress(coinType, data);
+		if (address$7 != null) return address$7;
 		assert(false, `invalid coin data`, "UNSUPPORTED_OPERATION", {
 			operation: `getAddress(${coinType})`,
 			info: {
@@ -65955,10 +65955,10 @@ var GasCostPlugin = class GasCostPlugin extends NetworkPlugin {
 var EnsPlugin = class EnsPlugin extends NetworkPlugin {
 	address;
 	targetNetwork;
-	constructor(address$5, targetNetwork) {
+	constructor(address$7, targetNetwork) {
 		super("org.ethers.plugins.network.Ens");
 		defineProperties(this, {
-			address: address$5 || EnsAddress,
+			address: address$7 || EnsAddress,
 			targetNetwork: targetNetwork == null ? 1 : targetNetwork
 		});
 	}
@@ -66650,8 +66650,8 @@ var AbstractProvider = class {
 		if (this.#lastBlockNumber >= 0) this.#lastBlockNumber = blockNumber;
 		return blockNumber;
 	}
-	_getAddress(address$5) {
-		return resolveAddress(address$5, this);
+	_getAddress(address$7) {
+		return resolveAddress(address$7, this);
 	}
 	_getBlockTag(blockTag) {
 		if (blockTag == null) return "latest";
@@ -66682,42 +66682,42 @@ var AbstractProvider = class {
 		});
 		const blockHash = "blockHash" in filter$1 ? filter$1.blockHash : void 0;
 		const resolve = (_address, fromBlock$1, toBlock$1) => {
-			let address$6 = void 0;
+			let address$8 = void 0;
 			switch (_address.length) {
 				case 0: break;
 				case 1:
-					address$6 = _address[0];
+					address$8 = _address[0];
 					break;
 				default:
 					_address.sort();
-					address$6 = _address;
+					address$8 = _address;
 			}
 			if (blockHash) {
 				if (fromBlock$1 != null || toBlock$1 != null) throw new Error("invalid filter");
 			}
 			const filter$2 = {};
-			if (address$6) filter$2.address = address$6;
+			if (address$8) filter$2.address = address$8;
 			if (topics.length) filter$2.topics = topics;
 			if (fromBlock$1) filter$2.fromBlock = fromBlock$1;
 			if (toBlock$1) filter$2.toBlock = toBlock$1;
 			if (blockHash) filter$2.blockHash = blockHash;
 			return filter$2;
 		};
-		let address$5 = [];
-		if (filter$1.address) if (Array.isArray(filter$1.address)) for (const addr of filter$1.address) address$5.push(this._getAddress(addr));
-		else address$5.push(this._getAddress(filter$1.address));
+		let address$7 = [];
+		if (filter$1.address) if (Array.isArray(filter$1.address)) for (const addr of filter$1.address) address$7.push(this._getAddress(addr));
+		else address$7.push(this._getAddress(filter$1.address));
 		let fromBlock = void 0;
 		if ("fromBlock" in filter$1) fromBlock = this._getBlockTag(filter$1.fromBlock);
 		let toBlock = void 0;
 		if ("toBlock" in filter$1) toBlock = this._getBlockTag(filter$1.toBlock);
-		if (address$5.filter((a$2) => typeof a$2 !== "string").length || fromBlock != null && typeof fromBlock !== "string" || toBlock != null && typeof toBlock !== "string") return Promise.all([
-			Promise.all(address$5),
+		if (address$7.filter((a$2) => typeof a$2 !== "string").length || fromBlock != null && typeof fromBlock !== "string" || toBlock != null && typeof toBlock !== "string") return Promise.all([
+			Promise.all(address$7),
 			fromBlock,
 			toBlock
 		]).then((result) => {
 			return resolve(result[0], result[1], result[2]);
 		});
-		return resolve(address$5, fromBlock, toBlock);
+		return resolve(address$7, fromBlock, toBlock);
 	}
 	_getTransactionRequest(_request) {
 		const request = copyRequest(_request);
@@ -66902,29 +66902,29 @@ var AbstractProvider = class {
 		return await this.#checkNetwork(this.#call(tx, blockTag, _tx.enableCcipRead ? 0 : -1));
 	}
 	async #getAccountValue(request, _address, _blockTag) {
-		let address$5 = this._getAddress(_address);
+		let address$7 = this._getAddress(_address);
 		let blockTag = this._getBlockTag(_blockTag);
-		if (typeof address$5 !== "string" || typeof blockTag !== "string") [address$5, blockTag] = await Promise.all([address$5, blockTag]);
+		if (typeof address$7 !== "string" || typeof blockTag !== "string") [address$7, blockTag] = await Promise.all([address$7, blockTag]);
 		return await this.#checkNetwork(this.#perform(Object.assign(request, {
-			address: address$5,
+			address: address$7,
 			blockTag
 		})));
 	}
-	async getBalance(address$5, blockTag) {
-		return getBigInt(await this.#getAccountValue({ method: "getBalance" }, address$5, blockTag), "%response");
+	async getBalance(address$7, blockTag) {
+		return getBigInt(await this.#getAccountValue({ method: "getBalance" }, address$7, blockTag), "%response");
 	}
-	async getTransactionCount(address$5, blockTag) {
-		return getNumber(await this.#getAccountValue({ method: "getTransactionCount" }, address$5, blockTag), "%response");
+	async getTransactionCount(address$7, blockTag) {
+		return getNumber(await this.#getAccountValue({ method: "getTransactionCount" }, address$7, blockTag), "%response");
 	}
-	async getCode(address$5, blockTag) {
-		return hexlify(await this.#getAccountValue({ method: "getCode" }, address$5, blockTag));
+	async getCode(address$7, blockTag) {
+		return hexlify(await this.#getAccountValue({ method: "getCode" }, address$7, blockTag));
 	}
-	async getStorage(address$5, _position, blockTag) {
+	async getStorage(address$7, _position, blockTag) {
 		const position$1 = getBigInt(_position, "position");
 		return hexlify(await this.#getAccountValue({
 			method: "getStorage",
 			position: position$1
-		}, address$5, blockTag));
+		}, address$7, blockTag));
 	}
 	async broadcastTransaction(signedTx) {
 		const { blockNumber, hash: hash$3, network } = await resolveProperties({
@@ -67030,14 +67030,14 @@ var AbstractProvider = class {
 		if (resolver) return await resolver.getAddress();
 		return null;
 	}
-	async lookupAddress(address$5) {
-		address$5 = getAddress(address$5);
-		const node$1 = namehash(address$5.substring(2).toLowerCase() + ".addr.reverse");
+	async lookupAddress(address$7) {
+		address$7 = getAddress(address$7);
+		const node$1 = namehash(address$7.substring(2).toLowerCase() + ".addr.reverse");
 		try {
 			const resolver = await new Contract(await EnsResolver.getEnsAddress(this), ["function resolver(bytes32) view returns (address)"], this).resolver(node$1);
 			if (resolver == null || resolver === "0x0000000000000000000000000000000000000000") return null;
 			const name = await new Contract(resolver, ["function name(bytes32) view returns (string)"], this).name(node$1);
-			if (await this.resolveName(name) !== address$5) return null;
+			if (await this.resolveName(name) !== address$7) return null;
 			return name;
 		} catch (error) {
 			if (isError(error, "BAD_DATA") && error.value === "0x") return null;
@@ -67400,9 +67400,9 @@ async function populate(signer, tx) {
 	if (pop$2.to != null) pop$2.to = resolveAddress(pop$2.to, signer);
 	if (pop$2.from != null) {
 		const from$2 = pop$2.from;
-		pop$2.from = Promise.all([signer.getAddress(), resolveAddress(from$2, signer)]).then(([address$5, from$3]) => {
-			assertArgument(address$5.toLowerCase() === from$3.toLowerCase(), "transaction from mismatch", "tx.from", from$3);
-			return address$5;
+		pop$2.from = Promise.all([signer.getAddress(), resolveAddress(from$2, signer)]).then(([address$7, from$3]) => {
+			assertArgument(address$7.toLowerCase() === from$3.toLowerCase(), "transaction from mismatch", "tx.from", from$3);
+			return address$7;
 		});
 	} else pop$2.from = signer.getAddress();
 	return await resolveProperties(pop$2);
@@ -67643,10 +67643,10 @@ var defaultOptions = {
 };
 var JsonRpcSigner = class extends AbstractSigner {
 	address;
-	constructor(provider, address$5) {
+	constructor(provider, address$7) {
 		super(provider);
-		address$5 = getAddress(address$5);
-		defineProperties(this, { address: address$5 });
+		address$7 = getAddress(address$7);
+		defineProperties(this, { address: address$7 });
 	}
 	connect(provider) {
 		assert(false, "cannot reconnect JsonRpcSigner", "UNSUPPORTED_OPERATION", { operation: "signer.connect" });
@@ -67739,9 +67739,9 @@ var JsonRpcSigner = class extends AbstractSigner {
 	async signTypedData(domain, types$1, _value) {
 		const value = deepCopy(_value);
 		const populated = await TypedDataEncoder.resolveNames(domain, types$1, value, async (value$1) => {
-			const address$5 = await resolveAddress(value$1);
-			assertArgument(address$5 != null, "TypedData does not support null address", "value", value$1);
-			return address$5;
+			const address$7 = await resolveAddress(value$1);
+			assertArgument(address$7 != null, "TypedData does not support null address", "value", value$1);
+			return address$7;
 		});
 		return await this.provider.send("eth_signTypedData_v4", [this.address.toLowerCase(), JSON.stringify(TypedDataEncoder.getPayload(populated.domain, types$1, populated.value))]);
 	}
@@ -68179,20 +68179,20 @@ var JsonRpcApiProvider = class extends AbstractProvider {
 		this.#scheduleDrain();
 		return promise;
 	}
-	async getSigner(address$5) {
-		if (address$5 == null) address$5 = 0;
+	async getSigner(address$7) {
+		if (address$7 == null) address$7 = 0;
 		const accountsPromise = this.send("eth_accounts", []);
-		if (typeof address$5 === "number") {
+		if (typeof address$7 === "number") {
 			const accounts$1 = await accountsPromise;
-			if (address$5 >= accounts$1.length) throw new Error("no such account");
-			return new JsonRpcSigner(this, accounts$1[address$5]);
+			if (address$7 >= accounts$1.length) throw new Error("no such account");
+			return new JsonRpcSigner(this, accounts$1[address$7]);
 		}
 		const { accounts } = await resolveProperties({
 			network: this.getNetwork(),
 			accounts: accountsPromise
 		});
-		address$5 = getAddress(address$5);
-		for (const account of accounts) if (getAddress(account) === address$5) return new JsonRpcSigner(this, address$5);
+		address$7 = getAddress(address$7);
+		for (const account of accounts) if (getAddress(account) === address$7) return new JsonRpcSigner(this, address$7);
 		throw new Error("invalid account");
 	}
 	async listAccounts() {
@@ -68444,16 +68444,16 @@ var BrowserProvider = class BrowserProvider extends JsonRpcApiPollingProvider {
 		}
 		return super.getRpcError(payload, error);
 	}
-	async hasSigner(address$5) {
-		if (address$5 == null) address$5 = 0;
+	async hasSigner(address$7) {
+		if (address$7 == null) address$7 = 0;
 		const accounts = await this.send("eth_accounts", []);
-		if (typeof address$5 === "number") return accounts.length > address$5;
-		address$5 = address$5.toLowerCase();
-		return accounts.filter((a$2) => a$2.toLowerCase() === address$5).length !== 0;
+		if (typeof address$7 === "number") return accounts.length > address$7;
+		address$7 = address$7.toLowerCase();
+		return accounts.filter((a$2) => a$2.toLowerCase() === address$7).length !== 0;
 	}
-	async getSigner(address$5) {
-		if (address$5 == null) address$5 = 0;
-		if (!await this.hasSigner(address$5)) try {
+	async getSigner(address$7) {
+		if (address$7 == null) address$7 = 0;
+		if (!await this.hasSigner(address$7)) try {
 			await this.#request("eth_requestAccounts", []);
 		} catch (error) {
 			const payload = error.payload;
@@ -68462,7 +68462,7 @@ var BrowserProvider = class BrowserProvider extends JsonRpcApiPollingProvider {
 				error
 			});
 		}
-		return await super.getSigner(address$5);
+		return await super.getSigner(address$7);
 	}
 	static async discover(options$2) {
 		if (options$2 == null) options$2 = {};
@@ -68537,7 +68537,7 @@ var require_use_sync_external_store_shim_production = /* @__PURE__ */ __commonJS
 	function is(x$2, y$3) {
 		return x$2 === y$3 && (0 !== x$2 || 1 / x$2 === 1 / y$3) || x$2 !== x$2 && y$3 !== y$3;
 	}
-	var objectIs = "function" === typeof Object.is ? Object.is : is, useState$15 = React$6.useState, useEffect$12 = React$6.useEffect, useLayoutEffect$3 = React$6.useLayoutEffect, useDebugValue$1 = React$6.useDebugValue;
+	var objectIs = "function" === typeof Object.is ? Object.is : is, useState$15 = React$6.useState, useEffect$15 = React$6.useEffect, useLayoutEffect$3 = React$6.useLayoutEffect, useDebugValue$1 = React$6.useDebugValue;
 	function useSyncExternalStore$2(subscribe$1, getSnapshot) {
 		var value = getSnapshot(), _useState = useState$15({ inst: {
 			value,
@@ -68552,7 +68552,7 @@ var require_use_sync_external_store_shim_production = /* @__PURE__ */ __commonJS
 			value,
 			getSnapshot
 		]);
-		useEffect$12(function() {
+		useEffect$15(function() {
 			checkIfSnapshotChanged(inst) && forceUpdate({ inst });
 			return subscribe$1(function() {
 				checkIfSnapshotChanged(inst) && forceUpdate({ inst });
@@ -69294,151 +69294,6 @@ var useSWRHandler = (_key, fetcher, config) => {
 };
 OBJECT.defineProperty(SWRConfig, "defaultValue", { value: defaultConfig });
 var useSWR = withArgs(useSWRHandler);
-const Decimals = {
-	DEFAULT: 18,
-	HEGIC: 8,
-	CHAINLINK: 8,
-	SUFFICIENT: 6,
-	STABLE: 2,
-	BASE: 4
-};
-var ETH_default = "data:image/svg+xml,%3csvg%20width='15'%20height='16'%20viewBox='0%200%2016%2015'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M8%2015C12.1421%2015%2015.5%2011.6421%2015.5%207.5C15.5%203.35786%2012.1421%200%208%200C3.85786%200%200.5%203.35786%200.5%207.5C0.5%2011.6421%203.85786%2015%208%2015Z'%20fill='%23627EEA'/%3e%3cpath%20d='M8.23438%201.875V6.03281L11.7486%207.60312L8.23438%201.875Z'%20fill='white'%20fill-opacity='0.602'/%3e%3cpath%20d='M8.23344%201.875L4.71875%207.60312L8.23344%206.03281V1.875Z'%20fill='white'/%3e%3cpath%20d='M8.23438%2010.2976V13.1227L11.7509%208.25757L8.23438%2010.2976Z'%20fill='white'%20fill-opacity='0.602'/%3e%3cpath%20d='M8.23344%2013.1227V10.2971L4.71875%208.25757L8.23344%2013.1227Z'%20fill='white'/%3e%3cpath%20d='M8.23438%209.64354L11.7486%207.60307L8.23438%206.03369V9.64354Z'%20fill='white'%20fill-opacity='0.2'/%3e%3cpath%20d='M4.71875%207.60307L8.23344%209.64354V6.03369L4.71875%207.60307Z'%20fill='white'%20fill-opacity='0.602'/%3e%3c/svg%3e";
-var ETH_circled_default = "data:image/svg+xml,%3csvg%20width='50'%20height='50'%20viewBox='0%200%2050%2050'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3ccircle%20cx='25'%20cy='25'%20r='24.5'%20fill='%2320224E'%20stroke='url(%23paint0_linear_799_7072)'/%3e%3cg%20clip-path='url(%23clip0_799_7072)'%3e%3cpath%20d='M25%2037C31.6274%2037%2037%2031.6274%2037%2025C37%2018.3726%2031.6274%2013%2025%2013C18.3726%2013%2013%2018.3726%2013%2025C13%2031.6274%2018.3726%2037%2025%2037Z'%20fill='%23627EEA'/%3e%3cpath%20d='M25.3734%2016V22.6525L30.9962%2025.165L25.3734%2016Z'%20fill='white'%20fill-opacity='0.602'/%3e%3cpath%20d='M25.3735%2016L19.75%2025.165L25.3735%2022.6525V16Z'%20fill='white'/%3e%3cpath%20d='M25.3734%2029.476V33.9963L30.9999%2026.212L25.3734%2029.476Z'%20fill='white'%20fill-opacity='0.602'/%3e%3cpath%20d='M25.3735%2033.9963V29.4753L19.75%2026.212L25.3735%2033.9963Z'%20fill='white'/%3e%3cpath%20d='M25.3734%2028.4297L30.9962%2025.165L25.3734%2022.654V28.4297Z'%20fill='white'%20fill-opacity='0.2'/%3e%3cpath%20d='M19.75%2025.165L25.3735%2028.4297V22.654L19.75%2025.165Z'%20fill='white'%20fill-opacity='0.602'/%3e%3c/g%3e%3cdefs%3e%3clinearGradient%20id='paint0_linear_799_7072'%20x1='-1.15922e-07'%20y1='-0.594059'%20x2='41.4722'%20y2='56.2245'%20gradientUnits='userSpaceOnUse'%3e%3cstop%20stop-color='%23384263'%20stop-opacity='0.25'/%3e%3cstop%20offset='1'%20stop-color='%23384263'%20stop-opacity='0.15'/%3e%3c/linearGradient%3e%3cclipPath%20id='clip0_799_7072'%3e%3crect%20width='24'%20height='24'%20fill='white'%20transform='translate(13%2013)'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e";
-var BTC_default = "data:image/svg+xml,%3csvg%20width='15'%20height='16'%20viewBox='0%200%2015%2016'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_1_3471)'%3e%3cpath%20d='M14.7756%209.81429C13.7738%2013.8322%209.70387%2016.2774%205.68504%2015.2755C1.6679%2014.2738%20-0.777593%2010.204%200.224639%206.18648C1.22599%202.16814%205.29593%20-0.277254%209.31351%200.724426C13.332%201.7261%2015.7774%205.79628%2014.7755%209.81436L14.7756%209.81429H14.7756Z'%20fill='%23F7931A'/%3e%3cpath%20d='M10.9791%206.52009C11.1455%205.46933%2010.2984%204.9045%209.13994%204.5277L9.51574%203.10435L8.5982%202.88845L8.23237%204.27433C7.99116%204.21752%207.74344%204.16399%207.49724%204.11092L7.86573%202.7159L6.94876%202.5L6.57276%203.92289C6.37314%203.87998%206.17709%203.83756%205.98688%203.79287L5.98794%203.78839L4.72264%203.49002L4.47856%204.41543C4.47856%204.41543%205.1593%204.56278%205.14495%204.57185C5.5165%204.65942%205.58369%204.89169%205.57254%205.07578L5.14446%206.69732C5.17005%206.70345%205.20323%206.71233%205.23985%206.72622C5.20924%206.71905%205.17667%206.71121%205.14287%206.70357L4.54285%208.97511C4.49745%209.08171%204.38219%209.24168%204.12242%209.18093C4.13162%209.19352%203.45554%209.02378%203.45554%209.02378L3%2010.0156L4.19402%2010.2967C4.41615%2010.3493%204.63383%2010.4043%204.84819%2010.456L4.46851%2011.8957L5.38498%2012.1116L5.76099%2010.6872C6.01136%2010.7514%206.25434%2010.8106%206.4922%2010.8664L6.11746%2012.2841L7.03504%2012.5L7.41468%2011.063C8.97928%2011.3426%2010.1557%2011.2299%2010.6509%209.89354C11.0499%208.81761%2010.631%208.19701%209.80792%207.79231C10.4074%207.66175%2010.859%207.28939%2010.9794%206.52021L10.9791%206.52001L10.9791%206.52009ZM8.88274%209.29602C8.59918%2010.372%206.68082%209.79034%206.05885%209.64449L6.5627%207.73716C7.18462%207.88378%209.17909%208.17393%208.88278%209.29602H8.88274ZM9.1665%206.5045C8.90784%207.48317%207.31116%206.98596%206.79321%206.86404L7.25002%205.13421C7.76796%205.25613%209.43596%205.48368%209.16659%206.5045H9.1665Z'%20fill='white'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_1_3471'%3e%3crect%20width='15'%20height='15'%20fill='white'%20transform='translate(0%200.5)'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e";
-var WETH_default = "/no-rekt_draft/assets/WETH-BW__QqoI.svg";
-var WBTC_default = "data:image/svg+xml,%3csvg%20width='15'%20height='15'%20viewBox='0%200%2015%2015'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_4412_5899)'%3e%3ccircle%20opacity='0.05'%20cx='7.5'%20cy='7.5'%20r='7.5'%20fill='white'/%3e%3cpath%20d='M12.2302%203.14804L11.8184%203.5599C12.8011%204.63463%2013.3461%206.03823%2013.3461%207.49455C13.3461%208.95087%2012.8011%2010.3545%2011.8184%2011.4292L12.2302%2011.8411C13.3232%2010.6556%2013.93%209.10218%2013.93%207.48975C13.93%205.87731%2013.3232%204.32393%2012.2302%203.13843V3.14804Z'%20fill='%235A5564'/%3e%3cpath%20d='M3.56991%203.18374C4.64464%202.20097%206.04824%201.65597%207.50456%201.65597C8.96088%201.65597%2010.3645%202.20097%2011.4392%203.18374L11.8511%202.77188C10.6656%201.67894%209.11219%201.07214%207.49976%201.07214C5.88732%201.07214%204.33394%201.67894%203.14844%202.77188L3.56991%203.18374Z'%20fill='%235A5564'/%3e%3cpath%20d='M3.18386%2011.4333C2.20226%2010.3588%201.65798%208.95606%201.65798%207.5007C1.65798%206.04534%202.20226%204.6426%203.18386%203.56811L2.772%203.15625C1.67906%204.34175%201.07227%205.89514%201.07227%207.50757C1.07227%209.12%201.67906%2010.6734%202.772%2011.8589L3.18386%2011.4333Z'%20fill='%235A5564'/%3e%3cpath%20d='M11.4335%2011.8136C10.3588%2012.7964%208.95518%2013.3414%207.49886%2013.3414C6.04253%2013.3414%204.63893%2012.7964%203.56421%2011.8136L3.15234%2012.2255C4.33784%2013.3184%205.89123%2013.9252%207.50366%2013.9252C9.11609%2013.9252%2010.6695%2013.3184%2011.855%2012.2255L11.4335%2011.8136Z'%20fill='%235A5564'/%3e%3cpath%20d='M10.1011%206.12579C10.0187%205.26637%209.27733%204.97807%208.33966%204.8902V3.70679H7.61479V4.86824C7.42396%204.86824%207.22901%204.86824%207.03543%204.86824V3.70679H6.31605V4.89844H4.8457V5.67411C4.8457%205.67411%205.38112%205.6645%205.37289%205.67411C5.46943%205.66349%205.56632%205.69076%205.64315%205.75018C5.71998%205.80959%205.77074%205.89651%205.78475%205.99262V9.25456C5.78268%209.28846%205.77385%209.32159%205.75875%209.35201C5.74366%209.38243%205.72262%209.40952%205.69688%209.43166C5.67163%209.45423%205.64207%209.47146%205.60998%209.48231C5.57789%209.49317%205.54394%209.49742%205.51017%209.49482C5.51978%209.50305%204.98299%209.49482%204.98299%209.49482L4.8457%2010.3611H6.30232V11.572H7.0272V10.3789H7.60655V11.5665H8.3328V10.3693C9.5574%2010.2952%2010.4113%209.99317%2010.5184%208.84682C10.6049%207.92425%2010.1711%207.51239%209.47777%207.34627C9.89924%207.13897%2010.1601%206.75456%2010.1011%206.12579ZM9.08513%208.70404C9.08513%209.60465%207.54202%209.50168%207.05054%209.50168V7.90366C7.54202%207.90503%209.08513%207.76362%209.08513%208.70404ZM8.74878%206.45253C8.74878%207.27625%207.46102%207.17604%207.05191%207.17604V5.72354C7.46102%205.72354%208.74878%205.59449%208.74878%206.45253Z'%20fill='%23F7931A'/%3e%3cpath%20d='M7.49863%2015C6.01539%2014.9997%204.56553%2014.5597%203.33237%2013.7355C2.09921%2012.9112%201.13813%2011.7399%200.570644%2010.3695C0.00315711%208.9991%20-0.145252%207.49122%200.144181%206.03649C0.433614%204.58176%201.14789%203.24551%202.1967%202.1967C3.24551%201.14789%204.58176%200.433614%206.03649%200.144181C7.49122%20-0.145252%208.9991%200.00315711%2010.3695%200.570644C11.7399%201.13813%2012.9112%202.09921%2013.7355%203.33237C14.5597%204.56553%2014.9997%206.01539%2015%207.49863C15.0002%208.48377%2014.8063%209.4593%2014.4294%2010.3695C14.0524%2011.2797%2013.4999%2012.1067%2012.8033%2012.8033C12.1067%2013.4999%2011.2797%2014.0524%2010.3695%2014.4294C9.4593%2014.8063%208.48377%2015.0002%207.49863%2015ZM7.49863%200.584847C6.13211%200.585933%204.79658%200.992112%203.66085%201.75204C2.52511%202.51198%201.64016%203.59155%201.11784%204.85431C0.595525%206.11708%200.459286%207.50634%200.726347%208.84651C0.993408%2010.1867%201.65178%2011.4176%202.61825%2012.3837C3.58472%2013.3498%204.8159%2014.0077%206.15618%2014.2742C7.49646%2014.5407%208.88567%2014.4039%2010.1482%2013.8811C11.4108%2013.3583%2012.49%2012.4729%2013.2495%2011.3369C14.009%2010.2008%2014.4146%208.86515%2014.4152%207.49863C14.4155%206.59037%2014.2368%205.69094%2013.8894%204.85178C13.5419%204.01262%2013.0324%203.25018%2012.39%202.60807C11.7476%201.96596%2010.985%201.45676%2010.1457%201.1096C9.30639%200.762443%208.40689%200.584125%207.49863%200.584847Z'%20fill='%23282138'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_4412_5899'%3e%3crect%20width='15'%20height='15'%20fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e";
-var WBTC_circled_default = "data:image/svg+xml,%3csvg%20width='50'%20height='50'%20viewBox='0%200%2050%2050'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3ccircle%20cx='25'%20cy='25'%20r='24.5'%20fill='%2320224E'%20stroke='url(%23paint0_linear_799_7087)'/%3e%3cg%20clip-path='url(%23clip0_799_7087)'%3e%3ccircle%20cx='25'%20cy='25'%20r='12'%20fill='white'/%3e%3cpath%20d='M32.5694%2018.0368L31.9104%2018.6958C33.4828%2020.4153%2034.3548%2022.6611%2034.3548%2024.9912C34.3548%2027.3213%2033.4828%2029.5671%2031.9104%2031.2867L32.5694%2031.9456C34.3181%2030.0488%2035.289%2027.5634%2035.289%2024.9835C35.289%2022.4036%2034.3181%2019.9182%2032.5694%2018.0214V18.0368Z'%20fill='%235A5564'/%3e%3cpath%20d='M18.7111%2018.0939C20.4307%2016.5215%2022.6764%2015.6495%2025.0065%2015.6495C27.3367%2015.6495%2029.5824%2016.5215%2031.302%2018.0939L31.961%2017.4349C30.0642%2015.6862%2027.5787%2014.7153%2024.9989%2014.7153C22.419%2014.7153%2019.9335%2015.6862%2018.0367%2017.4349L18.7111%2018.0939Z'%20fill='%235A5564'/%3e%3cpath%20d='M18.0939%2031.2933C16.5233%2029.5741%2015.6525%2027.3297%2015.6525%2025.0011C15.6525%2022.6725%2016.5233%2020.4281%2018.0939%2018.709L17.4349%2018.05C15.6862%2019.9468%2014.7153%2022.4322%2014.7153%2025.0121C14.7153%2027.592%2015.6862%2030.0774%2017.4349%2031.9742L18.0939%2031.2933Z'%20fill='%235A5564'/%3e%3cpath%20d='M31.2933%2031.9017C29.5738%2033.4742%2027.328%2034.3462%2024.9979%2034.3462C22.6678%2034.3462%2020.422%2033.4742%2018.7024%2031.9017L18.0435%2032.5607C19.9403%2034.3094%2022.4257%2035.2803%2025.0056%2035.2803C27.5855%2035.2803%2030.0709%2034.3094%2031.9677%2032.5607L31.2933%2031.9017Z'%20fill='%235A5564'/%3e%3cpath%20d='M29.1604%2022.8012C29.0286%2021.4261%2027.8424%2020.9648%2026.3422%2020.8243V18.9308H25.1824V20.7891C24.877%2020.7891%2024.5651%2020.7891%2024.2554%2020.7891V18.9308H23.1044V20.8374H20.7518V22.0785C20.7518%2022.0785%2021.6085%2022.0631%2021.5953%2022.0785C21.7498%2022.0615%2021.9048%2022.1051%2022.0277%2022.2002C22.1507%2022.2953%2022.2319%2022.4343%2022.2543%2022.5881V27.8072C22.251%2027.8615%2022.2369%2027.9145%2022.2127%2027.9631C22.1886%2028.0118%2022.1549%2028.0552%2022.1137%2028.0906C22.0733%2028.1267%2022.026%2028.1543%2021.9747%2028.1716C21.9233%2028.189%2021.869%2028.1958%2021.815%2028.1916C21.8304%2028.2048%2020.9715%2028.1916%2020.9715%2028.1916L20.7518%2029.5777H23.0824V31.5151H24.2422V29.6062H25.1692V31.5063H26.3312V29.5909C28.2905%2029.4722%2029.6568%2028.989%2029.8282%2027.1548C29.9665%2025.6787%2029.2724%2025.0197%2028.1631%2024.754C28.8375%2024.4223%2029.2549%2023.8072%2029.1604%2022.8012ZM27.5349%2026.9264C27.5349%2028.3674%2025.0659%2028.2026%2024.2796%2028.2026V25.6458C25.0659%2025.648%2027.5349%2025.4217%2027.5349%2026.9264ZM26.9968%2023.324C26.9968%2024.6419%2024.9363%2024.4816%2024.2818%2024.4816V22.1576C24.9363%2022.1576%2026.9968%2021.9511%2026.9968%2023.324Z'%20fill='%23F7931A'/%3e%3cpath%20d='M24.9978%2037C22.6246%2036.9996%2020.3048%2036.2955%2018.3318%2034.9767C16.3587%2033.658%2014.821%2031.7838%2013.913%2029.5912C13.0051%2027.3986%2012.7676%2024.9859%2013.2307%2022.6584C13.6938%2020.3308%2014.8366%2018.1928%2016.5147%2016.5147C18.1928%2014.8366%2020.3308%2013.6938%2022.6584%2013.2307C24.9859%2012.7676%2027.3986%2013.0051%2029.5912%2013.913C31.7838%2014.821%2033.658%2016.3587%2034.9767%2018.3318C36.2955%2020.3048%2036.9996%2022.6246%2037%2024.9978C37.0003%2026.574%2036.69%2028.1349%2036.087%2029.5912C35.4839%2031.0475%2034.5998%2032.3707%2033.4853%2033.4853C32.3707%2034.5998%2031.0475%2035.4839%2029.5912%2036.087C28.1349%2036.69%2026.574%2037.0003%2024.9978%2037ZM24.9978%2013.9358C22.8114%2013.9375%2020.6745%2014.5874%2018.8574%2015.8033C17.0402%2017.0192%2015.6243%2018.7465%2014.7885%2020.7669C13.9528%2022.7873%2013.7349%2025.0101%2014.1622%2027.1544C14.5895%2029.2987%2015.6428%2031.2682%2017.1892%2032.8139C18.7356%2034.3596%2020.7054%2035.4123%2022.8499%2035.8387C24.9943%2036.2652%2027.2171%2036.0463%2029.2372%2035.2098C31.2572%2034.3733%2032.984%2032.9567%2034.1992%2031.139C35.4143%2029.3214%2036.0634%2027.1842%2036.0643%2024.9978C36.0648%2023.5446%2035.7789%2022.1055%2035.223%2020.7628C34.667%2019.4202%2033.8518%2018.2003%2032.824%2017.1729C31.7962%2016.1455%2030.576%2015.3308%2029.2331%2014.7754C27.8902%2014.2199%2026.451%2013.9346%2024.9978%2013.9358Z'%20fill='%23282138'/%3e%3c/g%3e%3cdefs%3e%3clinearGradient%20id='paint0_linear_799_7087'%20x1='-1.15922e-07'%20y1='-0.594059'%20x2='41.4722'%20y2='56.2245'%20gradientUnits='userSpaceOnUse'%3e%3cstop%20stop-color='%23384263'%20stop-opacity='0.25'/%3e%3cstop%20offset='1'%20stop-color='%23384263'%20stop-opacity='0.15'/%3e%3c/linearGradient%3e%3cclipPath%20id='clip0_799_7087'%3e%3crect%20width='24'%20height='24'%20fill='white'%20transform='translate(13%2013)'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e";
-var LINK_default = "data:image/svg+xml,%3csvg%20width='15'%20height='15'%20viewBox='0%200%2016%2015'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M8.1875%200L6.79861%200.791284L3.01389%202.95872L1.625%203.75V11.25L3.01389%2012.0413L6.83333%2014.2087L8.22222%2015L9.61111%2014.2087L13.3611%2012.0413L14.75%2011.25V3.75L13.3611%202.95872L9.57639%200.791284L8.1875%200ZM4.40278%209.66743V5.33257L8.1875%203.16514L11.9722%205.33257V9.66743L8.1875%2011.8349L4.40278%209.66743Z'%20fill='%232A5ADA'/%3e%3c/svg%3e";
-var ARB_default = "data:image/svg+xml,%3csvg%20width='14'%20height='14'%20viewBox='0%200%2014%2014'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M0%204.02889V9.9711C0%2010.3493%200.212121%2010.6995%200.558042%2010.8886L5.97529%2013.8582C6.32121%2014.0473%206.74545%2014.0473%207.09138%2013.8582L12.5086%2010.8886C12.8545%2010.6995%2013.0667%2010.3493%2013.0667%209.9711V4.02889C13.0667%203.65072%2012.8545%203.30045%2012.5086%203.11137L7.09138%200.141813C6.74545%20-0.0472711%206.32121%20-0.0472711%205.97529%200.141813L0.558042%203.11137C0.215385%203.30045%200%203.65072%200%204.02889Z'%20fill='%23213147'/%3e%3cpath%20d='M7.61363%208.24049L6.95623%2010.015C6.93681%2010.0642%206.93681%2010.1189%206.95623%2010.1681L8.08518%2013.2222L9.39167%2012.4785L7.82444%208.24049C7.78838%208.14206%207.64969%208.14206%207.61363%208.24049Z'%20fill='%2312AAFF'/%3e%3cpath%20d='M9.07602%204.74457C9.03887%204.6407%208.896%204.6407%208.85886%204.74457L8.18167%206.61703C8.16167%206.66897%208.16167%206.72667%208.18167%206.7786L10.0875%2012.0556L11.4333%2011.2708L9.07602%204.74457Z'%20fill='%2312AAFF'/%3e%3cpath%20d='M6.53333%200.867662C6.56953%200.867662%206.60271%200.876253%206.63589%200.893434L12.0532%203.86296C12.1165%203.89732%2012.1557%203.96032%2012.1557%204.02904V9.96809C12.1557%2010.0368%2012.1165%2010.0998%2012.0532%2010.1342L6.63589%2013.1066C6.60573%2013.1237%206.56953%2013.1323%206.53333%2013.1323C6.49714%2013.1323%206.46396%2013.1237%206.43078%2013.1066L1.0165%2010.137C0.953155%2010.1027%200.913943%2010.0397%200.913943%209.97095V4.02904C0.913943%203.96032%200.953155%203.89732%201.0165%203.86296L6.43379%200.893434C6.46396%200.876253%206.50015%200.867662%206.53333%200.867662ZM6.53333%200C6.34029%200%206.14725%200.0486807%205.97532%200.143179L0.558018%203.1127C0.214158%203.3017%200%203.6509%200%204.02889V9.96809C0%2010.3461%200.214158%2010.6983%200.558018%2010.8873L5.97532%2013.8568C6.14725%2013.9513%206.34029%2014%206.53333%2014C6.72638%2014%206.91942%2013.9513%207.09135%2013.8568L12.5087%2010.8873C12.8555%2010.6983%2013.0667%2010.3489%2013.0667%209.96809V4.02889C13.0667%203.6509%2012.8525%203.29883%2012.5087%203.10984L7.09437%200.143179C6.91942%200.0486807%206.72638%200%206.53333%200Z'%20fill='%239DCCED'/%3e%3cpath%20d='M2.85833%2012.1444L3.40059%2010.8889L4.49167%2011.6556L3.47289%2012.4444L2.85833%2012.1444Z'%20fill='%23213147'/%3e%3cpath%20d='M6.00533%203.5H4.68532C4.58668%203.5%204.49674%203.55987%204.46483%203.6511L1.63333%2011.2801L2.99976%2012.0556L6.11847%203.65395C6.14458%203.57983%206.08946%203.5%206.00533%203.5Z'%20fill='white'/%3e%3cpath%20d='M8.45701%203.5H7.13513C7.03635%203.5%206.94629%203.56039%206.91433%203.6524L3.675%2012.4401L5.04336%2013.2222L8.56741%203.65815C8.59646%203.58051%208.53836%203.5%208.45701%203.5Z'%20fill='white'/%3e%3c/svg%3e";
-var GMX_default = "data:image/svg+xml,%3csvg%20width='15'%20height='15'%20viewBox='0%200%2015%2015'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3ccircle%20cx='7.5'%20cy='7.5'%20r='7.5'%20fill='black'/%3e%3cpath%20d='M12.5455%209.99966L7.78001%203L3%209.99966H9.65966L7.78001%207.32824L6.84762%208.71629H5.85668L7.78064%205.92549L10.562%2010L12.5455%209.99966Z'%20fill='url(%23paint0_linear_201_9061)'/%3e%3cdefs%3e%3clinearGradient%20id='paint0_linear_201_9061'%20x1='8.11636'%20y1='3.182'%20x2='5.10835'%20y2='10.7919'%20gradientUnits='userSpaceOnUse'%3e%3cstop%20stop-color='%2303D1CF'%20stop-opacity='0.988'/%3e%3cstop%20offset='1'%20stop-color='%234E09F8'/%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e";
-var MAGIC_default = "data:image/svg+xml,%3csvg%20width='15'%20height='15'%20viewBox='0%200%2016%2015'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3ccircle%20cx='8'%20cy='7.5'%20r='7.5'%20fill='%23DC2626'/%3e%3cpath%20d='M12.8892%206.84343L11.458%206.35107C10.9317%206.17091%2010.542%205.71722%2010.4312%205.16544L9.82733%202.13205C9.81071%202.05659%209.74423%202%209.66667%202C9.5891%202%209.52262%202.05659%209.506%202.13205L8.90305%205.16544C8.79224%205.71722%208.40166%206.17091%207.87535%206.35107L6.44414%206.84343C6.37765%206.86606%206.33333%206.93115%206.33333%207.00094C6.33333%207.07168%206.37765%207.13677%206.44414%207.1594L7.87535%207.65176C8.40166%207.83192%208.79224%208.28561%208.90305%208.83739L9.506%2011.868C9.52262%2011.9434%209.5891%2012%209.66667%2012C9.74423%2012%209.81071%2011.9434%209.82733%2011.868L10.4312%208.83739C10.542%208.28561%2010.9317%207.83192%2011.458%207.65176L12.8892%207.1594C12.9557%207.13677%2013%207.07168%2013%207.00094C13%206.93115%2012.9557%206.86606%2012.8892%206.84343Z'%20fill='white'/%3e%3cpath%20d='M5.04406%204.06293L5.61684%204.26133C5.82665%204.33387%205.984%204.512%206.02806%204.73493L6.27039%205.9456C6.27668%205.9776%206.30186%206%206.33333%206C6.3648%206%206.38998%205.9776%206.39628%205.9456L6.6386%204.73493C6.68266%204.5152%206.84002%204.33387%207.05088%204.26133L7.62366%204.06293C7.64778%204.0544%207.66667%204.0288%207.66667%204C7.66667%203.9712%207.64778%203.9456%207.62366%203.936L7.05088%203.73867C6.84002%203.66507%206.68266%203.48693%206.6386%203.264L6.39628%202.0544C6.38998%202.0224%206.3648%202%206.33333%202C6.30186%202%206.27668%202.0224%206.27039%202.0544L6.02806%203.264C5.984%203.48373%205.82665%203.66507%205.61684%203.73867L5.04406%203.936C5.01888%203.9456%205%203.9712%205%204C5%204.0288%205.01888%204.0544%205.04406%204.06293Z'%20fill='white'/%3e%3cpath%20d='M6.27755%209.59494L5.56215%209.36394C5.29791%209.28011%205.10119%209.06866%205.04835%208.81065L4.74594%207.39481C4.73713%207.35848%204.70483%207.33333%204.66667%207.33333C4.6285%207.33333%204.59327%207.35848%204.58739%207.39481L4.28499%208.81065C4.2292%209.06866%204.03249%209.28011%203.77217%209.36394L3.05578%209.59494C3.02349%209.60612%203%209.63313%203%209.66667C3%209.7002%203.02349%209.73094%203.05578%209.73932L3.77217%209.97033C4.03543%2010.0532%204.23214%2010.2647%204.28499%2010.5236L4.58739%2011.9395C4.5962%2011.9749%204.6285%2012%204.66667%2012C4.70483%2012%204.74007%2011.9749%204.74594%2011.9395L5.04835%2010.5236C5.10413%2010.2647%205.30084%2010.0532%205.56215%209.97033L6.27755%209.73932C6.30985%209.72814%206.33333%209.7002%206.33333%209.66667C6.33333%209.63313%206.30985%209.60333%206.27755%209.59494Z'%20fill='white'/%3e%3c/svg%3e";
-var USDC_default = "data:image/svg+xml,%3csvg%20width='15'%20height='15'%20viewBox='0%200%2015%2015'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_4822_5801)'%3e%3cpath%20fill-rule='evenodd'%20clip-rule='evenodd'%20d='M7.5%200C11.6422%200%2015%203.35778%2015%207.5C15%2011.6419%2011.6422%2015%207.5%2015C3.35778%2015%200%2011.6419%200%207.5C0%203.35778%203.35778%200%207.5%200Z'%20fill='%232775CA'/%3e%3cpath%20fill-rule='evenodd'%20clip-rule='evenodd'%20d='M6.09359%2012.7144C6.09359%2012.8908%205.95543%2012.9911%205.78481%2012.9378C3.51717%2012.2144%201.87305%2010.0881%201.87305%207.57913C1.87305%205.0703%203.51717%202.94388%205.78481%202.22047C5.95543%202.16755%206.09359%202.26743%206.09359%202.44385V2.87936C6.09359%202.99681%206.00256%203.13504%205.89066%203.17331C4.09654%203.83212%202.81131%205.55567%202.81131%207.57615C2.81131%209.59663%204.09654%2011.3205%205.89066%2011.979C6.00256%2012.0202%206.09359%2012.1554%206.09359%2012.2733V12.7144Z'%20fill='white'/%3e%3cpath%20fill-rule='evenodd'%20clip-rule='evenodd'%20d='M7.96746%2011.0939C7.96746%2011.2234%207.8616%2011.3293%207.73223%2011.3293H7.2645C7.13513%2011.3293%207.02927%2011.2234%207.02927%2011.0939V10.3528C6.0057%2010.2147%205.50584%209.64103%205.3705%208.86171C5.34689%208.72918%205.45274%208.60867%205.58808%208.60867H6.12339C6.23513%208.60867%206.3293%208.68819%206.35283%208.79975C6.45288%209.26449%206.7205%209.6204%207.54098%209.6204C8.14686%209.6204%208.57641%209.28214%208.57641%208.77648C8.57641%208.2704%208.32337%208.07932%207.43513%207.93214C6.12339%207.75571%205.50285%207.35856%205.50285%206.32918C5.50285%205.53512%206.10294%204.91756%207.03226%204.78512V4.05864C7.03226%203.92918%207.1382%203.82324%207.26749%203.82324H7.73521C7.86459%203.82324%207.97044%203.92918%207.97044%204.05864V4.80574C8.72632%204.94125%209.20572%205.37037%209.36169%206.08211C9.39101%206.21762%209.28516%206.34384%209.147%206.34384H8.65277C8.54692%206.34384%208.45871%206.27319%208.42641%206.17032C8.29405%205.71759%207.97044%205.52353%207.40862%205.52353C6.78808%205.52353%206.46746%205.82344%206.46746%206.24395C6.46746%206.68807%206.64993%206.91145%207.60294%207.04995C8.89098%207.22637%209.55584%207.59395%209.55584%208.69125C9.55584%209.5235%208.93811%2010.1971%207.97044%2010.3528V11.0939H7.96746Z'%20fill='white'/%3e%3cpath%20fill-rule='evenodd'%20clip-rule='evenodd'%20d='M9.21503%2012.938C9.04457%2012.9913%208.90625%2012.891%208.90625%2012.7146V12.2794C8.90625%2012.15%208.98568%2012.0295%209.10918%2011.9852C10.9033%2011.3263%2012.1885%209.6028%2012.1885%207.58231C12.1885%205.56183%2010.9033%203.83828%209.10918%203.17947C8.99744%203.13822%208.90625%203.00305%208.90625%202.88518V2.45001C8.90625%202.27359%209.04457%202.17072%209.21503%202.22629C11.4827%202.95013%2013.1268%205.07646%2013.1268%207.5853C13.124%2010.0882%2011.4827%2012.2116%209.21503%2012.938Z'%20fill='white'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_4822_5801'%3e%3crect%20width='15'%20height='15'%20fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e";
-var USDC_circled_default = "data:image/svg+xml,%3csvg%20width='50'%20height='50'%20viewBox='0%200%2050%2050'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3ccircle%20cx='25'%20cy='25'%20r='24.5'%20fill='%2320224E'%20stroke='url(%23paint0_linear_795_6949)'/%3e%3cg%20clip-path='url(%23clip0_795_6949)'%3e%3cpath%20fill-rule='evenodd'%20clip-rule='evenodd'%20d='M25%2013.0001C31.6275%2013.0001%2037%2018.3725%2037%2025.0001C37%2031.6271%2031.6275%2037.0001%2025%2037.0001C18.3725%2037.0001%2013%2031.6271%2013%2025.0001C13%2018.3725%2018.3725%2013.0001%2025%2013.0001Z'%20fill='%232775CA'/%3e%3cpath%20fill-rule='evenodd'%20clip-rule='evenodd'%20d='M22.7505%2033.3433C22.7505%2033.6255%2022.5295%2033.7859%2022.2565%2033.7007C18.6283%2032.5432%2015.9977%2029.1411%2015.9977%2025.1268C15.9977%2021.1127%2018.6283%2017.7104%2022.2565%2016.5529C22.5295%2016.4683%2022.7505%2016.6281%2022.7505%2016.9104V17.6072C22.7505%2017.7951%2022.6049%2018.0163%2022.4259%2018.0775C19.5553%2019.1316%2017.4989%2021.8893%2017.4989%2025.122C17.4989%2028.3548%2019.5553%2031.113%2022.4259%2032.1666C22.6049%2032.2326%2022.7505%2032.4489%2022.7505%2032.6374V33.3433Z'%20fill='white'/%3e%3cpath%20fill-rule='evenodd'%20clip-rule='evenodd'%20d='M25.7482%2030.7502C25.7482%2030.9575%2025.5788%2031.1269%2025.3718%2031.1269H24.6235C24.4165%2031.1269%2024.2471%2030.9575%2024.2471%2030.7502V29.5646C22.6094%2029.3435%2021.8096%2028.4256%2021.5931%2027.1787C21.5553%2026.9667%2021.7247%2026.7739%2021.9412%2026.7739H22.7977C22.9765%2026.7739%2023.1272%2026.9011%2023.1648%2027.0796C23.3249%2027.8232%2023.7531%2028.3926%2025.0658%2028.3926C26.0352%2028.3926%2026.7225%2027.8514%2026.7225%2027.0424C26.7225%2026.2326%2026.3177%2025.9269%2024.8965%2025.6914C22.7977%2025.4091%2021.8048%2024.7737%2021.8048%2023.1267C21.8048%2021.8562%2022.765%2020.8681%2024.2519%2020.6562V19.4938C24.2519%2019.2867%2024.4214%2019.1172%2024.6282%2019.1172H25.3766C25.5836%2019.1172%2025.753%2019.2867%2025.753%2019.4938V20.6892C26.9624%2020.906%2027.7294%2021.5926%2027.979%2022.7314C28.0259%2022.9482%2027.8565%2023.1501%2027.6355%2023.1501H26.8447C26.6753%2023.1501%2026.5342%2023.0371%2026.4825%2022.8725C26.2707%2022.1481%2025.753%2021.8376%2024.8541%2021.8376C23.8612%2021.8376%2023.3482%2022.3175%2023.3482%2022.9903C23.3482%2023.7009%2023.6402%2024.0583%2025.165%2024.2799C27.2258%2024.5622%2028.2896%2025.1503%2028.2896%2026.906C28.2896%2028.2376%2027.3012%2029.3153%2025.753%2029.5646V30.7502H25.7482Z'%20fill='white'/%3e%3cpath%20fill-rule='evenodd'%20clip-rule='evenodd'%20d='M27.7436%2033.7007C27.4708%2033.7859%2027.2495%2033.6255%2027.2495%2033.3433V32.647C27.2495%2032.4399%2027.3766%2032.247%2027.5742%2032.1761C30.4448%2031.122%2032.5011%2028.3644%2032.5011%2025.1316C32.5011%2021.8988%2030.4448%2019.1411%2027.5742%2018.087C27.3954%2018.021%2027.2495%2017.8048%2027.2495%2017.6162V16.9199C27.2495%2016.6376%2027.4708%2016.473%2027.7436%2016.562C31.3718%2017.7201%2034.0024%2021.1222%2034.0024%2025.1364C33.9979%2029.141%2031.3718%2032.5385%2027.7436%2033.7007Z'%20fill='white'/%3e%3c/g%3e%3cdefs%3e%3clinearGradient%20id='paint0_linear_795_6949'%20x1='-1.15922e-07'%20y1='-0.594059'%20x2='41.4722'%20y2='56.2245'%20gradientUnits='userSpaceOnUse'%3e%3cstop%20stop-color='%23384263'%20stop-opacity='0.25'/%3e%3cstop%20offset='1'%20stop-color='%23384263'%20stop-opacity='0.15'/%3e%3c/linearGradient%3e%3cclipPath%20id='clip0_795_6949'%3e%3crect%20width='24'%20height='24'%20fill='white'%20transform='translate(13%2013)'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e";
-var USDT_default = "data:image/svg+xml,%3csvg%20width='15'%20height='15'%20viewBox='0%200%2015%2015'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_6225_8640)'%3e%3cpath%20d='M14.9879%207.49735C14.9879%2011.619%2011.6468%2014.96%207.52519%2014.96C3.40369%2014.96%200.0625%2011.619%200.0625%207.49735C0.0625%203.37579%203.40369%200.034668%207.52519%200.034668C11.6468%200.034668%2014.9879%203.37579%2014.9879%207.49735Z'%20fill='%231BA27A'/%3e%3cpath%20d='M11.0274%203.79779H3.96094V5.50376H6.64116V8.01122H8.34713V5.50376H11.0274V3.79779Z'%20fill='white'/%3e%3cpath%20d='M7.50791%208.27837C5.29075%208.27837%203.49321%207.92747%203.49321%207.49456C3.49321%207.06173%205.29067%206.71076%207.50791%206.71076C9.72507%206.71076%2011.5225%207.06173%2011.5225%207.49456C11.5225%207.92747%209.72507%208.27837%207.50791%208.27837ZM12.0157%207.62523C12.0157%207.06703%209.99754%206.61456%207.50791%206.61456C5.01836%206.61456%203%207.06703%203%207.62523C3%208.1168%204.565%208.52635%206.63881%208.6171V12.2167H8.34463V8.61852C10.4344%208.53061%2012.0157%208.11934%2012.0157%207.62523Z'%20fill='white'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_6225_8640'%3e%3crect%20width='15'%20height='15'%20fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e";
-const Tokens = {
-	ETH: {
-		name: "Ethereum",
-		symbol: "ETH",
-		decimals: 18,
-		address: "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
-		oracleAddress: "0x639fe6ab55c921f74e7fac1ee960c0b6293ba612",
-		url: "https://www.coingecko.com/en/coins/ethereum",
-		isETH: true,
-		icon: ETH_default,
-		icon_circled: ETH_circled_default
-	},
-	BTC: {
-		name: "Bitcoin",
-		symbol: "BTC",
-		decimals: 8,
-		address: "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f",
-		oracleAddress: "0x6ce185860a4963106506c203335a2910413708e9",
-		url: "https://www.coingecko.com/en/coins/bitcoin",
-		icon: BTC_default,
-		icon_circled: WBTC_circled_default
-	},
-	WETH: {
-		name: "Wrapped Ethereum",
-		symbol: "WETH",
-		decimals: 18,
-		address: "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
-		icon: WETH_default
-	},
-	WBTC: {
-		name: "Wrapped Bitcoin",
-		symbol: "WBTC",
-		decimals: 8,
-		address: "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f",
-		icon: WBTC_default,
-		icon_circled: WBTC_circled_default
-	},
-	LINK: {
-		name: "Chainlink Token",
-		symbol: "LINK",
-		decimals: 18,
-		address: "0xf97f4df75117a78c1A5a0DBb814Af92458539FB4",
-		url: "https://www.coingecko.com/en/coins/chainlink",
-		icon: LINK_default
-	},
-	ARB: {
-		name: "Arbitrum Token",
-		symbol: "ARB",
-		decimals: 18,
-		address: "0x912CE59144191C1204E64559FE8253a0e49E6548",
-		url: "https://www.coingecko.com/en/coins/arbitrum",
-		icon: ARB_default
-	},
-	GMX: {
-		name: "GMX Token",
-		symbol: "GMX",
-		decimals: 18,
-		address: "0xfc5A1A6EB076a2C7aD06eD22C90d7E710E35ad0a",
-		url: "https://www.coingecko.com/en/coins/gmx",
-		icon: GMX_default
-	},
-	MAGIC: {
-		name: "MAGIC",
-		symbol: "MAGIC",
-		decimals: 18,
-		address: "0x539bdE0d7Dbd336b79148AA742883198BBF60342",
-		url: "https://www.coingecko.com/en/coins/magic",
-		icon: MAGIC_default
-	},
-	DAI: {
-		name: "Dai",
-		symbol: "DAI",
-		decimals: 18,
-		address: "0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1",
-		icon: "data:image/svg+xml,%3csvg%20width='15'%20height='15'%20viewBox='0%200%2015%2015'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_6225_8619)'%3e%3cpath%20d='M7.5%200C11.6425%200%2015%203.35816%2015%207.5C15%2011.6425%2011.6425%2015%207.5%2015C3.35816%2015%200%2011.6422%200%207.5C0%203.35816%203.35816%200%207.5%200Z'%20fill='%23F5AC37'/%3e%3cpath%20d='M7.77393%208.0296H10.6238C10.6846%208.0296%2010.7132%208.02961%2010.7176%207.94995C10.7409%207.66004%2010.7409%207.36844%2010.7176%207.07818C10.7176%207.02182%2010.6896%206.99853%2010.6285%206.99853H4.95679C4.88659%206.99853%204.86769%207.02182%204.86769%207.08763V7.92194C4.86769%208.0296%204.86769%208.0296%204.98008%208.0296H7.77393ZM10.3994%206.02348C10.4075%206.00222%2010.4075%205.97893%2010.3994%205.95801C10.3518%205.8544%2010.2954%205.75551%2010.2299%205.66269C10.1314%205.50407%2010.0153%205.35793%209.88299%205.22664C9.82055%205.14733%209.74833%205.07611%209.66733%205.0157C9.26165%204.67043%208.77935%204.42608%208.26095%204.30323C7.99938%204.2445%207.73208%204.21649%207.4641%204.21885H4.947C4.8768%204.21885%204.86735%204.24687%204.86735%204.30795V5.97185C4.86735%206.04205%204.86735%206.06095%204.95645%206.06095H10.3656C10.3656%206.06095%2010.4125%206.0515%2010.422%206.02348H10.399H10.3994ZM10.3994%209.00465C10.3197%208.99588%2010.2394%208.99588%2010.1597%209.00465H4.96152C4.89132%209.00465%204.86769%209.00465%204.86769%209.09848V10.7252C4.86769%2010.8002%204.86769%2010.8191%204.96152%2010.8191H7.3615C7.47625%2010.8278%207.591%2010.8197%207.70339%2010.7958C8.0517%2010.7708%208.39426%2010.6952%208.72097%2010.5707C8.83977%2010.5295%208.95452%2010.4758%209.06286%2010.4114H9.09559C9.65821%2010.1188%2010.1152%209.65907%2010.4034%209.09477C10.4034%209.09477%2010.4362%209.02389%2010.3994%209.00533V9.00465ZM3.92572%2011.6625V11.6345V10.5423V10.1721V9.07047C3.92572%209.00938%203.92572%209.00027%203.85079%209.00027H2.83356C2.77719%209.00027%202.75391%209.00026%202.75391%208.92534V8.03467H3.84134C3.90209%208.03467%203.92572%208.03467%203.92572%207.95502V7.0738C3.92572%207.01743%203.92572%207.00359%203.85079%207.00359H2.83356C2.77719%207.00359%202.75391%207.00359%202.75391%206.92867V6.10381C2.75391%206.05217%202.75391%206.03833%202.82883%206.03833H3.83662C3.90682%206.03833%203.92572%206.03834%203.92572%205.94923V3.42268C3.92572%203.34776%203.92572%203.32886%204.01954%203.32886H7.53498C7.79013%203.33898%208.0436%203.367%208.29436%203.41323C8.81108%203.50875%209.30755%203.69336%209.76149%203.95695C10.0625%204.13414%2010.3396%204.34812%2010.5863%204.5945C10.772%204.78721%2010.9394%204.99579%2011.0879%205.21786C11.2354%205.44298%2011.3579%205.68362%2011.4541%205.93506C11.4659%206.00053%2011.5287%206.04475%2011.5941%206.03361H12.4332C12.5408%206.03361%2012.5408%206.03361%2012.5456%206.13689V6.90572C12.5456%206.98064%2012.5175%206.99954%2012.4423%206.99954H11.7953C11.7298%206.99954%2011.7109%206.99954%2011.7156%207.08392C11.7413%207.36945%2011.7413%207.65599%2011.7156%207.94152C11.7156%208.02117%2011.7156%208.03062%2011.8051%208.03062H12.5452C12.578%208.07281%2012.5452%208.11499%2012.5452%208.15752C12.5499%208.21186%2012.5499%208.26687%2012.5452%208.32121V8.88855C12.5452%208.9682%2012.5219%208.99183%2012.4514%208.99183H11.5654C11.5037%208.98001%2011.4436%209.0195%2011.4294%209.08093C11.2185%209.62937%2010.881%2010.1211%2010.4449%2010.5153C10.2856%2010.6588%2010.1182%2010.7938%209.9434%2010.9183C9.75575%2011.0263%209.57316%2011.1387%209.38078%2011.2278C9.02674%2011.3871%208.65549%2011.5045%208.27445%2011.5791C7.91265%2011.6439%207.54578%2011.6733%207.17756%2011.6682H3.92437V11.6635L3.92572%2011.6625Z'%20fill='%23FEFEFD'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_6225_8619'%3e%3crect%20width='15'%20height='15'%20fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e"
-	},
-	USDC: {
-		name: "USD Coin",
-		symbol: "USDC",
-		decimals: 6,
-		address: "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
-		oracleAddress: "0x50834F3163758fcC1Df9973b6e91f0F0F0434aD3",
-		icon: USDC_default,
-		icon_circled: USDC_circled_default
-	},
-	"USDC.e": {
-		name: "USDC.e",
-		symbol: "USDC.e",
-		decimals: 6,
-		address: "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
-		icon: USDC_default
-	},
-	USDT: {
-		name: "Tether",
-		symbol: "USDT",
-		decimals: 6,
-		address: "0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9",
-		icon: USDT_default
-	}
-};
-const bringToDec = (bigInt, initDec, resultDec) => {
-	const decDifference = resultDec - initDec;
-	return (decDifference < 0 ? reduceBigIntDec : expandBigIntDec)(bigInt, Math.abs(decDifference));
-};
-const bringToDefaultDec = (bigInt, initDec) => {
-	return bringToDec(bigInt, initDec, Decimals.DEFAULT);
-};
-const bringFromDefaultDec = (bigInt, resultDec) => {
-	return bringToDec(bigInt, Decimals.DEFAULT, resultDec);
-};
-const get1eToken = (bigInt, token$1) => {
-	const tokenDec = Tokens[token$1.symbol ?? token$1].decimals;
-	return bringFromDefaultDec(bigInt, tokenDec);
-};
-const bring1eTokenToDefault = (bigInt, token$1) => {
-	const tokenDec = Tokens[token$1.symbol ?? token$1].decimals;
-	return bringToDefaultDec(bigInt, tokenDec);
-};
-const expandBigIntDec = (bigInt, expandDecimals) => {
-	return bigInt * BigInt(10 ** expandDecimals);
-};
-const reduceBigIntDec = (bigInt, reduceDecimals) => {
-	return bigInt / BigInt(10 ** reduceDecimals);
-};
 const _GodEyeContext = (0, import_react.createContext)(null);
 var GodEyeContext = ({ children }) => {
 	const godEyeData = _useGodEyeSetup();
@@ -69465,9 +69320,9 @@ const _useGodEyeSetup = () => {
 	const [godEyeAddress, setGodEyeAddress] = (0, import_react.useState)(void 0);
 	const [godEyeAccountId, setGodEyeAccountId] = (0, import_react.useState)(void 0);
 	const loc = useLocation();
-	const enableGodEyeWallet = (address$5) => {
-		setGodEyeAddress(address$5);
-		console.log("God Eye Wallet enabled:", address$5);
+	const enableGodEyeWallet = (address$7) => {
+		setGodEyeAddress(address$7);
+		console.log("God Eye Wallet enabled:", address$7);
 	};
 	const enableGodEyeAccountId = (accountId) => {
 		setGodEyeAccountId(accountId);
@@ -69482,8 +69337,8 @@ const _useGodEyeSetup = () => {
 		const [cheatcode, cheatcodeValue] = getLast(loc.pathname.split("/")).split("=");
 		switch (cheatcode) {
 			case WALLET_CHEATCODE: {
-				const address$5 = cheatcodeValue;
-				if (isAddress(address$5)) enableGodEyeWallet(address$5);
+				const address$7 = cheatcodeValue;
+				if (isAddress(address$7)) enableGodEyeWallet(address$7);
 				else disableGodEye(`Invalid address: ${cheatcodeValue}`);
 				break;
 			}
@@ -72417,6 +72272,1619 @@ var MarginTrading_default = {
 		}
 	]
 };
+var ModularSwapRouter_default = {
+	address: "0xd64A048d0C5982B464cfA2Bc0decEf2A59D3aBb0",
+	abi: [
+		{
+			"inputs": [{
+				"internalType": "contract IMarginTrading",
+				"name": "_marginTrading",
+				"type": "address"
+			}],
+			"stateMutability": "nonpayable",
+			"type": "constructor"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "uint256",
+					"name": "marginAccountID",
+					"type": "uint256"
+				},
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "tokenIn",
+					"type": "address"
+				},
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "tokenOut",
+					"type": "address"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "amountIn",
+					"type": "uint256"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "amountOut",
+					"type": "uint256"
+				}
+			],
+			"name": "LiquidateERC20",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "uint256",
+					"name": "marginAccountID",
+					"type": "uint256"
+				},
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "tokenIn",
+					"type": "address"
+				},
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "tokenOut",
+					"type": "address"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256[]",
+					"name": "tokenId",
+					"type": "uint256[]"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "amountIn",
+					"type": "uint256"
+				}
+			],
+			"name": "LiquidateERC721",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "bytes32",
+					"name": "role",
+					"type": "bytes32"
+				},
+				{
+					"indexed": true,
+					"internalType": "bytes32",
+					"name": "previousAdminRole",
+					"type": "bytes32"
+				},
+				{
+					"indexed": true,
+					"internalType": "bytes32",
+					"name": "newAdminRole",
+					"type": "bytes32"
+				}
+			],
+			"name": "RoleAdminChanged",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "bytes32",
+					"name": "role",
+					"type": "bytes32"
+				},
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "account",
+					"type": "address"
+				},
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "sender",
+					"type": "address"
+				}
+			],
+			"name": "RoleGranted",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "bytes32",
+					"name": "role",
+					"type": "bytes32"
+				},
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "account",
+					"type": "address"
+				},
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "sender",
+					"type": "address"
+				}
+			],
+			"name": "RoleRevoked",
+			"type": "event"
+		},
+		{
+			"inputs": [],
+			"name": "DEFAULT_ADMIN_ROLE",
+			"outputs": [{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "MANAGER_ROLE",
+			"outputs": [{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "MARGIN_ACCOUNT_ROLE",
+			"outputs": [{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "MARGIN_TRADING_ROLE",
+			"outputs": [{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}],
+			"name": "availebleStrategy",
+			"outputs": [{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "tokenIn",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "tokenOut",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "amountOut",
+					"type": "uint256"
+				}
+			],
+			"name": "calculateAmountInERC20",
+			"outputs": [{
+				"internalType": "uint256",
+				"name": "amountIn",
+				"type": "uint256"
+			}],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "tokenIn",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "tokenOut",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "amountIn",
+					"type": "uint256"
+				}
+			],
+			"name": "calculateAmountOutERC20",
+			"outputs": [{
+				"internalType": "uint256",
+				"name": "amountOut",
+				"type": "uint256"
+			}],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "tokenIn",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "tokenOut",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "tokenID",
+					"type": "uint256"
+				}
+			],
+			"name": "calculateAmountOutERC721",
+			"outputs": [{
+				"internalType": "uint256",
+				"name": "amountOut",
+				"type": "uint256"
+			}],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "tokenIn",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "tokenOut",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "amountIn",
+					"type": "uint256"
+				}
+			],
+			"name": "calculatePositionValue",
+			"outputs": [{
+				"internalType": "uint256",
+				"name": "amountOut",
+				"type": "uint256"
+			}],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"components": [
+					{
+						"internalType": "address",
+						"name": "tokenIn",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "tokenOut",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct IModularSwapRouter.ERC20PositionInfo[]",
+				"name": "erc20Params",
+				"type": "tuple[]"
+			}, {
+				"components": [
+					{
+						"internalType": "address",
+						"name": "tokenIn",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "tokenOut",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "holder",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "value",
+						"type": "uint256[]"
+					}
+				],
+				"internalType": "struct IModularSwapRouter.ERC721PositionInfo[]",
+				"name": "erc721Params",
+				"type": "tuple[]"
+			}],
+			"name": "calculateTotalPositionValue",
+			"outputs": [{
+				"internalType": "uint256",
+				"name": "totalValue",
+				"type": "uint256"
+			}],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"components": [
+					{
+						"internalType": "address",
+						"name": "tokenIn",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "tokenOut",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct IModularSwapRouter.ERC20PositionInfo[]",
+				"name": "erc20Params",
+				"type": "tuple[]"
+			}, {
+				"components": [
+					{
+						"internalType": "address",
+						"name": "tokenIn",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "tokenOut",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "holder",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "value",
+						"type": "uint256[]"
+					}
+				],
+				"internalType": "struct IModularSwapRouter.ERC721PositionInfo[]",
+				"name": "erc721Params",
+				"type": "tuple[]"
+			}],
+			"name": "calculateTotalPositionValueUSDC",
+			"outputs": [{
+				"internalType": "uint256",
+				"name": "totalValue",
+				"type": "uint256"
+			}],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "tokenIn",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "tokenOut",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "tokenID",
+					"type": "uint256"
+				}
+			],
+			"name": "checkStrategy",
+			"outputs": [{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "tokenIn",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "tokenOut",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "tokenID",
+					"type": "uint256"
+				}
+			],
+			"name": "checkValidityERC721",
+			"outputs": [{
+				"internalType": "bool",
+				"name": "isValid",
+				"type": "bool"
+			}],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "tokenIn",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "tokenOut",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "id",
+					"type": "uint256"
+				}
+			],
+			"name": "exercise",
+			"outputs": [{
+				"internalType": "uint256",
+				"name": "amountOut",
+				"type": "uint256"
+			}],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "address",
+				"name": "tokenIn",
+				"type": "address"
+			}, {
+				"internalType": "address",
+				"name": "tokenOut",
+				"type": "address"
+			}],
+			"name": "getModuleAddress",
+			"outputs": [{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			}],
+			"name": "getRoleAdmin",
+			"outputs": [{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "tokenIn",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "tokenOut",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "tokenID",
+					"type": "uint256"
+				}
+			],
+			"name": "getStrategy",
+			"outputs": [{
+				"internalType": "address",
+				"name": "strategy",
+				"type": "address"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			}, {
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}],
+			"name": "grantRole",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			}, {
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}],
+			"name": "hasRole",
+			"outputs": [{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "marginAccountID",
+					"type": "uint256"
+				},
+				{
+					"components": [
+						{
+							"internalType": "address",
+							"name": "tokenIn",
+							"type": "address"
+						},
+						{
+							"internalType": "address",
+							"name": "tokenOut",
+							"type": "address"
+						},
+						{
+							"internalType": "uint256",
+							"name": "value",
+							"type": "uint256"
+						}
+					],
+					"internalType": "struct IModularSwapRouter.ERC20PositionInfo[]",
+					"name": "erc20Params",
+					"type": "tuple[]"
+				},
+				{
+					"components": [
+						{
+							"internalType": "address",
+							"name": "tokenIn",
+							"type": "address"
+						},
+						{
+							"internalType": "address",
+							"name": "tokenOut",
+							"type": "address"
+						},
+						{
+							"internalType": "address",
+							"name": "holder",
+							"type": "address"
+						},
+						{
+							"internalType": "uint256[]",
+							"name": "value",
+							"type": "uint256[]"
+						}
+					],
+					"internalType": "struct IModularSwapRouter.ERC721PositionInfo[]",
+					"name": "erc721Params",
+					"type": "tuple[]"
+				}
+			],
+			"name": "liquidate",
+			"outputs": [{
+				"internalType": "uint256",
+				"name": "amountOut",
+				"type": "uint256"
+			}],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "marginTrading",
+			"outputs": [{
+				"internalType": "contract IMarginTrading",
+				"name": "",
+				"type": "address"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			}, {
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}],
+			"name": "renounceRole",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			}, {
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}],
+			"name": "revokeRole",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "address",
+				"name": "strtegyAddress",
+				"type": "address"
+			}, {
+				"internalType": "bool",
+				"name": "value",
+				"type": "bool"
+			}],
+			"name": "setAvailebleStrategy",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "tokenIn",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "tokenOut",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "module",
+					"type": "address"
+				}
+			],
+			"name": "setTokenInToTokenOutToExchange",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "bytes4",
+				"name": "interfaceId",
+				"type": "bytes4"
+			}],
+			"name": "supportsInterface",
+			"outputs": [{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "tokenIn",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "tokenOut",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "amountIn",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "amountOutMinimum",
+					"type": "uint256"
+				}
+			],
+			"name": "swapInput",
+			"outputs": [{
+				"internalType": "uint256",
+				"name": "amountOut",
+				"type": "uint256"
+			}],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "tokenIn",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "tokenOut",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "amountOut",
+					"type": "uint256"
+				}
+			],
+			"name": "swapOutput",
+			"outputs": [{
+				"internalType": "uint256",
+				"name": "amountIn",
+				"type": "uint256"
+			}],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}, {
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}],
+			"name": "tokenInToTokenOutToExchange",
+			"outputs": [{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		}
+	]
+};
+var OneClickProxy_default = {
+	address: "0xDF645a02847C3bD9A7F76DD2C095eE7743810fc6",
+	abi: [
+		{
+			"inputs": [{
+				"internalType": "contract IMarginTrading",
+				"name": "_marginTrading",
+				"type": "address"
+			}],
+			"stateMutability": "nonpayable",
+			"type": "constructor"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "bytes32",
+					"name": "role",
+					"type": "bytes32"
+				},
+				{
+					"indexed": true,
+					"internalType": "bytes32",
+					"name": "previousAdminRole",
+					"type": "bytes32"
+				},
+				{
+					"indexed": true,
+					"internalType": "bytes32",
+					"name": "newAdminRole",
+					"type": "bytes32"
+				}
+			],
+			"name": "RoleAdminChanged",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "bytes32",
+					"name": "role",
+					"type": "bytes32"
+				},
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "account",
+					"type": "address"
+				},
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "sender",
+					"type": "address"
+				}
+			],
+			"name": "RoleGranted",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "bytes32",
+					"name": "role",
+					"type": "bytes32"
+				},
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "account",
+					"type": "address"
+				},
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "sender",
+					"type": "address"
+				}
+			],
+			"name": "RoleRevoked",
+			"type": "event"
+		},
+		{
+			"inputs": [],
+			"name": "DEFAULT_ADMIN_ROLE",
+			"outputs": [{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "FACADE_ROLE",
+			"outputs": [{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "MANAGER_ROLE",
+			"outputs": [{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "token",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "to",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "amount",
+					"type": "uint256"
+				}
+			],
+			"name": "approveERC20",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "token",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "to",
+					"type": "address"
+				},
+				{
+					"internalType": "bool",
+					"name": "value",
+					"type": "bool"
+				}
+			],
+			"name": "approveERC721ForAll",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "marginAccountID",
+					"type": "uint256"
+				},
+				{
+					"internalType": "address",
+					"name": "token",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "amount",
+					"type": "uint256"
+				}
+			],
+			"name": "borrow",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "marginAccountID",
+					"type": "uint256"
+				},
+				{
+					"internalType": "address",
+					"name": "token",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "amount",
+					"type": "uint256"
+				}
+			],
+			"name": "borrowNoYellow",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "marginAccountID",
+					"type": "uint256"
+				},
+				{
+					"internalType": "address",
+					"name": "positionToken",
+					"type": "address"
+				},
+				{
+					"internalType": "int256",
+					"name": "positionSize",
+					"type": "int256"
+				},
+				{
+					"internalType": "int256",
+					"name": "collateralAmount",
+					"type": "int256"
+				}
+			],
+			"name": "changePosition",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "marginAccountID",
+					"type": "uint256"
+				},
+				{
+					"internalType": "address",
+					"name": "token",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "collateralTokenID",
+					"type": "uint256"
+				}
+			],
+			"name": "exercise",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "uint256",
+				"name": "marginAccountID",
+				"type": "uint256"
+			}, {
+				"internalType": "address",
+				"name": "token",
+				"type": "address"
+			}],
+			"name": "getOptionOwner",
+			"outputs": [{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "uint256",
+				"name": "marginAccountID",
+				"type": "uint256"
+			}, {
+				"internalType": "address",
+				"name": "positionToken",
+				"type": "address"
+			}],
+			"name": "getPosition",
+			"outputs": [
+				{
+					"internalType": "int256",
+					"name": "",
+					"type": "int256"
+				},
+				{
+					"internalType": "int256",
+					"name": "",
+					"type": "int256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				},
+				{
+					"internalType": "bool",
+					"name": "",
+					"type": "bool"
+				},
+				{
+					"internalType": "bool",
+					"name": "",
+					"type": "bool"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "getPositionTokens",
+			"outputs": [{
+				"internalType": "address[]",
+				"name": "",
+				"type": "address[]"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			}],
+			"name": "getRoleAdmin",
+			"outputs": [{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			}, {
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}],
+			"name": "grantRole",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			}, {
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}],
+			"name": "hasRole",
+			"outputs": [{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "marginTrading",
+			"outputs": [{
+				"internalType": "contract IMarginTrading",
+				"name": "",
+				"type": "address"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				},
+				{
+					"internalType": "bytes",
+					"name": "",
+					"type": "bytes"
+				}
+			],
+			"name": "onERC721Received",
+			"outputs": [{
+				"internalType": "bytes4",
+				"name": "",
+				"type": "bytes4"
+			}],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}],
+			"name": "positionTokens",
+			"outputs": [{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "positionsStorage",
+			"outputs": [{
+				"internalType": "contract IPositionsStorage",
+				"name": "",
+				"type": "address"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "marginAccountID",
+					"type": "uint256"
+				},
+				{
+					"internalType": "address",
+					"name": "token",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "amount",
+					"type": "uint256"
+				}
+			],
+			"name": "provideERC20",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "marginAccountID",
+					"type": "uint256"
+				},
+				{
+					"internalType": "address",
+					"name": "token",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "collateralTokenID",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "optionType",
+					"type": "uint256"
+				}
+			],
+			"name": "provideERC721",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			}, {
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}],
+			"name": "renounceRole",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "marginAccountID",
+					"type": "uint256"
+				},
+				{
+					"internalType": "address",
+					"name": "token",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "amount",
+					"type": "uint256"
+				}
+			],
+			"name": "repay",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			}, {
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}],
+			"name": "revokeRole",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "contract IMarginTrading",
+				"name": "newMarginTrading",
+				"type": "address"
+			}],
+			"name": "setMarginTrading",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "address[]",
+				"name": "_positionTokens",
+				"type": "address[]"
+			}],
+			"name": "setPositionTokens",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "contract IPositionsStorage",
+				"name": "newPositionsStorage",
+				"type": "address"
+			}],
+			"name": "setPositionsStorage",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "uint256",
+				"name": "newYellowCoeff",
+				"type": "uint256"
+			}],
+			"name": "setYellowCoeff",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "bytes4",
+				"name": "interfaceId",
+				"type": "bytes4"
+			}],
+			"name": "supportsInterface",
+			"outputs": [{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "marginAccountID",
+					"type": "uint256"
+				},
+				{
+					"internalType": "address",
+					"name": "tokenIn",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "tokenOut",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "amountIn",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "amountOutMinimum",
+					"type": "uint256"
+				}
+			],
+			"name": "swap",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "marginAccountID",
+					"type": "uint256"
+				},
+				{
+					"internalType": "address",
+					"name": "token",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "amount",
+					"type": "uint256"
+				}
+			],
+			"name": "withdrawERC20",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "marginAccountID",
+					"type": "uint256"
+				},
+				{
+					"internalType": "address",
+					"name": "token",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "amount",
+					"type": "uint256"
+				}
+			],
+			"name": "withdrawERC20NoYellow",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "marginAccountID",
+					"type": "uint256"
+				},
+				{
+					"internalType": "address",
+					"name": "token",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "value",
+					"type": "uint256"
+				}
+			],
+			"name": "withdrawERC721",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "marginAccountID",
+					"type": "uint256"
+				},
+				{
+					"internalType": "address",
+					"name": "token",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "value",
+					"type": "uint256"
+				}
+			],
+			"name": "withdrawERC721NoYellow",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "yellowCoeff",
+			"outputs": [{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		}
+	]
+};
 var OneClickTrading_default = {
 	address: "0x3D2a69A3BE7649CEa370685596cba9cD4e715C6D",
 	abi: [
@@ -72856,6 +74324,8 @@ var useContractJsons = () => {
 		MarginAccount: MarginAccount_default,
 		MarginAccountManager: MarginAccountManager_default,
 		MarginTrading: MarginTrading_default,
+		ModularSwapRouter: ModularSwapRouter_default,
+		OneClickProxy: OneClickProxy_default,
 		OneClickTrading: OneClickTrading_default
 	};
 };
@@ -72875,8 +74345,8 @@ var useViewContracts = () => {
 	const alchemyProvider = getAlchemyProvider();
 	const contracts$1 = {};
 	Object.keys(contractJsons).forEach((name) => {
-		const { address: address$5, abi: abi$5 } = contractJsons[name];
-		contracts$1[name] = new Contract(address$5, abi$5, alchemyProvider);
+		const { address: address$7, abi: abi$7 } = contractJsons[name];
+		contracts$1[name] = new Contract(address$7, abi$7, alchemyProvider);
 	});
 	return contracts$1;
 };
@@ -72915,6 +74385,199 @@ var useContracts_default = useContracts;
 const SECOND = 1e3;
 const MINUTE = 60 * SECOND;
 365 * (24 * (60 * MINUTE));
+var ETH_default = "data:image/svg+xml,%3csvg%20width='15'%20height='16'%20viewBox='0%200%2016%2015'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M8%2015C12.1421%2015%2015.5%2011.6421%2015.5%207.5C15.5%203.35786%2012.1421%200%208%200C3.85786%200%200.5%203.35786%200.5%207.5C0.5%2011.6421%203.85786%2015%208%2015Z'%20fill='%23627EEA'/%3e%3cpath%20d='M8.23438%201.875V6.03281L11.7486%207.60312L8.23438%201.875Z'%20fill='white'%20fill-opacity='0.602'/%3e%3cpath%20d='M8.23344%201.875L4.71875%207.60312L8.23344%206.03281V1.875Z'%20fill='white'/%3e%3cpath%20d='M8.23438%2010.2976V13.1227L11.7509%208.25757L8.23438%2010.2976Z'%20fill='white'%20fill-opacity='0.602'/%3e%3cpath%20d='M8.23344%2013.1227V10.2971L4.71875%208.25757L8.23344%2013.1227Z'%20fill='white'/%3e%3cpath%20d='M8.23438%209.64354L11.7486%207.60307L8.23438%206.03369V9.64354Z'%20fill='white'%20fill-opacity='0.2'/%3e%3cpath%20d='M4.71875%207.60307L8.23344%209.64354V6.03369L4.71875%207.60307Z'%20fill='white'%20fill-opacity='0.602'/%3e%3c/svg%3e";
+var ETH_circled_default = "data:image/svg+xml,%3csvg%20width='50'%20height='50'%20viewBox='0%200%2050%2050'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3ccircle%20cx='25'%20cy='25'%20r='24.5'%20fill='%2320224E'%20stroke='url(%23paint0_linear_799_7072)'/%3e%3cg%20clip-path='url(%23clip0_799_7072)'%3e%3cpath%20d='M25%2037C31.6274%2037%2037%2031.6274%2037%2025C37%2018.3726%2031.6274%2013%2025%2013C18.3726%2013%2013%2018.3726%2013%2025C13%2031.6274%2018.3726%2037%2025%2037Z'%20fill='%23627EEA'/%3e%3cpath%20d='M25.3734%2016V22.6525L30.9962%2025.165L25.3734%2016Z'%20fill='white'%20fill-opacity='0.602'/%3e%3cpath%20d='M25.3735%2016L19.75%2025.165L25.3735%2022.6525V16Z'%20fill='white'/%3e%3cpath%20d='M25.3734%2029.476V33.9963L30.9999%2026.212L25.3734%2029.476Z'%20fill='white'%20fill-opacity='0.602'/%3e%3cpath%20d='M25.3735%2033.9963V29.4753L19.75%2026.212L25.3735%2033.9963Z'%20fill='white'/%3e%3cpath%20d='M25.3734%2028.4297L30.9962%2025.165L25.3734%2022.654V28.4297Z'%20fill='white'%20fill-opacity='0.2'/%3e%3cpath%20d='M19.75%2025.165L25.3735%2028.4297V22.654L19.75%2025.165Z'%20fill='white'%20fill-opacity='0.602'/%3e%3c/g%3e%3cdefs%3e%3clinearGradient%20id='paint0_linear_799_7072'%20x1='-1.15922e-07'%20y1='-0.594059'%20x2='41.4722'%20y2='56.2245'%20gradientUnits='userSpaceOnUse'%3e%3cstop%20stop-color='%23384263'%20stop-opacity='0.25'/%3e%3cstop%20offset='1'%20stop-color='%23384263'%20stop-opacity='0.15'/%3e%3c/linearGradient%3e%3cclipPath%20id='clip0_799_7072'%3e%3crect%20width='24'%20height='24'%20fill='white'%20transform='translate(13%2013)'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e";
+var BTC_default = "data:image/svg+xml,%3csvg%20width='15'%20height='16'%20viewBox='0%200%2015%2016'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_1_3471)'%3e%3cpath%20d='M14.7756%209.81429C13.7738%2013.8322%209.70387%2016.2774%205.68504%2015.2755C1.6679%2014.2738%20-0.777593%2010.204%200.224639%206.18648C1.22599%202.16814%205.29593%20-0.277254%209.31351%200.724426C13.332%201.7261%2015.7774%205.79628%2014.7755%209.81436L14.7756%209.81429H14.7756Z'%20fill='%23F7931A'/%3e%3cpath%20d='M10.9791%206.52009C11.1455%205.46933%2010.2984%204.9045%209.13994%204.5277L9.51574%203.10435L8.5982%202.88845L8.23237%204.27433C7.99116%204.21752%207.74344%204.16399%207.49724%204.11092L7.86573%202.7159L6.94876%202.5L6.57276%203.92289C6.37314%203.87998%206.17709%203.83756%205.98688%203.79287L5.98794%203.78839L4.72264%203.49002L4.47856%204.41543C4.47856%204.41543%205.1593%204.56278%205.14495%204.57185C5.5165%204.65942%205.58369%204.89169%205.57254%205.07578L5.14446%206.69732C5.17005%206.70345%205.20323%206.71233%205.23985%206.72622C5.20924%206.71905%205.17667%206.71121%205.14287%206.70357L4.54285%208.97511C4.49745%209.08171%204.38219%209.24168%204.12242%209.18093C4.13162%209.19352%203.45554%209.02378%203.45554%209.02378L3%2010.0156L4.19402%2010.2967C4.41615%2010.3493%204.63383%2010.4043%204.84819%2010.456L4.46851%2011.8957L5.38498%2012.1116L5.76099%2010.6872C6.01136%2010.7514%206.25434%2010.8106%206.4922%2010.8664L6.11746%2012.2841L7.03504%2012.5L7.41468%2011.063C8.97928%2011.3426%2010.1557%2011.2299%2010.6509%209.89354C11.0499%208.81761%2010.631%208.19701%209.80792%207.79231C10.4074%207.66175%2010.859%207.28939%2010.9794%206.52021L10.9791%206.52001L10.9791%206.52009ZM8.88274%209.29602C8.59918%2010.372%206.68082%209.79034%206.05885%209.64449L6.5627%207.73716C7.18462%207.88378%209.17909%208.17393%208.88278%209.29602H8.88274ZM9.1665%206.5045C8.90784%207.48317%207.31116%206.98596%206.79321%206.86404L7.25002%205.13421C7.76796%205.25613%209.43596%205.48368%209.16659%206.5045H9.1665Z'%20fill='white'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_1_3471'%3e%3crect%20width='15'%20height='15'%20fill='white'%20transform='translate(0%200.5)'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e";
+var WETH_default = "/no-rekt_draft/assets/WETH-BW__QqoI.svg";
+var WBTC_default = "data:image/svg+xml,%3csvg%20width='15'%20height='15'%20viewBox='0%200%2015%2015'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_4412_5899)'%3e%3ccircle%20opacity='0.05'%20cx='7.5'%20cy='7.5'%20r='7.5'%20fill='white'/%3e%3cpath%20d='M12.2302%203.14804L11.8184%203.5599C12.8011%204.63463%2013.3461%206.03823%2013.3461%207.49455C13.3461%208.95087%2012.8011%2010.3545%2011.8184%2011.4292L12.2302%2011.8411C13.3232%2010.6556%2013.93%209.10218%2013.93%207.48975C13.93%205.87731%2013.3232%204.32393%2012.2302%203.13843V3.14804Z'%20fill='%235A5564'/%3e%3cpath%20d='M3.56991%203.18374C4.64464%202.20097%206.04824%201.65597%207.50456%201.65597C8.96088%201.65597%2010.3645%202.20097%2011.4392%203.18374L11.8511%202.77188C10.6656%201.67894%209.11219%201.07214%207.49976%201.07214C5.88732%201.07214%204.33394%201.67894%203.14844%202.77188L3.56991%203.18374Z'%20fill='%235A5564'/%3e%3cpath%20d='M3.18386%2011.4333C2.20226%2010.3588%201.65798%208.95606%201.65798%207.5007C1.65798%206.04534%202.20226%204.6426%203.18386%203.56811L2.772%203.15625C1.67906%204.34175%201.07227%205.89514%201.07227%207.50757C1.07227%209.12%201.67906%2010.6734%202.772%2011.8589L3.18386%2011.4333Z'%20fill='%235A5564'/%3e%3cpath%20d='M11.4335%2011.8136C10.3588%2012.7964%208.95518%2013.3414%207.49886%2013.3414C6.04253%2013.3414%204.63893%2012.7964%203.56421%2011.8136L3.15234%2012.2255C4.33784%2013.3184%205.89123%2013.9252%207.50366%2013.9252C9.11609%2013.9252%2010.6695%2013.3184%2011.855%2012.2255L11.4335%2011.8136Z'%20fill='%235A5564'/%3e%3cpath%20d='M10.1011%206.12579C10.0187%205.26637%209.27733%204.97807%208.33966%204.8902V3.70679H7.61479V4.86824C7.42396%204.86824%207.22901%204.86824%207.03543%204.86824V3.70679H6.31605V4.89844H4.8457V5.67411C4.8457%205.67411%205.38112%205.6645%205.37289%205.67411C5.46943%205.66349%205.56632%205.69076%205.64315%205.75018C5.71998%205.80959%205.77074%205.89651%205.78475%205.99262V9.25456C5.78268%209.28846%205.77385%209.32159%205.75875%209.35201C5.74366%209.38243%205.72262%209.40952%205.69688%209.43166C5.67163%209.45423%205.64207%209.47146%205.60998%209.48231C5.57789%209.49317%205.54394%209.49742%205.51017%209.49482C5.51978%209.50305%204.98299%209.49482%204.98299%209.49482L4.8457%2010.3611H6.30232V11.572H7.0272V10.3789H7.60655V11.5665H8.3328V10.3693C9.5574%2010.2952%2010.4113%209.99317%2010.5184%208.84682C10.6049%207.92425%2010.1711%207.51239%209.47777%207.34627C9.89924%207.13897%2010.1601%206.75456%2010.1011%206.12579ZM9.08513%208.70404C9.08513%209.60465%207.54202%209.50168%207.05054%209.50168V7.90366C7.54202%207.90503%209.08513%207.76362%209.08513%208.70404ZM8.74878%206.45253C8.74878%207.27625%207.46102%207.17604%207.05191%207.17604V5.72354C7.46102%205.72354%208.74878%205.59449%208.74878%206.45253Z'%20fill='%23F7931A'/%3e%3cpath%20d='M7.49863%2015C6.01539%2014.9997%204.56553%2014.5597%203.33237%2013.7355C2.09921%2012.9112%201.13813%2011.7399%200.570644%2010.3695C0.00315711%208.9991%20-0.145252%207.49122%200.144181%206.03649C0.433614%204.58176%201.14789%203.24551%202.1967%202.1967C3.24551%201.14789%204.58176%200.433614%206.03649%200.144181C7.49122%20-0.145252%208.9991%200.00315711%2010.3695%200.570644C11.7399%201.13813%2012.9112%202.09921%2013.7355%203.33237C14.5597%204.56553%2014.9997%206.01539%2015%207.49863C15.0002%208.48377%2014.8063%209.4593%2014.4294%2010.3695C14.0524%2011.2797%2013.4999%2012.1067%2012.8033%2012.8033C12.1067%2013.4999%2011.2797%2014.0524%2010.3695%2014.4294C9.4593%2014.8063%208.48377%2015.0002%207.49863%2015ZM7.49863%200.584847C6.13211%200.585933%204.79658%200.992112%203.66085%201.75204C2.52511%202.51198%201.64016%203.59155%201.11784%204.85431C0.595525%206.11708%200.459286%207.50634%200.726347%208.84651C0.993408%2010.1867%201.65178%2011.4176%202.61825%2012.3837C3.58472%2013.3498%204.8159%2014.0077%206.15618%2014.2742C7.49646%2014.5407%208.88567%2014.4039%2010.1482%2013.8811C11.4108%2013.3583%2012.49%2012.4729%2013.2495%2011.3369C14.009%2010.2008%2014.4146%208.86515%2014.4152%207.49863C14.4155%206.59037%2014.2368%205.69094%2013.8894%204.85178C13.5419%204.01262%2013.0324%203.25018%2012.39%202.60807C11.7476%201.96596%2010.985%201.45676%2010.1457%201.1096C9.30639%200.762443%208.40689%200.584125%207.49863%200.584847Z'%20fill='%23282138'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_4412_5899'%3e%3crect%20width='15'%20height='15'%20fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e";
+var WBTC_circled_default = "data:image/svg+xml,%3csvg%20width='50'%20height='50'%20viewBox='0%200%2050%2050'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3ccircle%20cx='25'%20cy='25'%20r='24.5'%20fill='%2320224E'%20stroke='url(%23paint0_linear_799_7087)'/%3e%3cg%20clip-path='url(%23clip0_799_7087)'%3e%3ccircle%20cx='25'%20cy='25'%20r='12'%20fill='white'/%3e%3cpath%20d='M32.5694%2018.0368L31.9104%2018.6958C33.4828%2020.4153%2034.3548%2022.6611%2034.3548%2024.9912C34.3548%2027.3213%2033.4828%2029.5671%2031.9104%2031.2867L32.5694%2031.9456C34.3181%2030.0488%2035.289%2027.5634%2035.289%2024.9835C35.289%2022.4036%2034.3181%2019.9182%2032.5694%2018.0214V18.0368Z'%20fill='%235A5564'/%3e%3cpath%20d='M18.7111%2018.0939C20.4307%2016.5215%2022.6764%2015.6495%2025.0065%2015.6495C27.3367%2015.6495%2029.5824%2016.5215%2031.302%2018.0939L31.961%2017.4349C30.0642%2015.6862%2027.5787%2014.7153%2024.9989%2014.7153C22.419%2014.7153%2019.9335%2015.6862%2018.0367%2017.4349L18.7111%2018.0939Z'%20fill='%235A5564'/%3e%3cpath%20d='M18.0939%2031.2933C16.5233%2029.5741%2015.6525%2027.3297%2015.6525%2025.0011C15.6525%2022.6725%2016.5233%2020.4281%2018.0939%2018.709L17.4349%2018.05C15.6862%2019.9468%2014.7153%2022.4322%2014.7153%2025.0121C14.7153%2027.592%2015.6862%2030.0774%2017.4349%2031.9742L18.0939%2031.2933Z'%20fill='%235A5564'/%3e%3cpath%20d='M31.2933%2031.9017C29.5738%2033.4742%2027.328%2034.3462%2024.9979%2034.3462C22.6678%2034.3462%2020.422%2033.4742%2018.7024%2031.9017L18.0435%2032.5607C19.9403%2034.3094%2022.4257%2035.2803%2025.0056%2035.2803C27.5855%2035.2803%2030.0709%2034.3094%2031.9677%2032.5607L31.2933%2031.9017Z'%20fill='%235A5564'/%3e%3cpath%20d='M29.1604%2022.8012C29.0286%2021.4261%2027.8424%2020.9648%2026.3422%2020.8243V18.9308H25.1824V20.7891C24.877%2020.7891%2024.5651%2020.7891%2024.2554%2020.7891V18.9308H23.1044V20.8374H20.7518V22.0785C20.7518%2022.0785%2021.6085%2022.0631%2021.5953%2022.0785C21.7498%2022.0615%2021.9048%2022.1051%2022.0277%2022.2002C22.1507%2022.2953%2022.2319%2022.4343%2022.2543%2022.5881V27.8072C22.251%2027.8615%2022.2369%2027.9145%2022.2127%2027.9631C22.1886%2028.0118%2022.1549%2028.0552%2022.1137%2028.0906C22.0733%2028.1267%2022.026%2028.1543%2021.9747%2028.1716C21.9233%2028.189%2021.869%2028.1958%2021.815%2028.1916C21.8304%2028.2048%2020.9715%2028.1916%2020.9715%2028.1916L20.7518%2029.5777H23.0824V31.5151H24.2422V29.6062H25.1692V31.5063H26.3312V29.5909C28.2905%2029.4722%2029.6568%2028.989%2029.8282%2027.1548C29.9665%2025.6787%2029.2724%2025.0197%2028.1631%2024.754C28.8375%2024.4223%2029.2549%2023.8072%2029.1604%2022.8012ZM27.5349%2026.9264C27.5349%2028.3674%2025.0659%2028.2026%2024.2796%2028.2026V25.6458C25.0659%2025.648%2027.5349%2025.4217%2027.5349%2026.9264ZM26.9968%2023.324C26.9968%2024.6419%2024.9363%2024.4816%2024.2818%2024.4816V22.1576C24.9363%2022.1576%2026.9968%2021.9511%2026.9968%2023.324Z'%20fill='%23F7931A'/%3e%3cpath%20d='M24.9978%2037C22.6246%2036.9996%2020.3048%2036.2955%2018.3318%2034.9767C16.3587%2033.658%2014.821%2031.7838%2013.913%2029.5912C13.0051%2027.3986%2012.7676%2024.9859%2013.2307%2022.6584C13.6938%2020.3308%2014.8366%2018.1928%2016.5147%2016.5147C18.1928%2014.8366%2020.3308%2013.6938%2022.6584%2013.2307C24.9859%2012.7676%2027.3986%2013.0051%2029.5912%2013.913C31.7838%2014.821%2033.658%2016.3587%2034.9767%2018.3318C36.2955%2020.3048%2036.9996%2022.6246%2037%2024.9978C37.0003%2026.574%2036.69%2028.1349%2036.087%2029.5912C35.4839%2031.0475%2034.5998%2032.3707%2033.4853%2033.4853C32.3707%2034.5998%2031.0475%2035.4839%2029.5912%2036.087C28.1349%2036.69%2026.574%2037.0003%2024.9978%2037ZM24.9978%2013.9358C22.8114%2013.9375%2020.6745%2014.5874%2018.8574%2015.8033C17.0402%2017.0192%2015.6243%2018.7465%2014.7885%2020.7669C13.9528%2022.7873%2013.7349%2025.0101%2014.1622%2027.1544C14.5895%2029.2987%2015.6428%2031.2682%2017.1892%2032.8139C18.7356%2034.3596%2020.7054%2035.4123%2022.8499%2035.8387C24.9943%2036.2652%2027.2171%2036.0463%2029.2372%2035.2098C31.2572%2034.3733%2032.984%2032.9567%2034.1992%2031.139C35.4143%2029.3214%2036.0634%2027.1842%2036.0643%2024.9978C36.0648%2023.5446%2035.7789%2022.1055%2035.223%2020.7628C34.667%2019.4202%2033.8518%2018.2003%2032.824%2017.1729C31.7962%2016.1455%2030.576%2015.3308%2029.2331%2014.7754C27.8902%2014.2199%2026.451%2013.9346%2024.9978%2013.9358Z'%20fill='%23282138'/%3e%3c/g%3e%3cdefs%3e%3clinearGradient%20id='paint0_linear_799_7087'%20x1='-1.15922e-07'%20y1='-0.594059'%20x2='41.4722'%20y2='56.2245'%20gradientUnits='userSpaceOnUse'%3e%3cstop%20stop-color='%23384263'%20stop-opacity='0.25'/%3e%3cstop%20offset='1'%20stop-color='%23384263'%20stop-opacity='0.15'/%3e%3c/linearGradient%3e%3cclipPath%20id='clip0_799_7087'%3e%3crect%20width='24'%20height='24'%20fill='white'%20transform='translate(13%2013)'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e";
+var LINK_default = "data:image/svg+xml,%3csvg%20width='15'%20height='15'%20viewBox='0%200%2016%2015'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M8.1875%200L6.79861%200.791284L3.01389%202.95872L1.625%203.75V11.25L3.01389%2012.0413L6.83333%2014.2087L8.22222%2015L9.61111%2014.2087L13.3611%2012.0413L14.75%2011.25V3.75L13.3611%202.95872L9.57639%200.791284L8.1875%200ZM4.40278%209.66743V5.33257L8.1875%203.16514L11.9722%205.33257V9.66743L8.1875%2011.8349L4.40278%209.66743Z'%20fill='%232A5ADA'/%3e%3c/svg%3e";
+var ARB_default = "data:image/svg+xml,%3csvg%20width='14'%20height='14'%20viewBox='0%200%2014%2014'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M0%204.02889V9.9711C0%2010.3493%200.212121%2010.6995%200.558042%2010.8886L5.97529%2013.8582C6.32121%2014.0473%206.74545%2014.0473%207.09138%2013.8582L12.5086%2010.8886C12.8545%2010.6995%2013.0667%2010.3493%2013.0667%209.9711V4.02889C13.0667%203.65072%2012.8545%203.30045%2012.5086%203.11137L7.09138%200.141813C6.74545%20-0.0472711%206.32121%20-0.0472711%205.97529%200.141813L0.558042%203.11137C0.215385%203.30045%200%203.65072%200%204.02889Z'%20fill='%23213147'/%3e%3cpath%20d='M7.61363%208.24049L6.95623%2010.015C6.93681%2010.0642%206.93681%2010.1189%206.95623%2010.1681L8.08518%2013.2222L9.39167%2012.4785L7.82444%208.24049C7.78838%208.14206%207.64969%208.14206%207.61363%208.24049Z'%20fill='%2312AAFF'/%3e%3cpath%20d='M9.07602%204.74457C9.03887%204.6407%208.896%204.6407%208.85886%204.74457L8.18167%206.61703C8.16167%206.66897%208.16167%206.72667%208.18167%206.7786L10.0875%2012.0556L11.4333%2011.2708L9.07602%204.74457Z'%20fill='%2312AAFF'/%3e%3cpath%20d='M6.53333%200.867662C6.56953%200.867662%206.60271%200.876253%206.63589%200.893434L12.0532%203.86296C12.1165%203.89732%2012.1557%203.96032%2012.1557%204.02904V9.96809C12.1557%2010.0368%2012.1165%2010.0998%2012.0532%2010.1342L6.63589%2013.1066C6.60573%2013.1237%206.56953%2013.1323%206.53333%2013.1323C6.49714%2013.1323%206.46396%2013.1237%206.43078%2013.1066L1.0165%2010.137C0.953155%2010.1027%200.913943%2010.0397%200.913943%209.97095V4.02904C0.913943%203.96032%200.953155%203.89732%201.0165%203.86296L6.43379%200.893434C6.46396%200.876253%206.50015%200.867662%206.53333%200.867662ZM6.53333%200C6.34029%200%206.14725%200.0486807%205.97532%200.143179L0.558018%203.1127C0.214158%203.3017%200%203.6509%200%204.02889V9.96809C0%2010.3461%200.214158%2010.6983%200.558018%2010.8873L5.97532%2013.8568C6.14725%2013.9513%206.34029%2014%206.53333%2014C6.72638%2014%206.91942%2013.9513%207.09135%2013.8568L12.5087%2010.8873C12.8555%2010.6983%2013.0667%2010.3489%2013.0667%209.96809V4.02889C13.0667%203.6509%2012.8525%203.29883%2012.5087%203.10984L7.09437%200.143179C6.91942%200.0486807%206.72638%200%206.53333%200Z'%20fill='%239DCCED'/%3e%3cpath%20d='M2.85833%2012.1444L3.40059%2010.8889L4.49167%2011.6556L3.47289%2012.4444L2.85833%2012.1444Z'%20fill='%23213147'/%3e%3cpath%20d='M6.00533%203.5H4.68532C4.58668%203.5%204.49674%203.55987%204.46483%203.6511L1.63333%2011.2801L2.99976%2012.0556L6.11847%203.65395C6.14458%203.57983%206.08946%203.5%206.00533%203.5Z'%20fill='white'/%3e%3cpath%20d='M8.45701%203.5H7.13513C7.03635%203.5%206.94629%203.56039%206.91433%203.6524L3.675%2012.4401L5.04336%2013.2222L8.56741%203.65815C8.59646%203.58051%208.53836%203.5%208.45701%203.5Z'%20fill='white'/%3e%3c/svg%3e";
+var GMX_default = "data:image/svg+xml,%3csvg%20width='15'%20height='15'%20viewBox='0%200%2015%2015'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3ccircle%20cx='7.5'%20cy='7.5'%20r='7.5'%20fill='black'/%3e%3cpath%20d='M12.5455%209.99966L7.78001%203L3%209.99966H9.65966L7.78001%207.32824L6.84762%208.71629H5.85668L7.78064%205.92549L10.562%2010L12.5455%209.99966Z'%20fill='url(%23paint0_linear_201_9061)'/%3e%3cdefs%3e%3clinearGradient%20id='paint0_linear_201_9061'%20x1='8.11636'%20y1='3.182'%20x2='5.10835'%20y2='10.7919'%20gradientUnits='userSpaceOnUse'%3e%3cstop%20stop-color='%2303D1CF'%20stop-opacity='0.988'/%3e%3cstop%20offset='1'%20stop-color='%234E09F8'/%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e";
+var MAGIC_default = "data:image/svg+xml,%3csvg%20width='15'%20height='15'%20viewBox='0%200%2016%2015'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3ccircle%20cx='8'%20cy='7.5'%20r='7.5'%20fill='%23DC2626'/%3e%3cpath%20d='M12.8892%206.84343L11.458%206.35107C10.9317%206.17091%2010.542%205.71722%2010.4312%205.16544L9.82733%202.13205C9.81071%202.05659%209.74423%202%209.66667%202C9.5891%202%209.52262%202.05659%209.506%202.13205L8.90305%205.16544C8.79224%205.71722%208.40166%206.17091%207.87535%206.35107L6.44414%206.84343C6.37765%206.86606%206.33333%206.93115%206.33333%207.00094C6.33333%207.07168%206.37765%207.13677%206.44414%207.1594L7.87535%207.65176C8.40166%207.83192%208.79224%208.28561%208.90305%208.83739L9.506%2011.868C9.52262%2011.9434%209.5891%2012%209.66667%2012C9.74423%2012%209.81071%2011.9434%209.82733%2011.868L10.4312%208.83739C10.542%208.28561%2010.9317%207.83192%2011.458%207.65176L12.8892%207.1594C12.9557%207.13677%2013%207.07168%2013%207.00094C13%206.93115%2012.9557%206.86606%2012.8892%206.84343Z'%20fill='white'/%3e%3cpath%20d='M5.04406%204.06293L5.61684%204.26133C5.82665%204.33387%205.984%204.512%206.02806%204.73493L6.27039%205.9456C6.27668%205.9776%206.30186%206%206.33333%206C6.3648%206%206.38998%205.9776%206.39628%205.9456L6.6386%204.73493C6.68266%204.5152%206.84002%204.33387%207.05088%204.26133L7.62366%204.06293C7.64778%204.0544%207.66667%204.0288%207.66667%204C7.66667%203.9712%207.64778%203.9456%207.62366%203.936L7.05088%203.73867C6.84002%203.66507%206.68266%203.48693%206.6386%203.264L6.39628%202.0544C6.38998%202.0224%206.3648%202%206.33333%202C6.30186%202%206.27668%202.0224%206.27039%202.0544L6.02806%203.264C5.984%203.48373%205.82665%203.66507%205.61684%203.73867L5.04406%203.936C5.01888%203.9456%205%203.9712%205%204C5%204.0288%205.01888%204.0544%205.04406%204.06293Z'%20fill='white'/%3e%3cpath%20d='M6.27755%209.59494L5.56215%209.36394C5.29791%209.28011%205.10119%209.06866%205.04835%208.81065L4.74594%207.39481C4.73713%207.35848%204.70483%207.33333%204.66667%207.33333C4.6285%207.33333%204.59327%207.35848%204.58739%207.39481L4.28499%208.81065C4.2292%209.06866%204.03249%209.28011%203.77217%209.36394L3.05578%209.59494C3.02349%209.60612%203%209.63313%203%209.66667C3%209.7002%203.02349%209.73094%203.05578%209.73932L3.77217%209.97033C4.03543%2010.0532%204.23214%2010.2647%204.28499%2010.5236L4.58739%2011.9395C4.5962%2011.9749%204.6285%2012%204.66667%2012C4.70483%2012%204.74007%2011.9749%204.74594%2011.9395L5.04835%2010.5236C5.10413%2010.2647%205.30084%2010.0532%205.56215%209.97033L6.27755%209.73932C6.30985%209.72814%206.33333%209.7002%206.33333%209.66667C6.33333%209.63313%206.30985%209.60333%206.27755%209.59494Z'%20fill='white'/%3e%3c/svg%3e";
+var USDC_default = "data:image/svg+xml,%3csvg%20width='15'%20height='15'%20viewBox='0%200%2015%2015'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_4822_5801)'%3e%3cpath%20fill-rule='evenodd'%20clip-rule='evenodd'%20d='M7.5%200C11.6422%200%2015%203.35778%2015%207.5C15%2011.6419%2011.6422%2015%207.5%2015C3.35778%2015%200%2011.6419%200%207.5C0%203.35778%203.35778%200%207.5%200Z'%20fill='%232775CA'/%3e%3cpath%20fill-rule='evenodd'%20clip-rule='evenodd'%20d='M6.09359%2012.7144C6.09359%2012.8908%205.95543%2012.9911%205.78481%2012.9378C3.51717%2012.2144%201.87305%2010.0881%201.87305%207.57913C1.87305%205.0703%203.51717%202.94388%205.78481%202.22047C5.95543%202.16755%206.09359%202.26743%206.09359%202.44385V2.87936C6.09359%202.99681%206.00256%203.13504%205.89066%203.17331C4.09654%203.83212%202.81131%205.55567%202.81131%207.57615C2.81131%209.59663%204.09654%2011.3205%205.89066%2011.979C6.00256%2012.0202%206.09359%2012.1554%206.09359%2012.2733V12.7144Z'%20fill='white'/%3e%3cpath%20fill-rule='evenodd'%20clip-rule='evenodd'%20d='M7.96746%2011.0939C7.96746%2011.2234%207.8616%2011.3293%207.73223%2011.3293H7.2645C7.13513%2011.3293%207.02927%2011.2234%207.02927%2011.0939V10.3528C6.0057%2010.2147%205.50584%209.64103%205.3705%208.86171C5.34689%208.72918%205.45274%208.60867%205.58808%208.60867H6.12339C6.23513%208.60867%206.3293%208.68819%206.35283%208.79975C6.45288%209.26449%206.7205%209.6204%207.54098%209.6204C8.14686%209.6204%208.57641%209.28214%208.57641%208.77648C8.57641%208.2704%208.32337%208.07932%207.43513%207.93214C6.12339%207.75571%205.50285%207.35856%205.50285%206.32918C5.50285%205.53512%206.10294%204.91756%207.03226%204.78512V4.05864C7.03226%203.92918%207.1382%203.82324%207.26749%203.82324H7.73521C7.86459%203.82324%207.97044%203.92918%207.97044%204.05864V4.80574C8.72632%204.94125%209.20572%205.37037%209.36169%206.08211C9.39101%206.21762%209.28516%206.34384%209.147%206.34384H8.65277C8.54692%206.34384%208.45871%206.27319%208.42641%206.17032C8.29405%205.71759%207.97044%205.52353%207.40862%205.52353C6.78808%205.52353%206.46746%205.82344%206.46746%206.24395C6.46746%206.68807%206.64993%206.91145%207.60294%207.04995C8.89098%207.22637%209.55584%207.59395%209.55584%208.69125C9.55584%209.5235%208.93811%2010.1971%207.97044%2010.3528V11.0939H7.96746Z'%20fill='white'/%3e%3cpath%20fill-rule='evenodd'%20clip-rule='evenodd'%20d='M9.21503%2012.938C9.04457%2012.9913%208.90625%2012.891%208.90625%2012.7146V12.2794C8.90625%2012.15%208.98568%2012.0295%209.10918%2011.9852C10.9033%2011.3263%2012.1885%209.6028%2012.1885%207.58231C12.1885%205.56183%2010.9033%203.83828%209.10918%203.17947C8.99744%203.13822%208.90625%203.00305%208.90625%202.88518V2.45001C8.90625%202.27359%209.04457%202.17072%209.21503%202.22629C11.4827%202.95013%2013.1268%205.07646%2013.1268%207.5853C13.124%2010.0882%2011.4827%2012.2116%209.21503%2012.938Z'%20fill='white'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_4822_5801'%3e%3crect%20width='15'%20height='15'%20fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e";
+var USDC_circled_default = "data:image/svg+xml,%3csvg%20width='50'%20height='50'%20viewBox='0%200%2050%2050'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3ccircle%20cx='25'%20cy='25'%20r='24.5'%20fill='%2320224E'%20stroke='url(%23paint0_linear_795_6949)'/%3e%3cg%20clip-path='url(%23clip0_795_6949)'%3e%3cpath%20fill-rule='evenodd'%20clip-rule='evenodd'%20d='M25%2013.0001C31.6275%2013.0001%2037%2018.3725%2037%2025.0001C37%2031.6271%2031.6275%2037.0001%2025%2037.0001C18.3725%2037.0001%2013%2031.6271%2013%2025.0001C13%2018.3725%2018.3725%2013.0001%2025%2013.0001Z'%20fill='%232775CA'/%3e%3cpath%20fill-rule='evenodd'%20clip-rule='evenodd'%20d='M22.7505%2033.3433C22.7505%2033.6255%2022.5295%2033.7859%2022.2565%2033.7007C18.6283%2032.5432%2015.9977%2029.1411%2015.9977%2025.1268C15.9977%2021.1127%2018.6283%2017.7104%2022.2565%2016.5529C22.5295%2016.4683%2022.7505%2016.6281%2022.7505%2016.9104V17.6072C22.7505%2017.7951%2022.6049%2018.0163%2022.4259%2018.0775C19.5553%2019.1316%2017.4989%2021.8893%2017.4989%2025.122C17.4989%2028.3548%2019.5553%2031.113%2022.4259%2032.1666C22.6049%2032.2326%2022.7505%2032.4489%2022.7505%2032.6374V33.3433Z'%20fill='white'/%3e%3cpath%20fill-rule='evenodd'%20clip-rule='evenodd'%20d='M25.7482%2030.7502C25.7482%2030.9575%2025.5788%2031.1269%2025.3718%2031.1269H24.6235C24.4165%2031.1269%2024.2471%2030.9575%2024.2471%2030.7502V29.5646C22.6094%2029.3435%2021.8096%2028.4256%2021.5931%2027.1787C21.5553%2026.9667%2021.7247%2026.7739%2021.9412%2026.7739H22.7977C22.9765%2026.7739%2023.1272%2026.9011%2023.1648%2027.0796C23.3249%2027.8232%2023.7531%2028.3926%2025.0658%2028.3926C26.0352%2028.3926%2026.7225%2027.8514%2026.7225%2027.0424C26.7225%2026.2326%2026.3177%2025.9269%2024.8965%2025.6914C22.7977%2025.4091%2021.8048%2024.7737%2021.8048%2023.1267C21.8048%2021.8562%2022.765%2020.8681%2024.2519%2020.6562V19.4938C24.2519%2019.2867%2024.4214%2019.1172%2024.6282%2019.1172H25.3766C25.5836%2019.1172%2025.753%2019.2867%2025.753%2019.4938V20.6892C26.9624%2020.906%2027.7294%2021.5926%2027.979%2022.7314C28.0259%2022.9482%2027.8565%2023.1501%2027.6355%2023.1501H26.8447C26.6753%2023.1501%2026.5342%2023.0371%2026.4825%2022.8725C26.2707%2022.1481%2025.753%2021.8376%2024.8541%2021.8376C23.8612%2021.8376%2023.3482%2022.3175%2023.3482%2022.9903C23.3482%2023.7009%2023.6402%2024.0583%2025.165%2024.2799C27.2258%2024.5622%2028.2896%2025.1503%2028.2896%2026.906C28.2896%2028.2376%2027.3012%2029.3153%2025.753%2029.5646V30.7502H25.7482Z'%20fill='white'/%3e%3cpath%20fill-rule='evenodd'%20clip-rule='evenodd'%20d='M27.7436%2033.7007C27.4708%2033.7859%2027.2495%2033.6255%2027.2495%2033.3433V32.647C27.2495%2032.4399%2027.3766%2032.247%2027.5742%2032.1761C30.4448%2031.122%2032.5011%2028.3644%2032.5011%2025.1316C32.5011%2021.8988%2030.4448%2019.1411%2027.5742%2018.087C27.3954%2018.021%2027.2495%2017.8048%2027.2495%2017.6162V16.9199C27.2495%2016.6376%2027.4708%2016.473%2027.7436%2016.562C31.3718%2017.7201%2034.0024%2021.1222%2034.0024%2025.1364C33.9979%2029.141%2031.3718%2032.5385%2027.7436%2033.7007Z'%20fill='white'/%3e%3c/g%3e%3cdefs%3e%3clinearGradient%20id='paint0_linear_795_6949'%20x1='-1.15922e-07'%20y1='-0.594059'%20x2='41.4722'%20y2='56.2245'%20gradientUnits='userSpaceOnUse'%3e%3cstop%20stop-color='%23384263'%20stop-opacity='0.25'/%3e%3cstop%20offset='1'%20stop-color='%23384263'%20stop-opacity='0.15'/%3e%3c/linearGradient%3e%3cclipPath%20id='clip0_795_6949'%3e%3crect%20width='24'%20height='24'%20fill='white'%20transform='translate(13%2013)'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e";
+var USDT_default = "data:image/svg+xml,%3csvg%20width='15'%20height='15'%20viewBox='0%200%2015%2015'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_6225_8640)'%3e%3cpath%20d='M14.9879%207.49735C14.9879%2011.619%2011.6468%2014.96%207.52519%2014.96C3.40369%2014.96%200.0625%2011.619%200.0625%207.49735C0.0625%203.37579%203.40369%200.034668%207.52519%200.034668C11.6468%200.034668%2014.9879%203.37579%2014.9879%207.49735Z'%20fill='%231BA27A'/%3e%3cpath%20d='M11.0274%203.79779H3.96094V5.50376H6.64116V8.01122H8.34713V5.50376H11.0274V3.79779Z'%20fill='white'/%3e%3cpath%20d='M7.50791%208.27837C5.29075%208.27837%203.49321%207.92747%203.49321%207.49456C3.49321%207.06173%205.29067%206.71076%207.50791%206.71076C9.72507%206.71076%2011.5225%207.06173%2011.5225%207.49456C11.5225%207.92747%209.72507%208.27837%207.50791%208.27837ZM12.0157%207.62523C12.0157%207.06703%209.99754%206.61456%207.50791%206.61456C5.01836%206.61456%203%207.06703%203%207.62523C3%208.1168%204.565%208.52635%206.63881%208.6171V12.2167H8.34463V8.61852C10.4344%208.53061%2012.0157%208.11934%2012.0157%207.62523Z'%20fill='white'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_6225_8640'%3e%3crect%20width='15'%20height='15'%20fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e";
+const Tokens = {
+	ETH: {
+		name: "Ethereum",
+		symbol: "ETH",
+		decimals: 18,
+		address: "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+		oracleAddress: "0x639fe6ab55c921f74e7fac1ee960c0b6293ba612",
+		url: "https://www.coingecko.com/en/coins/ethereum",
+		isETH: true,
+		icon: ETH_default,
+		icon_circled: ETH_circled_default
+	},
+	BTC: {
+		name: "Bitcoin",
+		symbol: "BTC",
+		decimals: 8,
+		address: "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f",
+		oracleAddress: "0x6ce185860a4963106506c203335a2910413708e9",
+		url: "https://www.coingecko.com/en/coins/bitcoin",
+		icon: BTC_default,
+		icon_circled: WBTC_circled_default
+	},
+	WETH: {
+		name: "Wrapped Ethereum",
+		symbol: "WETH",
+		decimals: 18,
+		address: "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+		icon: WETH_default
+	},
+	WBTC: {
+		name: "Wrapped Bitcoin",
+		symbol: "WBTC",
+		decimals: 8,
+		address: "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f",
+		icon: WBTC_default,
+		icon_circled: WBTC_circled_default
+	},
+	LINK: {
+		name: "Chainlink Token",
+		symbol: "LINK",
+		decimals: 18,
+		address: "0xf97f4df75117a78c1A5a0DBb814Af92458539FB4",
+		url: "https://www.coingecko.com/en/coins/chainlink",
+		icon: LINK_default
+	},
+	ARB: {
+		name: "Arbitrum Token",
+		symbol: "ARB",
+		decimals: 18,
+		address: "0x912CE59144191C1204E64559FE8253a0e49E6548",
+		url: "https://www.coingecko.com/en/coins/arbitrum",
+		icon: ARB_default
+	},
+	GMX: {
+		name: "GMX Token",
+		symbol: "GMX",
+		decimals: 18,
+		address: "0xfc5A1A6EB076a2C7aD06eD22C90d7E710E35ad0a",
+		url: "https://www.coingecko.com/en/coins/gmx",
+		icon: GMX_default
+	},
+	MAGIC: {
+		name: "MAGIC",
+		symbol: "MAGIC",
+		decimals: 18,
+		address: "0x539bdE0d7Dbd336b79148AA742883198BBF60342",
+		url: "https://www.coingecko.com/en/coins/magic",
+		icon: MAGIC_default
+	},
+	DAI: {
+		name: "Dai",
+		symbol: "DAI",
+		decimals: 18,
+		isStable: true,
+		address: "0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1",
+		icon: "data:image/svg+xml,%3csvg%20width='15'%20height='15'%20viewBox='0%200%2015%2015'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_6225_8619)'%3e%3cpath%20d='M7.5%200C11.6425%200%2015%203.35816%2015%207.5C15%2011.6425%2011.6425%2015%207.5%2015C3.35816%2015%200%2011.6422%200%207.5C0%203.35816%203.35816%200%207.5%200Z'%20fill='%23F5AC37'/%3e%3cpath%20d='M7.77393%208.0296H10.6238C10.6846%208.0296%2010.7132%208.02961%2010.7176%207.94995C10.7409%207.66004%2010.7409%207.36844%2010.7176%207.07818C10.7176%207.02182%2010.6896%206.99853%2010.6285%206.99853H4.95679C4.88659%206.99853%204.86769%207.02182%204.86769%207.08763V7.92194C4.86769%208.0296%204.86769%208.0296%204.98008%208.0296H7.77393ZM10.3994%206.02348C10.4075%206.00222%2010.4075%205.97893%2010.3994%205.95801C10.3518%205.8544%2010.2954%205.75551%2010.2299%205.66269C10.1314%205.50407%2010.0153%205.35793%209.88299%205.22664C9.82055%205.14733%209.74833%205.07611%209.66733%205.0157C9.26165%204.67043%208.77935%204.42608%208.26095%204.30323C7.99938%204.2445%207.73208%204.21649%207.4641%204.21885H4.947C4.8768%204.21885%204.86735%204.24687%204.86735%204.30795V5.97185C4.86735%206.04205%204.86735%206.06095%204.95645%206.06095H10.3656C10.3656%206.06095%2010.4125%206.0515%2010.422%206.02348H10.399H10.3994ZM10.3994%209.00465C10.3197%208.99588%2010.2394%208.99588%2010.1597%209.00465H4.96152C4.89132%209.00465%204.86769%209.00465%204.86769%209.09848V10.7252C4.86769%2010.8002%204.86769%2010.8191%204.96152%2010.8191H7.3615C7.47625%2010.8278%207.591%2010.8197%207.70339%2010.7958C8.0517%2010.7708%208.39426%2010.6952%208.72097%2010.5707C8.83977%2010.5295%208.95452%2010.4758%209.06286%2010.4114H9.09559C9.65821%2010.1188%2010.1152%209.65907%2010.4034%209.09477C10.4034%209.09477%2010.4362%209.02389%2010.3994%209.00533V9.00465ZM3.92572%2011.6625V11.6345V10.5423V10.1721V9.07047C3.92572%209.00938%203.92572%209.00027%203.85079%209.00027H2.83356C2.77719%209.00027%202.75391%209.00026%202.75391%208.92534V8.03467H3.84134C3.90209%208.03467%203.92572%208.03467%203.92572%207.95502V7.0738C3.92572%207.01743%203.92572%207.00359%203.85079%207.00359H2.83356C2.77719%207.00359%202.75391%207.00359%202.75391%206.92867V6.10381C2.75391%206.05217%202.75391%206.03833%202.82883%206.03833H3.83662C3.90682%206.03833%203.92572%206.03834%203.92572%205.94923V3.42268C3.92572%203.34776%203.92572%203.32886%204.01954%203.32886H7.53498C7.79013%203.33898%208.0436%203.367%208.29436%203.41323C8.81108%203.50875%209.30755%203.69336%209.76149%203.95695C10.0625%204.13414%2010.3396%204.34812%2010.5863%204.5945C10.772%204.78721%2010.9394%204.99579%2011.0879%205.21786C11.2354%205.44298%2011.3579%205.68362%2011.4541%205.93506C11.4659%206.00053%2011.5287%206.04475%2011.5941%206.03361H12.4332C12.5408%206.03361%2012.5408%206.03361%2012.5456%206.13689V6.90572C12.5456%206.98064%2012.5175%206.99954%2012.4423%206.99954H11.7953C11.7298%206.99954%2011.7109%206.99954%2011.7156%207.08392C11.7413%207.36945%2011.7413%207.65599%2011.7156%207.94152C11.7156%208.02117%2011.7156%208.03062%2011.8051%208.03062H12.5452C12.578%208.07281%2012.5452%208.11499%2012.5452%208.15752C12.5499%208.21186%2012.5499%208.26687%2012.5452%208.32121V8.88855C12.5452%208.9682%2012.5219%208.99183%2012.4514%208.99183H11.5654C11.5037%208.98001%2011.4436%209.0195%2011.4294%209.08093C11.2185%209.62937%2010.881%2010.1211%2010.4449%2010.5153C10.2856%2010.6588%2010.1182%2010.7938%209.9434%2010.9183C9.75575%2011.0263%209.57316%2011.1387%209.38078%2011.2278C9.02674%2011.3871%208.65549%2011.5045%208.27445%2011.5791C7.91265%2011.6439%207.54578%2011.6733%207.17756%2011.6682H3.92437V11.6635L3.92572%2011.6625Z'%20fill='%23FEFEFD'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_6225_8619'%3e%3crect%20width='15'%20height='15'%20fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e"
+	},
+	USDC: {
+		name: "USD Coin",
+		symbol: "USDC",
+		decimals: 6,
+		isStable: true,
+		address: "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+		oracleAddress: "0x50834F3163758fcC1Df9973b6e91f0F0F0434aD3",
+		icon: USDC_default,
+		icon_circled: USDC_circled_default
+	},
+	"USDC.e": {
+		name: "USDC.e",
+		symbol: "USDC.e",
+		decimals: 6,
+		isStable: true,
+		address: "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
+		icon: USDC_default
+	},
+	USDT: {
+		name: "Tether",
+		symbol: "USDT",
+		decimals: 6,
+		isStable: true,
+		address: "0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9",
+		icon: USDT_default
+	}
+};
+const Decimals = {
+	DEFAULT: 18,
+	HEGIC: 8,
+	CHAINLINK: 8,
+	SUFFICIENT: 6,
+	STABLE: 2,
+	BASE: 4
+};
+const bringToDec = (bigInt, initDec, resultDec) => {
+	const decDifference = resultDec - initDec;
+	return (decDifference < 0 ? reduceBigIntDec : expandBigIntDec)(bigInt, Math.abs(decDifference));
+};
+const bringToDefaultDec = (bigInt, initDec) => {
+	return bringToDec(bigInt, initDec, Decimals.DEFAULT);
+};
+const bringFromDefaultDec = (bigInt, resultDec) => {
+	return bringToDec(bigInt, Decimals.DEFAULT, resultDec);
+};
+const get1eToken = (bigInt, token$1) => {
+	const tokenDec = Tokens[token$1.symbol ?? token$1].decimals;
+	return bringFromDefaultDec(bigInt, tokenDec);
+};
+const bring1eTokenToDefault = (bigInt, token$1) => {
+	const tokenDec = Tokens[token$1.symbol ?? token$1].decimals;
+	return bringToDefaultDec(bigInt, tokenDec);
+};
+const expandBigIntDec = (bigInt, expandDecimals) => {
+	return bigInt * BigInt(10 ** expandDecimals);
+};
+const reduceBigIntDec = (bigInt, reduceDecimals) => {
+	return bigInt / BigInt(10 ** reduceDecimals);
+};
+var Account = {
+	queryAccountValue: queryAccountValue$1,
+	queryDebt: queryDebt$1,
+	queryEquity: queryEquity$1,
+	calcEquity: calcEquity$1,
+	queryBalance: queryBalance$2,
+	queryLtv: queryLtv$1,
+	queryLtvCoeffs: queryLtvCoeffs$1
+};
+async function queryAccountValue$1(accountId, contracts$1) {
+	const { MarginTrading } = contracts$1.view;
+	return bring1eTokenToDefault(await MarginTrading.calculateMarginAccountValue.staticCall(accountId), "USDC");
+}
+async function queryDebt$1(accountId, contracts$1) {
+	const { MarginTrading } = contracts$1.view;
+	return bring1eTokenToDefault(await MarginTrading.calculateDebtWithAccruedInterest.staticCall(accountId), "USDC");
+}
+async function queryEquity$1(accountId, contracts$1) {
+	const [accountValue, debt] = await Promise.all([queryAccountValue$1(accountId, contracts$1), queryDebt$1(accountId, contracts$1)]);
+	return calcEquity$1(accountValue, debt);
+}
+function calcEquity$1(accountValue, debt) {
+	return accountValue - debt;
+}
+async function queryBalance$2(accountId, contracts$1) {
+	const { MarginAccount } = contracts$1.view;
+	const { ETH } = Tokens;
+	return await MarginAccount.getErc20ByContract(accountId, ETH.address).then((balance1eToken) => bring1eTokenToDefault(balance1eToken, ETH));
+}
+async function queryLtv$1(accountId, contracts$1) {
+	const { MarginTrading } = contracts$1.view;
+	return bringToDefaultDec(await MarginTrading.getMarginAccountRatio.staticCall(accountId), 5);
+}
+async function queryLtvCoeffs$1(contracts$1) {
+	const { MarginTrading } = contracts$1.view;
+	const { OneClickProxy } = contracts$1.view;
+	const [redCoeff, yellowCoeff] = await Promise.all([MarginTrading.redCoeff(), OneClickProxy.yellowCoeff()]).then((coeffs) => coeffs.map((coeff) => bringToDefaultDec(coeff, 5)));
+	return {
+		red: redCoeff,
+		yellow: yellowCoeff
+	};
+}
+var Account_default = Account;
+var { queryBalance: queryBalance$1, queryEquity } = Account_default;
 var useAccounts = () => {
 	const accountsSetup = useAccountsSetup();
 	if (accountsSetup === null) return null;
@@ -72926,7 +74589,7 @@ var useAccountsSetup = () => {
 	const contracts$1 = useContracts_default();
 	const { data: accounts, error: accountsError, mutate: mutate$1 } = useSWR(isConnected$1 && contracts$1 && [userAddress, "useAccounts"], async () => {
 		const accountQueries = (!isUndefined(godEyeAccountId) ? [godEyeAccountId] : await queryIds(userAddress, contracts$1)).map(async (id$2) => {
-			const [balance, equity] = await Promise.all([queryBalance(id$2, contracts$1), queryEquity(id$2, contracts$1)]);
+			const [balance, equity] = await Promise.all([queryBalance$1(id$2, contracts$1), queryEquity(id$2, contracts$1)]);
 			return {
 				id: id$2,
 				balance,
@@ -72950,15 +74613,6 @@ var useAccountsSetup = () => {
 var queryIds = async (userAddress, contracts$1) => {
 	const { MarginAccountManager } = contracts$1.view;
 	return await filterLendingIds((await queryTransferEvents(MarginAccountManager, userAddress)).map((event) => event.args.tokenId), contracts$1);
-};
-const queryEquity = async (accountId, contracts$1) => {
-	const { MarginTrading } = contracts$1.view;
-	return bring1eTokenToDefault(await MarginTrading.calculateMarginAccountValue.staticCall(accountId), "USDC") - bring1eTokenToDefault(await MarginTrading.calculateDebtWithAccruedInterest.staticCall(accountId), "USDC");
-};
-const queryBalance = async (accountId, contracts$1) => {
-	const { MarginAccount } = contracts$1.view;
-	const { ETH } = Tokens;
-	return await MarginAccount.getErc20ByContract(accountId, ETH.address).then((amount1eToken) => bring1eTokenToDefault(amount1eToken, ETH));
 };
 var filterLendingIds = async (_ids, contracts$1) => {
 	const checkMatrix = await Promise.all(_ids.map(async (id$2) => checkIsLending(id$2, contracts$1)));
@@ -72986,6 +74640,46 @@ var useToggle = function(initialValue) {
 	return (0, import_react.useReducer)(toggleReducer, initialValue);
 };
 var useToggle_default = useToggle;
+function useTimeoutFn(fn, ms) {
+	if (ms === void 0) ms = 0;
+	var ready = (0, import_react.useRef)(false);
+	var timeout = (0, import_react.useRef)();
+	var callback = (0, import_react.useRef)(fn);
+	var isReady = (0, import_react.useCallback)(function() {
+		return ready.current;
+	}, []);
+	var set = (0, import_react.useCallback)(function() {
+		ready.current = false;
+		timeout.current && clearTimeout(timeout.current);
+		timeout.current = setTimeout(function() {
+			ready.current = true;
+			callback.current();
+		}, ms);
+	}, [ms]);
+	var clear = (0, import_react.useCallback)(function() {
+		ready.current = null;
+		timeout.current && clearTimeout(timeout.current);
+	}, []);
+	(0, import_react.useEffect)(function() {
+		callback.current = fn;
+	}, [fn]);
+	(0, import_react.useEffect)(function() {
+		set();
+		return clear;
+	}, [ms]);
+	return [
+		isReady,
+		clear,
+		set
+	];
+}
+function useDebounce(fn, ms, deps) {
+	if (ms === void 0) ms = 0;
+	if (deps === void 0) deps = [];
+	var _a = useTimeoutFn(fn, ms), isReady = _a[0], cancel = _a[1], reset = _a[2];
+	(0, import_react.useEffect)(reset, deps);
+	return [isReady, cancel];
+}
 var useLocalStorage = function(key, initialValue, options$2) {
 	if (!isBrowser$1) return [
 		initialValue,
@@ -73167,7 +74861,7 @@ var require_classnames = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 		else window.classNames = classNames$1;
 	})();
 }));
-var import_classnames$11 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$12 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 const animateFancyButtons = () => {
 	const createSVG = (width, height, radius) => {
 		const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
@@ -73218,7 +74912,7 @@ var Button = ({ type = "primary", isDisabled = false, className, children, ...pr
 		animateFancyButtons();
 	}, []);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-		className: (0, import_classnames$11.default)(className, "Button", `_${type}`),
+		className: (0, import_classnames$12.default)(className, "Button", `_${type}`),
 		disabled: isDisabled,
 		...props,
 		children
@@ -74482,7 +76176,7 @@ var import_lib = /* @__PURE__ */ __toESM((/* @__PURE__ */ __commonJSMin(((export
 	exports.default = _Modal2.default;
 	module.exports = exports["default"];
 })))(), 1);
-var import_classnames$10 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$11 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 import_lib.default.setAppElement("#root");
 import_lib.default.defaultStyles = {};
 var TRANSITION_DURATION = 300;
@@ -74495,7 +76189,7 @@ var Modal = ({ isOpen, setIsOpen, isObligatory = false, reset = () => {}, classN
 		setIsOpen(false);
 	};
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_lib.default, {
-		className: (0, import_classnames$10.default)(isScrollable && "_scrollable"),
+		className: (0, import_classnames$11.default)(isScrollable && "_scrollable"),
 		isOpen,
 		onRequestClose: () => {
 			if (isObligatory) return;
@@ -74509,7 +76203,7 @@ var Modal = ({ isOpen, setIsOpen, isObligatory = false, reset = () => {}, classN
 			else setIsScrollable(false);
 		},
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-			className: (0, import_classnames$10.default)(className, "ReactModal__box", "box"),
+			className: (0, import_classnames$11.default)(className, "ReactModal__box", "box"),
 			children
 		}), !isObligatory && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
 			className: "ReactModal__close-btn",
@@ -74521,7 +76215,7 @@ var Modal_default = Modal;
 var confirm_default = "data:image/svg+xml,%3csvg%20width='40'%20height='40'%20viewBox='0%200%2040%2040'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_284_1636)'%3e%3ccircle%20cx='20'%20cy='20'%20r='20'%20fill='%23112540'/%3e%3cpath%20d='M11%2019.9333L17%2026L29%2013'%20stroke='%2309AF8E'%20stroke-width='3'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_284_1636'%3e%3crect%20width='40'%20height='40'%20fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e";
 var error_default = "data:image/svg+xml,%3csvg%20width='40'%20height='40'%20viewBox='0%200%2040%2040'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_1129_5414)'%3e%3ccircle%20cx='20'%20cy='20'%20r='20'%20fill='%23361536'/%3e%3cpath%20d='M21.4969%2020L25.6868%2015.8101C25.8856%2015.6116%2025.9975%2015.3422%2025.9977%2015.0613C25.998%2014.7803%2025.8866%2014.5107%2025.6881%2014.3119C25.4896%2014.113%2025.2202%2014.0012%2024.9393%2014.0009C24.6583%2014.0007%2024.3887%2014.1121%2024.1899%2014.3106L20%2018.5005L15.8101%2014.3106C15.6113%2014.1117%2015.3416%2014%2015.0603%2014C14.7791%2014%2014.5094%2014.1117%2014.3106%2014.3106C14.1117%2014.5094%2014%2014.7791%2014%2015.0603C14%2015.3416%2014.1117%2015.6113%2014.3106%2015.8101L18.5005%2020L14.3106%2024.1899C14.1117%2024.3887%2014%2024.6584%2014%2024.9397C14%2025.2209%2014.1117%2025.4906%2014.3106%2025.6894C14.5094%2025.8883%2014.7791%2026%2015.0603%2026C15.3416%2026%2015.6113%2025.8883%2015.8101%2025.6894L20%2021.4995L24.1899%2025.6894C24.3887%2025.8883%2024.6584%2026%2024.9397%2026C25.2209%2026%2025.4906%2025.8883%2025.6894%2025.6894C25.8883%2025.4906%2026%2025.2209%2026%2024.9397C26%2024.6584%2025.8883%2024.3887%2025.6894%2024.1899L21.4969%2020Z'%20fill='%23D8563C'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_1129_5414'%3e%3crect%20width='40'%20height='40'%20fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e";
 var tick_default = "data:image/svg+xml,%3csvg%20width='12'%20height='10'%20viewBox='0%200%2012%2010'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M1%205.26667L4.33333%209L11%201'%20stroke='white'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3c/svg%3e";
-var import_classnames$9 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$10 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var TxModal = ({ isOpen, setIsOpen, reset = () => {}, txResult, setTxResult, className, children }) => {
 	const closeModal = () => setIsOpen(false);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Modal_default, {
@@ -74544,7 +76238,7 @@ var TxResult = ({ result, closeModal }) => {
 	const txUrl = hash$3 ? getTxUrl(chainId, hash$3) : "";
 	const hashStr = hash$3 ? hash$3.slice(0, 5) + "..." + hash$3.slice(-4) : "";
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: (0, import_classnames$9.default)("Modal__tx-result", error && "_error"),
+		className: (0, import_classnames$10.default)("Modal__tx-result", error && "_error"),
 		children: [
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 				className: "Modal__tx-result-icon",
@@ -74599,7 +76293,7 @@ var CopyButton = ({ error }) => {
 		setTimeout(() => setIsCopied(false), 2 * SECOND);
 	};
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
-		className: (0, import_classnames$9.default)("Modal__tx-result-button", isCopied && "_copied"),
+		className: (0, import_classnames$10.default)("Modal__tx-result-button", isCopied && "_copied"),
 		onClick: handleClick,
 		children: isCopied ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: ["Copied", /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
 			src: tick_default,
@@ -74686,6 +76380,10 @@ const stringFromBigInt = (bigInt) => {
 	let str = formatEther(bigInt);
 	if (str.endsWith(".0")) str = str.replace(/\.0$/, "");
 	return str;
+};
+const divBigInts = (bigInt, divider) => {
+	bigInt = expandBigIntDec(bigInt, Decimals.DEFAULT);
+	return bigInt / divider;
 };
 const multiplyBigInts = (bigInt, multiplier) => {
 	return reduceBigIntDec(bigInt * multiplier, Decimals.DEFAULT);
@@ -75288,6 +76986,9 @@ const unwrapTokenSymbol = (symbol) => {
 	if (Tokens[symbol].name.startsWith("Wrapped")) return symbol.split("W")[1];
 	return symbol;
 };
+const getTokenData = (token$1) => {
+	return Tokens[token$1.symbol ?? token$1];
+};
 var useTokenPrices = () => {
 	const { data: tokenPricesData, error: tokenPricesError } = useSWR("useTokenPrices", async () => {
 		const tokenPrices = {};
@@ -75451,10 +77152,10 @@ function ImSpinner2(props) {
 		}]
 	})(props);
 }
-var import_classnames$8 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$9 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var Spinner = ({ className }) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: (0, import_classnames$8.default)("Spinner", className),
+		className: (0, import_classnames$9.default)("Spinner", className),
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ImSpinner2, { className: "Spinner__icon" })
 	});
 };
@@ -75492,7 +77193,7 @@ var UsdValue = ({ tokenValue, tokenSymb }) => {
 	});
 };
 var TokenAmount_default = TokenAmount;
-var import_classnames$7 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$8 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var Input = ({ setValue, maxData = void 0, placeholder = "0", isDisabled = false }) => {
 	const [valueStr, setValueStr] = (0, import_react.useState)("");
 	const [isFocused, setIsFocused] = (0, import_react.useState)(false);
@@ -75507,7 +77208,7 @@ var Input = ({ setValue, maxData = void 0, placeholder = "0", isDisabled = false
 		setValueStr(inputStringFromBigInt(maxData.value));
 	};
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: (0, import_classnames$7.default)("Input", isFocused && "_focused"),
+		className: (0, import_classnames$8.default)("Input", isFocused && "_focused"),
 		onClick: focusInput,
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputNative, {
 			ref: inputRef,
@@ -75592,6 +77293,7 @@ var BalanceInput = ({ setValue, title = "Amount" }) => {
 	});
 };
 var BalanceInput_default = BalanceInput;
+var { queryBalance, queryAccountValue, queryDebt, queryLtv, queryLtvCoeffs, calcEquity } = Account_default;
 var useAccount = () => {
 	const accountSetup = useAccountSetup();
 	if (accountSetup === null) return null;
@@ -75601,16 +77303,21 @@ var useAccountSetup = () => {
 	const accountId = useAccountId_default();
 	const contracts$1 = useContracts_default();
 	const { data: account, error: accountError, mutate: mutate$1 } = useSWR(accountId && contracts$1 && [accountId, "useAccount"], async () => {
-		const [balance, equity, supplied] = await Promise.all([
+		const [balance, value, debt, ltv, ltvCoeffs] = await Promise.all([
 			queryBalance(accountId, contracts$1),
-			queryEquity(accountId, contracts$1),
-			querySupplied(accountId, contracts$1)
+			queryAccountValue(accountId, contracts$1),
+			queryDebt(accountId, contracts$1),
+			queryLtv(accountId, contracts$1),
+			queryLtvCoeffs(contracts$1)
 		]);
 		return {
 			id: accountId,
 			balance,
-			equity,
-			supplied
+			value,
+			debt,
+			ltv,
+			ltvCoeffs,
+			equity: calcEquity(value, debt)
 		};
 	}, {
 		revalidateOnFocus: false,
@@ -75628,11 +77335,6 @@ var useAccountSetup = () => {
 		account,
 		mutate: mutate$1
 	};
-};
-var querySupplied = async (accountId, contracts$1) => {
-	const { MarginAccount } = contracts$1.view;
-	const { ETH } = Tokens;
-	return await MarginAccount.getErc20ByContract(accountId, ETH.address);
 };
 var useAccount_default = useAccount;
 var ArrowChangeSvg = () => {
@@ -75666,20 +77368,19 @@ var ArrowChangeSvg = () => {
 	});
 };
 var ArrowChangeSvg_default = ArrowChangeSvg;
-const isSufficient = (value) => {
-	return !isUndefined(value) && value !== null;
-};
-var import_classnames$6 = /* @__PURE__ */ __toESM(require_classnames(), 1);
-var ValueChange = ({ curValue, estValue }) => {
-	const hasEstValue = isSufficient(estValue);
+var import_classnames$7 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var ValueChange = ({ curValue, estValue, className }) => {
+	const hasEstValue = estValue !== null;
+	const { isCurLoading } = getIsLoadingAndError(curValue, "cur");
+	const { isEstLoading } = getIsLoadingAndError(estValue, "est");
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: (0, import_classnames$6.default)("ValueChange", hasEstValue && "_active"),
+		className: (0, import_classnames$7.default)("ValueChange", className, hasEstValue && "_active"),
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 			className: "ValueChange__cur",
-			children: curValue
-		}), hasEstValue && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowChangeSvg_default, {}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			children: isCurLoading ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Spinner_default, {}) : curValue
+		}), hasEstValue && !isCurLoading && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowChangeSvg_default, {}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 			className: "ValueChange__est",
-			children: estValue
+			children: isEstLoading ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Spinner_default, {}) : estValue
 		})] })]
 	});
 };
@@ -75698,12 +77399,113 @@ var TokenAmountChange = ({ curAmount, estAmount, symbol }) => {
 	});
 };
 var TokenAmountChange_default = TokenAmountChange;
+const swapToUsdc = async (contracts$1, amount, token$1) => {
+	token$1 = getTokenData(token$1);
+	if (token$1.symbol === "USDC") return amount;
+	const { USDC } = Tokens;
+	const { ModularSwapRouter } = contracts$1.view;
+	return await ModularSwapRouter.calculatePositionValue.staticCall(token$1.address, USDC.address, get1eToken(amount, token$1)).then((res) => bring1eTokenToDefault(res, USDC)).catch(console.log);
+};
+var Ltv = { queryLtvAfterSupply };
+async function queryLtvAfterSupply(account, contracts$1, depositAmount, token$1) {
+	const depositAmountUSDC = await swapToUsdc(contracts$1, depositAmount, token$1);
+	return _calcLtv(account.value + depositAmountUSDC, account.debt);
+}
+var _calcLtv = (balance, debt) => {
+	if (debt <= 0n) return maxUint256;
+	return divBigInts(balance, debt);
+};
+var Ltv_default = Ltv;
+const isSufficient = (value) => {
+	return !isUndefined(value) && value !== null;
+};
+var EternitySvg = () => {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
+		className: "EternitySvg",
+		width: "15",
+		height: "10",
+		viewBox: "0 0 15 10",
+		fill: "none",
+		xmlns: "http://www.w3.org/2000/svg",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("g", {
+			id: "icon-eternity",
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
+				id: "Vector",
+				d: "M14.9777 4.8961C14.8355 3.68253 14.0771 2.69856 12.9554 2.23937C11.7704 1.76378 10.4433 2.00978 9.51113 2.86255L8.0102 4.22372L8.76856 4.9125L10.1589 3.63333C10.8225 3.02655 11.7546 2.86255 12.6078 3.19055C13.3819 3.50214 13.9033 4.19092 13.9981 5.0109C14.0139 5.12569 14.0139 5.24049 14.0139 5.35529C14.0139 5.47009 13.9981 5.58488 13.9981 5.69968C13.9033 6.53606 13.3819 7.20844 12.6078 7.52003C11.7704 7.84802 10.8541 7.68403 10.1905 7.11004C10.1747 7.09364 10.1747 7.09364 10.1589 7.07724L5.92471 3.25614L5.49813 2.86255C4.55017 2.00978 3.23884 1.76378 2.0381 2.23937C0.932154 2.69856 0.157992 3.68253 0.0315984 4.8961C0.0157992 5.0601 0 5.20769 0 5.37169C0 5.51928 0.0157992 5.68328 0.0315984 5.83088C0.173791 7.04444 0.932154 8.04482 2.0539 8.48761C3.23884 8.96319 4.56597 8.7172 5.51393 7.86442L6.99905 6.50326L6.24069 5.83088L4.85036 7.09364C4.18679 7.70043 3.25464 7.86442 2.40148 7.53643C1.62732 7.22484 1.10594 6.55246 1.01115 5.71608C0.995351 5.60128 0.995351 5.48649 0.995351 5.37169C0.995351 5.25689 1.01115 5.12569 1.01115 5.0273C1.10594 4.20732 1.62732 3.51854 2.40148 3.20695C2.68587 3.09215 2.98605 3.04295 3.27044 3.04295C3.83921 3.04295 4.40798 3.25614 4.83456 3.64973L5.26114 4.04332L9.46373 7.86442L9.49533 7.88082C10.1115 8.45481 10.9015 8.75 11.7072 8.75C12.118 8.75 12.5446 8.668 12.9396 8.50401C14.0613 8.06122 14.8197 7.06084 14.9619 5.84728C14.9777 5.69968 14.9935 5.53568 14.9935 5.38809C15.0093 5.20769 14.9935 5.0601 14.9777 4.8961Z",
+				fill: "white"
+			})
+		})
+	});
+};
+var EternitySvg_default = EternitySvg;
+var import_classnames$6 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var LtvValue = ({ ltv }) => {
+	const account = useAccount_default();
+	const { isLoading: areCoeffsLoading } = getIsLoadingAndError(account?.ltvCoeffs);
+	const { isLoading } = getIsLoadingAndError(ltv);
+	if (isLoading || areCoeffsLoading) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Spinner_default, {});
+	const { red, yellow } = account.ltvCoeffs;
+	let coeff;
+	if (ltv < red) coeff = "_red";
+	else if (ltv < yellow) coeff = "_yellow";
+	else coeff = "_green";
+	const ltvStr = ltv >= bigIntFromString(100) ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: "LtvValue__svg",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(EternitySvg_default, {})
+	}) : formatStable(ltv);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: (0, import_classnames$6.default)("LtvValue", coeff),
+		children: ltvStr
+	});
+};
+var LtvValue_default = LtvValue;
+var LtvChange = ({ estLtv }) => {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ValueChange_default, {
+		className: "LtvChange",
+		curValue: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LtvValue_default, { ltv: useAccount_default()?.ltv }),
+		estValue: isSufficient(estLtv) ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LtvValue_default, { ltv: estLtv }) : estLtv
+	});
+};
+var LtvChange_default = LtvChange;
+function getWindowDimensions() {
+	const { innerWidth: width, innerHeight: height } = window;
+	return {
+		width,
+		height
+	};
+}
+function useWindowDimensions() {
+	const [windowDimensions, setWindowDimensions] = (0, import_react.useState)(getWindowDimensions());
+	(0, import_react.useEffect)(() => {
+		function handleResize() {
+			setWindowDimensions(getWindowDimensions());
+		}
+		window.addEventListener("resize", handleResize);
+		return () => window.removeEventListener("resize", handleResize);
+	}, []);
+	return windowDimensions;
+}
+var useIsMobile = (breakpoint = 768) => {
+	const { width } = useWindowDimensions();
+	return width < breakpoint;
+};
+var useIsMobile_default = useIsMobile;
+var Muted = ({ children }) => {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: "Muted",
+		children: children ?? "–"
+	});
+};
+var Muted_default = Muted;
 var SupplyModal = ({ isOpen, setIsOpen }) => {
 	const [supplyAmount, setSupplyAmount] = (0, import_react.useState)(void 0);
+	const [estLtv, setEstLtv] = (0, import_react.useState)(null);
 	const [isSubmitting, setIsSubmitting] = (0, import_react.useState)(false);
 	const [txResult, setTxResult] = (0, import_react.useState)(void 0);
 	const account = useAccount_default();
+	const contracts$1 = useContracts_default();
 	const { supply: supply$1 } = useProtocolActions_default();
+	const isMobile$1 = useIsMobile_default(480);
 	const txSuccessData = {
 		title: "Supply confirmed!",
 		text: "Your collateral is now in your Lending Account. You’re all set to borrow USDC against it"
@@ -75712,7 +77514,17 @@ var SupplyModal = ({ isOpen, setIsOpen }) => {
 		title: "Action failed",
 		text: "Something went wrong while supplying collateral"
 	};
-	const estSuppliedAmount = isUndefined(account?.supplied) || !supplyAmount ? null : account.supplied + supplyAmount;
+	const estSuppliedAmount = isUndefined(account?.balance) || !supplyAmount ? null : account.balance + supplyAmount;
+	useDebounce(async () => {
+		if (supplyAmount) {
+			setEstLtv(void 0);
+			const { ETH } = Tokens;
+			setEstLtv(await Ltv_default.queryLtvAfterSupply(account, contracts$1, supplyAmount, ETH));
+		}
+	}, 600, [supplyAmount]);
+	(0, import_react.useEffect)(() => {
+		if (!supplyAmount) setEstLtv(null);
+	}, [supplyAmount]);
 	const getError = () => {
 		if (!supplyAmount) return "Enter Amount";
 		if (isSubmitting) return ButtonLabels.SUBMITTING;
@@ -75750,22 +77562,44 @@ var SupplyModal = ({ isOpen, setIsOpen }) => {
 				className: "SupplyModal__input",
 				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(BalanceInput_default, { setValue: setSupplyAmount })
 			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 				className: "SupplyModal__changes",
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "SupplyModal__changes-row",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "SupplyModal__changes-row-title",
-						children: "Supply Change"
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "SupplyModal__changes-row-value",
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmountChange_default, {
-							symbol: "ETH",
-							curAmount: account?.supplied,
-							estAmount: estSuppliedAmount
-						})
-					})]
-				})
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "SupplyModal__changes-row",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "SupplyModal__changes-row-title",
+							children: "Supply Change"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "SupplyModal__changes-row-value",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmountChange_default, {
+								symbol: "ETH",
+								curAmount: account?.balance,
+								estAmount: estSuppliedAmount
+							})
+						})]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "SupplyModal__changes-row",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "SupplyModal__changes-row-title",
+							children: [isMobile$1 ? "Liq." : "Liquidation", " Price Change"]
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "SupplyModal__changes-row-value",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, {})
+						})]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "SupplyModal__changes-row",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "SupplyModal__changes-row-title",
+							children: "LtV"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "SupplyModal__changes-row-value",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LtvChange_default, { estLtv })
+						})]
+					})
+				]
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 				className: "SupplyModal__button",
@@ -76965,9 +78799,9 @@ var jsx = function jsx$4(type, props) {
 	for (var i$3 = 2; i$3 < argsLength; i$3++) createElementArgArray[i$3] = args[i$3];
 	return import_react.createElement.apply(null, createElementArgArray);
 };
-(function(_jsx$37) {
+(function(_jsx$41) {
 	var JSX;
-	(function(_JSX) {})(JSX || (JSX = _jsx$37.JSX || (_jsx$37.JSX = {})));
+	(function(_JSX) {})(JSX || (JSX = _jsx$41.JSX || (_jsx$41.JSX = {})));
 })(jsx || (jsx = {}));
 function css$2() {
 	for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) args[_key] = arguments[_key];
@@ -77342,10 +79176,10 @@ var cleanCommonProps = function cleanCommonProps$1(props) {
 	return _objectSpread2({}, _objectWithoutProperties(props, _excluded$4));
 };
 var getStyleProps = function getStyleProps$1(props, name, classNamesState) {
-	var cx$12 = props.cx, getStyles = props.getStyles, getClassNames = props.getClassNames, className = props.className;
+	var cx$13 = props.cx, getStyles = props.getStyles, getClassNames = props.getClassNames, className = props.className;
 	return {
 		css: getStyles(name, props),
-		className: cx$12(classNamesState !== null && classNamesState !== void 0 ? classNamesState : {}, getClassNames(name, props), className)
+		className: cx$13(classNamesState !== null && classNamesState !== void 0 ? classNamesState : {}, getClassNames(name, props), className)
 	};
 };
 function isDocumentElement(el) {
@@ -77944,13 +79778,13 @@ var groupCSS = function groupCSS$1(_ref$1, unstyled) {
 	};
 };
 var Group = function Group$2(props) {
-	var children = props.children, cx$12 = props.cx, getStyles = props.getStyles, getClassNames = props.getClassNames, Heading = props.Heading, headingProps = props.headingProps, innerProps = props.innerProps, label = props.label, theme = props.theme, selectProps = props.selectProps;
+	var children = props.children, cx$13 = props.cx, getStyles = props.getStyles, getClassNames = props.getClassNames, Heading = props.Heading, headingProps = props.headingProps, innerProps = props.innerProps, label = props.label, theme = props.theme, selectProps = props.selectProps;
 	return jsx("div", _extends({}, getStyleProps(props, "group", { group: true }), innerProps), jsx(Heading, _extends({}, headingProps, {
 		selectProps,
 		theme,
 		getStyles,
 		getClassNames,
-		cx: cx$12
+		cx: cx$13
 	}), label), jsx("div", null, children));
 };
 var groupHeadingCSS = function groupHeadingCSS$1(_ref2$3, unstyled) {
@@ -78024,10 +79858,10 @@ var inputStyle = function inputStyle$1(isHidden) {
 	}, spacingStyle);
 };
 var Input$1 = function Input$2(props) {
-	var cx$12 = props.cx, value = props.value;
+	var cx$13 = props.cx, value = props.value;
 	var _cleanCommonProps = cleanCommonProps(props), innerRef = _cleanCommonProps.innerRef, isDisabled = _cleanCommonProps.isDisabled, isHidden = _cleanCommonProps.isHidden, inputClassName = _cleanCommonProps.inputClassName, innerProps = _objectWithoutProperties(_cleanCommonProps, _excluded$5);
 	return jsx("div", _extends({}, getStyleProps(props, "input", { "input-container": true }), { "data-value": value || "" }), jsx("input", _extends({
-		className: cx$12({ input: true }, inputClassName),
+		className: cx$13({ input: true }, inputClassName),
 		ref: innerRef,
 		style: inputStyle(isHidden),
 		disabled: isDisabled
@@ -79850,11 +81684,11 @@ var Select = /* @__PURE__ */ function(_Component) {
 		{
 			key: "getCommonProps",
 			value: function getCommonProps() {
-				var clearValue = this.clearValue, cx$12 = this.cx, getStyles = this.getStyles, getClassNames = this.getClassNames, getValue$2 = this.getValue, selectOption = this.selectOption, setValue = this.setValue, props = this.props;
+				var clearValue = this.clearValue, cx$13 = this.cx, getStyles = this.getStyles, getClassNames = this.getClassNames, getValue$2 = this.getValue, selectOption = this.selectOption, setValue = this.setValue, props = this.props;
 				var isMulti = props.isMulti, isRtl = props.isRtl, options$2 = props.options;
 				return {
 					clearValue,
-					cx: cx$12,
+					cx: cx$13,
 					getStyles,
 					getClassNames,
 					getValue: getValue$2,
@@ -80573,36 +82407,13 @@ var TokenName = ({ symbol }) => {
 	});
 };
 var TokenName_default = TokenName;
-function getWindowDimensions() {
-	const { innerWidth: width, innerHeight: height } = window;
-	return {
-		width,
-		height
-	};
-}
-function useWindowDimensions() {
-	const [windowDimensions, setWindowDimensions] = (0, import_react.useState)(getWindowDimensions());
-	(0, import_react.useEffect)(() => {
-		function handleResize() {
-			setWindowDimensions(getWindowDimensions());
-		}
-		window.addEventListener("resize", handleResize);
-		return () => window.removeEventListener("resize", handleResize);
-	}, []);
-	return windowDimensions;
-}
-var useIsMobile = (breakpoint = 768) => {
-	const { width } = useWindowDimensions();
-	return width < breakpoint;
-};
-var useIsMobile_default = useIsMobile;
 var Supply = () => {
 	const account = useAccount_default();
 	const data = {
 		Asset: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenName_default, { symbol: "ETH" }),
 		Supplied: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmount_default, {
 			symbol: "ETH",
-			value: account?.supplied,
+			value: account?.balance,
 			showsUsdValue: true
 		}),
 		APY: "0%"
@@ -80653,7 +82464,7 @@ var Mobile = ({ data }) => {
 						className: "Supply__info-row-value",
 						children: value
 					})]
-				});
+				}, key);
 			})
 		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 			className: "Supply__buttons _info",
@@ -80670,7 +82481,7 @@ var Buttons = () => {
 	}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
 		type: "secondary",
 		onClick: openWithdrawModal,
-		isDisabled: !account?.supplied,
+		isDisabled: !account?.balance,
 		children: "Withdraw"
 	})] });
 };
@@ -81762,7 +83573,7 @@ var Toasts = () => {
 				case "success": return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(NotificationIcon_default, { color: "green" });
 				case "error": return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(NotificationIcon_default, { color: "red" });
 				case "info": return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(NotificationIcon_default, { color: "blue" });
-				case "warning": return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(NotificationIcon_default, { color: "orange" });
+				case "warning": return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(NotificationIcon_default, { color: "yellow" });
 				default: return null;
 			}
 		}

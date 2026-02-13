@@ -597,6 +597,7 @@
   border: 1px solid rgba(172, 169, 187, 0.08);
   border-radius: 10px;
   padding: 0;
+  white-space: nowrap;
 }
 .SupplyModal__changes-row {
   display: flex;
@@ -619,6 +620,14 @@
 }
 .SupplyModal__button {
   margin-top: 25px;
+}
+@media (max-width: 480px) {
+  .SupplyModal__input {
+    margin-bottom: 15px;
+  }
+  .SupplyModal__button {
+    margin-top: 20px;
+  }
 }.Input {
   position: relative;
   height: 40px;
@@ -712,12 +721,46 @@
   margin-bottom: 10px;
 }.ValueChange {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
   align-items: center;
   column-gap: 8px;
+  row-gap: 5px;
 }
 .ValueChange._active .ValueChange__cur {
   text-decoration: line-through;
   opacity: 0.6;
+}.LtvChange._active .ValueChange__cur .LtvValue__svg {
+  position: relative;
+}
+.LtvChange._active .ValueChange__cur .LtvValue__svg::after {
+  content: "";
+  position: absolute;
+  left: -1px;
+  right: -1px;
+  top: 50%;
+  display: block;
+  height: 1px;
+  background-color: #ffffff;
+}.LtvValue._green {
+  color: #09AF8E;
+}
+.LtvValue._green svg path {
+  fill: #09AF8E;
+}
+.LtvValue._yellow {
+  color: #FE9673;
+}
+.LtvValue._yellow svg path {
+  fill: #FE9673;
+}
+.LtvValue._red {
+  color: #D8563C;
+}
+.LtvValue._red svg path {
+  fill: #D8563C;
+}.Muted {
+  color: rgb(119.2741573034, 111.2112359551, 159.5887640449);
 }.SelectedAccount {
   grid-column: 1/5;
 }

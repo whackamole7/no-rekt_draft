@@ -1,4 +1,4 @@
-import { $ as formatAbiItem$1, N as parseAbi, c as __vitePreload, rt as keccak_256 } from "./index-wNvXM8pO.js";
+import { $ as formatAbiItem$1, N as parseAbi, c as __vitePreload, rt as keccak_256 } from "./index-B1k9lIzU.js";
 function formatAbiItem(abiItem, { includeName = false } = {}) {
 	if (abiItem.type !== "function" && abiItem.type !== "event" && abiItem.type !== "error") throw new InvalidDefinitionTypeError(abiItem.type);
 	return `${abiItem.name}(${formatAbiParams(abiItem.inputs, { includeName })})`;
@@ -4021,7 +4021,7 @@ async function call(client, args) {
 	} catch (err) {
 		const data$1 = getRevertErrorData(err);
 		const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await __vitePreload(async () => {
-			const { offchainLookup: offchainLookup$2, offchainLookupSignature: offchainLookupSignature$2 } = await import("./ccip-CpZS6Kgv.js");
+			const { offchainLookup: offchainLookup$2, offchainLookupSignature: offchainLookupSignature$2 } = await import("./ccip-CCv3M_1G.js");
 			return {
 				offchainLookup: offchainLookup$2,
 				offchainLookupSignature: offchainLookupSignature$2
