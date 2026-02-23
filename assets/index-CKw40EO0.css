@@ -761,6 +761,49 @@
   fill: #D8563C;
 }.Muted {
   color: rgb(119.2741573034, 111.2112359551, 159.5887640449);
+}.WithdrawModal__input {
+  margin-bottom: 20px;
+}
+.WithdrawModal__input-title {
+  color: #9A94B8;
+  margin-bottom: 10px;
+}
+.WithdrawModal__changes {
+  background-color: #130B3A;
+  border: 1px solid rgba(172, 169, 187, 0.08);
+  border-radius: 10px;
+  padding: 0;
+  white-space: nowrap;
+}
+.WithdrawModal__changes-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 20px;
+  border-bottom: 1px solid rgba(172, 169, 187, 0.08);
+  padding: 10px 0;
+  margin: 0 15px;
+}
+.WithdrawModal__changes-row-title {
+  color: #9A94B8;
+}
+.WithdrawModal__changes-row:first-child {
+  padding-top: 12px;
+}
+.WithdrawModal__changes-row:last-child {
+  border-bottom: none;
+  padding-bottom: 14px;
+}
+.WithdrawModal__button {
+  margin-top: 25px;
+}
+@media (max-width: 480px) {
+  .WithdrawModal__input {
+    margin-bottom: 15px;
+  }
+  .WithdrawModal__button {
+    margin-top: 20px;
+  }
 }.SelectedAccount {
   grid-column: 1/5;
 }

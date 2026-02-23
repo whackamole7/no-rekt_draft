@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-GOSUj-hE.js","assets/secp256k1-B5-O8nPL.js","assets/dist-ickhAPV_.js","assets/index.es-iM7oF5TI.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-DMm2Kwgm.js","assets/secp256k1-vWGoVH1_.js","assets/dist-DYKki68t.js","assets/index.es-DG6PsGlG.js"])))=>i.map(i=>d[i]);
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -16899,7 +16899,7 @@ async function call(client, args) {
 	} catch (err) {
 		const data$1 = getRevertErrorData(err);
 		const { offchainLookup, offchainLookupSignature } = await __vitePreload(async () => {
-			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-CbgA1tLL.js");
+			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-I5dntIPd.js");
 			return {
 				offchainLookup: offchainLookup$1,
 				offchainLookupSignature: offchainLookupSignature$1
@@ -17400,7 +17400,7 @@ function publicKeyToAddress(publicKey) {
 async function recoverPublicKey({ hash: hash$3, signature }) {
 	const hashHex = isHex(hash$3) ? hash$3 : toHex(hash$3);
 	const { secp256k1: secp256k1$1 } = await __vitePreload(async () => {
-		const { secp256k1: secp256k1$2 } = await import("./secp256k1-GOSUj-hE.js");
+		const { secp256k1: secp256k1$2 } = await import("./secp256k1-DMm2Kwgm.js");
 		return { secp256k1: secp256k1$2 };
 	}, __vite__mapDeps([0,1]));
 	return `0x${(() => {
@@ -22487,7 +22487,7 @@ var require_use_sync_external_store_shim_production$1 = /* @__PURE__ */ __common
 	function is$2(x$2, y$3) {
 		return x$2 === y$3 && (0 !== x$2 || 1 / x$2 === 1 / y$3) || x$2 !== x$2 && y$3 !== y$3;
 	}
-	var objectIs$2 = "function" === typeof Object.is ? Object.is : is$2, useState$21 = React$9.useState, useEffect$32 = React$9.useEffect, useLayoutEffect$6 = React$9.useLayoutEffect, useDebugValue$3 = React$9.useDebugValue;
+	var objectIs$2 = "function" === typeof Object.is ? Object.is : is$2, useState$21 = React$9.useState, useEffect$33 = React$9.useEffect, useLayoutEffect$6 = React$9.useLayoutEffect, useDebugValue$3 = React$9.useDebugValue;
 	function useSyncExternalStore$2$6(subscribe$1, getSnapshot) {
 		var value = getSnapshot(), _useState = useState$21({ inst: {
 			value,
@@ -22502,7 +22502,7 @@ var require_use_sync_external_store_shim_production$1 = /* @__PURE__ */ __common
 			value,
 			getSnapshot
 		]);
-		useEffect$32(function() {
+		useEffect$33(function() {
 			checkIfSnapshotChanged$1(inst) && forceUpdate({ inst });
 			return subscribe$1(function() {
 				checkIfSnapshotChanged$1(inst) && forceUpdate({ inst });
@@ -22544,7 +22544,7 @@ var require_with_selector_production = /* @__PURE__ */ __commonJSMin(((exports) 
 	function is$1(x$2, y$3) {
 		return x$2 === y$3 && (0 !== x$2 || 1 / x$2 === 1 / y$3) || x$2 !== x$2 && y$3 !== y$3;
 	}
-	var objectIs$1 = "function" === typeof Object.is ? Object.is : is$1, useSyncExternalStore$6 = shim$1.useSyncExternalStore, useRef$19 = React$8.useRef, useEffect$31 = React$8.useEffect, useMemo$14 = React$8.useMemo, useDebugValue$2 = React$8.useDebugValue;
+	var objectIs$1 = "function" === typeof Object.is ? Object.is : is$1, useSyncExternalStore$6 = shim$1.useSyncExternalStore, useRef$19 = React$8.useRef, useEffect$32 = React$8.useEffect, useMemo$14 = React$8.useMemo, useDebugValue$2 = React$8.useDebugValue;
 	exports.useSyncExternalStoreWithSelector = function(subscribe$1, getSnapshot, getServerSnapshot, selector, isEqual$1) {
 		var instRef = useRef$19(null);
 		if (null === instRef.current) {
@@ -22586,7 +22586,7 @@ var require_with_selector_production = /* @__PURE__ */ __commonJSMin(((exports) 
 			isEqual$1
 		]);
 		var value = useSyncExternalStore$6(subscribe$1, instRef[0], instRef[1]);
-		useEffect$31(function() {
+		useEffect$32(function() {
 			inst.hasValue = !0;
 			inst.value = value;
 		}, [value]);
@@ -23203,14 +23203,14 @@ function safe(parameters = {}) {
 			if (!(typeof window !== "undefined" && window?.parent !== window)) return;
 			if (!provider_) {
 				const { default: SDK } = await __vitePreload(async () => {
-					const { default: SDK$1 } = await import("./esm-DX-uq8Pl.js");
+					const { default: SDK$1 } = await import("./esm-BSGhfSZO.js");
 					return { default: SDK$1 };
 				}, []);
 				const sdk = new SDK(parameters);
 				const safe$1 = await withTimeout(() => sdk.safe.getInfo(), { timeout: parameters.unstable_getInfoTimeout ?? 10 });
 				if (!safe$1) throw new Error("Could not load Safe information");
 				provider_ = new (await ((async () => {
-					const Provider = await __vitePreload(() => import("./dist-erf3FTVv.js").then(__toDynamicImportESM(1)), []);
+					const Provider = await __vitePreload(() => import("./dist-Bv5AAnNh.js").then(__toDynamicImportESM(1)), []);
 					if (typeof Provider.SafeAppProvider !== "function" && typeof Provider.default.SafeAppProvider === "function") return Provider.default.SafeAppProvider;
 					return Provider.SafeAppProvider;
 				})()))(safe$1, sdk);
@@ -23370,7 +23370,7 @@ function walletConnect(parameters) {
 				const optionalChains = config.chains.map((x$2) => x$2.id);
 				if (!optionalChains.length) return;
 				const { EthereumProvider: EthereumProvider$1 } = await __vitePreload(async () => {
-					const { EthereumProvider: EthereumProvider$2 } = await import("./dist-ickhAPV_.js");
+					const { EthereumProvider: EthereumProvider$2 } = await import("./dist-DYKki68t.js");
 					return { EthereumProvider: EthereumProvider$2 };
 				}, __vite__mapDeps([2,3,1]));
 				return await EthereumProvider$1.init({
@@ -68537,7 +68537,7 @@ var require_use_sync_external_store_shim_production = /* @__PURE__ */ __commonJS
 	function is(x$2, y$3) {
 		return x$2 === y$3 && (0 !== x$2 || 1 / x$2 === 1 / y$3) || x$2 !== x$2 && y$3 !== y$3;
 	}
-	var objectIs = "function" === typeof Object.is ? Object.is : is, useState$15 = React$6.useState, useEffect$15 = React$6.useEffect, useLayoutEffect$3 = React$6.useLayoutEffect, useDebugValue$1 = React$6.useDebugValue;
+	var objectIs = "function" === typeof Object.is ? Object.is : is, useState$15 = React$6.useState, useEffect$16 = React$6.useEffect, useLayoutEffect$3 = React$6.useLayoutEffect, useDebugValue$1 = React$6.useDebugValue;
 	function useSyncExternalStore$2(subscribe$1, getSnapshot) {
 		var value = getSnapshot(), _useState = useState$15({ inst: {
 			value,
@@ -68552,7 +68552,7 @@ var require_use_sync_external_store_shim_production = /* @__PURE__ */ __commonJS
 			value,
 			getSnapshot
 		]);
-		useEffect$15(function() {
+		useEffect$16(function() {
 			checkIfSnapshotChanged(inst) && forceUpdate({ inst });
 			return subscribe$1(function() {
 				checkIfSnapshotChanged(inst) && forceUpdate({ inst });
@@ -74930,7 +74930,8 @@ var useProtocolActions = () => {
 	const accountId = useAccountId_default();
 	return {
 		createAccount: () => createAccount(contracts$1),
-		supply: (amount) => supply(accountId, contracts$1, amount)
+		supply: (amount) => supply(accountId, contracts$1, amount),
+		withdraw: (amount) => withdraw(accountId, contracts$1, amount)
 	};
 };
 var createAccount = async (contracts$1) => {
@@ -74941,6 +74942,11 @@ var supply = async (accountId, contracts$1, amount) => {
 	const { OneClickTrading } = contracts$1.signed;
 	const amount1eToken = get1eToken(amount, "ETH");
 	return OneClickTrading.provideETH(accountId, { value: amount1eToken });
+};
+var withdraw = async (accountId, contracts$1, amount) => {
+	const { OneClickTrading } = contracts$1.signed;
+	const amount1eToken = get1eToken(amount, "ETH");
+	return OneClickTrading.withdrawETH(accountId, amount1eToken);
 };
 var useProtocolActions_default = useProtocolActions;
 var sendTx = async (executedTx, successMsg, setIsSubmitting, onSuccess, onError) => {
@@ -77299,6 +77305,11 @@ var useAccount = () => {
 	if (accountSetup === null) return null;
 	return accountSetup?.account;
 };
+const useAccountMutate = () => {
+	const accountSetup = useAccountSetup();
+	if (accountSetup === null) return null;
+	return accountSetup?.mutate;
+};
 var useAccountSetup = () => {
 	const accountId = useAccountId_default();
 	const contracts$1 = useContracts_default();
@@ -77406,10 +77417,21 @@ const swapToUsdc = async (contracts$1, amount, token$1) => {
 	const { ModularSwapRouter } = contracts$1.view;
 	return await ModularSwapRouter.calculatePositionValue.staticCall(token$1.address, USDC.address, get1eToken(amount, token$1)).then((res) => bring1eTokenToDefault(res, USDC)).catch(console.log);
 };
-var Ltv = { queryLtvAfterSupply };
-async function queryLtvAfterSupply(account, contracts$1, depositAmount, token$1) {
-	const depositAmountUSDC = await swapToUsdc(contracts$1, depositAmount, token$1);
+const swapEthToUsdc = async (contracts$1, amount) => {
+	const { ETH } = Tokens;
+	return swapToUsdc(contracts$1, amount, ETH);
+};
+var Ltv = {
+	queryLtvAfterSupply,
+	queryLtvAfterWithdraw
+};
+async function queryLtvAfterSupply(account, contracts$1, depositAmount) {
+	const depositAmountUSDC = await swapEthToUsdc(contracts$1, depositAmount);
 	return _calcLtv(account.value + depositAmountUSDC, account.debt);
+}
+async function queryLtvAfterWithdraw(account, contracts$1, withdrawAmount) {
+	const withdrawAmountUSDC = await swapEthToUsdc(contracts$1, withdrawAmount);
+	return _calcLtv(account.value - withdrawAmountUSDC, account.debt);
 }
 var _calcLtv = (balance, debt) => {
 	if (debt <= 0n) return maxUint256;
@@ -77503,6 +77525,7 @@ var SupplyModal = ({ isOpen, setIsOpen }) => {
 	const [isSubmitting, setIsSubmitting] = (0, import_react.useState)(false);
 	const [txResult, setTxResult] = (0, import_react.useState)(void 0);
 	const account = useAccount_default();
+	const mutateAccount = useAccountMutate();
 	const contracts$1 = useContracts_default();
 	const { supply: supply$1 } = useProtocolActions_default();
 	const isMobile$1 = useIsMobile_default(480);
@@ -77518,8 +77541,7 @@ var SupplyModal = ({ isOpen, setIsOpen }) => {
 	useDebounce(async () => {
 		if (supplyAmount) {
 			setEstLtv(void 0);
-			const { ETH } = Tokens;
-			setEstLtv(await Ltv_default.queryLtvAfterSupply(account, contracts$1, supplyAmount, ETH));
+			setEstLtv(await Ltv_default.queryLtvAfterSupply(account, contracts$1, supplyAmount));
 		}
 	}, 600, [supplyAmount]);
 	(0, import_react.useEffect)(() => {
@@ -77539,10 +77561,13 @@ var SupplyModal = ({ isOpen, setIsOpen }) => {
 		return Boolean(error);
 	};
 	const handleClick = () => {
-		sendTx_default(supply$1(supplyAmount), `Supplied ${inputStringFromBigInt(supplyAmount)} ETH.`, setIsSubmitting, ({ tx }) => setTxResult({
-			...txSuccessData,
-			hash: tx.hash
-		}), (e$2) => setTxResult({
+		sendTx_default(supply$1(supplyAmount), `Supplied ${inputStringFromBigInt(supplyAmount)} ETH.`, setIsSubmitting, ({ tx }) => {
+			setTxResult({
+				...txSuccessData,
+				hash: tx.hash
+			});
+			mutateAccount();
+		}, (e$2) => setTxResult({
 			...txErrorData,
 			error: e$2
 		}));
@@ -77614,18 +77639,139 @@ var SupplyModal = ({ isOpen, setIsOpen }) => {
 };
 var SupplyModal_default = SupplyModal;
 var WithdrawModal = ({ isOpen, setIsOpen }) => {
+	const account = useAccount_default();
+	const mutateAccount = useAccountMutate();
+	const contracts$1 = useContracts_default();
+	const [withdrawAmount, setWithdrawAmount] = (0, import_react.useState)(null);
+	const [estLtv, setEstLtv] = (0, import_react.useState)(null);
 	const [txResult, setTxResult] = (0, import_react.useState)(void 0);
+	const [isSubmitting, setIsSubmitting] = (0, import_react.useState)(false);
+	const { withdraw: withdraw$1 } = useProtocolActions_default();
+	const isMobile$1 = useIsMobile_default(480);
+	const txSuccessData = {
+		title: "Witdrawal confirmed! ",
+		text: "Your withdrawal is complete. The funds are now available in your Lending Account"
+	};
+	const txErrorData = {
+		title: "Action failed",
+		text: "Something went wrong while withdrawing collateral"
+	};
+	const estSuppliedAmount = isUndefined(account?.balance) || !withdrawAmount ? null : account.balance - withdrawAmount;
+	useDebounce(async () => {
+		if (withdrawAmount) {
+			setEstLtv(void 0);
+			setEstLtv(await Ltv_default.queryLtvAfterWithdraw(account, contracts$1, withdrawAmount));
+		}
+	}, 600, [withdrawAmount]);
+	(0, import_react.useEffect)(() => {
+		if (!withdrawAmount) setEstLtv(null);
+	}, [withdrawAmount]);
+	const getError = () => {
+		if (!withdrawAmount) return "Enter Amount";
+		if (isSubmitting) return ButtonLabels.SUBMITTING;
+	};
+	const getBtnText = () => {
+		const error = getError();
+		if (error) return error;
+		return "Withdraw";
+	};
+	const getIsDisabled = () => {
+		const error = getError();
+		return Boolean(error);
+	};
+	const handleClick = () => {
+		sendTx_default(withdraw$1(withdrawAmount), `Withdrawn ${inputStringFromBigInt(withdrawAmount)} ETH.`, setIsSubmitting, ({ tx }) => {
+			setTxResult({
+				...txSuccessData,
+				hash: tx.hash
+			});
+			mutateAccount();
+		}, (e$2) => setTxResult({
+			...txErrorData,
+			error: e$2
+		}));
+	};
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(TxModal_default, {
 		className: "WithdrawModal",
 		isOpen,
 		setIsOpen,
 		txResult,
 		setTxResult,
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
-			className: "WithdrawModal__title",
-			children: "Withdraw"
-		}), "in progress"]
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+				className: "WithdrawModal__title",
+				children: "Withdraw"
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "WithdrawModal__input",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(WithdrawInput, { setWithdrawAmount })
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "WithdrawModal__changes",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "WithdrawModal__changes-row",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "WithdrawModal__changes-row-title",
+							children: [isMobile$1 ? "Collat." : "Collateral", " Change"]
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "WithdrawModal__changes-row-value",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmountChange_default, {
+								symbol: "ETH",
+								curAmount: account?.balance,
+								estAmount: estSuppliedAmount
+							})
+						})]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "WithdrawModal__changes-row",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "WithdrawModal__changes-row-title",
+							children: [isMobile$1 ? "Liq." : "Liquidation", " Price Change"]
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "WithdrawModal__changes-row-value",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, {})
+						})]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "WithdrawModal__changes-row",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "WithdrawModal__changes-row-title",
+							children: "LtV"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "WithdrawModal__changes-row-value",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LtvChange_default, { estLtv })
+						})]
+					})
+				]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "WithdrawModal__button",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
+					onClick: handleClick,
+					isDisabled: getIsDisabled(),
+					children: getBtnText()
+				})
+			})
+		]
 	});
+};
+var WithdrawInput = ({ setWithdrawAmount }) => {
+	const account = useAccount_default();
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: "WithdrawModal__input-title",
+		children: "Amount"
+	}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: "WithdrawModal__input-node",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Input_default, {
+			setValue: setWithdrawAmount,
+			maxData: {
+				title: "Available",
+				token: "ETH",
+				value: account?.balance
+			}
+		})
+	})] });
 };
 var WithdrawModal_default = WithdrawModal;
 var _DashboardContext = (0, import_react.createContext)(null);
