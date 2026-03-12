@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-DMm2Kwgm.js","assets/secp256k1-vWGoVH1_.js","assets/dist-DYKki68t.js","assets/index.es-DG6PsGlG.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-M2ptg5NM.js","assets/secp256k1-DySbwSVg.js","assets/dist-CPJI1ZyW.js","assets/index.es-CKMuoQGm.js"])))=>i.map(i=>d[i]);
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -12618,8 +12618,8 @@ var InvalidDefinitionTypeError = class extends BaseError$3 {
 	}
 };
 var InvalidAddressError = class extends BaseError$3 {
-	constructor({ address: address$7 }) {
-		super(`Address "${address$7}" is invalid.`, {
+	constructor({ address: address$8 }) {
+		super(`Address "${address$8}" is invalid.`, {
 			metaMessages: ["- Address must be a hex value of 20 bytes (40 hex characters).", "- Address must match its checksum counterpart."],
 			name: "InvalidAddressError"
 		});
@@ -13149,14 +13149,14 @@ var LruMap = class extends Map {
 };
 var addressRegex = /^0x[a-fA-F0-9]{40}$/;
 const isAddressCache = /* @__PURE__ */ new LruMap(8192);
-function isAddress(address$7, options$2) {
+function isAddress(address$8, options$2) {
 	const { strict = true } = options$2 ?? {};
-	const cacheKey$1 = `${address$7}.${strict}`;
+	const cacheKey$1 = `${address$8}.${strict}`;
 	if (isAddressCache.has(cacheKey$1)) return isAddressCache.get(cacheKey$1);
 	const result = (() => {
-		if (!addressRegex.test(address$7)) return false;
-		if (address$7.toLowerCase() === address$7) return true;
-		if (strict) return checksumAddress(address$7) === address$7;
+		if (!addressRegex.test(address$8)) return false;
+		if (address$8.toLowerCase() === address$8) return true;
+		if (strict) return checksumAddress(address$8) === address$8;
 		return true;
 	})();
 	isAddressCache.set(cacheKey$1, result);
@@ -13167,18 +13167,18 @@ function checksumAddress(address_, chainId) {
 	if (checksumAddressCache.has(`${address_}.${chainId}`)) return checksumAddressCache.get(`${address_}.${chainId}`);
 	const hexAddress = chainId ? `${chainId}${address_.toLowerCase()}` : address_.substring(2).toLowerCase();
 	const hash$3 = keccak256$1(stringToBytes(hexAddress), "bytes");
-	const address$7 = (chainId ? hexAddress.substring(`${chainId}0x`.length) : hexAddress).split("");
+	const address$8 = (chainId ? hexAddress.substring(`${chainId}0x`.length) : hexAddress).split("");
 	for (let i$3 = 0; i$3 < 40; i$3 += 2) {
-		if (hash$3[i$3 >> 1] >> 4 >= 8 && address$7[i$3]) address$7[i$3] = address$7[i$3].toUpperCase();
-		if ((hash$3[i$3 >> 1] & 15) >= 8 && address$7[i$3 + 1]) address$7[i$3 + 1] = address$7[i$3 + 1].toUpperCase();
+		if (hash$3[i$3 >> 1] >> 4 >= 8 && address$8[i$3]) address$8[i$3] = address$8[i$3].toUpperCase();
+		if ((hash$3[i$3 >> 1] & 15) >= 8 && address$8[i$3 + 1]) address$8[i$3 + 1] = address$8[i$3 + 1].toUpperCase();
 	}
-	const result = `0x${address$7.join("")}`;
+	const result = `0x${address$8.join("")}`;
 	checksumAddressCache.set(`${address_}.${chainId}`, result);
 	return result;
 }
-function getAddress$1(address$7, chainId) {
-	if (!isAddress(address$7, { strict: false })) throw new InvalidAddressError({ address: address$7 });
-	return checksumAddress(address$7, chainId);
+function getAddress$1(address$8, chainId) {
+	if (!isAddress(address$8, { strict: false })) throw new InvalidAddressError({ address: address$8 });
+	return checksumAddress(address$8, chainId);
 }
 var NegativeOffsetError = class extends BaseError$3 {
 	constructor({ offset: offset$1 }) {
@@ -14496,14 +14496,14 @@ function resolveStructs(abiParameters = [], structs = {}, ancestors = /* @__PURE
 }
 function parseAbi(signatures) {
 	const structs = parseStructs(signatures);
-	const abi$7 = [];
+	const abi$8 = [];
 	const length$1 = signatures.length;
 	for (let i$3 = 0; i$3 < length$1; i$3++) {
 		const signature = signatures[i$3];
 		if (isStructSignature(signature)) continue;
-		abi$7.push(parseSignature(signature, structs));
+		abi$8.push(parseSignature(signature, structs));
 	}
-	return abi$7;
+	return abi$8;
 }
 function normalizeSignature(signature) {
 	let active = true;
@@ -14561,9 +14561,9 @@ function toSignatureHash(fn) {
 const toEventSelector = toSignatureHash;
 const toFunctionSelector = (fn) => slice$1(toSignatureHash(fn), 0, 4);
 function getAbiItem(parameters) {
-	const { abi: abi$7, args = [], name } = parameters;
+	const { abi: abi$8, args = [], name } = parameters;
 	const isSelector = isHex(name, { strict: false });
-	const abiItems = abi$7.filter((abiItem) => {
+	const abiItems = abi$8.filter((abiItem) => {
 		if (isSelector) {
 			if (abiItem.type === "function") return toFunctionSelector(abiItem) === name;
 			if (abiItem.type === "event") return toEventSelector(abiItem) === name;
@@ -14641,11 +14641,11 @@ function getAmbiguousTypes(sourceParameters, targetParameters, args) {
 }
 var docsPath$4 = "/docs/contract/decodeFunctionResult";
 function decodeFunctionResult(parameters) {
-	const { abi: abi$7, args, functionName, data } = parameters;
-	let abiItem = abi$7[0];
+	const { abi: abi$8, args, functionName, data } = parameters;
+	let abiItem = abi$8[0];
 	if (functionName) {
 		const item = getAbiItem({
-			abi: abi$7,
+			abi: abi$8,
 			args,
 			name: functionName
 		});
@@ -14660,11 +14660,11 @@ function decodeFunctionResult(parameters) {
 }
 var docsPath$3 = "/docs/contract/encodeFunctionData";
 function prepareEncodeFunctionData(parameters) {
-	const { abi: abi$7, args, functionName } = parameters;
-	let abiItem = abi$7[0];
+	const { abi: abi$8, args, functionName } = parameters;
+	let abiItem = abi$8[0];
 	if (functionName) {
 		const item = getAbiItem({
-			abi: abi$7,
+			abi: abi$8,
 			args,
 			name: functionName
 		});
@@ -14679,11 +14679,11 @@ function prepareEncodeFunctionData(parameters) {
 }
 function encodeFunctionData(parameters) {
 	const { args } = parameters;
-	const { abi: abi$7, functionName } = (() => {
+	const { abi: abi$8, functionName } = (() => {
 		if (parameters.abi.length === 1 && parameters.functionName?.startsWith("0x")) return parameters;
 		return prepareEncodeFunctionData(parameters);
 	})();
-	const abiItem = abi$7[0];
+	const abiItem = abi$8[0];
 	return concatHex([functionName, ("inputs" in abiItem && abiItem.inputs ? encodeAbiParameters(abiItem.inputs, args ?? []) : void 0) ?? "0x"]);
 }
 var ChainDoesNotSupportContract = class extends BaseError$3 {
@@ -14768,11 +14768,11 @@ const solidityPanic = {
 	type: "error"
 };
 function decodeErrorResult(parameters) {
-	const { abi: abi$7, data } = parameters;
+	const { abi: abi$8, data } = parameters;
 	const signature = slice$1(data, 0, 4);
 	if (signature === "0x") throw new AbiDecodingZeroDataError();
 	const abiItem = [
-		...abi$7 || [],
+		...abi$8 || [],
 		solidityError,
 		solidityPanic
 	].find((x$2) => x$2.type === "error" && signature === toFunctionSelector(formatAbiItem(x$2)));
@@ -14817,8 +14817,8 @@ function formatGwei(wei, unit = "wei") {
 	return formatUnits$1(wei, gweiUnits[unit]);
 }
 var AccountStateConflictError = class extends BaseError$3 {
-	constructor({ address: address$7 }) {
-		super(`State for account "${address$7}" is set multiple times.`, { name: "AccountStateConflictError" });
+	constructor({ address: address$8 }) {
+		super(`State for account "${address$8}" is set multiple times.`, { name: "AccountStateConflictError" });
 	}
 };
 var StateAssignmentConflictError = class extends BaseError$3 {
@@ -14832,8 +14832,8 @@ function prettyStateMapping(stateMapping) {
 	}, "");
 }
 function prettyStateOverride(stateOverride) {
-	return stateOverride.reduce((pretty, { address: address$7, ...state }) => {
-		let val = `${pretty}    ${address$7}:\n`;
+	return stateOverride.reduce((pretty, { address: address$8, ...state }) => {
+		let val = `${pretty}    ${address$8}:\n`;
 		if (state.nonce) val += `      nonce: ${state.nonce}\n`;
 		if (state.balance) val += `      balance: ${state.balance}\n`;
 		if (state.code) val += `      code: ${state.code}\n`;
@@ -14961,7 +14961,7 @@ var WaitForTransactionReceiptTimeoutError = class extends BaseError$3 {
 		super(`Timed out while waiting for transaction with hash "${hash$3}" to be confirmed.`, { name: "WaitForTransactionReceiptTimeoutError" });
 	}
 };
-const getContractAddress = (address$7) => address$7;
+const getContractAddress = (address$8) => address$8;
 const getUrl = (url) => url;
 var CallExecutionError = class extends BaseError$3 {
 	constructor(cause, { account: account_, docsPath: docsPath$5, chain, data, gas, gasPrice, maxFeePerGas, maxPriorityFeePerGas, nonce, to: to$1, value, stateOverride }) {
@@ -14997,9 +14997,9 @@ var CallExecutionError = class extends BaseError$3 {
 	}
 };
 var ContractFunctionExecutionError = class extends BaseError$3 {
-	constructor(cause, { abi: abi$7, args, contractAddress, docsPath: docsPath$5, functionName, sender }) {
+	constructor(cause, { abi: abi$8, args, contractAddress, docsPath: docsPath$5, functionName, sender }) {
 		const abiItem = getAbiItem({
-			abi: abi$7,
+			abi: abi$8,
 			args,
 			name: functionName
 		});
@@ -15068,7 +15068,7 @@ var ContractFunctionExecutionError = class extends BaseError$3 {
 			writable: true,
 			value: void 0
 		});
-		this.abi = abi$7;
+		this.abi = abi$8;
 		this.args = args;
 		this.cause = cause;
 		this.contractAddress = contractAddress;
@@ -15077,14 +15077,14 @@ var ContractFunctionExecutionError = class extends BaseError$3 {
 	}
 };
 var ContractFunctionRevertedError = class extends BaseError$3 {
-	constructor({ abi: abi$7, data, functionName, message }) {
+	constructor({ abi: abi$8, data, functionName, message }) {
 		let cause;
 		let decodedData;
 		let metaMessages;
 		let reason;
 		if (data && data !== "0x") try {
 			decodedData = decodeErrorResult({
-				abi: abi$7,
+				abi: abi$8,
 				data
 			});
 			const { abiItem, errorName, args: errorArgs } = decodedData;
@@ -15206,9 +15206,9 @@ function isNullUniversalResolverError(err) {
 	return false;
 }
 function decodeFunctionData(parameters) {
-	const { abi: abi$7, data } = parameters;
+	const { abi: abi$8, data } = parameters;
 	const signature = slice$1(data, 0, 4);
-	const description = abi$7.find((x$2) => x$2.type === "function" && signature === toFunctionSelector(formatAbiItem(x$2)));
+	const description = abi$8.find((x$2) => x$2.type === "function" && signature === toFunctionSelector(formatAbiItem(x$2)));
 	if (!description) throw new AbiFunctionSignatureNotFoundError(signature, { docsPath: "/docs/contract/decodeFunctionData" });
 	return {
 		functionName: description.name,
@@ -15217,11 +15217,11 @@ function decodeFunctionData(parameters) {
 }
 var docsPath$2 = "/docs/contract/encodeErrorResult";
 function encodeErrorResult(parameters) {
-	const { abi: abi$7, errorName, args } = parameters;
-	let abiItem = abi$7[0];
+	const { abi: abi$8, errorName, args } = parameters;
+	let abiItem = abi$8[0];
 	if (errorName) {
 		const item = getAbiItem({
-			abi: abi$7,
+			abi: abi$8,
 			args,
 			name: errorName
 		});
@@ -15239,11 +15239,11 @@ function encodeErrorResult(parameters) {
 }
 var docsPath$1 = "/docs/contract/encodeFunctionResult";
 function encodeFunctionResult(parameters) {
-	const { abi: abi$7, functionName, result } = parameters;
-	let abiItem = abi$7[0];
+	const { abi: abi$8, functionName, result } = parameters;
+	let abiItem = abi$8[0];
 	if (functionName) {
 		const item = getAbiItem({
-			abi: abi$7,
+			abi: abi$8,
 			name: functionName
 		});
 		if (!item) throw new AbiFunctionNotFoundError(functionName, { docsPath: docsPath$1 });
@@ -15858,22 +15858,22 @@ var UnknownRpcError = class extends RpcError$1 {
 	}
 };
 var EXECUTION_REVERTED_ERROR_CODE = 3;
-function getContractError(err, { abi: abi$7, address: address$7, args, docsPath: docsPath$5, functionName, sender }) {
+function getContractError(err, { abi: abi$8, address: address$8, args, docsPath: docsPath$5, functionName, sender }) {
 	const error = err instanceof RawContractError ? err : err instanceof BaseError$3 ? err.walk((err$1) => "data" in err$1) || err.walk() : {};
 	const { code: code$1, data, details, message, shortMessage } = error;
 	return new ContractFunctionExecutionError((() => {
 		if (err instanceof AbiDecodingZeroDataError) return new ContractFunctionZeroDataError({ functionName });
 		if ([EXECUTION_REVERTED_ERROR_CODE, InternalRpcError.code].includes(code$1) && (data || details || message || shortMessage) || code$1 === InvalidInputRpcError.code && details === "execution reverted" && data) return new ContractFunctionRevertedError({
-			abi: abi$7,
+			abi: abi$8,
 			data: typeof data === "object" ? data.data : data,
 			functionName,
 			message: error instanceof RpcRequestError ? details : shortMessage ?? message
 		});
 		return err;
 	})(), {
-		abi: abi$7,
+		abi: abi$8,
 		args,
-		contractAddress: address$7,
+		contractAddress: address$8,
 		docsPath: docsPath$5,
 		functionName,
 		sender
@@ -16277,9 +16277,9 @@ const deploylessCallViaFactoryBytecode = "0x608060405234801561001057600080fd5b50
 const multicall3Bytecode = "0x608060405234801561001057600080fd5b506115b9806100206000396000f3fe6080604052600436106100f35760003560e01c80634d2301cc1161008a578063a8b0574e11610059578063a8b0574e14610325578063bce38bd714610350578063c3077fa914610380578063ee82ac5e146103b2576100f3565b80634d2301cc1461026257806372425d9d1461029f57806382ad56cb146102ca57806386d516e8146102fa576100f3565b80633408e470116100c65780633408e470146101af578063399542e9146101da5780633e64a6961461020c57806342cbb15c14610237576100f3565b80630f28c97d146100f8578063174dea7114610123578063252dba421461015357806327e86d6e14610184575b600080fd5b34801561010457600080fd5b5061010d6103ef565b60405161011a9190610c0a565b60405180910390f35b61013d60048036038101906101389190610c94565b6103f7565b60405161014a9190610e94565b60405180910390f35b61016d60048036038101906101689190610f0c565b610615565b60405161017b92919061101b565b60405180910390f35b34801561019057600080fd5b506101996107ab565b6040516101a69190611064565b60405180910390f35b3480156101bb57600080fd5b506101c46107b7565b6040516101d19190610c0a565b60405180910390f35b6101f460048036038101906101ef91906110ab565b6107bf565b6040516102039392919061110b565b60405180910390f35b34801561021857600080fd5b506102216107e1565b60405161022e9190610c0a565b60405180910390f35b34801561024357600080fd5b5061024c6107e9565b6040516102599190610c0a565b60405180910390f35b34801561026e57600080fd5b50610289600480360381019061028491906111a7565b6107f1565b6040516102969190610c0a565b60405180910390f35b3480156102ab57600080fd5b506102b4610812565b6040516102c19190610c0a565b60405180910390f35b6102e460048036038101906102df919061122a565b61081a565b6040516102f19190610e94565b60405180910390f35b34801561030657600080fd5b5061030f6109e4565b60405161031c9190610c0a565b60405180910390f35b34801561033157600080fd5b5061033a6109ec565b6040516103479190611286565b60405180910390f35b61036a600480360381019061036591906110ab565b6109f4565b6040516103779190610e94565b60405180910390f35b61039a60048036038101906103959190610f0c565b610ba6565b6040516103a99392919061110b565b60405180910390f35b3480156103be57600080fd5b506103d960048036038101906103d491906112cd565b610bca565b6040516103e69190611064565b60405180910390f35b600042905090565b60606000808484905090508067ffffffffffffffff81111561041c5761041b6112fa565b5b60405190808252806020026020018201604052801561045557816020015b610442610bd5565b81526020019060019003908161043a5790505b5092503660005b828110156105c957600085828151811061047957610478611329565b5b6020026020010151905087878381811061049657610495611329565b5b90506020028101906104a89190611367565b925060008360400135905080860195508360000160208101906104cb91906111a7565b73ffffffffffffffffffffffffffffffffffffffff16818580606001906104f2919061138f565b604051610500929190611431565b60006040518083038185875af1925050503d806000811461053d576040519150601f19603f3d011682016040523d82523d6000602084013e610542565b606091505b5083600001846020018290528215151515815250505081516020850135176105bc577f08c379a000000000000000000000000000000000000000000000000000000000600052602060045260176024527f4d756c746963616c6c333a2063616c6c206661696c656400000000000000000060445260846000fd5b826001019250505061045c565b5082341461060c576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401610603906114a7565b60405180910390fd5b50505092915050565b6000606043915060008484905090508067ffffffffffffffff81111561063e5761063d6112fa565b5b60405190808252806020026020018201604052801561067157816020015b606081526020019060019003908161065c5790505b5091503660005b828110156107a157600087878381811061069557610694611329565b5b90506020028101906106a791906114c7565b92508260000160208101906106bc91906111a7565b73ffffffffffffffffffffffffffffffffffffffff168380602001906106e2919061138f565b6040516106f0929190611431565b6000604051808303816000865af19150503d806000811461072d576040519150601f19603f3d011682016040523d82523d6000602084013e610732565b606091505b5086848151811061074657610745611329565b5b60200260200101819052819250505080610795576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040161078c9061153b565b60405180910390fd5b81600101915050610678565b5050509250929050565b60006001430340905090565b600046905090565b6000806060439250434091506107d68686866109f4565b905093509350939050565b600048905090565b600043905090565b60008173ffffffffffffffffffffffffffffffffffffffff16319050919050565b600044905090565b606060008383905090508067ffffffffffffffff81111561083e5761083d6112fa565b5b60405190808252806020026020018201604052801561087757816020015b610864610bd5565b81526020019060019003908161085c5790505b5091503660005b828110156109db57600084828151811061089b5761089a611329565b5b602002602001015190508686838181106108b8576108b7611329565b5b90506020028101906108ca919061155b565b92508260000160208101906108df91906111a7565b73ffffffffffffffffffffffffffffffffffffffff16838060400190610905919061138f565b604051610913929190611431565b6000604051808303816000865af19150503d8060008114610950576040519150601f19603f3d011682016040523d82523d6000602084013e610955565b606091505b5082600001836020018290528215151515815250505080516020840135176109cf577f08c379a000000000000000000000000000000000000000000000000000000000600052602060045260176024527f4d756c746963616c6c333a2063616c6c206661696c656400000000000000000060445260646000fd5b8160010191505061087e565b50505092915050565b600045905090565b600041905090565b606060008383905090508067ffffffffffffffff811115610a1857610a176112fa565b5b604051908082528060200260200182016040528015610a5157816020015b610a3e610bd5565b815260200190600190039081610a365790505b5091503660005b82811015610b9c576000848281518110610a7557610a74611329565b5b60200260200101519050868683818110610a9257610a91611329565b5b9050602002810190610aa491906114c7565b9250826000016020810190610ab991906111a7565b73ffffffffffffffffffffffffffffffffffffffff16838060200190610adf919061138f565b604051610aed929190611431565b6000604051808303816000865af19150503d8060008114610b2a576040519150601f19603f3d011682016040523d82523d6000602084013e610b2f565b606091505b508260000183602001829052821515151581525050508715610b90578060000151610b8f576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401610b869061153b565b60405180910390fd5b5b81600101915050610a58565b5050509392505050565b6000806060610bb7600186866107bf565b8093508194508295505050509250925092565b600081409050919050565b6040518060400160405280600015158152602001606081525090565b6000819050919050565b610c0481610bf1565b82525050565b6000602082019050610c1f6000830184610bfb565b92915050565b600080fd5b600080fd5b600080fd5b600080fd5b600080fd5b60008083601f840112610c5457610c53610c2f565b5b8235905067ffffffffffffffff811115610c7157610c70610c34565b5b602083019150836020820283011115610c8d57610c8c610c39565b5b9250929050565b60008060208385031215610cab57610caa610c25565b5b600083013567ffffffffffffffff811115610cc957610cc8610c2a565b5b610cd585828601610c3e565b92509250509250929050565b600081519050919050565b600082825260208201905092915050565b6000819050602082019050919050565b60008115159050919050565b610d2281610d0d565b82525050565b600081519050919050565b600082825260208201905092915050565b60005b83811015610d62578082015181840152602081019050610d47565b83811115610d71576000848401525b50505050565b6000601f19601f8301169050919050565b6000610d9382610d28565b610d9d8185610d33565b9350610dad818560208601610d44565b610db681610d77565b840191505092915050565b6000604083016000830151610dd96000860182610d19565b5060208301518482036020860152610df18282610d88565b9150508091505092915050565b6000610e0a8383610dc1565b905092915050565b6000602082019050919050565b6000610e2a82610ce1565b610e348185610cec565b935083602082028501610e4685610cfd565b8060005b85811015610e825784840389528151610e638582610dfe565b9450610e6e83610e12565b925060208a01995050600181019050610e4a565b50829750879550505050505092915050565b60006020820190508181036000830152610eae8184610e1f565b905092915050565b60008083601f840112610ecc57610ecb610c2f565b5b8235905067ffffffffffffffff811115610ee957610ee8610c34565b5b602083019150836020820283011115610f0557610f04610c39565b5b9250929050565b60008060208385031215610f2357610f22610c25565b5b600083013567ffffffffffffffff811115610f4157610f40610c2a565b5b610f4d85828601610eb6565b92509250509250929050565b600081519050919050565b600082825260208201905092915050565b6000819050602082019050919050565b6000610f918383610d88565b905092915050565b6000602082019050919050565b6000610fb182610f59565b610fbb8185610f64565b935083602082028501610fcd85610f75565b8060005b858110156110095784840389528151610fea8582610f85565b9450610ff583610f99565b925060208a01995050600181019050610fd1565b50829750879550505050505092915050565b60006040820190506110306000830185610bfb565b81810360208301526110428184610fa6565b90509392505050565b6000819050919050565b61105e8161104b565b82525050565b60006020820190506110796000830184611055565b92915050565b61108881610d0d565b811461109357600080fd5b50565b6000813590506110a58161107f565b92915050565b6000806000604084860312156110c4576110c3610c25565b5b60006110d286828701611096565b935050602084013567ffffffffffffffff8111156110f3576110f2610c2a565b5b6110ff86828701610eb6565b92509250509250925092565b60006060820190506111206000830186610bfb565b61112d6020830185611055565b818103604083015261113f8184610e1f565b9050949350505050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b600061117482611149565b9050919050565b61118481611169565b811461118f57600080fd5b50565b6000813590506111a18161117b565b92915050565b6000602082840312156111bd576111bc610c25565b5b60006111cb84828501611192565b91505092915050565b60008083601f8401126111ea576111e9610c2f565b5b8235905067ffffffffffffffff81111561120757611206610c34565b5b60208301915083602082028301111561122357611222610c39565b5b9250929050565b6000806020838503121561124157611240610c25565b5b600083013567ffffffffffffffff81111561125f5761125e610c2a565b5b61126b858286016111d4565b92509250509250929050565b61128081611169565b82525050565b600060208201905061129b6000830184611277565b92915050565b6112aa81610bf1565b81146112b557600080fd5b50565b6000813590506112c7816112a1565b92915050565b6000602082840312156112e3576112e2610c25565b5b60006112f1848285016112b8565b91505092915050565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052604160045260246000fd5b7f4e487b7100000000000000000000000000000000000000000000000000000000600052603260045260246000fd5b600080fd5b600080fd5b600080fd5b60008235600160800383360303811261138357611382611358565b5b80830191505092915050565b600080833560016020038436030381126113ac576113ab611358565b5b80840192508235915067ffffffffffffffff8211156113ce576113cd61135d565b5b6020830192506001820236038313156113ea576113e9611362565b5b509250929050565b600081905092915050565b82818337600083830152505050565b600061141883856113f2565b93506114258385846113fd565b82840190509392505050565b600061143e82848661140c565b91508190509392505050565b600082825260208201905092915050565b7f4d756c746963616c6c333a2076616c7565206d69736d61746368000000000000600082015250565b6000611491601a8361144a565b915061149c8261145b565b602082019050919050565b600060208201905081810360008301526114c081611484565b9050919050565b6000823560016040038336030381126114e3576114e2611358565b5b80830191505092915050565b7f4d756c746963616c6c333a2063616c6c206661696c6564000000000000000000600082015250565b600061152560178361144a565b9150611530826114ef565b602082019050919050565b6000602082019050818103600083015261155481611518565b9050919050565b60008235600160600383360303811261157757611576611358565b5b8083019150509291505056fea264697066735822122020c1bc9aacf8e4a6507193432a895a8e77094f45a1395583f07b24e860ef06cd64736f6c634300080c0033";
 var docsPath = "/docs/contract/encodeDeployData";
 function encodeDeployData(parameters) {
-	const { abi: abi$7, args, bytecode } = parameters;
+	const { abi: abi$8, args, bytecode } = parameters;
 	if (!args || args.length === 0) return bytecode;
-	const description = abi$7.find((x$2) => "type" in x$2 && x$2.type === "constructor");
+	const description = abi$8.find((x$2) => "type" in x$2 && x$2.type === "constructor");
 	if (!description) throw new AbiConstructorNotFoundError({ docsPath });
 	if (!("inputs" in description)) throw new AbiConstructorParamsNotFoundError({ docsPath });
 	if (!description.inputs || description.inputs.length === 0) throw new AbiConstructorParamsNotFoundError({ docsPath });
@@ -16682,10 +16682,10 @@ function serializeAccountStateOverride(parameters) {
 function serializeStateOverride(parameters) {
 	if (!parameters) return void 0;
 	const rpcStateOverride = {};
-	for (const { address: address$7, ...accountState } of parameters) {
-		if (!isAddress(address$7, { strict: false })) throw new InvalidAddressError({ address: address$7 });
-		if (rpcStateOverride[address$7]) throw new AccountStateConflictError({ address: address$7 });
-		rpcStateOverride[address$7] = serializeAccountStateOverride(accountState);
+	for (const { address: address$8, ...accountState } of parameters) {
+		if (!isAddress(address$8, { strict: false })) throw new InvalidAddressError({ address: address$8 });
+		if (rpcStateOverride[address$8]) throw new AccountStateConflictError({ address: address$8 });
+		rpcStateOverride[address$8] = serializeAccountStateOverride(accountState);
 	}
 	return rpcStateOverride;
 }
@@ -16899,7 +16899,7 @@ async function call(client, args) {
 	} catch (err) {
 		const data$1 = getRevertErrorData(err);
 		const { offchainLookup, offchainLookupSignature } = await __vitePreload(async () => {
-			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-I5dntIPd.js");
+			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-Cx2BN6we.js");
 			return {
 				offchainLookup: offchainLookup$1,
 				offchainLookupSignature: offchainLookupSignature$1
@@ -17009,9 +17009,9 @@ function getRevertErrorData(err) {
 	return typeof error?.data === "object" ? error.data?.data : error.data;
 }
 async function readContract(client, parameters) {
-	const { abi: abi$7, address: address$7, args, functionName, ...rest } = parameters;
+	const { abi: abi$8, address: address$8, args, functionName, ...rest } = parameters;
 	const calldata = encodeFunctionData({
-		abi: abi$7,
+		abi: abi$8,
 		args,
 		functionName
 	});
@@ -17019,18 +17019,18 @@ async function readContract(client, parameters) {
 		const { data } = await getAction$1(client, call, "call")({
 			...rest,
 			data: calldata,
-			to: address$7
+			to: address$8
 		});
 		return decodeFunctionResult({
-			abi: abi$7,
+			abi: abi$8,
 			args,
 			functionName,
 			data: data || "0x"
 		});
 	} catch (error) {
 		throw getContractError(error, {
-			abi: abi$7,
-			address: address$7,
+			abi: abi$8,
+			address: address$8,
 			args,
 			docsPath: "/docs/contract/readContract",
 			functionName
@@ -17075,15 +17075,15 @@ async function getEnsAddress$1(client, parameters) {
 		};
 		const res = await getAction$1(client, readContract, "readContract")(readContractParameters);
 		if (res[0] === "0x") return null;
-		const address$7 = decodeFunctionResult({
+		const address$8 = decodeFunctionResult({
 			abi: addressResolverAbi,
 			args,
 			functionName: "addr",
 			data: res[0]
 		});
-		if (address$7 === "0x") return null;
-		if (trim$1(address$7) === "0x00") return null;
-		return address$7;
+		if (address$8 === "0x") return null;
+		if (trim$1(address$8) === "0x00") return null;
+		return address$8;
 	} catch (err) {
 		if (strict) throw err;
 		if (isNullUniversalResolverError(err)) return null;
@@ -17362,7 +17362,7 @@ async function getEnsAvatar$1(client, { blockNumber, blockTag, assetGatewayUrls,
 	}
 }
 async function getEnsName$1(client, parameters) {
-	const { address: address$7, blockNumber, blockTag, coinType = 60n, gatewayUrls, strict } = parameters;
+	const { address: address$8, blockNumber, blockTag, coinType = 60n, gatewayUrls, strict } = parameters;
 	const { chain } = client;
 	const universalResolverAddress = (() => {
 		if (parameters.universalResolverAddress) return parameters.universalResolverAddress;
@@ -17378,7 +17378,7 @@ async function getEnsName$1(client, parameters) {
 			address: universalResolverAddress,
 			abi: universalResolverReverseAbi,
 			args: [
-				address$7,
+				address$8,
 				coinType,
 				gatewayUrls ?? ["x-batch-gateway:true"]
 			],
@@ -17400,7 +17400,7 @@ function publicKeyToAddress(publicKey) {
 async function recoverPublicKey({ hash: hash$3, signature }) {
 	const hashHex = isHex(hash$3) ? hash$3 : toHex(hash$3);
 	const { secp256k1: secp256k1$1 } = await __vitePreload(async () => {
-		const { secp256k1: secp256k1$2 } = await import("./secp256k1-DMm2Kwgm.js");
+		const { secp256k1: secp256k1$2 } = await import("./secp256k1-M2ptg5NM.js");
 		return { secp256k1: secp256k1$2 };
 	}, __vite__mapDeps([0,1]));
 	return `0x${(() => {
@@ -17493,10 +17493,10 @@ function getSizeOfLength(length$1) {
 }
 function hashAuthorization(parameters) {
 	const { chainId, nonce, to: to$1 } = parameters;
-	const address$7 = parameters.contractAddress ?? parameters.address;
+	const address$8 = parameters.contractAddress ?? parameters.address;
 	const hash$3 = keccak256$1(concatHex(["0x05", toRlp([
 		chainId ? numberToHex(chainId) : "0x",
-		address$7,
+		address$8,
 		nonce ? numberToHex(nonce) : "0x"
 	])]));
 	if (to$1 === "bytes") return hexToBytes$1(hash$3);
@@ -17743,10 +17743,10 @@ async function internal_estimateFeesPerGas(client, args) {
 	}
 	return { gasPrice: request?.gasPrice ?? multiply(await getAction$1(client, getGasPrice, "getGasPrice")({})) };
 }
-async function getTransactionCount(client, { address: address$7, blockTag = "latest", blockNumber }) {
+async function getTransactionCount(client, { address: address$8, blockTag = "latest", blockNumber }) {
 	return hexToNumber$1(await client.request({
 		method: "eth_getTransactionCount",
-		params: [address$7, typeof blockNumber === "bigint" ? numberToHex(blockNumber) : blockTag]
+		params: [address$8, typeof blockNumber === "bigint" ? numberToHex(blockNumber) : blockTag]
 	}, { dedupe: Boolean(blockNumber) }));
 }
 function blobsToCommitments(parameters) {
@@ -18477,11 +18477,11 @@ async function estimateGas(client, args) {
 		});
 	}
 }
-async function getBalance$1(client, { address: address$7, blockNumber, blockTag = client.experimental_blockTag ?? "latest" }) {
+async function getBalance$1(client, { address: address$8, blockNumber, blockTag = client.experimental_blockTag ?? "latest" }) {
 	const blockNumberHex = typeof blockNumber === "bigint" ? numberToHex(blockNumber) : void 0;
 	const balance = await client.request({
 		method: "eth_getBalance",
-		params: [address$7, blockNumberHex || blockTag]
+		params: [address$8, blockNumberHex || blockTag]
 	});
 	return BigInt(balance);
 }
@@ -18558,8 +18558,8 @@ function assertTransactionEIP7702(transaction) {
 	const { authorizationList } = transaction;
 	if (authorizationList) for (const authorization of authorizationList) {
 		const { chainId } = authorization;
-		const address$7 = authorization.address;
-		if (!isAddress(address$7)) throw new InvalidAddressError({ address: address$7 });
+		const address$8 = authorization.address;
+		if (!isAddress(address$8)) throw new InvalidAddressError({ address: address$8 });
 		if (chainId < 0) throw new InvalidChainIdError({ chainId });
 	}
 	assertTransactionEIP1559(transaction);
@@ -18611,10 +18611,10 @@ function serializeAccessList(accessList) {
 	if (!accessList || accessList.length === 0) return [];
 	const serializedAccessList = [];
 	for (let i$3 = 0; i$3 < accessList.length; i$3++) {
-		const { address: address$7, storageKeys } = accessList[i$3];
+		const { address: address$8, storageKeys } = accessList[i$3];
 		for (let j$3 = 0; j$3 < storageKeys.length; j$3++) if (storageKeys[j$3].length - 2 !== 64) throw new InvalidStorageKeySizeError({ storageKey: storageKeys[j$3] });
-		if (!isAddress(address$7, { strict: false })) throw new InvalidAddressError({ address: address$7 });
-		serializedAccessList.push([address$7, storageKeys]);
+		if (!isAddress(address$8, { strict: false })) throw new InvalidAddressError({ address: address$8 });
+		serializedAccessList.push([address$8, storageKeys]);
 	}
 	return serializedAccessList;
 }
@@ -19629,9 +19629,9 @@ async function sendTransaction(client, parameters) {
 	}
 }
 function deployContract(walletClient, parameters) {
-	const { abi: abi$7, args, bytecode, ...request } = parameters;
+	const { abi: abi$8, args, bytecode, ...request } = parameters;
 	const calldata = encodeDeployData({
-		abi: abi$7,
+		abi: abi$8,
 		args,
 		bytecode
 	});
@@ -19643,7 +19643,7 @@ function deployContract(walletClient, parameters) {
 }
 async function getAddresses(client) {
 	if (client.account?.type === "local") return [client.account.address];
-	return (await client.request({ method: "eth_accounts" }, { dedupe: true })).map((address$7) => checksumAddress(address$7));
+	return (await client.request({ method: "eth_accounts" }, { dedupe: true })).map((address$8) => checksumAddress(address$8));
 }
 const fallbackMagicIdentifier = "0x5792579257925792579257925792579257925792579257925792579257925792";
 const fallbackTransactionErrorMagicIdentifier = numberToHex(0, { size: 32 });
@@ -19823,7 +19823,7 @@ async function requestAddresses(client) {
 	return (await client.request({ method: "eth_requestAccounts" }, {
 		dedupe: true,
 		retryCount: 0
-	})).map((address$7) => getAddress$1(address$7));
+	})).map((address$8) => getAddress$1(address$8));
 }
 async function requestPermissions(client, permissions) {
 	return client.request({
@@ -20151,25 +20151,25 @@ async function writeContract(client, parameters) {
 }
 (function(writeContract$1) {
 	async function internal$2(client, actionFn, name, parameters) {
-		const { abi: abi$7, account: account_ = client.account, address: address$7, args, dataSuffix, functionName, ...request } = parameters;
+		const { abi: abi$8, account: account_ = client.account, address: address$8, args, dataSuffix, functionName, ...request } = parameters;
 		if (typeof account_ === "undefined") throw new AccountNotFoundError({ docsPath: "/docs/contract/writeContract" });
 		const account = account_ ? parseAccount(account_) : null;
 		const data = encodeFunctionData({
-			abi: abi$7,
+			abi: abi$8,
 			args,
 			functionName
 		});
 		try {
 			return await getAction$1(client, actionFn, name)({
 				data: `${data}${dataSuffix ? dataSuffix.replace("0x", "") : ""}`,
-				to: address$7,
+				to: address$8,
 				account,
 				...request
 			});
 		} catch (error) {
 			throw getContractError(error, {
-				abi: abi$7,
-				address: address$7,
+				abi: abi$8,
+				address: address$8,
 				args,
 				docsPath: "/docs/contract/writeContract",
 				functionName,
@@ -20296,8 +20296,8 @@ var ConnectorNotConnectedError = class extends BaseError$2 {
 	}
 };
 var ConnectorAccountNotFoundError = class extends BaseError$2 {
-	constructor({ address: address$7, connector }) {
-		super(`Account "${address$7}" not found for connector "${connector.name}".`);
+	constructor({ address: address$8, connector }) {
+		super(`Account "${address$8}" not found for connector "${connector.name}".`);
 		Object.defineProperty(this, "name", {
 			enumerable: true,
 			configurable: true,
@@ -20360,8 +20360,8 @@ async function connect$1(config, parameters) {
 			status: "connected"
 		}));
 		return {
-			accounts: rest.withCapabilities ? data.accounts.map((address$7) => typeof address$7 === "object" ? address$7 : {
-				address: address$7,
+			accounts: rest.withCapabilities ? data.accounts.map((address$8) => typeof address$8 === "object" ? address$8 : {
+				address: address$8,
 				capabilities: {}
 			}) : data.accounts,
 			chainId: data.chainId
@@ -20640,13 +20640,13 @@ async function disconnect$1(config, parameters = {}) {
 	}
 }
 async function getBalance(config, parameters) {
-	const { address: address$7, blockNumber, blockTag, chainId } = parameters;
+	const { address: address$8, blockNumber, blockTag, chainId } = parameters;
 	const client = config.getClient({ chainId });
 	const value = await getAction(client, getBalance$1, "getBalance")(blockNumber ? {
-		address: address$7,
+		address: address$8,
 		blockNumber
 	} : {
-		address: address$7,
+		address: address$8,
 		blockTag
 	});
 	const chain = config.chains.find((x$2) => x$2.id === chainId) ?? client.chain;
@@ -20700,12 +20700,12 @@ function getConnection(config) {
 	const uid$2 = config.state.current;
 	const connection = config.state.connections.get(uid$2);
 	const addresses = connection?.accounts;
-	const address$7 = addresses?.[0];
+	const address$8 = addresses?.[0];
 	const chain = config.chains.find((chain$1) => chain$1.id === connection?.chainId);
 	const status = config.state.status;
 	switch (status) {
 		case "connected": return {
-			address: address$7,
+			address: address$8,
 			addresses,
 			chain,
 			chainId: connection?.chainId,
@@ -20717,19 +20717,19 @@ function getConnection(config) {
 			status
 		};
 		case "reconnecting": return {
-			address: address$7,
+			address: address$8,
 			addresses,
 			chain,
 			chainId: connection?.chainId,
 			connector: connection?.connector,
-			isConnected: !!address$7,
+			isConnected: !!address$8,
 			isConnecting: false,
 			isDisconnected: false,
 			isReconnecting: true,
 			status
 		};
 		case "connecting": return {
-			address: address$7,
+			address: address$8,
 			addresses,
 			chain,
 			chainId: connection?.chainId,
@@ -21029,8 +21029,8 @@ function injected$1(parameters = {}) {
 				if (shimDisconnect) await config.storage?.removeItem(`${this.id}.disconnected`);
 				if (!parameters.target) await config.storage?.setItem("injected.connected", true);
 				return {
-					accounts: withCapabilities ? accounts.map((address$7) => ({
-						address: address$7,
+					accounts: withCapabilities ? accounts.map((address$8) => ({
+						address: address$8,
 						capabilities: {}
 					})) : accounts,
 					chainId: currentChainId
@@ -22261,11 +22261,11 @@ function disconnectMutationOptions(config) {
 function getBalanceQueryOptions(config, options$2 = {}) {
 	return {
 		async queryFn({ queryKey }) {
-			const { address: address$7, scopeKey: _$1, ...parameters } = queryKey[1];
-			if (!address$7) throw new Error("address is required");
+			const { address: address$8, scopeKey: _$1, ...parameters } = queryKey[1];
+			if (!address$8) throw new Error("address is required");
 			return await getBalance(config, {
 				...parameters,
-				address: address$7
+				address: address$8
 			}) ?? null;
 		},
 		queryKey: getBalanceQueryKey(options$2)
@@ -22343,11 +22343,11 @@ function getEnsAvatarQueryKey(options$2 = {}) {
 function getEnsNameQueryOptions(config, options$2 = {}) {
 	return {
 		async queryFn({ queryKey }) {
-			const { address: address$7, scopeKey: _$1, ...parameters } = queryKey[1];
-			if (!address$7) throw new Error("address is required");
+			const { address: address$8, scopeKey: _$1, ...parameters } = queryKey[1];
+			if (!address$8) throw new Error("address is required");
 			return getEnsName(config, {
 				...parameters,
-				address: address$7
+				address: address$8
 			});
 		},
 		queryKey: getEnsNameQueryKey(options$2)
@@ -22403,14 +22403,14 @@ function useChainId(parameters = {}) {
 	return (0, import_react.useSyncExternalStore)((onChange) => watchChainId(config, { onChange }), () => getChainId(config), () => getChainId(config));
 }
 function useBalance(parameters = {}) {
-	const { address: address$7, query = {} } = parameters;
+	const { address: address$8, query = {} } = parameters;
 	const config = useConfig(parameters);
 	const chainId = useChainId({ config });
 	const options$2 = getBalanceQueryOptions(config, {
 		...parameters,
 		chainId: parameters.chainId ?? chainId
 	});
-	const enabled = Boolean(address$7 && (query.enabled ?? true));
+	const enabled = Boolean(address$8 && (query.enabled ?? true));
 	return useQuery$1({
 		...query,
 		...options$2,
@@ -22487,9 +22487,9 @@ var require_use_sync_external_store_shim_production$1 = /* @__PURE__ */ __common
 	function is$2(x$2, y$3) {
 		return x$2 === y$3 && (0 !== x$2 || 1 / x$2 === 1 / y$3) || x$2 !== x$2 && y$3 !== y$3;
 	}
-	var objectIs$2 = "function" === typeof Object.is ? Object.is : is$2, useState$21 = React$9.useState, useEffect$33 = React$9.useEffect, useLayoutEffect$6 = React$9.useLayoutEffect, useDebugValue$3 = React$9.useDebugValue;
+	var objectIs$2 = "function" === typeof Object.is ? Object.is : is$2, useState$23 = React$9.useState, useEffect$34 = React$9.useEffect, useLayoutEffect$6 = React$9.useLayoutEffect, useDebugValue$3 = React$9.useDebugValue;
 	function useSyncExternalStore$2$6(subscribe$1, getSnapshot) {
-		var value = getSnapshot(), _useState = useState$21({ inst: {
+		var value = getSnapshot(), _useState = useState$23({ inst: {
 			value,
 			getSnapshot
 		} }), inst = _useState[0].inst, forceUpdate = _useState[1];
@@ -22502,7 +22502,7 @@ var require_use_sync_external_store_shim_production$1 = /* @__PURE__ */ __common
 			value,
 			getSnapshot
 		]);
-		useEffect$33(function() {
+		useEffect$34(function() {
 			checkIfSnapshotChanged$1(inst) && forceUpdate({ inst });
 			return subscribe$1(function() {
 				checkIfSnapshotChanged$1(inst) && forceUpdate({ inst });
@@ -22544,7 +22544,7 @@ var require_with_selector_production = /* @__PURE__ */ __commonJSMin(((exports) 
 	function is$1(x$2, y$3) {
 		return x$2 === y$3 && (0 !== x$2 || 1 / x$2 === 1 / y$3) || x$2 !== x$2 && y$3 !== y$3;
 	}
-	var objectIs$1 = "function" === typeof Object.is ? Object.is : is$1, useSyncExternalStore$6 = shim$1.useSyncExternalStore, useRef$19 = React$8.useRef, useEffect$32 = React$8.useEffect, useMemo$14 = React$8.useMemo, useDebugValue$2 = React$8.useDebugValue;
+	var objectIs$1 = "function" === typeof Object.is ? Object.is : is$1, useSyncExternalStore$6 = shim$1.useSyncExternalStore, useRef$19 = React$8.useRef, useEffect$33 = React$8.useEffect, useMemo$15 = React$8.useMemo, useDebugValue$2 = React$8.useDebugValue;
 	exports.useSyncExternalStoreWithSelector = function(subscribe$1, getSnapshot, getServerSnapshot, selector, isEqual$1) {
 		var instRef = useRef$19(null);
 		if (null === instRef.current) {
@@ -22554,7 +22554,7 @@ var require_with_selector_production = /* @__PURE__ */ __commonJSMin(((exports) 
 			};
 			instRef.current = inst;
 		} else inst = instRef.current;
-		instRef = useMemo$14(function() {
+		instRef = useMemo$15(function() {
 			function memoizedSelector(nextSnapshot) {
 				if (!hasMemo) {
 					hasMemo = !0;
@@ -22586,7 +22586,7 @@ var require_with_selector_production = /* @__PURE__ */ __commonJSMin(((exports) 
 			isEqual$1
 		]);
 		var value = useSyncExternalStore$6(subscribe$1, instRef[0], instRef[1]);
-		useEffect$32(function() {
+		useEffect$33(function() {
 			inst.hasValue = !0;
 			inst.value = value;
 		}, [value]);
@@ -22665,10 +22665,10 @@ function useConnectionEffect(parameters = {}) {
 	(0, import_react.useEffect)(() => {
 		return watchConnection(config, { onChange(data, prevData) {
 			if ((prevData.status === "reconnecting" || prevData.status === "connecting" && prevData.address === void 0) && data.status === "connected") {
-				const { address: address$7, addresses, chain, chainId, connector } = data;
+				const { address: address$8, addresses, chain, chainId, connector } = data;
 				const isReconnected = prevData.status === "reconnecting" || prevData.status === void 0;
 				onConnect?.({
-					address: address$7,
+					address: address$8,
 					addresses,
 					chain,
 					chainId,
@@ -22691,7 +22691,7 @@ function useConnectorClient(parameters = {}) {
 	const { query = {}, ...rest } = parameters;
 	const config = useConfig(rest);
 	const queryClient$1 = useQueryClient();
-	const { address: address$7, connector, status } = useConnection({ config });
+	const { address: address$8, connector, status } = useConnection({ config });
 	const chainId = useChainId({ config });
 	const activeConnector = parameters.connector ?? connector;
 	const { queryKey, ...options$2 } = getConnectorClientQueryOptions(config, {
@@ -22700,17 +22700,17 @@ function useConnectorClient(parameters = {}) {
 		connector: activeConnector
 	});
 	const enabled = Boolean((status === "connected" || status === "reconnecting" && activeConnector?.getProvider) && (query.enabled ?? true));
-	const addressRef = (0, import_react.useRef)(address$7);
+	const addressRef = (0, import_react.useRef)(address$8);
 	(0, import_react.useEffect)(() => {
 		const previousAddress = addressRef.current;
-		if (!address$7 && previousAddress) {
+		if (!address$8 && previousAddress) {
 			queryClient$1.removeQueries({ queryKey });
 			addressRef.current = void 0;
-		} else if (address$7 !== previousAddress) {
+		} else if (address$8 !== previousAddress) {
 			queryClient$1.invalidateQueries({ queryKey });
-			addressRef.current = address$7;
+			addressRef.current = address$8;
 		}
-	}, [address$7, queryClient$1]);
+	}, [address$8, queryClient$1]);
 	return useQuery$1({
 		...query,
 		...options$2,
@@ -22764,14 +22764,14 @@ function useEnsAvatar(parameters = {}) {
 	});
 }
 function useEnsName(parameters = {}) {
-	const { address: address$7, query = {} } = parameters;
+	const { address: address$8, query = {} } = parameters;
 	const config = useConfig(parameters);
 	const chainId = useChainId({ config });
 	const options$2 = getEnsNameQueryOptions(config, {
 		...parameters,
 		chainId: parameters.chainId ?? chainId
 	});
-	const enabled = Boolean(address$7 && (query.enabled ?? true));
+	const enabled = Boolean(address$8 && (query.enabled ?? true));
 	return useQuery$1({
 		...query,
 		...options$2,
@@ -22798,7 +22798,7 @@ function useWalletClient(parameters = {}) {
 	const { query = {}, ...rest } = parameters;
 	const config = useConfig(rest);
 	const queryClient$1 = useQueryClient();
-	const { address: address$7, connector, status } = useConnection({ config });
+	const { address: address$8, connector, status } = useConnection({ config });
 	const chainId = useChainId({ config });
 	const activeConnector = parameters.connector ?? connector;
 	const { queryKey, ...options$2 } = getWalletClientQueryOptions(config, {
@@ -22807,17 +22807,17 @@ function useWalletClient(parameters = {}) {
 		connector: parameters.connector ?? connector
 	});
 	const enabled = Boolean((status === "connected" || status === "reconnecting" && activeConnector?.getProvider) && (query.enabled ?? true));
-	const addressRef = (0, import_react.useRef)(address$7);
+	const addressRef = (0, import_react.useRef)(address$8);
 	(0, import_react.useEffect)(() => {
 		const previousAddress = addressRef.current;
-		if (!address$7 && previousAddress) {
+		if (!address$8 && previousAddress) {
 			queryClient$1.removeQueries({ queryKey });
 			addressRef.current = void 0;
-		} else if (address$7 !== previousAddress) {
+		} else if (address$8 !== previousAddress) {
 			queryClient$1.invalidateQueries({ queryKey });
-			addressRef.current = address$7;
+			addressRef.current = address$8;
 		}
-	}, [address$7, queryClient$1]);
+	}, [address$8, queryClient$1]);
 	return useQuery$1({
 		...query,
 		...options$2,
@@ -23036,8 +23036,8 @@ function coinbaseWallet(parameters = {}) {
 					return { id: currentChainId };
 				}))?.id ?? currentChainId;
 				return {
-					accounts: withCapabilities ? accounts.map((address$7) => ({
-						address: address$7,
+					accounts: withCapabilities ? accounts.map((address$8) => ({
+						address: address$8,
 						capabilities: {}
 					})) : accounts,
 					chainId: currentChainId
@@ -23178,8 +23178,8 @@ function safe(parameters = {}) {
 			}
 			if (shimDisconnect) await config.storage?.removeItem("safe.disconnected");
 			return {
-				accounts: withCapabilities ? accounts.map((address$7) => ({
-					address: address$7,
+				accounts: withCapabilities ? accounts.map((address$8) => ({
+					address: address$8,
 					capabilities: {}
 				})) : accounts,
 				chainId
@@ -23203,14 +23203,14 @@ function safe(parameters = {}) {
 			if (!(typeof window !== "undefined" && window?.parent !== window)) return;
 			if (!provider_) {
 				const { default: SDK } = await __vitePreload(async () => {
-					const { default: SDK$1 } = await import("./esm-BSGhfSZO.js");
+					const { default: SDK$1 } = await import("./esm-D-LrEW7p.js");
 					return { default: SDK$1 };
 				}, []);
 				const sdk = new SDK(parameters);
 				const safe$1 = await withTimeout(() => sdk.safe.getInfo(), { timeout: parameters.unstable_getInfoTimeout ?? 10 });
 				if (!safe$1) throw new Error("Could not load Safe information");
 				provider_ = new (await ((async () => {
-					const Provider = await __vitePreload(() => import("./dist-Bv5AAnNh.js").then(__toDynamicImportESM(1)), []);
+					const Provider = await __vitePreload(() => import("./dist-C_ReSuV-.js").then(__toDynamicImportESM(1)), []);
 					if (typeof Provider.SafeAppProvider !== "function" && typeof Provider.default.SafeAppProvider === "function") return Provider.default.SafeAppProvider;
 					return Provider.SafeAppProvider;
 				})()))(safe$1, sdk);
@@ -23321,8 +23321,8 @@ function walletConnect(parameters) {
 					provider.on("session_delete", sessionDelete);
 				}
 				return {
-					accounts: withCapabilities ? accounts.map((address$7) => ({
-						address: address$7,
+					accounts: withCapabilities ? accounts.map((address$8) => ({
+						address: address$8,
 						capabilities: {}
 					})) : accounts,
 					chainId: currentChainId
@@ -23370,7 +23370,7 @@ function walletConnect(parameters) {
 				const optionalChains = config.chains.map((x$2) => x$2.id);
 				if (!optionalChains.length) return;
 				const { EthereumProvider: EthereumProvider$1 } = await __vitePreload(async () => {
-					const { EthereumProvider: EthereumProvider$2 } = await import("./dist-DYKki68t.js");
+					const { EthereumProvider: EthereumProvider$2 } = await import("./dist-CPJI1ZyW.js");
 					return { EthereumProvider: EthereumProvider$2 };
 				}, __vite__mapDeps([2,3,1]));
 				return await EthereumProvider$1.init({
@@ -39317,10 +39317,10 @@ var Logos = {
 	Talisman
 };
 var truncateRegex = /^(0x[a-zA-Z0-9]{4})[a-zA-Z0-9]+([a-zA-Z0-9]{4})$/;
-var truncateEthAddress = (address$7, separator = "••••") => {
-	if (!address$7) return "";
-	const match$1 = address$7.match(truncateRegex);
-	if (!match$1) return address$7;
+var truncateEthAddress = (address$8, separator = "••••") => {
+	if (!address$8) return "";
+	const match$1 = address$8.match(truncateRegex);
+	if (!match$1) return address$8;
 	return `${match$1[1]}${separator}${match$1[2]}`;
 };
 var truncateENSAddress = (ensName, maxLength) => {
@@ -41785,19 +41785,19 @@ var useSIWE = ({ onSignIn, onSignOut } = {}) => {
 		signOut: () => Promise.reject()
 	};
 	const { session, nonce, status, signOut, signIn, resetStatus } = siweContextValue;
-	const { address: address$7, chainId } = session.data || {};
-	const currentStatus = address$7 ? StatusState.SUCCESS : session.isLoading || nonce.isLoading ? StatusState.LOADING : status;
+	const { address: address$8, chainId } = session.data || {};
+	const currentStatus = address$8 ? StatusState.SUCCESS : session.isLoading || nonce.isLoading ? StatusState.LOADING : status;
 	const isLoading = currentStatus === StatusState.LOADING;
 	const isSuccess = currentStatus === StatusState.SUCCESS;
 	const isRejected = currentStatus === StatusState.REJECTED;
 	const isError$1 = currentStatus === StatusState.ERROR;
-	const isReady = !address$7 || nonce.isFetching || isLoading || isSuccess;
+	const isReady = !address$8 || nonce.isFetching || isLoading || isSuccess;
 	const reset = () => resetStatus();
-	const isSignedIn = !!address$7;
+	const isSignedIn = !!address$8;
 	return {
 		isSignedIn,
 		data: isSignedIn ? {
-			address: address$7,
+			address: address$8,
 			chainId
 		} : void 0,
 		status: currentStatus,
@@ -44330,7 +44330,7 @@ var transition$1 = {
 		.98
 	]
 };
-var Button$1 = ({ children, variant = "secondary", disabled, icon, iconPosition = "left", roundedIcon, waiting, arrow: arrow$1, download, href, style: style$1, onClick }) => {
+var Button$2 = ({ children, variant = "secondary", disabled, icon, iconPosition = "left", roundedIcon, waiting, arrow: arrow$1, download, href, style: style$1, onClick }) => {
 	const key = typeof children === "string" ? children : flattenChildren(children).join("");
 	const hrefUrl = href && (typeof href === "string" ? href : flattenChildren(href).join(""));
 	return (0, import_jsx_runtime.jsx)(ButtonContainer$2, {
@@ -44445,7 +44445,7 @@ var Introduction = () => {
 				children: locales.onboardingScreen_h1
 			}), (0, import_jsx_runtime.jsx)(ModalBody, { children: locales.onboardingScreen_p })]
 		}),
-		(0, import_jsx_runtime.jsx)(Button$1, {
+		(0, import_jsx_runtime.jsx)(Button$2, {
 			href: ctaUrl,
 			arrow: true,
 			children: locales.onboardingScreen_ctaText
@@ -45442,7 +45442,7 @@ var About = () => {
 				gotoSlide(i$3);
 			}
 		}, i$3)) }) }),
-		(0, import_jsx_runtime.jsx)(Button$1, {
+		(0, import_jsx_runtime.jsx)(Button$2, {
 			href: ctaUrl,
 			arrow: true,
 			children: locales.aboutScreen_ctaText
@@ -46663,11 +46663,11 @@ var Wallets = () => {
 					"$small": true,
 					children: locales.connectorsScreen_h1
 				}), (0, import_jsx_runtime.jsx)(ModalBody, { children: locales.connectorsScreen_p })]
-			}), (0, import_jsx_runtime.jsxs)(InfoBoxButtons, { children: [!((_a = context.options) === null || _a === void 0 ? void 0 : _a.hideQuestionMarkCTA) && (0, import_jsx_runtime.jsx)(Button$1, {
+			}), (0, import_jsx_runtime.jsxs)(InfoBoxButtons, { children: [!((_a = context.options) === null || _a === void 0 ? void 0 : _a.hideQuestionMarkCTA) && (0, import_jsx_runtime.jsx)(Button$2, {
 				variant: "tertiary",
 				onClick: () => context.setRoute(routes.ABOUT),
 				children: locales.learnMore
-			}), !((_b = context.options) === null || _b === void 0 ? void 0 : _b.hideNoWalletCTA) && (0, import_jsx_runtime.jsx)(Button$1, {
+			}), !((_b = context.options) === null || _b === void 0 ? void 0 : _b.hideNoWalletCTA) && (0, import_jsx_runtime.jsx)(Button$2, {
 				variant: "tertiary",
 				onClick: () => context.setRoute(routes.ONBOARDING),
 				children: locales.getWallet
@@ -46884,7 +46884,7 @@ var CopyToClipboard = ({ string, children, variant }) => {
 		clearTimeout(timeout);
 		timeout = setTimeout(() => setClipboard(false), 1e3);
 	};
-	if (variant === "button") return (0, import_jsx_runtime.jsx)(Button$1, {
+	if (variant === "button") return (0, import_jsx_runtime.jsx)(Button$2, {
 		disabled: !string,
 		onClick: onCopy,
 		icon: (0, import_jsx_runtime.jsx)(CopyToClipboardIcon, { copied: clipboard }),
@@ -48794,7 +48794,7 @@ var ConnectWithInjector = ({ switchConnectMethod, forceState }) => {
 				children: [(0, import_jsx_runtime.jsxs)(ModalContent, { children: [(0, import_jsx_runtime.jsxs)(ModalH1, {
 					"$error": true,
 					children: [(0, import_jsx_runtime.jsx)(AlertIcon, {}), locales.injectionScreen_failed_h1]
-				}), (0, import_jsx_runtime.jsx)(ModalBody, { children: locales.injectionScreen_failed_p })] }), isFamilyAccountsConnector(wallet.id) && (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [(0, import_jsx_runtime.jsx)(OrDivider, {}), (0, import_jsx_runtime.jsx)(Button$1, {
+				}), (0, import_jsx_runtime.jsx)(ModalBody, { children: locales.injectionScreen_failed_p })] }), isFamilyAccountsConnector(wallet.id) && (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [(0, import_jsx_runtime.jsx)(OrDivider, {}), (0, import_jsx_runtime.jsx)(Button$2, {
 					onClick: () => switchConnectMethod(id$2),
 					children: locales.connectWithFamilyIOS
 				})] })]
@@ -48807,7 +48807,7 @@ var ConnectWithInjector = ({ switchConnectMethod, forceState }) => {
 				children: [(0, import_jsx_runtime.jsxs)(ModalContent, {
 					style: isFamilyAccountsConnector(wallet.connector.id) ? { paddingBottom: 12 } : { paddingBottom: 28 },
 					children: [(0, import_jsx_runtime.jsx)(ModalH1, { children: locales.injectionScreen_rejected_h1 }), (0, import_jsx_runtime.jsx)(ModalBody, { children: locales.injectionScreen_rejected_p })]
-				}), isFamilyAccountsConnector(wallet.id) && (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [(0, import_jsx_runtime.jsx)(OrDivider, {}), (0, import_jsx_runtime.jsx)(Button$1, {
+				}), isFamilyAccountsConnector(wallet.id) && (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [(0, import_jsx_runtime.jsx)(OrDivider, {}), (0, import_jsx_runtime.jsx)(Button$2, {
 					onClick: () => switchConnectMethod(id$2),
 					children: locales.connectWithFamilyIOS
 				})] })]
@@ -48851,14 +48851,14 @@ var ConnectWithInjector = ({ switchConnectMethod, forceState }) => {
 				children: !extensionUrl ? (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [(0, import_jsx_runtime.jsxs)(ModalContent, {
 					style: { paddingBottom: 12 },
 					children: [(0, import_jsx_runtime.jsx)(ModalH1, { children: locales.injectionScreen_unavailable_h1 }), (0, import_jsx_runtime.jsx)(ModalBody, { children: locales.injectionScreen_unavailable_p })]
-				}), !wallet.isInstalled && suggestedExtension && (0, import_jsx_runtime.jsxs)(Button$1, {
+				}), !wallet.isInstalled && suggestedExtension && (0, import_jsx_runtime.jsxs)(Button$2, {
 					href: suggestedExtension === null || suggestedExtension === void 0 ? void 0 : suggestedExtension.url,
 					icon: (0, import_jsx_runtime.jsx)(BrowserIcon, { browser: suggestedExtension === null || suggestedExtension === void 0 ? void 0 : suggestedExtension.name }),
 					children: ["Install on ", suggestedExtension === null || suggestedExtension === void 0 ? void 0 : suggestedExtension.label]
 				})] }) : (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [(0, import_jsx_runtime.jsxs)(ModalContent, {
 					style: { paddingBottom: 18 },
 					children: [(0, import_jsx_runtime.jsx)(ModalH1, { children: locales.injectionScreen_install_h1 }), (0, import_jsx_runtime.jsx)(ModalBody, { children: locales.injectionScreen_install_p })]
-				}), !wallet.isInstalled && extensionUrl && (0, import_jsx_runtime.jsx)(Button$1, {
+				}), !wallet.isInstalled && extensionUrl && (0, import_jsx_runtime.jsx)(Button$2, {
 					href: extensionUrl,
 					icon: (0, import_jsx_runtime.jsx)(BrowserIcon, {}),
 					children: locales.installTheExtension
@@ -49495,7 +49495,7 @@ var ConnectWithQRCode = ({ switchConnectMethod }) => {
 				variant: "button",
 				string: uri,
 				children: ((_f = context.options) === null || _f === void 0 ? void 0 : _f.walletConnectCTA) === "link" ? locales.copyToClipboard : locales.copyCode
-			}), ((_g = context.options) === null || _g === void 0 ? void 0 : _g.walletConnectCTA) !== "link" && (0, import_jsx_runtime.jsx)(Button$1, {
+			}), ((_g = context.options) === null || _g === void 0 ? void 0 : _g.walletConnectCTA) !== "link" && (0, import_jsx_runtime.jsx)(Button$2, {
 				icon: (0, import_jsx_runtime.jsx)(ExternalLinkIcon, {}),
 				onClick: openW3M,
 				disabled: isOpenW3M,
@@ -49503,11 +49503,11 @@ var ConnectWithQRCode = ({ switchConnectMethod }) => {
 				children: ((_h = context.options) === null || _h === void 0 ? void 0 : _h.walletConnectCTA) === "modal" ? locales.useWalletConnectModal : locales.useModal
 			})]
 		}),
-		isFamilyAccountsConnector(wallet.id) && (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [(0, import_jsx_runtime.jsx)(OrDivider, {}), (0, import_jsx_runtime.jsx)(Button$1, {
+		isFamilyAccountsConnector(wallet.id) && (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [(0, import_jsx_runtime.jsx)(OrDivider, {}), (0, import_jsx_runtime.jsx)(Button$2, {
 			onClick: () => switchConnectMethod(id$2),
 			children: locales.loginWithEmailOrPhone
 		})] }),
-		hasApps && (0, import_jsx_runtime.jsx)(import_jsx_runtime.Fragment, { children: (0, import_jsx_runtime.jsx)(Button$1, {
+		hasApps && (0, import_jsx_runtime.jsx)(import_jsx_runtime.Fragment, { children: (0, import_jsx_runtime.jsx)(Button$2, {
 			onClick: () => {
 				context.setRoute(routes.DOWNLOAD);
 			},
@@ -49634,8 +49634,8 @@ var LoadingBalance = styled(motion.div)`
     animation: ${PlaceholderKeyframes$1} 1000ms linear infinite both;
   }
 `;
-function addressToNumber(address$7) {
-	return address$7.split("").map((l$2) => l$2.charCodeAt(0)).reduce((a$2, b$4) => a$2 + b$4) % 100 / 100;
+function addressToNumber(address$8) {
+	return address$8.split("").map((l$2) => l$2.charCodeAt(0)).reduce((a$2, b$4) => a$2 + b$4) % 100 / 100;
 }
 var EnsAvatar = styled(motion.div)`
   will-change: transform; // Needed for Safari
@@ -49693,7 +49693,7 @@ var ensFallbackConfig = createConfig({
 function useEnsFallbackConfig() {
 	return !useChainIsSupported(1) ? ensFallbackConfig : void 0;
 }
-var Avatar = ({ address: address$7, name, size: size$4 = 96, radius = 96 }) => {
+var Avatar = ({ address: address$8, name, size: size$4 = 96, radius = 96 }) => {
 	var _a, _b, _c;
 	const isMounted = useIsMounted();
 	const context = useContext$8();
@@ -49707,7 +49707,7 @@ var Avatar = ({ address: address$7, name, size: size$4 = 96, radius = 96 }) => {
 	});
 	const { data: ensName } = useEnsName({
 		chainId: 1,
-		address: (_a = address$7 !== null && address$7 !== void 0 ? address$7 : ensAddress) !== null && _a !== void 0 ? _a : void 0,
+		address: (_a = address$8 !== null && address$8 !== void 0 ? address$8 : ensAddress) !== null && _a !== void 0 ? _a : void 0,
 		config: ensFallbackConfig$1
 	});
 	const { data: ensAvatar } = useEnsAvatar({
@@ -49716,7 +49716,7 @@ var Avatar = ({ address: address$7, name, size: size$4 = 96, radius = 96 }) => {
 		config: ensFallbackConfig$1
 	});
 	const ens = {
-		address: ensAddress !== null && ensAddress !== void 0 ? ensAddress : address$7,
+		address: ensAddress !== null && ensAddress !== void 0 ? ensAddress : address$8,
 		name: ensName !== null && ensName !== void 0 ? ensName : name,
 		avatar: ensAvatar !== null && ensAvatar !== void 0 ? ensAvatar : void 0
 	};
@@ -49736,7 +49736,7 @@ var Avatar = ({ address: address$7, name, size: size$4 = 96, radius = 96 }) => {
 			overflow: "hidden"
 		},
 		children: (_c = context.options) === null || _c === void 0 ? void 0 : _c.customAvatar({
-			address: address$7 !== null && address$7 !== void 0 ? address$7 : ens === null || ens === void 0 ? void 0 : ens.address,
+			address: address$8 !== null && address$8 !== void 0 ? address$8 : ens === null || ens === void 0 ? void 0 : ens.address,
 			ensName: name !== null && name !== void 0 ? name : ens === null || ens === void 0 ? void 0 : ens.name,
 			ensImage: ens === null || ens === void 0 ? void 0 : ens.avatar,
 			size: size$4,
@@ -51797,15 +51797,15 @@ var Profile = ({ closeModal }) => {
 	const locales = useLocales();
 	const { reset } = useConnect();
 	const { disconnect: disconnect$2 } = useDisconnect();
-	const { address: address$7, isConnected: isConnected$1, connector, chain } = useConnection();
+	const { address: address$8, isConnected: isConnected$1, connector, chain } = useConnection();
 	const isFamilyConnector = isFamilyAccountsConnector(connector === null || connector === void 0 ? void 0 : connector.id);
 	const { data: connectorClient } = useConnectorClient({ connector });
 	const { data: ensName } = useEnsName({
 		chainId: 1,
-		address: address$7,
+		address: address$8,
 		config: useEnsFallbackConfig()
 	});
-	const { data: balance } = useBalance({ address: address$7 });
+	const { data: balance } = useBalance({ address: address$8 });
 	const [shouldDisconnect, setShouldDisconnect] = (0, import_react.useState)(false);
 	(0, import_react.useEffect)(() => {
 		if (!isConnected$1) context.setOpen(false);
@@ -51835,10 +51835,10 @@ var Profile = ({ closeModal }) => {
 				gap: 6
 			},
 			children: [
-				(0, import_jsx_runtime.jsx)(AvatarContainer, { children: (0, import_jsx_runtime.jsxs)(AvatarInner, { children: [(0, import_jsx_runtime.jsx)(ChainSelectorContainer, { children: (0, import_jsx_runtime.jsx)(ChainSelector, {}) }), (0, import_jsx_runtime.jsx)(Avatar, { address: address$7 })] }) }),
+				(0, import_jsx_runtime.jsx)(AvatarContainer, { children: (0, import_jsx_runtime.jsxs)(AvatarInner, { children: [(0, import_jsx_runtime.jsx)(ChainSelectorContainer, { children: (0, import_jsx_runtime.jsx)(ChainSelector, {}) }), (0, import_jsx_runtime.jsx)(Avatar, { address: address$8 })] }) }),
 				(0, import_jsx_runtime.jsx)(ModalH1, { children: (0, import_jsx_runtime.jsx)(CopyToClipboard, {
-					string: address$7,
-					children: ensName !== null && ensName !== void 0 ? ensName : truncateEthAddress(address$7, separator)
+					string: address$8,
+					children: ensName !== null && ensName !== void 0 ? ensName : truncateEthAddress(address$8, separator)
 				}) }),
 				((_c = context === null || context === void 0 ? void 0 : context.options) === null || _c === void 0 ? void 0 : _c.hideBalance) ? null : (0, import_jsx_runtime.jsx)(ModalBody, { children: (0, import_jsx_runtime.jsx)(BalanceContainer, { children: (0, import_jsx_runtime.jsxs)(AnimatePresence, {
 					exitBeforeEnter: true,
@@ -51863,7 +51863,7 @@ var Profile = ({ closeModal }) => {
 				}) }) })
 			]
 		}),
-		isFamilyConnector && (0, import_jsx_runtime.jsx)(import_jsx_runtime.Fragment, { children: (0, import_jsx_runtime.jsx)(Button$1, {
+		isFamilyConnector && (0, import_jsx_runtime.jsx)(import_jsx_runtime.Fragment, { children: (0, import_jsx_runtime.jsx)(Button$2, {
 			onClick: async () => {
 				try {
 					await (connectorClient === null || connectorClient === void 0 ? void 0 : connectorClient.request({
@@ -51876,7 +51876,7 @@ var Profile = ({ closeModal }) => {
 			},
 			children: locales.switchWallets
 		}) }),
-		!isSafeConnector(connector === null || connector === void 0 ? void 0 : connector.id) && (0, import_jsx_runtime.jsx)(Button$1, {
+		!isSafeConnector(connector === null || connector === void 0 ? void 0 : connector.id) && (0, import_jsx_runtime.jsx)(Button$2, {
 			onClick: () => setShouldDisconnect(true),
 			icon: isFamilyConnector ? void 0 : (0, import_jsx_runtime.jsx)(DisconnectIcon, {}),
 			children: locales.disconnect
@@ -51912,7 +51912,7 @@ var SwitchNetworks = () => {
 				}),
 				!isChainSupported && !isSafeConnector(connector === null || connector === void 0 ? void 0 : connector.id) && (0, import_jsx_runtime.jsxs)("div", {
 					style: { paddingTop: 12 },
-					children: [(0, import_jsx_runtime.jsx)(OrDivider, {}), (0, import_jsx_runtime.jsx)(Button$1, {
+					children: [(0, import_jsx_runtime.jsx)(OrDivider, {}), (0, import_jsx_runtime.jsx)(Button$2, {
 						icon: (0, import_jsx_runtime.jsx)(DisconnectIcon, {}),
 						variant: "secondary",
 						onClick: onDisconnect,
@@ -52145,23 +52145,23 @@ var SIWEButton = ({ showSignOutButton, onSignIn, onSignOut }) => {
 		if (isReady) return locales.signIn;
 		return locales.signIn;
 	}
-	if (!isMounted) return (0, import_jsx_runtime.jsx)(Button$1, {
+	if (!isMounted) return (0, import_jsx_runtime.jsx)(Button$2, {
 		style: { margin: 0 },
 		disabled: true
 	}, "loading");
-	if (showSignOutButton && isSignedIn) return (0, import_jsx_runtime.jsx)(Button$1, {
+	if (showSignOutButton && isSignedIn) return (0, import_jsx_runtime.jsx)(Button$2, {
 		style: { margin: 0 },
 		onClick: signOut,
 		icon: (0, import_jsx_runtime.jsx)(DisconnectIcon, {}),
 		children: locales.signOut
 	}, "button");
-	if (!connectedAddress) return (0, import_jsx_runtime.jsx)(Button$1, {
+	if (!connectedAddress) return (0, import_jsx_runtime.jsx)(Button$2, {
 		style: { margin: 0 },
 		onClick: () => setOpen(true),
 		arrow: true,
 		children: locales.walletNotConnected
 	}, "button");
-	return (0, import_jsx_runtime.jsx)(Button$1, {
+	return (0, import_jsx_runtime.jsx)(Button$2, {
 		style: { margin: 0 },
 		arrow: !isSignedIn ? !isLoading && !isRejected : false,
 		onClick: !isLoading && !isSuccess ? signIn : void 0,
@@ -52253,7 +52253,7 @@ var SignInWithEthereum = () => {
 	(0, import_react.useEffect)(() => {
 		if (!isSignedIn) setStatus("signedOut");
 	}, [isSignedIn]);
-	const { address: address$7 } = useConnection();
+	const { address: address$8 } = useConnection();
 	const getFavicons = () => {
 		const favicons$1 = {
 			svg: null,
@@ -52341,7 +52341,7 @@ var SignInWithEthereum = () => {
 							},
 							transition,
 							children: (0, import_jsx_runtime.jsx)(LogoContainer, { children: (0, import_jsx_runtime.jsx)(Avatar, {
-								address: address$7,
+								address: address$8,
 								size: 64
 							}) })
 						}, "avatarImage"),
@@ -52511,9 +52511,9 @@ function useThemeFont(theme) {
 }
 var useConnectCallback = ({ onConnect, onDisconnect }) => {
 	useConnectionEffect({
-		onConnect: ({ address: address$7, connector, isReconnected }) => {
+		onConnect: ({ address: address$8, connector, isReconnected }) => {
 			if (!isReconnected) onConnect === null || onConnect === void 0 || onConnect({
-				address: address$7,
+				address: address$8,
 				connectorId: connector === null || connector === void 0 ? void 0 : connector.id
 			});
 		},
@@ -52957,13 +52957,13 @@ var PulseContainer = styled.div`
 var Balance = ({ hideIcon, hideSymbol }) => {
 	const isMounted = useIsMounted();
 	const [isInitial, setIsInitial] = (0, import_react.useState)(true);
-	const { address: address$7, chain } = useConnection();
+	const { address: address$8, chain } = useConnection();
 	useChains();
 	const isChainSupported = useChainIsSupported(chain === null || chain === void 0 ? void 0 : chain.id);
 	const queryClient$1 = useQueryClient();
 	const { data: blockNumber } = useBlockNumber({ watch: true });
 	const { data: balance, queryKey } = useBalance({
-		address: address$7,
+		address: address$8,
 		chainId: chain === null || chain === void 0 ? void 0 : chain.id
 	});
 	(0, import_react.useEffect)(() => {
@@ -53007,7 +53007,7 @@ var Balance = ({ hideIcon, hideSymbol }) => {
 					],
 					delay: .4
 				},
-				children: !address$7 || !isMounted || (balance === null || balance === void 0 ? void 0 : balance.formatted) === void 0 ? (0, import_jsx_runtime.jsxs)(Container$1, { children: [!hideIcon && (0, import_jsx_runtime.jsx)(Chain$1, { id: chain === null || chain === void 0 ? void 0 : chain.id }), (0, import_jsx_runtime.jsx)("span", {
+				children: !address$8 || !isMounted || (balance === null || balance === void 0 ? void 0 : balance.formatted) === void 0 ? (0, import_jsx_runtime.jsxs)(Container$1, { children: [!hideIcon && (0, import_jsx_runtime.jsx)(Chain$1, { id: chain === null || chain === void 0 ? void 0 : chain.id }), (0, import_jsx_runtime.jsx)("span", {
 					style: { minWidth: 32 },
 					children: (0, import_jsx_runtime.jsxs)(PulseContainer, { children: [
 						(0, import_jsx_runtime.jsx)("span", { style: { animationDelay: "0ms" } }),
@@ -53133,11 +53133,11 @@ var ConnectButtonRenderer = ({ children }) => {
 	const isMounted = useIsMounted();
 	const context = useContext$8();
 	const { open, setOpen } = useModal();
-	const { address: address$7, isConnected: isConnected$1, chain } = useConnection();
+	const { address: address$8, isConnected: isConnected$1, chain } = useConnection();
 	const isChainSupported = useChainIsSupported(chain === null || chain === void 0 ? void 0 : chain.id);
 	const { data: ensName } = useEnsName({
 		chainId: 1,
-		address: address$7,
+		address: address$8,
 		config: useEnsFallbackConfig()
 	});
 	function hide$2() {
@@ -53154,10 +53154,10 @@ var ConnectButtonRenderer = ({ children }) => {
 		hide: hide$2,
 		chain,
 		unsupported: !isChainSupported,
-		isConnected: !!address$7,
+		isConnected: !!address$8,
 		isConnecting: open,
-		address: address$7,
-		truncatedAddress: address$7 ? truncateEthAddress(address$7) : void 0,
+		address: address$8,
+		truncatedAddress: address$8 ? truncateEthAddress(address$8) : void 0,
 		ensName: ensName === null || ensName === void 0 ? void 0 : ensName.toString()
 	}) });
 };
@@ -53167,17 +53167,17 @@ function ConnectKitButtonInner({ label, showAvatar, separator }) {
 	const locales = useLocales({});
 	const context = useContext$8();
 	const { isSignedIn } = useSIWE();
-	const { address: address$7, chain } = useConnection();
+	const { address: address$8, chain } = useConnection();
 	const isChainSupported = useChainIsSupported(chain === null || chain === void 0 ? void 0 : chain.id);
 	const { data: ensName } = useEnsName({
 		chainId: 1,
-		address: address$7,
+		address: address$8,
 		config: useEnsFallbackConfig()
 	});
 	const defaultLabel = locales.connectWallet;
 	return (0, import_jsx_runtime.jsx)(AnimatePresence, {
 		initial: false,
-		children: address$7 ? (0, import_jsx_runtime.jsxs)(TextContainer, {
+		children: address$8 ? (0, import_jsx_runtime.jsxs)(TextContainer, {
 			initial: "initial",
 			animate: "animate",
 			exit: "exit",
@@ -53214,7 +53214,7 @@ function ConnectKitButtonInner({ label, showAvatar, separator }) {
 				})]
 			}), (0, import_jsx_runtime.jsx)(Avatar, {
 				size: 24,
-				address: address$7
+				address: address$8
 			})] }), (0, import_jsx_runtime.jsx)("div", {
 				style: {
 					position: "relative",
@@ -53235,7 +53235,7 @@ function ConnectKitButtonInner({ label, showAvatar, separator }) {
 						exit: "exit",
 						variants: textVariants,
 						style: { position: ensName ? "absolute" : "relative" },
-						children: [truncateEthAddress(address$7, separator), " "]
+						children: [truncateEthAddress(address$8, separator), " "]
 					}, "ckTruncatedAddress")
 				})
 			})]
@@ -53253,7 +53253,7 @@ function ConnectKitButton({ label, showBalance = false, showAvatar = true, theme
 	var _a;
 	const isMounted = useIsMounted();
 	const context = useContext$8();
-	const { isConnected: isConnected$1, address: address$7, chain } = useConnection();
+	const { isConnected: isConnected$1, address: address$8, chain } = useConnection();
 	const chainIsSupported = useChainIsSupported(chain === null || chain === void 0 ? void 0 : chain.id);
 	function show$1() {
 		context.setOpen(true);
@@ -53266,7 +53266,7 @@ function ConnectKitButton({ label, showBalance = false, showAvatar = true, theme
 	].includes((_a = theme !== null && theme !== void 0 ? theme : context.theme) !== null && _a !== void 0 ? _a : "") ? "...." : void 0;
 	if (!isMounted) return null;
 	const shouldShowBalance = showBalance && chainIsSupported;
-	const willShowBalance = address$7 && shouldShowBalance;
+	const willShowBalance = address$8 && shouldShowBalance;
 	return (0, import_jsx_runtime.jsx)(ResetContainer, {
 		"$useTheme": theme !== null && theme !== void 0 ? theme : context.theme,
 		"$useMode": mode$1 !== null && mode$1 !== void 0 ? mode$1 : context.mode,
@@ -53331,7 +53331,7 @@ function ConnectKitButton({ label, showBalance = false, showAvatar = true, theme
 				theme: theme !== null && theme !== void 0 ? theme : context.theme,
 				mode: mode$1 !== null && mode$1 !== void 0 ? mode$1 : context.mode,
 				customTheme: customTheme !== null && customTheme !== void 0 ? customTheme : context.customTheme,
-				style: shouldShowBalance && showBalance && address$7 && (theme === "retro" || context.theme === "retro") ? {
+				style: shouldShowBalance && showBalance && address$8 && (theme === "retro" || context.theme === "retro") ? {
 					boxShadow: "var(--ck-connectbutton-balance-connectbutton-box-shadow)",
 					borderRadius: "var(--ck-connectbutton-balance-connectbutton-border-radius)",
 					overflow: "hidden"
@@ -53424,7 +53424,7 @@ const CHAINS_METADATA = { [ARBITRUM]: {
 const Colors = {
 	GREEN: "#09AF8E",
 	RED: "#D8563C",
-	yellow: "#FE9673",
+	YELLOW: "#FE9673",
 	BLUE: "#5069DD",
 	VIOLET: "#8E3ECD",
 	VIOLET_DIM: "#3C1B68",
@@ -59604,9 +59604,9 @@ var SigningKey = class SigningKey {
 };
 var BN_0$6 = BigInt(0);
 var BN_36 = BigInt(36);
-function getChecksumAddress(address$7) {
-	address$7 = address$7.toLowerCase();
-	const chars = address$7.substring(2).split("");
+function getChecksumAddress(address$8) {
+	address$8 = address$8.toLowerCase();
+	const chars = address$8.substring(2).split("");
 	const expanded = new Uint8Array(40);
 	for (let i$3 = 0; i$3 < 40; i$3++) expanded[i$3] = chars[i$3].charCodeAt(0);
 	const hashed = getBytes(keccak256(expanded));
@@ -59620,10 +59620,10 @@ var ibanLookup = {};
 for (let i$3 = 0; i$3 < 10; i$3++) ibanLookup[String(i$3)] = String(i$3);
 for (let i$3 = 0; i$3 < 26; i$3++) ibanLookup[String.fromCharCode(65 + i$3)] = String(10 + i$3);
 var safeDigits = 15;
-function ibanChecksum(address$7) {
-	address$7 = address$7.toUpperCase();
-	address$7 = address$7.substring(4) + address$7.substring(0, 2) + "00";
-	let expanded = address$7.split("").map((c$3) => {
+function ibanChecksum(address$8) {
+	address$8 = address$8.toUpperCase();
+	address$8 = address$8.substring(4) + address$8.substring(0, 2) + "00";
+	let expanded = address$8.split("").map((c$3) => {
 		return ibanLookup[c$3];
 	}).join("");
 	while (expanded.length >= safeDigits) {
@@ -59648,21 +59648,21 @@ function fromBase36(value) {
 	for (let i$3 = 0; i$3 < value.length; i$3++) result = result * BN_36 + Base36[value[i$3]];
 	return result;
 }
-function getAddress(address$7) {
-	assertArgument(typeof address$7 === "string", "invalid address", "address", address$7);
-	if (address$7.match(/^(0x)?[0-9a-fA-F]{40}$/)) {
-		if (!address$7.startsWith("0x")) address$7 = "0x" + address$7;
-		const result = getChecksumAddress(address$7);
-		assertArgument(!address$7.match(/([A-F].*[a-f])|([a-f].*[A-F])/) || result === address$7, "bad address checksum", "address", address$7);
+function getAddress(address$8) {
+	assertArgument(typeof address$8 === "string", "invalid address", "address", address$8);
+	if (address$8.match(/^(0x)?[0-9a-fA-F]{40}$/)) {
+		if (!address$8.startsWith("0x")) address$8 = "0x" + address$8;
+		const result = getChecksumAddress(address$8);
+		assertArgument(!address$8.match(/([A-F].*[a-f])|([a-f].*[A-F])/) || result === address$8, "bad address checksum", "address", address$8);
 		return result;
 	}
-	if (address$7.match(/^XE[0-9]{2}[0-9A-Za-z]{30,31}$/)) {
-		assertArgument(address$7.substring(2, 4) === ibanChecksum(address$7), "bad icap checksum", "address", address$7);
-		let result = fromBase36(address$7.substring(4)).toString(16);
+	if (address$8.match(/^XE[0-9]{2}[0-9A-Za-z]{30,31}$/)) {
+		assertArgument(address$8.substring(2, 4) === ibanChecksum(address$8), "bad icap checksum", "address", address$8);
+		let result = fromBase36(address$8.substring(4)).toString(16);
 		while (result.length < 40) result = "0" + result;
 		return getChecksumAddress("0x" + result);
 	}
-	assertArgument(false, "invalid address", "address", address$7);
+	assertArgument(false, "invalid address", "address", address$8);
 }
 function getCreateAddress(tx) {
 	const from$2 = getAddress(tx.from);
@@ -63463,14 +63463,14 @@ var Interface = class Interface {
 	#functions;
 	#abiCoder;
 	constructor(fragments) {
-		let abi$7 = [];
-		if (typeof fragments === "string") abi$7 = JSON.parse(fragments);
-		else abi$7 = fragments;
+		let abi$8 = [];
+		if (typeof fragments === "string") abi$8 = JSON.parse(fragments);
+		else abi$8 = fragments;
 		this.#functions = /* @__PURE__ */ new Map();
 		this.#errors = /* @__PURE__ */ new Map();
 		this.#events = /* @__PURE__ */ new Map();
 		const frags = [];
-		for (const a$2 of abi$7) try {
+		for (const a$2 of abi$8) try {
 			frags.push(Fragment$1.from(a$2));
 		} catch (error) {
 			console.log(`[Warning] Invalid Fragment ${JSON.stringify(a$2)}:`, error.message);
@@ -63523,8 +63523,8 @@ var Interface = class Interface {
 		return this.fragments.map((f$1) => f$1.format(format));
 	}
 	formatJson() {
-		const abi$7 = this.fragments.map((f$1) => f$1.format("json"));
-		return JSON.stringify(abi$7.map((j$3) => JSON.parse(j$3)));
+		const abi$8 = this.fragments.map((f$1) => f$1.format("json"));
+		return JSON.stringify(abi$8.map((j$3) => JSON.parse(j$3)));
 	}
 	getAbiCoder() {
 		return AbiCoder.defaultAbiCoder();
@@ -64150,10 +64150,10 @@ var Log = class {
 		});
 	}
 	toJSON() {
-		const { address: address$7, blockHash, blockNumber, data, index: index$6, removed, topics, transactionHash, transactionIndex } = this;
+		const { address: address$8, blockHash, blockNumber, data, index: index$6, removed, topics, transactionHash, transactionIndex } = this;
 		return {
 			_type: "log",
-			address: address$7,
+			address: address$8,
 			blockHash,
 			blockNumber,
 			data,
@@ -65064,10 +65064,10 @@ var BaseContract = class BaseContract {
 	filters;
 	[internal];
 	fallback;
-	constructor(target, abi$7, runner, _deployTx) {
+	constructor(target, abi$8, runner, _deployTx) {
 		assertArgument(typeof target === "string" || isAddressable(target), "invalid value for Contract target", "target", target);
 		if (runner == null) runner = null;
-		const iface = Interface.from(abi$7);
+		const iface = Interface.from(abi$8);
 		defineProperties(this, {
 			target,
 			runner,
@@ -65191,10 +65191,10 @@ var BaseContract = class BaseContract {
 		if (fromBlock == null) fromBlock = 0;
 		if (toBlock == null) toBlock = "latest";
 		const { addr, addrPromise } = getInternal(this);
-		const address$7 = addr ? addr : await addrPromise;
+		const address$8 = addr ? addr : await addrPromise;
 		const { fragment, topics } = await getSubInfo(this, event);
 		const filter$1 = {
-			address: address$7,
+			address: address$8,
 			topics,
 			fromBlock,
 			toBlock
@@ -65291,17 +65291,17 @@ var BaseContract = class BaseContract {
 	async removeListener(event, listener) {
 		return await this.off(event, listener);
 	}
-	static buildClass(abi$7) {
+	static buildClass(abi$8) {
 		class CustomContract extends BaseContract {
-			constructor(address$7, runner = null) {
-				super(address$7, abi$7, runner);
+			constructor(address$8, runner = null) {
+				super(address$8, abi$8, runner);
 			}
 		}
 		return CustomContract;
 	}
-	static from(target, abi$7, runner) {
+	static from(target, abi$8, runner) {
 		if (runner == null) runner = null;
-		return new this(target, abi$7, runner);
+		return new this(target, abi$8, runner);
 	}
 };
 function _ContractBase() {
@@ -65325,7 +65325,7 @@ var MulticoinProviderPlugin = class {
 	supportsCoinType(coinType) {
 		return false;
 	}
-	async encodeAddress(coinType, address$7) {
+	async encodeAddress(coinType, address$8) {
 		throw new Error("unsupported coin");
 	}
 	async decodeAddress(coinType, data) {
@@ -65345,14 +65345,14 @@ var EnsResolver = class EnsResolver {
 	name;
 	#supports2544;
 	#resolver;
-	constructor(provider, address$7, name) {
+	constructor(provider, address$8, name) {
 		defineProperties(this, {
 			provider,
-			address: address$7,
+			address: address$8,
 			name
 		});
 		this.#supports2544 = null;
-		this.#resolver = new Contract(address$7, [
+		this.#resolver = new Contract(address$8, [
 			"function supportsInterface(bytes4) view returns (bool)",
 			"function resolve(bytes, bytes) view returns (bytes)",
 			"function addr(bytes32) view returns (address)",
@@ -65420,8 +65420,8 @@ var EnsResolver = class EnsResolver {
 		if (coinPlugin == null) return null;
 		const data = await this.#fetch("addr(bytes32,uint)", [coinType]);
 		if (data == null || data === "0x") return null;
-		const address$7 = await coinPlugin.decodeAddress(coinType, data);
-		if (address$7 != null) return address$7;
+		const address$8 = await coinPlugin.decodeAddress(coinType, data);
+		if (address$8 != null) return address$8;
 		assert(false, `invalid coin data`, "UNSUPPORTED_OPERATION", {
 			operation: `getAddress(${coinType})`,
 			info: {
@@ -65955,10 +65955,10 @@ var GasCostPlugin = class GasCostPlugin extends NetworkPlugin {
 var EnsPlugin = class EnsPlugin extends NetworkPlugin {
 	address;
 	targetNetwork;
-	constructor(address$7, targetNetwork) {
+	constructor(address$8, targetNetwork) {
 		super("org.ethers.plugins.network.Ens");
 		defineProperties(this, {
-			address: address$7 || EnsAddress,
+			address: address$8 || EnsAddress,
 			targetNetwork: targetNetwork == null ? 1 : targetNetwork
 		});
 	}
@@ -66650,8 +66650,8 @@ var AbstractProvider = class {
 		if (this.#lastBlockNumber >= 0) this.#lastBlockNumber = blockNumber;
 		return blockNumber;
 	}
-	_getAddress(address$7) {
-		return resolveAddress(address$7, this);
+	_getAddress(address$8) {
+		return resolveAddress(address$8, this);
 	}
 	_getBlockTag(blockTag) {
 		if (blockTag == null) return "latest";
@@ -66682,42 +66682,42 @@ var AbstractProvider = class {
 		});
 		const blockHash = "blockHash" in filter$1 ? filter$1.blockHash : void 0;
 		const resolve = (_address, fromBlock$1, toBlock$1) => {
-			let address$8 = void 0;
+			let address$9 = void 0;
 			switch (_address.length) {
 				case 0: break;
 				case 1:
-					address$8 = _address[0];
+					address$9 = _address[0];
 					break;
 				default:
 					_address.sort();
-					address$8 = _address;
+					address$9 = _address;
 			}
 			if (blockHash) {
 				if (fromBlock$1 != null || toBlock$1 != null) throw new Error("invalid filter");
 			}
 			const filter$2 = {};
-			if (address$8) filter$2.address = address$8;
+			if (address$9) filter$2.address = address$9;
 			if (topics.length) filter$2.topics = topics;
 			if (fromBlock$1) filter$2.fromBlock = fromBlock$1;
 			if (toBlock$1) filter$2.toBlock = toBlock$1;
 			if (blockHash) filter$2.blockHash = blockHash;
 			return filter$2;
 		};
-		let address$7 = [];
-		if (filter$1.address) if (Array.isArray(filter$1.address)) for (const addr of filter$1.address) address$7.push(this._getAddress(addr));
-		else address$7.push(this._getAddress(filter$1.address));
+		let address$8 = [];
+		if (filter$1.address) if (Array.isArray(filter$1.address)) for (const addr of filter$1.address) address$8.push(this._getAddress(addr));
+		else address$8.push(this._getAddress(filter$1.address));
 		let fromBlock = void 0;
 		if ("fromBlock" in filter$1) fromBlock = this._getBlockTag(filter$1.fromBlock);
 		let toBlock = void 0;
 		if ("toBlock" in filter$1) toBlock = this._getBlockTag(filter$1.toBlock);
-		if (address$7.filter((a$2) => typeof a$2 !== "string").length || fromBlock != null && typeof fromBlock !== "string" || toBlock != null && typeof toBlock !== "string") return Promise.all([
-			Promise.all(address$7),
+		if (address$8.filter((a$2) => typeof a$2 !== "string").length || fromBlock != null && typeof fromBlock !== "string" || toBlock != null && typeof toBlock !== "string") return Promise.all([
+			Promise.all(address$8),
 			fromBlock,
 			toBlock
 		]).then((result) => {
 			return resolve(result[0], result[1], result[2]);
 		});
-		return resolve(address$7, fromBlock, toBlock);
+		return resolve(address$8, fromBlock, toBlock);
 	}
 	_getTransactionRequest(_request) {
 		const request = copyRequest(_request);
@@ -66902,29 +66902,29 @@ var AbstractProvider = class {
 		return await this.#checkNetwork(this.#call(tx, blockTag, _tx.enableCcipRead ? 0 : -1));
 	}
 	async #getAccountValue(request, _address, _blockTag) {
-		let address$7 = this._getAddress(_address);
+		let address$8 = this._getAddress(_address);
 		let blockTag = this._getBlockTag(_blockTag);
-		if (typeof address$7 !== "string" || typeof blockTag !== "string") [address$7, blockTag] = await Promise.all([address$7, blockTag]);
+		if (typeof address$8 !== "string" || typeof blockTag !== "string") [address$8, blockTag] = await Promise.all([address$8, blockTag]);
 		return await this.#checkNetwork(this.#perform(Object.assign(request, {
-			address: address$7,
+			address: address$8,
 			blockTag
 		})));
 	}
-	async getBalance(address$7, blockTag) {
-		return getBigInt(await this.#getAccountValue({ method: "getBalance" }, address$7, blockTag), "%response");
+	async getBalance(address$8, blockTag) {
+		return getBigInt(await this.#getAccountValue({ method: "getBalance" }, address$8, blockTag), "%response");
 	}
-	async getTransactionCount(address$7, blockTag) {
-		return getNumber(await this.#getAccountValue({ method: "getTransactionCount" }, address$7, blockTag), "%response");
+	async getTransactionCount(address$8, blockTag) {
+		return getNumber(await this.#getAccountValue({ method: "getTransactionCount" }, address$8, blockTag), "%response");
 	}
-	async getCode(address$7, blockTag) {
-		return hexlify(await this.#getAccountValue({ method: "getCode" }, address$7, blockTag));
+	async getCode(address$8, blockTag) {
+		return hexlify(await this.#getAccountValue({ method: "getCode" }, address$8, blockTag));
 	}
-	async getStorage(address$7, _position, blockTag) {
+	async getStorage(address$8, _position, blockTag) {
 		const position$1 = getBigInt(_position, "position");
 		return hexlify(await this.#getAccountValue({
 			method: "getStorage",
 			position: position$1
-		}, address$7, blockTag));
+		}, address$8, blockTag));
 	}
 	async broadcastTransaction(signedTx) {
 		const { blockNumber, hash: hash$3, network } = await resolveProperties({
@@ -67030,14 +67030,14 @@ var AbstractProvider = class {
 		if (resolver) return await resolver.getAddress();
 		return null;
 	}
-	async lookupAddress(address$7) {
-		address$7 = getAddress(address$7);
-		const node$1 = namehash(address$7.substring(2).toLowerCase() + ".addr.reverse");
+	async lookupAddress(address$8) {
+		address$8 = getAddress(address$8);
+		const node$1 = namehash(address$8.substring(2).toLowerCase() + ".addr.reverse");
 		try {
 			const resolver = await new Contract(await EnsResolver.getEnsAddress(this), ["function resolver(bytes32) view returns (address)"], this).resolver(node$1);
 			if (resolver == null || resolver === "0x0000000000000000000000000000000000000000") return null;
 			const name = await new Contract(resolver, ["function name(bytes32) view returns (string)"], this).name(node$1);
-			if (await this.resolveName(name) !== address$7) return null;
+			if (await this.resolveName(name) !== address$8) return null;
 			return name;
 		} catch (error) {
 			if (isError(error, "BAD_DATA") && error.value === "0x") return null;
@@ -67400,9 +67400,9 @@ async function populate(signer, tx) {
 	if (pop$2.to != null) pop$2.to = resolveAddress(pop$2.to, signer);
 	if (pop$2.from != null) {
 		const from$2 = pop$2.from;
-		pop$2.from = Promise.all([signer.getAddress(), resolveAddress(from$2, signer)]).then(([address$7, from$3]) => {
-			assertArgument(address$7.toLowerCase() === from$3.toLowerCase(), "transaction from mismatch", "tx.from", from$3);
-			return address$7;
+		pop$2.from = Promise.all([signer.getAddress(), resolveAddress(from$2, signer)]).then(([address$8, from$3]) => {
+			assertArgument(address$8.toLowerCase() === from$3.toLowerCase(), "transaction from mismatch", "tx.from", from$3);
+			return address$8;
 		});
 	} else pop$2.from = signer.getAddress();
 	return await resolveProperties(pop$2);
@@ -67643,10 +67643,10 @@ var defaultOptions = {
 };
 var JsonRpcSigner = class extends AbstractSigner {
 	address;
-	constructor(provider, address$7) {
+	constructor(provider, address$8) {
 		super(provider);
-		address$7 = getAddress(address$7);
-		defineProperties(this, { address: address$7 });
+		address$8 = getAddress(address$8);
+		defineProperties(this, { address: address$8 });
 	}
 	connect(provider) {
 		assert(false, "cannot reconnect JsonRpcSigner", "UNSUPPORTED_OPERATION", { operation: "signer.connect" });
@@ -67739,9 +67739,9 @@ var JsonRpcSigner = class extends AbstractSigner {
 	async signTypedData(domain, types$1, _value) {
 		const value = deepCopy(_value);
 		const populated = await TypedDataEncoder.resolveNames(domain, types$1, value, async (value$1) => {
-			const address$7 = await resolveAddress(value$1);
-			assertArgument(address$7 != null, "TypedData does not support null address", "value", value$1);
-			return address$7;
+			const address$8 = await resolveAddress(value$1);
+			assertArgument(address$8 != null, "TypedData does not support null address", "value", value$1);
+			return address$8;
 		});
 		return await this.provider.send("eth_signTypedData_v4", [this.address.toLowerCase(), JSON.stringify(TypedDataEncoder.getPayload(populated.domain, types$1, populated.value))]);
 	}
@@ -68179,20 +68179,20 @@ var JsonRpcApiProvider = class extends AbstractProvider {
 		this.#scheduleDrain();
 		return promise;
 	}
-	async getSigner(address$7) {
-		if (address$7 == null) address$7 = 0;
+	async getSigner(address$8) {
+		if (address$8 == null) address$8 = 0;
 		const accountsPromise = this.send("eth_accounts", []);
-		if (typeof address$7 === "number") {
+		if (typeof address$8 === "number") {
 			const accounts$1 = await accountsPromise;
-			if (address$7 >= accounts$1.length) throw new Error("no such account");
-			return new JsonRpcSigner(this, accounts$1[address$7]);
+			if (address$8 >= accounts$1.length) throw new Error("no such account");
+			return new JsonRpcSigner(this, accounts$1[address$8]);
 		}
 		const { accounts } = await resolveProperties({
 			network: this.getNetwork(),
 			accounts: accountsPromise
 		});
-		address$7 = getAddress(address$7);
-		for (const account of accounts) if (getAddress(account) === address$7) return new JsonRpcSigner(this, address$7);
+		address$8 = getAddress(address$8);
+		for (const account of accounts) if (getAddress(account) === address$8) return new JsonRpcSigner(this, address$8);
 		throw new Error("invalid account");
 	}
 	async listAccounts() {
@@ -68444,16 +68444,16 @@ var BrowserProvider = class BrowserProvider extends JsonRpcApiPollingProvider {
 		}
 		return super.getRpcError(payload, error);
 	}
-	async hasSigner(address$7) {
-		if (address$7 == null) address$7 = 0;
+	async hasSigner(address$8) {
+		if (address$8 == null) address$8 = 0;
 		const accounts = await this.send("eth_accounts", []);
-		if (typeof address$7 === "number") return accounts.length > address$7;
-		address$7 = address$7.toLowerCase();
-		return accounts.filter((a$2) => a$2.toLowerCase() === address$7).length !== 0;
+		if (typeof address$8 === "number") return accounts.length > address$8;
+		address$8 = address$8.toLowerCase();
+		return accounts.filter((a$2) => a$2.toLowerCase() === address$8).length !== 0;
 	}
-	async getSigner(address$7) {
-		if (address$7 == null) address$7 = 0;
-		if (!await this.hasSigner(address$7)) try {
+	async getSigner(address$8) {
+		if (address$8 == null) address$8 = 0;
+		if (!await this.hasSigner(address$8)) try {
 			await this.#request("eth_requestAccounts", []);
 		} catch (error) {
 			const payload = error.payload;
@@ -68462,7 +68462,7 @@ var BrowserProvider = class BrowserProvider extends JsonRpcApiPollingProvider {
 				error
 			});
 		}
-		return await super.getSigner(address$7);
+		return await super.getSigner(address$8);
 	}
 	static async discover(options$2) {
 		if (options$2 == null) options$2 = {};
@@ -68537,9 +68537,9 @@ var require_use_sync_external_store_shim_production = /* @__PURE__ */ __commonJS
 	function is(x$2, y$3) {
 		return x$2 === y$3 && (0 !== x$2 || 1 / x$2 === 1 / y$3) || x$2 !== x$2 && y$3 !== y$3;
 	}
-	var objectIs = "function" === typeof Object.is ? Object.is : is, useState$15 = React$6.useState, useEffect$16 = React$6.useEffect, useLayoutEffect$3 = React$6.useLayoutEffect, useDebugValue$1 = React$6.useDebugValue;
+	var objectIs = "function" === typeof Object.is ? Object.is : is, useState$17 = React$6.useState, useEffect$17 = React$6.useEffect, useLayoutEffect$3 = React$6.useLayoutEffect, useDebugValue$1 = React$6.useDebugValue;
 	function useSyncExternalStore$2(subscribe$1, getSnapshot) {
-		var value = getSnapshot(), _useState = useState$15({ inst: {
+		var value = getSnapshot(), _useState = useState$17({ inst: {
 			value,
 			getSnapshot
 		} }), inst = _useState[0].inst, forceUpdate = _useState[1];
@@ -68552,7 +68552,7 @@ var require_use_sync_external_store_shim_production = /* @__PURE__ */ __commonJS
 			value,
 			getSnapshot
 		]);
-		useEffect$16(function() {
+		useEffect$17(function() {
 			checkIfSnapshotChanged(inst) && forceUpdate({ inst });
 			return subscribe$1(function() {
 				checkIfSnapshotChanged(inst) && forceUpdate({ inst });
@@ -69320,9 +69320,9 @@ const _useGodEyeSetup = () => {
 	const [godEyeAddress, setGodEyeAddress] = (0, import_react.useState)(void 0);
 	const [godEyeAccountId, setGodEyeAccountId] = (0, import_react.useState)(void 0);
 	const loc = useLocation();
-	const enableGodEyeWallet = (address$7) => {
-		setGodEyeAddress(address$7);
-		console.log("God Eye Wallet enabled:", address$7);
+	const enableGodEyeWallet = (address$8) => {
+		setGodEyeAddress(address$8);
+		console.log("God Eye Wallet enabled:", address$8);
 	};
 	const enableGodEyeAccountId = (accountId) => {
 		setGodEyeAccountId(accountId);
@@ -69337,8 +69337,8 @@ const _useGodEyeSetup = () => {
 		const [cheatcode, cheatcodeValue] = getLast(loc.pathname.split("/")).split("=");
 		switch (cheatcode) {
 			case WALLET_CHEATCODE: {
-				const address$7 = cheatcodeValue;
-				if (isAddress(address$7)) enableGodEyeWallet(address$7);
+				const address$8 = cheatcodeValue;
+				if (isAddress(address$8)) enableGodEyeWallet(address$8);
 				else disableGodEye(`Invalid address: ${cheatcodeValue}`);
 				break;
 			}
@@ -74292,6 +74292,1111 @@ var OneClickTrading_default = {
 		}
 	]
 };
+var USDC_LiquidityPool_default = {
+	address: "0xA4113Ac6Cc41141B819f34d81F6ccdabcA07AecF",
+	abi: [
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "_insurancePool",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "_marginAccountStorage",
+					"type": "address"
+				},
+				{
+					"internalType": "contract ERC20",
+					"name": "_baseToken",
+					"type": "address"
+				},
+				{
+					"internalType": "contract ERC20",
+					"name": "_poolToken",
+					"type": "address"
+				},
+				{
+					"internalType": "string",
+					"name": "_tokenName",
+					"type": "string"
+				},
+				{
+					"internalType": "string",
+					"name": "_tokenSymbol",
+					"type": "string"
+				},
+				{
+					"internalType": "uint256",
+					"name": "_poolCapacity",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "nonpayable",
+			"type": "constructor"
+		},
+		{
+			"inputs": [{
+				"internalType": "uint256",
+				"name": "x",
+				"type": "uint256"
+			}, {
+				"internalType": "uint256",
+				"name": "y",
+				"type": "uint256"
+			}],
+			"name": "PRBMath_MulDiv18_Overflow",
+			"type": "error"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "x",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "y",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "denominator",
+					"type": "uint256"
+				}
+			],
+			"name": "PRBMath_MulDiv_Overflow",
+			"type": "error"
+		},
+		{
+			"inputs": [{
+				"internalType": "uint256",
+				"name": "x",
+				"type": "uint256"
+			}],
+			"name": "PRBMath_UD60x18_Convert_Overflow",
+			"type": "error"
+		},
+		{
+			"inputs": [{
+				"internalType": "UD60x18",
+				"name": "x",
+				"type": "uint256"
+			}],
+			"name": "PRBMath_UD60x18_Exp2_InputTooBig",
+			"type": "error"
+		},
+		{
+			"inputs": [{
+				"internalType": "UD60x18",
+				"name": "x",
+				"type": "uint256"
+			}],
+			"name": "PRBMath_UD60x18_Log_InputTooSmall",
+			"type": "error"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "owner",
+					"type": "address"
+				},
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "spender",
+					"type": "address"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "value",
+					"type": "uint256"
+				}
+			],
+			"name": "Approval",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [{
+				"indexed": true,
+				"internalType": "uint256",
+				"name": "marginAccountID",
+				"type": "uint256"
+			}, {
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "amountDebtTokens",
+				"type": "uint256"
+			}],
+			"name": "Borrow",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "liquidityProvider",
+					"type": "address"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "amountAddedShareTokens",
+					"type": "uint256"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "amountDepositPoolTokens",
+					"type": "uint256"
+				}
+			],
+			"name": "Provide",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "uint256",
+					"name": "marginAccountID",
+					"type": "uint256"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "amountRepayDebtTokens",
+					"type": "uint256"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "accruedInterest",
+					"type": "uint256"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "profitInsurancePool",
+					"type": "uint256"
+				}
+			],
+			"name": "Repay",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "bytes32",
+					"name": "role",
+					"type": "bytes32"
+				},
+				{
+					"indexed": true,
+					"internalType": "bytes32",
+					"name": "previousAdminRole",
+					"type": "bytes32"
+				},
+				{
+					"indexed": true,
+					"internalType": "bytes32",
+					"name": "newAdminRole",
+					"type": "bytes32"
+				}
+			],
+			"name": "RoleAdminChanged",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "bytes32",
+					"name": "role",
+					"type": "bytes32"
+				},
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "account",
+					"type": "address"
+				},
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "sender",
+					"type": "address"
+				}
+			],
+			"name": "RoleGranted",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "bytes32",
+					"name": "role",
+					"type": "bytes32"
+				},
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "account",
+					"type": "address"
+				},
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "sender",
+					"type": "address"
+				}
+			],
+			"name": "RoleRevoked",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "from",
+					"type": "address"
+				},
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "to",
+					"type": "address"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "value",
+					"type": "uint256"
+				}
+			],
+			"name": "Transfer",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [{
+				"indexed": false,
+				"internalType": "address",
+				"name": "newInsurancePool",
+				"type": "address"
+			}],
+			"name": "UpdateInsurancePool",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "newInsuranceRateMultiplier",
+				"type": "uint256"
+			}],
+			"name": "UpdateInsuranceRateMultiplier",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "totalLiquidity",
+					"type": "uint256"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "totalBorrows",
+					"type": "uint256"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "interestRate",
+					"type": "uint256"
+				}
+			],
+			"name": "UpdateInterestRate",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "newMaximumBorrowMultiplier",
+				"type": "uint256"
+			}],
+			"name": "UpdateMaximumBorrowMultiplier",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "newMaximumPoolCapacity",
+				"type": "uint256"
+			}],
+			"name": "UpdateMaximumPoolCapacity",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "liquidityProvider",
+					"type": "address"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "amountBurnedShareTokens",
+					"type": "uint256"
+				},
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "amountWithdrawPoolTokens",
+					"type": "uint256"
+				}
+			],
+			"name": "Withdraw",
+			"type": "event"
+		},
+		{
+			"inputs": [],
+			"name": "DEFAULT_ADMIN_ROLE",
+			"outputs": [{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "MANAGER_ROLE",
+			"outputs": [{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "PROTOCOL_ROUTER_ROLE",
+			"outputs": [{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "address",
+				"name": "owner",
+				"type": "address"
+			}, {
+				"internalType": "address",
+				"name": "spender",
+				"type": "address"
+			}],
+			"name": "allowance",
+			"outputs": [{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "address",
+				"name": "spender",
+				"type": "address"
+			}, {
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			}],
+			"name": "approve",
+			"outputs": [{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}],
+			"name": "balanceOf",
+			"outputs": [{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "baseToken",
+			"outputs": [{
+				"internalType": "contract ERC20",
+				"name": "",
+				"type": "address"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "blockNumberDelay",
+			"outputs": [{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "uint256",
+				"name": "marginAccountID",
+				"type": "uint256"
+			}, {
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			}],
+			"name": "borrow",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}],
+			"name": "borrowingBlockNumber",
+			"outputs": [{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			}],
+			"name": "burn",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}, {
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			}],
+			"name": "burnFrom",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "debtSharesSum",
+			"outputs": [{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "decimals",
+			"outputs": [{
+				"internalType": "uint8",
+				"name": "",
+				"type": "uint8"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "address",
+				"name": "spender",
+				"type": "address"
+			}, {
+				"internalType": "uint256",
+				"name": "subtractedValue",
+				"type": "uint256"
+			}],
+			"name": "decreaseAllowance",
+			"outputs": [{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "depositShare",
+			"outputs": [{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "uint256",
+				"name": "marginAccountID",
+				"type": "uint256"
+			}],
+			"name": "getDebtWithAccruedInterest",
+			"outputs": [{
+				"internalType": "uint256",
+				"name": "debtByPool",
+				"type": "uint256"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "uint256",
+				"name": "marginAccountID",
+				"type": "uint256"
+			}, {
+				"internalType": "uint256",
+				"name": "checkTime",
+				"type": "uint256"
+			}],
+			"name": "getDebtWithAccruedInterestOnTime",
+			"outputs": [{
+				"internalType": "uint256",
+				"name": "debtByPool",
+				"type": "uint256"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			}],
+			"name": "getRoleAdmin",
+			"outputs": [{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "getTotalLiquidity",
+			"outputs": [{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			}, {
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}],
+			"name": "grantRole",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			}, {
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}],
+			"name": "hasRole",
+			"outputs": [{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "address",
+				"name": "spender",
+				"type": "address"
+			}, {
+				"internalType": "uint256",
+				"name": "addedValue",
+				"type": "uint256"
+			}],
+			"name": "increaseAllowance",
+			"outputs": [{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "insurancePool",
+			"outputs": [{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "insuranceRateMultiplier",
+			"outputs": [{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "interestRate",
+			"outputs": [{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "maximumBorrowMultiplier",
+			"outputs": [{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "maximumPoolCapacity",
+			"outputs": [{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "name",
+			"outputs": [{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "netDebt",
+			"outputs": [{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "poolToken",
+			"outputs": [{
+				"internalType": "contract ERC20",
+				"name": "",
+				"type": "address"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}],
+			"name": "portfolioIdToDebt",
+			"outputs": [{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			}],
+			"name": "provide",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			}, {
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}],
+			"name": "renounceRole",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "uint256",
+				"name": "marginAccountID",
+				"type": "uint256"
+			}, {
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			}],
+			"name": "repay",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}],
+			"name": "revokeProtocolRouterRole",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			}, {
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}],
+			"name": "revokeRole",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "uint256",
+				"name": "newBlockNumberDelay",
+				"type": "uint256"
+			}],
+			"name": "setBlockNumberDelay",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "address",
+				"name": "newInsurancePool",
+				"type": "address"
+			}],
+			"name": "setInsurancePool",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "uint256",
+				"name": "newInsuranceRateMultiplier",
+				"type": "uint256"
+			}],
+			"name": "setInsuranceRateMultiplier",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "uint256",
+				"name": "newInterestRate",
+				"type": "uint256"
+			}],
+			"name": "setInterestRate",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "uint256",
+				"name": "newMaximumBorrowMultiplier",
+				"type": "uint256"
+			}],
+			"name": "setMaximumBorrowMultiplier",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "uint256",
+				"name": "newMaximumPoolCapacity",
+				"type": "uint256"
+			}],
+			"name": "setMaximumPoolCapacity",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}],
+			"name": "shareOfDebt",
+			"outputs": [{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "bytes4",
+				"name": "interfaceId",
+				"type": "bytes4"
+			}],
+			"name": "supportsInterface",
+			"outputs": [{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "symbol",
+			"outputs": [{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "totalBorrows",
+			"outputs": [{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "totalBorrowsSnapshotTimestamp",
+			"outputs": [{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "totalInterestSnapshot",
+			"outputs": [{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "totalSupply",
+			"outputs": [{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
+			}, {
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			}],
+			"name": "transfer",
+			"outputs": [{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "from",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "to",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "amount",
+					"type": "uint256"
+				}
+			],
+			"name": "transferFrom",
+			"outputs": [{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			}],
+			"name": "withdraw",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		}
+	]
+};
 const capitalizeFirstLetter = (str) => {
 	return str.charAt(0).toUpperCase() + str.slice(1);
 };
@@ -74326,7 +75431,8 @@ var useContractJsons = () => {
 		MarginTrading: MarginTrading_default,
 		ModularSwapRouter: ModularSwapRouter_default,
 		OneClickProxy: OneClickProxy_default,
-		OneClickTrading: OneClickTrading_default
+		OneClickTrading: OneClickTrading_default,
+		UsdcPool: USDC_LiquidityPool_default
 	};
 };
 var useContracts = () => {
@@ -74345,8 +75451,8 @@ var useViewContracts = () => {
 	const alchemyProvider = getAlchemyProvider();
 	const contracts$1 = {};
 	Object.keys(contractJsons).forEach((name) => {
-		const { address: address$7, abi: abi$7 } = contractJsons[name];
-		contracts$1[name] = new Contract(address$7, abi$7, alchemyProvider);
+		const { address: address$8, abi: abi$8 } = contractJsons[name];
+		contracts$1[name] = new Contract(address$8, abi$8, alchemyProvider);
 	});
 	return contracts$1;
 };
@@ -74861,7 +75967,7 @@ var require_classnames = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 		else window.classNames = classNames$1;
 	})();
 }));
-var import_classnames$12 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$18 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 const animateFancyButtons = () => {
 	const createSVG = (width, height, radius) => {
 		const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
@@ -74907,46 +76013,62 @@ const animateFancyButtons = () => {
 		svg.addEventListener("animationend", stopAnimation);
 	});
 };
-var Button = ({ type = "primary", isDisabled = false, className, children, ...props }) => {
+var Button$1 = ({ type = "primary", isDisabled = false, className, children, ...props }) => {
 	(0, import_react.useEffect)(() => {
 		animateFancyButtons();
 	}, []);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-		className: (0, import_classnames$12.default)(className, "Button", `_${type}`),
+		className: (0, import_classnames$18.default)(className, "Button", `_${type}`),
 		disabled: isDisabled,
 		...props,
 		children
 	});
 };
-var Button_default = Button;
+var Button_default = Button$1;
 var useAccountId = () => {
 	const accountState = useAccountState_default();
-	if (accountState.id === -1n) return;
+	if (!accountState || accountState.id === -1n) return;
 	return accountState.id;
 };
 var useAccountId_default = useAccountId;
 var useProtocolActions = () => {
-	const contracts$1 = useContracts_default();
 	const accountId = useAccountId_default();
-	return {
-		createAccount: () => createAccount(contracts$1),
-		supply: (amount) => supply(accountId, contracts$1, amount),
-		withdraw: (amount) => withdraw(accountId, contracts$1, amount)
-	};
+	const contracts$1 = useContracts_default();
+	const createAccount = (0, import_react.useCallback)(async () => _createAccount(contracts$1), [contracts$1]);
+	const supply = (0, import_react.useCallback)(async (amount) => _supply(accountId, contracts$1, amount), [accountId, contracts$1]);
+	const withdraw = (0, import_react.useCallback)(async (amount) => _withdraw(accountId, contracts$1, amount), [accountId, contracts$1]);
+	const borrow = (0, import_react.useCallback)(async (amount) => _borrow(accountId, contracts$1, amount), [accountId, contracts$1]);
+	return (0, import_react.useMemo)(() => ({
+		createAccount,
+		supply,
+		withdraw,
+		borrow
+	}), [
+		createAccount,
+		supply,
+		withdraw,
+		borrow
+	]);
 };
-var createAccount = async (contracts$1) => {
+var _createAccount = async (contracts$1) => {
 	const { LendingMarginAccountManager } = contracts$1.signed;
 	return LendingMarginAccountManager.createLendingMarginAccount();
 };
-var supply = async (accountId, contracts$1, amount) => {
+var _supply = async (accountId, contracts$1, amount) => {
 	const { OneClickTrading } = contracts$1.signed;
 	const amount1eToken = get1eToken(amount, "ETH");
 	return OneClickTrading.provideETH(accountId, { value: amount1eToken });
 };
-var withdraw = async (accountId, contracts$1, amount) => {
+var _withdraw = async (accountId, contracts$1, amount) => {
 	const { OneClickTrading } = contracts$1.signed;
 	const amount1eToken = get1eToken(amount, "ETH");
 	return OneClickTrading.withdrawETH(accountId, amount1eToken);
+};
+var _borrow = async (accountId, contracts$1, amount) => {
+	const { OneClickTrading } = contracts$1.signed;
+	const { USDC } = Tokens;
+	const amount1eToken = get1eToken(amount, "USDC");
+	return OneClickTrading.borrowWithdraw(accountId, USDC.address, amount1eToken, false);
 };
 var useProtocolActions_default = useProtocolActions;
 var sendTx = async (executedTx, successMsg, setIsSubmitting, onSuccess, onError) => {
@@ -76182,7 +77304,7 @@ var import_lib = /* @__PURE__ */ __toESM((/* @__PURE__ */ __commonJSMin(((export
 	exports.default = _Modal2.default;
 	module.exports = exports["default"];
 })))(), 1);
-var import_classnames$11 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$17 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 import_lib.default.setAppElement("#root");
 import_lib.default.defaultStyles = {};
 var TRANSITION_DURATION = 300;
@@ -76195,7 +77317,7 @@ var Modal = ({ isOpen, setIsOpen, isObligatory = false, reset = () => {}, classN
 		setIsOpen(false);
 	};
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_lib.default, {
-		className: (0, import_classnames$11.default)(isScrollable && "_scrollable"),
+		className: (0, import_classnames$17.default)(isScrollable && "_scrollable"),
 		isOpen,
 		onRequestClose: () => {
 			if (isObligatory) return;
@@ -76209,7 +77331,7 @@ var Modal = ({ isOpen, setIsOpen, isObligatory = false, reset = () => {}, classN
 			else setIsScrollable(false);
 		},
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-			className: (0, import_classnames$11.default)(className, "ReactModal__box", "box"),
+			className: (0, import_classnames$17.default)(className, "ReactModal__box", "box"),
 			children
 		}), !isObligatory && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
 			className: "ReactModal__close-btn",
@@ -76221,7 +77343,7 @@ var Modal_default = Modal;
 var confirm_default = "data:image/svg+xml,%3csvg%20width='40'%20height='40'%20viewBox='0%200%2040%2040'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_284_1636)'%3e%3ccircle%20cx='20'%20cy='20'%20r='20'%20fill='%23112540'/%3e%3cpath%20d='M11%2019.9333L17%2026L29%2013'%20stroke='%2309AF8E'%20stroke-width='3'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_284_1636'%3e%3crect%20width='40'%20height='40'%20fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e";
 var error_default = "data:image/svg+xml,%3csvg%20width='40'%20height='40'%20viewBox='0%200%2040%2040'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_1129_5414)'%3e%3ccircle%20cx='20'%20cy='20'%20r='20'%20fill='%23361536'/%3e%3cpath%20d='M21.4969%2020L25.6868%2015.8101C25.8856%2015.6116%2025.9975%2015.3422%2025.9977%2015.0613C25.998%2014.7803%2025.8866%2014.5107%2025.6881%2014.3119C25.4896%2014.113%2025.2202%2014.0012%2024.9393%2014.0009C24.6583%2014.0007%2024.3887%2014.1121%2024.1899%2014.3106L20%2018.5005L15.8101%2014.3106C15.6113%2014.1117%2015.3416%2014%2015.0603%2014C14.7791%2014%2014.5094%2014.1117%2014.3106%2014.3106C14.1117%2014.5094%2014%2014.7791%2014%2015.0603C14%2015.3416%2014.1117%2015.6113%2014.3106%2015.8101L18.5005%2020L14.3106%2024.1899C14.1117%2024.3887%2014%2024.6584%2014%2024.9397C14%2025.2209%2014.1117%2025.4906%2014.3106%2025.6894C14.5094%2025.8883%2014.7791%2026%2015.0603%2026C15.3416%2026%2015.6113%2025.8883%2015.8101%2025.6894L20%2021.4995L24.1899%2025.6894C24.3887%2025.8883%2024.6584%2026%2024.9397%2026C25.2209%2026%2025.4906%2025.8883%2025.6894%2025.6894C25.8883%2025.4906%2026%2025.2209%2026%2024.9397C26%2024.6584%2025.8883%2024.3887%2025.6894%2024.1899L21.4969%2020Z'%20fill='%23D8563C'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_1129_5414'%3e%3crect%20width='40'%20height='40'%20fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e";
 var tick_default = "data:image/svg+xml,%3csvg%20width='12'%20height='10'%20viewBox='0%200%2012%2010'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M1%205.26667L4.33333%209L11%201'%20stroke='white'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3c/svg%3e";
-var import_classnames$10 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$16 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var TxModal = ({ isOpen, setIsOpen, reset = () => {}, txResult, setTxResult, className, children }) => {
 	const closeModal = () => setIsOpen(false);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Modal_default, {
@@ -76244,7 +77366,7 @@ var TxResult = ({ result, closeModal }) => {
 	const txUrl = hash$3 ? getTxUrl(chainId, hash$3) : "";
 	const hashStr = hash$3 ? hash$3.slice(0, 5) + "..." + hash$3.slice(-4) : "";
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: (0, import_classnames$10.default)("Modal__tx-result", error && "_error"),
+		className: (0, import_classnames$16.default)("Modal__tx-result", error && "_error"),
 		children: [
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 				className: "Modal__tx-result-icon",
@@ -76299,7 +77421,7 @@ var CopyButton = ({ error }) => {
 		setTimeout(() => setIsCopied(false), 2 * SECOND);
 	};
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
-		className: (0, import_classnames$10.default)("Modal__tx-result-button", isCopied && "_copied"),
+		className: (0, import_classnames$16.default)("Modal__tx-result-button", isCopied && "_copied"),
 		onClick: handleClick,
 		children: isCopied ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: ["Copied", /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
 			src: tick_default,
@@ -76309,7 +77431,7 @@ var CopyButton = ({ error }) => {
 };
 var TxModal_default = TxModal;
 var CreateAccountModal = ({ isOpen, setIsOpen }) => {
-	const { createAccount: createAccount$1 } = useProtocolActions_default();
+	const { createAccount } = useProtocolActions_default();
 	const [isSubmitting, setIsSubmitting] = (0, import_react.useState)(false);
 	const [txResult, setTxResult] = (0, import_react.useState)(void 0);
 	const txSuccessData = {
@@ -76327,7 +77449,7 @@ var CreateAccountModal = ({ isOpen, setIsOpen }) => {
 		return getError() ?? "Create account";
 	};
 	const handleClick = () => {
-		sendTx_default(createAccount$1(), "Created Lending Account", setIsSubmitting, () => setTxResult({ ...txSuccessData }), (e$2) => setTxResult({
+		sendTx_default(createAccount(), "Created Lending Account", setIsSubmitting, () => setTxResult({ ...txSuccessData }), (e$2) => setTxResult({
 			...txErrorData,
 			error: e$2
 		}));
@@ -76394,6 +77516,9 @@ const divBigInts = (bigInt, divider) => {
 const multiplyBigInts = (bigInt, multiplier) => {
 	return reduceBigIntDec(bigInt * multiplier, Decimals.DEFAULT);
 };
+const multiplyBigIntByNumber = (bigInt, num) => {
+	return multiplyBigInts(bigInt, bigIntFromString(num));
+};
 const absBigInt = (bigInt) => {
 	return bigInt < 0n ? -bigInt : bigInt;
 };
@@ -76417,6 +77542,8 @@ var convertExponentToStr = (expStr) => {
 	return str;
 };
 var formatBigInt = (bigInt, displayDecimals, onlySufficientDecimals) => {
+	const { isLoading } = getIsLoadingAndError(bigInt);
+	if (isLoading) return "...";
 	let result = stringFromBigInt(bigInt);
 	result = limitDecimals(result, displayDecimals, onlySufficientDecimals);
 	result = trimTrailingZeros(result);
@@ -76454,6 +77581,11 @@ const inputStringFromBigInt = (bigInt) => {
 };
 const inputStringFromStr = (str, symb, shouldRemoveDecimals) => {
 	return separateThousands(removeNonNumeric(str, shouldRemoveDecimals), symb);
+};
+const formatPercent = (bigInt, displayDecimals = 2) => {
+	const { isLoading } = getIsLoadingAndError(bigInt);
+	if (isLoading) return "...%";
+	return formatBigInt(bigInt * 100n, displayDecimals) + "%";
 };
 var limitDecimals = (str, maxDecimals = 0, onlySufficientDecimals = true) => {
 	str = String(str);
@@ -76493,12 +77625,12 @@ var formatNegativeValue = (str) => {
 	return `${SentimentSigns.MINUS}${absStr}`;
 };
 var formatExtraSmallValue = (str, bigInt) => {
-	if (str === "0" && bigInt !== 0n) return EXTRA_SMALL_VALUE;
+	if (str === "0" && bigInt !== 0n) return "~0";
 	if (!str.includes(".")) return str;
 	const [intPart, decPart] = str.split(".");
 	if (intPart !== "0") return str;
 	const leadingZeros = decPart.match(/^0+/);
-	if ((leadingZeros ? leadingZeros[0].length : 0) > 8) return EXTRA_SMALL_VALUE;
+	if ((leadingZeros ? leadingZeros[0].length : 0) > 8) return "~0";
 	return str;
 };
 var padDecimals = (str, minDecimals) => {
@@ -77158,10 +78290,10 @@ function ImSpinner2(props) {
 		}]
 	})(props);
 }
-var import_classnames$9 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$15 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var Spinner = ({ className }) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: (0, import_classnames$9.default)("Spinner", className),
+		className: (0, import_classnames$15.default)("Spinner", className),
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ImSpinner2, { className: "Spinner__icon" })
 	});
 };
@@ -77199,8 +78331,8 @@ var UsdValue = ({ tokenValue, tokenSymb }) => {
 	});
 };
 var TokenAmount_default = TokenAmount;
-var import_classnames$8 = /* @__PURE__ */ __toESM(require_classnames(), 1);
-var Input = ({ setValue, maxData = void 0, placeholder = "0", isDisabled = false }) => {
+var import_classnames$14 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var Input$2 = ({ setValue, maxData = void 0, placeholder = "0", isDisabled = false }) => {
 	const [valueStr, setValueStr] = (0, import_react.useState)("");
 	const [isFocused, setIsFocused] = (0, import_react.useState)(false);
 	const inputRef = (0, import_react.useRef)(null);
@@ -77214,7 +78346,7 @@ var Input = ({ setValue, maxData = void 0, placeholder = "0", isDisabled = false
 		setValueStr(inputStringFromBigInt(maxData.value));
 	};
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: (0, import_classnames$8.default)("Input", isFocused && "_focused"),
+		className: (0, import_classnames$14.default)("Input", isFocused && "_focused"),
 		onClick: focusInput,
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputNative, {
 			ref: inputRef,
@@ -77271,7 +78403,7 @@ var InputNative = (0, import_react.forwardRef)(function InputNative$1({ valueStr
 		}
 	});
 });
-var Input_default = Input;
+var Input_default = Input$2;
 var useBalanceETH = () => {
 	const { userAddress } = useWallet_default();
 	const { data } = useBalance({ address: userAddress });
@@ -77379,13 +78511,13 @@ var ArrowChangeSvg = () => {
 	});
 };
 var ArrowChangeSvg_default = ArrowChangeSvg;
-var import_classnames$7 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$13 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var ValueChange = ({ curValue, estValue, className }) => {
 	const hasEstValue = estValue !== null;
 	const { isCurLoading } = getIsLoadingAndError(curValue, "cur");
 	const { isEstLoading } = getIsLoadingAndError(estValue, "est");
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: (0, import_classnames$7.default)("ValueChange", className, hasEstValue && "_active"),
+		className: (0, import_classnames$13.default)("ValueChange", className, hasEstValue && "_active"),
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 			className: "ValueChange__cur",
 			children: isCurLoading ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Spinner_default, {}) : curValue
@@ -77423,7 +78555,8 @@ const swapEthToUsdc = async (contracts$1, amount) => {
 };
 var Ltv = {
 	queryLtvAfterSupply,
-	queryLtvAfterWithdraw
+	queryLtvAfterWithdraw,
+	calcLtvAfterBorrow
 };
 async function queryLtvAfterSupply(account, contracts$1, depositAmount) {
 	const depositAmountUSDC = await swapEthToUsdc(contracts$1, depositAmount);
@@ -77432,6 +78565,9 @@ async function queryLtvAfterSupply(account, contracts$1, depositAmount) {
 async function queryLtvAfterWithdraw(account, contracts$1, withdrawAmount) {
 	const withdrawAmountUSDC = await swapEthToUsdc(contracts$1, withdrawAmount);
 	return _calcLtv(account.value - withdrawAmountUSDC, account.debt);
+}
+function calcLtvAfterBorrow(account, borrowAmount) {
+	return _calcLtv(account.value, account.debt + borrowAmount);
 }
 var _calcLtv = (balance, debt) => {
 	if (debt <= 0n) return maxUint256;
@@ -77460,7 +78596,7 @@ var EternitySvg = () => {
 	});
 };
 var EternitySvg_default = EternitySvg;
-var import_classnames$6 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$12 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var LtvValue = ({ ltv }) => {
 	const account = useAccount_default();
 	const { isLoading: areCoeffsLoading } = getIsLoadingAndError(account?.ltvCoeffs);
@@ -77476,7 +78612,7 @@ var LtvValue = ({ ltv }) => {
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(EternitySvg_default, {})
 	}) : formatStable(ltv);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: (0, import_classnames$6.default)("LtvValue", coeff),
+		className: (0, import_classnames$12.default)("LtvValue", coeff),
 		children: ltvStr
 	});
 };
@@ -77489,6 +78625,48 @@ var LtvChange = ({ estLtv }) => {
 	});
 };
 var LtvChange_default = LtvChange;
+var Muted = ({ children }) => {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: "Muted",
+		children: children ?? "–"
+	});
+};
+var Muted_default = Muted;
+var import_classnames$11 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var ModalMetrics = ({ className, children }) => {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: (0, import_classnames$11.default)("ModalMetrics", className),
+		children
+	});
+};
+var ModalMetrics_default = ModalMetrics;
+var import_classnames$10 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var TxInputModal = ({ isOpen, setIsOpen, reset = () => {}, txResult, setTxResult, className, children }) => {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TxModal_default, {
+		className: (0, import_classnames$10.default)("TxInputModal", className),
+		isOpen,
+		setIsOpen,
+		reset,
+		txResult,
+		setTxResult,
+		children
+	});
+};
+var Input = ({ children }) => {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: "TxInputModal__input",
+		children
+	});
+};
+var Button = ({ children }) => {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: "TxInputModal__button",
+		children
+	});
+};
+TxInputModal.Input = Input;
+TxInputModal.Button = Button;
+var TxInputModal_default = TxInputModal;
 function getWindowDimensions() {
 	const { innerWidth: width, innerHeight: height } = window;
 	return {
@@ -77512,13 +78690,10 @@ var useIsMobile = (breakpoint = 768) => {
 	return width < breakpoint;
 };
 var useIsMobile_default = useIsMobile;
-var Muted = ({ children }) => {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: "Muted",
-		children: children ?? "–"
-	});
+var LiqPriceStr = () => {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [useIsMobile_default(480) ? "Liq." : "Liquidation", " Price Change"] });
 };
-var Muted_default = Muted;
+var LiqPriceStr_default = LiqPriceStr;
 var SupplyModal = ({ isOpen, setIsOpen }) => {
 	const [supplyAmount, setSupplyAmount] = (0, import_react.useState)(void 0);
 	const [estLtv, setEstLtv] = (0, import_react.useState)(null);
@@ -77527,8 +78702,7 @@ var SupplyModal = ({ isOpen, setIsOpen }) => {
 	const account = useAccount_default();
 	const mutateAccount = useAccountMutate();
 	const contracts$1 = useContracts_default();
-	const { supply: supply$1 } = useProtocolActions_default();
-	const isMobile$1 = useIsMobile_default(480);
+	const { supply } = useProtocolActions_default();
 	const txSuccessData = {
 		title: "Supply confirmed!",
 		text: "Your collateral is now in your Lending Account. You’re all set to borrow USDC against it"
@@ -77545,7 +78719,8 @@ var SupplyModal = ({ isOpen, setIsOpen }) => {
 		}
 	}, 600, [supplyAmount]);
 	(0, import_react.useEffect)(() => {
-		if (!supplyAmount) setEstLtv(null);
+		if (supplyAmount) setEstLtv(void 0);
+		else setEstLtv(null);
 	}, [supplyAmount]);
 	const getError = () => {
 		if (!supplyAmount) return "Enter Amount";
@@ -77561,7 +78736,7 @@ var SupplyModal = ({ isOpen, setIsOpen }) => {
 		return Boolean(error);
 	};
 	const handleClick = () => {
-		sendTx_default(supply$1(supplyAmount), `Supplied ${inputStringFromBigInt(supplyAmount)} ETH.`, setIsSubmitting, ({ tx }) => {
+		sendTx_default(supply(supplyAmount), `Supplied ${inputStringFromBigInt(supplyAmount)} ETH.`, setIsSubmitting, ({ tx }) => {
 			setTxResult({
 				...txSuccessData,
 				hash: tx.hash
@@ -77572,84 +78747,80 @@ var SupplyModal = ({ isOpen, setIsOpen }) => {
 			error: e$2
 		}));
 	};
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(TxModal_default, {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(TxInputModal_default, {
 		className: "SupplyModal",
 		isOpen,
 		setIsOpen,
 		txResult,
 		setTxResult,
 		children: [
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
-				className: "SupplyModal__title",
-				children: "Supply"
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "SupplyModal__input",
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(BalanceInput_default, { setValue: setSupplyAmount })
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "SupplyModal__changes",
-				children: [
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "SupplyModal__changes-row",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "SupplyModal__changes-row-title",
-							children: "Supply Change"
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "SupplyModal__changes-row-value",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmountChange_default, {
-								symbol: "ETH",
-								curAmount: account?.balance,
-								estAmount: estSuppliedAmount
-							})
-						})]
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "SupplyModal__changes-row",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "SupplyModal__changes-row-title",
-							children: [isMobile$1 ? "Liq." : "Liquidation", " Price Change"]
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "SupplyModal__changes-row-value",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, {})
-						})]
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "SupplyModal__changes-row",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "SupplyModal__changes-row-title",
-							children: "LtV"
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "SupplyModal__changes-row-value",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LtvChange_default, { estLtv })
-						})]
-					})
-				]
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "SupplyModal__button",
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
-					onClick: handleClick,
-					isDisabled: getIsDisabled(),
-					children: getBtnText()
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { children: "Supply" }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TxInputModal_default.Input, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(BalanceInput_default, { setValue: setSupplyAmount }) }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(ModalMetrics_default, { children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "ModalMetrics__row",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "ModalMetrics__row-title",
+						children: "Supply Change"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "ModalMetrics__row-value",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmountChange_default, {
+							symbol: "ETH",
+							curAmount: account?.balance,
+							estAmount: estSuppliedAmount
+						})
+					})]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "ModalMetrics__row",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "ModalMetrics__row-title",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceStr_default, {})
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "ModalMetrics__row-value",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, {})
+					})]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "ModalMetrics__row",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "ModalMetrics__row-title",
+						children: "LtV"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "ModalMetrics__row-value",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LtvChange_default, { estLtv })
+					})]
 				})
-			})
+			] }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TxInputModal_default.Button, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
+				onClick: handleClick,
+				isDisabled: getIsDisabled(),
+				children: getBtnText()
+			}) })
 		]
 	});
 };
 var SupplyModal_default = SupplyModal;
+var import_classnames$9 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var InputField = ({ children, className }) => {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: (0, import_classnames$9.default)("InputField", className),
+		children
+	});
+};
+var InputField_default = InputField;
 var WithdrawModal = ({ isOpen, setIsOpen }) => {
 	const account = useAccount_default();
 	const mutateAccount = useAccountMutate();
 	const contracts$1 = useContracts_default();
+	const { withdraw } = useProtocolActions_default();
+	const isMobile$1 = useIsMobile_default(480);
 	const [withdrawAmount, setWithdrawAmount] = (0, import_react.useState)(null);
 	const [estLtv, setEstLtv] = (0, import_react.useState)(null);
 	const [txResult, setTxResult] = (0, import_react.useState)(void 0);
 	const [isSubmitting, setIsSubmitting] = (0, import_react.useState)(false);
-	const { withdraw: withdraw$1 } = useProtocolActions_default();
-	const isMobile$1 = useIsMobile_default(480);
 	const txSuccessData = {
-		title: "Witdrawal confirmed! ",
+		title: "Witdrawal confirmed!",
 		text: "Your withdrawal is complete. The funds are now available in your Lending Account"
 	};
 	const txErrorData = {
@@ -77664,7 +78835,8 @@ var WithdrawModal = ({ isOpen, setIsOpen }) => {
 		}
 	}, 600, [withdrawAmount]);
 	(0, import_react.useEffect)(() => {
-		if (!withdrawAmount) setEstLtv(null);
+		if (withdrawAmount) setEstLtv(void 0);
+		else setEstLtv(null);
 	}, [withdrawAmount]);
 	const getError = () => {
 		if (!withdrawAmount) return "Enter Amount";
@@ -77680,7 +78852,7 @@ var WithdrawModal = ({ isOpen, setIsOpen }) => {
 		return Boolean(error);
 	};
 	const handleClick = () => {
-		sendTx_default(withdraw$1(withdrawAmount), `Withdrawn ${inputStringFromBigInt(withdrawAmount)} ETH.`, setIsSubmitting, ({ tx }) => {
+		sendTx_default(withdraw(withdrawAmount), `Withdrawn ${inputStringFromBigInt(withdrawAmount)} ETH.`, setIsSubmitting, ({ tx }) => {
 			setTxResult({
 				...txSuccessData,
 				hash: tx.hash
@@ -77691,94 +78863,459 @@ var WithdrawModal = ({ isOpen, setIsOpen }) => {
 			error: e$2
 		}));
 	};
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(TxModal_default, {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(TxInputModal_default, {
 		className: "WithdrawModal",
 		isOpen,
 		setIsOpen,
 		txResult,
 		setTxResult,
 		children: [
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
-				className: "WithdrawModal__title",
-				children: "Withdraw"
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "WithdrawModal__input",
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(WithdrawInput, { setWithdrawAmount })
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "WithdrawModal__changes",
-				children: [
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "WithdrawModal__changes-row",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "WithdrawModal__changes-row-title",
-							children: [isMobile$1 ? "Collat." : "Collateral", " Change"]
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "WithdrawModal__changes-row-value",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmountChange_default, {
-								symbol: "ETH",
-								curAmount: account?.balance,
-								estAmount: estSuppliedAmount
-							})
-						})]
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "WithdrawModal__changes-row",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "WithdrawModal__changes-row-title",
-							children: [isMobile$1 ? "Liq." : "Liquidation", " Price Change"]
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "WithdrawModal__changes-row-value",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, {})
-						})]
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "WithdrawModal__changes-row",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "WithdrawModal__changes-row-title",
-							children: "LtV"
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "WithdrawModal__changes-row-value",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LtvChange_default, { estLtv })
-						})]
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { children: "Withdraw" }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TxInputModal_default.Input, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(InputField_default, {
+				className: "TxInputModal__input",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "InputField__title",
+					children: "Amount"
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "InputField__input",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Input_default, {
+						setValue: setWithdrawAmount,
+						maxData: {
+							title: "Available",
+							token: "ETH",
+							value: account?.balance
+						}
 					})
-				]
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "WithdrawModal__button",
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
-					onClick: handleClick,
-					isDisabled: getIsDisabled(),
-					children: getBtnText()
+				})]
+			}) }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(ModalMetrics_default, { children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "ModalMetrics__row",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "ModalMetrics__row-title",
+						children: [isMobile$1 ? "Collat." : "Collateral", " Change"]
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "ModalMetrics__row-value",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmountChange_default, {
+							symbol: "ETH",
+							curAmount: account?.balance,
+							estAmount: estSuppliedAmount
+						})
+					})]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "ModalMetrics__row",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "ModalMetrics__row-title",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceStr_default, {})
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "ModalMetrics__row-value",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, {})
+					})]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "ModalMetrics__row",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "ModalMetrics__row-title",
+						children: "LtV"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "ModalMetrics__row-value",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LtvChange_default, { estLtv })
+					})]
 				})
-			})
+			] }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TxInputModal_default.Button, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
+				onClick: handleClick,
+				isDisabled: getIsDisabled(),
+				children: getBtnText()
+			}) })
 		]
 	});
 };
-var WithdrawInput = ({ setWithdrawAmount }) => {
-	const account = useAccount_default();
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: "WithdrawModal__input-title",
-		children: "Amount"
-	}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: "WithdrawModal__input-node",
-		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Input_default, {
-			setValue: setWithdrawAmount,
-			maxData: {
-				title: "Available",
-				token: "ETH",
-				value: account?.balance
-			}
-		})
-	})] });
-};
 var WithdrawModal_default = WithdrawModal;
+var useUsdcPool = () => {
+	const contracts$1 = useContracts_default();
+	const { data: poolData, error: poolError } = useSWR(contracts$1 && ["useUsdcPool"], async () => {
+		return { rate: await queryRate(contracts$1) };
+	}, { refreshInterval: 60 * SECOND });
+	if (poolError) console.log("useUsdcPool error!\n", poolError);
+	return poolData;
+};
+var queryRate = async (contracts$1) => {
+	const { UsdcPool } = contracts$1.view;
+	return bringToDefaultDec(await UsdcPool.interestRate(), 4);
+};
+var useUsdcPool_default = useUsdcPool;
+var BellSvg = ({ color: color$1 = "yellow" }) => {
+	const colorHex = Colors[color$1.toUpperCase()];
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: "BellSvg",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
+			xmlns: "http://www.w3.org/2000/svg",
+			width: "30",
+			height: "30",
+			viewBox: "0 0 30 30",
+			fill: "none",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("g", {
+				clipPath: "url(#clip0_770_7151)",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
+					opacity: "0.2",
+					width: "30",
+					height: "30",
+					rx: "10",
+					fill: colorHex
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
+					d: "M12.1627 21.6815C12.5011 22.0942 12.9324 22.4273 13.4239 22.6557C13.9155 22.8841 14.4544 23.0018 15 23C15.5456 23.0018 16.0845 22.8841 16.5761 22.6557C17.0676 22.4273 17.4989 22.0942 17.8373 21.6815C15.9544 21.9272 14.0456 21.9272 12.1627 21.6815ZM20.25 13.25V13.778C20.25 14.4117 20.4366 15.0312 20.7882 15.5585L21.65 16.8507C22.4363 18.0312 21.8358 19.6355 20.4677 20.0082C16.8929 20.9845 13.1071 20.9845 9.53226 20.0082C8.16416 19.6355 7.56372 18.0312 8.35005 16.8507L9.21182 15.5585C9.56431 15.0269 9.75137 14.409 9.75081 13.778V13.25C9.75081 10.3505 12.1012 8 15 8C17.8988 8 20.25 10.3505 20.25 13.25Z",
+					fill: colorHex
+				})]
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("defs", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("clipPath", {
+				id: "clip0_770_7151",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
+					width: "30",
+					height: "30",
+					fill: "white"
+				})
+			}) })]
+		})
+	});
+};
+var BellSvg_default = BellSvg;
+var InfoSvg = ({ color: color$1 = "green" }) => {
+	const colorHex = Colors[color$1.toUpperCase()];
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: "InfoSvg",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
+			xmlns: "http://www.w3.org/2000/svg",
+			width: "30",
+			height: "30",
+			viewBox: "0 0 30 30",
+			fill: "none",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("g", {
+				clipPath: "url(#clip0_856_8688)",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
+						opacity: "0.2",
+						width: "30",
+						height: "30",
+						rx: "10",
+						fill: colorHex
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
+						opacity: "0.5",
+						cx: "15",
+						cy: "15",
+						r: "7",
+						fill: colorHex
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
+						d: "M15 18.5C15.1983 18.5 15.3647 18.4328 15.4991 18.2984C15.6335 18.164 15.7005 17.9979 15.7 17.8V15C15.7 14.8017 15.6328 14.6355 15.4984 14.5016C15.364 14.3677 15.1979 14.3005 15 14.3C14.8021 14.2995 14.636 14.3667 14.5016 14.5016C14.3672 14.6365 14.3 14.8026 14.3 15V17.8C14.3 17.9983 14.3672 18.1647 14.5016 18.2991C14.636 18.4335 14.8021 18.5005 15 18.5ZM15 12.9C15.1983 12.9 15.3647 12.8328 15.4991 12.6984C15.6335 12.564 15.7005 12.3979 15.7 12.2C15.6995 12.0021 15.6323 11.836 15.4984 11.7016C15.3645 11.5672 15.1983 11.5 15 11.5C14.8017 11.5 14.6355 11.5672 14.5016 11.7016C14.3677 11.836 14.3005 12.0021 14.3 12.2C14.2995 12.3979 14.3667 12.5642 14.5016 12.6991C14.6365 12.834 14.8026 12.9009 15 12.9ZM15 22C14.0317 22 13.1217 21.8161 12.27 21.4484C11.4183 21.0807 10.6775 20.582 10.0475 19.9525C9.4175 19.323 8.91887 18.5821 8.5516 17.73C8.18433 16.8779 8.00047 15.9679 8 15C7.99953 14.0321 8.1834 13.1221 8.5516 12.27C8.9198 11.4179 9.41843 10.677 10.0475 10.0475C10.6766 9.41797 11.4174 8.91933 12.27 8.5516C13.1226 8.18387 14.0326 8 15 8C15.9674 8 16.8774 8.18387 17.73 8.5516C18.5826 8.91933 19.3234 9.41797 19.9525 10.0475C20.5816 10.677 21.0804 11.4179 21.4491 12.27C21.8178 13.1221 22.0014 14.0321 22 15C21.9986 15.9679 21.8147 16.8779 21.4484 17.73C21.0821 18.5821 20.5834 19.323 19.9525 19.9525C19.3216 20.582 18.5807 21.0809 17.73 21.4491C16.8793 21.8173 15.9693 22.0009 15 22Z",
+						fill: colorHex
+					})
+				]
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("defs", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("clipPath", {
+				id: "clip0_856_8688",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
+					width: "30",
+					height: "30",
+					fill: "white"
+				})
+			}) })]
+		})
+	});
+};
+var InfoSvg_default = InfoSvg;
+var WarningSvg = ({ color: color$1 = "red" }) => {
+	const colorHex = Colors[color$1.toUpperCase()];
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: "WarningSvg",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
+			xmlns: "http://www.w3.org/2000/svg",
+			width: "30",
+			height: "30",
+			viewBox: "0 0 30 30",
+			fill: "none",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("g", {
+				clipPath: "url(#clip0_786_4111)",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
+						opacity: "0.2",
+						width: "30",
+						height: "30",
+						rx: "10",
+						fill: colorHex
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
+						opacity: "0.5",
+						x: "13",
+						y: "10",
+						width: "4",
+						height: "11",
+						fill: colorHex
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
+						d: "M21.5317 17.1562L17.3212 10.3949C16.7685 9.50775 15.9232 9 15.0001 9C14.0771 9 13.2318 9.50775 12.6791 10.3936L8.46856 17.1562C7.90877 18.0544 7.84752 19.0122 8.3012 19.7842C8.75416 20.5568 9.63871 21 10.7269 21H19.2733C20.3616 21 21.2461 20.5567 21.6991 19.7848C22.1521 19.0129 22.0915 18.0551 21.5317 17.1562ZM15.0001 18.6321C14.3919 18.6321 13.8962 18.1552 13.8962 17.5693C13.8962 16.9826 14.3912 16.5051 15.0001 16.5051C15.6091 16.5051 16.1041 16.9826 16.1041 17.5693C16.1041 18.1552 15.6084 18.6321 15.0001 18.6321ZM16.1632 13.5382C16.1553 13.5594 15.1654 15.9177 15.1654 15.9177C15.1383 15.9822 15.0728 16.0248 15.0009 16.0248C14.9289 16.0248 14.8634 15.9822 14.8363 15.9177L13.8457 13.5588C13.7862 13.4158 13.7551 13.2633 13.7538 13.1093C13.7538 12.4472 14.3129 11.9086 15.0001 11.9086C15.202 11.9091 15.4007 11.9567 15.5792 12.0475C15.7578 12.1382 15.9108 12.2694 16.0251 12.4296C16.1395 12.5898 16.2118 12.7744 16.2358 12.9675C16.2599 13.1606 16.2349 13.3564 16.1632 13.5382Z",
+						fill: colorHex
+					})
+				]
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("defs", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("clipPath", {
+				id: "clip0_786_4111",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
+					width: "30",
+					height: "30",
+					fill: "white"
+				})
+			}) })]
+		})
+	});
+};
+var WarningSvg_default = WarningSvg;
+var import_classnames$8 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var ICONS = {
+	bell: BellSvg_default,
+	warning: WarningSvg_default,
+	info: InfoSvg_default
+};
+var Notification = ({ color: color$1 = "yellow", type = "bell", className, children }) => {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: (0, import_classnames$8.default)("Notification", `_${type}`, className),
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "Notification__icon",
+			children: ICONS[type]({ color: color$1 })
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "Notification__text",
+			children
+		})]
+	});
+};
+var Notification_default = Notification;
+var import_classnames$7 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var Checkbox = ({ isChecked, setIsChecked, children, className }) => {
+	const handleChange = (e$2) => {
+		const checkbox = e$2.target;
+		setIsChecked(checkbox.checked);
+	};
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: (0, import_classnames$7.default)("Checkbox", className),
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+			type: "checkbox",
+			checked: isChecked,
+			onChange: handleChange
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", { children })]
+	});
+};
+var Checkbox_default = Checkbox;
+var BorrowModal = ({ isOpen, setIsOpen }) => {
+	const [borrowAmount, setBorrowAmount] = (0, import_react.useState)(null);
+	const [step, setStep] = (0, import_react.useState)(0);
+	const [isSubmitting, setIsSubmitting] = (0, import_react.useState)(false);
+	const [txResult, setTxResult] = (0, import_react.useState)(void 0);
+	const { borrow } = useProtocolActions_default();
+	const mutateAccount = useAccountMutate();
+	const txSuccessData = {
+		title: "Funds Borrowed Successfully",
+		text: "Your loan is active. View details in your dashboard"
+	};
+	const txErrorData = {
+		title: "Action failed",
+		text: "Something went wrong while providing the loan"
+	};
+	const handleClick = () => {
+		sendTx_default(borrow(borrowAmount), `Borrowed ${inputStringFromBigInt(borrowAmount)} USDC.`, setIsSubmitting, ({ tx }) => {
+			setTxResult({
+				...txSuccessData,
+				hash: tx.hash
+			});
+			mutateAccount();
+		}, (e$2) => setTxResult({
+			...txErrorData,
+			error: e$2
+		}));
+	};
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TxInputModal_default, {
+		className: "BorrowModal",
+		isOpen,
+		setIsOpen,
+		txResult,
+		setTxResult,
+		reset: () => setStep(0),
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputStep, {
+			borrowAmount,
+			setBorrowAmount,
+			goForth: () => setStep(1)
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TermsStep, {
+			borrowAmount,
+			goBack: () => setStep(0),
+			isSubmitting,
+			handleClick
+		})][step]
+	});
+};
+var InputStep = ({ borrowAmount, setBorrowAmount, goForth }) => {
+	const account = useAccount_default();
+	const usdcPool = useUsdcPool_default();
+	const [estLtv, setEstLtv] = (0, import_react.useState)(null);
+	const availableToBorrow = !isUndefined(account?.equity) ? multiplyBigIntByNumber(account.equity, 10) : void 0;
+	useDebounce(() => {
+		if (borrowAmount) {
+			setEstLtv(void 0);
+			setEstLtv(Ltv_default.calcLtvAfterBorrow(account, borrowAmount));
+		}
+	}, 600, [borrowAmount]);
+	(0, import_react.useEffect)(() => {
+		if (borrowAmount) setEstLtv(void 0);
+		else setEstLtv(null);
+	}, [borrowAmount]);
+	const getError = () => {
+		if (!borrowAmount) return "Enter Amount";
+		if (!estLtv) return ButtonLabels.LOADING;
+	};
+	const getBtnText = () => {
+		const error = getError();
+		if (error) return error;
+		return "Continue";
+	};
+	const getIsDisabled = () => {
+		const error = getError();
+		return Boolean(error);
+	};
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { children: "Borrow" }),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TxInputModal_default.Input, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(InputField_default, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "InputField__title",
+			children: "Amount"
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "InputField__input",
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Input_default, {
+				setValue: setBorrowAmount,
+				maxData: {
+					title: "Available",
+					token: "USDC",
+					value: availableToBorrow
+				}
+			})
+		})] }) }),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(ModalMetrics_default, { children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "ModalMetrics__row",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "ModalMetrics__row-title",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceStr_default, {})
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "ModalMetrics__row-value",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, {})
+				})]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "ModalMetrics__row",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "ModalMetrics__row-title",
+					children: "LtV"
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "ModalMetrics__row-value",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LtvChange_default, { estLtv })
+				})]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "ModalMetrics__row",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "ModalMetrics__row-title",
+					children: "Borrow Rate"
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "ModalMetrics__row-value",
+					children: formatPercent(usdcPool?.rate, 0)
+				})]
+			})
+		] }),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TxInputModal_default.Button, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
+			onClick: goForth,
+			isDisabled: getIsDisabled(),
+			children: getBtnText()
+		}) })
+	] });
+};
+var TermsStep = ({ borrowAmount, goBack, isSubmitting, handleClick }) => {
+	const usdcPool = useUsdcPool_default();
+	const [isChecked, setIsChecked] = (0, import_react.useState)(false);
+	const getError = () => {
+		if (!isChecked) return "Agreement needed";
+		if (isSubmitting) return ButtonLabels.SUBMITTING;
+	};
+	const getBtnText = () => {
+		const error = getError();
+		if (error) return error;
+		return "Borrow without Protection";
+	};
+	const getIsDisabled = () => {
+		const error = getError();
+		return Boolean(error);
+	};
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { children: "Review Loan Terms" }),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(ModalMetrics_default, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "ModalMetrics__row",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "ModalMetrics__row-title",
+				children: "Borrow Amount"
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "ModalMetrics__row-value",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmount_default, { value: borrowAmount })
+			})]
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "ModalMetrics__row",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "ModalMetrics__row-title",
+				children: "Borrow Rate"
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "ModalMetrics__row-value",
+				children: formatPercent(usdcPool?.rate, 0)
+			})]
+		})] }),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Notification_default, {
+			className: "BorrowModal__terms-notification",
+			children: "Please note: loans issued without insurance may be subject to liquidation."
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Checkbox_default, {
+			isChecked,
+			setIsChecked,
+			children: "I agree to the loan terms and understand the costs"
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "BorrowModal__terms-buttons",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
+				type: "tertiary",
+				onClick: goBack,
+				children: "Back"
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
+				onClick: handleClick,
+				isDisabled: getIsDisabled(),
+				children: getBtnText()
+			})]
+		})
+	] });
+};
+var BorrowModal_default = BorrowModal;
+var RepayModal = ({ isOpen, setIsOpen }) => {
+	const [txResult, setTxResult] = (0, import_react.useState)(void 0);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(TxModal_default, {
+		className: "RepayModal",
+		isOpen,
+		setIsOpen,
+		txResult,
+		setTxResult,
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+			className: "RepayModal__title",
+			children: "Repay"
+		}), "in progress"]
+	});
+};
+var RepayModal_default = RepayModal;
 var _DashboardContext = (0, import_react.createContext)(null);
 var DashboardContext = ({ children }) => {
 	const [isCreateModalOpen, setIsCreateModalOpen] = (0, import_react.useState)(false);
 	const [isSupplyModalOpen, setIsSupplyModalOpen] = (0, import_react.useState)(false);
 	const [isWithdrawModalOpen, setIsWithdrawModalOpen] = (0, import_react.useState)(false);
+	const [isBorrowModalOpen, setIsBorrowModalOpen] = (0, import_react.useState)(false);
+	const [isRepayModalOpen, setIsRepayModalOpen] = (0, import_react.useState)(false);
 	const data = {
 		isCreateModalOpen,
 		setIsCreateModalOpen,
@@ -77788,7 +79325,13 @@ var DashboardContext = ({ children }) => {
 		openSupplyModal: () => setIsSupplyModalOpen(true),
 		isWithdrawModalOpen,
 		setIsWithdrawModalOpen,
-		openWithdrawModal: () => setIsWithdrawModalOpen(true)
+		openWithdrawModal: () => setIsWithdrawModalOpen(true),
+		isBorrowModalOpen,
+		setIsBorrowModalOpen,
+		openBorrowModal: () => setIsBorrowModalOpen(true),
+		isRepayModalOpen,
+		setIsRepayModalOpen,
+		openRepayModal: () => setIsRepayModalOpen(true)
 	};
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(_DashboardContext.Provider, {
 		value: data,
@@ -77805,6 +79348,14 @@ var DashboardContext = ({ children }) => {
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(WithdrawModal_default, {
 				isOpen: isWithdrawModalOpen,
 				setIsOpen: setIsWithdrawModalOpen
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(BorrowModal_default, {
+				isOpen: isBorrowModalOpen,
+				setIsOpen: setIsBorrowModalOpen
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(RepayModal_default, {
+				isOpen: isRepayModalOpen,
+				setIsOpen: setIsRepayModalOpen
 			})
 		]
 	});
@@ -78945,9 +80496,9 @@ var jsx = function jsx$4(type, props) {
 	for (var i$3 = 2; i$3 < argsLength; i$3++) createElementArgArray[i$3] = args[i$3];
 	return import_react.createElement.apply(null, createElementArgArray);
 };
-(function(_jsx$41) {
+(function(_jsx$53) {
 	var JSX;
-	(function(_JSX) {})(JSX || (JSX = _jsx$41.JSX || (_jsx$41.JSX = {})));
+	(function(_JSX) {})(JSX || (JSX = _jsx$53.JSX || (_jsx$53.JSX = {})));
 })(jsx || (jsx = {}));
 function css$2() {
 	for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) args[_key] = arguments[_key];
@@ -79322,10 +80873,10 @@ var cleanCommonProps = function cleanCommonProps$1(props) {
 	return _objectSpread2({}, _objectWithoutProperties(props, _excluded$4));
 };
 var getStyleProps = function getStyleProps$1(props, name, classNamesState) {
-	var cx$13 = props.cx, getStyles = props.getStyles, getClassNames = props.getClassNames, className = props.className;
+	var cx$19 = props.cx, getStyles = props.getStyles, getClassNames = props.getClassNames, className = props.className;
 	return {
 		css: getStyles(name, props),
-		className: cx$13(classNamesState !== null && classNamesState !== void 0 ? classNamesState : {}, getClassNames(name, props), className)
+		className: cx$19(classNamesState !== null && classNamesState !== void 0 ? classNamesState : {}, getClassNames(name, props), className)
 	};
 };
 function isDocumentElement(el) {
@@ -79924,13 +81475,13 @@ var groupCSS = function groupCSS$1(_ref$1, unstyled) {
 	};
 };
 var Group = function Group$2(props) {
-	var children = props.children, cx$13 = props.cx, getStyles = props.getStyles, getClassNames = props.getClassNames, Heading = props.Heading, headingProps = props.headingProps, innerProps = props.innerProps, label = props.label, theme = props.theme, selectProps = props.selectProps;
+	var children = props.children, cx$19 = props.cx, getStyles = props.getStyles, getClassNames = props.getClassNames, Heading = props.Heading, headingProps = props.headingProps, innerProps = props.innerProps, label = props.label, theme = props.theme, selectProps = props.selectProps;
 	return jsx("div", _extends({}, getStyleProps(props, "group", { group: true }), innerProps), jsx(Heading, _extends({}, headingProps, {
 		selectProps,
 		theme,
 		getStyles,
 		getClassNames,
-		cx: cx$13
+		cx: cx$19
 	}), label), jsx("div", null, children));
 };
 var groupHeadingCSS = function groupHeadingCSS$1(_ref2$3, unstyled) {
@@ -80003,11 +81554,11 @@ var inputStyle = function inputStyle$1(isHidden) {
 		width: "100%"
 	}, spacingStyle);
 };
-var Input$1 = function Input$2(props) {
-	var cx$13 = props.cx, value = props.value;
+var Input$1 = function Input$3(props) {
+	var cx$19 = props.cx, value = props.value;
 	var _cleanCommonProps = cleanCommonProps(props), innerRef = _cleanCommonProps.innerRef, isDisabled = _cleanCommonProps.isDisabled, isHidden = _cleanCommonProps.isHidden, inputClassName = _cleanCommonProps.inputClassName, innerProps = _objectWithoutProperties(_cleanCommonProps, _excluded$5);
 	return jsx("div", _extends({}, getStyleProps(props, "input", { "input-container": true }), { "data-value": value || "" }), jsx("input", _extends({
-		className: cx$13({ input: true }, inputClassName),
+		className: cx$19({ input: true }, inputClassName),
 		ref: innerRef,
 		style: inputStyle(isHidden),
 		disabled: isDisabled
@@ -81830,11 +83381,11 @@ var Select = /* @__PURE__ */ function(_Component) {
 		{
 			key: "getCommonProps",
 			value: function getCommonProps() {
-				var clearValue = this.clearValue, cx$13 = this.cx, getStyles = this.getStyles, getClassNames = this.getClassNames, getValue$2 = this.getValue, selectOption = this.selectOption, setValue = this.setValue, props = this.props;
+				var clearValue = this.clearValue, cx$19 = this.cx, getStyles = this.getStyles, getClassNames = this.getClassNames, getValue$2 = this.getValue, selectOption = this.selectOption, setValue = this.setValue, props = this.props;
 				var isMulti = props.isMulti, isRtl = props.isRtl, options$2 = props.options;
 				return {
 					clearValue,
-					cx: cx$13,
+					cx: cx$19,
 					getStyles,
 					getClassNames,
 					getValue: getValue$2,
@@ -81949,7 +83500,7 @@ var Select = /* @__PURE__ */ function(_Component) {
 			key: "renderInput",
 			value: function renderInput() {
 				var _this$props8 = this.props, isDisabled = _this$props8.isDisabled, isSearchable = _this$props8.isSearchable, inputId = _this$props8.inputId, inputValue = _this$props8.inputValue, tabIndex = _this$props8.tabIndex, form = _this$props8.form, menuIsOpen = _this$props8.menuIsOpen, required = _this$props8.required;
-				var Input$2 = this.getComponents().Input;
+				var Input$3 = this.getComponents().Input;
 				var _this$state4 = this.state, inputIsHidden = _this$state4.inputIsHidden, ariaSelection = _this$state4.ariaSelection;
 				var commonProps = this.commonProps;
 				var id$2 = inputId || this.getElementId("input");
@@ -81977,7 +83528,7 @@ var Select = /* @__PURE__ */ function(_Component) {
 					form,
 					value: ""
 				}, ariaAttributes));
-				return /* @__PURE__ */ import_react.createElement(Input$2, _extends({}, commonProps, {
+				return /* @__PURE__ */ import_react.createElement(Input$3, _extends({}, commonProps, {
 					autoCapitalize: "none",
 					autoComplete: "off",
 					autoCorrect: "off",
@@ -82372,10 +83923,10 @@ var StateManagedSelect$1 = /* @__PURE__ */ (0, import_react.forwardRef)(function
 	var baseSelectProps = useStateManager(props);
 	return /* @__PURE__ */ import_react.createElement(Select, _extends({ ref }, baseSelectProps));
 });
-var import_classnames$5 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$6 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var DropdownSvg = ({ className }) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
-		className: (0, import_classnames$5.default)("DropdownSvg", className),
+		className: (0, import_classnames$6.default)("DropdownSvg", className),
 		xmlns: "http://www.w3.org/2000/svg",
 		width: "14",
 		height: "7",
@@ -82391,14 +83942,14 @@ var DropdownSvg = ({ className }) => {
 	});
 };
 var DropdownSvg_default = DropdownSvg;
-var import_classnames$4 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$5 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var Selector = ({ className, options: options$2, defaultValue, defaultOption, isDisabled, onChange, ...props }) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(StateManagedSelect$1, {
 		unstyled: true,
 		options: options$2,
 		defaultValue: defaultOption ?? findDefaultOption(defaultValue, options$2) ?? options$2[0],
 		onChange,
-		className: (0, import_classnames$4.default)("Selector", className),
+		className: (0, import_classnames$5.default)("Selector", className),
 		classNamePrefix: "Selector",
 		isClearable: false,
 		isSearchable: false,
@@ -82438,7 +83989,7 @@ var ConfirmSvg = () => {
 	});
 };
 var ConfirmSvg_default = ConfirmSvg;
-var import_classnames$3 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$4 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var SelectedAccount = () => {
 	const accounts = useAccounts_default();
 	const account = useAccount_default();
@@ -82510,7 +84061,7 @@ var MenuList = ({ children, ...props }) => {
 var Option = ({ value: id$2, data, isSelected, ...props }) => {
 	const { balance } = data.account;
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(components.Option, {
-		className: (0, import_classnames$3.default)(isSelected && "Selector__option--is-selected"),
+		className: (0, import_classnames$4.default)(isSelected && "Selector__option--is-selected"),
 		...props,
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 			className: "_account",
@@ -82553,85 +84104,143 @@ var TokenName = ({ symbol }) => {
 	});
 };
 var TokenName_default = TokenName;
-var Supply = () => {
-	const account = useAccount_default();
-	const data = {
-		Asset: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenName_default, { symbol: "ETH" }),
-		Supplied: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmount_default, {
-			symbol: "ETH",
-			value: account?.balance,
-			showsUsdValue: true
-		}),
-		APY: "0%"
-	};
+var import_classnames$3 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var LendingPanel = ({ title, icon, data, btnsData, className }) => {
 	const isMobile$1 = useIsMobile_default(992);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: "Supply box _sm",
+		className: (0, import_classnames$3.default)(className, "LendingPanel", "box", "_sm"),
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "Supply__head",
+			className: "LendingPanel__head",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "Supply__icon",
+				className: "LendingPanel__icon",
 				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
-					src: supply_default,
-					alt: "supply icon"
+					src: icon,
+					alt: `${title} icon`
 				})
 			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "Supply__title",
-				children: "Supply"
+				className: "LendingPanel__title",
+				children: title
 			})]
-		}), isMobile$1 ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Mobile, { data }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Desktop, { data })]
+		}), isMobile$1 ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Mobile, {
+			data,
+			btnsData
+		}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Desktop, {
+			data,
+			btnsData
+		})]
 	});
 };
-var Desktop = ({ data }) => {
+var Desktop = ({ data, btnsData }) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("table", {
-		className: "Supply__table",
+		className: "LendingPanel__table",
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("tr", { children: [Object.keys(data).map((key) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: key }, key)), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", {})] }) }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("tbody", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("tr", { children: [Object.keys(data).map((key) => {
 			const value = data[key];
 			return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: value }, key);
 		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-			className: "Supply__buttons _table",
-			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Buttons, {})
+			className: "LendingPanel__buttons _table",
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Buttons, { btnsData })
 		}) })] }) })]
 	});
 };
-var Mobile = ({ data }) => {
+var Mobile = ({ data, btnsData }) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: "Supply__info",
+		className: "LendingPanel__info",
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-			className: "Supply__info-rows",
+			className: "LendingPanel__info-rows",
 			children: Object.keys(data).map((key) => {
 				const value = data[key];
 				return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "Supply__info-row",
+					className: "LendingPanel__info-row",
 					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "Supply__info-row-title",
+						className: "LendingPanel__info-row-title",
 						children: key
 					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "Supply__info-row-value",
+						className: "LendingPanel__info-row-value",
 						children: value
 					})]
 				}, key);
 			})
 		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-			className: "Supply__buttons _info",
-			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Buttons, {})
+			className: "LendingPanel__buttons _info",
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Buttons, { btnsData })
 		})]
 	});
 };
-var Buttons = () => {
-	const account = useAccount_default();
-	const { openSupplyModal, openWithdrawModal } = useDashboardContext();
+var Buttons = ({ btnsData }) => {
+	const { primary, secondary } = btnsData;
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
-		onClick: openSupplyModal,
-		children: "Supply"
+		onClick: primary.handleClick,
+		children: primary.name
 	}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
 		type: "secondary",
-		onClick: openWithdrawModal,
-		isDisabled: !account?.balance,
-		children: "Withdraw"
+		onClick: secondary.handleClick,
+		isDisabled: secondary.isDisabled,
+		children: secondary.name
 	})] });
 };
+var LendingPanel_default = LendingPanel;
+var Supply = () => {
+	const account = useAccount_default();
+	const { openSupplyModal, openWithdrawModal } = useDashboardContext();
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LendingPanel_default, {
+		className: "Supply",
+		title: "Supply",
+		icon: supply_default,
+		data: {
+			Asset: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenName_default, { symbol: "ETH" }),
+			Supplied: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmount_default, {
+				symbol: "ETH",
+				value: account?.balance,
+				showsUsdValue: true
+			}),
+			APY: "0%"
+		},
+		btnsData: {
+			primary: {
+				name: "Supply",
+				handleClick: openSupplyModal
+			},
+			secondary: {
+				name: "Withdraw",
+				handleClick: openWithdrawModal,
+				isDisabled: !account?.balance
+			}
+		}
+	});
+};
 var Supply_default = Supply;
+var borrow_default = "data:image/svg+xml,%3csvg%20width='40'%20height='40'%20viewBox='0%200%2040%2040'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_93_681)'%3e%3crect%20width='40'%20height='40'%20rx='12'%20fill='%23212367'/%3e%3ccircle%20opacity='0.5'%20cx='20'%20cy='20'%20r='10'%20fill='%235069DD'/%3e%3cpath%20d='M20%2010C14.4771%2010%2010%2014.4771%2010%2020C10%2025.5229%2014.4771%2030%2020%2030C25.5229%2030%2030%2025.5229%2030%2020C30%2014.4771%2025.5229%2010%2020%2010ZM20.8635%2025.4218V26.8302H19.5163V25.4376C17.3056%2025.1349%2016.3376%2023.3184%2016.3376%2023.3184L17.7136%2022.1673C17.7136%2022.1673%2018.5923%2023.6968%2020.1816%2023.6968C21.0596%2023.6968%2021.7256%2023.2269%2021.7256%2022.424C21.7256%2020.547%2016.6685%2020.7747%2016.6685%2017.2926C16.6685%2015.7789%2017.8657%2014.6883%2019.5156%2014.4303V13.0233H20.8628V14.4303C22.0132%2014.5817%2023.3755%2015.1871%2023.3755%2016.4896V17.4886H21.5894V17.0043C21.5894%2016.5047%2020.9529%2016.1717%2020.2408%2016.1717C19.3326%2016.1717%2018.6673%2016.6258%2018.6673%2017.2616C18.6673%2019.184%2023.7244%2018.7147%2023.7244%2022.3634C23.7244%2023.8634%2022.6042%2025.1638%2020.8635%2025.4218Z'%20fill='%235069DD'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_93_681'%3e%3crect%20width='40'%20height='40'%20fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e";
+var Borrow = () => {
+	const usdcPool = useUsdcPool_default();
+	const account = useAccount_default();
+	const { openBorrowModal, openRepayModal } = useDashboardContext();
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LendingPanel_default, {
+		className: "Borrow",
+		title: "Borrow",
+		icon: borrow_default,
+		data: {
+			Asset: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenName_default, { symbol: "USDC" }),
+			"Current Debt": /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmount_default, {
+				value: account?.debt,
+				symbol: "USDC",
+				showsUsdValue: true
+			}),
+			"Borrow APR": formatPercent(usdcPool?.rate, 0)
+		},
+		btnsData: {
+			primary: {
+				name: "Borrow",
+				handleClick: openBorrowModal
+			},
+			secondary: {
+				name: "Repay",
+				handleClick: openRepayModal,
+				isDisabled: !account?.debt
+			}
+		}
+	});
+};
+var Borrow_default = Borrow;
 require_classnames();
 var Dashboard = () => {
 	const { isConnected: isConnected$1 } = useWallet_default();
@@ -82653,7 +84262,11 @@ var Error$1 = ({ children }) => {
 	});
 };
 var Content = () => {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SelectedAccount_default, {}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Supply_default, {})] });
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SelectedAccount_default, {}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Supply_default, {}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Borrow_default, {})
+	] });
 };
 var Dashboard_default = Dashboard;
 var AppRoutes = () => {
