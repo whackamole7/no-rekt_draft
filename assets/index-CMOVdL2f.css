@@ -30,16 +30,19 @@
     line-height: 120%;
     color: #ffffff;
     background-color: #0D0534;
-    padding: 30px 0;
+    padding: 0;
     margin: 0;
   }
-  #root {
-    min-height: calc(100vh + 1px);
+  #root > ._container {
+    min-height: 100dvh;
+    width: 100%;
     display: flex;
     flex-direction: column;
+    padding-top: 30px;
+    padding-bottom: 30px;
   }
-  #root > ._container {
-    width: 100%;
+  #root > ._container main {
+    flex-grow: 1;
   }
   *[disabled] {
     cursor: not-allowed;
@@ -199,6 +202,65 @@
   .hlight {
     color: #ffffff;
   }
+  .anim_fancy {
+    position: relative;
+  }
+  .anim_fancy ._lines {
+    position: absolute;
+    inset: 0;
+    mix-blend-mode: hard-light;
+    pointer-events: none;
+    z-index: 1;
+    transform: scaleY(0.95) translateZ(0);
+  }
+  .anim_fancy ._lines > div {
+    position: absolute;
+    inset: 0;
+  }
+  .anim_fancy ._lines > div:last-child {
+    transform: rotate(180deg);
+  }
+  .anim_fancy ._lines > div svg {
+    display: block;
+    position: absolute;
+    inset: 0;
+    overflow: visible;
+    fill: none;
+    stroke-width: 1;
+    stroke: #c9e9ff;
+    width: 100%;
+    height: 100%;
+    stroke-dasharray: 2 10;
+    stroke-dashoffset: 14;
+    opacity: 0;
+  }
+  .anim_fancy ._lines > div svg:nth-child(1) {
+    stroke: #f8fcff;
+  }
+  .anim_fancy ._lines > div svg:nth-child(2) {
+    stroke-width: 6px;
+    filter: blur(20px);
+  }
+  .anim_fancy ._lines > div svg:nth-child(3) {
+    stroke-width: 5px;
+    filter: blur(6px);
+  }
+  .anim_fancy ._lines > div svg:nth-child(4) {
+    stroke-width: 10px;
+    filter: blur(56px);
+  }
+  .anim_fancy._start svg {
+    animation: stroke 1s linear;
+  }
+  @keyframes stroke {
+    30%, 55% {
+      opacity: 0.75;
+    }
+    100% {
+      stroke-dashoffset: 4;
+      opacity: 0;
+    }
+  }
 }.Dashboard {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -340,67 +402,10 @@
     color: #9A94B8;
   }
   .Button._fancy {
-    position: relative;
     background-color: #8E3ECD;
   }
   .Button._fancy:active:enabled {
     background-color: rgb(153.3, 81.3, 210);
-  }
-  .Button._fancy .Button__lines {
-    position: absolute;
-    inset: 0;
-    mix-blend-mode: hard-light;
-    pointer-events: none;
-    z-index: 1;
-    transform: scaleY(0.95) translateZ(0);
-  }
-  .Button._fancy .Button__lines > div {
-    position: absolute;
-    inset: 0;
-  }
-  .Button._fancy .Button__lines > div:last-child {
-    transform: rotate(180deg);
-  }
-  .Button._fancy .Button__lines > div svg {
-    display: block;
-    position: absolute;
-    inset: 0;
-    overflow: visible;
-    fill: none;
-    stroke-width: 1;
-    stroke: #c9e9ff;
-    width: 100%;
-    height: 100%;
-    stroke-dasharray: 2 10;
-    stroke-dashoffset: 14;
-    opacity: 0;
-  }
-  .Button._fancy .Button__lines > div svg:nth-child(1) {
-    stroke: #f8fcff;
-  }
-  .Button._fancy .Button__lines > div svg:nth-child(2) {
-    stroke-width: 6px;
-    filter: blur(20px);
-  }
-  .Button._fancy .Button__lines > div svg:nth-child(3) {
-    stroke-width: 5px;
-    filter: blur(6px);
-  }
-  .Button._fancy .Button__lines > div svg:nth-child(4) {
-    stroke-width: 10px;
-    filter: blur(56px);
-  }
-  .Button._fancy._start svg {
-    animation: stroke 1s linear;
-  }
-  @keyframes stroke {
-    30%, 55% {
-      opacity: 0.75;
-    }
-    100% {
-      stroke-dashoffset: 4;
-      opacity: 0;
-    }
   }
 }.CreateAccountModal__info-title {
   margin-bottom: 10px;
@@ -1477,6 +1482,39 @@
 }.Logo {
   font-family: "Nohemi", sans-serif;
   font-size: 25px;
+}.Footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 40px;
+  background-color: #130B3A;
+  border: 1px solid rgba(172, 169, 187, 0.08);
+  border-radius: 20px;
+  padding: 20px 20px 20px 30px;
+  margin-top: 100px;
+}
+.Footer__copyright {
+  color: #9A94B8;
+}
+.Footer__socials {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+@media (max-width: 768px) {
+  .Footer {
+    justify-content: center;
+    padding: 20px;
+    margin-top: 80px;
+  }
+  .Footer__copyright {
+    display: none;
+  }
+}
+@media (max-width: 480px) {
+  .Footer {
+    margin-top: 60px;
+  }
 }.SwitchChainModal {
   width: 280px;
 }

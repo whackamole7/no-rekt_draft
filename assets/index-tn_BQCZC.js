@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-M2ptg5NM.js","assets/secp256k1-DySbwSVg.js","assets/dist-CPJI1ZyW.js","assets/index.es-CKMuoQGm.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-DYS1MtiI.js","assets/secp256k1-CAakbvi3.js","assets/dist-CPeGcdf0.js","assets/index.es-D31UIKjp.js"])))=>i.map(i=>d[i]);
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -16899,7 +16899,7 @@ async function call(client, args) {
 	} catch (err) {
 		const data$1 = getRevertErrorData(err);
 		const { offchainLookup, offchainLookupSignature } = await __vitePreload(async () => {
-			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-Cx2BN6we.js");
+			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-BiGf1uRl.js");
 			return {
 				offchainLookup: offchainLookup$1,
 				offchainLookupSignature: offchainLookupSignature$1
@@ -17400,7 +17400,7 @@ function publicKeyToAddress(publicKey) {
 async function recoverPublicKey({ hash: hash$3, signature }) {
 	const hashHex = isHex(hash$3) ? hash$3 : toHex(hash$3);
 	const { secp256k1: secp256k1$1 } = await __vitePreload(async () => {
-		const { secp256k1: secp256k1$2 } = await import("./secp256k1-M2ptg5NM.js");
+		const { secp256k1: secp256k1$2 } = await import("./secp256k1-DYS1MtiI.js");
 		return { secp256k1: secp256k1$2 };
 	}, __vite__mapDeps([0,1]));
 	return `0x${(() => {
@@ -22487,7 +22487,7 @@ var require_use_sync_external_store_shim_production$1 = /* @__PURE__ */ __common
 	function is$2(x$2, y$3) {
 		return x$2 === y$3 && (0 !== x$2 || 1 / x$2 === 1 / y$3) || x$2 !== x$2 && y$3 !== y$3;
 	}
-	var objectIs$2 = "function" === typeof Object.is ? Object.is : is$2, useState$23 = React$9.useState, useEffect$34 = React$9.useEffect, useLayoutEffect$6 = React$9.useLayoutEffect, useDebugValue$3 = React$9.useDebugValue;
+	var objectIs$2 = "function" === typeof Object.is ? Object.is : is$2, useState$23 = React$9.useState, useEffect$35 = React$9.useEffect, useLayoutEffect$6 = React$9.useLayoutEffect, useDebugValue$3 = React$9.useDebugValue;
 	function useSyncExternalStore$2$6(subscribe$1, getSnapshot) {
 		var value = getSnapshot(), _useState = useState$23({ inst: {
 			value,
@@ -22502,7 +22502,7 @@ var require_use_sync_external_store_shim_production$1 = /* @__PURE__ */ __common
 			value,
 			getSnapshot
 		]);
-		useEffect$34(function() {
+		useEffect$35(function() {
 			checkIfSnapshotChanged$1(inst) && forceUpdate({ inst });
 			return subscribe$1(function() {
 				checkIfSnapshotChanged$1(inst) && forceUpdate({ inst });
@@ -22544,7 +22544,7 @@ var require_with_selector_production = /* @__PURE__ */ __commonJSMin(((exports) 
 	function is$1(x$2, y$3) {
 		return x$2 === y$3 && (0 !== x$2 || 1 / x$2 === 1 / y$3) || x$2 !== x$2 && y$3 !== y$3;
 	}
-	var objectIs$1 = "function" === typeof Object.is ? Object.is : is$1, useSyncExternalStore$6 = shim$1.useSyncExternalStore, useRef$19 = React$8.useRef, useEffect$33 = React$8.useEffect, useMemo$15 = React$8.useMemo, useDebugValue$2 = React$8.useDebugValue;
+	var objectIs$1 = "function" === typeof Object.is ? Object.is : is$1, useSyncExternalStore$6 = shim$1.useSyncExternalStore, useRef$19 = React$8.useRef, useEffect$34 = React$8.useEffect, useMemo$15 = React$8.useMemo, useDebugValue$2 = React$8.useDebugValue;
 	exports.useSyncExternalStoreWithSelector = function(subscribe$1, getSnapshot, getServerSnapshot, selector, isEqual$1) {
 		var instRef = useRef$19(null);
 		if (null === instRef.current) {
@@ -22586,7 +22586,7 @@ var require_with_selector_production = /* @__PURE__ */ __commonJSMin(((exports) 
 			isEqual$1
 		]);
 		var value = useSyncExternalStore$6(subscribe$1, instRef[0], instRef[1]);
-		useEffect$33(function() {
+		useEffect$34(function() {
 			inst.hasValue = !0;
 			inst.value = value;
 		}, [value]);
@@ -23203,14 +23203,14 @@ function safe(parameters = {}) {
 			if (!(typeof window !== "undefined" && window?.parent !== window)) return;
 			if (!provider_) {
 				const { default: SDK } = await __vitePreload(async () => {
-					const { default: SDK$1 } = await import("./esm-D-LrEW7p.js");
+					const { default: SDK$1 } = await import("./esm-DAdJsV_4.js");
 					return { default: SDK$1 };
 				}, []);
 				const sdk = new SDK(parameters);
 				const safe$1 = await withTimeout(() => sdk.safe.getInfo(), { timeout: parameters.unstable_getInfoTimeout ?? 10 });
 				if (!safe$1) throw new Error("Could not load Safe information");
 				provider_ = new (await ((async () => {
-					const Provider = await __vitePreload(() => import("./dist-C_ReSuV-.js").then(__toDynamicImportESM(1)), []);
+					const Provider = await __vitePreload(() => import("./dist-D1lpdhCZ.js").then(__toDynamicImportESM(1)), []);
 					if (typeof Provider.SafeAppProvider !== "function" && typeof Provider.default.SafeAppProvider === "function") return Provider.default.SafeAppProvider;
 					return Provider.SafeAppProvider;
 				})()))(safe$1, sdk);
@@ -23370,7 +23370,7 @@ function walletConnect(parameters) {
 				const optionalChains = config.chains.map((x$2) => x$2.id);
 				if (!optionalChains.length) return;
 				const { EthereumProvider: EthereumProvider$1 } = await __vitePreload(async () => {
-					const { EthereumProvider: EthereumProvider$2 } = await import("./dist-CPJI1ZyW.js");
+					const { EthereumProvider: EthereumProvider$2 } = await import("./dist-CPeGcdf0.js");
 					return { EthereumProvider: EthereumProvider$2 };
 				}, __vite__mapDeps([2,3,1]));
 				return await EthereumProvider$1.init({
@@ -68537,7 +68537,7 @@ var require_use_sync_external_store_shim_production = /* @__PURE__ */ __commonJS
 	function is(x$2, y$3) {
 		return x$2 === y$3 && (0 !== x$2 || 1 / x$2 === 1 / y$3) || x$2 !== x$2 && y$3 !== y$3;
 	}
-	var objectIs = "function" === typeof Object.is ? Object.is : is, useState$17 = React$6.useState, useEffect$17 = React$6.useEffect, useLayoutEffect$3 = React$6.useLayoutEffect, useDebugValue$1 = React$6.useDebugValue;
+	var objectIs = "function" === typeof Object.is ? Object.is : is, useState$17 = React$6.useState, useEffect$18 = React$6.useEffect, useLayoutEffect$3 = React$6.useLayoutEffect, useDebugValue$1 = React$6.useDebugValue;
 	function useSyncExternalStore$2(subscribe$1, getSnapshot) {
 		var value = getSnapshot(), _useState = useState$17({ inst: {
 			value,
@@ -68552,7 +68552,7 @@ var require_use_sync_external_store_shim_production = /* @__PURE__ */ __commonJS
 			value,
 			getSnapshot
 		]);
-		useEffect$17(function() {
+		useEffect$18(function() {
 			checkIfSnapshotChanged(inst) && forceUpdate({ inst });
 			return subscribe$1(function() {
 				checkIfSnapshotChanged(inst) && forceUpdate({ inst });
@@ -75933,6 +75933,53 @@ var SpinnerBig = () => {
 	});
 };
 var SpinnerBig_default = SpinnerBig;
+const animateFancyButtons = () => {
+	const createSVG = (width, height, radius) => {
+		const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+		const rectangle = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+		svg.setAttributeNS("http://www.w3.org/2000/svg", "viewBox", `0 0 ${width} ${height}`);
+		rectangle.setAttribute("x", "0");
+		rectangle.setAttribute("y", "0");
+		rectangle.setAttribute("width", "100%");
+		rectangle.setAttribute("height", "100%");
+		rectangle.setAttribute("rx", `${radius}`);
+		rectangle.setAttribute("ry", `${radius}`);
+		rectangle.setAttribute("pathLength", "10");
+		svg.appendChild(rectangle);
+		return svg;
+	};
+	document.querySelectorAll(".anim_fancy").forEach((el) => {
+		if (el.classList.contains("_enabled")) return;
+		const style$1 = getComputedStyle(el);
+		const lines = document.createElement("div");
+		lines.classList.add("_lines");
+		const groupTop = document.createElement("div");
+		const groupBottom = document.createElement("div");
+		const radius = el.getAttribute("data-anim-radius");
+		const svg = createSVG(el.offsetWidth, el.offsetHeight, radius ?? parseInt(style$1.borderRadius, 10));
+		groupTop.appendChild(svg);
+		groupTop.appendChild(svg.cloneNode(true));
+		groupTop.appendChild(svg.cloneNode(true));
+		groupTop.appendChild(svg.cloneNode(true));
+		groupBottom.appendChild(svg.cloneNode(true));
+		groupBottom.appendChild(svg.cloneNode(true));
+		groupBottom.appendChild(svg.cloneNode(true));
+		groupBottom.appendChild(svg.cloneNode(true));
+		lines.appendChild(groupTop);
+		lines.appendChild(groupBottom);
+		el.appendChild(lines);
+		const startAnimation$1 = () => {
+			el.classList.add("_start");
+		};
+		const stopAnimation = () => {
+			el.classList.remove("_start");
+		};
+		el.addEventListener("pointerenter", startAnimation$1);
+		el.addEventListener("focus", startAnimation$1);
+		svg.addEventListener("animationend", stopAnimation);
+		el.classList.add("_enabled");
+	});
+};
 var require_classnames = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	(function() {
 		var hasOwn$2 = {}.hasOwnProperty;
@@ -75968,57 +76015,13 @@ var require_classnames = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	})();
 }));
 var import_classnames$18 = /* @__PURE__ */ __toESM(require_classnames(), 1);
-const animateFancyButtons = () => {
-	const createSVG = (width, height, radius) => {
-		const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-		const rectangle = document.createElementNS("http://www.w3.org/2000/svg", "rect");
-		svg.setAttributeNS("http://www.w3.org/2000/svg", "viewBox", `0 0 ${width} ${height}`);
-		rectangle.setAttribute("x", "0");
-		rectangle.setAttribute("y", "0");
-		rectangle.setAttribute("width", "100%");
-		rectangle.setAttribute("height", "100%");
-		rectangle.setAttribute("rx", `${radius}`);
-		rectangle.setAttribute("ry", `${radius}`);
-		rectangle.setAttribute("pathLength", "10");
-		svg.appendChild(rectangle);
-		return svg;
-	};
-	document.querySelectorAll(".Button._fancy").forEach((el) => {
-		const style$1 = getComputedStyle(el);
-		const lines = document.createElement("div");
-		lines.classList.add("Button__lines");
-		const groupTop = document.createElement("div");
-		const groupBottom = document.createElement("div");
-		const radius = el.getAttribute("data-anim-radius");
-		const svg = createSVG(el.offsetWidth, el.offsetHeight, radius ?? parseInt(style$1.borderRadius, 10));
-		groupTop.appendChild(svg);
-		groupTop.appendChild(svg.cloneNode(true));
-		groupTop.appendChild(svg.cloneNode(true));
-		groupTop.appendChild(svg.cloneNode(true));
-		groupBottom.appendChild(svg.cloneNode(true));
-		groupBottom.appendChild(svg.cloneNode(true));
-		groupBottom.appendChild(svg.cloneNode(true));
-		groupBottom.appendChild(svg.cloneNode(true));
-		lines.appendChild(groupTop);
-		lines.appendChild(groupBottom);
-		el.appendChild(lines);
-		const startAnimation$1 = () => {
-			el.classList.add("_start");
-		};
-		const stopAnimation = () => {
-			el.classList.remove("_start");
-		};
-		el.addEventListener("pointerenter", startAnimation$1);
-		el.addEventListener("focus", startAnimation$1);
-		svg.addEventListener("animationend", stopAnimation);
-	});
-};
 var Button$1 = ({ type = "primary", isDisabled = false, className, children, ...props }) => {
+	const isFancy = type === "fancy";
 	(0, import_react.useEffect)(() => {
-		animateFancyButtons();
+		if (isFancy) animateFancyButtons();
 	}, []);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-		className: (0, import_classnames$18.default)(className, "Button", `_${type}`),
+		className: (0, import_classnames$18.default)(className, "Button", `_${type}`, isFancy && "anim_fancy"),
 		disabled: isDisabled,
 		...props,
 		children
@@ -84566,8 +84569,57 @@ var _WalletDisconnectButton = () => {
 	});
 };
 var Header_default = Header;
+var twitter_default = "data:image/svg+xml,%3csvg%20width='40'%20height='40'%20viewBox='0%200%2040%2040'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_225_803)'%3e%3crect%20width='40'%20height='40'%20rx='12'%20fill='%233C1B68'/%3e%3cpath%20d='M29.6894%2013.8824C28.9647%2014.2118%2028.1835%2014.4282%2027.3741%2014.5318C28.2024%2014.0329%2028.8424%2013.2424%2029.1435%2012.2918C28.3624%2012.7624%2027.4965%2013.0918%2026.5835%2013.28C25.84%2012.4706%2024.7953%2012%2023.6094%2012C21.3976%2012%2019.5906%2013.8071%2019.5906%2016.0376C19.5906%2016.3576%2019.6282%2016.6682%2019.6941%2016.96C16.3435%2016.7906%2013.36%2015.1812%2011.3741%2012.7435C11.0259%2013.3365%2010.8282%2014.0329%2010.8282%2014.7671C10.8282%2016.1694%2011.5341%2017.4118%2012.6259%2018.1176C11.9576%2018.1176%2011.3365%2017.9294%2010.7906%2017.6471V17.6753C10.7906%2019.6329%2012.1835%2021.2706%2014.0282%2021.6376C13.4361%2021.8004%2012.8142%2021.823%2012.2118%2021.7035C12.4674%2022.5059%2012.968%2023.2079%2013.6433%2023.711C14.3186%2024.2141%2015.1345%2024.4929%2015.9765%2024.5082C14.5493%2025.6381%2012.7802%2026.2488%2010.96%2026.24C10.64%2026.24%2010.32%2026.2212%2010%2026.1835C11.7882%2027.3318%2013.9153%2028%2016.1929%2028C23.6094%2028%2027.6847%2021.8447%2027.6847%2016.5082C27.6847%2016.3294%2027.6847%2016.16%2027.6753%2015.9812C28.4659%2015.4165%2029.1435%2014.7012%2029.6894%2013.8824Z'%20fill='%238E3ECD'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_225_803'%3e%3crect%20width='40'%20height='40'%20fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e";
+var discord_default = "data:image/svg+xml,%3csvg%20width='40'%20height='40'%20viewBox='0%200%2040%2040'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_225_804)'%3e%3crect%20width='40'%20height='40'%20rx='12'%20fill='%233C1B68'/%3e%3cpath%20d='M26.8125%2013.2466C25.566%2012.6655%2024.2163%2012.2437%2022.8104%2012C22.7857%2012.0004%2022.7621%2012.0105%2022.7448%2012.0281C22.5761%2012.3374%2022.3793%2012.7404%2022.2481%2013.0497C20.7569%2012.8249%2019.2404%2012.8249%2017.7492%2013.0497C17.618%2012.7311%2017.4212%2012.3374%2017.2431%2012.0281C17.2338%2012.0094%2017.2056%2012%2017.1775%2012C15.7716%2012.2437%2014.4314%2012.6655%2013.1754%2013.2466C13.1661%2013.2466%2013.1567%2013.2559%2013.1473%2013.2653C10.598%2017.0799%209.89503%2020.7915%2010.2418%2024.4655C10.2418%2024.4843%2010.2512%2024.503%2010.2699%2024.5124C11.957%2025.7496%2013.5784%2026.4994%2015.1812%2026.9961C15.2093%2027.0055%2015.2374%2026.9961%2015.2468%2026.9774C15.6217%2026.4619%2015.9591%2025.9183%2016.2496%2025.3465C16.2684%2025.3091%2016.2496%2025.2716%2016.2121%2025.2622C15.6779%2025.056%2015.1718%2024.8123%2014.675%2024.5311C14.6375%2024.5124%2014.6375%2024.4562%2014.6657%2024.428C14.7688%2024.3531%2014.8719%2024.2687%2014.975%2024.1937C14.9937%2024.175%2015.0218%2024.175%2015.0406%2024.1843C18.2647%2025.6558%2021.742%2025.6558%2024.9286%2024.1843C24.9474%2024.175%2024.9755%2024.175%2024.9942%2024.1937C25.0973%2024.2781%2025.2004%2024.3531%2025.3035%2024.4374C25.341%2024.4655%2025.341%2024.5218%2025.2942%2024.5405C24.8068%2024.8311%2024.2913%2025.0654%2023.7571%2025.2716C23.7196%2025.2809%2023.7102%2025.3278%2023.7196%2025.3559C24.0195%2025.9276%2024.3569%2026.4713%2024.7224%2026.9867C24.7506%2026.9961%2024.7787%2027.0055%2024.8068%2026.9961C26.4189%2026.4994%2028.0403%2025.7496%2029.7274%2024.5124C29.7461%2024.503%2029.7555%2024.4843%2029.7555%2024.4655C30.1679%2020.2197%2029.0713%2016.5363%2026.85%2013.2653C26.8406%2013.2559%2026.8313%2013.2466%2026.8125%2013.2466ZM16.737%2022.2255C15.7716%2022.2255%2014.9656%2021.3351%2014.9656%2020.2385C14.9656%2019.1419%2015.7529%2018.2515%2016.737%2018.2515C17.7305%2018.2515%2018.5178%2019.1513%2018.5084%2020.2385C18.5084%2021.3351%2017.7211%2022.2255%2016.737%2022.2255ZM23.2697%2022.2255C22.3043%2022.2255%2021.4983%2021.3351%2021.4983%2020.2385C21.4983%2019.1419%2022.2856%2018.2515%2023.2697%2018.2515C24.2632%2018.2515%2025.0505%2019.1513%2025.0411%2020.2385C25.0411%2021.3351%2024.2632%2022.2255%2023.2697%2022.2255Z'%20fill='%238E3ECD'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_225_804'%3e%3crect%20width='40'%20height='40'%20fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e";
+var github_default = "data:image/svg+xml,%3csvg%20width='40'%20height='40'%20viewBox='0%200%2040%2040'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_225_805)'%3e%3crect%20width='40'%20height='40'%20rx='12'%20fill='%233C1B68'/%3e%3cpath%20d='M16.0133%2010.3295C16.7665%2010.5828%2017.4828%2010.9342%2018.1436%2011.3745C19.0775%2011.1363%2020.0378%2011.0168%2021.0017%2011.0188C21.9972%2011.0188%2022.9576%2011.1427%2023.8578%2011.3735C24.5184%2010.9336%2025.2343%2010.5826%2025.9871%2010.3295C26.6859%2010.0927%2027.6814%209.70913%2028.2728%2010.3615C28.6738%2010.805%2028.7741%2011.5483%2028.8452%2012.1157C28.9254%2012.7491%2028.9445%2013.5743%2028.734%2014.3935C29.539%2015.4295%2030.0242%2016.6652%2030.0242%2018.0119C30.0242%2020.0519%2028.9154%2021.8231%2027.2743%2023.0499C26.4842%2023.6322%2025.6083%2024.0892%2024.6779%2024.4046C24.8924%2024.8941%2025.0117%2025.4355%2025.0117%2026.004V29.001C25.0117%2029.2659%2024.9061%2029.52%2024.7181%2029.7074C24.5301%2029.8947%2024.2751%2030%2024.0092%2030H17.9943C17.7284%2030%2017.4734%2029.8947%2017.2854%2029.7074C17.0974%2029.52%2016.9918%2029.2659%2016.9918%2029.001V28.011C16.0344%2028.1279%2015.2314%2028.024%2014.5487%2027.7352C13.8349%2027.4335%2013.3377%2026.966%2012.9637%2026.5185C12.6089%2026.0949%2012.2219%2025.1398%2011.6625%2024.954C11.5376%2024.9125%2011.422%2024.847%2011.3225%2024.761C11.223%2024.6751%2011.1415%2024.5705%2011.0826%2024.4531C10.9636%2024.2161%2010.9439%2023.9417%2011.0279%2023.6903C11.1119%2023.4388%2011.2927%2023.2309%2011.5306%2023.1123C11.7684%2022.9937%2012.0438%2022.9742%2012.2961%2023.0579C12.9637%2023.2797%2013.3988%2023.7592%2013.6966%2024.1448C14.1778%2024.7642%2014.5687%2025.5734%2015.3306%2025.8961C15.6444%2026.0289%2016.1046%2026.1159%2016.8243%2026.0179L16.9918%2025.984C16.9941%2025.4404%2017.1077%2024.9029%2017.3256%2024.4046C16.3951%2024.0892%2015.5193%2023.6322%2014.7291%2023.0499C13.088%2021.8231%2011.9793%2020.0529%2011.9793%2018.0119C11.9793%2016.6672%2012.4635%2015.4324%2013.2665%2014.3975C13.056%2013.5783%2013.074%2012.7511%2013.1542%2012.1167L13.1592%2012.0788C13.2324%2011.4974%2013.3176%2010.813%2013.7266%2010.3615C14.3181%209.70913%2015.3146%2010.0937%2016.0123%2010.3305L16.0133%2010.3295Z'%20fill='%238E3ECD'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_225_805'%3e%3crect%20width='40'%20height='40'%20fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e";
 var Footer = () => {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("footer", { className: "Footer" });
+	(0, import_react.useEffect)(() => {
+		animateFancyButtons();
+	}, []);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("footer", {
+		className: "Footer",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "Footer__copyright",
+			children: "© 2026 NoRekt Protocol. All rights reserved."
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "Footer__socials",
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+					className: "Footer__social anim_fancy",
+					"data-anim-radius": "12",
+					href: "#!",
+					target: "_blank",
+					rel: "noreferrer",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+						src: twitter_default,
+						alt: "Twitter icon"
+					})
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+					className: "Footer__social anim_fancy",
+					"data-anim-radius": "12",
+					href: "#!",
+					target: "_blank",
+					rel: "noreferrer",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+						src: discord_default,
+						alt: "Discord icon"
+					})
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+					className: "Footer__social anim_fancy",
+					"data-anim-radius": "12",
+					href: "#!",
+					target: "_blank",
+					rel: "noreferrer",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+						src: github_default,
+						alt: "Github icon"
+					})
+				})
+			]
+		})]
+	});
 };
 var Footer_default = Footer;
 var SwitchChainModal = () => {
