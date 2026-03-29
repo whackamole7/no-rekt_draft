@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-DYS1MtiI.js","assets/secp256k1-CAakbvi3.js","assets/dist-CPeGcdf0.js","assets/index.es-D31UIKjp.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-uRjZG5sW.js","assets/secp256k1-iIBnEwIT.js","assets/esm-CHdHOje6.js","assets/dist-D1sQa5O7.js","assets/dist-Cwiohq0O.js","assets/dist-DTerlAuN.js","assets/index.es-B5Usq-Pi.js"])))=>i.map(i=>d[i]);
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -12053,50 +12053,66 @@ function useMutation(options$2, queryClient$1) {
 		mutateAsync: result.mutate
 	};
 }
-const multicall3Abi = [{
-	inputs: [{
-		components: [
-			{
-				name: "target",
-				type: "address"
-			},
-			{
-				name: "allowFailure",
-				type: "bool"
-			},
-			{
-				name: "callData",
-				type: "bytes"
-			}
-		],
-		name: "calls",
-		type: "tuple[]"
-	}],
-	name: "aggregate3",
-	outputs: [{
-		components: [{
-			name: "success",
-			type: "bool"
-		}, {
-			name: "returnData",
-			type: "bytes"
+const multicall3Abi = [
+	{
+		inputs: [{
+			components: [
+				{
+					name: "target",
+					type: "address"
+				},
+				{
+					name: "allowFailure",
+					type: "bool"
+				},
+				{
+					name: "callData",
+					type: "bytes"
+				}
+			],
+			name: "calls",
+			type: "tuple[]"
 		}],
-		name: "returnData",
-		type: "tuple[]"
-	}],
-	stateMutability: "view",
-	type: "function"
-}, {
-	inputs: [],
-	name: "getCurrentBlockTimestamp",
-	outputs: [{
-		internalType: "uint256",
-		name: "timestamp",
-		type: "uint256"
-	}],
-	stateMutability: "view",
-	type: "function"
-}];
+		name: "aggregate3",
+		outputs: [{
+			components: [{
+				name: "success",
+				type: "bool"
+			}, {
+				name: "returnData",
+				type: "bytes"
+			}],
+			name: "returnData",
+			type: "tuple[]"
+		}],
+		stateMutability: "view",
+		type: "function"
+	},
+	{
+		inputs: [{
+			name: "addr",
+			type: "address"
+		}],
+		name: "getEthBalance",
+		outputs: [{
+			name: "balance",
+			type: "uint256"
+		}],
+		stateMutability: "view",
+		type: "function"
+	},
+	{
+		inputs: [],
+		name: "getCurrentBlockTimestamp",
+		outputs: [{
+			internalType: "uint256",
+			name: "timestamp",
+			type: "uint256"
+		}],
+		stateMutability: "view",
+		type: "function"
+	}
+];
 const batchGatewayAbi = [{
 	name: "query",
 	type: "function",
@@ -12347,7 +12363,7 @@ function size$3(value) {
 	if (isHex(value, { strict: false })) return Math.ceil((value.length - 2) / 2);
 	return value.length;
 }
-const version$7 = "2.43.3";
+const version$7 = "2.47.6";
 var errorConfig = {
 	getDocsUrl: ({ docsBaseUrl, docsPath: docsPath$5 = "", docsSlug }) => docsPath$5 ? `${docsBaseUrl ?? "https://viem.sh"}${docsPath$5}${docsSlug ? `#${docsSlug}` : ""}` : void 0,
 	version: `viem@${version$7}`
@@ -12474,8 +12490,11 @@ var AbiDecodingDataSizeTooSmallError = class extends BaseError$3 {
 	}
 };
 var AbiDecodingZeroDataError = class extends BaseError$3 {
-	constructor() {
-		super("Cannot decode zero data (\"0x\") with ABI parameters.", { name: "AbiDecodingZeroDataError" });
+	constructor({ cause } = {}) {
+		super("Cannot decode zero data (\"0x\") with ABI parameters.", {
+			name: "AbiDecodingZeroDataError",
+			cause
+		});
 	}
 };
 var AbiEncodingArrayLengthMismatchError = class extends BaseError$3 {
@@ -12522,14 +12541,15 @@ var AbiErrorNotFoundError = class extends BaseError$3 {
 	}
 };
 var AbiErrorSignatureNotFoundError = class extends BaseError$3 {
-	constructor(signature, { docsPath: docsPath$5 }) {
+	constructor(signature, { docsPath: docsPath$5, cause }) {
 		super([
 			`Encoded error signature "${signature}" not found on ABI.`,
 			"Make sure you are using the correct ABI and that the error exists on it.",
-			`You can look up the decoded signature here: https://openchain.xyz/signatures?query=${signature}.`
+			`You can look up the decoded signature here: https://4byte.sourcify.dev/?q=${signature}.`
 		].join("\n"), {
 			docsPath: docsPath$5,
-			name: "AbiErrorSignatureNotFoundError"
+			name: "AbiErrorSignatureNotFoundError",
+			cause
 		});
 		Object.defineProperty(this, "signature", {
 			enumerable: true,
@@ -12565,7 +12585,7 @@ var AbiFunctionSignatureNotFoundError = class extends BaseError$3 {
 		super([
 			`Encoded function signature "${signature}" not found on ABI.`,
 			"Make sure you are using the correct ABI and that the function exists on it.",
-			`You can look up the signature here: https://openchain.xyz/signatures?query=${signature}.`
+			`You can look up the signature here: https://4byte.sourcify.dev/?q=${signature}.`
 		].join("\n"), {
 			docsPath: docsPath$5,
 			name: "AbiFunctionSignatureNotFoundError"
@@ -12618,8 +12638,8 @@ var InvalidDefinitionTypeError = class extends BaseError$3 {
 	}
 };
 var InvalidAddressError = class extends BaseError$3 {
-	constructor({ address: address$8 }) {
-		super(`Address "${address$8}" is invalid.`, {
+	constructor({ address: address$9 }) {
+		super(`Address "${address$9}" is invalid.`, {
 			metaMessages: ["- Address must be a hex value of 20 bytes (40 hex characters).", "- Address must match its checksum counterpart."],
 			name: "InvalidAddressError"
 		});
@@ -12717,7 +12737,16 @@ function hexToBigInt(hex$1, opts = {}) {
 	return value - BigInt(`0x${"f".padStart(size$4 * 2, "f")}`) - 1n;
 }
 function hexToNumber$1(hex$1, opts = {}) {
-	return Number(hexToBigInt(hex$1, opts));
+	const value = hexToBigInt(hex$1, opts);
+	const number$2 = Number(value);
+	if (!Number.isSafeInteger(number$2)) throw new IntegerOutOfRangeError$1({
+		max: `${Number.MAX_SAFE_INTEGER}`,
+		min: `${Number.MIN_SAFE_INTEGER}`,
+		signed: opts.signed,
+		size: opts.size,
+		value: `${value}n`
+	});
+	return number$2;
 }
 var hexes$2 = /* @__PURE__ */ Array.from({ length: 256 }, (_v, i$3) => i$3.toString(16).padStart(2, "0"));
 function toHex(value, opts = {}) {
@@ -13132,31 +13161,32 @@ var LruMap = class extends Map {
 	}
 	get(key) {
 		const value = super.get(key);
-		if (super.has(key) && value !== void 0) {
-			this.delete(key);
+		if (super.has(key)) {
+			super.delete(key);
 			super.set(key, value);
 		}
 		return value;
 	}
 	set(key, value) {
+		if (super.has(key)) super.delete(key);
 		super.set(key, value);
 		if (this.maxSize && this.size > this.maxSize) {
-			const firstKey = this.keys().next().value;
-			if (firstKey) this.delete(firstKey);
+			const firstKey = super.keys().next().value;
+			if (firstKey !== void 0) super.delete(firstKey);
 		}
 		return this;
 	}
 };
 var addressRegex = /^0x[a-fA-F0-9]{40}$/;
 const isAddressCache = /* @__PURE__ */ new LruMap(8192);
-function isAddress(address$8, options$2) {
+function isAddress(address$9, options$2) {
 	const { strict = true } = options$2 ?? {};
-	const cacheKey$1 = `${address$8}.${strict}`;
+	const cacheKey$1 = `${address$9}.${strict}`;
 	if (isAddressCache.has(cacheKey$1)) return isAddressCache.get(cacheKey$1);
 	const result = (() => {
-		if (!addressRegex.test(address$8)) return false;
-		if (address$8.toLowerCase() === address$8) return true;
-		if (strict) return checksumAddress(address$8) === address$8;
+		if (!addressRegex.test(address$9)) return false;
+		if (address$9.toLowerCase() === address$9) return true;
+		if (strict) return checksumAddress(address$9) === address$9;
 		return true;
 	})();
 	isAddressCache.set(cacheKey$1, result);
@@ -13167,18 +13197,18 @@ function checksumAddress(address_, chainId) {
 	if (checksumAddressCache.has(`${address_}.${chainId}`)) return checksumAddressCache.get(`${address_}.${chainId}`);
 	const hexAddress = chainId ? `${chainId}${address_.toLowerCase()}` : address_.substring(2).toLowerCase();
 	const hash$3 = keccak256$1(stringToBytes(hexAddress), "bytes");
-	const address$8 = (chainId ? hexAddress.substring(`${chainId}0x`.length) : hexAddress).split("");
+	const address$9 = (chainId ? hexAddress.substring(`${chainId}0x`.length) : hexAddress).split("");
 	for (let i$3 = 0; i$3 < 40; i$3 += 2) {
-		if (hash$3[i$3 >> 1] >> 4 >= 8 && address$8[i$3]) address$8[i$3] = address$8[i$3].toUpperCase();
-		if ((hash$3[i$3 >> 1] & 15) >= 8 && address$8[i$3 + 1]) address$8[i$3 + 1] = address$8[i$3 + 1].toUpperCase();
+		if (hash$3[i$3 >> 1] >> 4 >= 8 && address$9[i$3]) address$9[i$3] = address$9[i$3].toUpperCase();
+		if ((hash$3[i$3 >> 1] & 15) >= 8 && address$9[i$3 + 1]) address$9[i$3 + 1] = address$9[i$3 + 1].toUpperCase();
 	}
-	const result = `0x${address$8.join("")}`;
+	const result = `0x${address$9.join("")}`;
 	checksumAddressCache.set(`${address_}.${chainId}`, result);
 	return result;
 }
-function getAddress$1(address$8, chainId) {
-	if (!isAddress(address$8, { strict: false })) throw new InvalidAddressError({ address: address$8 });
-	return checksumAddress(address$8, chainId);
+function getAddress$1(address$9, chainId) {
+	if (!isAddress(address$9, { strict: false })) throw new InvalidAddressError({ address: address$9 });
+	return checksumAddress(address$9, chainId);
 }
 var NegativeOffsetError = class extends BaseError$3 {
 	constructor({ offset: offset$1 }) {
@@ -14496,14 +14526,14 @@ function resolveStructs(abiParameters = [], structs = {}, ancestors = /* @__PURE
 }
 function parseAbi(signatures) {
 	const structs = parseStructs(signatures);
-	const abi$8 = [];
+	const abi$9 = [];
 	const length$1 = signatures.length;
 	for (let i$3 = 0; i$3 < length$1; i$3++) {
 		const signature = signatures[i$3];
 		if (isStructSignature(signature)) continue;
-		abi$8.push(parseSignature(signature, structs));
+		abi$9.push(parseSignature(signature, structs));
 	}
-	return abi$8;
+	return abi$9;
 }
 function normalizeSignature(signature) {
 	let active = true;
@@ -14561,9 +14591,9 @@ function toSignatureHash(fn) {
 const toEventSelector = toSignatureHash;
 const toFunctionSelector = (fn) => slice$1(toSignatureHash(fn), 0, 4);
 function getAbiItem(parameters) {
-	const { abi: abi$8, args = [], name } = parameters;
+	const { abi: abi$9, args = [], name } = parameters;
 	const isSelector = isHex(name, { strict: false });
-	const abiItems = abi$8.filter((abiItem) => {
+	const abiItems = abi$9.filter((abiItem) => {
 		if (isSelector) {
 			if (abiItem.type === "function") return toFunctionSelector(abiItem) === name;
 			if (abiItem.type === "event") return toEventSelector(abiItem) === name;
@@ -14614,7 +14644,7 @@ function isArgOfType(arg, abiParameter) {
 		case "string": return argType === "string";
 		default:
 			if (abiParameterType === "tuple" && "components" in abiParameter) return Object.values(abiParameter.components).every((component, index$6) => {
-				return isArgOfType(Object.values(arg)[index$6], component);
+				return argType === "object" && isArgOfType(Object.values(arg)[index$6], component);
 			});
 			if (/^u?int(8|16|24|32|40|48|56|64|72|80|88|96|104|112|120|128|136|144|152|160|168|176|184|192|200|208|216|224|232|240|248|256)?$/.test(abiParameterType)) return argType === "number" || argType === "bigint";
 			if (/^bytes([1-9]|1[0-9]|2[0-9]|3[0-2])?$/.test(abiParameterType)) return argType === "string" || arg instanceof Uint8Array;
@@ -14641,11 +14671,11 @@ function getAmbiguousTypes(sourceParameters, targetParameters, args) {
 }
 var docsPath$4 = "/docs/contract/decodeFunctionResult";
 function decodeFunctionResult(parameters) {
-	const { abi: abi$8, args, functionName, data } = parameters;
-	let abiItem = abi$8[0];
+	const { abi: abi$9, args, functionName, data } = parameters;
+	let abiItem = abi$9[0];
 	if (functionName) {
 		const item = getAbiItem({
-			abi: abi$8,
+			abi: abi$9,
 			args,
 			name: functionName
 		});
@@ -14660,11 +14690,11 @@ function decodeFunctionResult(parameters) {
 }
 var docsPath$3 = "/docs/contract/encodeFunctionData";
 function prepareEncodeFunctionData(parameters) {
-	const { abi: abi$8, args, functionName } = parameters;
-	let abiItem = abi$8[0];
+	const { abi: abi$9, args, functionName } = parameters;
+	let abiItem = abi$9[0];
 	if (functionName) {
 		const item = getAbiItem({
-			abi: abi$8,
+			abi: abi$9,
 			args,
 			name: functionName
 		});
@@ -14679,11 +14709,11 @@ function prepareEncodeFunctionData(parameters) {
 }
 function encodeFunctionData(parameters) {
 	const { args } = parameters;
-	const { abi: abi$8, functionName } = (() => {
+	const { abi: abi$9, functionName } = (() => {
 		if (parameters.abi.length === 1 && parameters.functionName?.startsWith("0x")) return parameters;
 		return prepareEncodeFunctionData(parameters);
 	})();
-	const abiItem = abi$8[0];
+	const abiItem = abi$9[0];
 	return concatHex([functionName, ("inputs" in abiItem && abiItem.inputs ? encodeAbiParameters(abiItem.inputs, args ?? []) : void 0) ?? "0x"]);
 }
 var ChainDoesNotSupportContract = class extends BaseError$3 {
@@ -14768,15 +14798,18 @@ const solidityPanic = {
 	type: "error"
 };
 function decodeErrorResult(parameters) {
-	const { abi: abi$8, data } = parameters;
+	const { abi: abi$9, data, cause } = parameters;
 	const signature = slice$1(data, 0, 4);
-	if (signature === "0x") throw new AbiDecodingZeroDataError();
+	if (signature === "0x") throw new AbiDecodingZeroDataError({ cause });
 	const abiItem = [
-		...abi$8 || [],
+		...abi$9 || [],
 		solidityError,
 		solidityPanic
 	].find((x$2) => x$2.type === "error" && signature === toFunctionSelector(formatAbiItem(x$2)));
-	if (!abiItem) throw new AbiErrorSignatureNotFoundError(signature, { docsPath: "/docs/contract/decodeErrorResult" });
+	if (!abiItem) throw new AbiErrorSignatureNotFoundError(signature, {
+		docsPath: "/docs/contract/decodeErrorResult",
+		cause
+	});
 	return {
 		abiItem,
 		args: "inputs" in abiItem && abiItem.inputs && abiItem.inputs.length > 0 ? decodeAbiParameters(abiItem.inputs, slice$1(data, 4)) : void 0,
@@ -14817,8 +14850,8 @@ function formatGwei(wei, unit = "wei") {
 	return formatUnits$1(wei, gweiUnits[unit]);
 }
 var AccountStateConflictError = class extends BaseError$3 {
-	constructor({ address: address$8 }) {
-		super(`State for account "${address$8}" is set multiple times.`, { name: "AccountStateConflictError" });
+	constructor({ address: address$9 }) {
+		super(`State for account "${address$9}" is set multiple times.`, { name: "AccountStateConflictError" });
 	}
 };
 var StateAssignmentConflictError = class extends BaseError$3 {
@@ -14832,8 +14865,8 @@ function prettyStateMapping(stateMapping) {
 	}, "");
 }
 function prettyStateOverride(stateOverride) {
-	return stateOverride.reduce((pretty, { address: address$8, ...state }) => {
-		let val = `${pretty}    ${address$8}:\n`;
+	return stateOverride.reduce((pretty, { address: address$9, ...state }) => {
+		let val = `${pretty}    ${address$9}:\n`;
 		if (state.nonce) val += `      nonce: ${state.nonce}\n`;
 		if (state.balance) val += `      balance: ${state.balance}\n`;
 		if (state.code) val += `      code: ${state.code}\n`;
@@ -14961,7 +14994,7 @@ var WaitForTransactionReceiptTimeoutError = class extends BaseError$3 {
 		super(`Timed out while waiting for transaction with hash "${hash$3}" to be confirmed.`, { name: "WaitForTransactionReceiptTimeoutError" });
 	}
 };
-const getContractAddress = (address$8) => address$8;
+const getContractAddress = (address$9) => address$9;
 const getUrl = (url) => url;
 var CallExecutionError = class extends BaseError$3 {
 	constructor(cause, { account: account_, docsPath: docsPath$5, chain, data, gas, gasPrice, maxFeePerGas, maxPriorityFeePerGas, nonce, to: to$1, value, stateOverride }) {
@@ -14997,9 +15030,9 @@ var CallExecutionError = class extends BaseError$3 {
 	}
 };
 var ContractFunctionExecutionError = class extends BaseError$3 {
-	constructor(cause, { abi: abi$8, args, contractAddress, docsPath: docsPath$5, functionName, sender }) {
+	constructor(cause, { abi: abi$9, args, contractAddress, docsPath: docsPath$5, functionName, sender }) {
 		const abiItem = getAbiItem({
-			abi: abi$8,
+			abi: abi$9,
 			args,
 			name: functionName
 		});
@@ -15068,7 +15101,7 @@ var ContractFunctionExecutionError = class extends BaseError$3 {
 			writable: true,
 			value: void 0
 		});
-		this.abi = abi$8;
+		this.abi = abi$9;
 		this.args = args;
 		this.cause = cause;
 		this.contractAddress = contractAddress;
@@ -15077,15 +15110,16 @@ var ContractFunctionExecutionError = class extends BaseError$3 {
 	}
 };
 var ContractFunctionRevertedError = class extends BaseError$3 {
-	constructor({ abi: abi$8, data, functionName, message }) {
+	constructor({ abi: abi$9, data, functionName, message, cause: error }) {
 		let cause;
 		let decodedData;
 		let metaMessages;
 		let reason;
 		if (data && data !== "0x") try {
 			decodedData = decodeErrorResult({
-				abi: abi$8,
-				data
+				abi: abi$9,
+				data,
+				cause: error
 			});
 			const { abiItem, errorName, args: errorArgs } = decodedData;
 			if (errorName === "Error") reason = errorArgs[0];
@@ -15112,11 +15146,11 @@ var ContractFunctionRevertedError = class extends BaseError$3 {
 			metaMessages = [
 				`Unable to decode signature "${signature}" as it was not found on the provided ABI.`,
 				"Make sure you are using the correct ABI and that the error exists on it.",
-				`You can look up the decoded signature here: https://openchain.xyz/signatures?query=${signature}.`
+				`You can look up the decoded signature here: https://4byte.sourcify.dev/?q=${signature}.`
 			];
 		}
 		super(reason && reason !== "execution reverted" || signature ? [`The contract function "${functionName}" reverted with the following ${signature ? "signature" : "reason"}:`, reason || signature].join("\n") : `The contract function "${functionName}" reverted.`, {
-			cause,
+			cause: cause ?? error,
 			metaMessages,
 			name: "ContractFunctionRevertedError"
 		});
@@ -15151,7 +15185,7 @@ var ContractFunctionRevertedError = class extends BaseError$3 {
 	}
 };
 var ContractFunctionZeroDataError = class extends BaseError$3 {
-	constructor({ functionName }) {
+	constructor({ functionName, cause }) {
 		super(`The contract function "${functionName}" returned no data ("0x").`, {
 			metaMessages: [
 				"This could be due to any of the following:",
@@ -15159,7 +15193,8 @@ var ContractFunctionZeroDataError = class extends BaseError$3 {
 				"  - The parameters passed to the contract function may be invalid, or",
 				"  - The address is not a contract."
 			],
-			name: "ContractFunctionZeroDataError"
+			name: "ContractFunctionZeroDataError",
+			cause
 		});
 	}
 };
@@ -15206,9 +15241,9 @@ function isNullUniversalResolverError(err) {
 	return false;
 }
 function decodeFunctionData(parameters) {
-	const { abi: abi$8, data } = parameters;
+	const { abi: abi$9, data } = parameters;
 	const signature = slice$1(data, 0, 4);
-	const description = abi$8.find((x$2) => x$2.type === "function" && signature === toFunctionSelector(formatAbiItem(x$2)));
+	const description = abi$9.find((x$2) => x$2.type === "function" && signature === toFunctionSelector(formatAbiItem(x$2)));
 	if (!description) throw new AbiFunctionSignatureNotFoundError(signature, { docsPath: "/docs/contract/decodeFunctionData" });
 	return {
 		functionName: description.name,
@@ -15217,11 +15252,11 @@ function decodeFunctionData(parameters) {
 }
 var docsPath$2 = "/docs/contract/encodeErrorResult";
 function encodeErrorResult(parameters) {
-	const { abi: abi$8, errorName, args } = parameters;
-	let abiItem = abi$8[0];
+	const { abi: abi$9, errorName, args } = parameters;
+	let abiItem = abi$9[0];
 	if (errorName) {
 		const item = getAbiItem({
-			abi: abi$8,
+			abi: abi$9,
 			args,
 			name: errorName
 		});
@@ -15239,11 +15274,11 @@ function encodeErrorResult(parameters) {
 }
 var docsPath$1 = "/docs/contract/encodeFunctionResult";
 function encodeFunctionResult(parameters) {
-	const { abi: abi$8, functionName, result } = parameters;
-	let abiItem = abi$8[0];
+	const { abi: abi$9, functionName, result } = parameters;
+	let abiItem = abi$9[0];
 	if (functionName) {
 		const item = getAbiItem({
-			abi: abi$8,
+			abi: abi$9,
 			name: functionName
 		});
 		if (!item) throw new AbiFunctionNotFoundError(functionName, { docsPath: docsPath$1 });
@@ -15849,6 +15884,21 @@ Object.defineProperty(AtomicityNotSupportedError, "code", {
 	writable: true,
 	value: 5760
 });
+var WalletConnectSessionSettlementError = class WalletConnectSessionSettlementError extends ProviderRpcError {
+	constructor(cause) {
+		super(cause, {
+			code: WalletConnectSessionSettlementError.code,
+			name: "WalletConnectSessionSettlementError",
+			shortMessage: "WalletConnect session settlement failed."
+		});
+	}
+};
+Object.defineProperty(WalletConnectSessionSettlementError, "code", {
+	enumerable: true,
+	configurable: true,
+	writable: true,
+	value: 7e3
+});
 var UnknownRpcError = class extends RpcError$1 {
 	constructor(cause) {
 		super(cause, {
@@ -15858,22 +15908,26 @@ var UnknownRpcError = class extends RpcError$1 {
 	}
 };
 var EXECUTION_REVERTED_ERROR_CODE = 3;
-function getContractError(err, { abi: abi$8, address: address$8, args, docsPath: docsPath$5, functionName, sender }) {
+function getContractError(err, { abi: abi$9, address: address$9, args, docsPath: docsPath$5, functionName, sender }) {
 	const error = err instanceof RawContractError ? err : err instanceof BaseError$3 ? err.walk((err$1) => "data" in err$1) || err.walk() : {};
 	const { code: code$1, data, details, message, shortMessage } = error;
 	return new ContractFunctionExecutionError((() => {
-		if (err instanceof AbiDecodingZeroDataError) return new ContractFunctionZeroDataError({ functionName });
+		if (err instanceof AbiDecodingZeroDataError) return new ContractFunctionZeroDataError({
+			functionName,
+			cause: err
+		});
 		if ([EXECUTION_REVERTED_ERROR_CODE, InternalRpcError.code].includes(code$1) && (data || details || message || shortMessage) || code$1 === InvalidInputRpcError.code && details === "execution reverted" && data) return new ContractFunctionRevertedError({
-			abi: abi$8,
+			abi: abi$9,
 			data: typeof data === "object" ? data.data : data,
 			functionName,
-			message: error instanceof RpcRequestError ? details : shortMessage ?? message
+			message: error instanceof RpcRequestError ? details : shortMessage ?? message,
+			cause: err
 		});
 		return err;
 	})(), {
-		abi: abi$8,
+		abi: abi$9,
 		args,
-		contractAddress: address$8,
+		contractAddress: address$9,
 		docsPath: docsPath$5,
 		functionName,
 		sender
@@ -16277,9 +16331,9 @@ const deploylessCallViaFactoryBytecode = "0x608060405234801561001057600080fd5b50
 const multicall3Bytecode = "0x608060405234801561001057600080fd5b506115b9806100206000396000f3fe6080604052600436106100f35760003560e01c80634d2301cc1161008a578063a8b0574e11610059578063a8b0574e14610325578063bce38bd714610350578063c3077fa914610380578063ee82ac5e146103b2576100f3565b80634d2301cc1461026257806372425d9d1461029f57806382ad56cb146102ca57806386d516e8146102fa576100f3565b80633408e470116100c65780633408e470146101af578063399542e9146101da5780633e64a6961461020c57806342cbb15c14610237576100f3565b80630f28c97d146100f8578063174dea7114610123578063252dba421461015357806327e86d6e14610184575b600080fd5b34801561010457600080fd5b5061010d6103ef565b60405161011a9190610c0a565b60405180910390f35b61013d60048036038101906101389190610c94565b6103f7565b60405161014a9190610e94565b60405180910390f35b61016d60048036038101906101689190610f0c565b610615565b60405161017b92919061101b565b60405180910390f35b34801561019057600080fd5b506101996107ab565b6040516101a69190611064565b60405180910390f35b3480156101bb57600080fd5b506101c46107b7565b6040516101d19190610c0a565b60405180910390f35b6101f460048036038101906101ef91906110ab565b6107bf565b6040516102039392919061110b565b60405180910390f35b34801561021857600080fd5b506102216107e1565b60405161022e9190610c0a565b60405180910390f35b34801561024357600080fd5b5061024c6107e9565b6040516102599190610c0a565b60405180910390f35b34801561026e57600080fd5b50610289600480360381019061028491906111a7565b6107f1565b6040516102969190610c0a565b60405180910390f35b3480156102ab57600080fd5b506102b4610812565b6040516102c19190610c0a565b60405180910390f35b6102e460048036038101906102df919061122a565b61081a565b6040516102f19190610e94565b60405180910390f35b34801561030657600080fd5b5061030f6109e4565b60405161031c9190610c0a565b60405180910390f35b34801561033157600080fd5b5061033a6109ec565b6040516103479190611286565b60405180910390f35b61036a600480360381019061036591906110ab565b6109f4565b6040516103779190610e94565b60405180910390f35b61039a60048036038101906103959190610f0c565b610ba6565b6040516103a99392919061110b565b60405180910390f35b3480156103be57600080fd5b506103d960048036038101906103d491906112cd565b610bca565b6040516103e69190611064565b60405180910390f35b600042905090565b60606000808484905090508067ffffffffffffffff81111561041c5761041b6112fa565b5b60405190808252806020026020018201604052801561045557816020015b610442610bd5565b81526020019060019003908161043a5790505b5092503660005b828110156105c957600085828151811061047957610478611329565b5b6020026020010151905087878381811061049657610495611329565b5b90506020028101906104a89190611367565b925060008360400135905080860195508360000160208101906104cb91906111a7565b73ffffffffffffffffffffffffffffffffffffffff16818580606001906104f2919061138f565b604051610500929190611431565b60006040518083038185875af1925050503d806000811461053d576040519150601f19603f3d011682016040523d82523d6000602084013e610542565b606091505b5083600001846020018290528215151515815250505081516020850135176105bc577f08c379a000000000000000000000000000000000000000000000000000000000600052602060045260176024527f4d756c746963616c6c333a2063616c6c206661696c656400000000000000000060445260846000fd5b826001019250505061045c565b5082341461060c576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401610603906114a7565b60405180910390fd5b50505092915050565b6000606043915060008484905090508067ffffffffffffffff81111561063e5761063d6112fa565b5b60405190808252806020026020018201604052801561067157816020015b606081526020019060019003908161065c5790505b5091503660005b828110156107a157600087878381811061069557610694611329565b5b90506020028101906106a791906114c7565b92508260000160208101906106bc91906111a7565b73ffffffffffffffffffffffffffffffffffffffff168380602001906106e2919061138f565b6040516106f0929190611431565b6000604051808303816000865af19150503d806000811461072d576040519150601f19603f3d011682016040523d82523d6000602084013e610732565b606091505b5086848151811061074657610745611329565b5b60200260200101819052819250505080610795576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040161078c9061153b565b60405180910390fd5b81600101915050610678565b5050509250929050565b60006001430340905090565b600046905090565b6000806060439250434091506107d68686866109f4565b905093509350939050565b600048905090565b600043905090565b60008173ffffffffffffffffffffffffffffffffffffffff16319050919050565b600044905090565b606060008383905090508067ffffffffffffffff81111561083e5761083d6112fa565b5b60405190808252806020026020018201604052801561087757816020015b610864610bd5565b81526020019060019003908161085c5790505b5091503660005b828110156109db57600084828151811061089b5761089a611329565b5b602002602001015190508686838181106108b8576108b7611329565b5b90506020028101906108ca919061155b565b92508260000160208101906108df91906111a7565b73ffffffffffffffffffffffffffffffffffffffff16838060400190610905919061138f565b604051610913929190611431565b6000604051808303816000865af19150503d8060008114610950576040519150601f19603f3d011682016040523d82523d6000602084013e610955565b606091505b5082600001836020018290528215151515815250505080516020840135176109cf577f08c379a000000000000000000000000000000000000000000000000000000000600052602060045260176024527f4d756c746963616c6c333a2063616c6c206661696c656400000000000000000060445260646000fd5b8160010191505061087e565b50505092915050565b600045905090565b600041905090565b606060008383905090508067ffffffffffffffff811115610a1857610a176112fa565b5b604051908082528060200260200182016040528015610a5157816020015b610a3e610bd5565b815260200190600190039081610a365790505b5091503660005b82811015610b9c576000848281518110610a7557610a74611329565b5b60200260200101519050868683818110610a9257610a91611329565b5b9050602002810190610aa491906114c7565b9250826000016020810190610ab991906111a7565b73ffffffffffffffffffffffffffffffffffffffff16838060200190610adf919061138f565b604051610aed929190611431565b6000604051808303816000865af19150503d8060008114610b2a576040519150601f19603f3d011682016040523d82523d6000602084013e610b2f565b606091505b508260000183602001829052821515151581525050508715610b90578060000151610b8f576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401610b869061153b565b60405180910390fd5b5b81600101915050610a58565b5050509392505050565b6000806060610bb7600186866107bf565b8093508194508295505050509250925092565b600081409050919050565b6040518060400160405280600015158152602001606081525090565b6000819050919050565b610c0481610bf1565b82525050565b6000602082019050610c1f6000830184610bfb565b92915050565b600080fd5b600080fd5b600080fd5b600080fd5b600080fd5b60008083601f840112610c5457610c53610c2f565b5b8235905067ffffffffffffffff811115610c7157610c70610c34565b5b602083019150836020820283011115610c8d57610c8c610c39565b5b9250929050565b60008060208385031215610cab57610caa610c25565b5b600083013567ffffffffffffffff811115610cc957610cc8610c2a565b5b610cd585828601610c3e565b92509250509250929050565b600081519050919050565b600082825260208201905092915050565b6000819050602082019050919050565b60008115159050919050565b610d2281610d0d565b82525050565b600081519050919050565b600082825260208201905092915050565b60005b83811015610d62578082015181840152602081019050610d47565b83811115610d71576000848401525b50505050565b6000601f19601f8301169050919050565b6000610d9382610d28565b610d9d8185610d33565b9350610dad818560208601610d44565b610db681610d77565b840191505092915050565b6000604083016000830151610dd96000860182610d19565b5060208301518482036020860152610df18282610d88565b9150508091505092915050565b6000610e0a8383610dc1565b905092915050565b6000602082019050919050565b6000610e2a82610ce1565b610e348185610cec565b935083602082028501610e4685610cfd565b8060005b85811015610e825784840389528151610e638582610dfe565b9450610e6e83610e12565b925060208a01995050600181019050610e4a565b50829750879550505050505092915050565b60006020820190508181036000830152610eae8184610e1f565b905092915050565b60008083601f840112610ecc57610ecb610c2f565b5b8235905067ffffffffffffffff811115610ee957610ee8610c34565b5b602083019150836020820283011115610f0557610f04610c39565b5b9250929050565b60008060208385031215610f2357610f22610c25565b5b600083013567ffffffffffffffff811115610f4157610f40610c2a565b5b610f4d85828601610eb6565b92509250509250929050565b600081519050919050565b600082825260208201905092915050565b6000819050602082019050919050565b6000610f918383610d88565b905092915050565b6000602082019050919050565b6000610fb182610f59565b610fbb8185610f64565b935083602082028501610fcd85610f75565b8060005b858110156110095784840389528151610fea8582610f85565b9450610ff583610f99565b925060208a01995050600181019050610fd1565b50829750879550505050505092915050565b60006040820190506110306000830185610bfb565b81810360208301526110428184610fa6565b90509392505050565b6000819050919050565b61105e8161104b565b82525050565b60006020820190506110796000830184611055565b92915050565b61108881610d0d565b811461109357600080fd5b50565b6000813590506110a58161107f565b92915050565b6000806000604084860312156110c4576110c3610c25565b5b60006110d286828701611096565b935050602084013567ffffffffffffffff8111156110f3576110f2610c2a565b5b6110ff86828701610eb6565b92509250509250925092565b60006060820190506111206000830186610bfb565b61112d6020830185611055565b818103604083015261113f8184610e1f565b9050949350505050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b600061117482611149565b9050919050565b61118481611169565b811461118f57600080fd5b50565b6000813590506111a18161117b565b92915050565b6000602082840312156111bd576111bc610c25565b5b60006111cb84828501611192565b91505092915050565b60008083601f8401126111ea576111e9610c2f565b5b8235905067ffffffffffffffff81111561120757611206610c34565b5b60208301915083602082028301111561122357611222610c39565b5b9250929050565b6000806020838503121561124157611240610c25565b5b600083013567ffffffffffffffff81111561125f5761125e610c2a565b5b61126b858286016111d4565b92509250509250929050565b61128081611169565b82525050565b600060208201905061129b6000830184611277565b92915050565b6112aa81610bf1565b81146112b557600080fd5b50565b6000813590506112c7816112a1565b92915050565b6000602082840312156112e3576112e2610c25565b5b60006112f1848285016112b8565b91505092915050565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052604160045260246000fd5b7f4e487b7100000000000000000000000000000000000000000000000000000000600052603260045260246000fd5b600080fd5b600080fd5b600080fd5b60008235600160800383360303811261138357611382611358565b5b80830191505092915050565b600080833560016020038436030381126113ac576113ab611358565b5b80840192508235915067ffffffffffffffff8211156113ce576113cd61135d565b5b6020830192506001820236038313156113ea576113e9611362565b5b509250929050565b600081905092915050565b82818337600083830152505050565b600061141883856113f2565b93506114258385846113fd565b82840190509392505050565b600061143e82848661140c565b91508190509392505050565b600082825260208201905092915050565b7f4d756c746963616c6c333a2076616c7565206d69736d61746368000000000000600082015250565b6000611491601a8361144a565b915061149c8261145b565b602082019050919050565b600060208201905081810360008301526114c081611484565b9050919050565b6000823560016040038336030381126114e3576114e2611358565b5b80830191505092915050565b7f4d756c746963616c6c333a2063616c6c206661696c6564000000000000000000600082015250565b600061152560178361144a565b9150611530826114ef565b602082019050919050565b6000602082019050818103600083015261155481611518565b9050919050565b60008235600160600383360303811261157757611576611358565b5b8083019150509291505056fea264697066735822122020c1bc9aacf8e4a6507193432a895a8e77094f45a1395583f07b24e860ef06cd64736f6c634300080c0033";
 var docsPath = "/docs/contract/encodeDeployData";
 function encodeDeployData(parameters) {
-	const { abi: abi$8, args, bytecode } = parameters;
+	const { abi: abi$9, args, bytecode } = parameters;
 	if (!args || args.length === 0) return bytecode;
-	const description = abi$8.find((x$2) => "type" in x$2 && x$2.type === "constructor");
+	const description = abi$9.find((x$2) => "type" in x$2 && x$2.type === "constructor");
 	if (!description) throw new AbiConstructorNotFoundError({ docsPath });
 	if (!("inputs" in description)) throw new AbiConstructorParamsNotFoundError({ docsPath });
 	if (!description.inputs || description.inputs.length === 0) throw new AbiConstructorParamsNotFoundError({ docsPath });
@@ -16682,10 +16736,10 @@ function serializeAccountStateOverride(parameters) {
 function serializeStateOverride(parameters) {
 	if (!parameters) return void 0;
 	const rpcStateOverride = {};
-	for (const { address: address$8, ...accountState } of parameters) {
-		if (!isAddress(address$8, { strict: false })) throw new InvalidAddressError({ address: address$8 });
-		if (rpcStateOverride[address$8]) throw new AccountStateConflictError({ address: address$8 });
-		rpcStateOverride[address$8] = serializeAccountStateOverride(accountState);
+	for (const { address: address$9, ...accountState } of parameters) {
+		if (!isAddress(address$9, { strict: false })) throw new InvalidAddressError({ address: address$9 });
+		if (rpcStateOverride[address$9]) throw new AccountStateConflictError({ address: address$9 });
+		rpcStateOverride[address$9] = serializeAccountStateOverride(accountState);
 	}
 	return rpcStateOverride;
 }
@@ -16823,7 +16877,7 @@ const __vitePreload = function preload$1(baseModule, deps, importerUrl) {
 		return baseModule().catch(handlePreloadError);
 	});
 };
-async function call(client, args) {
+async function call$1(client, args) {
 	const { account: account_ = client.account, authorizationList, batch = Boolean(client.batch?.multicall), blockNumber, blockTag = client.experimental_blockTag ?? "latest", accessList, blobs, blockOverrides, code: code$1, data: data_, factory, factoryData, gas, gasPrice, maxFeePerBlobGas, maxFeePerGas, maxPriorityFeePerGas, nonce, to: to$1, value, stateOverride, ...rest } = args;
 	const account = account_ ? parseAccount(account_) : void 0;
 	if (code$1 && (factory || factoryData)) throw new BaseError$3("Cannot provide both `code` & `factory`/`factoryData` as parameters.");
@@ -16899,7 +16953,7 @@ async function call(client, args) {
 	} catch (err) {
 		const data$1 = getRevertErrorData(err);
 		const { offchainLookup, offchainLookupSignature } = await __vitePreload(async () => {
-			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-BiGf1uRl.js");
+			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-CNWQ281j.js");
 			return {
 				offchainLookup: offchainLookup$1,
 				offchainLookupSignature: offchainLookupSignature$1
@@ -17008,29 +17062,29 @@ function getRevertErrorData(err) {
 	const error = err.walk();
 	return typeof error?.data === "object" ? error.data?.data : error.data;
 }
-async function readContract(client, parameters) {
-	const { abi: abi$8, address: address$8, args, functionName, ...rest } = parameters;
+async function readContract$1(client, parameters) {
+	const { abi: abi$9, address: address$9, args, functionName, ...rest } = parameters;
 	const calldata = encodeFunctionData({
-		abi: abi$8,
+		abi: abi$9,
 		args,
 		functionName
 	});
 	try {
-		const { data } = await getAction$1(client, call, "call")({
+		const { data } = await getAction$1(client, call$1, "call")({
 			...rest,
 			data: calldata,
-			to: address$8
+			to: address$9
 		});
 		return decodeFunctionResult({
-			abi: abi$8,
+			abi: abi$9,
 			args,
 			functionName,
 			data: data || "0x"
 		});
 	} catch (error) {
 		throw getContractError(error, {
-			abi: abi$8,
-			address: address$8,
+			abi: abi$9,
+			address: address$9,
 			args,
 			docsPath: "/docs/contract/readContract",
 			functionName
@@ -17073,17 +17127,17 @@ async function getEnsAddress$1(client, parameters) {
 			blockNumber,
 			blockTag
 		};
-		const res = await getAction$1(client, readContract, "readContract")(readContractParameters);
+		const res = await getAction$1(client, readContract$1, "readContract")(readContractParameters);
 		if (res[0] === "0x") return null;
-		const address$8 = decodeFunctionResult({
+		const address$9 = decodeFunctionResult({
 			abi: addressResolverAbi,
 			args,
 			functionName: "addr",
 			data: res[0]
 		});
-		if (address$8 === "0x") return null;
-		if (trim$1(address$8) === "0x00") return null;
-		return address$8;
+		if (address$9 === "0x") return null;
+		if (trim$1(address$9) === "0x00") return null;
+		return address$9;
 	} catch (err) {
 		if (strict) throw err;
 		if (isNullUniversalResolverError(err)) return null;
@@ -17228,7 +17282,7 @@ function parseNftUri(uri_) {
 	};
 }
 async function getNftTokenUri(client, { nft }) {
-	if (nft.namespace === "erc721") return readContract(client, {
+	if (nft.namespace === "erc721") return readContract$1(client, {
 		address: nft.contractAddress,
 		abi: [{
 			name: "tokenURI",
@@ -17246,7 +17300,7 @@ async function getNftTokenUri(client, { nft }) {
 		functionName: "tokenURI",
 		args: [BigInt(nft.tokenID)]
 	});
-	if (nft.namespace === "erc1155") return readContract(client, {
+	if (nft.namespace === "erc1155") return readContract$1(client, {
 		address: nft.contractAddress,
 		abi: [{
 			name: "uri",
@@ -17327,7 +17381,7 @@ async function getEnsText(client, parameters) {
 			blockNumber,
 			blockTag
 		};
-		const res = await getAction$1(client, readContract, "readContract")(readContractParameters);
+		const res = await getAction$1(client, readContract$1, "readContract")(readContractParameters);
 		if (res[0] === "0x") return null;
 		const record = decodeFunctionResult({
 			abi: textResolverAbi,
@@ -17362,7 +17416,7 @@ async function getEnsAvatar$1(client, { blockNumber, blockTag, assetGatewayUrls,
 	}
 }
 async function getEnsName$1(client, parameters) {
-	const { address: address$8, blockNumber, blockTag, coinType = 60n, gatewayUrls, strict } = parameters;
+	const { address: address$9, blockNumber, blockTag, coinType = 60n, gatewayUrls, strict } = parameters;
 	const { chain } = client;
 	const universalResolverAddress = (() => {
 		if (parameters.universalResolverAddress) return parameters.universalResolverAddress;
@@ -17378,7 +17432,7 @@ async function getEnsName$1(client, parameters) {
 			address: universalResolverAddress,
 			abi: universalResolverReverseAbi,
 			args: [
-				address$8,
+				address$9,
 				coinType,
 				gatewayUrls ?? ["x-batch-gateway:true"]
 			],
@@ -17386,7 +17440,7 @@ async function getEnsName$1(client, parameters) {
 			blockNumber,
 			blockTag
 		};
-		const [name] = await getAction$1(client, readContract, "readContract")(readContractParameters);
+		const [name] = await getAction$1(client, readContract$1, "readContract")(readContractParameters);
 		return name || null;
 	} catch (err) {
 		if (strict) throw err;
@@ -17400,7 +17454,7 @@ function publicKeyToAddress(publicKey) {
 async function recoverPublicKey({ hash: hash$3, signature }) {
 	const hashHex = isHex(hash$3) ? hash$3 : toHex(hash$3);
 	const { secp256k1: secp256k1$1 } = await __vitePreload(async () => {
-		const { secp256k1: secp256k1$2 } = await import("./secp256k1-DYS1MtiI.js");
+		const { secp256k1: secp256k1$2 } = await import("./secp256k1-uRjZG5sW.js");
 		return { secp256k1: secp256k1$2 };
 	}, __vite__mapDeps([0,1]));
 	return `0x${(() => {
@@ -17493,10 +17547,10 @@ function getSizeOfLength(length$1) {
 }
 function hashAuthorization(parameters) {
 	const { chainId, nonce, to: to$1 } = parameters;
-	const address$8 = parameters.contractAddress ?? parameters.address;
+	const address$9 = parameters.contractAddress ?? parameters.address;
 	const hash$3 = keccak256$1(concatHex(["0x05", toRlp([
 		chainId ? numberToHex(chainId) : "0x",
-		address$8,
+		address$9,
 		nonce ? numberToHex(nonce) : "0x"
 	])]));
 	if (to$1 === "bytes") return hexToBytes$1(hash$3);
@@ -17743,10 +17797,10 @@ async function internal_estimateFeesPerGas(client, args) {
 	}
 	return { gasPrice: request?.gasPrice ?? multiply(await getAction$1(client, getGasPrice, "getGasPrice")({})) };
 }
-async function getTransactionCount(client, { address: address$8, blockTag = "latest", blockNumber }) {
+async function getTransactionCount(client, { address: address$9, blockTag = "latest", blockNumber }) {
 	return hexToNumber$1(await client.request({
 		method: "eth_getTransactionCount",
-		params: [address$8, typeof blockNumber === "bigint" ? numberToHex(blockNumber) : blockTag]
+		params: [address$9, typeof blockNumber === "bigint" ? numberToHex(blockNumber) : blockTag]
 	}, { dedupe: Boolean(blockNumber) }));
 }
 function blobsToCommitments(parameters) {
@@ -18314,14 +18368,14 @@ async function prepareTransactionRequest(client, args) {
 		return {
 			...request,
 			...from$2 ? { from: from$2 } : {},
-			...type$1 ? { type: type$1 } : {},
+			...type$1 && !request.type ? { type: type$1 } : {},
 			...typeof chainId$1 !== "undefined" ? { chainId: chainId$1 } : {},
 			...typeof gas$1 !== "undefined" ? { gas: gas$1 } : {},
 			...typeof gasPrice !== "undefined" ? { gasPrice } : {},
 			...typeof nonce$1 !== "undefined" ? { nonce: nonce$1 } : {},
-			...typeof maxFeePerBlobGas !== "undefined" ? { maxFeePerBlobGas } : {},
-			...typeof maxFeePerGas !== "undefined" ? { maxFeePerGas } : {},
-			...typeof maxPriorityFeePerGas !== "undefined" ? { maxPriorityFeePerGas } : {},
+			...typeof maxFeePerBlobGas !== "undefined" && request.type !== "legacy" && request.type !== "eip2930" ? { maxFeePerBlobGas } : {},
+			...typeof maxFeePerGas !== "undefined" && request.type !== "legacy" && request.type !== "eip2930" ? { maxFeePerGas } : {},
+			...typeof maxPriorityFeePerGas !== "undefined" && request.type !== "legacy" && request.type !== "eip2930" ? { maxPriorityFeePerGas } : {},
 			..."nonceKey" in rest && typeof rest.nonceKey !== "undefined" ? { nonceKey: rest.nonceKey } : {}
 		};
 	}).catch((e$2) => {
@@ -18329,7 +18383,7 @@ async function prepareTransactionRequest(client, args) {
 		if (error.name !== "TransactionExecutionError") return request;
 		if (error.walk?.((e$3) => {
 			const error$1 = e$3;
-			return error$1.name === "MethodNotFoundRpcError" || error$1.name === "MethodNotSupportedRpcError";
+			return error$1.name === "MethodNotFoundRpcError" || error$1.name === "MethodNotSupportedRpcError" || error$1.message?.includes("eth_fillTransaction is not available");
 		})) supportsFillTransaction.set(client.uid, false);
 		return request;
 	}) : request;
@@ -18477,11 +18531,31 @@ async function estimateGas(client, args) {
 		});
 	}
 }
-async function getBalance$1(client, { address: address$8, blockNumber, blockTag = client.experimental_blockTag ?? "latest" }) {
+async function getBalance$1(client, { address: address$9, blockNumber, blockTag = client.experimental_blockTag ?? "latest" }) {
+	if (client.batch?.multicall && client.chain?.contracts?.multicall3) {
+		const multicall3Address = client.chain.contracts.multicall3.address;
+		const calldata = encodeFunctionData({
+			abi: multicall3Abi,
+			functionName: "getEthBalance",
+			args: [address$9]
+		});
+		const { data } = await getAction$1(client, call$1, "call")({
+			to: multicall3Address,
+			data: calldata,
+			blockNumber,
+			blockTag
+		});
+		return decodeFunctionResult({
+			abi: multicall3Abi,
+			functionName: "getEthBalance",
+			args: [address$9],
+			data: data || "0x"
+		});
+	}
 	const blockNumberHex = typeof blockNumber === "bigint" ? numberToHex(blockNumber) : void 0;
 	const balance = await client.request({
 		method: "eth_getBalance",
-		params: [address$8, blockNumberHex || blockTag]
+		params: [address$9, blockNumberHex || blockTag]
 	});
 	return BigInt(balance);
 }
@@ -18558,8 +18632,8 @@ function assertTransactionEIP7702(transaction) {
 	const { authorizationList } = transaction;
 	if (authorizationList) for (const authorization of authorizationList) {
 		const { chainId } = authorization;
-		const address$8 = authorization.address;
-		if (!isAddress(address$8)) throw new InvalidAddressError({ address: address$8 });
+		const address$9 = authorization.address;
+		if (!isAddress(address$9)) throw new InvalidAddressError({ address: address$9 });
 		if (chainId < 0) throw new InvalidChainIdError({ chainId });
 	}
 	assertTransactionEIP1559(transaction);
@@ -18611,10 +18685,10 @@ function serializeAccessList(accessList) {
 	if (!accessList || accessList.length === 0) return [];
 	const serializedAccessList = [];
 	for (let i$3 = 0; i$3 < accessList.length; i$3++) {
-		const { address: address$8, storageKeys } = accessList[i$3];
+		const { address: address$9, storageKeys } = accessList[i$3];
 		for (let j$3 = 0; j$3 < storageKeys.length; j$3++) if (storageKeys[j$3].length - 2 !== 64) throw new InvalidStorageKeySizeError({ storageKey: storageKeys[j$3] });
-		if (!isAddress(address$8, { strict: false })) throw new InvalidAddressError({ address: address$8 });
-		serializedAccessList.push([address$8, storageKeys]);
+		if (!isAddress(address$9, { strict: false })) throw new InvalidAddressError({ address: address$9 });
+		serializedAccessList.push([address$9, storageKeys]);
 	}
 	return serializedAccessList;
 }
@@ -18880,6 +18954,7 @@ function buildRequest(request, options$2 = {}) {
 					case AtomicReadyWalletRejectedUpgradeError.code: throw new AtomicReadyWalletRejectedUpgradeError(err);
 					case AtomicityNotSupportedError.code: throw new AtomicityNotSupportedError(err);
 					case 5e3: throw new UserRejectedRequestError(err);
+					case WalletConnectSessionSettlementError.code: throw new WalletConnectSessionSettlementError(err);
 					default:
 						if (err_ instanceof BaseError$3) throw err_;
 						throw new UnknownRpcError(err);
@@ -19002,7 +19077,8 @@ function createIdStore() {
 	};
 }
 const idCache = /* @__PURE__ */ createIdStore();
-function getHttpRpcClient(url, options$2 = {}) {
+function getHttpRpcClient(url_, options$2 = {}) {
+	const { url, headers: headers_url } = parseUrl(url_);
 	return { async request(params) {
 		const { body, fetchFn = options$2.fetchFn ?? fetch, onRequest = options$2.onRequest, onResponse = options$2.onResponse, timeout = options$2.timeout ?? 1e4 } = params;
 		const fetchOptions = {
@@ -19024,6 +19100,7 @@ function getHttpRpcClient(url, options$2 = {}) {
 						...body
 					}),
 					headers: {
+						...headers_url,
 						"Content-Type": "application/json",
 						...headers
 					},
@@ -19056,13 +19133,16 @@ function getHttpRpcClient(url, options$2 = {}) {
 					data = { error: data };
 				}
 			}
-			if (!response.ok) throw new HttpRequestError({
-				body,
-				details: stringify$2(data.error) || response.statusText,
-				headers: response.headers,
-				status: response.status,
-				url
-			});
+			if (!response.ok) {
+				if (typeof data.error?.code === "number" && typeof data.error?.message === "string") return data;
+				throw new HttpRequestError({
+					body,
+					details: stringify$2(data.error) || response.statusText,
+					headers: response.headers,
+					status: response.status,
+					url
+				});
+			}
 			return data;
 		} catch (err) {
 			if (err instanceof HttpRequestError) throw err;
@@ -19074,6 +19154,28 @@ function getHttpRpcClient(url, options$2 = {}) {
 			});
 		}
 	} };
+}
+function parseUrl(url_) {
+	try {
+		const url = new URL(url_);
+		const result = (() => {
+			if (url.username) {
+				const credentials = `${decodeURIComponent(url.username)}:${decodeURIComponent(url.password)}`;
+				url.username = "";
+				url.password = "";
+				return {
+					url: url.toString(),
+					headers: { Authorization: `Basic ${btoa(credentials)}` }
+				};
+			}
+		})();
+		return {
+			url: url.toString(),
+			...result
+		};
+	} catch {
+		return { url: url_ };
+	}
 }
 var InvalidDomainError = class extends BaseError$3 {
 	constructor({ domain }) {
@@ -19518,7 +19620,7 @@ async function sendRawTransaction(client, { serializedTransaction }) {
 }
 var supportsWalletNamespace$1 = new LruMap(128);
 async function sendTransaction(client, parameters) {
-	const { account: account_ = client.account, chain = client.chain, accessList, authorizationList, blobs, data, gas, gasPrice, maxFeePerBlobGas, maxFeePerGas, maxPriorityFeePerGas, nonce, type, value, ...rest } = parameters;
+	const { account: account_ = client.account, assertChainId = true, chain = client.chain, accessList, authorizationList, blobs, data, dataSuffix = typeof client.dataSuffix === "string" ? client.dataSuffix : client.dataSuffix?.value, gas, gasPrice, maxFeePerBlobGas, maxFeePerGas, maxPriorityFeePerGas, nonce, type, value, ...rest } = parameters;
 	if (typeof account_ === "undefined") throw new AccountNotFoundError({ docsPath: "/docs/actions/wallet/sendTransaction" });
 	const account = account_ ? parseAccount(account_) : null;
 	try {
@@ -19534,7 +19636,7 @@ async function sendTransaction(client, parameters) {
 			let chainId;
 			if (chain !== null) {
 				chainId = await getAction$1(client, getChainId$1, "getChainId")({});
-				assertCurrentChain({
+				if (assertChainId) assertCurrentChain({
 					currentChainId: chainId,
 					chain
 				});
@@ -19547,7 +19649,7 @@ async function sendTransaction(client, parameters) {
 				authorizationList,
 				blobs,
 				chainId,
-				data,
+				data: dataSuffix ? concat$1([data ?? "0x", dataSuffix]) : data,
 				gas,
 				gasPrice,
 				maxFeePerBlobGas,
@@ -19592,7 +19694,7 @@ async function sendTransaction(client, parameters) {
 				authorizationList,
 				blobs,
 				chain,
-				data,
+				data: dataSuffix ? concat$1([data ?? "0x", dataSuffix]) : data,
 				gas,
 				gasPrice,
 				maxFeePerBlobGas,
@@ -19629,9 +19731,9 @@ async function sendTransaction(client, parameters) {
 	}
 }
 function deployContract(walletClient, parameters) {
-	const { abi: abi$8, args, bytecode, ...request } = parameters;
+	const { abi: abi$9, args, bytecode, ...request } = parameters;
 	const calldata = encodeDeployData({
-		abi: abi$8,
+		abi: abi$9,
 		args,
 		bytecode
 	});
@@ -19643,24 +19745,39 @@ function deployContract(walletClient, parameters) {
 }
 async function getAddresses(client) {
 	if (client.account?.type === "local") return [client.account.address];
-	return (await client.request({ method: "eth_accounts" }, { dedupe: true })).map((address$8) => checksumAddress(address$8));
+	return (await client.request({ method: "eth_accounts" }, { dedupe: true })).map((address$9) => checksumAddress(address$9));
 }
 const fallbackMagicIdentifier = "0x5792579257925792579257925792579257925792579257925792579257925792";
 const fallbackTransactionErrorMagicIdentifier = numberToHex(0, { size: 32 });
 async function sendCalls(client, parameters) {
-	const { account: account_ = client.account, capabilities, chain = client.chain, experimental_fallback, experimental_fallbackDelay = 32, forceAtomic = false, id: id$2, version: version$8 = "2.0.0" } = parameters;
+	const { account: account_ = client.account, chain = client.chain, experimental_fallback, experimental_fallbackDelay = 32, forceAtomic = false, id: id$2, version: version$8 = "2.0.0" } = parameters;
 	const account = account_ ? parseAccount(account_) : null;
+	let capabilities = parameters.capabilities;
+	if (client.dataSuffix && !parameters.capabilities?.dataSuffix) if (typeof client.dataSuffix === "string") capabilities = {
+		...parameters.capabilities,
+		dataSuffix: {
+			value: client.dataSuffix,
+			optional: true
+		}
+	};
+	else capabilities = {
+		...parameters.capabilities,
+		dataSuffix: {
+			value: client.dataSuffix.value,
+			...client.dataSuffix.required ? {} : { optional: true }
+		}
+	};
 	const calls = parameters.calls.map((call_) => {
-		const call$1 = call_;
-		const data = call$1.abi ? encodeFunctionData({
-			abi: call$1.abi,
-			functionName: call$1.functionName,
-			args: call$1.args
-		}) : call$1.data;
+		const call$2 = call_;
+		const data = call$2.abi ? encodeFunctionData({
+			abi: call$2.abi,
+			functionName: call$2.functionName,
+			args: call$2.args
+		}) : call$2.data;
 		return {
-			data: call$1.dataSuffix && data ? concat$1([data, call$1.dataSuffix]) : data,
-			to: call$1.to,
-			value: call$1.value ? numberToHex(call$1.value) : void 0
+			data: call$2.dataSuffix && data ? concat$1([data, call$2.dataSuffix]) : data,
+			to: call$2.to,
+			value: call$2.value ? numberToHex(call$2.value) : void 0
 		};
 	});
 	try {
@@ -19692,13 +19809,13 @@ async function sendCalls(client, parameters) {
 				throw new AtomicityNotSupportedError(new BaseError$3(message, { details: message }));
 			}
 			const promises = [];
-			for (const call$1 of calls) {
+			for (const call$2 of calls) {
 				const promise = sendTransaction(client, {
 					account,
 					chain,
-					data: call$1.data,
-					to: call$1.to,
-					value: call$1.value ? hexToBigInt(call$1.value) : void 0
+					data: call$2.data,
+					to: call$2.to,
+					value: call$2.value ? hexToBigInt(call$2.value) : void 0
 				});
 				promises.push(promise);
 				if (experimental_fallbackDelay > 0) await new Promise((resolve) => setTimeout(resolve, experimental_fallbackDelay));
@@ -19823,7 +19940,7 @@ async function requestAddresses(client) {
 	return (await client.request({ method: "eth_requestAccounts" }, {
 		dedupe: true,
 		retryCount: 0
-	})).map((address$8) => getAddress$1(address$8));
+	})).map((address$9) => getAddress$1(address$9));
 }
 async function requestPermissions(client, permissions) {
 	return client.request({
@@ -19898,8 +20015,8 @@ var WaitForCallsStatusTimeoutError = class extends BaseError$3 {
 async function sendCallsSync(client, parameters) {
 	const { chain = client.chain } = parameters;
 	const timeout = parameters.timeout ?? Math.max((chain?.blockTime ?? 0) * 3, 5e3);
-	const result = await sendCalls(client, parameters);
-	return await waitForCallsStatus(client, {
+	const result = await getAction$1(client, sendCalls, "sendCalls")(parameters);
+	return await getAction$1(client, waitForCallsStatus, "waitForCallsStatus")({
 		...parameters,
 		id: result.id,
 		timeout
@@ -19908,7 +20025,7 @@ async function sendCallsSync(client, parameters) {
 async function sendRawTransactionSync(client, { serializedTransaction, throwOnReceiptRevert, timeout }) {
 	const receipt = await client.request({
 		method: "eth_sendRawTransactionSync",
-		params: timeout ? [serializedTransaction, numberToHex(timeout)] : [serializedTransaction]
+		params: timeout ? [serializedTransaction, timeout] : [serializedTransaction]
 	}, { retryCount: 0 });
 	const formatted = (client.chain?.formatters?.transactionReceipt?.format || formatTransactionReceipt$1)(receipt);
 	if (formatted.status === "reverted" && throwOnReceiptRevert) throw new TransactionReceiptRevertedError({ receipt: formatted });
@@ -19916,7 +20033,7 @@ async function sendRawTransactionSync(client, { serializedTransaction, throwOnRe
 }
 var supportsWalletNamespace = new LruMap(128);
 async function sendTransactionSync(client, parameters) {
-	const { account: account_ = client.account, chain = client.chain, accessList, authorizationList, blobs, data, gas, gasPrice, maxFeePerBlobGas, maxFeePerGas, maxPriorityFeePerGas, nonce, pollingInterval, throwOnReceiptRevert, type, value, ...rest } = parameters;
+	const { account: account_ = client.account, assertChainId = true, chain = client.chain, accessList, authorizationList, blobs, data, dataSuffix = typeof client.dataSuffix === "string" ? client.dataSuffix : client.dataSuffix?.value, gas, gasPrice, maxFeePerBlobGas, maxFeePerGas, maxPriorityFeePerGas, nonce, pollingInterval, throwOnReceiptRevert, type, value, ...rest } = parameters;
 	const timeout = parameters.timeout ?? Math.max((chain?.blockTime ?? 0) * 3, 5e3);
 	if (typeof account_ === "undefined") throw new AccountNotFoundError({ docsPath: "/docs/actions/wallet/sendTransactionSync" });
 	const account = account_ ? parseAccount(account_) : null;
@@ -19933,7 +20050,7 @@ async function sendTransactionSync(client, parameters) {
 			let chainId;
 			if (chain !== null) {
 				chainId = await getAction$1(client, getChainId$1, "getChainId")({});
-				assertCurrentChain({
+				if (assertChainId) assertCurrentChain({
 					currentChainId: chainId,
 					chain
 				});
@@ -19946,7 +20063,7 @@ async function sendTransactionSync(client, parameters) {
 				authorizationList,
 				blobs,
 				chainId,
-				data,
+				data: data ? concat$1([data, dataSuffix ?? "0x"]) : data,
 				gas,
 				gasPrice,
 				maxFeePerBlobGas,
@@ -20001,7 +20118,7 @@ async function sendTransactionSync(client, parameters) {
 				authorizationList,
 				blobs,
 				chain,
-				data,
+				data: data ? concat$1([data, dataSuffix ?? "0x"]) : data,
 				gas,
 				gasPrice,
 				maxFeePerBlobGas,
@@ -20019,7 +20136,8 @@ async function sendTransactionSync(client, parameters) {
 			const serializedTransaction = await account.signTransaction(request, { serializer });
 			return await getAction$1(client, sendRawTransactionSync, "sendRawTransactionSync")({
 				serializedTransaction,
-				throwOnReceiptRevert
+				throwOnReceiptRevert,
+				timeout: parameters.timeout
 			});
 		}
 		if (account?.type === "smart") throw new AccountTypeNotSupportedError({
@@ -20146,30 +20264,30 @@ async function watchAsset(client, params) {
 		params
 	}, { retryCount: 0 });
 }
-async function writeContract(client, parameters) {
-	return writeContract.internal(client, sendTransaction, "sendTransaction", parameters);
+async function writeContract$1(client, parameters) {
+	return writeContract$1.internal(client, sendTransaction, "sendTransaction", parameters);
 }
-(function(writeContract$1) {
+(function(writeContract$2) {
 	async function internal$2(client, actionFn, name, parameters) {
-		const { abi: abi$8, account: account_ = client.account, address: address$8, args, dataSuffix, functionName, ...request } = parameters;
+		const { abi: abi$9, account: account_ = client.account, address: address$9, args, functionName, ...request } = parameters;
 		if (typeof account_ === "undefined") throw new AccountNotFoundError({ docsPath: "/docs/contract/writeContract" });
 		const account = account_ ? parseAccount(account_) : null;
 		const data = encodeFunctionData({
-			abi: abi$8,
+			abi: abi$9,
 			args,
 			functionName
 		});
 		try {
 			return await getAction$1(client, actionFn, name)({
-				data: `${data}${dataSuffix ? dataSuffix.replace("0x", "") : ""}`,
-				to: address$8,
+				data,
+				to: address$9,
 				account,
 				...request
 			});
 		} catch (error) {
 			throw getContractError(error, {
-				abi: abi$8,
-				address: address$8,
+				abi: abi$9,
+				address: address$9,
 				args,
 				docsPath: "/docs/contract/writeContract",
 				functionName,
@@ -20177,10 +20295,10 @@ async function writeContract(client, parameters) {
 			});
 		}
 	}
-	writeContract$1.internal = internal$2;
-})(writeContract || (writeContract = {}));
+	writeContract$2.internal = internal$2;
+})(writeContract$1 || (writeContract$1 = {}));
 async function writeContractSync(client, parameters) {
-	return writeContract.internal(client, sendTransactionSync, "sendTransactionSync", parameters);
+	return writeContract$1.internal(client, sendTransactionSync, "sendTransactionSync", parameters);
 }
 function getAction(client, actionFn, name) {
 	const action_implicit = client[actionFn.name];
@@ -20189,7 +20307,7 @@ function getAction(client, actionFn, name) {
 	if (typeof action_explicit === "function") return action_explicit;
 	return (params) => actionFn(client, params);
 }
-const version$4 = "3.0.0";
+const version$4 = "3.4.1";
 const getVersion$2 = () => `@wagmi/core@${version$4}`;
 var __classPrivateFieldGet$1 = function(receiver, state, kind, f$1) {
 	if (kind === "a" && !f$1) throw new TypeError("Private accessor was defined without a getter");
@@ -20296,8 +20414,8 @@ var ConnectorNotConnectedError = class extends BaseError$2 {
 	}
 };
 var ConnectorAccountNotFoundError = class extends BaseError$2 {
-	constructor({ address: address$8, connector }) {
-		super(`Account "${address$8}" not found for connector "${connector.name}".`);
+	constructor({ address: address$9, connector }) {
+		super(`Account "${address$9}" not found for connector "${connector.name}".`);
 		Object.defineProperty(this, "name", {
 			enumerable: true,
 			configurable: true,
@@ -20360,8 +20478,8 @@ async function connect$1(config, parameters) {
 			status: "connected"
 		}));
 		return {
-			accounts: rest.withCapabilities ? data.accounts.map((address$8) => typeof address$8 === "object" ? address$8 : {
-				address: address$8,
+			accounts: rest.withCapabilities ? data.accounts.map((address$9) => typeof address$9 === "object" ? address$9 : {
+				address: address$9,
 				capabilities: {}
 			}) : data.accounts,
 			chainId: data.chainId
@@ -20386,7 +20504,7 @@ function uid$1(length$1 = 11) {
 	return buffer$1.substring(index$4, index$4++ + length$1);
 }
 function createClient(parameters) {
-	const { batch, chain, ccipRead, key = "base", name = "Base Client", type = "base" } = parameters;
+	const { batch, chain, ccipRead, dataSuffix, key = "base", name = "Base Client", type = "base" } = parameters;
 	const experimental_blockTag = parameters.experimental_blockTag ?? (typeof chain?.experimental_preconfirmationTime === "number" ? "pending" : void 0);
 	const blockTime = chain?.blockTime ?? 12e3;
 	const defaultPollingInterval = Math.min(Math.max(Math.floor(blockTime / 2), 500), 4e3);
@@ -20404,6 +20522,7 @@ function createClient(parameters) {
 		cacheTime,
 		ccipRead,
 		chain,
+		dataSuffix,
 		key,
 		name,
 		pollingInterval,
@@ -20457,7 +20576,7 @@ function walletActions(client) {
 		switchChain: (args) => switchChain$1(client, args),
 		waitForCallsStatus: (args) => waitForCallsStatus(client, args),
 		watchAsset: (args) => watchAsset(client, args),
-		writeContract: (args) => writeContract(client, args),
+		writeContract: (args) => writeContract$1(client, args),
 		writeContractSync: (args) => writeContractSync(client, args)
 	};
 }
@@ -20640,13 +20759,13 @@ async function disconnect$1(config, parameters = {}) {
 	}
 }
 async function getBalance(config, parameters) {
-	const { address: address$8, blockNumber, blockTag, chainId } = parameters;
+	const { address: address$9, blockNumber, blockTag, chainId } = parameters;
 	const client = config.getClient({ chainId });
 	const value = await getAction(client, getBalance$1, "getBalance")(blockNumber ? {
-		address: address$8,
+		address: address$9,
 		blockNumber
 	} : {
-		address: address$8,
+		address: address$9,
 		blockTag
 	});
 	const chain = config.chains.find((x$2) => x$2.id === chainId) ?? client.chain;
@@ -20700,12 +20819,12 @@ function getConnection(config) {
 	const uid$2 = config.state.current;
 	const connection = config.state.connections.get(uid$2);
 	const addresses = connection?.accounts;
-	const address$8 = addresses?.[0];
+	const address$9 = addresses?.[0];
 	const chain = config.chains.find((chain$1) => chain$1.id === connection?.chainId);
 	const status = config.state.status;
 	switch (status) {
 		case "connected": return {
-			address: address$8,
+			address: address$9,
 			addresses,
 			chain,
 			chainId: connection?.chainId,
@@ -20717,19 +20836,19 @@ function getConnection(config) {
 			status
 		};
 		case "reconnecting": return {
-			address: address$8,
+			address: address$9,
 			addresses,
 			chain,
 			chainId: connection?.chainId,
 			connector: connection?.connector,
-			isConnected: !!address$8,
+			isConnected: !!address$9,
 			isConnecting: false,
 			isDisconnected: false,
 			isReconnecting: true,
 			status
 		};
 		case "connecting": return {
-			address: address$8,
+			address: address$9,
 			addresses,
 			chain,
 			chainId: connection?.chainId,
@@ -20783,6 +20902,10 @@ function getEnsName(config, parameters) {
 }
 async function getWalletClient(config, parameters = {}) {
 	return (await getConnectorClient(config, parameters)).extend(walletActions);
+}
+function readContract(config, parameters) {
+	const { chainId, ...rest } = parameters;
+	return getAction(config.getClient({ chainId }), readContract$1, "readContract")(rest);
 }
 var isReconnecting = false;
 async function reconnect(config, parameters = {}) {
@@ -20933,6 +21056,27 @@ function watchConnectors(config, parameters) {
 		onChange(Object.values(connectors), prevConnectors);
 	});
 }
+async function writeContract(config, parameters) {
+	const { account, chainId, connector, ...request } = parameters;
+	let client;
+	if (typeof account === "object" && account?.type === "local") client = config.getClient({ chainId });
+	else client = await getConnectorClient(config, {
+		account: account ?? void 0,
+		assertChainId: false,
+		chainId,
+		connector
+	});
+	const chain = (() => {
+		if (!chainId || client.chain?.id === chainId) return client.chain;
+		return { id: chainId };
+	})();
+	return await getAction(client, writeContract$1, "writeContract")({
+		...request,
+		...account ? { account } : {},
+		assertChainId: !!chainId,
+		chain
+	});
+}
 function createConnector$1(createConnectorFn) {
 	return createConnectorFn;
 }
@@ -21029,8 +21173,8 @@ function injected$1(parameters = {}) {
 				if (shimDisconnect) await config.storage?.removeItem(`${this.id}.disconnected`);
 				if (!parameters.target) await config.storage?.setItem("injected.connected", true);
 				return {
-					accounts: withCapabilities ? accounts.map((address$8) => ({
-						address: address$8,
+					accounts: withCapabilities ? accounts.map((address$9) => ({
+						address: address$9,
 						capabilities: {}
 					})) : accounts,
 					chainId: currentChainId
@@ -21906,8 +22050,8 @@ function createConfig(parameters) {
 	}
 	let currentVersion;
 	const prefix$3 = "0.0.0-canary-";
-	if ("3.0.0".startsWith(prefix$3)) currentVersion = Number.parseInt(version$4.replace(prefix$3, ""), 10);
-	else currentVersion = Number.parseInt("3.0.0".split(".")[0] ?? "0", 10);
+	if ("3.4.1".startsWith(prefix$3)) currentVersion = Number.parseInt(version$4.replace(prefix$3, ""), 10);
+	else currentVersion = Number.parseInt("3.4.1".split(".")[0] ?? "0", 10);
 	const store = createStore$1(subscribeWithSelector(storage ? persist(getInitialState, {
 		migrate(persistedState, version$8) {
 			if (version$8 === currentVersion) return persistedState;
@@ -22186,7 +22330,7 @@ function WagmiProvider(parameters) {
 	const props = { value: config };
 	return (0, import_react.createElement)(Hydrate, parameters, (0, import_react.createElement)(WagmiContext.Provider, props, children));
 }
-const version$3 = "3.1.0";
+const version$3 = "3.6.0";
 const getVersion$1 = () => `wagmi@${version$3}`;
 var BaseError$1 = class extends BaseError$2 {
 	constructor() {
@@ -22239,20 +22383,26 @@ function hasObjectPrototype(o$1) {
 	return Object.prototype.toString.call(o$1) === "[object Object]";
 }
 function filterQueryOptions(options$2) {
-	const { _defaulted, behavior, gcTime, initialData, initialDataUpdatedAt, maxPages, meta, networkMode, queryFn, queryHash, queryKey, queryKeyHashFn, retry, retryDelay, structuralSharing, getPreviousPageParam: getPreviousPageParam$1, getNextPageParam: getNextPageParam$1, initialPageParam, _optimisticResults, enabled, notifyOnChangeProps, placeholderData, refetchInterval, refetchIntervalInBackground, refetchOnMount, refetchOnReconnect, refetchOnWindowFocus, retryOnMount, select, staleTime, suspense, throwOnError, config, connector, query, ...rest } = options$2;
+	const { _defaulted, behavior, gcTime, initialData, initialDataUpdatedAt, maxPages, meta, networkMode, queryFn, queryHash, queryKey, queryKeyHashFn, retry, retryDelay, structuralSharing, getPreviousPageParam: getPreviousPageParam$1, getNextPageParam: getNextPageParam$1, initialPageParam, _optimisticResults, enabled, notifyOnChangeProps, placeholderData, refetchInterval, refetchIntervalInBackground, refetchOnMount, refetchOnReconnect, refetchOnWindowFocus, retryOnMount, select, staleTime, suspense, throwOnError, abi: abi$9, config, connector, query, watch, ...rest } = options$2;
+	if (connector) return {
+		connectorUid: connector?.uid,
+		...rest
+	};
 	return rest;
 }
-function connectMutationOptions(config) {
+function connectMutationOptions(config, options$2 = {}) {
 	return {
-		mutationFn(variables) {
+		...options$2.mutation,
+		mutationFn: async (variables) => {
 			return connect$1(config, variables);
 		},
 		mutationKey: ["connect"]
 	};
 }
-function disconnectMutationOptions(config) {
+function disconnectMutationOptions(config, options$2 = {}) {
 	return {
-		mutationFn(variables) {
+		...options$2.mutation,
+		mutationFn: async (variables) => {
 			return disconnect$1(config, variables);
 		},
 		mutationKey: ["disconnect"]
@@ -22260,12 +22410,14 @@ function disconnectMutationOptions(config) {
 }
 function getBalanceQueryOptions(config, options$2 = {}) {
 	return {
-		async queryFn({ queryKey }) {
-			const { address: address$8, scopeKey: _$1, ...parameters } = queryKey[1];
-			if (!address$8) throw new Error("address is required");
+		...options$2.query,
+		enabled: Boolean(options$2.address && (options$2.query?.enabled ?? true)),
+		queryFn: async (context) => {
+			const [, { scopeKey: _$1, ...parameters }] = context.queryKey;
+			if (!parameters.address) throw new Error("address is required");
 			return await getBalance(config, {
 				...parameters,
-				address: address$8
+				address: parameters.address
 			}) ?? null;
 		},
 		queryKey: getBalanceQueryKey(options$2)
@@ -22276,9 +22428,10 @@ function getBalanceQueryKey(options$2 = {}) {
 }
 function getBlockNumberQueryOptions(config, options$2 = {}) {
 	return {
+		...options$2.query,
 		gcTime: 0,
-		async queryFn({ queryKey }) {
-			const { scopeKey: _$1, ...parameters } = queryKey[1];
+		queryFn: async (context) => {
+			const [, { scopeKey: _$1, ...parameters }] = context.queryKey;
 			return await getBlockNumber(config, parameters) ?? null;
 		},
 		queryKey: getBlockNumberQueryKey(options$2)
@@ -22289,33 +22442,33 @@ function getBlockNumberQueryKey(options$2 = {}) {
 }
 function getConnectorClientQueryOptions(config, options$2 = {}) {
 	return {
+		...options$2.query,
+		enabled: Boolean(options$2.connector?.getProvider && (options$2.query?.enabled ?? true)),
 		gcTime: 0,
-		async queryFn({ queryKey }) {
-			const { connector } = options$2;
-			const { connectorUid: _$1, scopeKey: _s, ...parameters } = queryKey[1];
+		queryFn: async (context) => {
+			const [, { connectorUid: _$1, scopeKey: __, ...parameters }] = context.queryKey;
 			return getConnectorClient(config, {
 				...parameters,
-				connector
+				connector: options$2.connector
 			});
 		},
-		queryKey: getConnectorClientQueryKey(options$2)
+		queryKey: getConnectorClientQueryKey(options$2),
+		staleTime: Number.POSITIVE_INFINITY
 	};
 }
 function getConnectorClientQueryKey(options$2 = {}) {
-	const { connector, ...parameters } = options$2;
-	return ["connectorClient", {
-		...filterQueryOptions(parameters),
-		connectorUid: connector?.uid
-	}];
+	return ["connectorClient", filterQueryOptions(options$2)];
 }
 function getEnsAddressQueryOptions(config, options$2 = {}) {
 	return {
-		async queryFn({ queryKey }) {
-			const { name, scopeKey: _$1, ...parameters } = queryKey[1];
-			if (!name) throw new Error("name is required");
+		...options$2.query,
+		enabled: Boolean(options$2.name && (options$2.query?.enabled ?? true)),
+		queryFn: async (context) => {
+			const [, { scopeKey: _$1, ...parameters }] = context.queryKey;
+			if (!parameters.name) throw new Error("name is required");
 			return getEnsAddress(config, {
 				...parameters,
-				name
+				name: parameters.name
 			});
 		},
 		queryKey: getEnsAddressQueryKey(options$2)
@@ -22326,12 +22479,14 @@ function getEnsAddressQueryKey(options$2 = {}) {
 }
 function getEnsAvatarQueryOptions(config, options$2 = {}) {
 	return {
-		async queryFn({ queryKey }) {
-			const { name, scopeKey: _$1, ...parameters } = queryKey[1];
-			if (!name) throw new Error("name is required");
+		...options$2.query,
+		enabled: Boolean(options$2.name && (options$2.query?.enabled ?? true)),
+		queryFn: async (context) => {
+			const [, { scopeKey: _$1, ...parameters }] = context.queryKey;
+			if (!parameters.name) throw new Error("name is required");
 			return getEnsAvatar(config, {
 				...parameters,
-				name
+				name: parameters.name
 			});
 		},
 		queryKey: getEnsAvatarQueryKey(options$2)
@@ -22342,12 +22497,14 @@ function getEnsAvatarQueryKey(options$2 = {}) {
 }
 function getEnsNameQueryOptions(config, options$2 = {}) {
 	return {
-		async queryFn({ queryKey }) {
-			const { address: address$8, scopeKey: _$1, ...parameters } = queryKey[1];
-			if (!address$8) throw new Error("address is required");
+		...options$2.query,
+		enabled: Boolean(options$2.address && (options$2.query?.enabled ?? true)),
+		queryFn: async (context) => {
+			const [, { scopeKey: _$1, ...parameters }] = context.queryKey;
+			if (!parameters.address) throw new Error("address is required");
 			return getEnsName(config, {
 				...parameters,
-				address: address$8
+				address: parameters.address
 			});
 		},
 		queryKey: getEnsNameQueryKey(options$2)
@@ -22358,27 +22515,27 @@ function getEnsNameQueryKey(options$2 = {}) {
 }
 function getWalletClientQueryOptions(config, options$2 = {}) {
 	return {
+		...options$2.query,
+		enabled: Boolean(options$2.connector?.getProvider && (options$2.query?.enabled ?? true)),
 		gcTime: 0,
-		async queryFn({ queryKey }) {
-			const { connector } = options$2;
-			const { connectorUid: _$1, scopeKey: _s, ...parameters } = queryKey[1];
+		queryFn: async (context) => {
+			if (!options$2.connector?.getProvider) throw new Error("connector is required");
+			const [, { connectorUid: _$1, scopeKey: __, ...parameters }] = context.queryKey;
 			return getWalletClient(config, {
 				...parameters,
-				connector
+				connector: options$2.connector
 			});
 		},
-		queryKey: getWalletClientQueryKey(options$2)
+		queryKey: getWalletClientQueryKey(options$2),
+		staleTime: Number.POSITIVE_INFINITY
 	};
 }
 function getWalletClientQueryKey(options$2 = {}) {
-	const { connector, ...parameters } = options$2;
-	return ["walletClient", {
-		...filterQueryOptions(parameters),
-		connectorUid: connector?.uid
-	}];
+	return ["walletClient", filterQueryOptions(options$2)];
 }
-function switchChainMutationOptions(config) {
+function switchChainMutationOptions(config, options$2 = {}) {
 	return {
+		...options$2.mutation,
 		mutationFn(variables) {
 			return switchChain(config, variables);
 		},
@@ -22403,39 +22560,35 @@ function useChainId(parameters = {}) {
 	return (0, import_react.useSyncExternalStore)((onChange) => watchChainId(config, { onChange }), () => getChainId(config), () => getChainId(config));
 }
 function useBalance(parameters = {}) {
-	const { address: address$8, query = {} } = parameters;
 	const config = useConfig(parameters);
 	const chainId = useChainId({ config });
-	const options$2 = getBalanceQueryOptions(config, {
+	return useQuery$1(getBalanceQueryOptions(config, {
 		...parameters,
 		chainId: parameters.chainId ?? chainId
-	});
-	const enabled = Boolean(address$8 && (query.enabled ?? true));
-	return useQuery$1({
-		...query,
-		...options$2,
-		enabled
-	});
+	}));
 }
 function useWatchBlockNumber(parameters = {}) {
 	const { enabled = true, onBlockNumber, config: _$1, ...rest } = parameters;
 	const config = useConfig(parameters);
 	const configChainId = useChainId({ config });
 	const chainId = parameters.chainId ?? configChainId;
+	const onBlockNumberRef = (0, import_react.useRef)(onBlockNumber);
+	const onErrorRef = (0, import_react.useRef)(rest.onError);
+	onBlockNumberRef.current = onBlockNumber;
+	onErrorRef.current = rest.onError;
 	(0, import_react.useEffect)(() => {
 		if (!enabled) return;
-		if (!onBlockNumber) return;
+		if (!onBlockNumberRef.current) return;
 		return watchBlockNumber(config, {
 			...rest,
 			chainId,
-			onBlockNumber
+			onBlockNumber: (blockNumber, prevBlockNumber) => onBlockNumberRef.current?.(blockNumber, prevBlockNumber),
+			onError: (error) => onErrorRef.current?.(error)
 		});
 	}, [
 		chainId,
 		config,
 		enabled,
-		onBlockNumber,
-		rest.onError,
 		rest.emitMissed,
 		rest.emitOnBegin,
 		rest.poll,
@@ -22444,28 +22597,23 @@ function useWatchBlockNumber(parameters = {}) {
 	]);
 }
 function useBlockNumber(parameters = {}) {
-	const { query = {}, watch } = parameters;
 	const config = useConfig(parameters);
-	const queryClient$1 = useQueryClient();
-	const configChainId = useChainId({ config });
-	const chainId = parameters.chainId ?? configChainId;
+	const chainId = useChainId({ config });
 	const options$2 = getBlockNumberQueryOptions(config, {
 		...parameters,
-		chainId
+		chainId: parameters.chainId ?? chainId
 	});
+	const queryClient$1 = useQueryClient();
 	useWatchBlockNumber({
 		config: parameters.config,
 		chainId: parameters.chainId,
-		...typeof watch === "object" ? watch : {},
-		enabled: Boolean((query.enabled ?? true) && (typeof watch === "object" ? watch.enabled : watch)),
+		...typeof parameters.watch === "object" ? parameters.watch : {},
+		enabled: Boolean((options$2.enabled ?? true) && (typeof parameters.watch === "object" ? parameters.watch.enabled : parameters.watch)),
 		onBlockNumber(blockNumber) {
 			queryClient$1.setQueryData(options$2.queryKey, blockNumber);
 		}
 	});
-	return useQuery$1({
-		...query,
-		...options$2
-	});
+	return useQuery$1(options$2);
 }
 function watchChains(config, parameters) {
 	const { onChange } = parameters;
@@ -22487,13 +22635,13 @@ var require_use_sync_external_store_shim_production$1 = /* @__PURE__ */ __common
 	function is$2(x$2, y$3) {
 		return x$2 === y$3 && (0 !== x$2 || 1 / x$2 === 1 / y$3) || x$2 !== x$2 && y$3 !== y$3;
 	}
-	var objectIs$2 = "function" === typeof Object.is ? Object.is : is$2, useState$23 = React$9.useState, useEffect$35 = React$9.useEffect, useLayoutEffect$6 = React$9.useLayoutEffect, useDebugValue$3 = React$9.useDebugValue;
+	var objectIs$2 = "function" === typeof Object.is ? Object.is : is$2, useState$26 = React$9.useState, useEffect$39 = React$9.useEffect, useLayoutEffect$7 = React$9.useLayoutEffect, useDebugValue$3 = React$9.useDebugValue;
 	function useSyncExternalStore$2$6(subscribe$1, getSnapshot) {
-		var value = getSnapshot(), _useState = useState$23({ inst: {
+		var value = getSnapshot(), _useState = useState$26({ inst: {
 			value,
 			getSnapshot
 		} }), inst = _useState[0].inst, forceUpdate = _useState[1];
-		useLayoutEffect$6(function() {
+		useLayoutEffect$7(function() {
 			inst.value = value;
 			inst.getSnapshot = getSnapshot;
 			checkIfSnapshotChanged$1(inst) && forceUpdate({ inst });
@@ -22502,7 +22650,7 @@ var require_use_sync_external_store_shim_production$1 = /* @__PURE__ */ __common
 			value,
 			getSnapshot
 		]);
-		useEffect$35(function() {
+		useEffect$39(function() {
 			checkIfSnapshotChanged$1(inst) && forceUpdate({ inst });
 			return subscribe$1(function() {
 				checkIfSnapshotChanged$1(inst) && forceUpdate({ inst });
@@ -22544,9 +22692,9 @@ var require_with_selector_production = /* @__PURE__ */ __commonJSMin(((exports) 
 	function is$1(x$2, y$3) {
 		return x$2 === y$3 && (0 !== x$2 || 1 / x$2 === 1 / y$3) || x$2 !== x$2 && y$3 !== y$3;
 	}
-	var objectIs$1 = "function" === typeof Object.is ? Object.is : is$1, useSyncExternalStore$6 = shim$1.useSyncExternalStore, useRef$19 = React$8.useRef, useEffect$34 = React$8.useEffect, useMemo$15 = React$8.useMemo, useDebugValue$2 = React$8.useDebugValue;
-	exports.useSyncExternalStoreWithSelector = function(subscribe$1, getSnapshot, getServerSnapshot, selector, isEqual$1) {
-		var instRef = useRef$19(null);
+	var objectIs$1 = "function" === typeof Object.is ? Object.is : is$1, useSyncExternalStore$6 = shim$1.useSyncExternalStore, useRef$20 = React$8.useRef, useEffect$38 = React$8.useEffect, useMemo$18 = React$8.useMemo, useDebugValue$2 = React$8.useDebugValue;
+	exports.useSyncExternalStoreWithSelector = function(subscribe$1, getSnapshot, getServerSnapshot, selector, isEqual$2) {
+		var instRef = useRef$20(null);
 		if (null === instRef.current) {
 			var inst = {
 				hasValue: !1,
@@ -22554,22 +22702,22 @@ var require_with_selector_production = /* @__PURE__ */ __commonJSMin(((exports) 
 			};
 			instRef.current = inst;
 		} else inst = instRef.current;
-		instRef = useMemo$15(function() {
+		instRef = useMemo$18(function() {
 			function memoizedSelector(nextSnapshot) {
 				if (!hasMemo) {
 					hasMemo = !0;
 					memoizedSnapshot = nextSnapshot;
 					nextSnapshot = selector(nextSnapshot);
-					if (void 0 !== isEqual$1 && inst.hasValue) {
+					if (void 0 !== isEqual$2 && inst.hasValue) {
 						var currentSelection = inst.value;
-						if (isEqual$1(currentSelection, nextSnapshot)) return memoizedSelection = currentSelection;
+						if (isEqual$2(currentSelection, nextSnapshot)) return memoizedSelection = currentSelection;
 					}
 					return memoizedSelection = nextSnapshot;
 				}
 				currentSelection = memoizedSelection;
 				if (objectIs$1(memoizedSnapshot, nextSnapshot)) return currentSelection;
 				var nextSelection = selector(nextSnapshot);
-				if (void 0 !== isEqual$1 && isEqual$1(currentSelection, nextSelection)) return memoizedSnapshot = nextSnapshot, currentSelection;
+				if (void 0 !== isEqual$2 && isEqual$2(currentSelection, nextSelection)) return memoizedSnapshot = nextSnapshot, currentSelection;
 				memoizedSnapshot = nextSnapshot;
 				return memoizedSelection = nextSelection;
 			}
@@ -22583,10 +22731,10 @@ var require_with_selector_production = /* @__PURE__ */ __commonJSMin(((exports) 
 			getSnapshot,
 			getServerSnapshot,
 			selector,
-			isEqual$1
+			isEqual$2
 		]);
 		var value = useSyncExternalStore$6(subscribe$1, instRef[0], instRef[1]);
-		useEffect$34(function() {
+		useEffect$38(function() {
 			inst.hasValue = !0;
 			inst.value = value;
 		}, [value]);
@@ -22598,14 +22746,14 @@ var import_with_selector = (/* @__PURE__ */ __commonJSMin(((exports, module) => 
 	module.exports = require_with_selector_production();
 })))();
 var isPlainObject = (obj) => typeof obj === "object" && !Array.isArray(obj);
-function useSyncExternalStoreWithTracked(subscribe$1, getSnapshot, getServerSnapshot = getSnapshot, isEqual$1 = deepEqual) {
+function useSyncExternalStoreWithTracked(subscribe$1, getSnapshot, getServerSnapshot = getSnapshot, isEqual$2 = deepEqual) {
 	const trackedKeys = (0, import_react.useRef)([]);
 	const result = (0, import_with_selector.useSyncExternalStoreWithSelector)(subscribe$1, getSnapshot, getServerSnapshot, (x$2) => x$2, (a$2, b$4) => {
 		if (isPlainObject(a$2) && isPlainObject(b$4) && trackedKeys.current.length) {
-			for (const key of trackedKeys.current) if (!isEqual$1(a$2[key], b$4[key])) return false;
+			for (const key of trackedKeys.current) if (!isEqual$2(a$2[key], b$4[key])) return false;
 			return true;
 		}
-		return isEqual$1(a$2, b$4);
+		return isEqual$2(a$2, b$4);
 	});
 	return (0, import_react.useMemo)(() => {
 		if (isPlainObject(result)) {
@@ -22642,11 +22790,7 @@ function useConnectors(parameters = {}) {
 }
 function useConnect(parameters = {}) {
 	const config = useConfig(parameters);
-	const mutationOptions = connectMutationOptions(config);
-	const mutation = useMutation({
-		...parameters.mutation,
-		...mutationOptions
-	});
+	const mutation = useMutation(connectMutationOptions(config, parameters));
 	(0, import_react.useEffect)(() => {
 		return config.subscribe(({ status }) => status, (status, previousStatus) => {
 			if (previousStatus === "connected" && status === "disconnected") mutation.reset();
@@ -22665,10 +22809,10 @@ function useConnectionEffect(parameters = {}) {
 	(0, import_react.useEffect)(() => {
 		return watchConnection(config, { onChange(data, prevData) {
 			if ((prevData.status === "reconnecting" || prevData.status === "connecting" && prevData.address === void 0) && data.status === "connected") {
-				const { address: address$8, addresses, chain, chainId, connector } = data;
+				const { address: address$9, addresses, chain, chainId, connector } = data;
 				const isReconnected = prevData.status === "reconnecting" || prevData.status === void 0;
 				onConnect?.({
-					address: address$8,
+					address: address$9,
 					addresses,
 					chain,
 					chainId,
@@ -22688,44 +22832,32 @@ function useConnections(parameters = {}) {
 	return (0, import_react.useSyncExternalStore)((onChange) => watchConnections(config, { onChange }), () => getConnections(config), () => getConnections(config));
 }
 function useConnectorClient(parameters = {}) {
-	const { query = {}, ...rest } = parameters;
-	const config = useConfig(rest);
-	const queryClient$1 = useQueryClient();
-	const { address: address$8, connector, status } = useConnection({ config });
+	const config = useConfig(parameters);
 	const chainId = useChainId({ config });
-	const activeConnector = parameters.connector ?? connector;
-	const { queryKey, ...options$2 } = getConnectorClientQueryOptions(config, {
+	const { address: address$9, connector } = useConnection({ config });
+	const options$2 = getConnectorClientQueryOptions(config, {
 		...parameters,
 		chainId: parameters.chainId ?? chainId,
-		connector: activeConnector
+		connector: parameters.connector ?? connector,
+		query: parameters.query
 	});
-	const enabled = Boolean((status === "connected" || status === "reconnecting" && activeConnector?.getProvider) && (query.enabled ?? true));
-	const addressRef = (0, import_react.useRef)(address$8);
+	const addressRef = (0, import_react.useRef)(address$9);
+	const queryClient$1 = useQueryClient();
 	(0, import_react.useEffect)(() => {
 		const previousAddress = addressRef.current;
-		if (!address$8 && previousAddress) {
-			queryClient$1.removeQueries({ queryKey });
+		if (!address$9 && previousAddress) {
+			queryClient$1.removeQueries({ queryKey: options$2.queryKey });
 			addressRef.current = void 0;
-		} else if (address$8 !== previousAddress) {
-			queryClient$1.invalidateQueries({ queryKey });
-			addressRef.current = address$8;
+		} else if (address$9 !== previousAddress) {
+			queryClient$1.invalidateQueries({ queryKey: options$2.queryKey });
+			addressRef.current = address$9;
 		}
-	}, [address$8, queryClient$1]);
-	return useQuery$1({
-		...query,
-		...options$2,
-		queryKey,
-		enabled,
-		staleTime: Number.POSITIVE_INFINITY
-	});
+	}, [address$9, queryClient$1]);
+	return useQuery$1(options$2);
 }
 function useDisconnect(parameters = {}) {
 	const config = useConfig(parameters);
-	const mutationOptions = disconnectMutationOptions(config);
-	const mutation = useMutation({
-		...parameters.mutation,
-		...mutationOptions
-	});
+	const mutation = useMutation(disconnectMutationOptions(config, parameters));
 	return {
 		...mutation,
 		connectors: useConnections({ config }).map((connection) => connection.connector),
@@ -22734,97 +22866,62 @@ function useDisconnect(parameters = {}) {
 	};
 }
 function useEnsAddress(parameters = {}) {
-	const { name, query = {} } = parameters;
 	const config = useConfig(parameters);
 	const chainId = useChainId({ config });
-	const options$2 = getEnsAddressQueryOptions(config, {
+	return useQuery$1(getEnsAddressQueryOptions(config, {
 		...parameters,
 		chainId: parameters.chainId ?? chainId
-	});
-	const enabled = Boolean(name && (query.enabled ?? true));
-	return useQuery$1({
-		...query,
-		...options$2,
-		enabled
-	});
+	}));
 }
 function useEnsAvatar(parameters = {}) {
-	const { name, query = {} } = parameters;
 	const config = useConfig(parameters);
 	const chainId = useChainId({ config });
-	const options$2 = getEnsAvatarQueryOptions(config, {
+	return useQuery$1(getEnsAvatarQueryOptions(config, {
 		...parameters,
 		chainId: parameters.chainId ?? chainId
-	});
-	const enabled = Boolean(name && (query.enabled ?? true));
-	return useQuery$1({
-		...query,
-		...options$2,
-		enabled
-	});
+	}));
 }
 function useEnsName(parameters = {}) {
-	const { address: address$8, query = {} } = parameters;
 	const config = useConfig(parameters);
 	const chainId = useChainId({ config });
-	const options$2 = getEnsNameQueryOptions(config, {
+	return useQuery$1(getEnsNameQueryOptions(config, {
 		...parameters,
 		chainId: parameters.chainId ?? chainId
-	});
-	const enabled = Boolean(address$8 && (query.enabled ?? true));
-	return useQuery$1({
-		...query,
-		...options$2,
-		enabled
-	});
+	}));
 }
 function useSwitchChain(parameters = {}) {
 	const config = useConfig(parameters);
-	const mutationOptions = switchChainMutationOptions(config);
-	const mutation = useMutation({
-		...parameters.mutation,
-		...mutationOptions
-	});
+	const mutation = useMutation(switchChainMutationOptions(config, parameters));
 	return {
 		...mutation,
-		mutate: mutation.mutate,
-		mutateAsync: mutation.mutateAsync,
 		chains: useChains$1({ config }),
 		switchChain: mutation.mutate,
 		switchChainAsync: mutation.mutateAsync
 	};
 }
 function useWalletClient(parameters = {}) {
-	const { query = {}, ...rest } = parameters;
-	const config = useConfig(rest);
-	const queryClient$1 = useQueryClient();
-	const { address: address$8, connector, status } = useConnection({ config });
+	const config = useConfig(parameters);
 	const chainId = useChainId({ config });
-	const activeConnector = parameters.connector ?? connector;
-	const { queryKey, ...options$2 } = getWalletClientQueryOptions(config, {
+	const { address: address$9, connector } = useConnection({ config });
+	const options$2 = getWalletClientQueryOptions(config, {
 		...parameters,
 		chainId: parameters.chainId ?? chainId,
-		connector: parameters.connector ?? connector
+		connector: parameters.connector ?? connector,
+		query: parameters.query
 	});
-	const enabled = Boolean((status === "connected" || status === "reconnecting" && activeConnector?.getProvider) && (query.enabled ?? true));
-	const addressRef = (0, import_react.useRef)(address$8);
+	const addressRef = (0, import_react.useRef)(address$9);
+	const queryClient$1 = useQueryClient();
 	(0, import_react.useEffect)(() => {
 		const previousAddress = addressRef.current;
-		if (!address$8 && previousAddress) {
-			queryClient$1.removeQueries({ queryKey });
+		if (!address$9 && previousAddress) {
+			queryClient$1.removeQueries({ queryKey: options$2.queryKey });
 			addressRef.current = void 0;
-		} else if (address$8 !== previousAddress) {
-			queryClient$1.invalidateQueries({ queryKey });
-			addressRef.current = address$8;
+		} else if (address$9 !== previousAddress) {
+			queryClient$1.invalidateQueries({ queryKey: options$2.queryKey });
+			addressRef.current = address$9;
 		}
-	}, [address$8, queryClient$1]);
-	return useQuery$1({
-		...query,
-		...options$2,
-		queryKey,
-		enabled,
-		staleTime: Number.POSITIVE_INFINITY
-	});
+	}, [address$9, queryClient$1]);
+	return useQuery$1(options$2);
 }
 const contracts = {
 	gasPriceOracle: { address: "0x420000000000000000000000000000000000000F" },
@@ -22989,7 +23086,7 @@ const polygon = /* @__PURE__ */ defineChain({
 		symbol: "POL",
 		decimals: 18
 	},
-	rpcUrls: { default: { http: ["https://polygon-rpc.com"] } },
+	rpcUrls: { default: { http: ["https://polygon.drpc.org"] } },
 	blockExplorers: { default: {
 		name: "PolygonScan",
 		url: "https://polygonscan.com",
@@ -23036,8 +23133,8 @@ function coinbaseWallet(parameters = {}) {
 					return { id: currentChainId };
 				}))?.id ?? currentChainId;
 				return {
-					accounts: withCapabilities ? accounts.map((address$8) => ({
-						address: address$8,
+					accounts: withCapabilities ? accounts.map((address$9) => ({
+						address: address$9,
 						capabilities: {}
 					})) : accounts,
 					chainId: currentChainId
@@ -23073,10 +23170,13 @@ function coinbaseWallet(parameters = {}) {
 		},
 		async getProvider() {
 			if (!walletProvider) {
-				const { createCoinbaseWalletSDK } = await __vitePreload(async () => {
-					const { createCoinbaseWalletSDK: createCoinbaseWalletSDK$1 } = await import("./connectors-C3LKkqQV.js");
-					return { createCoinbaseWalletSDK: createCoinbaseWalletSDK$1 };
-				}, []);
+				const { createCoinbaseWalletSDK } = await (() => {
+					try {
+						return __vitePreload(() => import("./connectors-BSOEz7b3.js"), []);
+					} catch {
+						throw new Error("dependency \"@coinbase/wallet-sdk\" not found");
+					}
+				})();
 				walletProvider = createCoinbaseWalletSDK({
 					...parameters,
 					appChainIds: config.chains.map((x$2) => x$2.id),
@@ -23178,8 +23278,8 @@ function safe(parameters = {}) {
 			}
 			if (shimDisconnect) await config.storage?.removeItem("safe.disconnected");
 			return {
-				accounts: withCapabilities ? accounts.map((address$8) => ({
-					address: address$8,
+				accounts: withCapabilities ? accounts.map((address$9) => ({
+					address: address$9,
 					capabilities: {}
 				})) : accounts,
 				chainId
@@ -23202,15 +23302,24 @@ function safe(parameters = {}) {
 		async getProvider() {
 			if (!(typeof window !== "undefined" && window?.parent !== window)) return;
 			if (!provider_) {
-				const { default: SDK } = await __vitePreload(async () => {
-					const { default: SDK$1 } = await import("./esm-DAdJsV_4.js");
-					return { default: SDK$1 };
-				}, []);
+				const { default: SDK } = await (() => {
+					try {
+						return __vitePreload(() => import("./esm-CHdHOje6.js"), __vite__mapDeps([2,3]));
+					} catch {
+						throw new Error("dependency \"@safe-global/safe-apps-sdk\" not found");
+					}
+				})();
 				const sdk = new SDK(parameters);
 				const safe$1 = await withTimeout(() => sdk.safe.getInfo(), { timeout: parameters.unstable_getInfoTimeout ?? 10 });
 				if (!safe$1) throw new Error("Could not load Safe information");
 				provider_ = new (await ((async () => {
-					const Provider = await __vitePreload(() => import("./dist-D1lpdhCZ.js").then(__toDynamicImportESM(1)), []);
+					const Provider = await (() => {
+						try {
+							return __vitePreload(() => import("./dist-Cwiohq0O.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
+						} catch {
+							throw new Error("dependency \"@safe-global/safe-apps-provider\" not found");
+						}
+					})();
 					if (typeof Provider.SafeAppProvider !== "function" && typeof Provider.default.SafeAppProvider === "function") return Provider.default.SafeAppProvider;
 					return Provider.SafeAppProvider;
 				})()))(safe$1, sdk);
@@ -23321,8 +23430,8 @@ function walletConnect(parameters) {
 					provider.on("session_delete", sessionDelete);
 				}
 				return {
-					accounts: withCapabilities ? accounts.map((address$8) => ({
-						address: address$8,
+					accounts: withCapabilities ? accounts.map((address$9) => ({
+						address: address$9,
 						capabilities: {}
 					})) : accounts,
 					chainId: currentChainId
@@ -23369,10 +23478,13 @@ function walletConnect(parameters) {
 			async function initProvider() {
 				const optionalChains = config.chains.map((x$2) => x$2.id);
 				if (!optionalChains.length) return;
-				const { EthereumProvider: EthereumProvider$1 } = await __vitePreload(async () => {
-					const { EthereumProvider: EthereumProvider$2 } = await import("./dist-CPeGcdf0.js");
-					return { EthereumProvider: EthereumProvider$2 };
-				}, __vite__mapDeps([2,3,1]));
+				const { EthereumProvider: EthereumProvider$1 } = await (() => {
+					try {
+						return __vitePreload(() => import("./dist-DTerlAuN.js"), __vite__mapDeps([5,6,1]));
+					} catch {
+						throw new Error("dependency \"@walletconnect/ethereum-provider\" not found");
+					}
+				})();
 				return await EthereumProvider$1.init({
 					...parameters,
 					disableProviderPing: true,
@@ -23549,8 +23661,8 @@ var require_events = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	else ReflectOwnKeys = function ReflectOwnKeys$1(target) {
 		return Object.getOwnPropertyNames(target);
 	};
-	function ProcessEmitWarning(warning$3) {
-		if (console && console.warn) console.warn(warning$3);
+	function ProcessEmitWarning(warning$4) {
+		if (console && console.warn) console.warn(warning$4);
 	}
 	var NumberIsNaN = Number.isNaN || function NumberIsNaN$1(value) {
 		return value !== value;
@@ -25126,7 +25238,7 @@ var State = class {
 };
 var postRobot = null;
 var initPostRobot = async () => {
-	postRobot = await __vitePreload(() => import("./index-Cs-onntv-9cmHd1Zc.js"), []).then(function(n$3) {
+	postRobot = await __vitePreload(() => import("./index-Cs-onntv-B__UtlQm.js"), []).then(function(n$3) {
 		return n$3.i;
 	});
 };
@@ -26878,7 +26990,7 @@ var require_buffer = /* @__PURE__ */ __commonJSMin(((exports) => {
 		}
 	}
 	Buffer$2.prototype._isBuffer = true;
-	function swap(b$4, n$3, m$2) {
+	function swap$1(b$4, n$3, m$2) {
 		const i$3 = b$4[n$3];
 		b$4[n$3] = b$4[m$2];
 		b$4[m$2] = i$3;
@@ -26886,15 +26998,15 @@ var require_buffer = /* @__PURE__ */ __commonJSMin(((exports) => {
 	Buffer$2.prototype.swap16 = function swap16() {
 		const len$1 = this.length;
 		if (len$1 % 2 !== 0) throw new RangeError("Buffer size must be a multiple of 16-bits");
-		for (let i$3 = 0; i$3 < len$1; i$3 += 2) swap(this, i$3, i$3 + 1);
+		for (let i$3 = 0; i$3 < len$1; i$3 += 2) swap$1(this, i$3, i$3 + 1);
 		return this;
 	};
 	Buffer$2.prototype.swap32 = function swap32() {
 		const len$1 = this.length;
 		if (len$1 % 4 !== 0) throw new RangeError("Buffer size must be a multiple of 32-bits");
 		for (let i$3 = 0; i$3 < len$1; i$3 += 4) {
-			swap(this, i$3, i$3 + 3);
-			swap(this, i$3 + 1, i$3 + 2);
+			swap$1(this, i$3, i$3 + 3);
+			swap$1(this, i$3 + 1, i$3 + 2);
 		}
 		return this;
 	};
@@ -26902,10 +27014,10 @@ var require_buffer = /* @__PURE__ */ __commonJSMin(((exports) => {
 		const len$1 = this.length;
 		if (len$1 % 8 !== 0) throw new RangeError("Buffer size must be a multiple of 64-bits");
 		for (let i$3 = 0; i$3 < len$1; i$3 += 8) {
-			swap(this, i$3, i$3 + 7);
-			swap(this, i$3 + 1, i$3 + 6);
-			swap(this, i$3 + 2, i$3 + 5);
-			swap(this, i$3 + 3, i$3 + 4);
+			swap$1(this, i$3, i$3 + 7);
+			swap$1(this, i$3 + 1, i$3 + 6);
+			swap$1(this, i$3 + 2, i$3 + 5);
+			swap$1(this, i$3 + 3, i$3 + 4);
 		}
 		return this;
 	};
@@ -27987,7 +28099,7 @@ function loadFeatures(features) {
 		else featureDefinitions[key].Component = features[key];
 	}
 }
-var warning$2 = function() {};
+var warning$3 = function() {};
 var invariant$1 = function() {};
 var LazyContext = (0, import_react.createContext)({ strict: false });
 init_tslib_es6();
@@ -29193,7 +29305,7 @@ var minDamping = .05;
 function findSpring({ duration = 800, bounce = .25, velocity = 0, mass = 1 }) {
 	let envelope;
 	let derivative;
-	warning$2(duration <= 10 * 1e3, "Spring duration must be 10 seconds or less");
+	warning$3(duration <= 10 * 1e3, "Spring duration must be 10 seconds or less");
 	let dampingRatio = 1 - bounce;
 	dampingRatio = clamp(minDamping, 1, dampingRatio);
 	duration = clamp(minDuration, 10, duration / 1e3);
@@ -29457,7 +29569,7 @@ var mixComplex = (origin, target) => {
 	const targetStats = analyse(target);
 	if (originStats.numHSL === targetStats.numHSL && originStats.numRGB === targetStats.numRGB && originStats.numNumbers >= targetStats.numNumbers) return pipe(mixArray(originStats.parsed, targetStats.parsed), template);
 	else {
-		warning$2(true, `Complex values '${origin}' and '${target}' too different to mix. Ensure all colors are of the same type, and that each contains the same quantity of number and color values. Falling back to instant transition.`);
+		warning$3(true, `Complex values '${origin}' and '${target}' too different to mix. Ensure all colors are of the same type, and that each contains the same quantity of number and color values. Falling back to instant transition.`);
 		return (p$2) => `${p$2 > 0 ? target : origin}`;
 	}
 };
@@ -29698,7 +29810,7 @@ var cancelSync = stepsOrder.reduce((acc, key) => {
 	acc[key] = steps[key].cancel;
 	return acc;
 }, {});
-var flushSync = stepsOrder.reduce((acc, key) => {
+var flushSync$1 = stepsOrder.reduce((acc, key) => {
 	acc[key] = () => steps[key].process(frame);
 	return acc;
 }, {});
@@ -29721,7 +29833,7 @@ var startLoop = () => {
 	if (!isProcessing) onNextFrame(processFrame);
 };
 var getFrameData = () => frame;
-var es_default = sync;
+var es_default$1 = sync;
 function loopElapsed(elapsed, duration, delay$1 = 0) {
 	return elapsed - duration - delay$1;
 }
@@ -29735,7 +29847,7 @@ init_tslib_es6();
 var framesync = (update) => {
 	const passTimestamp = ({ delta }) => update(delta);
 	return {
-		start: () => es_default.update(passTimestamp, true),
+		start: () => es_default$1.update(passTimestamp, true),
 		stop: () => cancelSync.update(passTimestamp)
 	};
 };
@@ -29986,12 +30098,12 @@ function useTapGesture(_a) {
 	usePointerEvent(visualElement$1, "pointerdown", hasPressListeners ? onPointerDown : void 0, eventOptions);
 	useUnmountEffect(removePointerEndListener);
 }
-var warned = /* @__PURE__ */ new Set();
+var warned$1 = /* @__PURE__ */ new Set();
 function warnOnce(condition, message, element) {
-	if (condition || warned.has(message)) return;
+	if (condition || warned$1.has(message)) return;
 	console.warn(message);
 	if (element) console.warn(element);
-	warned.add(message);
+	warned$1.add(message);
 }
 init_tslib_es6();
 var observerCallbacks = /* @__PURE__ */ new WeakMap();
@@ -30275,7 +30387,7 @@ function convertTransitionToAnimationOptions(_a) {
 	if (ease) options$2["ease"] = isEasingArray(ease) ? ease.map(easingDefinitionToFunction) : easingDefinitionToFunction(ease);
 	if (transition$3.type === "tween") options$2.type = "keyframes";
 	if (yoyo || loop || flip$1) {
-		warning$2(!legacyRepeatWarning, "yoyo, loop and flip have been removed from the API. Replace with repeat and repeatType options.");
+		warning$3(!legacyRepeatWarning, "yoyo, loop and flip have been removed from the API. Replace with repeat and repeatType options.");
 		legacyRepeatWarning = true;
 		if (yoyo) options$2.repeatType = "reverse";
 		else if (loop) options$2.repeatType = "loop";
@@ -30312,7 +30424,7 @@ function getAnimation(key, value, target, transition$3, onComplete) {
 	else if (isZero(origin) && typeof target === "string") origin = getZeroUnit(target);
 	else if (!Array.isArray(target) && isZero(target) && typeof origin === "string") target = getZeroUnit(origin);
 	var isOriginAnimatable = isAnimatable(key, origin);
-	warning$2(isOriginAnimatable === isTargetAnimatable, "You are trying to animate ".concat(key, " from \"").concat(origin, "\" to \"").concat(target, "\". ").concat(origin, " is not an animatable value - to enable this animation set ").concat(origin, " to a value animatable to ").concat(target, " via the `style` property."));
+	warning$3(isOriginAnimatable === isTargetAnimatable, "You are trying to animate ".concat(key, " from \"").concat(origin, "\" to \"").concat(target, "\". ").concat(origin, " is not an animatable value - to enable this animation set ").concat(origin, " to a value animatable to ").concat(target, " via the `style` property."));
 	function start() {
 		var options$2 = {
 			from: origin,
@@ -30437,14 +30549,14 @@ var MotionValue = function() {
 			if (_this.lastUpdated !== timestamp) {
 				_this.timeDelta = delta;
 				_this.lastUpdated = timestamp;
-				es_default.postRender(_this.scheduleVelocityCheck);
+				es_default$1.postRender(_this.scheduleVelocityCheck);
 			}
 			if (_this.prev !== _this.current) _this.updateSubscribers.notify(_this.current);
 			if (_this.velocityUpdateSubscribers.getSize()) _this.velocityUpdateSubscribers.notify(_this.getVelocity());
 			if (render) _this.renderSubscribers.notify(_this.current);
 		};
 		this.scheduleVelocityCheck = function() {
-			return es_default.postRender(_this.velocityCheck);
+			return es_default$1.postRender(_this.velocityCheck);
 		};
 		this.velocityCheck = function(_a) {
 			if (_a.timestamp !== _this.lastUpdated) {
@@ -30883,7 +30995,7 @@ var PanSession = function() {
 				_this.handlePointerUp(event$1, info);
 				return;
 			}
-			es_default.update(_this.updatePoint, true);
+			es_default$1.update(_this.updatePoint, true);
 		};
 		this.handlePointerUp = function(event$1, info) {
 			_this.end();
@@ -31519,7 +31631,7 @@ function getCurrentDirection(offset$1, lockThreshold) {
 	else if (Math.abs(offset$1.x) > lockThreshold) direction = "x";
 	return direction;
 }
-function useDrag(props) {
+function useDrag$1(props) {
 	var groupDragControls = props.dragControls, visualElement$1 = props.visualElement;
 	var dragControls = useConstant(function() {
 		return new VisualElementDragControls(visualElement$1);
@@ -31558,7 +31670,7 @@ function usePanGesture(_a) {
 }
 var drag = {
 	pan: makeRenderlessComponent(usePanGesture),
-	drag: makeRenderlessComponent(useDrag)
+	drag: makeRenderlessComponent(useDrag$1)
 };
 init_tslib_es6();
 var names$1 = [
@@ -31652,7 +31764,7 @@ var visualElement = function(_a) {
 		function bindToMotionValue(key$1, value$1) {
 			var removeOnChange = value$1.onChange(function(latestValue) {
 				latestValues[key$1] = latestValue;
-				props.onUpdate && es_default.update(update, false, true);
+				props.onUpdate && es_default$1.update(update, false, true);
 			});
 			var removeOnRenderRequest = value$1.onRenderRequest(element.scheduleRender);
 			valueSubscriptions.set(key$1, function() {
@@ -31799,7 +31911,7 @@ var visualElement = function(_a) {
 				return renderState;
 			},
 			scheduleRender: function() {
-				es_default.render(render, false, true);
+				es_default$1.render(render, false, true);
 			},
 			syncRender: render,
 			setProps: function(newProps) {
@@ -32251,7 +32363,7 @@ var MeasureLayoutWithContext = function(_super) {
 		else this.safeToRemove();
 		if (prevProps.isPresent !== isPresent) {
 			if (isPresent) projection.promote();
-			else if (!projection.relegate()) es_default.postRender(function() {
+			else if (!projection.relegate()) es_default$1.postRender(function() {
 				var _a$1;
 				if (!((_a$1 = projection.getStack()) === null || _a$1 === void 0 ? void 0 : _a$1.members.length)) _this.safeToRemove();
 			});
@@ -32731,20 +32843,20 @@ function createProjectionNode(_a) {
 			this.nodes.forEach(updateLayout);
 			this.nodes.forEach(notifyLayoutUpdate);
 			this.clearAllSnapshots();
-			flushSync.update();
-			flushSync.preRender();
-			flushSync.render();
+			flushSync$1.update();
+			flushSync$1.preRender();
+			flushSync$1.render();
 		};
 		ProjectionNode.prototype.clearAllSnapshots = function() {
 			this.nodes.forEach(clearSnapshot);
 			this.sharedNodes.forEach(removeLeadSnapshots);
 		};
 		ProjectionNode.prototype.scheduleUpdateProjection = function() {
-			es_default.preRender(this.updateProjection, false, true);
+			es_default$1.preRender(this.updateProjection, false, true);
 		};
 		ProjectionNode.prototype.scheduleCheckAfterUnmount = function() {
 			var _this = this;
-			es_default.postRender(function() {
+			es_default$1.postRender(function() {
 				if (_this.isLayoutDirty) _this.root.didUpdate();
 				else _this.root.checkUpdateFailed();
 			});
@@ -33004,7 +33116,7 @@ function createProjectionNode(_a) {
 				cancelSync.update(this.pendingAnimation);
 				this.pendingAnimation = void 0;
 			}
-			this.pendingAnimation = es_default.update(function() {
+			this.pendingAnimation = es_default$1.update(function() {
 				globalProjectionState.hasAnimatedSinceResize = true;
 				_this.currentAnimation = animate(0, animationTarget, __assign(__assign({}, options$2), {
 					onUpdate: function(latest) {
@@ -33347,7 +33459,7 @@ function useForceUpdate() {
 		isMounted.current && setForcedRenderCount(forcedRenderCount + 1);
 	}, [forcedRenderCount]);
 	return [(0, import_react.useCallback)(function() {
-		return es_default.postRender(forceRender);
+		return es_default$1.postRender(forceRender);
 	}, [forceRender]), forcedRenderCount];
 }
 init_tslib_es6();
@@ -35542,7 +35654,7 @@ function normalize$2(name) {
 function normalize$1(name) {
 	return normalize$2(name);
 }
-var import_react_dom$2 = require_react_dom();
+var import_react_dom$3 = require_react_dom();
 function g(n$3, t$2) {
 	let o$1;
 	return (...i$3) => {
@@ -35664,7 +35776,7 @@ var k = [
 ], D = (n$3, t$2) => k.every((o$1) => n$3[o$1] === t$2[o$1]);
 var MapShim = (function() {
 	if (typeof Map !== "undefined") return Map;
-	function getIndex(arr, key) {
+	function getIndex$1(arr, key) {
 		var result = -1;
 		arr.some(function(entry, index$6) {
 			if (entry[0] === key) {
@@ -35687,22 +35799,22 @@ var MapShim = (function() {
 			configurable: true
 		});
 		class_1.prototype.get = function(key) {
-			var index$6 = getIndex(this.__entries__, key);
+			var index$6 = getIndex$1(this.__entries__, key);
 			var entry = this.__entries__[index$6];
 			return entry && entry[1];
 		};
 		class_1.prototype.set = function(key, value) {
-			var index$6 = getIndex(this.__entries__, key);
+			var index$6 = getIndex$1(this.__entries__, key);
 			if (~index$6) this.__entries__[index$6][1] = value;
 			else this.__entries__.push([key, value]);
 		};
 		class_1.prototype.delete = function(key) {
 			var entries = this.__entries__;
-			var index$6 = getIndex(entries, key);
+			var index$6 = getIndex$1(entries, key);
 			if (~index$6) entries.splice(index$6, 1);
 		};
 		class_1.prototype.has = function(key) {
-			return !!~getIndex(this.__entries__, key);
+			return !!~getIndex$1(this.__entries__, key);
 		};
 		class_1.prototype.clear = function() {
 			this.__entries__.splice(0);
@@ -39317,10 +39429,10 @@ var Logos = {
 	Talisman
 };
 var truncateRegex = /^(0x[a-zA-Z0-9]{4})[a-zA-Z0-9]+([a-zA-Z0-9]{4})$/;
-var truncateEthAddress = (address$8, separator = "••••") => {
-	if (!address$8) return "";
-	const match$1 = address$8.match(truncateRegex);
-	if (!match$1) return address$8;
+var truncateEthAddress = (address$9, separator = "••••") => {
+	if (!address$9) return "";
+	const match$1 = address$9.match(truncateRegex);
+	if (!match$1) return address$9;
 	return `${match$1[1]}${separator}${match$1[2]}`;
 };
 var truncateENSAddress = (ensName, maxLength) => {
@@ -40817,7 +40929,7 @@ var Portal = (props) => {
 		setMounted(true);
 	}, [selector]);
 	if (!ref.current) return null;
-	return mounted ? (0, import_react_dom$2.createPortal)(children, ref.current) : null;
+	return mounted ? (0, import_react_dom$3.createPortal)(children, ref.current) : null;
 };
 var defaultTheme$2 = { mobileWidth: 560 };
 var ErrorMessage = styled(motion.div)`
@@ -41465,7 +41577,7 @@ var SignInTooltip = styled(motion.div)`
 var useIsomorphicLayoutEffect$2 = typeof window !== "undefined" ? import_react.useLayoutEffect : import_react.useEffect;
 function useLockBodyScroll(initialLocked) {
 	const [locked$2, setLocked] = (0, import_react.useState)(initialLocked);
-	const context = useContext$8();
+	const context = useContext$9();
 	useIsomorphicLayoutEffect$2(() => {
 		var _a;
 		if (!locked$2) return;
@@ -41785,19 +41897,19 @@ var useSIWE = ({ onSignIn, onSignOut } = {}) => {
 		signOut: () => Promise.reject()
 	};
 	const { session, nonce, status, signOut, signIn, resetStatus } = siweContextValue;
-	const { address: address$8, chainId } = session.data || {};
-	const currentStatus = address$8 ? StatusState.SUCCESS : session.isLoading || nonce.isLoading ? StatusState.LOADING : status;
+	const { address: address$9, chainId } = session.data || {};
+	const currentStatus = address$9 ? StatusState.SUCCESS : session.isLoading || nonce.isLoading ? StatusState.LOADING : status;
 	const isLoading = currentStatus === StatusState.LOADING;
 	const isSuccess = currentStatus === StatusState.SUCCESS;
 	const isRejected = currentStatus === StatusState.REJECTED;
 	const isError$1 = currentStatus === StatusState.ERROR;
-	const isReady = !address$8 || nonce.isFetching || isLoading || isSuccess;
+	const isReady = !address$9 || nonce.isFetching || isLoading || isSuccess;
 	const reset = () => resetStatus();
-	const isSignedIn = !!address$8;
+	const isSignedIn = !!address$9;
 	return {
 		isSignedIn,
 		data: isSignedIn ? {
-			address: address$8,
+			address: address$9,
 			chainId
 		} : void 0,
 		status: currentStatus,
@@ -43056,7 +43168,7 @@ var getLocale = (lang) => {
 };
 function useLocales(replacements) {
 	var _a, _b;
-	const language = (_b = (_a = useContext$8().options) === null || _a === void 0 ? void 0 : _a.language) !== null && _b !== void 0 ? _b : "en-US";
+	const language = (_b = (_a = useContext$9().options) === null || _a === void 0 ? void 0 : _a.language) !== null && _b !== void 0 ? _b : "en-US";
 	const translations = (0, import_react.useMemo)(() => {
 		return getLocale(language);
 	}, [language]);
@@ -43266,7 +43378,7 @@ var useWallet$1 = (id$2) => {
 };
 var useWallets = () => {
 	const connectors = useConnectors$1();
-	const context = useContext$8();
+	const context = useContext$9();
 	return connectors.map((connector) => {
 		var _a, _b;
 		const walletId = Object.keys(walletConfigs).find((id$2) => id$2.split(",").map((i$3) => i$3.trim()).indexOf(connector.id) !== -1);
@@ -43447,7 +43559,7 @@ var contentVariants$2 = {
 };
 var Modal$2 = ({ open, pages, pageId, positionInside, inline: inline$1, demo, onClose, onBack, onInfo }) => {
 	var _a, _b, _c, _d, _e$1, _f, _g, _h, _j, _k, _l, _m;
-	const context = useContext$8();
+	const context = useContext$9();
 	const themeContext = useThemeContext();
 	const mobile = isMobile();
 	const { isSignedIn, reset } = useSIWE();
@@ -44427,7 +44539,7 @@ var Button$2 = ({ children, variant = "secondary", disabled, icon, iconPosition 
 };
 var Introduction = () => {
 	var _a, _b;
-	const context = useContext$8();
+	const context = useContext$9();
 	const locales = useLocales({});
 	const ctaUrl = (_b = (_a = context.options) === null || _a === void 0 ? void 0 : _a.walletOnboardingUrl) !== null && _b !== void 0 ? _b : locales.onboardingScreen_ctaUrl;
 	return (0, import_jsx_runtime.jsxs)(PageContent, { children: [
@@ -44507,7 +44619,7 @@ var Slide = styled(motion.div)`
       transition-delay: 0ms;
     `}
 `;
-var Slider = styled.div`
+var Slider$2 = styled.div`
   --background: var(--ck-body-background-secondary);
   --background-transparent: var(--ck-body-background-transparent, transparent);
   position: relative;
@@ -44546,7 +44658,7 @@ var Dots = styled.div`
   justify-content: center;
   pointer-events: auto;
 `;
-var Dot = styled.button`
+var Dot$1 = styled.button`
   display: flex;
   align-items: center;
   height: 28px;
@@ -45272,7 +45384,7 @@ var SlideThree = ({ layoutId }) => {
 var About = () => {
 	var _a, _b;
 	const locales = useLocales({});
-	const context = useContext$8();
+	const context = useContext$9();
 	const ctaUrl = (_b = (_a = context.options) === null || _a === void 0 ? void 0 : _a.ethereumOnboardingUrl) !== null && _b !== void 0 ? _b : locales.aboutScreen_ctaUrl;
 	const [ready, setReady] = (0, import_react.useState)(true);
 	const [slider, setSlider] = (0, import_react.useState)(0);
@@ -45406,7 +45518,7 @@ var About = () => {
 		})] })
 	];
 	return (0, import_jsx_runtime.jsxs)(PageContent, { children: [
-		(0, import_jsx_runtime.jsxs)(Slider, { children: [(0, import_jsx_runtime.jsx)(ImageContainer$1, { children: (0, import_jsx_runtime.jsx)(MotionConfig, {
+		(0, import_jsx_runtime.jsxs)(Slider$2, { children: [(0, import_jsx_runtime.jsx)(ImageContainer$1, { children: (0, import_jsx_runtime.jsx)(MotionConfig, {
 			transition: {
 				duration: animationDuration / 1e3,
 				ease: animationEase
@@ -45435,7 +45547,7 @@ var About = () => {
 				})]
 			}, i$3)) })
 		})] }),
-		(0, import_jsx_runtime.jsx)(OrDivider, { children: (0, import_jsx_runtime.jsx)(Dots, { children: slides.map((s$1, i$3) => (0, import_jsx_runtime.jsx)(Dot, {
+		(0, import_jsx_runtime.jsx)(OrDivider, { children: (0, import_jsx_runtime.jsx)(Dots, { children: slides.map((s$1, i$3) => (0, import_jsx_runtime.jsx)(Dot$1, {
 			"$active": slider === i$3,
 			onClick: () => {
 				didInteract();
@@ -46056,7 +46168,7 @@ function useChains() {
 	return ((_a = wagmi === null || wagmi === void 0 ? void 0 : wagmi.chains) !== null && _a !== void 0 ? _a : []).map((c$3) => c$3);
 }
 function useConnect$1({ ...props } = {}) {
-	const context = useContext$8();
+	const context = useContext$9();
 	const { connect: connect$2, connectAsync, connectors, ...rest } = useConnect({
 		...props,
 		mutation: {
@@ -46088,7 +46200,7 @@ function useConnect$1({ ...props } = {}) {
 	};
 }
 function useWalletConnectUri({ enabled } = { enabled: true }) {
-	const { log: log$6 } = useContext$8();
+	const { log: log$6 } = useContext$9();
 	const [uri, setUri] = (0, import_react.useState)(void 0);
 	const connector = useWalletConnectConnector();
 	const { isConnected: isConnected$1 } = useConnection();
@@ -46483,7 +46595,7 @@ var useLastConnector = () => {
 };
 var ConnectorList = () => {
 	var _a;
-	const context = useContext$8();
+	const context = useContext$9();
 	const isMobile$1 = useIsMobile$1();
 	const wallets$1 = useWallets();
 	const { lastConnectorId } = useLastConnector();
@@ -46512,7 +46624,7 @@ var ConnectorItem = ({ wallet, isRecent }) => {
 	const { connect: { getUri } } = useWeb3();
 	const uri = getUri();
 	const isMobile$1 = useIsMobile$1();
-	const context = useContext$8();
+	const context = useContext$9();
 	const { connect: connect$2 } = useConnect$1();
 	let deeplink = !wallet.isInstalled && isMobile$1 || wallet.shouldDeeplinkDesktop && !isMobile$1 ? (_a = wallet.getWalletConnectDeeplink) === null || _a === void 0 ? void 0 : _a.call(wallet, uri !== null && uri !== void 0 ? uri : "") : void 0;
 	const redirectToMoreWallets = isMobile$1 && isWalletConnectConnector(wallet.id);
@@ -46635,7 +46747,7 @@ var FamilyAccountsButton = ({ onClick }) => {
 };
 var Wallets = () => {
 	var _a, _b, _c, _d, _e$1;
-	const context = useContext$8();
+	const context = useContext$9();
 	const locales = useLocales({});
 	const isMobile$1 = useIsMobile$1();
 	const familyConnector = useFamilyConnector();
@@ -46747,7 +46859,7 @@ var WalletList = styled.div`
 `;
 var Container$6 = styled.div``;
 function useWalletConnectModal() {
-	const { log: log$6 } = useContext$8();
+	const { log: log$6 } = useContext$9();
 	const { connectAsync, connectors } = useConnect$1();
 	const [isOpen, setIsOpen] = (0, import_react.useState)(false);
 	return {
@@ -46914,7 +47026,7 @@ var MoreIcon = (0, import_jsx_runtime.jsx)("svg", {
 });
 var MobileConnectors = () => {
 	var _a, _b;
-	const context = useContext$8();
+	const context = useContext$9();
 	const locales = useLocales();
 	const { connect: { getUri } } = useWeb3();
 	const wcUri = getUri();
@@ -47195,7 +47307,7 @@ var TooltipTail = styled(motion.div)`
 `;
 var Tooltip = ({ children, message, open, xOffset = 0, yOffset = 0, delay: delay$1 }) => {
 	var _a;
-	const context = useContext$8();
+	const context = useContext$9();
 	const themeContext = useThemeContext();
 	if ((_a = context.options) === null || _a === void 0 ? void 0 : _a.hideTooltips) return (0, import_jsx_runtime.jsx)(import_jsx_runtime.Fragment, { children });
 	const [isOpen, setIsOpen] = (0, import_react.useState)(false);
@@ -48695,7 +48807,7 @@ var ConnectWithInjector = ({ switchConnectMethod, forceState }) => {
 			setTimeout(triggerResize, 100);
 		}
 	} });
-	const { triggerResize, connector: c$3 } = useContext$8();
+	const { triggerResize, connector: c$3 } = useContext$9();
 	const id$2 = c$3.id;
 	const wallet = useWallet$1(id$2);
 	const walletInfo = {
@@ -49451,7 +49563,7 @@ var ScanIconWithLogos = ({ logo }) => {
 };
 var ConnectWithQRCode = ({ switchConnectMethod }) => {
 	var _a, _b, _c, _d, _e$1, _f, _g, _h;
-	const context = useContext$8();
+	const context = useContext$9();
 	const id$2 = context.connector.id;
 	const wallet = useWallet$1(context.connector.id);
 	const { open: openW3M, isOpen: isOpenW3M } = useWalletConnectModal();
@@ -49521,7 +49633,7 @@ var states = {
 	INJECTOR: "injector"
 };
 var ConnectUsing = () => {
-	const context = useContext$8();
+	const context = useContext$9();
 	const wallet = useWallet$1(context.connector.id);
 	const [status, setStatus] = (0, import_react.useState)(!(wallet === null || wallet === void 0 ? void 0 : wallet.isInstalled) && (wallet === null || wallet === void 0 ? void 0 : wallet.getWalletConnectDeeplink) ? states.QRCODE : states.INJECTOR);
 	(0, import_react.useEffect)(() => {
@@ -49556,7 +49668,7 @@ var ConnectUsing = () => {
 };
 var DownloadApp = () => {
 	var _a, _b, _c;
-	const wallet = useWallet$1(useContext$8().connector.id);
+	const wallet = useWallet$1(useContext$9().connector.id);
 	const locales = useLocales({ CONNECTORNAME: wallet === null || wallet === void 0 ? void 0 : wallet.name });
 	if (!wallet) return (0, import_jsx_runtime.jsx)(import_jsx_runtime.Fragment, { children: "Wallet not found" });
 	const downloads = {
@@ -49634,8 +49746,8 @@ var LoadingBalance = styled(motion.div)`
     animation: ${PlaceholderKeyframes$1} 1000ms linear infinite both;
   }
 `;
-function addressToNumber(address$8) {
-	return address$8.split("").map((l$2) => l$2.charCodeAt(0)).reduce((a$2, b$4) => a$2 + b$4) % 100 / 100;
+function addressToNumber(address$9) {
+	return address$9.split("").map((l$2) => l$2.charCodeAt(0)).reduce((a$2, b$4) => a$2 + b$4) % 100 / 100;
 }
 var EnsAvatar = styled(motion.div)`
   will-change: transform; // Needed for Safari
@@ -49693,10 +49805,10 @@ var ensFallbackConfig = createConfig({
 function useEnsFallbackConfig() {
 	return !useChainIsSupported(1) ? ensFallbackConfig : void 0;
 }
-var Avatar = ({ address: address$8, name, size: size$4 = 96, radius = 96 }) => {
+var Avatar = ({ address: address$9, name, size: size$4 = 96, radius = 96 }) => {
 	var _a, _b, _c;
 	const isMounted = useIsMounted();
-	const context = useContext$8();
+	const context = useContext$9();
 	const imageRef = (0, import_react.useRef)(null);
 	const [loaded, setLoaded] = (0, import_react.useState)(true);
 	const ensFallbackConfig$1 = useEnsFallbackConfig();
@@ -49707,7 +49819,7 @@ var Avatar = ({ address: address$8, name, size: size$4 = 96, radius = 96 }) => {
 	});
 	const { data: ensName } = useEnsName({
 		chainId: 1,
-		address: (_a = address$8 !== null && address$8 !== void 0 ? address$8 : ensAddress) !== null && _a !== void 0 ? _a : void 0,
+		address: (_a = address$9 !== null && address$9 !== void 0 ? address$9 : ensAddress) !== null && _a !== void 0 ? _a : void 0,
 		config: ensFallbackConfig$1
 	});
 	const { data: ensAvatar } = useEnsAvatar({
@@ -49716,7 +49828,7 @@ var Avatar = ({ address: address$8, name, size: size$4 = 96, radius = 96 }) => {
 		config: ensFallbackConfig$1
 	});
 	const ens = {
-		address: ensAddress !== null && ensAddress !== void 0 ? ensAddress : address$8,
+		address: ensAddress !== null && ensAddress !== void 0 ? ensAddress : address$9,
 		name: ensName !== null && ensName !== void 0 ? ensName : name,
 		avatar: ensAvatar !== null && ensAvatar !== void 0 ? ensAvatar : void 0
 	};
@@ -49736,7 +49848,7 @@ var Avatar = ({ address: address$8, name, size: size$4 = 96, radius = 96 }) => {
 			overflow: "hidden"
 		},
 		children: (_c = context.options) === null || _c === void 0 ? void 0 : _c.customAvatar({
-			address: address$8 !== null && address$8 !== void 0 ? address$8 : ens === null || ens === void 0 ? void 0 : ens.address,
+			address: address$9 !== null && address$9 !== void 0 ? address$9 : ens === null || ens === void 0 ? void 0 : ens.address,
 			ensName: name !== null && name !== void 0 ? name : ens === null || ens === void 0 ? void 0 : ens.name,
 			ensImage: ens === null || ens === void 0 ? void 0 : ens.avatar,
 			size: size$4,
@@ -51140,7 +51252,7 @@ var ChainSelectList = ({ variant }) => {
 			switchChain$2({ chainId });
 		}
 	};
-	const { triggerResize } = useContext$8();
+	const { triggerResize } = useContext$9();
 	return (0, import_jsx_runtime.jsxs)(SwitchNetworksContainer, {
 		style: { marginBottom: switchChain$2 !== void 0 ? -8 : 0 },
 		children: [(0, import_jsx_runtime.jsx)(ChainButtonContainer, { children: (0, import_jsx_runtime.jsx)(ChainButtons, { children: chains.map((x$2) => {
@@ -51353,7 +51465,7 @@ var DropdownHeading = styled(motion.div)`
 `;
 var ChainSelectDropdown = ({ children, open, onClose, offsetX = 0, offsetY = 8 }) => {
 	var _a, _b, _c;
-	const context = useContext$8();
+	const context = useContext$9();
 	const themeContext = useThemeContext();
 	const locales = useLocales();
 	const [offset$1, setOffset] = (0, import_react.useState)({
@@ -51757,7 +51869,7 @@ var ChevronDown = ({ ...props }) => (0, import_jsx_runtime.jsx)("svg", {
 	})
 });
 var ChainSelector = () => {
-	const context = useContext$8();
+	const context = useContext$9();
 	const [isOpen, setIsOpen] = (0, import_react.useState)(false);
 	const { chain } = useConnection();
 	const { chains } = useSwitchChain();
@@ -51792,20 +51904,20 @@ var ChainSelector = () => {
 };
 var Profile = ({ closeModal }) => {
 	var _a, _b, _c;
-	const context = useContext$8();
+	const context = useContext$9();
 	const themeContext = useThemeContext();
 	const locales = useLocales();
 	const { reset } = useConnect();
 	const { disconnect: disconnect$2 } = useDisconnect();
-	const { address: address$8, isConnected: isConnected$1, connector, chain } = useConnection();
+	const { address: address$9, isConnected: isConnected$1, connector, chain } = useConnection();
 	const isFamilyConnector = isFamilyAccountsConnector(connector === null || connector === void 0 ? void 0 : connector.id);
 	const { data: connectorClient } = useConnectorClient({ connector });
 	const { data: ensName } = useEnsName({
 		chainId: 1,
-		address: address$8,
+		address: address$9,
 		config: useEnsFallbackConfig()
 	});
-	const { data: balance } = useBalance({ address: address$8 });
+	const { data: balance } = useBalance({ address: address$9 });
 	const [shouldDisconnect, setShouldDisconnect] = (0, import_react.useState)(false);
 	(0, import_react.useEffect)(() => {
 		if (!isConnected$1) context.setOpen(false);
@@ -51835,10 +51947,10 @@ var Profile = ({ closeModal }) => {
 				gap: 6
 			},
 			children: [
-				(0, import_jsx_runtime.jsx)(AvatarContainer, { children: (0, import_jsx_runtime.jsxs)(AvatarInner, { children: [(0, import_jsx_runtime.jsx)(ChainSelectorContainer, { children: (0, import_jsx_runtime.jsx)(ChainSelector, {}) }), (0, import_jsx_runtime.jsx)(Avatar, { address: address$8 })] }) }),
+				(0, import_jsx_runtime.jsx)(AvatarContainer, { children: (0, import_jsx_runtime.jsxs)(AvatarInner, { children: [(0, import_jsx_runtime.jsx)(ChainSelectorContainer, { children: (0, import_jsx_runtime.jsx)(ChainSelector, {}) }), (0, import_jsx_runtime.jsx)(Avatar, { address: address$9 })] }) }),
 				(0, import_jsx_runtime.jsx)(ModalH1, { children: (0, import_jsx_runtime.jsx)(CopyToClipboard, {
-					string: address$8,
-					children: ensName !== null && ensName !== void 0 ? ensName : truncateEthAddress(address$8, separator)
+					string: address$9,
+					children: ensName !== null && ensName !== void 0 ? ensName : truncateEthAddress(address$9, separator)
 				}) }),
 				((_c = context === null || context === void 0 ? void 0 : context.options) === null || _c === void 0 ? void 0 : _c.hideBalance) ? null : (0, import_jsx_runtime.jsx)(ModalBody, { children: (0, import_jsx_runtime.jsx)(BalanceContainer, { children: (0, import_jsx_runtime.jsxs)(AnimatePresence, {
 					exitBeforeEnter: true,
@@ -52231,7 +52343,7 @@ var copyTransition = {
 };
 var SignInWithEthereum = () => {
 	var _a, _b;
-	const context = useContext$8();
+	const context = useContext$9();
 	const { isSignedIn, reset } = useSIWE();
 	const mobile = isMobile();
 	const [status, setStatus] = (0, import_react.useState)(isSignedIn ? "signedIn" : "signedOut");
@@ -52253,7 +52365,7 @@ var SignInWithEthereum = () => {
 	(0, import_react.useEffect)(() => {
 		if (!isSignedIn) setStatus("signedOut");
 	}, [isSignedIn]);
-	const { address: address$8 } = useConnection();
+	const { address: address$9 } = useConnection();
 	const getFavicons = () => {
 		const favicons$1 = {
 			svg: null,
@@ -52341,7 +52453,7 @@ var SignInWithEthereum = () => {
 							},
 							transition,
 							children: (0, import_jsx_runtime.jsx)(LogoContainer, { children: (0, import_jsx_runtime.jsx)(Avatar, {
-								address: address$8,
+								address: address$9,
 								size: 64
 							}) })
 						}, "avatarImage"),
@@ -52412,7 +52524,7 @@ var SignInWithEthereum = () => {
 var customThemeDefault$1 = {};
 var ConnectModal$1 = ({ mode: mode$1 = "auto", theme = "auto", customTheme = customThemeDefault$1, lang = "en-US" }) => {
 	var _a;
-	const context = useContext$8();
+	const context = useContext$9();
 	const { isConnected: isConnected$1, chain } = useConnection();
 	const chainIsSupported = useChainIsSupported(chain === null || chain === void 0 ? void 0 : chain.id);
 	const closeable = !(((_a = context.options) === null || _a === void 0 ? void 0 : _a.enforceSupportedChains) && isConnected$1 && !chainIsSupported);
@@ -52511,9 +52623,9 @@ function useThemeFont(theme) {
 }
 var useConnectCallback = ({ onConnect, onDisconnect }) => {
 	useConnectionEffect({
-		onConnect: ({ address: address$8, connector, isReconnected }) => {
+		onConnect: ({ address: address$9, connector, isReconnected }) => {
 			if (!isReconnected) onConnect === null || onConnect === void 0 || onConnect({
-				address: address$8,
+				address: address$9,
 				connectorId: connector === null || connector === void 0 ? void 0 : connector.id
 			});
 		},
@@ -52643,7 +52755,7 @@ var ConnectKitProvider = ({ children, theme = "auto", mode: mode$1 = "auto", cus
 		})
 	}) }));
 };
-var useContext$8 = () => {
+var useContext$9 = () => {
 	const context = import_react.useContext(Context$2);
 	if (!context) throw Error("ConnectKit Hook must be inside a Provider.");
 	return context;
@@ -52664,7 +52776,7 @@ var safeRoutes = {
 };
 var allRoutes = [...safeRoutes.connected, ...safeRoutes.disconnected];
 var useModal = ({ onConnect, onDisconnect } = {}) => {
-	const context = useContext$8();
+	const context = useContext$9();
 	useConnectCallback({
 		onConnect,
 		onDisconnect
@@ -52957,13 +53069,13 @@ var PulseContainer = styled.div`
 var Balance = ({ hideIcon, hideSymbol }) => {
 	const isMounted = useIsMounted();
 	const [isInitial, setIsInitial] = (0, import_react.useState)(true);
-	const { address: address$8, chain } = useConnection();
+	const { address: address$9, chain } = useConnection();
 	useChains();
 	const isChainSupported = useChainIsSupported(chain === null || chain === void 0 ? void 0 : chain.id);
 	const queryClient$1 = useQueryClient();
 	const { data: blockNumber } = useBlockNumber({ watch: true });
 	const { data: balance, queryKey } = useBalance({
-		address: address$8,
+		address: address$9,
 		chainId: chain === null || chain === void 0 ? void 0 : chain.id
 	});
 	(0, import_react.useEffect)(() => {
@@ -53007,7 +53119,7 @@ var Balance = ({ hideIcon, hideSymbol }) => {
 					],
 					delay: .4
 				},
-				children: !address$8 || !isMounted || (balance === null || balance === void 0 ? void 0 : balance.formatted) === void 0 ? (0, import_jsx_runtime.jsxs)(Container$1, { children: [!hideIcon && (0, import_jsx_runtime.jsx)(Chain$1, { id: chain === null || chain === void 0 ? void 0 : chain.id }), (0, import_jsx_runtime.jsx)("span", {
+				children: !address$9 || !isMounted || (balance === null || balance === void 0 ? void 0 : balance.formatted) === void 0 ? (0, import_jsx_runtime.jsxs)(Container$1, { children: [!hideIcon && (0, import_jsx_runtime.jsx)(Chain$1, { id: chain === null || chain === void 0 ? void 0 : chain.id }), (0, import_jsx_runtime.jsx)("span", {
 					style: { minWidth: 32 },
 					children: (0, import_jsx_runtime.jsxs)(PulseContainer, { children: [
 						(0, import_jsx_runtime.jsx)("span", { style: { animationDelay: "0ms" } }),
@@ -53131,13 +53243,13 @@ var textVariants = {
 };
 var ConnectButtonRenderer = ({ children }) => {
 	const isMounted = useIsMounted();
-	const context = useContext$8();
+	const context = useContext$9();
 	const { open, setOpen } = useModal();
-	const { address: address$8, isConnected: isConnected$1, chain } = useConnection();
+	const { address: address$9, isConnected: isConnected$1, chain } = useConnection();
 	const isChainSupported = useChainIsSupported(chain === null || chain === void 0 ? void 0 : chain.id);
 	const { data: ensName } = useEnsName({
 		chainId: 1,
-		address: address$8,
+		address: address$9,
 		config: useEnsFallbackConfig()
 	});
 	function hide$2() {
@@ -53154,10 +53266,10 @@ var ConnectButtonRenderer = ({ children }) => {
 		hide: hide$2,
 		chain,
 		unsupported: !isChainSupported,
-		isConnected: !!address$8,
+		isConnected: !!address$9,
 		isConnecting: open,
-		address: address$8,
-		truncatedAddress: address$8 ? truncateEthAddress(address$8) : void 0,
+		address: address$9,
+		truncatedAddress: address$9 ? truncateEthAddress(address$9) : void 0,
 		ensName: ensName === null || ensName === void 0 ? void 0 : ensName.toString()
 	}) });
 };
@@ -53165,19 +53277,19 @@ ConnectButtonRenderer.displayName = "ConnectKitButton.Custom";
 function ConnectKitButtonInner({ label, showAvatar, separator }) {
 	var _a;
 	const locales = useLocales({});
-	const context = useContext$8();
+	const context = useContext$9();
 	const { isSignedIn } = useSIWE();
-	const { address: address$8, chain } = useConnection();
+	const { address: address$9, chain } = useConnection();
 	const isChainSupported = useChainIsSupported(chain === null || chain === void 0 ? void 0 : chain.id);
 	const { data: ensName } = useEnsName({
 		chainId: 1,
-		address: address$8,
+		address: address$9,
 		config: useEnsFallbackConfig()
 	});
 	const defaultLabel = locales.connectWallet;
 	return (0, import_jsx_runtime.jsx)(AnimatePresence, {
 		initial: false,
-		children: address$8 ? (0, import_jsx_runtime.jsxs)(TextContainer, {
+		children: address$9 ? (0, import_jsx_runtime.jsxs)(TextContainer, {
 			initial: "initial",
 			animate: "animate",
 			exit: "exit",
@@ -53214,7 +53326,7 @@ function ConnectKitButtonInner({ label, showAvatar, separator }) {
 				})]
 			}), (0, import_jsx_runtime.jsx)(Avatar, {
 				size: 24,
-				address: address$8
+				address: address$9
 			})] }), (0, import_jsx_runtime.jsx)("div", {
 				style: {
 					position: "relative",
@@ -53235,7 +53347,7 @@ function ConnectKitButtonInner({ label, showAvatar, separator }) {
 						exit: "exit",
 						variants: textVariants,
 						style: { position: ensName ? "absolute" : "relative" },
-						children: [truncateEthAddress(address$8, separator), " "]
+						children: [truncateEthAddress(address$9, separator), " "]
 					}, "ckTruncatedAddress")
 				})
 			})]
@@ -53252,8 +53364,8 @@ function ConnectKitButtonInner({ label, showAvatar, separator }) {
 function ConnectKitButton({ label, showBalance = false, showAvatar = true, theme, mode: mode$1, customTheme, onClick }) {
 	var _a;
 	const isMounted = useIsMounted();
-	const context = useContext$8();
-	const { isConnected: isConnected$1, address: address$8, chain } = useConnection();
+	const context = useContext$9();
+	const { isConnected: isConnected$1, address: address$9, chain } = useConnection();
 	const chainIsSupported = useChainIsSupported(chain === null || chain === void 0 ? void 0 : chain.id);
 	function show$1() {
 		context.setOpen(true);
@@ -53266,7 +53378,7 @@ function ConnectKitButton({ label, showBalance = false, showAvatar = true, theme
 	].includes((_a = theme !== null && theme !== void 0 ? theme : context.theme) !== null && _a !== void 0 ? _a : "") ? "...." : void 0;
 	if (!isMounted) return null;
 	const shouldShowBalance = showBalance && chainIsSupported;
-	const willShowBalance = address$8 && shouldShowBalance;
+	const willShowBalance = address$9 && shouldShowBalance;
 	return (0, import_jsx_runtime.jsx)(ResetContainer, {
 		"$useTheme": theme !== null && theme !== void 0 ? theme : context.theme,
 		"$useMode": mode$1 !== null && mode$1 !== void 0 ? mode$1 : context.mode,
@@ -53331,7 +53443,7 @@ function ConnectKitButton({ label, showBalance = false, showAvatar = true, theme
 				theme: theme !== null && theme !== void 0 ? theme : context.theme,
 				mode: mode$1 !== null && mode$1 !== void 0 ? mode$1 : context.mode,
 				customTheme: customTheme !== null && customTheme !== void 0 ? customTheme : context.customTheme,
-				style: shouldShowBalance && showBalance && address$8 && (theme === "retro" || context.theme === "retro") ? {
+				style: shouldShowBalance && showBalance && address$9 && (theme === "retro" || context.theme === "retro") ? {
 					boxShadow: "var(--ck-connectbutton-balance-connectbutton-box-shadow)",
 					borderRadius: "var(--ck-connectbutton-balance-connectbutton-border-radius)",
 					overflow: "hidden"
@@ -53621,7 +53733,7 @@ function createBrowserHistory(options$2 = {}) {
 function invariant(value, message) {
 	if (value === false || value === null || typeof value === "undefined") throw new Error(message);
 }
-function warning$1(cond, message) {
+function warning$2(cond, message) {
 	if (!cond) {
 		if (typeof console !== "undefined") console.warn(message);
 		try {
@@ -53676,7 +53788,7 @@ function getUrlBasedHistory(getLocation, createHref2, validateLocation, options$
 	let globalHistory = window2.history;
 	let action = "POP";
 	let listener = null;
-	let index$6 = getIndex();
+	let index$6 = getIndex$1();
 	if (index$6 == null) {
 		index$6 = 0;
 		globalHistory.replaceState({
@@ -53684,12 +53796,12 @@ function getUrlBasedHistory(getLocation, createHref2, validateLocation, options$
 			idx: index$6
 		}, "");
 	}
-	function getIndex() {
+	function getIndex$1() {
 		return (globalHistory.state || { idx: null }).idx;
 	}
 	function handlePop() {
 		action = "POP";
-		let nextIndex = getIndex();
+		let nextIndex = getIndex$1();
 		let delta = nextIndex == null ? null : nextIndex - index$6;
 		index$6 = nextIndex;
 		if (listener) listener({
@@ -53702,7 +53814,7 @@ function getUrlBasedHistory(getLocation, createHref2, validateLocation, options$
 		action = "PUSH";
 		let location = createLocation(history.location, to$1, state);
 		if (validateLocation) validateLocation(location, to$1);
-		index$6 = getIndex() + 1;
+		index$6 = getIndex$1() + 1;
 		let historyState = getHistoryState(location, index$6);
 		let url = history.createHref(location);
 		try {
@@ -53721,7 +53833,7 @@ function getUrlBasedHistory(getLocation, createHref2, validateLocation, options$
 		action = "REPLACE";
 		let location = createLocation(history.location, to$1, state);
 		if (validateLocation) validateLocation(location, to$1);
-		index$6 = getIndex();
+		index$6 = getIndex$1();
 		let historyState = getHistoryState(location, index$6);
 		let url = history.createHref(location);
 		globalHistory.replaceState(historyState, "", url);
@@ -53931,7 +54043,7 @@ function matchPath(pattern, pathname) {
 	};
 }
 function compilePath(path, caseSensitive = false, end = true) {
-	warning$1(path === "*" || !path.endsWith("*") || path.endsWith("/*"), `Route path "${path}" will be treated as if it were "${path.replace(/\*$/, "/*")}" because the \`*\` character must always follow a \`/\` in the pattern. To get rid of this warning, please change the route path to "${path.replace(/\*$/, "/*")}".`);
+	warning$2(path === "*" || !path.endsWith("*") || path.endsWith("/*"), `Route path "${path}" will be treated as if it were "${path.replace(/\*$/, "/*")}" because the \`*\` character must always follow a \`/\` in the pattern. To get rid of this warning, please change the route path to "${path.replace(/\*$/, "/*")}".`);
 	let params = [];
 	let regexpSource = "^" + path.replace(/\/*\*?$/, "").replace(/^\/*/, "/").replace(/[\\.*+^${}|()[\]]/g, "\\$&").replace(/\/:([\w-]+)(\?)?/g, (_$1, paramName, isOptional) => {
 		params.push({
@@ -53951,7 +54063,7 @@ function decodePath(value) {
 	try {
 		return value.split("/").map((v$2) => decodeURIComponent(v$2).replace(/\//g, "%2F")).join("/");
 	} catch (error) {
-		warning$1(false, `The URL path "${value}" could not be decoded because it is a malformed URL segment. This is probably due to a bad percent encoding (${error}).`);
+		warning$2(false, `The URL path "${value}" could not be decoded because it is a malformed URL segment. This is probably due to a bad percent encoding (${error}).`);
 		return value;
 	}
 }
@@ -53973,7 +54085,7 @@ function resolvePath(to$1, fromPathname = "/") {
 		if (toPathname.includes("//")) {
 			let oldPathname = toPathname;
 			toPathname = toPathname.replace(/\/\/+/g, "/");
-			warning$1(false, `Pathnames cannot have embedded double slashes - normalizing ${oldPathname} -> ${toPathname}`);
+			warning$2(false, `Pathnames cannot have embedded double slashes - normalizing ${oldPathname} -> ${toPathname}`);
 		}
 		if (toPathname.startsWith("/")) pathname = resolvePathname(toPathname.substring(1), "/");
 		else pathname = resolvePathname(toPathname, fromPathname);
@@ -54073,7 +54185,7 @@ function parseToInfo(_to, basename) {
 		if (targetUrl.origin === currentUrl.origin && path != null) to$1 = path + targetUrl.search + targetUrl.hash;
 		else isExternal = true;
 	} catch (e$2) {
-		warning$1(false, `<Link to="${to$1}"> contains an invalid URL which will probably break when clicked - please update to a valid URL path.`);
+		warning$2(false, `<Link to="${to$1}"> contains an invalid URL which will probably break when clicked - please update to a valid URL path.`);
 	}
 	return {
 		absoluteURL,
@@ -54159,7 +54271,7 @@ function useNavigateUnstable() {
 		activeRef.current = true;
 	});
 	return import_react.useCallback((to$1, options$2 = {}) => {
-		warning$1(activeRef.current, navigateEffectWarning);
+		warning$2(activeRef.current, navigateEffectWarning);
 		if (!activeRef.current) return;
 		if (typeof to$1 === "number") {
 			navigator$1.go(to$1);
@@ -54202,7 +54314,7 @@ function useRoutesImpl(routes$1, locationArg, dataRouterState, onError, future) 
 	let parentRoute = routeMatch && routeMatch.route;
 	{
 		let parentPath = parentRoute && parentRoute.path || "";
-		warningOnce(parentPathname, !parentRoute || parentPath.endsWith("*") || parentPath.endsWith("*?"), `You rendered descendant <Routes> (or called \`useRoutes()\`) at "${parentPathname}" (under <Route path="${parentPath}">) but the parent route path has no trailing "*". This means if you navigate deeper, the parent won't match anymore and therefore the child routes will never render.
+		warningOnce$1(parentPathname, !parentRoute || parentPath.endsWith("*") || parentPath.endsWith("*?"), `You rendered descendant <Routes> (or called \`useRoutes()\`) at "${parentPathname}" (under <Route path="${parentPath}">) but the parent route path has no trailing "*". This means if you navigate deeper, the parent won't match anymore and therefore the child routes will never render.
 
 Please change the parent <Route path="${parentPath}"> to <Route path="${parentPath === "/" ? "*" : `${parentPath}/*`}">.`);
 	}
@@ -54220,8 +54332,8 @@ Please change the parent <Route path="${parentPath}"> to <Route path="${parentPa
 		remainingPathname = "/" + pathname.replace(/^\//, "").split("/").slice(parentSegments.length).join("/");
 	}
 	let matches = matchRoutes(routes$1, { pathname: remainingPathname });
-	warning$1(parentRoute || matches != null, `No routes matched location "${location.pathname}${location.search}${location.hash}" `);
-	warning$1(matches == null || matches[matches.length - 1].route.element !== void 0 || matches[matches.length - 1].route.Component !== void 0 || matches[matches.length - 1].route.lazy !== void 0, `Matched leaf route at location "${location.pathname}${location.search}${location.hash}" does not have an element or Component. This means it will render an <Outlet /> with a null value by default resulting in an "empty" page.`);
+	warning$2(parentRoute || matches != null, `No routes matched location "${location.pathname}${location.search}${location.hash}" `);
+	warning$2(matches == null || matches[matches.length - 1].route.element !== void 0 || matches[matches.length - 1].route.Component !== void 0 || matches[matches.length - 1].route.lazy !== void 0, `Matched leaf route at location "${location.pathname}${location.search}${location.hash}" does not have an element or Component. This means it will render an <Outlet /> with a null value by default resulting in an "empty" page.`);
 	let renderedMatches = _renderMatches(matches && matches.map((match$1) => Object.assign({}, match$1, {
 		params: Object.assign({}, parentParams, match$1.params),
 		pathname: joinPaths([parentPathnameBase, navigator$1.encodeLocation ? navigator$1.encodeLocation(match$1.pathname.replace(/\?/g, "%3F").replace(/#/g, "%23")).pathname : match$1.pathname]),
@@ -54378,7 +54490,7 @@ function _renderMatches(matches, parentMatches = [], dataRouterState = null, onE
 			errorElement = match$1.route.errorElement || defaultErrorElement;
 			if (renderFallback) {
 				if (fallbackIndex < 0 && index$6 === 0) {
-					warningOnce("route-fallback", false, "No `HydrateFallback` element provided to render during initial hydration");
+					warningOnce$1("route-fallback", false, "No `HydrateFallback` element provided to render during initial hydration");
 					shouldRenderHydrateFallback = true;
 					hydrateFallbackElement = null;
 				} else if (fallbackIndex === index$6) {
@@ -54469,7 +54581,7 @@ function useNavigateStable() {
 		activeRef.current = true;
 	});
 	return import_react.useCallback(async (to$1, options$2 = {}) => {
-		warning$1(activeRef.current, navigateEffectWarning);
+		warning$2(activeRef.current, navigateEffectWarning);
 		if (!activeRef.current) return;
 		if (typeof to$1 === "number") await router.navigate(to$1);
 		else await router.navigate(to$1, {
@@ -54479,10 +54591,10 @@ function useNavigateStable() {
 	}, [router, id$2]);
 }
 var alreadyWarned = {};
-function warningOnce(key, cond, message) {
+function warningOnce$1(key, cond, message) {
 	if (!cond && !alreadyWarned[key]) {
 		alreadyWarned[key] = true;
-		warning$1(false, message);
+		warning$2(false, message);
 	}
 }
 import_react.useOptimistic;
@@ -54493,7 +54605,7 @@ function DataRoutes({ routes: routes$1, future, state, onError }) {
 function Navigate({ to: to$1, replace: replace2, state, relative }) {
 	invariant(useInRouterContext(), `<Navigate> may be used only in the context of a <Router> component.`);
 	let { static: isStatic } = import_react.useContext(NavigationContext);
-	warning$1(!isStatic, `<Navigate> must not be used on the initial render in a <StaticRouter>. This is a no-op, but you should modify your code so the <Navigate> is only ever rendered in response to some user interaction or state change.`);
+	warning$2(!isStatic, `<Navigate> must not be used on the initial render in a <StaticRouter>. This is a no-op, but you should modify your code so the <Navigate> is only ever rendered in response to some user interaction or state change.`);
 	let { matches } = import_react.useContext(RouteContext);
 	let { pathname: locationPathname } = useLocation();
 	let navigate = useNavigate();
@@ -54556,7 +54668,7 @@ function Router({ basename: basenameProp = "/", children = null, location: locat
 		key,
 		navigationType
 	]);
-	warning$1(locationContext != null, `<Router basename="${basename}"> is not able to match the URL "${pathname}${search}${hash$3}" because it does not start with the basename, so the <Router> won't render anything.`);
+	warning$2(locationContext != null, `<Router basename="${basename}"> is not able to match the URL "${pathname}${search}${hash$3}" because it does not start with the basename, so the <Router> won't render anything.`);
 	if (locationContext == null) return null;
 	return /* @__PURE__ */ import_react.createElement(NavigationContext.Provider, { value: navigationContext }, /* @__PURE__ */ import_react.createElement(LocationContext.Provider, {
 		children,
@@ -54638,7 +54750,7 @@ var supportedFormEncTypes = /* @__PURE__ */ new Set([
 ]);
 function getFormEncType(encType) {
 	if (encType != null && !supportedFormEncTypes.has(encType)) {
-		warning$1(false, `"${encType}" is not a valid \`encType\` for \`<Form>\`/\`<fetcher.Form>\` and will default to "${defaultEncType}"`);
+		warning$2(false, `"${encType}" is not a valid \`encType\` for \`<Form>\`/\`<fetcher.Form>\` and will default to "${defaultEncType}"`);
 		return null;
 	}
 	return encType;
@@ -55333,7 +55445,7 @@ function useScrollRestoration({ getKey, storageKey } = {}) {
 		try {
 			sessionStorage.setItem(storageKey || SCROLL_RESTORATION_STORAGE_KEY, JSON.stringify(savedScrollPositions));
 		} catch (error) {
-			warning$1(false, `Failed to save scroll positions in sessionStorage, <ScrollRestoration /> will not work properly (${error}).`);
+			warning$2(false, `Failed to save scroll positions in sessionStorage, <ScrollRestoration /> will not work properly (${error}).`);
 		}
 		window.history.scrollRestoration = "auto";
 	}, [
@@ -55374,7 +55486,7 @@ function useScrollRestoration({ getKey, storageKey } = {}) {
 					}
 				}
 			} catch {
-				warning$1(false, `"${location.hash.slice(1)}" is not a decodable element ID. The view will not scroll to it.`);
+				warning$2(false, `"${location.hash.slice(1)}" is not a decodable element ID. The view will not scroll to it.`);
 			}
 			if (preventScrollReset === true) return;
 			window.scrollTo(0, 0);
@@ -58459,7 +58571,7 @@ function nLength(n$3, nBitLength) {
 		nByteLength: Math.ceil(_nBitLength / 8)
 	};
 }
-function Field(ORDER, bitLen$2, isLE$2 = false, redef = {}) {
+function Field$1(ORDER, bitLen$2, isLE$2 = false, redef = {}) {
 	if (ORDER <= _0n$2) throw new Error(`Expected Field ORDER > 0, got ${ORDER}`);
 	const { nBitLength: BITS, nByteLength: BYTES } = nLength(ORDER, bitLen$2);
 	if (BYTES > 2048) throw new Error("Field lengths over 2048 bytes are not supported");
@@ -59323,7 +59435,7 @@ function sqrtMod(y$3) {
 	if (!Fp.eql(Fp.sqr(root$1), y$3)) throw new Error("Cannot find square root");
 	return root$1;
 }
-var Fp = Field(secp256k1P, void 0, void 0, { sqrt: sqrtMod });
+var Fp = Field$1(secp256k1P, void 0, void 0, { sqrt: sqrtMod });
 const secp256k1 = createCurve({
 	a: BigInt(0),
 	b: BigInt(7),
@@ -59604,9 +59716,9 @@ var SigningKey = class SigningKey {
 };
 var BN_0$6 = BigInt(0);
 var BN_36 = BigInt(36);
-function getChecksumAddress(address$8) {
-	address$8 = address$8.toLowerCase();
-	const chars = address$8.substring(2).split("");
+function getChecksumAddress(address$9) {
+	address$9 = address$9.toLowerCase();
+	const chars = address$9.substring(2).split("");
 	const expanded = new Uint8Array(40);
 	for (let i$3 = 0; i$3 < 40; i$3++) expanded[i$3] = chars[i$3].charCodeAt(0);
 	const hashed = getBytes(keccak256(expanded));
@@ -59620,10 +59732,10 @@ var ibanLookup = {};
 for (let i$3 = 0; i$3 < 10; i$3++) ibanLookup[String(i$3)] = String(i$3);
 for (let i$3 = 0; i$3 < 26; i$3++) ibanLookup[String.fromCharCode(65 + i$3)] = String(10 + i$3);
 var safeDigits = 15;
-function ibanChecksum(address$8) {
-	address$8 = address$8.toUpperCase();
-	address$8 = address$8.substring(4) + address$8.substring(0, 2) + "00";
-	let expanded = address$8.split("").map((c$3) => {
+function ibanChecksum(address$9) {
+	address$9 = address$9.toUpperCase();
+	address$9 = address$9.substring(4) + address$9.substring(0, 2) + "00";
+	let expanded = address$9.split("").map((c$3) => {
 		return ibanLookup[c$3];
 	}).join("");
 	while (expanded.length >= safeDigits) {
@@ -59648,21 +59760,21 @@ function fromBase36(value) {
 	for (let i$3 = 0; i$3 < value.length; i$3++) result = result * BN_36 + Base36[value[i$3]];
 	return result;
 }
-function getAddress(address$8) {
-	assertArgument(typeof address$8 === "string", "invalid address", "address", address$8);
-	if (address$8.match(/^(0x)?[0-9a-fA-F]{40}$/)) {
-		if (!address$8.startsWith("0x")) address$8 = "0x" + address$8;
-		const result = getChecksumAddress(address$8);
-		assertArgument(!address$8.match(/([A-F].*[a-f])|([a-f].*[A-F])/) || result === address$8, "bad address checksum", "address", address$8);
+function getAddress(address$9) {
+	assertArgument(typeof address$9 === "string", "invalid address", "address", address$9);
+	if (address$9.match(/^(0x)?[0-9a-fA-F]{40}$/)) {
+		if (!address$9.startsWith("0x")) address$9 = "0x" + address$9;
+		const result = getChecksumAddress(address$9);
+		assertArgument(!address$9.match(/([A-F].*[a-f])|([a-f].*[A-F])/) || result === address$9, "bad address checksum", "address", address$9);
 		return result;
 	}
-	if (address$8.match(/^XE[0-9]{2}[0-9A-Za-z]{30,31}$/)) {
-		assertArgument(address$8.substring(2, 4) === ibanChecksum(address$8), "bad icap checksum", "address", address$8);
-		let result = fromBase36(address$8.substring(4)).toString(16);
+	if (address$9.match(/^XE[0-9]{2}[0-9A-Za-z]{30,31}$/)) {
+		assertArgument(address$9.substring(2, 4) === ibanChecksum(address$9), "bad icap checksum", "address", address$9);
+		let result = fromBase36(address$9.substring(4)).toString(16);
 		while (result.length < 40) result = "0" + result;
 		return getChecksumAddress("0x" + result);
 	}
-	assertArgument(false, "invalid address", "address", address$8);
+	assertArgument(false, "invalid address", "address", address$9);
 }
 function getCreateAddress(tx) {
 	const from$2 = getAddress(tx.from);
@@ -63463,14 +63575,14 @@ var Interface = class Interface {
 	#functions;
 	#abiCoder;
 	constructor(fragments) {
-		let abi$8 = [];
-		if (typeof fragments === "string") abi$8 = JSON.parse(fragments);
-		else abi$8 = fragments;
+		let abi$9 = [];
+		if (typeof fragments === "string") abi$9 = JSON.parse(fragments);
+		else abi$9 = fragments;
 		this.#functions = /* @__PURE__ */ new Map();
 		this.#errors = /* @__PURE__ */ new Map();
 		this.#events = /* @__PURE__ */ new Map();
 		const frags = [];
-		for (const a$2 of abi$8) try {
+		for (const a$2 of abi$9) try {
 			frags.push(Fragment$1.from(a$2));
 		} catch (error) {
 			console.log(`[Warning] Invalid Fragment ${JSON.stringify(a$2)}:`, error.message);
@@ -63523,8 +63635,8 @@ var Interface = class Interface {
 		return this.fragments.map((f$1) => f$1.format(format));
 	}
 	formatJson() {
-		const abi$8 = this.fragments.map((f$1) => f$1.format("json"));
-		return JSON.stringify(abi$8.map((j$3) => JSON.parse(j$3)));
+		const abi$9 = this.fragments.map((f$1) => f$1.format("json"));
+		return JSON.stringify(abi$9.map((j$3) => JSON.parse(j$3)));
 	}
 	getAbiCoder() {
 		return AbiCoder.defaultAbiCoder();
@@ -64150,10 +64262,10 @@ var Log = class {
 		});
 	}
 	toJSON() {
-		const { address: address$8, blockHash, blockNumber, data, index: index$6, removed, topics, transactionHash, transactionIndex } = this;
+		const { address: address$9, blockHash, blockNumber, data, index: index$6, removed, topics, transactionHash, transactionIndex } = this;
 		return {
 			_type: "log",
-			address: address$8,
+			address: address$9,
 			blockHash,
 			blockNumber,
 			data,
@@ -65064,10 +65176,10 @@ var BaseContract = class BaseContract {
 	filters;
 	[internal];
 	fallback;
-	constructor(target, abi$8, runner, _deployTx) {
+	constructor(target, abi$9, runner, _deployTx) {
 		assertArgument(typeof target === "string" || isAddressable(target), "invalid value for Contract target", "target", target);
 		if (runner == null) runner = null;
-		const iface = Interface.from(abi$8);
+		const iface = Interface.from(abi$9);
 		defineProperties(this, {
 			target,
 			runner,
@@ -65191,10 +65303,10 @@ var BaseContract = class BaseContract {
 		if (fromBlock == null) fromBlock = 0;
 		if (toBlock == null) toBlock = "latest";
 		const { addr, addrPromise } = getInternal(this);
-		const address$8 = addr ? addr : await addrPromise;
+		const address$9 = addr ? addr : await addrPromise;
 		const { fragment, topics } = await getSubInfo(this, event);
 		const filter$1 = {
-			address: address$8,
+			address: address$9,
 			topics,
 			fromBlock,
 			toBlock
@@ -65291,17 +65403,17 @@ var BaseContract = class BaseContract {
 	async removeListener(event, listener) {
 		return await this.off(event, listener);
 	}
-	static buildClass(abi$8) {
+	static buildClass(abi$9) {
 		class CustomContract extends BaseContract {
-			constructor(address$8, runner = null) {
-				super(address$8, abi$8, runner);
+			constructor(address$9, runner = null) {
+				super(address$9, abi$9, runner);
 			}
 		}
 		return CustomContract;
 	}
-	static from(target, abi$8, runner) {
+	static from(target, abi$9, runner) {
 		if (runner == null) runner = null;
-		return new this(target, abi$8, runner);
+		return new this(target, abi$9, runner);
 	}
 };
 function _ContractBase() {
@@ -65325,7 +65437,7 @@ var MulticoinProviderPlugin = class {
 	supportsCoinType(coinType) {
 		return false;
 	}
-	async encodeAddress(coinType, address$8) {
+	async encodeAddress(coinType, address$9) {
 		throw new Error("unsupported coin");
 	}
 	async decodeAddress(coinType, data) {
@@ -65345,14 +65457,14 @@ var EnsResolver = class EnsResolver {
 	name;
 	#supports2544;
 	#resolver;
-	constructor(provider, address$8, name) {
+	constructor(provider, address$9, name) {
 		defineProperties(this, {
 			provider,
-			address: address$8,
+			address: address$9,
 			name
 		});
 		this.#supports2544 = null;
-		this.#resolver = new Contract(address$8, [
+		this.#resolver = new Contract(address$9, [
 			"function supportsInterface(bytes4) view returns (bool)",
 			"function resolve(bytes, bytes) view returns (bytes)",
 			"function addr(bytes32) view returns (address)",
@@ -65420,8 +65532,8 @@ var EnsResolver = class EnsResolver {
 		if (coinPlugin == null) return null;
 		const data = await this.#fetch("addr(bytes32,uint)", [coinType]);
 		if (data == null || data === "0x") return null;
-		const address$8 = await coinPlugin.decodeAddress(coinType, data);
-		if (address$8 != null) return address$8;
+		const address$9 = await coinPlugin.decodeAddress(coinType, data);
+		if (address$9 != null) return address$9;
 		assert(false, `invalid coin data`, "UNSUPPORTED_OPERATION", {
 			operation: `getAddress(${coinType})`,
 			info: {
@@ -65955,10 +66067,10 @@ var GasCostPlugin = class GasCostPlugin extends NetworkPlugin {
 var EnsPlugin = class EnsPlugin extends NetworkPlugin {
 	address;
 	targetNetwork;
-	constructor(address$8, targetNetwork) {
+	constructor(address$9, targetNetwork) {
 		super("org.ethers.plugins.network.Ens");
 		defineProperties(this, {
-			address: address$8 || EnsAddress,
+			address: address$9 || EnsAddress,
 			targetNetwork: targetNetwork == null ? 1 : targetNetwork
 		});
 	}
@@ -66650,8 +66762,8 @@ var AbstractProvider = class {
 		if (this.#lastBlockNumber >= 0) this.#lastBlockNumber = blockNumber;
 		return blockNumber;
 	}
-	_getAddress(address$8) {
-		return resolveAddress(address$8, this);
+	_getAddress(address$9) {
+		return resolveAddress(address$9, this);
 	}
 	_getBlockTag(blockTag) {
 		if (blockTag == null) return "latest";
@@ -66682,42 +66794,42 @@ var AbstractProvider = class {
 		});
 		const blockHash = "blockHash" in filter$1 ? filter$1.blockHash : void 0;
 		const resolve = (_address, fromBlock$1, toBlock$1) => {
-			let address$9 = void 0;
+			let address$10 = void 0;
 			switch (_address.length) {
 				case 0: break;
 				case 1:
-					address$9 = _address[0];
+					address$10 = _address[0];
 					break;
 				default:
 					_address.sort();
-					address$9 = _address;
+					address$10 = _address;
 			}
 			if (blockHash) {
 				if (fromBlock$1 != null || toBlock$1 != null) throw new Error("invalid filter");
 			}
 			const filter$2 = {};
-			if (address$9) filter$2.address = address$9;
+			if (address$10) filter$2.address = address$10;
 			if (topics.length) filter$2.topics = topics;
 			if (fromBlock$1) filter$2.fromBlock = fromBlock$1;
 			if (toBlock$1) filter$2.toBlock = toBlock$1;
 			if (blockHash) filter$2.blockHash = blockHash;
 			return filter$2;
 		};
-		let address$8 = [];
-		if (filter$1.address) if (Array.isArray(filter$1.address)) for (const addr of filter$1.address) address$8.push(this._getAddress(addr));
-		else address$8.push(this._getAddress(filter$1.address));
+		let address$9 = [];
+		if (filter$1.address) if (Array.isArray(filter$1.address)) for (const addr of filter$1.address) address$9.push(this._getAddress(addr));
+		else address$9.push(this._getAddress(filter$1.address));
 		let fromBlock = void 0;
 		if ("fromBlock" in filter$1) fromBlock = this._getBlockTag(filter$1.fromBlock);
 		let toBlock = void 0;
 		if ("toBlock" in filter$1) toBlock = this._getBlockTag(filter$1.toBlock);
-		if (address$8.filter((a$2) => typeof a$2 !== "string").length || fromBlock != null && typeof fromBlock !== "string" || toBlock != null && typeof toBlock !== "string") return Promise.all([
-			Promise.all(address$8),
+		if (address$9.filter((a$2) => typeof a$2 !== "string").length || fromBlock != null && typeof fromBlock !== "string" || toBlock != null && typeof toBlock !== "string") return Promise.all([
+			Promise.all(address$9),
 			fromBlock,
 			toBlock
 		]).then((result) => {
 			return resolve(result[0], result[1], result[2]);
 		});
-		return resolve(address$8, fromBlock, toBlock);
+		return resolve(address$9, fromBlock, toBlock);
 	}
 	_getTransactionRequest(_request) {
 		const request = copyRequest(_request);
@@ -66902,29 +67014,29 @@ var AbstractProvider = class {
 		return await this.#checkNetwork(this.#call(tx, blockTag, _tx.enableCcipRead ? 0 : -1));
 	}
 	async #getAccountValue(request, _address, _blockTag) {
-		let address$8 = this._getAddress(_address);
+		let address$9 = this._getAddress(_address);
 		let blockTag = this._getBlockTag(_blockTag);
-		if (typeof address$8 !== "string" || typeof blockTag !== "string") [address$8, blockTag] = await Promise.all([address$8, blockTag]);
+		if (typeof address$9 !== "string" || typeof blockTag !== "string") [address$9, blockTag] = await Promise.all([address$9, blockTag]);
 		return await this.#checkNetwork(this.#perform(Object.assign(request, {
-			address: address$8,
+			address: address$9,
 			blockTag
 		})));
 	}
-	async getBalance(address$8, blockTag) {
-		return getBigInt(await this.#getAccountValue({ method: "getBalance" }, address$8, blockTag), "%response");
+	async getBalance(address$9, blockTag) {
+		return getBigInt(await this.#getAccountValue({ method: "getBalance" }, address$9, blockTag), "%response");
 	}
-	async getTransactionCount(address$8, blockTag) {
-		return getNumber(await this.#getAccountValue({ method: "getTransactionCount" }, address$8, blockTag), "%response");
+	async getTransactionCount(address$9, blockTag) {
+		return getNumber(await this.#getAccountValue({ method: "getTransactionCount" }, address$9, blockTag), "%response");
 	}
-	async getCode(address$8, blockTag) {
-		return hexlify(await this.#getAccountValue({ method: "getCode" }, address$8, blockTag));
+	async getCode(address$9, blockTag) {
+		return hexlify(await this.#getAccountValue({ method: "getCode" }, address$9, blockTag));
 	}
-	async getStorage(address$8, _position, blockTag) {
+	async getStorage(address$9, _position, blockTag) {
 		const position$1 = getBigInt(_position, "position");
 		return hexlify(await this.#getAccountValue({
 			method: "getStorage",
 			position: position$1
-		}, address$8, blockTag));
+		}, address$9, blockTag));
 	}
 	async broadcastTransaction(signedTx) {
 		const { blockNumber, hash: hash$3, network } = await resolveProperties({
@@ -67030,14 +67142,14 @@ var AbstractProvider = class {
 		if (resolver) return await resolver.getAddress();
 		return null;
 	}
-	async lookupAddress(address$8) {
-		address$8 = getAddress(address$8);
-		const node$1 = namehash(address$8.substring(2).toLowerCase() + ".addr.reverse");
+	async lookupAddress(address$9) {
+		address$9 = getAddress(address$9);
+		const node$1 = namehash(address$9.substring(2).toLowerCase() + ".addr.reverse");
 		try {
 			const resolver = await new Contract(await EnsResolver.getEnsAddress(this), ["function resolver(bytes32) view returns (address)"], this).resolver(node$1);
 			if (resolver == null || resolver === "0x0000000000000000000000000000000000000000") return null;
 			const name = await new Contract(resolver, ["function name(bytes32) view returns (string)"], this).name(node$1);
-			if (await this.resolveName(name) !== address$8) return null;
+			if (await this.resolveName(name) !== address$9) return null;
 			return name;
 		} catch (error) {
 			if (isError(error, "BAD_DATA") && error.value === "0x") return null;
@@ -67400,9 +67512,9 @@ async function populate(signer, tx) {
 	if (pop$2.to != null) pop$2.to = resolveAddress(pop$2.to, signer);
 	if (pop$2.from != null) {
 		const from$2 = pop$2.from;
-		pop$2.from = Promise.all([signer.getAddress(), resolveAddress(from$2, signer)]).then(([address$8, from$3]) => {
-			assertArgument(address$8.toLowerCase() === from$3.toLowerCase(), "transaction from mismatch", "tx.from", from$3);
-			return address$8;
+		pop$2.from = Promise.all([signer.getAddress(), resolveAddress(from$2, signer)]).then(([address$9, from$3]) => {
+			assertArgument(address$9.toLowerCase() === from$3.toLowerCase(), "transaction from mismatch", "tx.from", from$3);
+			return address$9;
 		});
 	} else pop$2.from = signer.getAddress();
 	return await resolveProperties(pop$2);
@@ -67643,10 +67755,10 @@ var defaultOptions = {
 };
 var JsonRpcSigner = class extends AbstractSigner {
 	address;
-	constructor(provider, address$8) {
+	constructor(provider, address$9) {
 		super(provider);
-		address$8 = getAddress(address$8);
-		defineProperties(this, { address: address$8 });
+		address$9 = getAddress(address$9);
+		defineProperties(this, { address: address$9 });
 	}
 	connect(provider) {
 		assert(false, "cannot reconnect JsonRpcSigner", "UNSUPPORTED_OPERATION", { operation: "signer.connect" });
@@ -67739,9 +67851,9 @@ var JsonRpcSigner = class extends AbstractSigner {
 	async signTypedData(domain, types$1, _value) {
 		const value = deepCopy(_value);
 		const populated = await TypedDataEncoder.resolveNames(domain, types$1, value, async (value$1) => {
-			const address$8 = await resolveAddress(value$1);
-			assertArgument(address$8 != null, "TypedData does not support null address", "value", value$1);
-			return address$8;
+			const address$9 = await resolveAddress(value$1);
+			assertArgument(address$9 != null, "TypedData does not support null address", "value", value$1);
+			return address$9;
 		});
 		return await this.provider.send("eth_signTypedData_v4", [this.address.toLowerCase(), JSON.stringify(TypedDataEncoder.getPayload(populated.domain, types$1, populated.value))]);
 	}
@@ -68179,20 +68291,20 @@ var JsonRpcApiProvider = class extends AbstractProvider {
 		this.#scheduleDrain();
 		return promise;
 	}
-	async getSigner(address$8) {
-		if (address$8 == null) address$8 = 0;
+	async getSigner(address$9) {
+		if (address$9 == null) address$9 = 0;
 		const accountsPromise = this.send("eth_accounts", []);
-		if (typeof address$8 === "number") {
+		if (typeof address$9 === "number") {
 			const accounts$1 = await accountsPromise;
-			if (address$8 >= accounts$1.length) throw new Error("no such account");
-			return new JsonRpcSigner(this, accounts$1[address$8]);
+			if (address$9 >= accounts$1.length) throw new Error("no such account");
+			return new JsonRpcSigner(this, accounts$1[address$9]);
 		}
 		const { accounts } = await resolveProperties({
 			network: this.getNetwork(),
 			accounts: accountsPromise
 		});
-		address$8 = getAddress(address$8);
-		for (const account of accounts) if (getAddress(account) === address$8) return new JsonRpcSigner(this, address$8);
+		address$9 = getAddress(address$9);
+		for (const account of accounts) if (getAddress(account) === address$9) return new JsonRpcSigner(this, address$9);
 		throw new Error("invalid account");
 	}
 	async listAccounts() {
@@ -68444,16 +68556,16 @@ var BrowserProvider = class BrowserProvider extends JsonRpcApiPollingProvider {
 		}
 		return super.getRpcError(payload, error);
 	}
-	async hasSigner(address$8) {
-		if (address$8 == null) address$8 = 0;
+	async hasSigner(address$9) {
+		if (address$9 == null) address$9 = 0;
 		const accounts = await this.send("eth_accounts", []);
-		if (typeof address$8 === "number") return accounts.length > address$8;
-		address$8 = address$8.toLowerCase();
-		return accounts.filter((a$2) => a$2.toLowerCase() === address$8).length !== 0;
+		if (typeof address$9 === "number") return accounts.length > address$9;
+		address$9 = address$9.toLowerCase();
+		return accounts.filter((a$2) => a$2.toLowerCase() === address$9).length !== 0;
 	}
-	async getSigner(address$8) {
-		if (address$8 == null) address$8 = 0;
-		if (!await this.hasSigner(address$8)) try {
+	async getSigner(address$9) {
+		if (address$9 == null) address$9 = 0;
+		if (!await this.hasSigner(address$9)) try {
 			await this.#request("eth_requestAccounts", []);
 		} catch (error) {
 			const payload = error.payload;
@@ -68462,7 +68574,7 @@ var BrowserProvider = class BrowserProvider extends JsonRpcApiPollingProvider {
 				error
 			});
 		}
-		return await super.getSigner(address$8);
+		return await super.getSigner(address$9);
 	}
 	static async discover(options$2) {
 		if (options$2 == null) options$2 = {};
@@ -68537,13 +68649,13 @@ var require_use_sync_external_store_shim_production = /* @__PURE__ */ __commonJS
 	function is(x$2, y$3) {
 		return x$2 === y$3 && (0 !== x$2 || 1 / x$2 === 1 / y$3) || x$2 !== x$2 && y$3 !== y$3;
 	}
-	var objectIs = "function" === typeof Object.is ? Object.is : is, useState$17 = React$6.useState, useEffect$18 = React$6.useEffect, useLayoutEffect$3 = React$6.useLayoutEffect, useDebugValue$1 = React$6.useDebugValue;
+	var objectIs = "function" === typeof Object.is ? Object.is : is, useState$20 = React$6.useState, useEffect$22 = React$6.useEffect, useLayoutEffect$4 = React$6.useLayoutEffect, useDebugValue$1 = React$6.useDebugValue;
 	function useSyncExternalStore$2(subscribe$1, getSnapshot) {
-		var value = getSnapshot(), _useState = useState$17({ inst: {
+		var value = getSnapshot(), _useState = useState$20({ inst: {
 			value,
 			getSnapshot
 		} }), inst = _useState[0].inst, forceUpdate = _useState[1];
-		useLayoutEffect$3(function() {
+		useLayoutEffect$4(function() {
 			inst.value = value;
 			inst.getSnapshot = getSnapshot;
 			checkIfSnapshotChanged(inst) && forceUpdate({ inst });
@@ -68552,7 +68664,7 @@ var require_use_sync_external_store_shim_production = /* @__PURE__ */ __commonJS
 			value,
 			getSnapshot
 		]);
-		useEffect$18(function() {
+		useEffect$22(function() {
 			checkIfSnapshotChanged(inst) && forceUpdate({ inst });
 			return subscribe$1(function() {
 				checkIfSnapshotChanged(inst) && forceUpdate({ inst });
@@ -69039,7 +69151,7 @@ var useSWRHandler = (_key, fetcher, config) => {
 	const [getCache$1, setCache, subscribeCache, getInitialCache] = createCacheHelper(cache$1, key);
 	const stateDependencies = (0, import_react.useRef)({}).current;
 	const fallback = isUndefined(fallbackData) ? isUndefined(config.fallback) ? UNDEFINED : config.fallback[key] : fallbackData;
-	const isEqual$1 = (prev$1, current) => {
+	const isEqual$2 = (prev$1, current) => {
 		for (const _$1 in stateDependencies) {
 			const t$2 = _$1;
 			if (t$2 === "data") {
@@ -69077,7 +69189,7 @@ var useSWRHandler = (_key, fetcher, config) => {
 		let memorizedSnapshot = clientSnapshot;
 		return [() => {
 			const newSnapshot = getSelectedCache(getCache$1());
-			if (isEqual$1(newSnapshot, memorizedSnapshot)) {
+			if (isEqual$2(newSnapshot, memorizedSnapshot)) {
 				memorizedSnapshot.data = newSnapshot.data;
 				memorizedSnapshot.isLoading = newSnapshot.isLoading;
 				memorizedSnapshot.isValidating = newSnapshot.isValidating;
@@ -69090,7 +69202,7 @@ var useSWRHandler = (_key, fetcher, config) => {
 		}, () => serverSnapshot];
 	}, [cache$1, key]);
 	const cached = (0, import_shim.useSyncExternalStore)((0, import_react.useCallback)((callback) => subscribeCache(key, (current, prev$1) => {
-		if (!isEqual$1(prev$1, current)) callback();
+		if (!isEqual$2(prev$1, current)) callback();
 	}), [cache$1, key]), getSnapshot[0], getSnapshot[1]);
 	const isInitialMount = !initialMountedRef.current;
 	const hasRevalidator = EVENT_REVALIDATORS[key] && EVENT_REVALIDATORS[key].length > 0;
@@ -69320,9 +69432,9 @@ const _useGodEyeSetup = () => {
 	const [godEyeAddress, setGodEyeAddress] = (0, import_react.useState)(void 0);
 	const [godEyeAccountId, setGodEyeAccountId] = (0, import_react.useState)(void 0);
 	const loc = useLocation();
-	const enableGodEyeWallet = (address$8) => {
-		setGodEyeAddress(address$8);
-		console.log("God Eye Wallet enabled:", address$8);
+	const enableGodEyeWallet = (address$9) => {
+		setGodEyeAddress(address$9);
+		console.log("God Eye Wallet enabled:", address$9);
 	};
 	const enableGodEyeAccountId = (accountId) => {
 		setGodEyeAccountId(accountId);
@@ -69337,8 +69449,8 @@ const _useGodEyeSetup = () => {
 		const [cheatcode, cheatcodeValue] = getLast(loc.pathname.split("/")).split("=");
 		switch (cheatcode) {
 			case WALLET_CHEATCODE: {
-				const address$8 = cheatcodeValue;
-				if (isAddress(address$8)) enableGodEyeWallet(address$8);
+				const address$9 = cheatcodeValue;
+				if (isAddress(address$9)) enableGodEyeWallet(address$9);
 				else disableGodEye(`Invalid address: ${cheatcodeValue}`);
 				break;
 			}
@@ -73132,6 +73244,424 @@ var ModularSwapRouter_default = {
 		}
 	]
 };
+var OneClickNoRekt_default = {
+	address: "0xd39a1e1665Ec836bd9c7B394b87e65A300a4384a",
+	abi: [
+		{
+			"inputs": [
+				{
+					"internalType": "contract IOneClickProxy",
+					"name": "_oneClickProxy",
+					"type": "address"
+				},
+				{
+					"internalType": "contract IMarginAccount",
+					"name": "_marginAccount",
+					"type": "address"
+				},
+				{
+					"internalType": "contract IMarginAccountManager",
+					"name": "_marginAccountManager",
+					"type": "address"
+				},
+				{
+					"internalType": "contract OneClickEphemeralSwapOutput",
+					"name": "_oneClickEphemeralSwapOutput",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "_hegicPositionManager",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "_weth",
+					"type": "address"
+				}
+			],
+			"stateMutability": "nonpayable",
+			"type": "constructor"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "bytes32",
+					"name": "role",
+					"type": "bytes32"
+				},
+				{
+					"indexed": true,
+					"internalType": "bytes32",
+					"name": "previousAdminRole",
+					"type": "bytes32"
+				},
+				{
+					"indexed": true,
+					"internalType": "bytes32",
+					"name": "newAdminRole",
+					"type": "bytes32"
+				}
+			],
+			"name": "RoleAdminChanged",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "bytes32",
+					"name": "role",
+					"type": "bytes32"
+				},
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "account",
+					"type": "address"
+				},
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "sender",
+					"type": "address"
+				}
+			],
+			"name": "RoleGranted",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "bytes32",
+					"name": "role",
+					"type": "bytes32"
+				},
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "account",
+					"type": "address"
+				},
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "sender",
+					"type": "address"
+				}
+			],
+			"name": "RoleRevoked",
+			"type": "event"
+		},
+		{
+			"inputs": [],
+			"name": "DEFAULT_ADMIN_ROLE",
+			"outputs": [{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "EXECUTOR_ROLE",
+			"outputs": [{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "marginAccountID",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256[]",
+					"name": "tokenIDArr",
+					"type": "uint256[]"
+				},
+				{
+					"internalType": "address",
+					"name": "repayWithdrawToken",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "repayAmount",
+					"type": "uint256"
+				}
+			],
+			"name": "contractMultiExerciseRepayWithdraw",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			}],
+			"name": "getRoleAdmin",
+			"outputs": [{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			}, {
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}],
+			"name": "grantRole",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			}, {
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}],
+			"name": "hasRole",
+			"outputs": [{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "hegicPositionManager",
+			"outputs": [{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "marginAccount",
+			"outputs": [{
+				"internalType": "contract IMarginAccount",
+				"name": "",
+				"type": "address"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "marginAccountManager",
+			"outputs": [{
+				"internalType": "contract IMarginAccountManager",
+				"name": "",
+				"type": "address"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "marginAccountID",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256[]",
+					"name": "tokenIDArr",
+					"type": "uint256[]"
+				},
+				{
+					"internalType": "address",
+					"name": "repayWithdrawToken",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "repayAmount",
+					"type": "uint256"
+				},
+				{
+					"internalType": "bool",
+					"name": "doWithdraw",
+					"type": "bool"
+				}
+			],
+			"name": "multiExerciseRepayWithdraw",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "marginAccountID",
+					"type": "uint256"
+				},
+				{
+					"internalType": "address",
+					"name": "tokenOut",
+					"type": "address"
+				},
+				{
+					"components": [
+						{
+							"internalType": "address",
+							"name": "tokenIn",
+							"type": "address"
+						},
+						{
+							"internalType": "uint256",
+							"name": "amountOut",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "amountInMaximum",
+							"type": "uint256"
+						}
+					],
+					"internalType": "struct IOneClickNoRekt.SwapOutputData[]",
+					"name": "swapsData",
+					"type": "tuple[]"
+				},
+				{
+					"internalType": "uint256",
+					"name": "repayAmount",
+					"type": "uint256"
+				},
+				{
+					"internalType": "address",
+					"name": "withdrawToken",
+					"type": "address"
+				},
+				{
+					"internalType": "bool",
+					"name": "doWithdraw",
+					"type": "bool"
+				}
+			],
+			"name": "multiSwapOutputRepayWithdraw",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "oneClickEphemeralSwapOutput",
+			"outputs": [{
+				"internalType": "contract OneClickEphemeralSwapOutput",
+				"name": "",
+				"type": "address"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "oneClickProxy",
+			"outputs": [{
+				"internalType": "contract IOneClickProxy",
+				"name": "",
+				"type": "address"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			}, {
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}],
+			"name": "renounceRole",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			}, {
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}],
+			"name": "revokeRole",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "bytes4",
+				"name": "interfaceId",
+				"type": "bytes4"
+			}],
+			"name": "supportsInterface",
+			"outputs": [{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "weth",
+			"outputs": [{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"stateMutability": "payable",
+			"type": "receive"
+		}
+	]
+};
 var OneClickProxy_default = {
 	address: "0xDF645a02847C3bD9A7F76DD2C095eE7743810fc6",
 	abi: [
@@ -73886,7 +74416,7 @@ var OneClickProxy_default = {
 	]
 };
 var OneClickTrading_default = {
-	address: "0x3D2a69A3BE7649CEa370685596cba9cD4e715C6D",
+	address: "0x1Bd1f5B31EC2D6F224da9Bd9e6B0F11e9127Cb09",
 	abi: [
 		{
 			"inputs": [
@@ -74189,6 +74719,39 @@ var OneClickTrading_default = {
 				}
 			],
 			"name": "provideERC20Repay",
+			"outputs": [],
+			"stateMutability": "payable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "marginAccountID",
+					"type": "uint256"
+				},
+				{
+					"internalType": "address",
+					"name": "provideToken",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "repayToken",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "withdrawToken",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "amount",
+					"type": "uint256"
+				}
+			],
+			"name": "provideERC20RepayWithdraw",
 			"outputs": [],
 			"stateMutability": "payable",
 			"type": "function"
@@ -75430,6 +75993,7 @@ var useContractJsons = () => {
 		MarginAccountManager: MarginAccountManager_default,
 		MarginTrading: MarginTrading_default,
 		ModularSwapRouter: ModularSwapRouter_default,
+		OneClickNoRekt: OneClickNoRekt_default,
 		OneClickProxy: OneClickProxy_default,
 		OneClickTrading: OneClickTrading_default,
 		UsdcPool: USDC_LiquidityPool_default
@@ -75451,8 +76015,8 @@ var useViewContracts = () => {
 	const alchemyProvider = getAlchemyProvider();
 	const contracts$1 = {};
 	Object.keys(contractJsons).forEach((name) => {
-		const { address: address$8, abi: abi$8 } = contractJsons[name];
-		contracts$1[name] = new Contract(address$8, abi$8, alchemyProvider);
+		const { address: address$9, abi: abi$9 } = contractJsons[name];
+		contracts$1[name] = new Contract(address$9, abi$9, alchemyProvider);
 	});
 	return contracts$1;
 };
@@ -75616,6 +76180,16 @@ const Decimals = {
 	STABLE: 2,
 	BASE: 4
 };
+const unwrapTokenSymbol = (symbol) => {
+	if (Tokens[symbol].name.startsWith("Wrapped")) return symbol.split("W")[1];
+	return symbol;
+};
+const getTokenData = (token$1) => {
+	return Tokens[getTokenSymbol(token$1)];
+};
+const getTokenSymbol = (token$1) => {
+	return token$1.symbol ?? token$1;
+};
 const bringToDec = (bigInt, initDec, resultDec) => {
 	const decDifference = resultDec - initDec;
 	return (decDifference < 0 ? reduceBigIntDec : expandBigIntDec)(bigInt, Math.abs(decDifference));
@@ -75627,11 +76201,11 @@ const bringFromDefaultDec = (bigInt, resultDec) => {
 	return bringToDec(bigInt, Decimals.DEFAULT, resultDec);
 };
 const get1eToken = (bigInt, token$1) => {
-	const tokenDec = Tokens[token$1.symbol ?? token$1].decimals;
+	const tokenDec = Tokens[getTokenSymbol(token$1)].decimals;
 	return bringFromDefaultDec(bigInt, tokenDec);
 };
 const bring1eTokenToDefault = (bigInt, token$1) => {
-	const tokenDec = Tokens[token$1.symbol ?? token$1].decimals;
+	const tokenDec = Tokens[getTokenSymbol(token$1)].decimals;
 	return bringToDefaultDec(bigInt, tokenDec);
 };
 const expandBigIntDec = (bigInt, expandDecimals) => {
@@ -75647,7 +76221,8 @@ var Account = {
 	calcEquity: calcEquity$1,
 	queryBalance: queryBalance$2,
 	queryLtv: queryLtv$1,
-	queryLtvCoeffs: queryLtvCoeffs$1
+	queryLtvCoeffs: queryLtvCoeffs$1,
+	queryPrincipal: queryPrincipal$1
 };
 async function queryAccountValue$1(accountId, contracts$1) {
 	const { MarginTrading } = contracts$1.view;
@@ -75681,6 +76256,10 @@ async function queryLtvCoeffs$1(contracts$1) {
 		red: redCoeff,
 		yellow: yellowCoeff
 	};
+}
+async function queryPrincipal$1(accountId, contracts$1) {
+	const { UsdcPool } = contracts$1.view;
+	return bring1eTokenToDefault(await UsdcPool.portfolioIdToDebt(accountId), "USDC");
 }
 var Account_default = Account;
 var { queryBalance: queryBalance$1, queryEquity } = Account_default;
@@ -75878,8 +76457,87 @@ var AccountStateContext = ({ children }) => {
 	});
 };
 var AccountStateContext_default = AccountStateContext;
+const floorNumber = (num, decimals = 0) => {
+	return Math.floor(num * 10 ** decimals) / 10 ** decimals;
+};
+const roundNumber = (num, decimals = 0) => {
+	return Math.round(num * 10 ** decimals) / 10 ** decimals;
+};
+const bigIntFromString = (str) => {
+	str = String(str);
+	if (str.includes("e")) str = convertExponentToStr(str);
+	if (str.includes(".")) {
+		const [intPart, decPart] = str.split(".");
+		if (decPart.length > Decimals.DEFAULT) str = `${intPart}.${decPart.slice(0, Decimals.DEFAULT)}`;
+	}
+	str = parseEther(str);
+	return BigInt(str);
+};
+const stringFromBigInt = (bigInt) => {
+	let str = formatEther(bigInt);
+	if (str.endsWith(".0")) str = str.replace(/\.0$/, "");
+	return str;
+};
+const multiplyBigInts = (bigInt, multiplier) => {
+	return reduceBigIntDec(bigInt * multiplier, Decimals.DEFAULT);
+};
+const divBigInts = (bigInt, divider) => {
+	bigInt = expandBigIntDec(bigInt, Decimals.DEFAULT);
+	return bigInt / divider;
+};
+const multiplyBigIntByNumber = (bigInt, num) => {
+	return multiplyBigInts(bigInt, bigIntFromString(num));
+};
+const absBigInt = (bigInt) => {
+	return bigInt < 0n ? -bigInt : bigInt;
+};
+const floorBigInt = (bigInt, floorDecimals = 0) => {
+	return bigIntFromString(floorNumber(Number(stringFromBigInt(bigInt)), floorDecimals));
+};
+const roundBigInt = (bigInt, roundDecimals = 0) => {
+	return bigIntFromString(roundNumber(Number(stringFromBigInt(bigInt)), roundDecimals));
+};
+const getBigIntWithSlippage = (bigInt, slippage = SLIPPAGE) => {
+	return multiplyBigInts(bigInt, bigIntFromString(1) + slippage);
+};
+var convertExponentToStr = (expStr) => {
+	let str = String(expStr);
+	const [base, exp] = str.split("e");
+	let exponent = parseInt(exp, 10);
+	let [intPart, decPart = ""] = base.split(".");
+	let digits = intPart + decPart;
+	if (exponent >= 0) if (exponent >= decPart.length) str = digits + "0".repeat(exponent - decPart.length);
+	else str = intPart + decPart.slice(0, exponent) + "." + decPart.slice(exponent);
+	else {
+		exponent = -exponent;
+		const isNegative = digits.startsWith("-");
+		const absDigits = digits.replace(/-/g, "");
+		str = (isNegative ? "-" : "") + "0." + "0".repeat(exponent - 1) + absDigits;
+	}
+	return str;
+};
+const SLIPPAGE = bigIntFromString(.003);
+const useSlippageState = () => {
+	return (0, import_react.useContext)(_GeneralContext).slippageState;
+};
+const _useGeneralSetup = () => {
+	const [slippage, setSlippage] = useLocalStorage_default("slippage", SLIPPAGE, {
+		serializer: stringFromBigInt,
+		deserializer: bigIntFromString
+	});
+	return (0, import_react.useMemo)(() => ({ slippageState: [slippage, setSlippage] }), [slippage]);
+};
+const _GeneralContext = (0, import_react.createContext)(null);
+var GeneralContext = ({ children }) => {
+	const Generals = _useGeneralSetup();
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(_GeneralContext.Provider, {
+		value: Generals,
+		children
+	});
+};
+var GeneralContext_default = GeneralContext;
 var Context = ({ children }) => {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(GodEyeContext_default, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(AccountStateContext_default, { children }) });
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(GodEyeContext_default, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(GeneralContext_default, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(AccountStateContext_default, { children }) }) });
 };
 var Context_default = Context;
 var useScrollLock$1 = () => {
@@ -75983,7 +76641,7 @@ const animateFancyButtons = () => {
 var require_classnames = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	(function() {
 		var hasOwn$2 = {}.hasOwnProperty;
-		function classNames$1() {
+		function classNames$3() {
 			var classes = "";
 			for (var i$3 = 0; i$3 < arguments.length; i$3++) {
 				var arg = arguments[i$3];
@@ -75994,7 +76652,7 @@ var require_classnames = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 		function parseValue(arg) {
 			if (typeof arg === "string" || typeof arg === "number") return arg;
 			if (typeof arg !== "object") return "";
-			if (Array.isArray(arg)) return classNames$1.apply(null, arg);
+			if (Array.isArray(arg)) return classNames$3.apply(null, arg);
 			if (arg.toString !== Object.prototype.toString && !arg.toString.toString().includes("[native code]")) return arg.toString();
 			var classes = "";
 			for (var key in arg) if (hasOwn$2.call(arg, key) && arg[key]) classes = appendClass(classes, key);
@@ -76006,22 +76664,22 @@ var require_classnames = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 			return value + newClass;
 		}
 		if (typeof module !== "undefined" && module.exports) {
-			classNames$1.default = classNames$1;
-			module.exports = classNames$1;
+			classNames$3.default = classNames$3;
+			module.exports = classNames$3;
 		} else if (typeof define === "function" && typeof define.amd === "object" && define.amd) define("classnames", [], function() {
-			return classNames$1;
+			return classNames$3;
 		});
-		else window.classNames = classNames$1;
+		else window.classNames = classNames$3;
 	})();
 }));
-var import_classnames$18 = /* @__PURE__ */ __toESM(require_classnames(), 1);
-var Button$1 = ({ type = "primary", isDisabled = false, className, children, ...props }) => {
+var import_classnames$26 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var Button$1 = ({ type = "primary", isMicro = false, isDisabled = false, className, children, ...props }) => {
 	const isFancy = type === "fancy";
 	(0, import_react.useEffect)(() => {
 		if (isFancy) animateFancyButtons();
 	}, []);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-		className: (0, import_classnames$18.default)(className, "Button", `_${type}`, isFancy && "anim_fancy"),
+		className: (0, import_classnames$26.default)(className, "Button", `_${type}`, isMicro && "_micro", isFancy && "anim_fancy"),
 		disabled: isDisabled,
 		...props,
 		children
@@ -76034,6 +76692,39 @@ var useAccountId = () => {
 	return accountState.id;
 };
 var useAccountId_default = useAccountId;
+const isSufficient = (value) => {
+	return !isUndefined(value) && value !== null;
+};
+var swap = async (contracts$1, amountIn, tokenIn, tokenOut, slippage = void 0) => {
+	tokenIn = getTokenData(tokenIn);
+	tokenOut = getTokenData(tokenOut);
+	if (tokenIn.address === tokenOut.address) return amountIn;
+	const { ModularSwapRouter } = contracts$1.view;
+	const amountOut = await ModularSwapRouter.calculateAmountOutERC20.staticCall(tokenIn.address, tokenOut.address, get1eToken(amountIn, tokenIn)).then((res) => bring1eTokenToDefault(res, tokenOut)).catch(console.log);
+	if (slippage && isSufficient(amountOut)) return getBigIntWithSlippage(amountOut, slippage);
+	return amountOut;
+};
+const swapToUsdc = async (contracts$1, amount, token$1, slippage = void 0) => {
+	const { USDC } = Tokens;
+	return await swap(contracts$1, amount, token$1, USDC, slippage);
+};
+const swapFromUsdc = async (contracts$1, amountUSDC, token$1, slippage = void 0) => {
+	const { USDC } = Tokens;
+	return await swap(contracts$1, amountUSDC, USDC, token$1, slippage);
+};
+const swapEthToUsdc = async (contracts$1, amount, slippage = void 0) => {
+	const { ETH } = Tokens;
+	return swapToUsdc(contracts$1, amount, ETH, slippage);
+};
+const swapUsdcToEth = async (contracts$1, amountUSDC, slippage = void 0) => {
+	const { ETH } = Tokens;
+	return swapFromUsdc(contracts$1, amountUSDC, ETH, slippage);
+};
+var RepayModalConstants_default = { RepayMethods: {
+	COLLATERAL: "collateral",
+	WALLET: "wallet"
+} };
+var { RepayMethods: RepayMethods$1 } = RepayModalConstants_default;
 var useProtocolActions = () => {
 	const accountId = useAccountId_default();
 	const contracts$1 = useContracts_default();
@@ -76041,16 +76732,19 @@ var useProtocolActions = () => {
 	const supply = (0, import_react.useCallback)(async (amount) => _supply(accountId, contracts$1, amount), [accountId, contracts$1]);
 	const withdraw = (0, import_react.useCallback)(async (amount) => _withdraw(accountId, contracts$1, amount), [accountId, contracts$1]);
 	const borrow = (0, import_react.useCallback)(async (amount) => _borrow(accountId, contracts$1, amount), [accountId, contracts$1]);
+	const repay = (0, import_react.useCallback)(async (amount, paymentMethod, shouldWithdraw, slippage = SLIPPAGE) => _repay(accountId, contracts$1, amount, paymentMethod, shouldWithdraw, slippage), [accountId, contracts$1]);
 	return (0, import_react.useMemo)(() => ({
 		createAccount,
 		supply,
 		withdraw,
-		borrow
+		borrow,
+		repay
 	}), [
 		createAccount,
 		supply,
 		withdraw,
-		borrow
+		borrow,
+		repay
 	]);
 };
 var _createAccount = async (contracts$1) => {
@@ -76072,6 +76766,31 @@ var _borrow = async (accountId, contracts$1, amount) => {
 	const { USDC } = Tokens;
 	const amount1eToken = get1eToken(amount, "USDC");
 	return OneClickTrading.borrowWithdraw(accountId, USDC.address, amount1eToken, false);
+};
+var _repay = async (accountId, contracts$1, amount, paymentMethod, shouldWithdraw, slippage) => {
+	switch (paymentMethod) {
+		case RepayMethods$1.COLLATERAL: return _repayCollateral(accountId, contracts$1, amount, shouldWithdraw, slippage);
+		case RepayMethods$1.WALLET: return _repayWallet(accountId, contracts$1, amount, shouldWithdraw);
+		default: console.error("No paymentMethod found:", paymentMethod);
+	}
+};
+var _repayCollateral = async (accountId, contracts$1, amount, shouldWithdraw, slippage) => {
+	const { ETH, USDC } = Tokens;
+	const { OneClickNoRekt } = contracts$1.signed;
+	const amountOut1eToken = get1eToken(amount, USDC);
+	const amountIn1eToken = get1eToken(await swapUsdcToEth(contracts$1, amount, slippage), ETH);
+	return OneClickNoRekt.multiSwapOutputRepayWithdraw(accountId, USDC.address, [[
+		ETH.address,
+		amountOut1eToken,
+		amountIn1eToken
+	]], amountOut1eToken, ETH.address, shouldWithdraw);
+};
+var _repayWallet = async (accountId, contracts$1, amount, shouldWithdraw) => {
+	const { ETH, USDC } = Tokens;
+	const { OneClickTrading } = contracts$1.signed;
+	const amount1eToken = get1eToken(amount, USDC);
+	if (shouldWithdraw) return OneClickTrading.provideERC20RepayWithdraw(accountId, USDC.address, USDC.address, ETH.address, amount1eToken);
+	else return OneClickTrading.provideERC20Repay(accountId, USDC.address, amount1eToken);
 };
 var useProtocolActions_default = useProtocolActions;
 var sendTx = async (executedTx, successMsg, setIsSubmitting, onSuccess, onError) => {
@@ -76332,7 +77051,7 @@ var require_scopeTab = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 }));
 var require_warning = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	var __DEV__ = false;
-	var warning = function() {};
+	var warning$1 = function() {};
 	if (__DEV__) {
 		var printWarning = function printWarning$1(format, args) {
 			var len$1 = arguments.length;
@@ -76347,7 +77066,7 @@ var require_warning = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 				throw new Error(message);
 			} catch (x$2) {}
 		};
-		warning = function(condition, format, args) {
+		warning$1 = function(condition, format, args) {
 			var len$1 = arguments.length;
 			args = new Array(len$1 > 2 ? len$1 - 2 : 0);
 			for (var key = 2; key < len$1; key++) args[key - 2] = arguments[key];
@@ -76355,7 +77074,7 @@ var require_warning = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 			if (!condition) printWarning.apply(null, [format].concat(args));
 		};
 	}
-	module.exports = warning;
+	module.exports = warning$1;
 }));
 var require_exenv = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	(function() {
@@ -76488,13 +77207,13 @@ var require_classList = /* @__PURE__ */ __commonJSMin(((exports) => {
 	var htmlClassList = {};
 	var docBodyClassList = {};
 	/* istanbul ignore next */
-	function removeClass(at$1, cls) {
-		at$1.classList.remove(cls);
+	function removeClass(at$1, cls$4) {
+		at$1.classList.remove(cls$4);
 	}
 	/* istanbul ignore next */
 	function resetState$2() {
 		var htmlElement = document.getElementsByTagName("html")[0];
-		for (var cls in htmlClassList) removeClass(htmlElement, htmlClassList[cls]);
+		for (var cls$4 in htmlClassList) removeClass(htmlElement, htmlClassList[cls$4]);
 		var body = document.body;
 		for (var _cls in docBodyClassList) removeClass(body, docBodyClassList[_cls]);
 		htmlClassList = {};
@@ -76637,14 +77356,14 @@ var require_bodyTrap = /* @__PURE__ */ __commonJSMin(((exports) => {
 }));
 var require_ModalPortal = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	Object.defineProperty(exports, "__esModule", { value: true });
-	var _extends$3 = Object.assign || function(target) {
+	var _extends$4 = Object.assign || function(target) {
 		for (var i$3 = 1; i$3 < arguments.length; i$3++) {
 			var source = arguments[i$3];
 			for (var key in source) if (Object.prototype.hasOwnProperty.call(source, key)) target[key] = source[key];
 		}
 		return target;
 	};
-	var _typeof$1 = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function(obj) {
+	var _typeof$2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function(obj) {
 		return typeof obj;
 	} : function(obj) {
 		return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
@@ -76692,9 +77411,9 @@ var require_ModalPortal = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	function _classCallCheck$2(instance, Constructor) {
 		if (!(instance instanceof Constructor)) throw new TypeError("Cannot call a class as a function");
 	}
-	function _possibleConstructorReturn$2(self$1, call$1) {
+	function _possibleConstructorReturn$2(self$1, call$2) {
 		if (!self$1) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-		return call$1 && (typeof call$1 === "object" || typeof call$1 === "function") ? call$1 : self$1;
+		return call$2 && (typeof call$2 === "object" || typeof call$2 === "function") ? call$2 : self$1;
 	}
 	function _inherits$2(subClass, superClass) {
 		if (typeof superClass !== "function" && superClass !== null) throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
@@ -76829,14 +77548,14 @@ var require_ModalPortal = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 				return document.activeElement === _this.content || _this.content.contains(document.activeElement);
 			};
 			_this.buildClassName = function(which, additional) {
-				var classNames$1 = (typeof additional === "undefined" ? "undefined" : _typeof$1(additional)) === "object" ? additional : {
+				var classNames$3 = (typeof additional === "undefined" ? "undefined" : _typeof$2(additional)) === "object" ? additional : {
 					base: CLASS_NAMES[which],
 					afterOpen: CLASS_NAMES[which] + "--after-open",
 					beforeClose: CLASS_NAMES[which] + "--before-close"
 				};
-				var className = classNames$1.base;
-				if (_this.state.afterOpen) className = className + " " + classNames$1.afterOpen;
-				if (_this.state.beforeClose) className = className + " " + classNames$1.beforeClose;
+				var className = classNames$3.base;
+				if (_this.state.afterOpen) className = className + " " + classNames$3.afterOpen;
+				if (_this.state.beforeClose) className = className + " " + classNames$3.beforeClose;
 				return typeof additional === "string" && additional ? className + " " + additional : className;
 			};
 			_this.attributesFromObject = function(prefix$3, items) {
@@ -76900,14 +77619,14 @@ var require_ModalPortal = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 					var overlayProps = {
 						ref: this.setOverlayRef,
 						className: this.buildClassName("overlay", overlayClassName),
-						style: _extends$3({}, overlayStyles, this.props.style.overlay),
+						style: _extends$4({}, overlayStyles, this.props.style.overlay),
 						onClick: this.handleOverlayOnClick,
 						onMouseDown: this.handleOverlayOnMouseDown
 					};
-					var contentProps = _extends$3({
+					var contentProps = _extends$4({
 						id: id$2,
 						ref: this.setContentRef,
-						style: _extends$3({}, contentStyles, this.props.style.content),
+						style: _extends$4({}, contentStyles, this.props.style.content),
 						className: this.buildClassName("content", className),
 						tabIndex: "-1",
 						onKeyDown: this.handleKeyDown,
@@ -76916,7 +77635,7 @@ var require_ModalPortal = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 						onClick: this.handleContentOnClick,
 						role: this.props.role,
 						"aria-label": this.props.contentLabel
-					}, this.attributesFromObject("aria", _extends$3({ modal: true }, this.props.aria)), this.attributesFromObject("data", this.props.data || {}), { "data-testid": this.props.testId });
+					}, this.attributesFromObject("aria", _extends$4({ modal: true }, this.props.aria)), this.attributesFromObject("data", this.props.data || {}), { "data-testid": this.props.testId });
 					var contentElement = this.props.contentElement(contentProps, children);
 					return this.props.overlayElement(overlayProps, contentElement);
 				}
@@ -77043,7 +77762,7 @@ var init_react_lifecycles_compat_es = __esmMin((() => {
 var require_Modal = /* @__PURE__ */ __commonJSMin(((exports) => {
 	Object.defineProperty(exports, "__esModule", { value: true });
 	exports.bodyOpenClassName = exports.portalClassName = void 0;
-	var _extends$2 = Object.assign || function(target) {
+	var _extends$3 = Object.assign || function(target) {
 		for (var i$3 = 1; i$3 < arguments.length; i$3++) {
 			var source = arguments[i$3];
 			for (var key in source) if (Object.prototype.hasOwnProperty.call(source, key)) target[key] = source[key];
@@ -77092,9 +77811,9 @@ var require_Modal = /* @__PURE__ */ __commonJSMin(((exports) => {
 	function _classCallCheck$1(instance, Constructor) {
 		if (!(instance instanceof Constructor)) throw new TypeError("Cannot call a class as a function");
 	}
-	function _possibleConstructorReturn$1(self$1, call$1) {
+	function _possibleConstructorReturn$1(self$1, call$2) {
 		if (!self$1) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-		return call$1 && (typeof call$1 === "object" || typeof call$1 === "function") ? call$1 : self$1;
+		return call$2 && (typeof call$2 === "object" || typeof call$2 === "function") ? call$2 : self$1;
 	}
 	function _inherits$1(subClass, superClass) {
 		if (typeof superClass !== "function" && superClass !== null) throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
@@ -77133,7 +77852,7 @@ var require_Modal = /* @__PURE__ */ __commonJSMin(((exports) => {
 			}, _this.portalRef = function(ref) {
 				_this.portal = ref;
 			}, _this.renderPortal = function(props) {
-				var portal = getCreatePortal()(_this, _react2.default.createElement(_ModalPortal2.default, _extends$2({ defaultStyles: Modal$3.defaultStyles }, props)), _this.node);
+				var portal = getCreatePortal()(_this, _react2.default.createElement(_ModalPortal2.default, _extends$3({ defaultStyles: Modal$3.defaultStyles }, props)), _this.node);
 				_this.portalRef(portal);
 			}, _temp), _possibleConstructorReturn$1(_this, _ret);
 		}
@@ -77190,7 +77909,7 @@ var require_Modal = /* @__PURE__ */ __commonJSMin(((exports) => {
 				value: function render() {
 					if (!_safeHTMLElement.canUseDOM || !isReact16) return null;
 					if (!this.node && isReact16) this.node = createHTMLElement("div");
-					return getCreatePortal()(_react2.default.createElement(_ModalPortal2.default, _extends$2({
+					return getCreatePortal()(_react2.default.createElement(_ModalPortal2.default, _extends$3({
 						ref: this.portalRef,
 						defaultStyles: Modal$3.defaultStyles
 					}, this.props)), this.node);
@@ -77307,7 +78026,7 @@ var import_lib = /* @__PURE__ */ __toESM((/* @__PURE__ */ __commonJSMin(((export
 	exports.default = _Modal2.default;
 	module.exports = exports["default"];
 })))(), 1);
-var import_classnames$17 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$25 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 import_lib.default.setAppElement("#root");
 import_lib.default.defaultStyles = {};
 var TRANSITION_DURATION = 300;
@@ -77317,15 +78036,14 @@ var Modal = ({ isOpen, setIsOpen, isObligatory = false, reset = () => {}, classN
 		if (!isOpen && reset) setTimeout(reset, TRANSITION_DURATION);
 	}, [isOpen]);
 	const closeModal = () => {
+		if (isObligatory) return;
 		setIsOpen(false);
 	};
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_lib.default, {
-		className: (0, import_classnames$17.default)(isScrollable && "_scrollable"),
+		className: (0, import_classnames$25.default)(isScrollable && "_scrollable"),
 		isOpen,
-		onRequestClose: () => {
-			if (isObligatory) return;
-			closeModal();
-		},
+		shouldCloseOnOverlayClick: false,
+		onRequestClose: closeModal,
 		closeTimeoutMS: TRANSITION_DURATION,
 		parentSelector: () => document.querySelector("#ModalContainer"),
 		onAfterOpen: (data) => {
@@ -77333,11 +78051,18 @@ var Modal = ({ isOpen, setIsOpen, isObligatory = false, reset = () => {}, classN
 			if (contentEl.scrollHeight > window.innerHeight) setIsScrollable(true);
 			else setIsScrollable(false);
 		},
+		overlayElement: (props, contentElement) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			...props,
+			onMouseDown: closeModal,
+			children: contentElement
+		}),
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-			className: (0, import_classnames$17.default)(className, "ReactModal__box", "box"),
+			className: (0, import_classnames$25.default)(className, "ReactModal__box", "box"),
+			onMouseDown: (e$2) => e$2.stopPropagation(),
 			children
 		}), !isObligatory && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
 			className: "ReactModal__close-btn",
+			onMouseDown: (e$2) => e$2.stopPropagation(),
 			onClick: closeModal
 		})]
 	});
@@ -77346,7 +78071,7 @@ var Modal_default = Modal;
 var confirm_default = "data:image/svg+xml,%3csvg%20width='40'%20height='40'%20viewBox='0%200%2040%2040'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_284_1636)'%3e%3ccircle%20cx='20'%20cy='20'%20r='20'%20fill='%23112540'/%3e%3cpath%20d='M11%2019.9333L17%2026L29%2013'%20stroke='%2309AF8E'%20stroke-width='3'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_284_1636'%3e%3crect%20width='40'%20height='40'%20fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e";
 var error_default = "data:image/svg+xml,%3csvg%20width='40'%20height='40'%20viewBox='0%200%2040%2040'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_1129_5414)'%3e%3ccircle%20cx='20'%20cy='20'%20r='20'%20fill='%23361536'/%3e%3cpath%20d='M21.4969%2020L25.6868%2015.8101C25.8856%2015.6116%2025.9975%2015.3422%2025.9977%2015.0613C25.998%2014.7803%2025.8866%2014.5107%2025.6881%2014.3119C25.4896%2014.113%2025.2202%2014.0012%2024.9393%2014.0009C24.6583%2014.0007%2024.3887%2014.1121%2024.1899%2014.3106L20%2018.5005L15.8101%2014.3106C15.6113%2014.1117%2015.3416%2014%2015.0603%2014C14.7791%2014%2014.5094%2014.1117%2014.3106%2014.3106C14.1117%2014.5094%2014%2014.7791%2014%2015.0603C14%2015.3416%2014.1117%2015.6113%2014.3106%2015.8101L18.5005%2020L14.3106%2024.1899C14.1117%2024.3887%2014%2024.6584%2014%2024.9397C14%2025.2209%2014.1117%2025.4906%2014.3106%2025.6894C14.5094%2025.8883%2014.7791%2026%2015.0603%2026C15.3416%2026%2015.6113%2025.8883%2015.8101%2025.6894L20%2021.4995L24.1899%2025.6894C24.3887%2025.8883%2024.6584%2026%2024.9397%2026C25.2209%2026%2025.4906%2025.8883%2025.6894%2025.6894C25.8883%2025.4906%2026%2025.2209%2026%2024.9397C26%2024.6584%2025.8883%2024.3887%2025.6894%2024.1899L21.4969%2020Z'%20fill='%23D8563C'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_1129_5414'%3e%3crect%20width='40'%20height='40'%20fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e";
 var tick_default = "data:image/svg+xml,%3csvg%20width='12'%20height='10'%20viewBox='0%200%2012%2010'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M1%205.26667L4.33333%209L11%201'%20stroke='white'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3c/svg%3e";
-var import_classnames$16 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$24 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var TxModal = ({ isOpen, setIsOpen, reset = () => {}, txResult, setTxResult, className, children }) => {
 	const closeModal = () => setIsOpen(false);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Modal_default, {
@@ -77369,7 +78094,7 @@ var TxResult = ({ result, closeModal }) => {
 	const txUrl = hash$3 ? getTxUrl(chainId, hash$3) : "";
 	const hashStr = hash$3 ? hash$3.slice(0, 5) + "..." + hash$3.slice(-4) : "";
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: (0, import_classnames$16.default)("Modal__tx-result", error && "_error"),
+		className: (0, import_classnames$24.default)("Modal__tx-result", error && "_error"),
 		children: [
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 				className: "Modal__tx-result-icon",
@@ -77424,7 +78149,7 @@ var CopyButton = ({ error }) => {
 		setTimeout(() => setIsCopied(false), 2 * SECOND);
 	};
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
-		className: (0, import_classnames$16.default)("Modal__tx-result-button", isCopied && "_copied"),
+		className: (0, import_classnames$24.default)("Modal__tx-result-button", isCopied && "_copied"),
 		onClick: handleClick,
 		children: isCopied ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: ["Copied", /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
 			src: tick_default,
@@ -77494,56 +78219,6 @@ var CreateAccountModal = ({ isOpen, setIsOpen }) => {
 	});
 };
 var CreateAccountModal_default = CreateAccountModal;
-const roundNumber = (num, decimals = 0) => {
-	return Math.round(num * 10 ** decimals) / 10 ** decimals;
-};
-const bigIntFromString = (str) => {
-	str = String(str);
-	if (str.includes("e")) str = convertExponentToStr(str);
-	if (str.includes(".")) {
-		const [intPart, decPart] = str.split(".");
-		if (decPart.length > Decimals.DEFAULT) str = `${intPart}.${decPart.slice(0, Decimals.DEFAULT)}`;
-	}
-	str = parseEther(str);
-	return BigInt(str);
-};
-const stringFromBigInt = (bigInt) => {
-	let str = formatEther(bigInt);
-	if (str.endsWith(".0")) str = str.replace(/\.0$/, "");
-	return str;
-};
-const divBigInts = (bigInt, divider) => {
-	bigInt = expandBigIntDec(bigInt, Decimals.DEFAULT);
-	return bigInt / divider;
-};
-const multiplyBigInts = (bigInt, multiplier) => {
-	return reduceBigIntDec(bigInt * multiplier, Decimals.DEFAULT);
-};
-const multiplyBigIntByNumber = (bigInt, num) => {
-	return multiplyBigInts(bigInt, bigIntFromString(num));
-};
-const absBigInt = (bigInt) => {
-	return bigInt < 0n ? -bigInt : bigInt;
-};
-const roundBigInt = (bigInt, roundDecimals = 0) => {
-	return bigIntFromString(roundNumber(Number(stringFromBigInt(bigInt)), roundDecimals));
-};
-var convertExponentToStr = (expStr) => {
-	let str = String(expStr);
-	const [base, exp] = str.split("e");
-	let exponent = parseInt(exp, 10);
-	let [intPart, decPart = ""] = base.split(".");
-	let digits = intPart + decPart;
-	if (exponent >= 0) if (exponent >= decPart.length) str = digits + "0".repeat(exponent - decPart.length);
-	else str = intPart + decPart.slice(0, exponent) + "." + decPart.slice(exponent);
-	else {
-		exponent = -exponent;
-		const isNegative = digits.startsWith("-");
-		const absDigits = digits.replace(/-/g, "");
-		str = (isNegative ? "-" : "") + "0." + "0".repeat(exponent - 1) + absDigits;
-	}
-	return str;
-};
 var formatBigInt = (bigInt, displayDecimals, onlySufficientDecimals) => {
 	const { isLoading } = getIsLoadingAndError(bigInt);
 	if (isLoading) return "...";
@@ -78123,13 +78798,6 @@ var getOracle = (asset) => {
 	if (!oracleAddress) throw new Error(`No oracle address set for asset ${asset}`);
 	return new Contract(oracleAddress, ChainlinkOracle_abi_default, getAlchemyProvider());
 };
-const unwrapTokenSymbol = (symbol) => {
-	if (Tokens[symbol].name.startsWith("Wrapped")) return symbol.split("W")[1];
-	return symbol;
-};
-const getTokenData = (token$1) => {
-	return Tokens[token$1.symbol ?? token$1];
-};
 var useTokenPrices = () => {
 	const { data: tokenPricesData, error: tokenPricesError } = useSWR("useTokenPrices", async () => {
 		const tokenPrices = {};
@@ -78167,14 +78835,14 @@ var DefaultContext = {
 	attr: void 0
 };
 var IconContext = import_react.createContext && /* @__PURE__ */ import_react.createContext(DefaultContext);
-var _excluded$7 = [
+var _excluded$9 = [
 	"attr",
 	"size",
 	"title"
 ];
-function _objectWithoutProperties$1(source, excluded) {
+function _objectWithoutProperties$2(source, excluded) {
 	if (source == null) return {};
-	var target = _objectWithoutPropertiesLoose$1(source, excluded);
+	var target = _objectWithoutPropertiesLoose$2(source, excluded);
 	var key, i$3;
 	if (Object.getOwnPropertySymbols) {
 		var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
@@ -78187,7 +78855,7 @@ function _objectWithoutProperties$1(source, excluded) {
 	}
 	return target;
 }
-function _objectWithoutPropertiesLoose$1(source, excluded) {
+function _objectWithoutPropertiesLoose$2(source, excluded) {
 	if (source == null) return {};
 	var target = {};
 	for (var key in source) if (Object.prototype.hasOwnProperty.call(source, key)) {
@@ -78196,17 +78864,17 @@ function _objectWithoutPropertiesLoose$1(source, excluded) {
 	}
 	return target;
 }
-function _extends$1() {
-	_extends$1 = Object.assign ? Object.assign.bind() : function(target) {
+function _extends$2() {
+	_extends$2 = Object.assign ? Object.assign.bind() : function(target) {
 		for (var i$3 = 1; i$3 < arguments.length; i$3++) {
 			var source = arguments[i$3];
 			for (var key in source) if (Object.prototype.hasOwnProperty.call(source, key)) target[key] = source[key];
 		}
 		return target;
 	};
-	return _extends$1.apply(this, arguments);
+	return _extends$2.apply(this, arguments);
 }
-function ownKeys$1(e$2, r$3) {
+function ownKeys$2(e$2, r$3) {
 	var t$2 = Object.keys(e$2);
 	if (Object.getOwnPropertySymbols) {
 		var o$1 = Object.getOwnPropertySymbols(e$2);
@@ -78219,15 +78887,15 @@ function ownKeys$1(e$2, r$3) {
 function _objectSpread(e$2) {
 	for (var r$3 = 1; r$3 < arguments.length; r$3++) {
 		var t$2 = null != arguments[r$3] ? arguments[r$3] : {};
-		r$3 % 2 ? ownKeys$1(Object(t$2), !0).forEach(function(r$4) {
-			_defineProperty$1(e$2, r$4, t$2[r$4]);
-		}) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e$2, Object.getOwnPropertyDescriptors(t$2)) : ownKeys$1(Object(t$2)).forEach(function(r$4) {
+		r$3 % 2 ? ownKeys$2(Object(t$2), !0).forEach(function(r$4) {
+			_defineProperty$2(e$2, r$4, t$2[r$4]);
+		}) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e$2, Object.getOwnPropertyDescriptors(t$2)) : ownKeys$2(Object(t$2)).forEach(function(r$4) {
 			Object.defineProperty(e$2, r$4, Object.getOwnPropertyDescriptor(t$2, r$4));
 		});
 	}
 	return e$2;
 }
-function _defineProperty$1(obj, key, value) {
+function _defineProperty$2(obj, key, value) {
 	key = _toPropertyKey(key);
 	if (key in obj) Object.defineProperty(obj, key, {
 		value,
@@ -78256,16 +78924,16 @@ function Tree2Element(tree) {
 	return tree && tree.map((node$1, i$3) => /* @__PURE__ */ import_react.createElement(node$1.tag, _objectSpread({ key: i$3 }, node$1.attr), Tree2Element(node$1.child)));
 }
 function GenIcon(data) {
-	return (props) => /* @__PURE__ */ import_react.createElement(IconBase, _extends$1({ attr: _objectSpread({}, data.attr) }, props), Tree2Element(data.child));
+	return (props) => /* @__PURE__ */ import_react.createElement(IconBase, _extends$2({ attr: _objectSpread({}, data.attr) }, props), Tree2Element(data.child));
 }
 function IconBase(props) {
 	var elem = (conf) => {
-		var { attr, size: size$4, title } = props, svgProps = _objectWithoutProperties$1(props, _excluded$7);
+		var { attr, size: size$4, title } = props, svgProps = _objectWithoutProperties$2(props, _excluded$9);
 		var computedSize = size$4 || conf.size || "1em";
 		var className;
 		if (conf.className) className = conf.className;
 		if (props.className) className = (className ? className + " " : "") + props.className;
-		return /* @__PURE__ */ import_react.createElement("svg", _extends$1({
+		return /* @__PURE__ */ import_react.createElement("svg", _extends$2({
 			stroke: "currentColor",
 			fill: "currentColor",
 			strokeWidth: "0"
@@ -78293,33 +78961,41 @@ function ImSpinner2(props) {
 		}]
 	})(props);
 }
-var import_classnames$15 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$23 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var Spinner = ({ className }) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: (0, import_classnames$15.default)("Spinner", className),
+		className: (0, import_classnames$23.default)("Spinner", className),
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ImSpinner2, { className: "Spinner__icon" })
 	});
 };
 var Spinner_default = Spinner;
-var TokenAmount = ({ value, symbol = "USDC", showsUsdValue = false }) => {
+var import_classnames$22 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var TokenIcon = ({ symbol, className }) => {
+	const tokenIcon = Tokens[symbol].icon;
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: (0, import_classnames$22.default)("TokenIcon", className),
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+			src: tokenIcon,
+			alt: `${symbol} icon`
+		})
+	});
+};
+var TokenIcon_default = TokenIcon;
+var TokenAmount = ({ value, symbol = "USDC", showsUsd = false }) => {
 	const { isLoading } = getIsLoadingAndError(value);
 	const valueStr = isLoading ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Spinner_default, {}) : formatTokenAmount(value, symbol);
-	const tokenIcon = Tokens[symbol].icon;
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 		className: "TokenAmount",
 		children: [
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenIcon_default, {
 				className: "TokenAmount__icon",
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
-					src: tokenIcon,
-					alt: `${symbol} icon`
-				})
+				symbol
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 				className: "TokenAmount__value",
 				children: valueStr
 			}),
-			showsUsdValue && !isLoading && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(UsdValue, {
+			showsUsd && !isLoading && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(UsdValue, {
 				tokenValue: value,
 				tokenSymb: symbol
 			})
@@ -78334,9 +79010,9 @@ var UsdValue = ({ tokenValue, tokenSymb }) => {
 	});
 };
 var TokenAmount_default = TokenAmount;
-var import_classnames$14 = /* @__PURE__ */ __toESM(require_classnames(), 1);
-var Input$2 = ({ setValue, maxData = void 0, placeholder = "0", isDisabled = false }) => {
-	const [valueStr, setValueStr] = (0, import_react.useState)("");
+var import_classnames$21 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var Input$2 = ({ setValue, valueStrState = void 0, maxData = void 0, placeholder = "0", isDisabled = false }) => {
+	const [valueStr, setValueStr] = valueStrState ?? (0, import_react.useState)("");
 	const [isFocused, setIsFocused] = (0, import_react.useState)(false);
 	const inputRef = (0, import_react.useRef)(null);
 	(0, import_react.useEffect)(() => {
@@ -78349,7 +79025,7 @@ var Input$2 = ({ setValue, maxData = void 0, placeholder = "0", isDisabled = fal
 		setValueStr(inputStringFromBigInt(maxData.value));
 	};
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: (0, import_classnames$14.default)("Input", isFocused && "_focused"),
+		className: (0, import_classnames$21.default)("Input", isFocused && "_focused"),
 		onClick: focusInput,
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputNative, {
 			ref: inputRef,
@@ -78360,9 +79036,12 @@ var Input$2 = ({ setValue, maxData = void 0, placeholder = "0", isDisabled = fal
 			isDisabled,
 			isFocused,
 			setIsFocused
-		}), !isUndefined(maxData) && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		}), !isUndefined(maxData) && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 			className: "Input__max",
-			children: [
+			children: maxData.onlyTokenShown ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenIcon_default, {
+				className: "Input__max-icon",
+				symbol: maxData.token
+			}) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 					className: "Input__max-title",
 					children: maxData.title
@@ -78372,15 +79051,16 @@ var Input$2 = ({ setValue, maxData = void 0, placeholder = "0", isDisabled = fal
 					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmount_default, {
 						value: maxData.value,
 						symbol: maxData.token,
-						showsUsdValue: true
+						showsUsd: true
 					})
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
 					className: "Input__max-button",
+					isMicro: true,
 					onClick: setMaxValue,
 					children: "Max"
 				})
-			]
+			] })
 		})]
 	});
 };
@@ -78398,23 +79078,281 @@ var InputNative = (0, import_react.forwardRef)(function InputNative$1({ valueStr
 			if (!isUndefined(maxValue$1) && value > maxValue$1) setValueStr(inputStringFromBigInt(maxValue$1));
 			else setValueStr(inputStr);
 		},
-		onFocus: () => {
-			setIsFocused(true);
-		},
-		onBlur: () => {
-			setIsFocused(false);
-		}
+		onFocus: () => setIsFocused(true),
+		onBlur: () => setIsFocused(false)
 	});
 });
 var Input_default = Input$2;
-var useBalanceETH = () => {
+var ERC20_abi_default = [
+	{
+		"inputs": [{
+			"internalType": "string",
+			"name": "name_",
+			"type": "string"
+		}, {
+			"internalType": "string",
+			"name": "symbol_",
+			"type": "string"
+		}],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "owner",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "spender",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "value",
+				"type": "uint256"
+			}
+		],
+		"name": "Approval",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "from",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "value",
+				"type": "uint256"
+			}
+		],
+		"name": "Transfer",
+		"type": "event"
+	},
+	{
+		"inputs": [{
+			"internalType": "address",
+			"name": "owner",
+			"type": "address"
+		}, {
+			"internalType": "address",
+			"name": "spender",
+			"type": "address"
+		}],
+		"name": "allowance",
+		"outputs": [{
+			"internalType": "uint256",
+			"name": "",
+			"type": "uint256"
+		}],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [{
+			"internalType": "address",
+			"name": "spender",
+			"type": "address"
+		}, {
+			"internalType": "uint256",
+			"name": "amount",
+			"type": "uint256"
+		}],
+		"name": "approve",
+		"outputs": [{
+			"internalType": "bool",
+			"name": "",
+			"type": "bool"
+		}],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [{
+			"internalType": "address",
+			"name": "account",
+			"type": "address"
+		}],
+		"name": "balanceOf",
+		"outputs": [{
+			"internalType": "uint256",
+			"name": "",
+			"type": "uint256"
+		}],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "decimals",
+		"outputs": [{
+			"internalType": "uint8",
+			"name": "",
+			"type": "uint8"
+		}],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [{
+			"internalType": "address",
+			"name": "spender",
+			"type": "address"
+		}, {
+			"internalType": "uint256",
+			"name": "subtractedValue",
+			"type": "uint256"
+		}],
+		"name": "decreaseAllowance",
+		"outputs": [{
+			"internalType": "bool",
+			"name": "",
+			"type": "bool"
+		}],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [{
+			"internalType": "address",
+			"name": "spender",
+			"type": "address"
+		}, {
+			"internalType": "uint256",
+			"name": "addedValue",
+			"type": "uint256"
+		}],
+		"name": "increaseAllowance",
+		"outputs": [{
+			"internalType": "bool",
+			"name": "",
+			"type": "bool"
+		}],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "name",
+		"outputs": [{
+			"internalType": "string",
+			"name": "",
+			"type": "string"
+		}],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "symbol",
+		"outputs": [{
+			"internalType": "string",
+			"name": "",
+			"type": "string"
+		}],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "totalSupply",
+		"outputs": [{
+			"internalType": "uint256",
+			"name": "",
+			"type": "uint256"
+		}],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [{
+			"internalType": "address",
+			"name": "to",
+			"type": "address"
+		}, {
+			"internalType": "uint256",
+			"name": "amount",
+			"type": "uint256"
+		}],
+		"name": "transfer",
+		"outputs": [{
+			"internalType": "bool",
+			"name": "",
+			"type": "bool"
+		}],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "from",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			}
+		],
+		"name": "transferFrom",
+		"outputs": [{
+			"internalType": "bool",
+			"name": "",
+			"type": "bool"
+		}],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	}
+];
+var useBalance$1 = (token$1) => {
+	const { userAddress } = useWallet_default();
+	const [balance, setBalance] = (0, import_react.useState)(void 0);
+	const { address: tokenAddress } = getTokenData(token$1);
+	(0, import_react.useEffect)(() => {
+		readContract(WAGMI_CONFIG, {
+			address: tokenAddress,
+			abi: ERC20_abi_default,
+			functionName: "balanceOf",
+			args: [userAddress]
+		}).then((balance1eToken) => {
+			return bring1eTokenToDefault(balance1eToken, token$1);
+		}).then(setBalance).catch(() => setBalance(null));
+	}, [userAddress]);
+	return balance;
+};
+const useBalanceETH = () => {
 	const { userAddress } = useWallet_default();
 	const { data } = useBalance({ address: userAddress });
 	return data?.value;
 };
-var useBalanceETH_default = useBalanceETH;
+var useBalance_default = useBalance$1;
 var BalanceInput = ({ setValue, title = "Amount" }) => {
-	const balanceETH = useBalanceETH_default();
+	const balanceETH = useBalanceETH();
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 		className: "BalanceInput",
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
@@ -78434,7 +79372,7 @@ var BalanceInput = ({ setValue, title = "Amount" }) => {
 	});
 };
 var BalanceInput_default = BalanceInput;
-var { queryBalance, queryAccountValue, queryDebt, queryLtv, queryLtvCoeffs, calcEquity } = Account_default;
+var { queryBalance, queryAccountValue, queryDebt, queryLtv, queryLtvCoeffs, queryPrincipal, calcEquity } = Account_default;
 var useAccount = () => {
 	const accountSetup = useAccountSetup();
 	if (accountSetup === null) return null;
@@ -78449,10 +79387,11 @@ var useAccountSetup = () => {
 	const accountId = useAccountId_default();
 	const contracts$1 = useContracts_default();
 	const { data: account, error: accountError, mutate: mutate$1 } = useSWR(accountId && contracts$1 && [accountId, "useAccount"], async () => {
-		const [balance, value, debt, ltv, ltvCoeffs] = await Promise.all([
+		const [balance, value, debt, principal, ltv, ltvCoeffs] = await Promise.all([
 			queryBalance(accountId, contracts$1),
 			queryAccountValue(accountId, contracts$1),
 			queryDebt(accountId, contracts$1),
+			queryPrincipal(accountId, contracts$1),
 			queryLtv(accountId, contracts$1),
 			queryLtvCoeffs(contracts$1)
 		]);
@@ -78461,6 +79400,7 @@ var useAccountSetup = () => {
 			balance,
 			value,
 			debt,
+			principal,
 			ltv,
 			ltvCoeffs,
 			equity: calcEquity(value, debt)
@@ -78514,13 +79454,13 @@ var ArrowChangeSvg = () => {
 	});
 };
 var ArrowChangeSvg_default = ArrowChangeSvg;
-var import_classnames$13 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$20 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var ValueChange = ({ curValue, estValue, className }) => {
 	const hasEstValue = estValue !== null;
 	const { isCurLoading } = getIsLoadingAndError(curValue, "cur");
 	const { isEstLoading } = getIsLoadingAndError(estValue, "est");
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: (0, import_classnames$13.default)("ValueChange", className, hasEstValue && "_active"),
+		className: (0, import_classnames$20.default)("ValueChange", className, hasEstValue && "_active"),
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 			className: "ValueChange__cur",
 			children: isCurLoading ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Spinner_default, {}) : curValue
@@ -78545,21 +79485,11 @@ var TokenAmountChange = ({ curAmount, estAmount, symbol }) => {
 	});
 };
 var TokenAmountChange_default = TokenAmountChange;
-const swapToUsdc = async (contracts$1, amount, token$1) => {
-	token$1 = getTokenData(token$1);
-	if (token$1.symbol === "USDC") return amount;
-	const { USDC } = Tokens;
-	const { ModularSwapRouter } = contracts$1.view;
-	return await ModularSwapRouter.calculatePositionValue.staticCall(token$1.address, USDC.address, get1eToken(amount, token$1)).then((res) => bring1eTokenToDefault(res, USDC)).catch(console.log);
-};
-const swapEthToUsdc = async (contracts$1, amount) => {
-	const { ETH } = Tokens;
-	return swapToUsdc(contracts$1, amount, ETH);
-};
 var Ltv = {
 	queryLtvAfterSupply,
 	queryLtvAfterWithdraw,
-	calcLtvAfterBorrow
+	calcLtvAfterBorrow,
+	calcLtvAfterRepay
 };
 async function queryLtvAfterSupply(account, contracts$1, depositAmount) {
 	const depositAmountUSDC = await swapEthToUsdc(contracts$1, depositAmount);
@@ -78572,14 +79502,14 @@ async function queryLtvAfterWithdraw(account, contracts$1, withdrawAmount) {
 function calcLtvAfterBorrow(account, borrowAmount) {
 	return _calcLtv(account.value, account.debt + borrowAmount);
 }
+function calcLtvAfterRepay(account, repayAmount) {
+	return _calcLtv(account.value - repayAmount, account.debt - repayAmount);
+}
 var _calcLtv = (balance, debt) => {
 	if (debt <= 0n) return maxUint256;
 	return divBigInts(balance, debt);
 };
 var Ltv_default = Ltv;
-const isSufficient = (value) => {
-	return !isUndefined(value) && value !== null;
-};
 var EternitySvg = () => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
 		className: "EternitySvg",
@@ -78599,7 +79529,7 @@ var EternitySvg = () => {
 	});
 };
 var EternitySvg_default = EternitySvg;
-var import_classnames$12 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$19 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var LtvValue = ({ ltv }) => {
 	const account = useAccount_default();
 	const { isLoading: areCoeffsLoading } = getIsLoadingAndError(account?.ltvCoeffs);
@@ -78615,7 +79545,7 @@ var LtvValue = ({ ltv }) => {
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(EternitySvg_default, {})
 	}) : formatStable(ltv);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: (0, import_classnames$12.default)("LtvValue", coeff),
+		className: (0, import_classnames$19.default)("LtvValue", coeff),
 		children: ltvStr
 	});
 };
@@ -78635,18 +79565,18 @@ var Muted = ({ children }) => {
 	});
 };
 var Muted_default = Muted;
-var import_classnames$11 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$18 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var ModalMetrics = ({ className, children }) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: (0, import_classnames$11.default)("ModalMetrics", className),
+		className: (0, import_classnames$18.default)("ModalMetrics", className),
 		children
 	});
 };
 var ModalMetrics_default = ModalMetrics;
-var import_classnames$10 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$17 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var TxInputModal = ({ isOpen, setIsOpen, reset = () => {}, txResult, setTxResult, className, children }) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TxModal_default, {
-		className: (0, import_classnames$10.default)("TxInputModal", className),
+		className: (0, import_classnames$17.default)("TxInputModal", className),
 		isOpen,
 		setIsOpen,
 		reset,
@@ -78804,20 +79734,23 @@ var SupplyModal = ({ isOpen, setIsOpen }) => {
 	});
 };
 var SupplyModal_default = SupplyModal;
-var import_classnames$9 = /* @__PURE__ */ __toESM(require_classnames(), 1);
-var InputField = ({ children, className }) => {
+var import_classnames$16 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var Field = ({ children, className }) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: (0, import_classnames$9.default)("InputField", className),
+		className: (0, import_classnames$16.default)("Field", className),
 		children
 	});
 };
-var InputField_default = InputField;
+var Field_default = Field;
+var CollateralStr = () => {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [useIsMobile_default(480) ? "Collat." : "Collateral", " Change"] });
+};
+var CollateralStr_default = CollateralStr;
 var WithdrawModal = ({ isOpen, setIsOpen }) => {
 	const account = useAccount_default();
 	const mutateAccount = useAccountMutate();
 	const contracts$1 = useContracts_default();
 	const { withdraw } = useProtocolActions_default();
-	const isMobile$1 = useIsMobile_default(480);
 	const [withdrawAmount, setWithdrawAmount] = (0, import_react.useState)(null);
 	const [estLtv, setEstLtv] = (0, import_react.useState)(null);
 	const [txResult, setTxResult] = (0, import_react.useState)(void 0);
@@ -78874,13 +79807,13 @@ var WithdrawModal = ({ isOpen, setIsOpen }) => {
 		setTxResult,
 		children: [
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { children: "Withdraw" }),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TxInputModal_default.Input, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(InputField_default, {
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TxInputModal_default.Input, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Field_default, {
 				className: "TxInputModal__input",
 				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "InputField__title",
+					className: "Field__title",
 					children: "Amount"
 				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "InputField__input",
+					className: "Field__input",
 					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Input_default, {
 						setValue: setWithdrawAmount,
 						maxData: {
@@ -78894,9 +79827,9 @@ var WithdrawModal = ({ isOpen, setIsOpen }) => {
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(ModalMetrics_default, { children: [
 				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 					className: "ModalMetrics__row",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 						className: "ModalMetrics__row-title",
-						children: [isMobile$1 ? "Collat." : "Collateral", " Change"]
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CollateralStr_default, {})
 					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 						className: "ModalMetrics__row-value",
 						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmountChange_default, {
@@ -79072,7 +80005,7 @@ var WarningSvg = ({ color: color$1 = "red" }) => {
 	});
 };
 var WarningSvg_default = WarningSvg;
-var import_classnames$8 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$15 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var ICONS = {
 	bell: BellSvg_default,
 	warning: WarningSvg_default,
@@ -79080,7 +80013,7 @@ var ICONS = {
 };
 var Notification = ({ color: color$1 = "yellow", type = "bell", className, children }) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: (0, import_classnames$8.default)("Notification", `_${type}`, className),
+		className: (0, import_classnames$15.default)("Notification", `_${type}`, className),
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 			className: "Notification__icon",
 			children: ICONS[type]({ color: color$1 })
@@ -79091,18 +80024,19 @@ var Notification = ({ color: color$1 = "yellow", type = "bell", className, child
 	});
 };
 var Notification_default = Notification;
-var import_classnames$7 = /* @__PURE__ */ __toESM(require_classnames(), 1);
-var Checkbox = ({ isChecked, setIsChecked, children, className }) => {
+var import_classnames$14 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var Checkbox = ({ isChecked, setIsChecked, isDisabled, children, className }) => {
 	const handleChange = (e$2) => {
 		const checkbox = e$2.target;
 		setIsChecked(checkbox.checked);
 	};
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: (0, import_classnames$7.default)("Checkbox", className),
+		className: (0, import_classnames$14.default)("Checkbox", className),
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
 			type: "checkbox",
 			checked: isChecked,
-			onChange: handleChange
+			onChange: handleChange,
+			disabled: isDisabled
 		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", { children })]
 	});
 };
@@ -79183,11 +80117,11 @@ var InputStep = ({ borrowAmount, setBorrowAmount, goForth }) => {
 	};
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
 		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { children: "Borrow" }),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TxInputModal_default.Input, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(InputField_default, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-			className: "InputField__title",
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TxInputModal_default.Input, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Field_default, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "Field__title",
 			children: "Amount"
 		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-			className: "InputField__input",
+			className: "Field__input",
 			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Input_default, {
 				setValue: setBorrowAmount,
 				maxData: {
@@ -79297,19 +80231,1994 @@ var TermsStep = ({ borrowAmount, goBack, isSubmitting, handleClick }) => {
 	] });
 };
 var BorrowModal_default = BorrowModal;
+function _typeof$1(o$1) {
+	"@babel/helpers - typeof";
+	return _typeof$1 = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(o$2) {
+		return typeof o$2;
+	} : function(o$2) {
+		return o$2 && "function" == typeof Symbol && o$2.constructor === Symbol && o$2 !== Symbol.prototype ? "symbol" : typeof o$2;
+	}, _typeof$1(o$1);
+}
+function toPrimitive$1(t$2, r$3) {
+	if ("object" != _typeof$1(t$2) || !t$2) return t$2;
+	var e$2 = t$2[Symbol.toPrimitive];
+	if (void 0 !== e$2) {
+		var i$3 = e$2.call(t$2, r$3 || "default");
+		if ("object" != _typeof$1(i$3)) return i$3;
+		throw new TypeError("@@toPrimitive must return a primitive value.");
+	}
+	return ("string" === r$3 ? String : Number)(t$2);
+}
+function toPropertyKey$1(t$2) {
+	var i$3 = toPrimitive$1(t$2, "string");
+	return "symbol" == _typeof$1(i$3) ? i$3 : i$3 + "";
+}
+function _defineProperty$1(e$2, r$3, t$2) {
+	return (r$3 = toPropertyKey$1(r$3)) in e$2 ? Object.defineProperty(e$2, r$3, {
+		value: t$2,
+		enumerable: !0,
+		configurable: !0,
+		writable: !0
+	}) : e$2[r$3] = t$2, e$2;
+}
+function ownKeys$1(e$2, r$3) {
+	var t$2 = Object.keys(e$2);
+	if (Object.getOwnPropertySymbols) {
+		var o$1 = Object.getOwnPropertySymbols(e$2);
+		r$3 && (o$1 = o$1.filter(function(r$4) {
+			return Object.getOwnPropertyDescriptor(e$2, r$4).enumerable;
+		})), t$2.push.apply(t$2, o$1);
+	}
+	return t$2;
+}
+function _objectSpread2$1(e$2) {
+	for (var r$3 = 1; r$3 < arguments.length; r$3++) {
+		var t$2 = null != arguments[r$3] ? arguments[r$3] : {};
+		r$3 % 2 ? ownKeys$1(Object(t$2), !0).forEach(function(r$4) {
+			_defineProperty$1(e$2, r$4, t$2[r$4]);
+		}) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e$2, Object.getOwnPropertyDescriptors(t$2)) : ownKeys$1(Object(t$2)).forEach(function(r$4) {
+			Object.defineProperty(e$2, r$4, Object.getOwnPropertyDescriptor(t$2, r$4));
+		});
+	}
+	return e$2;
+}
+function _arrayLikeToArray$1(r$3, a$2) {
+	(null == a$2 || a$2 > r$3.length) && (a$2 = r$3.length);
+	for (var e$2 = 0, n$3 = Array(a$2); e$2 < a$2; e$2++) n$3[e$2] = r$3[e$2];
+	return n$3;
+}
+function _arrayWithoutHoles$1(r$3) {
+	if (Array.isArray(r$3)) return _arrayLikeToArray$1(r$3);
+}
+function _iterableToArray$1(r$3) {
+	if ("undefined" != typeof Symbol && null != r$3[Symbol.iterator] || null != r$3["@@iterator"]) return Array.from(r$3);
+}
+function _unsupportedIterableToArray$1(r$3, a$2) {
+	if (r$3) {
+		if ("string" == typeof r$3) return _arrayLikeToArray$1(r$3, a$2);
+		var t$2 = {}.toString.call(r$3).slice(8, -1);
+		return "Object" === t$2 && r$3.constructor && (t$2 = r$3.constructor.name), "Map" === t$2 || "Set" === t$2 ? Array.from(r$3) : "Arguments" === t$2 || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t$2) ? _arrayLikeToArray$1(r$3, a$2) : void 0;
+	}
+}
+function _nonIterableSpread$1() {
+	throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+function _toConsumableArray$1(r$3) {
+	return _arrayWithoutHoles$1(r$3) || _iterableToArray$1(r$3) || _unsupportedIterableToArray$1(r$3) || _nonIterableSpread$1();
+}
+function _arrayWithHoles$1(r$3) {
+	if (Array.isArray(r$3)) return r$3;
+}
+function _iterableToArrayLimit$1(r$3, l$2) {
+	var t$2 = null == r$3 ? null : "undefined" != typeof Symbol && r$3[Symbol.iterator] || r$3["@@iterator"];
+	if (null != t$2) {
+		var e$2, n$3, i$3, u$2, a$2 = [], f$1 = !0, o$1 = !1;
+		try {
+			if (i$3 = (t$2 = t$2.call(r$3)).next, 0 === l$2) {
+				if (Object(t$2) !== t$2) return;
+				f$1 = !1;
+			} else for (; !(f$1 = (e$2 = i$3.call(t$2)).done) && (a$2.push(e$2.value), a$2.length !== l$2); f$1 = !0);
+		} catch (r$4) {
+			o$1 = !0, n$3 = r$4;
+		} finally {
+			try {
+				if (!f$1 && null != t$2["return"] && (u$2 = t$2["return"](), Object(u$2) !== u$2)) return;
+			} finally {
+				if (o$1) throw n$3;
+			}
+		}
+		return a$2;
+	}
+}
+function _nonIterableRest$1() {
+	throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+function _slicedToArray$1(r$3, e$2) {
+	return _arrayWithHoles$1(r$3) || _iterableToArrayLimit$1(r$3, e$2) || _unsupportedIterableToArray$1(r$3, e$2) || _nonIterableRest$1();
+}
+function useEvent(callback) {
+	var fnRef = import_react.useRef();
+	fnRef.current = callback;
+	return import_react.useCallback(function() {
+		var _fnRef$current;
+		for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) args[_key] = arguments[_key];
+		return (_fnRef$current = fnRef.current) === null || _fnRef$current === void 0 ? void 0 : _fnRef$current.call.apply(_fnRef$current, [fnRef].concat(args));
+	}, []);
+}
+function _arrayWithHoles(r$3) {
+	if (Array.isArray(r$3)) return r$3;
+}
+function _iterableToArrayLimit(r$3, l$2) {
+	var t$2 = null == r$3 ? null : "undefined" != typeof Symbol && r$3[Symbol.iterator] || r$3["@@iterator"];
+	if (null != t$2) {
+		var e$2, n$3, i$3, u$2, a$2 = [], f$1 = !0, o$1 = !1;
+		try {
+			if (i$3 = (t$2 = t$2.call(r$3)).next, 0 === l$2) {
+				if (Object(t$2) !== t$2) return;
+				f$1 = !1;
+			} else for (; !(f$1 = (e$2 = i$3.call(t$2)).done) && (a$2.push(e$2.value), a$2.length !== l$2); f$1 = !0);
+		} catch (r$4) {
+			o$1 = !0, n$3 = r$4;
+		} finally {
+			try {
+				if (!f$1 && null != t$2["return"] && (u$2 = t$2["return"](), Object(u$2) !== u$2)) return;
+			} finally {
+				if (o$1) throw n$3;
+			}
+		}
+		return a$2;
+	}
+}
+function _arrayLikeToArray(r$3, a$2) {
+	(null == a$2 || a$2 > r$3.length) && (a$2 = r$3.length);
+	for (var e$2 = 0, n$3 = Array(a$2); e$2 < a$2; e$2++) n$3[e$2] = r$3[e$2];
+	return n$3;
+}
+function _unsupportedIterableToArray(r$3, a$2) {
+	if (r$3) {
+		if ("string" == typeof r$3) return _arrayLikeToArray(r$3, a$2);
+		var t$2 = {}.toString.call(r$3).slice(8, -1);
+		return "Object" === t$2 && r$3.constructor && (t$2 = r$3.constructor.name), "Map" === t$2 || "Set" === t$2 ? Array.from(r$3) : "Arguments" === t$2 || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t$2) ? _arrayLikeToArray(r$3, a$2) : void 0;
+	}
+}
+function _nonIterableRest() {
+	throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+function _slicedToArray(r$3, e$2) {
+	return _arrayWithHoles(r$3) || _iterableToArrayLimit(r$3, e$2) || _unsupportedIterableToArray(r$3, e$2) || _nonIterableRest();
+}
+function canUseDom() {
+	return !!(typeof window !== "undefined" && window.document && window.document.createElement);
+}
+var useInternalLayoutEffect = canUseDom() ? import_react.useLayoutEffect : import_react.useEffect;
+var useLayoutEffect$1 = function useLayoutEffect$8(callback, deps) {
+	var firstMountRef = import_react.useRef(true);
+	useInternalLayoutEffect(function() {
+		return callback(firstMountRef.current);
+	}, deps);
+	useInternalLayoutEffect(function() {
+		firstMountRef.current = false;
+		return function() {
+			firstMountRef.current = true;
+		};
+	}, []);
+};
+var useLayoutUpdateEffect = function useLayoutUpdateEffect$1(callback, deps) {
+	useLayoutEffect$1(function(firstMount) {
+		if (!firstMount) return callback();
+	}, deps);
+};
+var useLayoutEffect_default = useLayoutEffect$1;
+function useSafeState(defaultValue) {
+	var destroyRef = import_react.useRef(false);
+	var _React$useState2 = _slicedToArray(import_react.useState(defaultValue), 2), value = _React$useState2[0], setValue = _React$useState2[1];
+	import_react.useEffect(function() {
+		destroyRef.current = false;
+		return function() {
+			destroyRef.current = true;
+		};
+	}, []);
+	function safeSetState(updater, ignoreDestroy) {
+		if (ignoreDestroy && destroyRef.current) return;
+		setValue(updater);
+	}
+	return [value, safeSetState];
+}
+function hasValue(value) {
+	return value !== void 0;
+}
+function useMergedState(defaultStateValue, option) {
+	var _ref$1 = option || {}, defaultValue = _ref$1.defaultValue, value = _ref$1.value, onChange = _ref$1.onChange, postState = _ref$1.postState;
+	var _useState2 = _slicedToArray(useSafeState(function() {
+		if (hasValue(value)) return value;
+		else if (hasValue(defaultValue)) return typeof defaultValue === "function" ? defaultValue() : defaultValue;
+		else return typeof defaultStateValue === "function" ? defaultStateValue() : defaultStateValue;
+	}), 2), innerValue = _useState2[0], setInnerValue = _useState2[1];
+	var mergedValue = value !== void 0 ? value : innerValue;
+	var postMergedValue = postState ? postState(mergedValue) : mergedValue;
+	var onChangeFn = useEvent(onChange);
+	var _useState4 = _slicedToArray(useSafeState([mergedValue]), 2), prevValue = _useState4[0], setPrevValue = _useState4[1];
+	useLayoutUpdateEffect(function() {
+		var prev$1 = prevValue[0];
+		if (innerValue !== prev$1) onChangeFn(innerValue, prev$1);
+	}, [prevValue]);
+	useLayoutUpdateEffect(function() {
+		if (!hasValue(value)) setInnerValue(value);
+	}, [value]);
+	return [postMergedValue, useEvent(function(updater, ignoreDestroy) {
+		setInnerValue(updater, ignoreDestroy);
+		setPrevValue([mergedValue], ignoreDestroy);
+	})];
+}
+function _typeof(o$1) {
+	"@babel/helpers - typeof";
+	return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(o$2) {
+		return typeof o$2;
+	} : function(o$2) {
+		return o$2 && "function" == typeof Symbol && o$2.constructor === Symbol && o$2 !== Symbol.prototype ? "symbol" : typeof o$2;
+	}, _typeof(o$1);
+}
+var warned = {};
+var preWarningFns = [];
+var preMessage = function preMessage$1(fn) {
+	preWarningFns.push(fn);
+};
+function warning(valid, message) {}
+function note(valid, message) {}
+function resetWarned() {
+	warned = {};
+}
+function call(method, valid, message) {
+	if (!valid && !warned[message]) {
+		method(false, message);
+		warned[message] = true;
+	}
+}
+function warningOnce(valid, message) {
+	call(warning, valid, message);
+}
+function noteOnce(valid, message) {
+	call(note, valid, message);
+}
+warningOnce.preMessage = preMessage;
+warningOnce.resetWarned = resetWarned;
+warningOnce.noteOnce = noteOnce;
+var warning_default = warningOnce;
+function isEqual$1(obj1, obj2) {
+	var shallow = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : false;
+	var refSet = /* @__PURE__ */ new Set();
+	function deepEqual$1(a$2, b$4) {
+		var level = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : 1;
+		var circular = refSet.has(a$2);
+		warning_default(!circular, "Warning: There may be circular references");
+		if (circular) return false;
+		if (a$2 === b$4) return true;
+		if (shallow && level > 1) return false;
+		refSet.add(a$2);
+		var newLevel = level + 1;
+		if (Array.isArray(a$2)) {
+			if (!Array.isArray(b$4) || a$2.length !== b$4.length) return false;
+			for (var i$3 = 0; i$3 < a$2.length; i$3++) if (!deepEqual$1(a$2[i$3], b$4[i$3], newLevel)) return false;
+			return true;
+		}
+		if (a$2 && b$4 && _typeof(a$2) === "object" && _typeof(b$4) === "object") {
+			var keys = Object.keys(a$2);
+			if (keys.length !== Object.keys(b$4).length) return false;
+			return keys.every(function(key) {
+				return deepEqual$1(a$2[key], b$4[key], newLevel);
+			});
+		}
+		return false;
+	}
+	return deepEqual$1(obj1, obj2);
+}
+var isEqual_default = isEqual$1;
+function _extends$1() {
+	return _extends$1 = Object.assign ? Object.assign.bind() : function(n$3) {
+		for (var e$2 = 1; e$2 < arguments.length; e$2++) {
+			var t$2 = arguments[e$2];
+			for (var r$3 in t$2) ({}).hasOwnProperty.call(t$2, r$3) && (n$3[r$3] = t$2[r$3]);
+		}
+		return n$3;
+	}, _extends$1.apply(null, arguments);
+}
+function _objectWithoutPropertiesLoose$1(r$3, e$2) {
+	if (null == r$3) return {};
+	var t$2 = {};
+	for (var n$3 in r$3) if ({}.hasOwnProperty.call(r$3, n$3)) {
+		if (-1 !== e$2.indexOf(n$3)) continue;
+		t$2[n$3] = r$3[n$3];
+	}
+	return t$2;
+}
+function _objectWithoutProperties$1(e$2, t$2) {
+	if (null == e$2) return {};
+	var o$1, r$3, i$3 = _objectWithoutPropertiesLoose$1(e$2, t$2);
+	if (Object.getOwnPropertySymbols) {
+		var n$3 = Object.getOwnPropertySymbols(e$2);
+		for (r$3 = 0; r$3 < n$3.length; r$3++) o$1 = n$3[r$3], -1 === t$2.indexOf(o$1) && {}.propertyIsEnumerable.call(e$2, o$1) && (i$3[o$1] = e$2[o$1]);
+	}
+	return i$3;
+}
+function getOffset(value, min$1, max$1) {
+	return (value - min$1) / (max$1 - min$1);
+}
+function getDirectionStyle(direction, value, min$1, max$1) {
+	var offset$1 = getOffset(value, min$1, max$1);
+	var positionStyle = {};
+	switch (direction) {
+		case "rtl":
+			positionStyle.right = "".concat(offset$1 * 100, "%");
+			positionStyle.transform = "translateX(50%)";
+			break;
+		case "btt":
+			positionStyle.bottom = "".concat(offset$1 * 100, "%");
+			positionStyle.transform = "translateY(50%)";
+			break;
+		case "ttb":
+			positionStyle.top = "".concat(offset$1 * 100, "%");
+			positionStyle.transform = "translateY(-50%)";
+			break;
+		default:
+			positionStyle.left = "".concat(offset$1 * 100, "%");
+			positionStyle.transform = "translateX(-50%)";
+			break;
+	}
+	return positionStyle;
+}
+function getIndex(value, index$6) {
+	return Array.isArray(value) ? value[index$6] : value;
+}
+var KeyCode = {
+	MAC_ENTER: 3,
+	BACKSPACE: 8,
+	TAB: 9,
+	NUM_CENTER: 12,
+	ENTER: 13,
+	SHIFT: 16,
+	CTRL: 17,
+	ALT: 18,
+	PAUSE: 19,
+	CAPS_LOCK: 20,
+	ESC: 27,
+	SPACE: 32,
+	PAGE_UP: 33,
+	PAGE_DOWN: 34,
+	END: 35,
+	HOME: 36,
+	LEFT: 37,
+	UP: 38,
+	RIGHT: 39,
+	DOWN: 40,
+	PRINT_SCREEN: 44,
+	INSERT: 45,
+	DELETE: 46,
+	ZERO: 48,
+	ONE: 49,
+	TWO: 50,
+	THREE: 51,
+	FOUR: 52,
+	FIVE: 53,
+	SIX: 54,
+	SEVEN: 55,
+	EIGHT: 56,
+	NINE: 57,
+	QUESTION_MARK: 63,
+	A: 65,
+	B: 66,
+	C: 67,
+	D: 68,
+	E: 69,
+	F: 70,
+	G: 71,
+	H: 72,
+	I: 73,
+	J: 74,
+	K: 75,
+	L: 76,
+	M: 77,
+	N: 78,
+	O: 79,
+	P: 80,
+	Q: 81,
+	R: 82,
+	S: 83,
+	T: 84,
+	U: 85,
+	V: 86,
+	W: 87,
+	X: 88,
+	Y: 89,
+	Z: 90,
+	META: 91,
+	WIN_KEY_RIGHT: 92,
+	CONTEXT_MENU: 93,
+	NUM_ZERO: 96,
+	NUM_ONE: 97,
+	NUM_TWO: 98,
+	NUM_THREE: 99,
+	NUM_FOUR: 100,
+	NUM_FIVE: 101,
+	NUM_SIX: 102,
+	NUM_SEVEN: 103,
+	NUM_EIGHT: 104,
+	NUM_NINE: 105,
+	NUM_MULTIPLY: 106,
+	NUM_PLUS: 107,
+	NUM_MINUS: 109,
+	NUM_PERIOD: 110,
+	NUM_DIVISION: 111,
+	F1: 112,
+	F2: 113,
+	F3: 114,
+	F4: 115,
+	F5: 116,
+	F6: 117,
+	F7: 118,
+	F8: 119,
+	F9: 120,
+	F10: 121,
+	F11: 122,
+	F12: 123,
+	NUMLOCK: 144,
+	SEMICOLON: 186,
+	DASH: 189,
+	EQUALS: 187,
+	COMMA: 188,
+	PERIOD: 190,
+	SLASH: 191,
+	APOSTROPHE: 192,
+	SINGLE_QUOTE: 222,
+	OPEN_SQUARE_BRACKET: 219,
+	BACKSLASH: 220,
+	CLOSE_SQUARE_BRACKET: 221,
+	WIN_KEY: 224,
+	MAC_FF_META: 224,
+	WIN_IME: 229,
+	isTextModifyingKeyEvent: function isTextModifyingKeyEvent(e$2) {
+		var keyCode = e$2.keyCode;
+		if (e$2.altKey && !e$2.ctrlKey || e$2.metaKey || keyCode >= KeyCode.F1 && keyCode <= KeyCode.F12) return false;
+		switch (keyCode) {
+			case KeyCode.ALT:
+			case KeyCode.CAPS_LOCK:
+			case KeyCode.CONTEXT_MENU:
+			case KeyCode.CTRL:
+			case KeyCode.DOWN:
+			case KeyCode.END:
+			case KeyCode.ESC:
+			case KeyCode.HOME:
+			case KeyCode.INSERT:
+			case KeyCode.LEFT:
+			case KeyCode.MAC_FF_META:
+			case KeyCode.META:
+			case KeyCode.NUMLOCK:
+			case KeyCode.NUM_CENTER:
+			case KeyCode.PAGE_DOWN:
+			case KeyCode.PAGE_UP:
+			case KeyCode.PAUSE:
+			case KeyCode.PRINT_SCREEN:
+			case KeyCode.RIGHT:
+			case KeyCode.SHIFT:
+			case KeyCode.UP:
+			case KeyCode.WIN_KEY:
+			case KeyCode.WIN_KEY_RIGHT: return false;
+			default: return true;
+		}
+	},
+	isCharacterKey: function isCharacterKey(keyCode) {
+		if (keyCode >= KeyCode.ZERO && keyCode <= KeyCode.NINE) return true;
+		if (keyCode >= KeyCode.NUM_ZERO && keyCode <= KeyCode.NUM_MULTIPLY) return true;
+		if (keyCode >= KeyCode.A && keyCode <= KeyCode.Z) return true;
+		if (window.navigator.userAgent.indexOf("WebKit") !== -1 && keyCode === 0) return true;
+		switch (keyCode) {
+			case KeyCode.SPACE:
+			case KeyCode.QUESTION_MARK:
+			case KeyCode.NUM_PLUS:
+			case KeyCode.NUM_MINUS:
+			case KeyCode.NUM_PERIOD:
+			case KeyCode.NUM_DIVISION:
+			case KeyCode.SEMICOLON:
+			case KeyCode.DASH:
+			case KeyCode.EQUALS:
+			case KeyCode.COMMA:
+			case KeyCode.PERIOD:
+			case KeyCode.SLASH:
+			case KeyCode.APOSTROPHE:
+			case KeyCode.SINGLE_QUOTE:
+			case KeyCode.OPEN_SQUARE_BRACKET:
+			case KeyCode.BACKSLASH:
+			case KeyCode.CLOSE_SQUARE_BRACKET: return true;
+			default: return false;
+		}
+	}
+};
+var KeyCode_default = KeyCode;
+var context_default = /* @__PURE__ */ import_react.createContext({
+	min: 0,
+	max: 0,
+	direction: "ltr",
+	step: 1,
+	includedStart: 0,
+	includedEnd: 0,
+	tabIndex: 0,
+	keyboard: true,
+	styles: {},
+	classNames: {}
+});
+var UnstableContext = /* @__PURE__ */ import_react.createContext({});
+var import_classnames$13 = /* @__PURE__ */ __toESM(require_classnames());
+var _excluded$8 = [
+	"prefixCls",
+	"value",
+	"valueIndex",
+	"onStartMove",
+	"onDelete",
+	"style",
+	"render",
+	"dragging",
+	"draggingDelete",
+	"onOffsetChange",
+	"onChangeComplete",
+	"onFocus",
+	"onMouseEnter"
+];
+var Handle_default = /* @__PURE__ */ import_react.forwardRef(function(props, ref) {
+	var prefixCls = props.prefixCls, value = props.value, valueIndex = props.valueIndex, onStartMove = props.onStartMove, onDelete = props.onDelete, style$1 = props.style, render = props.render, dragging = props.dragging, draggingDelete = props.draggingDelete, onOffsetChange = props.onOffsetChange, onChangeComplete = props.onChangeComplete, onFocus = props.onFocus, onMouseEnter = props.onMouseEnter, restProps = _objectWithoutProperties$1(props, _excluded$8);
+	var _React$useContext = import_react.useContext(context_default), min$1 = _React$useContext.min, max$1 = _React$useContext.max, direction = _React$useContext.direction, disabled = _React$useContext.disabled, keyboard = _React$useContext.keyboard, range = _React$useContext.range, tabIndex = _React$useContext.tabIndex, ariaLabelForHandle = _React$useContext.ariaLabelForHandle, ariaLabelledByForHandle = _React$useContext.ariaLabelledByForHandle, ariaRequired = _React$useContext.ariaRequired, ariaValueTextFormatterForHandle = _React$useContext.ariaValueTextFormatterForHandle, styles$1 = _React$useContext.styles, classNames$3 = _React$useContext.classNames;
+	var handlePrefixCls = "".concat(prefixCls, "-handle");
+	var onInternalStartMove = function onInternalStartMove$1(e$2) {
+		if (!disabled) onStartMove(e$2, valueIndex);
+	};
+	var onInternalFocus = function onInternalFocus$1(e$2) {
+		onFocus === null || onFocus === void 0 || onFocus(e$2, valueIndex);
+	};
+	var onInternalMouseEnter = function onInternalMouseEnter$1(e$2) {
+		onMouseEnter(e$2, valueIndex);
+	};
+	var onKeyDown = function onKeyDown$1(e$2) {
+		if (!disabled && keyboard) {
+			var offset$1 = null;
+			switch (e$2.which || e$2.keyCode) {
+				case KeyCode_default.LEFT:
+					offset$1 = direction === "ltr" || direction === "btt" ? -1 : 1;
+					break;
+				case KeyCode_default.RIGHT:
+					offset$1 = direction === "ltr" || direction === "btt" ? 1 : -1;
+					break;
+				case KeyCode_default.UP:
+					offset$1 = direction !== "ttb" ? 1 : -1;
+					break;
+				case KeyCode_default.DOWN:
+					offset$1 = direction !== "ttb" ? -1 : 1;
+					break;
+				case KeyCode_default.HOME:
+					offset$1 = "min";
+					break;
+				case KeyCode_default.END:
+					offset$1 = "max";
+					break;
+				case KeyCode_default.PAGE_UP:
+					offset$1 = 2;
+					break;
+				case KeyCode_default.PAGE_DOWN:
+					offset$1 = -2;
+					break;
+				case KeyCode_default.BACKSPACE:
+				case KeyCode_default.DELETE:
+					onDelete === null || onDelete === void 0 || onDelete(valueIndex);
+					break;
+			}
+			if (offset$1 !== null) {
+				e$2.preventDefault();
+				onOffsetChange(offset$1, valueIndex);
+			}
+		}
+	};
+	var handleKeyUp = function handleKeyUp$1(e$2) {
+		switch (e$2.which || e$2.keyCode) {
+			case KeyCode_default.LEFT:
+			case KeyCode_default.RIGHT:
+			case KeyCode_default.UP:
+			case KeyCode_default.DOWN:
+			case KeyCode_default.HOME:
+			case KeyCode_default.END:
+			case KeyCode_default.PAGE_UP:
+			case KeyCode_default.PAGE_DOWN:
+				onChangeComplete === null || onChangeComplete === void 0 || onChangeComplete();
+				break;
+		}
+	};
+	var positionStyle = getDirectionStyle(direction, value, min$1, max$1);
+	var divProps = {};
+	if (valueIndex !== null) {
+		var _getIndex;
+		divProps = {
+			tabIndex: disabled ? null : getIndex(tabIndex, valueIndex),
+			role: "slider",
+			"aria-valuemin": min$1,
+			"aria-valuemax": max$1,
+			"aria-valuenow": value,
+			"aria-disabled": disabled,
+			"aria-label": getIndex(ariaLabelForHandle, valueIndex),
+			"aria-labelledby": getIndex(ariaLabelledByForHandle, valueIndex),
+			"aria-required": getIndex(ariaRequired, valueIndex),
+			"aria-valuetext": (_getIndex = getIndex(ariaValueTextFormatterForHandle, valueIndex)) === null || _getIndex === void 0 ? void 0 : _getIndex(value),
+			"aria-orientation": direction === "ltr" || direction === "rtl" ? "horizontal" : "vertical",
+			onMouseDown: onInternalStartMove,
+			onTouchStart: onInternalStartMove,
+			onFocus: onInternalFocus,
+			onMouseEnter: onInternalMouseEnter,
+			onKeyDown,
+			onKeyUp: handleKeyUp
+		};
+	}
+	var handleNode = /* @__PURE__ */ import_react.createElement("div", _extends$1({
+		ref,
+		className: (0, import_classnames$13.default)(handlePrefixCls, _defineProperty$1(_defineProperty$1(_defineProperty$1({}, "".concat(handlePrefixCls, "-").concat(valueIndex + 1), valueIndex !== null && range), "".concat(handlePrefixCls, "-dragging"), dragging), "".concat(handlePrefixCls, "-dragging-delete"), draggingDelete), classNames$3.handle),
+		style: _objectSpread2$1(_objectSpread2$1(_objectSpread2$1({}, positionStyle), style$1), styles$1.handle)
+	}, divProps, restProps));
+	if (render) handleNode = render(handleNode, {
+		index: valueIndex,
+		prefixCls,
+		value,
+		dragging,
+		draggingDelete
+	});
+	return handleNode;
+});
+var import_react_dom$2 = require_react_dom();
+var _excluded$7 = [
+	"prefixCls",
+	"style",
+	"onStartMove",
+	"onOffsetChange",
+	"values",
+	"handleRender",
+	"activeHandleRender",
+	"draggingIndex",
+	"draggingDelete",
+	"onFocus"
+];
+var Handles_default = /* @__PURE__ */ import_react.forwardRef(function(props, ref) {
+	var prefixCls = props.prefixCls, style$1 = props.style, onStartMove = props.onStartMove, onOffsetChange = props.onOffsetChange, values = props.values, handleRender = props.handleRender, activeHandleRender = props.activeHandleRender, draggingIndex = props.draggingIndex, draggingDelete = props.draggingDelete, onFocus = props.onFocus, restProps = _objectWithoutProperties$1(props, _excluded$7);
+	var handlesRef = import_react.useRef({});
+	var _React$useState2 = _slicedToArray$1(import_react.useState(false), 2), activeVisible = _React$useState2[0], setActiveVisible = _React$useState2[1];
+	var _React$useState4 = _slicedToArray$1(import_react.useState(-1), 2), activeIndex = _React$useState4[0], setActiveIndex = _React$useState4[1];
+	var onActive = function onActive$1(index$6) {
+		setActiveIndex(index$6);
+		setActiveVisible(true);
+	};
+	var onHandleFocus = function onHandleFocus$1(e$2, index$6) {
+		onActive(index$6);
+		onFocus === null || onFocus === void 0 || onFocus(e$2);
+	};
+	var onHandleMouseEnter = function onHandleMouseEnter$1(e$2, index$6) {
+		onActive(index$6);
+	};
+	import_react.useImperativeHandle(ref, function() {
+		return {
+			focus: function focus(index$6) {
+				var _handlesRef$current$i;
+				(_handlesRef$current$i = handlesRef.current[index$6]) === null || _handlesRef$current$i === void 0 || _handlesRef$current$i.focus();
+			},
+			hideHelp: function hideHelp() {
+				(0, import_react_dom$2.flushSync)(function() {
+					setActiveVisible(false);
+				});
+			}
+		};
+	});
+	var handleProps = _objectSpread2$1({
+		prefixCls,
+		onStartMove,
+		onOffsetChange,
+		render: handleRender,
+		onFocus: onHandleFocus,
+		onMouseEnter: onHandleMouseEnter
+	}, restProps);
+	return /* @__PURE__ */ import_react.createElement(import_react.Fragment, null, values.map(function(value, index$6) {
+		var dragging = draggingIndex === index$6;
+		return /* @__PURE__ */ import_react.createElement(Handle_default, _extends$1({
+			ref: function ref$1(node$1) {
+				if (!node$1) delete handlesRef.current[index$6];
+				else handlesRef.current[index$6] = node$1;
+			},
+			dragging,
+			draggingDelete: dragging && draggingDelete,
+			style: getIndex(style$1, index$6),
+			key: index$6,
+			value,
+			valueIndex: index$6
+		}, handleProps));
+	}), activeHandleRender && activeVisible && /* @__PURE__ */ import_react.createElement(Handle_default, _extends$1({ key: "a11y" }, handleProps, {
+		value: values[activeIndex],
+		valueIndex: null,
+		dragging: draggingIndex !== -1,
+		draggingDelete,
+		render: activeHandleRender,
+		style: { pointerEvents: "none" },
+		tabIndex: null,
+		"aria-hidden": true
+	})));
+});
+var import_classnames$12 = /* @__PURE__ */ __toESM(require_classnames());
+var Mark_default = function Mark$1(props) {
+	var prefixCls = props.prefixCls, style$1 = props.style, children = props.children, value = props.value, _onClick = props.onClick;
+	var _React$useContext = import_react.useContext(context_default), min$1 = _React$useContext.min, max$1 = _React$useContext.max, direction = _React$useContext.direction, includedStart = _React$useContext.includedStart, includedEnd = _React$useContext.includedEnd, included = _React$useContext.included;
+	var textCls = "".concat(prefixCls, "-text");
+	var positionStyle = getDirectionStyle(direction, value, min$1, max$1);
+	return /* @__PURE__ */ import_react.createElement("span", {
+		className: (0, import_classnames$12.default)(textCls, _defineProperty$1({}, "".concat(textCls, "-active"), included && includedStart <= value && value <= includedEnd)),
+		style: _objectSpread2$1(_objectSpread2$1({}, positionStyle), style$1),
+		onMouseDown: function onMouseDown(e$2) {
+			e$2.stopPropagation();
+		},
+		onClick: function onClick() {
+			_onClick(value);
+		}
+	}, children);
+};
+var Marks_default = function Marks$1(props) {
+	var prefixCls = props.prefixCls, marks = props.marks, onClick = props.onClick;
+	var markPrefixCls = "".concat(prefixCls, "-mark");
+	if (!marks.length) return null;
+	return /* @__PURE__ */ import_react.createElement("div", { className: markPrefixCls }, marks.map(function(_ref$1) {
+		var value = _ref$1.value, style$1 = _ref$1.style, label = _ref$1.label;
+		return /* @__PURE__ */ import_react.createElement(Mark_default, {
+			key: value,
+			prefixCls: markPrefixCls,
+			style: style$1,
+			value,
+			onClick
+		}, label);
+	}));
+};
+var import_classnames$11 = /* @__PURE__ */ __toESM(require_classnames());
+var Dot_default = function Dot$2(props) {
+	var prefixCls = props.prefixCls, value = props.value, style$1 = props.style, activeStyle = props.activeStyle;
+	var _React$useContext = import_react.useContext(context_default), min$1 = _React$useContext.min, max$1 = _React$useContext.max, direction = _React$useContext.direction, included = _React$useContext.included, includedStart = _React$useContext.includedStart, includedEnd = _React$useContext.includedEnd;
+	var dotClassName = "".concat(prefixCls, "-dot");
+	var active = included && includedStart <= value && value <= includedEnd;
+	var mergedStyle = _objectSpread2$1(_objectSpread2$1({}, getDirectionStyle(direction, value, min$1, max$1)), typeof style$1 === "function" ? style$1(value) : style$1);
+	if (active) mergedStyle = _objectSpread2$1(_objectSpread2$1({}, mergedStyle), typeof activeStyle === "function" ? activeStyle(value) : activeStyle);
+	return /* @__PURE__ */ import_react.createElement("span", {
+		className: (0, import_classnames$11.default)(dotClassName, _defineProperty$1({}, "".concat(dotClassName, "-active"), active)),
+		style: mergedStyle
+	});
+};
+var Steps_default = function Steps$1(props) {
+	var prefixCls = props.prefixCls, marks = props.marks, dots = props.dots, style$1 = props.style, activeStyle = props.activeStyle;
+	var _React$useContext = import_react.useContext(context_default), min$1 = _React$useContext.min, max$1 = _React$useContext.max, step = _React$useContext.step;
+	var stepDots = import_react.useMemo(function() {
+		var dotSet = /* @__PURE__ */ new Set();
+		marks.forEach(function(mark) {
+			dotSet.add(mark.value);
+		});
+		if (dots && step !== null) {
+			var current = min$1;
+			while (current <= max$1) {
+				dotSet.add(current);
+				current += step;
+			}
+		}
+		return Array.from(dotSet);
+	}, [
+		min$1,
+		max$1,
+		step,
+		dots,
+		marks
+	]);
+	return /* @__PURE__ */ import_react.createElement("div", { className: "".concat(prefixCls, "-step") }, stepDots.map(function(dotValue) {
+		return /* @__PURE__ */ import_react.createElement(Dot_default, {
+			prefixCls,
+			key: dotValue,
+			value: dotValue,
+			style: style$1,
+			activeStyle
+		});
+	}));
+};
+var import_classnames$10 = /* @__PURE__ */ __toESM(require_classnames());
+var Track_default = function Track$1(props) {
+	var prefixCls = props.prefixCls, style$1 = props.style, start = props.start, end = props.end, index$6 = props.index, onStartMove = props.onStartMove, replaceCls = props.replaceCls;
+	var _React$useContext = import_react.useContext(context_default), direction = _React$useContext.direction, min$1 = _React$useContext.min, max$1 = _React$useContext.max, disabled = _React$useContext.disabled, range = _React$useContext.range, classNames$3 = _React$useContext.classNames;
+	var trackPrefixCls = "".concat(prefixCls, "-track");
+	var offsetStart = getOffset(start, min$1, max$1);
+	var offsetEnd = getOffset(end, min$1, max$1);
+	var onInternalStartMove = function onInternalStartMove$1(e$2) {
+		if (!disabled && onStartMove) onStartMove(e$2, -1);
+	};
+	var positionStyle = {};
+	switch (direction) {
+		case "rtl":
+			positionStyle.right = "".concat(offsetStart * 100, "%");
+			positionStyle.width = "".concat(offsetEnd * 100 - offsetStart * 100, "%");
+			break;
+		case "btt":
+			positionStyle.bottom = "".concat(offsetStart * 100, "%");
+			positionStyle.height = "".concat(offsetEnd * 100 - offsetStart * 100, "%");
+			break;
+		case "ttb":
+			positionStyle.top = "".concat(offsetStart * 100, "%");
+			positionStyle.height = "".concat(offsetEnd * 100 - offsetStart * 100, "%");
+			break;
+		default:
+			positionStyle.left = "".concat(offsetStart * 100, "%");
+			positionStyle.width = "".concat(offsetEnd * 100 - offsetStart * 100, "%");
+	}
+	var className = replaceCls || (0, import_classnames$10.default)(trackPrefixCls, _defineProperty$1(_defineProperty$1({}, "".concat(trackPrefixCls, "-").concat(index$6 + 1), index$6 !== null && range), "".concat(prefixCls, "-track-draggable"), onStartMove), classNames$3.track);
+	return /* @__PURE__ */ import_react.createElement("div", {
+		className,
+		style: _objectSpread2$1(_objectSpread2$1({}, positionStyle), style$1),
+		onMouseDown: onInternalStartMove,
+		onTouchStart: onInternalStartMove
+	});
+};
+var import_classnames$9 = /* @__PURE__ */ __toESM(require_classnames());
+var Tracks_default = function Tracks$1(props) {
+	var prefixCls = props.prefixCls, style$1 = props.style, values = props.values, startPoint = props.startPoint, onStartMove = props.onStartMove;
+	var _React$useContext = import_react.useContext(context_default), included = _React$useContext.included, range = _React$useContext.range, min$1 = _React$useContext.min, styles$1 = _React$useContext.styles, classNames$3 = _React$useContext.classNames;
+	var trackList = import_react.useMemo(function() {
+		if (!range) {
+			if (values.length === 0) return [];
+			var startValue = startPoint !== null && startPoint !== void 0 ? startPoint : min$1;
+			var endValue = values[0];
+			return [{
+				start: Math.min(startValue, endValue),
+				end: Math.max(startValue, endValue)
+			}];
+		}
+		var list = [];
+		for (var i$3 = 0; i$3 < values.length - 1; i$3 += 1) list.push({
+			start: values[i$3],
+			end: values[i$3 + 1]
+		});
+		return list;
+	}, [
+		values,
+		range,
+		startPoint,
+		min$1
+	]);
+	if (!included) return null;
+	var tracksNode = trackList !== null && trackList !== void 0 && trackList.length && (classNames$3.tracks || styles$1.tracks) ? /* @__PURE__ */ import_react.createElement(Track_default, {
+		index: null,
+		prefixCls,
+		start: trackList[0].start,
+		end: trackList[trackList.length - 1].end,
+		replaceCls: (0, import_classnames$9.default)(classNames$3.tracks, "".concat(prefixCls, "-tracks")),
+		style: styles$1.tracks
+	}) : null;
+	return /* @__PURE__ */ import_react.createElement(import_react.Fragment, null, tracksNode, trackList.map(function(_ref$1, index$6) {
+		var start = _ref$1.start, end = _ref$1.end;
+		return /* @__PURE__ */ import_react.createElement(Track_default, {
+			index: index$6,
+			prefixCls,
+			style: _objectSpread2$1(_objectSpread2$1({}, getIndex(style$1, index$6)), styles$1.track),
+			start,
+			end,
+			key: index$6,
+			onStartMove
+		});
+	}));
+};
+var REMOVE_DIST = 130;
+function getPosition(e$2) {
+	var obj = "targetTouches" in e$2 ? e$2.targetTouches[0] : e$2;
+	return {
+		pageX: obj.pageX,
+		pageY: obj.pageY
+	};
+}
+function useDrag(containerRef, direction, rawValues, min$1, max$1, formatValue, triggerChange, finishChange, offsetValues, editable, minCount) {
+	var _React$useState2 = _slicedToArray$1(import_react.useState(null), 2), draggingValue = _React$useState2[0], setDraggingValue = _React$useState2[1];
+	var _React$useState4 = _slicedToArray$1(import_react.useState(-1), 2), draggingIndex = _React$useState4[0], setDraggingIndex = _React$useState4[1];
+	var _React$useState6 = _slicedToArray$1(import_react.useState(false), 2), draggingDelete = _React$useState6[0], setDraggingDelete = _React$useState6[1];
+	var _React$useState8 = _slicedToArray$1(import_react.useState(rawValues), 2), cacheValues = _React$useState8[0], setCacheValues = _React$useState8[1];
+	var _React$useState10 = _slicedToArray$1(import_react.useState(rawValues), 2), originValues = _React$useState10[0], setOriginValues = _React$useState10[1];
+	var mouseMoveEventRef = import_react.useRef(null);
+	var mouseUpEventRef = import_react.useRef(null);
+	var touchEventTargetRef = import_react.useRef(null);
+	var _React$useContext = import_react.useContext(UnstableContext), onDragStart = _React$useContext.onDragStart, onDragChange = _React$useContext.onDragChange;
+	useLayoutEffect_default(function() {
+		if (draggingIndex === -1) setCacheValues(rawValues);
+	}, [rawValues, draggingIndex]);
+	import_react.useEffect(function() {
+		return function() {
+			document.removeEventListener("mousemove", mouseMoveEventRef.current);
+			document.removeEventListener("mouseup", mouseUpEventRef.current);
+			if (touchEventTargetRef.current) {
+				touchEventTargetRef.current.removeEventListener("touchmove", mouseMoveEventRef.current);
+				touchEventTargetRef.current.removeEventListener("touchend", mouseUpEventRef.current);
+			}
+		};
+	}, []);
+	var flushValues = function flushValues$1(nextValues, nextValue, deleteMark) {
+		if (nextValue !== void 0) setDraggingValue(nextValue);
+		setCacheValues(nextValues);
+		var changeValues = nextValues;
+		if (deleteMark) changeValues = nextValues.filter(function(_$1, i$3) {
+			return i$3 !== draggingIndex;
+		});
+		triggerChange(changeValues);
+		if (onDragChange) onDragChange({
+			rawValues: nextValues,
+			deleteIndex: deleteMark ? draggingIndex : -1,
+			draggingIndex,
+			draggingValue: nextValue
+		});
+	};
+	var updateCacheValue = useEvent(function(valueIndex, offsetPercent, deleteMark) {
+		if (valueIndex === -1) {
+			var startValue = originValues[0];
+			var endValue = originValues[originValues.length - 1];
+			var maxStartOffset = min$1 - startValue;
+			var maxEndOffset = max$1 - endValue;
+			var offset$1 = offsetPercent * (max$1 - min$1);
+			offset$1 = Math.max(offset$1, maxStartOffset);
+			offset$1 = Math.min(offset$1, maxEndOffset);
+			offset$1 = formatValue(startValue + offset$1) - startValue;
+			flushValues(originValues.map(function(val) {
+				return val + offset$1;
+			}));
+		} else {
+			var offsetDist = (max$1 - min$1) * offsetPercent;
+			var cloneValues = _toConsumableArray$1(cacheValues);
+			cloneValues[valueIndex] = originValues[valueIndex];
+			var next$1 = offsetValues(cloneValues, offsetDist, valueIndex, "dist");
+			flushValues(next$1.values, next$1.value, deleteMark);
+		}
+	});
+	return [
+		draggingIndex,
+		draggingValue,
+		draggingDelete,
+		import_react.useMemo(function() {
+			var sourceValues = _toConsumableArray$1(rawValues).sort(function(a$2, b$4) {
+				return a$2 - b$4;
+			});
+			var targetValues = _toConsumableArray$1(cacheValues).sort(function(a$2, b$4) {
+				return a$2 - b$4;
+			});
+			var counts = {};
+			targetValues.forEach(function(val) {
+				counts[val] = (counts[val] || 0) + 1;
+			});
+			sourceValues.forEach(function(val) {
+				counts[val] = (counts[val] || 0) - 1;
+			});
+			var maxDiffCount = editable ? 1 : 0;
+			return Object.values(counts).reduce(function(prev$1, next$1) {
+				return prev$1 + Math.abs(next$1);
+			}, 0) <= maxDiffCount ? cacheValues : rawValues;
+		}, [
+			rawValues,
+			cacheValues,
+			editable
+		]),
+		function onStartMove(e$2, valueIndex, startValues) {
+			e$2.stopPropagation();
+			var initialValues = startValues || rawValues;
+			var originValue = initialValues[valueIndex];
+			setDraggingIndex(valueIndex);
+			setDraggingValue(originValue);
+			setOriginValues(initialValues);
+			setCacheValues(initialValues);
+			setDraggingDelete(false);
+			var _getPosition = getPosition(e$2), startX = _getPosition.pageX, startY = _getPosition.pageY;
+			var deleteMark = false;
+			if (onDragStart) onDragStart({
+				rawValues: initialValues,
+				draggingIndex: valueIndex,
+				draggingValue: originValue
+			});
+			var onMouseMove = function onMouseMove$1(event) {
+				event.preventDefault();
+				var _getPosition2 = getPosition(event), moveX = _getPosition2.pageX, moveY = _getPosition2.pageY;
+				var offsetX = moveX - startX;
+				var offsetY = moveY - startY;
+				var _containerRef$current = containerRef.current.getBoundingClientRect(), width = _containerRef$current.width, height = _containerRef$current.height;
+				var offSetPercent;
+				var removeDist;
+				switch (direction) {
+					case "btt":
+						offSetPercent = -offsetY / height;
+						removeDist = offsetX;
+						break;
+					case "ttb":
+						offSetPercent = offsetY / height;
+						removeDist = offsetX;
+						break;
+					case "rtl":
+						offSetPercent = -offsetX / width;
+						removeDist = offsetY;
+						break;
+					default:
+						offSetPercent = offsetX / width;
+						removeDist = offsetY;
+				}
+				deleteMark = editable ? Math.abs(removeDist) > REMOVE_DIST && minCount < cacheValues.length : false;
+				setDraggingDelete(deleteMark);
+				updateCacheValue(valueIndex, offSetPercent, deleteMark);
+			};
+			var onMouseUp = function onMouseUp$1(event) {
+				event.preventDefault();
+				document.removeEventListener("mouseup", onMouseUp$1);
+				document.removeEventListener("mousemove", onMouseMove);
+				if (touchEventTargetRef.current) {
+					touchEventTargetRef.current.removeEventListener("touchmove", mouseMoveEventRef.current);
+					touchEventTargetRef.current.removeEventListener("touchend", mouseUpEventRef.current);
+				}
+				mouseMoveEventRef.current = null;
+				mouseUpEventRef.current = null;
+				touchEventTargetRef.current = null;
+				finishChange(deleteMark);
+				setDraggingIndex(-1);
+				setDraggingDelete(false);
+			};
+			document.addEventListener("mouseup", onMouseUp);
+			document.addEventListener("mousemove", onMouseMove);
+			e$2.currentTarget.addEventListener("touchend", onMouseUp);
+			e$2.currentTarget.addEventListener("touchmove", onMouseMove);
+			mouseMoveEventRef.current = onMouseMove;
+			mouseUpEventRef.current = onMouseUp;
+			touchEventTargetRef.current = e$2.currentTarget;
+		}
+	];
+}
+var useDrag_default = useDrag;
+function useOffset(min$1, max$1, step, markList, allowCross, pushable) {
+	var formatRangeValue = import_react.useCallback(function(val) {
+		return Math.max(min$1, Math.min(max$1, val));
+	}, [min$1, max$1]);
+	var formatStepValue = import_react.useCallback(function(val) {
+		if (step !== null) {
+			var stepValue = min$1 + Math.round((formatRangeValue(val) - min$1) / step) * step;
+			var getDecimal = function getDecimal$1(num) {
+				return (String(num).split(".")[1] || "").length;
+			};
+			var maxDecimal = Math.max(getDecimal(step), getDecimal(max$1), getDecimal(min$1));
+			var fixedValue = Number(stepValue.toFixed(maxDecimal));
+			return min$1 <= fixedValue && fixedValue <= max$1 ? fixedValue : null;
+		}
+		return null;
+	}, [
+		step,
+		min$1,
+		max$1,
+		formatRangeValue
+	]);
+	var formatValue = import_react.useCallback(function(val) {
+		var formatNextValue = formatRangeValue(val);
+		var alignValues = markList.map(function(mark) {
+			return mark.value;
+		});
+		if (step !== null) alignValues.push(formatStepValue(val));
+		alignValues.push(min$1, max$1);
+		var closeValue = alignValues[0];
+		var closeDist = max$1 - min$1;
+		alignValues.forEach(function(alignValue) {
+			var dist$2 = Math.abs(formatNextValue - alignValue);
+			if (dist$2 <= closeDist) {
+				closeValue = alignValue;
+				closeDist = dist$2;
+			}
+		});
+		return closeValue;
+	}, [
+		min$1,
+		max$1,
+		markList,
+		step,
+		formatRangeValue,
+		formatStepValue
+	]);
+	var offsetValue = function offsetValue$1(values, offset$1, valueIndex) {
+		var mode$1 = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : "unit";
+		if (typeof offset$1 === "number") {
+			var nextValue;
+			var originValue = values[valueIndex];
+			var targetDistValue = originValue + offset$1;
+			var potentialValues = [];
+			markList.forEach(function(mark) {
+				potentialValues.push(mark.value);
+			});
+			potentialValues.push(min$1, max$1);
+			potentialValues.push(formatStepValue(originValue));
+			var sign = offset$1 > 0 ? 1 : -1;
+			if (mode$1 === "unit") potentialValues.push(formatStepValue(originValue + sign * step));
+			else potentialValues.push(formatStepValue(targetDistValue));
+			potentialValues = potentialValues.filter(function(val) {
+				return val !== null;
+			}).filter(function(val) {
+				return offset$1 < 0 ? val <= originValue : val >= originValue;
+			});
+			if (mode$1 === "unit") potentialValues = potentialValues.filter(function(val) {
+				return val !== originValue;
+			});
+			var compareValue = mode$1 === "unit" ? originValue : targetDistValue;
+			nextValue = potentialValues[0];
+			var valueDist = Math.abs(nextValue - compareValue);
+			potentialValues.forEach(function(potentialValue) {
+				var dist$2 = Math.abs(potentialValue - compareValue);
+				if (dist$2 < valueDist) {
+					nextValue = potentialValue;
+					valueDist = dist$2;
+				}
+			});
+			if (nextValue === void 0) return offset$1 < 0 ? min$1 : max$1;
+			if (mode$1 === "dist") return nextValue;
+			if (Math.abs(offset$1) > 1) {
+				var cloneValues = _toConsumableArray$1(values);
+				cloneValues[valueIndex] = nextValue;
+				return offsetValue$1(cloneValues, offset$1 - sign, valueIndex, mode$1);
+			}
+			return nextValue;
+		} else if (offset$1 === "min") return min$1;
+		else if (offset$1 === "max") return max$1;
+	};
+	var offsetChangedValue = function offsetChangedValue$1(values, offset$1, valueIndex) {
+		var mode$1 = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : "unit";
+		var originValue = values[valueIndex];
+		var nextValue = offsetValue(values, offset$1, valueIndex, mode$1);
+		return {
+			value: nextValue,
+			changed: nextValue !== originValue
+		};
+	};
+	var needPush = function needPush$1(dist$2) {
+		return pushable === null && dist$2 === 0 || typeof pushable === "number" && dist$2 < pushable;
+	};
+	return [formatValue, function offsetValues(values, offset$1, valueIndex) {
+		var mode$1 = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : "unit";
+		var nextValues = values.map(formatValue);
+		var originValue = nextValues[valueIndex];
+		nextValues[valueIndex] = offsetValue(nextValues, offset$1, valueIndex, mode$1);
+		if (allowCross === false) {
+			var pushNum = pushable || 0;
+			if (valueIndex > 0 && nextValues[valueIndex - 1] !== originValue) nextValues[valueIndex] = Math.max(nextValues[valueIndex], nextValues[valueIndex - 1] + pushNum);
+			if (valueIndex < nextValues.length - 1 && nextValues[valueIndex + 1] !== originValue) nextValues[valueIndex] = Math.min(nextValues[valueIndex], nextValues[valueIndex + 1] - pushNum);
+		} else if (typeof pushable === "number" || pushable === null) {
+			for (var i$3 = valueIndex + 1; i$3 < nextValues.length; i$3 += 1) {
+				var changed = true;
+				while (needPush(nextValues[i$3] - nextValues[i$3 - 1]) && changed) {
+					var _offsetChangedValue = offsetChangedValue(nextValues, 1, i$3);
+					nextValues[i$3] = _offsetChangedValue.value;
+					changed = _offsetChangedValue.changed;
+				}
+			}
+			for (var _i = valueIndex; _i > 0; _i -= 1) {
+				var _changed = true;
+				while (needPush(nextValues[_i] - nextValues[_i - 1]) && _changed) {
+					var _offsetChangedValue2 = offsetChangedValue(nextValues, -1, _i - 1);
+					nextValues[_i - 1] = _offsetChangedValue2.value;
+					_changed = _offsetChangedValue2.changed;
+				}
+			}
+			for (var _i2 = nextValues.length - 1; _i2 > 0; _i2 -= 1) {
+				var _changed2 = true;
+				while (needPush(nextValues[_i2] - nextValues[_i2 - 1]) && _changed2) {
+					var _offsetChangedValue3 = offsetChangedValue(nextValues, -1, _i2 - 1);
+					nextValues[_i2 - 1] = _offsetChangedValue3.value;
+					_changed2 = _offsetChangedValue3.changed;
+				}
+			}
+			for (var _i3 = 0; _i3 < nextValues.length - 1; _i3 += 1) {
+				var _changed3 = true;
+				while (needPush(nextValues[_i3 + 1] - nextValues[_i3]) && _changed3) {
+					var _offsetChangedValue4 = offsetChangedValue(nextValues, 1, _i3 + 1);
+					nextValues[_i3 + 1] = _offsetChangedValue4.value;
+					_changed3 = _offsetChangedValue4.changed;
+				}
+			}
+		}
+		return {
+			value: nextValues[valueIndex],
+			values: nextValues
+		};
+	}];
+}
+function useRange(range) {
+	return (0, import_react.useMemo)(function() {
+		if (range === true || !range) return [
+			!!range,
+			false,
+			false,
+			0
+		];
+		var editable = range.editable, draggableTrack = range.draggableTrack, minCount = range.minCount, maxCount = range.maxCount;
+		return [
+			true,
+			editable,
+			!editable && draggableTrack,
+			minCount || 0,
+			maxCount
+		];
+	}, [range]);
+}
+var import_classnames$8 = /* @__PURE__ */ __toESM(require_classnames());
+var es_default = /* @__PURE__ */ import_react.forwardRef(function(props, ref) {
+	var _props$prefixCls = props.prefixCls, prefixCls = _props$prefixCls === void 0 ? "rc-slider" : _props$prefixCls, className = props.className, style$1 = props.style, classNames$3 = props.classNames, styles$1 = props.styles, id$2 = props.id, _props$disabled = props.disabled, disabled = _props$disabled === void 0 ? false : _props$disabled, _props$keyboard = props.keyboard, keyboard = _props$keyboard === void 0 ? true : _props$keyboard, autoFocus = props.autoFocus, onFocus = props.onFocus, onBlur = props.onBlur, _props$min = props.min, min$1 = _props$min === void 0 ? 0 : _props$min, _props$max = props.max, max$1 = _props$max === void 0 ? 100 : _props$max, _props$step = props.step, step = _props$step === void 0 ? 1 : _props$step, value = props.value, defaultValue = props.defaultValue, range = props.range, count = props.count, onChange = props.onChange, onBeforeChange = props.onBeforeChange, onAfterChange = props.onAfterChange, onChangeComplete = props.onChangeComplete, _props$allowCross = props.allowCross, allowCross = _props$allowCross === void 0 ? true : _props$allowCross, _props$pushable = props.pushable, pushable = _props$pushable === void 0 ? false : _props$pushable, reverse = props.reverse, vertical = props.vertical, _props$included = props.included, included = _props$included === void 0 ? true : _props$included, startPoint = props.startPoint, trackStyle = props.trackStyle, handleStyle = props.handleStyle, railStyle = props.railStyle, dotStyle = props.dotStyle, activeDotStyle = props.activeDotStyle, marks = props.marks, dots = props.dots, handleRender = props.handleRender, activeHandleRender = props.activeHandleRender, track$1 = props.track, _props$tabIndex = props.tabIndex, tabIndex = _props$tabIndex === void 0 ? 0 : _props$tabIndex, ariaLabelForHandle = props.ariaLabelForHandle, ariaLabelledByForHandle = props.ariaLabelledByForHandle, ariaRequired = props.ariaRequired, ariaValueTextFormatterForHandle = props.ariaValueTextFormatterForHandle;
+	var handlesRef = import_react.useRef(null);
+	var containerRef = import_react.useRef(null);
+	var direction = import_react.useMemo(function() {
+		if (vertical) return reverse ? "ttb" : "btt";
+		return reverse ? "rtl" : "ltr";
+	}, [reverse, vertical]);
+	var _useRange2 = _slicedToArray$1(useRange(range), 5), rangeEnabled = _useRange2[0], rangeEditable = _useRange2[1], rangeDraggableTrack = _useRange2[2], minCount = _useRange2[3], maxCount = _useRange2[4];
+	var mergedMin = import_react.useMemo(function() {
+		return isFinite(min$1) ? min$1 : 0;
+	}, [min$1]);
+	var mergedMax = import_react.useMemo(function() {
+		return isFinite(max$1) ? max$1 : 100;
+	}, [max$1]);
+	var mergedStep = import_react.useMemo(function() {
+		return step !== null && step <= 0 ? 1 : step;
+	}, [step]);
+	var mergedPush = import_react.useMemo(function() {
+		if (typeof pushable === "boolean") return pushable ? mergedStep : false;
+		return pushable >= 0 ? pushable : false;
+	}, [pushable, mergedStep]);
+	var markList = import_react.useMemo(function() {
+		return Object.keys(marks || {}).map(function(key) {
+			var mark = marks[key];
+			var markObj = { value: Number(key) };
+			if (mark && _typeof$1(mark) === "object" && !/* @__PURE__ */ import_react.isValidElement(mark) && ("label" in mark || "style" in mark)) {
+				markObj.style = mark.style;
+				markObj.label = mark.label;
+			} else markObj.label = mark;
+			return markObj;
+		}).filter(function(_ref$1) {
+			var label = _ref$1.label;
+			return label || typeof label === "number";
+		}).sort(function(a$2, b$4) {
+			return a$2.value - b$4.value;
+		});
+	}, [marks]);
+	var _useOffset2 = _slicedToArray$1(useOffset(mergedMin, mergedMax, mergedStep, markList, allowCross, mergedPush), 2), formatValue = _useOffset2[0], offsetValues = _useOffset2[1];
+	var _useMergedState2 = _slicedToArray$1(useMergedState(defaultValue, { value }), 2), mergedValue = _useMergedState2[0], setValue = _useMergedState2[1];
+	var rawValues = import_react.useMemo(function() {
+		var valueList = mergedValue === null || mergedValue === void 0 ? [] : Array.isArray(mergedValue) ? mergedValue : [mergedValue];
+		var _valueList$ = _slicedToArray$1(valueList, 1)[0];
+		var returnValues = mergedValue === null ? [] : [_valueList$ === void 0 ? mergedMin : _valueList$];
+		if (rangeEnabled) {
+			returnValues = _toConsumableArray$1(valueList);
+			if (count || mergedValue === void 0) {
+				var pointCount = count >= 0 ? count + 1 : 2;
+				returnValues = returnValues.slice(0, pointCount);
+				while (returnValues.length < pointCount) {
+					var _returnValues;
+					returnValues.push((_returnValues = returnValues[returnValues.length - 1]) !== null && _returnValues !== void 0 ? _returnValues : mergedMin);
+				}
+			}
+			returnValues.sort(function(a$2, b$4) {
+				return a$2 - b$4;
+			});
+		}
+		returnValues.forEach(function(val, index$6) {
+			returnValues[index$6] = formatValue(val);
+		});
+		return returnValues;
+	}, [
+		mergedValue,
+		rangeEnabled,
+		mergedMin,
+		count,
+		formatValue
+	]);
+	var getTriggerValue = function getTriggerValue$1(triggerValues) {
+		return rangeEnabled ? triggerValues : triggerValues[0];
+	};
+	var triggerChange = useEvent(function(nextValues) {
+		var cloneNextValues = _toConsumableArray$1(nextValues).sort(function(a$2, b$4) {
+			return a$2 - b$4;
+		});
+		if (onChange && !isEqual_default(cloneNextValues, rawValues, true)) onChange(getTriggerValue(cloneNextValues));
+		setValue(cloneNextValues);
+	});
+	var finishChange = useEvent(function(draggingDelete$1) {
+		if (draggingDelete$1) handlesRef.current.hideHelp();
+		var finishValue = getTriggerValue(rawValues);
+		onAfterChange === null || onAfterChange === void 0 || onAfterChange(finishValue);
+		warning_default(!onAfterChange, "[rc-slider] `onAfterChange` is deprecated. Please use `onChangeComplete` instead.");
+		onChangeComplete === null || onChangeComplete === void 0 || onChangeComplete(finishValue);
+	});
+	var onDelete = function onDelete$1(index$6) {
+		if (disabled || !rangeEditable || rawValues.length <= minCount) return;
+		var cloneNextValues = _toConsumableArray$1(rawValues);
+		cloneNextValues.splice(index$6, 1);
+		onBeforeChange === null || onBeforeChange === void 0 || onBeforeChange(getTriggerValue(cloneNextValues));
+		triggerChange(cloneNextValues);
+		var nextFocusIndex = Math.max(0, index$6 - 1);
+		handlesRef.current.hideHelp();
+		handlesRef.current.focus(nextFocusIndex);
+	};
+	var _useDrag2 = _slicedToArray$1(useDrag_default(containerRef, direction, rawValues, mergedMin, mergedMax, formatValue, triggerChange, finishChange, offsetValues, rangeEditable, minCount), 5), draggingIndex = _useDrag2[0], draggingValue = _useDrag2[1], draggingDelete = _useDrag2[2], cacheValues = _useDrag2[3], onStartDrag = _useDrag2[4];
+	var changeToCloseValue = function changeToCloseValue$1(newValue, e$2) {
+		if (!disabled) {
+			var cloneNextValues = _toConsumableArray$1(rawValues);
+			var valueIndex = 0;
+			var valueBeforeIndex = 0;
+			var valueDist = mergedMax - mergedMin;
+			rawValues.forEach(function(val, index$6) {
+				var dist$2 = Math.abs(newValue - val);
+				if (dist$2 <= valueDist) {
+					valueDist = dist$2;
+					valueIndex = index$6;
+				}
+				if (val < newValue) valueBeforeIndex = index$6;
+			});
+			var focusIndex = valueIndex;
+			if (rangeEditable && valueDist !== 0 && (!maxCount || rawValues.length < maxCount)) {
+				cloneNextValues.splice(valueBeforeIndex + 1, 0, newValue);
+				focusIndex = valueBeforeIndex + 1;
+			} else cloneNextValues[valueIndex] = newValue;
+			if (rangeEnabled && !rawValues.length && count === void 0) cloneNextValues.push(newValue);
+			var nextValue = getTriggerValue(cloneNextValues);
+			onBeforeChange === null || onBeforeChange === void 0 || onBeforeChange(nextValue);
+			triggerChange(cloneNextValues);
+			if (e$2) {
+				var _document$activeEleme, _document$activeEleme2;
+				(_document$activeEleme = document.activeElement) === null || _document$activeEleme === void 0 || (_document$activeEleme2 = _document$activeEleme.blur) === null || _document$activeEleme2 === void 0 || _document$activeEleme2.call(_document$activeEleme);
+				handlesRef.current.focus(focusIndex);
+				onStartDrag(e$2, focusIndex, cloneNextValues);
+			} else {
+				onAfterChange === null || onAfterChange === void 0 || onAfterChange(nextValue);
+				warning_default(!onAfterChange, "[rc-slider] `onAfterChange` is deprecated. Please use `onChangeComplete` instead.");
+				onChangeComplete === null || onChangeComplete === void 0 || onChangeComplete(nextValue);
+			}
+		}
+	};
+	var onSliderMouseDown = function onSliderMouseDown$1(e$2) {
+		e$2.preventDefault();
+		var _containerRef$current = containerRef.current.getBoundingClientRect(), width = _containerRef$current.width, height = _containerRef$current.height, left = _containerRef$current.left, top = _containerRef$current.top, bottom = _containerRef$current.bottom, right = _containerRef$current.right;
+		var clientX = e$2.clientX, clientY = e$2.clientY;
+		var percent$1;
+		switch (direction) {
+			case "btt":
+				percent$1 = (bottom - clientY) / height;
+				break;
+			case "ttb":
+				percent$1 = (clientY - top) / height;
+				break;
+			case "rtl":
+				percent$1 = (right - clientX) / width;
+				break;
+			default: percent$1 = (clientX - left) / width;
+		}
+		changeToCloseValue(formatValue(mergedMin + percent$1 * (mergedMax - mergedMin)), e$2);
+	};
+	var _React$useState2 = _slicedToArray$1(import_react.useState(null), 2), keyboardValue = _React$useState2[0], setKeyboardValue = _React$useState2[1];
+	var onHandleOffsetChange = function onHandleOffsetChange$1(offset$1, valueIndex) {
+		if (!disabled) {
+			var next$1 = offsetValues(rawValues, offset$1, valueIndex);
+			onBeforeChange === null || onBeforeChange === void 0 || onBeforeChange(getTriggerValue(rawValues));
+			triggerChange(next$1.values);
+			setKeyboardValue(next$1.value);
+		}
+	};
+	import_react.useEffect(function() {
+		if (keyboardValue !== null) {
+			var valueIndex = rawValues.indexOf(keyboardValue);
+			if (valueIndex >= 0) handlesRef.current.focus(valueIndex);
+		}
+		setKeyboardValue(null);
+	}, [keyboardValue]);
+	var mergedDraggableTrack = import_react.useMemo(function() {
+		if (rangeDraggableTrack && mergedStep === null) return false;
+		return rangeDraggableTrack;
+	}, [rangeDraggableTrack, mergedStep]);
+	var onStartMove = useEvent(function(e$2, valueIndex) {
+		onStartDrag(e$2, valueIndex);
+		onBeforeChange === null || onBeforeChange === void 0 || onBeforeChange(getTriggerValue(rawValues));
+	});
+	var dragging = draggingIndex !== -1;
+	import_react.useEffect(function() {
+		if (!dragging) {
+			var valueIndex = rawValues.lastIndexOf(draggingValue);
+			handlesRef.current.focus(valueIndex);
+		}
+	}, [dragging]);
+	var sortedCacheValues = import_react.useMemo(function() {
+		return _toConsumableArray$1(cacheValues).sort(function(a$2, b$4) {
+			return a$2 - b$4;
+		});
+	}, [cacheValues]);
+	var _React$useMemo2 = _slicedToArray$1(import_react.useMemo(function() {
+		if (!rangeEnabled) return [mergedMin, sortedCacheValues[0]];
+		return [sortedCacheValues[0], sortedCacheValues[sortedCacheValues.length - 1]];
+	}, [
+		sortedCacheValues,
+		rangeEnabled,
+		mergedMin
+	]), 2), includedStart = _React$useMemo2[0], includedEnd = _React$useMemo2[1];
+	import_react.useImperativeHandle(ref, function() {
+		return {
+			focus: function focus() {
+				handlesRef.current.focus(0);
+			},
+			blur: function blur() {
+				var _containerRef$current2;
+				var activeElement$2 = document.activeElement;
+				if ((_containerRef$current2 = containerRef.current) !== null && _containerRef$current2 !== void 0 && _containerRef$current2.contains(activeElement$2)) activeElement$2 === null || activeElement$2 === void 0 || activeElement$2.blur();
+			}
+		};
+	});
+	import_react.useEffect(function() {
+		if (autoFocus) handlesRef.current.focus(0);
+	}, []);
+	var context = import_react.useMemo(function() {
+		return {
+			min: mergedMin,
+			max: mergedMax,
+			direction,
+			disabled,
+			keyboard,
+			step: mergedStep,
+			included,
+			includedStart,
+			includedEnd,
+			range: rangeEnabled,
+			tabIndex,
+			ariaLabelForHandle,
+			ariaLabelledByForHandle,
+			ariaRequired,
+			ariaValueTextFormatterForHandle,
+			styles: styles$1 || {},
+			classNames: classNames$3 || {}
+		};
+	}, [
+		mergedMin,
+		mergedMax,
+		direction,
+		disabled,
+		keyboard,
+		mergedStep,
+		included,
+		includedStart,
+		includedEnd,
+		rangeEnabled,
+		tabIndex,
+		ariaLabelForHandle,
+		ariaLabelledByForHandle,
+		ariaRequired,
+		ariaValueTextFormatterForHandle,
+		styles$1,
+		classNames$3
+	]);
+	return /* @__PURE__ */ import_react.createElement(context_default.Provider, { value: context }, /* @__PURE__ */ import_react.createElement("div", {
+		ref: containerRef,
+		className: (0, import_classnames$8.default)(prefixCls, className, _defineProperty$1(_defineProperty$1(_defineProperty$1(_defineProperty$1({}, "".concat(prefixCls, "-disabled"), disabled), "".concat(prefixCls, "-vertical"), vertical), "".concat(prefixCls, "-horizontal"), !vertical), "".concat(prefixCls, "-with-marks"), markList.length)),
+		style: style$1,
+		onMouseDown: onSliderMouseDown,
+		id: id$2
+	}, /* @__PURE__ */ import_react.createElement("div", {
+		className: (0, import_classnames$8.default)("".concat(prefixCls, "-rail"), classNames$3 === null || classNames$3 === void 0 ? void 0 : classNames$3.rail),
+		style: _objectSpread2$1(_objectSpread2$1({}, railStyle), styles$1 === null || styles$1 === void 0 ? void 0 : styles$1.rail)
+	}), track$1 !== false && /* @__PURE__ */ import_react.createElement(Tracks_default, {
+		prefixCls,
+		style: trackStyle,
+		values: rawValues,
+		startPoint,
+		onStartMove: mergedDraggableTrack ? onStartMove : void 0
+	}), /* @__PURE__ */ import_react.createElement(Steps_default, {
+		prefixCls,
+		marks: markList,
+		dots,
+		style: dotStyle,
+		activeStyle: activeDotStyle
+	}), /* @__PURE__ */ import_react.createElement(Handles_default, {
+		ref: handlesRef,
+		prefixCls,
+		style: handleStyle,
+		values: cacheValues,
+		draggingIndex,
+		draggingDelete,
+		onStartMove,
+		onOffsetChange: onHandleOffsetChange,
+		onFocus,
+		onBlur,
+		handleRender,
+		activeHandleRender,
+		onChangeComplete: finishChange,
+		onDelete: rangeEditable ? onDelete : void 0
+	}), /* @__PURE__ */ import_react.createElement(Marks_default, {
+		prefixCls,
+		marks: markList,
+		onClick: changeToCloseValue
+	})));
+});
+var MULTIPLIERS_DISPLAYED = [
+	0,
+	.2,
+	.4,
+	.6,
+	.8,
+	1
+];
+var Slider = ({ value, setValue, min: min$1, max: max$1, step, isDisabled = false, showsPercents = true }) => {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "Slider",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "Slider__input",
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(es_default, {
+				value: Number(stringFromBigInt(value ?? min$1)),
+				min: Number(stringFromBigInt(min$1)),
+				max: Number(stringFromBigInt(max$1)),
+				step: Number(stringFromBigInt(step)),
+				disabled: isDisabled,
+				onChange: (valueNum) => {
+					setValue(bigIntFromString(valueNum));
+				}
+			})
+		}), showsPercents && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "Slider__percents",
+			children: MULTIPLIERS_DISPLAYED.map((multiplier) => {
+				const percent$1 = `${multiplier * 100}%`;
+				return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "Slider__percent",
+					style: { left: percent$1 },
+					children: percent$1
+				}, multiplier);
+			})
+		})]
+	});
+};
+var Slider_default = Slider;
+var InputMultiplied = ({ setValue, valueStrState, maxData }) => {
+	const [valueStr, setValueStr] = valueStrState ?? (0, import_react.useState)("");
+	const [multiplier, setMultiplier] = (0, import_react.useState)(null);
+	useDebounce(() => {
+		if (!isSufficient(multiplier)) return;
+		setValueStr(inputStringFromBigInt(floorBigInt(multiplyBigInts(maxData.value, multiplier), Decimals.DEFAULT)));
+	}, 200, [multiplier]);
+	(0, import_react.useEffect)(() => {
+		if (!valueStr) {
+			setMultiplier(null);
+			return;
+		}
+		setMultiplier(divBigInts(bigIntFromInputString(valueStr), maxData.value));
+	}, [valueStr]);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "InputMultiplied",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Input_default, {
+			setValue,
+			valueStrState: [valueStr, setValueStr],
+			maxData
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Slider_default, {
+			value: multiplier,
+			setValue: setMultiplier,
+			min: bigIntFromString(0),
+			max: bigIntFromString(1),
+			step: bigIntFromString(.1)
+		})]
+	});
+};
+var InputMultiplied_default = InputMultiplied;
+var Radio = ({ id: id$2, items, value, setValue }) => {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: "Radio",
+		children: items.map((item) => {
+			const itemId = `${id$2}_${item.value}`;
+			return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "Radio__item",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+					type: "radio",
+					name: id$2,
+					id: itemId,
+					value: item.value,
+					onChange: (e$2) => setValue(e$2.target.value),
+					checked: value === item.value
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("label", {
+					htmlFor: itemId,
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "Radio__item-content",
+						children: item.node
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "Radio__item-check" })]
+				})]
+			}, item.value);
+		})
+	});
+};
+var Radio_default = Radio;
+var useApprover = (spender, token$1, setIsApproved) => {
+	const { userAddress } = useWallet_default();
+	token$1 = getTokenData(token$1);
+	const update = (0, import_react.useCallback)(async (amount) => {
+		if (token$1.isETH) {
+			setIsApproved(true);
+			return;
+		}
+		setIsApproved(void 0);
+		queryIsApproved(userAddress, spender, amount, token$1).then(setIsApproved);
+	}, [spender]);
+	const approve = (0, import_react.useCallback)(async (amount) => {
+		if (token$1.isETH) throw new Error("Trying to approve ETH");
+		return _approve(spender, amount, token$1);
+	}, [spender]);
+	return (0, import_react.useMemo)(() => ({
+		update,
+		approve
+	}), [update, approve]);
+};
+var queryIsApproved = async (owner, spender, amount, token$1) => {
+	return await readContract(WAGMI_CONFIG, {
+		address: token$1.address,
+		abi: ERC20_abi_default,
+		functionName: "allowance",
+		args: [owner, spender]
+	}).then((res) => bring1eTokenToDefault(res, token$1)) >= amount;
+};
+var _approve = async (spender, amount, token$1) => {
+	const amount1eToken = get1eToken(amount, token$1);
+	return writeContract(WAGMI_CONFIG, {
+		address: token$1.address,
+		abi: ERC20_abi_default,
+		functionName: "approve",
+		args: [spender, amount1eToken]
+	});
+};
+var useApprover_default = useApprover;
+var import_classnames$7 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var Slippage = () => {
+	const [slippage, setSlippage] = useSlippageState();
+	const [slippagePercentStr, setSlippagePercentStr] = (0, import_react.useState)(inputStringFromBigInt(slippage * 100n));
+	const [isFocused, setIsFocused] = (0, import_react.useState)(false);
+	const [isFocusBlocked, setIsFocusBlocked] = (0, import_react.useState)(false);
+	const inputRef = (0, import_react.useRef)(null);
+	const delayFocus = () => {
+		if (!isFocusBlocked) {
+			setIsFocusBlocked(true);
+			setTimeout(() => {
+				setIsFocusBlocked(false);
+			}, 200);
+		}
+	};
+	(0, import_react.useEffect)(() => {
+		setSlippage(bigIntFromInputString(slippagePercentStr) / 100n);
+	}, [slippagePercentStr]);
+	(0, import_react.useEffect)(() => {
+		if (!isFocused) {
+			if (!slippage) setSlippagePercentStr(inputStringFromBigInt(SLIPPAGE * 100n));
+			delayFocus();
+		}
+	}, [isFocused]);
+	inputRef.current?.addEventListener("keyup", (e$2) => {
+		if (e$2.keyCode === 13 && isFocused) inputRef.current.blur();
+	});
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: (0, import_classnames$7.default)("Slippage", isFocused && "_focused"),
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "Slippage__input",
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(_Input, {
+				ref: inputRef,
+				slippagePercentStr,
+				setSlippagePercentStr,
+				isFocused,
+				setIsFocused
+			})
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "Slippage__button",
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
+				isMicro: true,
+				type: isFocused ? "secondary" : "primary",
+				onClick: () => {
+					if (!isFocused && !isFocusBlocked) inputRef.current.focus();
+				},
+				children: isFocused ? "Save" : "Edit"
+			})
+		})]
+	});
+};
+var _Input = (0, import_react.forwardRef)(function _Input$1({ slippagePercentStr, setSlippagePercentStr, isFocused, setIsFocused }, ref) {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+		type: "text",
+		ref,
+		autoFocus: isFocused,
+		value: slippagePercentStr,
+		onChange: (e$2) => {
+			const inputStr = inputStringFromStr(e$2.target.value);
+			if (bigIntFromInputString(inputStr) / 100n > bigIntFromString(1)) setSlippagePercentStr("100");
+			else setSlippagePercentStr(inputStr);
+		},
+		onFocus: () => setIsFocused(true),
+		onBlur: () => setIsFocused(false)
+	});
+});
+var Slippage_default = Slippage;
+var { RepayMethods } = RepayModalConstants_default;
 var RepayModal = ({ isOpen, setIsOpen }) => {
+	const account = useAccount_default();
+	const { isLoading } = getIsLoadingAndError(account);
+	const contracts$1 = useContracts_default();
+	const mutateAccount = useAccountMutate();
+	const { OneClickTrading } = contracts$1?.view ?? {};
+	const { repay } = useProtocolActions_default();
+	const [repayAmount, setRepayAmount] = (0, import_react.useState)(null);
+	const [shouldWithdraw, setShouldWithdraw] = (0, import_react.useState)(false);
+	const [paymentMethod, setPaymentMethod] = (0, import_react.useState)(RepayMethods.COLLATERAL);
+	const [slippage] = useSlippageState();
+	const [isApproved, setIsApproved] = (0, import_react.useState)(void 0);
+	const [isSubmitting, setIsSubmitting] = (0, import_react.useState)(false);
 	const [txResult, setTxResult] = (0, import_react.useState)(void 0);
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(TxModal_default, {
+	const isWallet = paymentMethod === RepayMethods.WALLET;
+	const Approver = useApprover_default(OneClickTrading?.target, "USDC", setIsApproved);
+	const txSuccessData = {
+		title: "Repay confirmed!",
+		text: !isLoading && repayAmount < account?.debt ? "Your debt has been partly repaid" : "Your debt has been fully repaid"
+	};
+	const txErrorData = {
+		title: "Action failed",
+		text: "Something went wrong while repaying the debt"
+	};
+	(0, import_react.useEffect)(() => {
+		if (isUndefined(isApproved)) return;
+		if (isWallet && repayAmount) setIsApproved(void 0);
+	}, [repayAmount]);
+	useDebounce(() => {
+		if (isWallet && repayAmount) Approver.update(repayAmount);
+	}, 600, [repayAmount]);
+	(0, import_react.useEffect)(() => {
+		if (isWallet && repayAmount) Approver.update(repayAmount);
+	}, [paymentMethod]);
+	const getError = () => {
+		if (!repayAmount) return "Enter amount";
+		const { isLoading: isLoading$1 } = getIsLoadingAndError(isApproved);
+		if (isWallet && isLoading$1) return ButtonLabels.LOADING;
+		if (isSubmitting) {
+			if (isWallet && !isApproved) return ButtonLabels.APPROVING;
+			return ButtonLabels.SUBMITTING;
+		}
+	};
+	const getBtnText = () => {
+		const error = getError();
+		if (error) return error;
+		if (isWallet && !isApproved) return "Approve";
+		return "Repay";
+	};
+	const getIsDisabled = () => {
+		const error = getError();
+		return Boolean(error);
+	};
+	const handleClick = async () => {
+		if (isWallet && !isApproved) {
+			setIsSubmitting(true);
+			return Approver.approve(repayAmount).finally(() => {
+				setIsSubmitting(false);
+				Approver.update(repayAmount);
+			});
+		}
+		sendTx_default(repay(repayAmount, paymentMethod, shouldWithdraw, slippage), `Repayed ${inputStringFromBigInt(repayAmount)} USDC.`, setIsSubmitting, ({ tx }) => {
+			setTxResult({
+				...txSuccessData,
+				hash: tx.hash
+			});
+			mutateAccount();
+		}, (e$2) => setTxResult({
+			...txErrorData,
+			error: e$2
+		}));
+	};
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(TxInputModal_default, {
 		className: "RepayModal",
 		isOpen,
 		setIsOpen,
 		txResult,
 		setTxResult,
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
-			className: "RepayModal__title",
-			children: "Repay"
-		}), "in progress"]
+		reset: () => {
+			setRepayAmount(null);
+			setIsApproved(void 0);
+		},
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { children: "Repay" }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TxInputModal_default.Input, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(AmountInput, {
+				setRepayAmount,
+				shouldWithdraw,
+				setShouldWithdraw
+			}) }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaymentMethod, {
+				method: paymentMethod,
+				setMethod: setPaymentMethod
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Metrics, {
+				repayAmount,
+				paymentMethod
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TxInputModal_default.Button, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
+				type: isWallet && repayAmount && isApproved === false ? "green" : "primary",
+				onClick: handleClick,
+				isDisabled: getIsDisabled(),
+				children: getBtnText()
+			}) })
+		]
 	});
+};
+var AmountInput = ({ setRepayAmount, shouldWithdraw, setShouldWithdraw }) => {
+	const account = useAccount_default();
+	const [valueStr, setValueStr] = (0, import_react.useState)("");
+	(0, import_react.useEffect)(() => {
+		if (!isSufficient(account)) return;
+		if (shouldWithdraw) setValueStr(inputStringFromBigInt(account.debt));
+	}, [shouldWithdraw]);
+	(0, import_react.useEffect)(() => {
+		if (!isSufficient(account)) return;
+		const maxAmountStr = inputStringFromBigInt(account.debt);
+		if (shouldWithdraw && valueStr !== maxAmountStr) setShouldWithdraw(false);
+	}, [valueStr]);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "RepayModal__input",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Field_default, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "Field__title",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Amount" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "RepayModal__input-value",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmount_default, { value: bigIntFromInputString(valueStr) }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: [" / ", formatStable(account?.debt)] })]
+			})]
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "Field__input",
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputMultiplied_default, {
+				setValue: setRepayAmount,
+				valueStrState: [valueStr, setValueStr],
+				maxData: {
+					token: "USDC",
+					value: account?.debt,
+					onlyTokenShown: true
+				}
+			})
+		})] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Checkbox_default, {
+			isChecked: shouldWithdraw,
+			setIsChecked: setShouldWithdraw,
+			isDisabled: !isSufficient(account?.debt),
+			children: "Repay debt in full and withdraw collateral"
+		})]
+	});
+};
+var PaymentMethod = ({ method, setMethod }) => {
+	const account = useAccount_default();
+	const usdcBalance = useBalance_default("USDC");
+	const paymentMethods = [{
+		value: RepayMethods.COLLATERAL,
+		node: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "RepayModal__payment-method-item",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "RepayModal__payment-method-item-title",
+				children: "Collateral"
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmount_default, {
+				value: account?.balance,
+				symbol: "ETH",
+				showsUsd: true
+			})]
+		})
+	}, {
+		value: RepayMethods.WALLET,
+		node: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "RepayModal__payment-method-item",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "RepayModal__payment-method-item-title",
+				children: "Wallet"
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmount_default, {
+				value: usdcBalance,
+				showsUsd: true
+			})]
+		})
+	}];
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Field_default, {
+		className: "RepayModal__payment-method",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "Field__title",
+			children: "Choose Payment Method"
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "Field__input",
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Radio_default, {
+				id: "RepayModal__payment-method-radio",
+				items: paymentMethods,
+				value: method,
+				setValue: setMethod
+			})
+		})]
+	});
+};
+var Metrics = ({ repayAmount, paymentMethod }) => {
+	const account = useAccount_default();
+	const contracts$1 = useContracts_default();
+	const [estCollateral, setEstCollateral] = (0, import_react.useState)(null);
+	const [estDebt, setEstDebt] = (0, import_react.useState)(null);
+	const [estLtv, setEstLtv] = (0, import_react.useState)(null);
+	const [slippage] = useSlippageState();
+	const isCollateral = paymentMethod === RepayMethods.COLLATERAL;
+	const setAllEsts = (value) => {
+		setEstCollateral(value);
+		setEstDebt(value);
+		setEstLtv(value);
+	};
+	const updateEstCollateral = async () => {
+		setEstCollateral(void 0);
+		const collateralPaid = await swapUsdcToEth(contracts$1, repayAmount, slippage);
+		setEstCollateral(account.balance - collateralPaid);
+	};
+	const updateEstDebt = () => {
+		setEstDebt(void 0);
+		setEstDebt(account.debt - repayAmount);
+	};
+	const updateEstLtv = async () => {
+		setEstLtv(void 0);
+		setEstLtv(Ltv_default.calcLtvAfterRepay(account, repayAmount));
+	};
+	useDebounce(() => {
+		if (!account || !repayAmount) {
+			setAllEsts(null);
+			return;
+		}
+		updateEstCollateral();
+		updateEstDebt();
+		updateEstLtv();
+	}, 600, [repayAmount]);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(ModalMetrics_default, { children: [
+		isCollateral && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "ModalMetrics__row",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "ModalMetrics__row-title",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CollateralStr_default, {})
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "ModalMetrics__row-value",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmountChange_default, {
+					curAmount: account?.balance,
+					estAmount: estCollateral,
+					symbol: "ETH"
+				})
+			})]
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "ModalMetrics__row",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "ModalMetrics__row-title",
+				children: "Debt Change"
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "ModalMetrics__row-value",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmountChange_default, {
+					curAmount: account?.debt,
+					estAmount: estDebt
+				})
+			})]
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "ModalMetrics__row",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "ModalMetrics__row-title",
+				children: "Principal Repaid"
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "ModalMetrics__row-value",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmount_default, { value: account?.principal })
+			})]
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "ModalMetrics__row",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "ModalMetrics__row-title",
+				children: "Interest Paid"
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "ModalMetrics__row-value" })]
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "ModalMetrics__row",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "ModalMetrics__row-title",
+				children: "LtV Change"
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "ModalMetrics__row-value",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LtvChange_default, { estLtv })
+			})]
+		}),
+		isCollateral && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "ModalMetrics__row",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "ModalMetrics__row-title",
+				children: "Slippage Control"
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "ModalMetrics__row-value",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Slippage_default, {})
+			})]
+		})
+	] });
 };
 var RepayModal_default = RepayModal;
 var _DashboardContext = (0, import_react.createContext)(null);
@@ -79389,14 +82298,6 @@ var GetStarted = () => {
 	});
 };
 var GetStarted_default = GetStarted;
-function _typeof(o$1) {
-	"@babel/helpers - typeof";
-	return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(o$2) {
-		return typeof o$2;
-	} : function(o$2) {
-		return o$2 && "function" == typeof Symbol && o$2.constructor === Symbol && o$2 !== Symbol.prototype ? "symbol" : typeof o$2;
-	}, _typeof(o$1);
-}
 function toPrimitive(t$2, r$3) {
 	if ("object" != _typeof(t$2) || !t$2) return t$2;
 	var e$2 = t$2[Symbol.toPrimitive];
@@ -79439,48 +82340,6 @@ function _objectSpread2(e$2) {
 		});
 	}
 	return e$2;
-}
-function _arrayWithHoles(r$3) {
-	if (Array.isArray(r$3)) return r$3;
-}
-function _iterableToArrayLimit(r$3, l$2) {
-	var t$2 = null == r$3 ? null : "undefined" != typeof Symbol && r$3[Symbol.iterator] || r$3["@@iterator"];
-	if (null != t$2) {
-		var e$2, n$3, i$3, u$2, a$2 = [], f$1 = !0, o$1 = !1;
-		try {
-			if (i$3 = (t$2 = t$2.call(r$3)).next, 0 === l$2) {
-				if (Object(t$2) !== t$2) return;
-				f$1 = !1;
-			} else for (; !(f$1 = (e$2 = i$3.call(t$2)).done) && (a$2.push(e$2.value), a$2.length !== l$2); f$1 = !0);
-		} catch (r$4) {
-			o$1 = !0, n$3 = r$4;
-		} finally {
-			try {
-				if (!f$1 && null != t$2["return"] && (u$2 = t$2["return"](), Object(u$2) !== u$2)) return;
-			} finally {
-				if (o$1) throw n$3;
-			}
-		}
-		return a$2;
-	}
-}
-function _arrayLikeToArray(r$3, a$2) {
-	(null == a$2 || a$2 > r$3.length) && (a$2 = r$3.length);
-	for (var e$2 = 0, n$3 = Array(a$2); e$2 < a$2; e$2++) n$3[e$2] = r$3[e$2];
-	return n$3;
-}
-function _unsupportedIterableToArray(r$3, a$2) {
-	if (r$3) {
-		if ("string" == typeof r$3) return _arrayLikeToArray(r$3, a$2);
-		var t$2 = {}.toString.call(r$3).slice(8, -1);
-		return "Object" === t$2 && r$3.constructor && (t$2 = r$3.constructor.name), "Map" === t$2 || "Set" === t$2 ? Array.from(r$3) : "Arguments" === t$2 || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t$2) ? _arrayLikeToArray(r$3, a$2) : void 0;
-	}
-}
-function _nonIterableRest() {
-	throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-}
-function _slicedToArray(r$3, e$2) {
-	return _arrayWithHoles(r$3) || _iterableToArrayLimit(r$3, e$2) || _unsupportedIterableToArray(r$3, e$2) || _nonIterableRest();
 }
 function _objectWithoutPropertiesLoose(r$3, e$2) {
 	if (null == r$3) return {};
@@ -80221,9 +83080,9 @@ var createCache = function createCache$2(options$2) {
 	return cache$1;
 };
 var isBrowser = true;
-function getRegisteredStyles(registered, registeredStyles, classNames$1) {
+function getRegisteredStyles(registered, registeredStyles, classNames$3) {
 	var rawClassName = "";
-	classNames$1.split(" ").forEach(function(className) {
+	classNames$3.split(" ").forEach(function(className) {
 		if (registered[className] !== void 0) registeredStyles.push(registered[className] + ";");
 		else if (className) rawClassName += className + " ";
 	});
@@ -80499,9 +83358,9 @@ var jsx = function jsx$4(type, props) {
 	for (var i$3 = 2; i$3 < argsLength; i$3++) createElementArgArray[i$3] = args[i$3];
 	return import_react.createElement.apply(null, createElementArgArray);
 };
-(function(_jsx$53) {
+(function(_jsx$59) {
 	var JSX;
-	(function(_JSX) {})(JSX || (JSX = _jsx$53.JSX || (_jsx$53.JSX = {})));
+	(function(_JSX) {})(JSX || (JSX = _jsx$59.JSX || (_jsx$59.JSX = {})));
 })(jsx || (jsx = {}));
 function css$2() {
 	for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) args[_key] = arguments[_key];
@@ -80876,10 +83735,10 @@ var cleanCommonProps = function cleanCommonProps$1(props) {
 	return _objectSpread2({}, _objectWithoutProperties(props, _excluded$4));
 };
 var getStyleProps = function getStyleProps$1(props, name, classNamesState) {
-	var cx$19 = props.cx, getStyles = props.getStyles, getClassNames = props.getClassNames, className = props.className;
+	var cx$21 = props.cx, getStyles = props.getStyles, getClassNames = props.getClassNames, className = props.className;
 	return {
 		css: getStyles(name, props),
-		className: cx$19(classNamesState !== null && classNamesState !== void 0 ? classNamesState : {}, getClassNames(name, props), className)
+		className: cx$21(classNamesState !== null && classNamesState !== void 0 ? classNamesState : {}, getClassNames(name, props), className)
 	};
 };
 function isDocumentElement(el) {
@@ -81103,9 +83962,9 @@ var coercePlacement = function coercePlacement$1(p$2) {
 	return p$2 === "auto" ? "bottom" : p$2;
 };
 var menuCSS = function menuCSS$1(_ref2$3, unstyled) {
-	var _objectSpread2$1;
+	var _objectSpread2$2;
 	var placement = _ref2$3.placement, _ref2$theme = _ref2$3.theme, borderRadius$1 = _ref2$theme.borderRadius, spacing = _ref2$theme.spacing, colors$1 = _ref2$theme.colors;
-	return _objectSpread2((_objectSpread2$1 = { label: "menu" }, _defineProperty(_objectSpread2$1, alignToControl(placement), "100%"), _defineProperty(_objectSpread2$1, "position", "absolute"), _defineProperty(_objectSpread2$1, "width", "100%"), _defineProperty(_objectSpread2$1, "zIndex", 1), _objectSpread2$1), unstyled ? {} : {
+	return _objectSpread2((_objectSpread2$2 = { label: "menu" }, _defineProperty(_objectSpread2$2, alignToControl(placement), "100%"), _defineProperty(_objectSpread2$2, "position", "absolute"), _defineProperty(_objectSpread2$2, "width", "100%"), _defineProperty(_objectSpread2$2, "zIndex", 1), _objectSpread2$2), unstyled ? {} : {
 		backgroundColor: colors$1.neutral0,
 		borderRadius: borderRadius$1,
 		boxShadow: "0 0 0 1px hsla(0, 0%, 0%, 0.1), 0 4px 11px hsla(0, 0%, 0%, 0.1)",
@@ -81284,10 +84143,10 @@ var SelectContainer = function SelectContainer$1(props) {
 	}), innerProps), children);
 };
 var valueContainerCSS = function valueContainerCSS$1(_ref2$3, unstyled) {
-	var spacing = _ref2$3.theme.spacing, isMulti = _ref2$3.isMulti, hasValue = _ref2$3.hasValue, controlShouldRenderValue = _ref2$3.selectProps.controlShouldRenderValue;
+	var spacing = _ref2$3.theme.spacing, isMulti = _ref2$3.isMulti, hasValue$1 = _ref2$3.hasValue, controlShouldRenderValue = _ref2$3.selectProps.controlShouldRenderValue;
 	return _objectSpread2({
 		alignItems: "center",
-		display: isMulti && hasValue && controlShouldRenderValue ? "flex" : "grid",
+		display: isMulti && hasValue$1 && controlShouldRenderValue ? "flex" : "grid",
 		flex: 1,
 		flexWrap: "wrap",
 		WebkitOverflowScrolling: "touch",
@@ -81296,11 +84155,11 @@ var valueContainerCSS = function valueContainerCSS$1(_ref2$3, unstyled) {
 	}, unstyled ? {} : { padding: "".concat(spacing.baseUnit / 2, "px ").concat(spacing.baseUnit * 2, "px") });
 };
 var ValueContainer = function ValueContainer$1(props) {
-	var children = props.children, innerProps = props.innerProps, isMulti = props.isMulti, hasValue = props.hasValue;
+	var children = props.children, innerProps = props.innerProps, isMulti = props.isMulti, hasValue$1 = props.hasValue;
 	return jsx("div", _extends({}, getStyleProps(props, "valueContainer", {
 		"value-container": true,
 		"value-container--is-multi": isMulti,
-		"value-container--has-value": hasValue
+		"value-container--has-value": hasValue$1
 	}), innerProps), children);
 };
 var indicatorsContainerCSS = function indicatorsContainerCSS$1() {
@@ -81478,13 +84337,13 @@ var groupCSS = function groupCSS$1(_ref$1, unstyled) {
 	};
 };
 var Group = function Group$2(props) {
-	var children = props.children, cx$19 = props.cx, getStyles = props.getStyles, getClassNames = props.getClassNames, Heading = props.Heading, headingProps = props.headingProps, innerProps = props.innerProps, label = props.label, theme = props.theme, selectProps = props.selectProps;
+	var children = props.children, cx$21 = props.cx, getStyles = props.getStyles, getClassNames = props.getClassNames, Heading = props.Heading, headingProps = props.headingProps, innerProps = props.innerProps, label = props.label, theme = props.theme, selectProps = props.selectProps;
 	return jsx("div", _extends({}, getStyleProps(props, "group", { group: true }), innerProps), jsx(Heading, _extends({}, headingProps, {
 		selectProps,
 		theme,
 		getStyles,
 		getClassNames,
-		cx: cx$19
+		cx: cx$21
 	}), label), jsx("div", null, children));
 };
 var groupHeadingCSS = function groupHeadingCSS$1(_ref2$3, unstyled) {
@@ -81558,10 +84417,10 @@ var inputStyle = function inputStyle$1(isHidden) {
 	}, spacingStyle);
 };
 var Input$1 = function Input$3(props) {
-	var cx$19 = props.cx, value = props.value;
+	var cx$21 = props.cx, value = props.value;
 	var _cleanCommonProps = cleanCommonProps(props), innerRef = _cleanCommonProps.innerRef, isDisabled = _cleanCommonProps.isDisabled, isHidden = _cleanCommonProps.isHidden, inputClassName = _cleanCommonProps.inputClassName, innerProps = _objectWithoutProperties(_cleanCommonProps, _excluded$5);
 	return jsx("div", _extends({}, getStyleProps(props, "input", { "input-container": true }), { "data-value": value || "" }), jsx("input", _extends({
-		className: cx$19({ input: true }, inputClassName),
+		className: cx$21({ input: true }, inputClassName),
 		ref: innerRef,
 		style: inputStyle(isHidden),
 		disabled: isDisabled
@@ -81747,13 +84606,13 @@ function areInputsEqual(newInputs, lastInputs) {
 	for (var i$3 = 0; i$3 < newInputs.length; i$3++) if (!isEqual(newInputs[i$3], lastInputs[i$3])) return false;
 	return true;
 }
-function memoizeOne(resultFn, isEqual$1) {
-	if (isEqual$1 === void 0) isEqual$1 = areInputsEqual;
+function memoizeOne(resultFn, isEqual$2) {
+	if (isEqual$2 === void 0) isEqual$2 = areInputsEqual;
 	var cache$1 = null;
 	function memoized$1() {
 		var newArgs = [];
 		for (var _i = 0; _i < arguments.length; _i++) newArgs[_i] = arguments[_i];
-		if (cache$1 && cache$1.lastThis === this && isEqual$1(newArgs, cache$1.lastArgs)) return cache$1.lastResult;
+		if (cache$1 && cache$1.lastThis === this && isEqual$2(newArgs, cache$1.lastArgs)) return cache$1.lastResult;
 		var lastResult = resultFn.apply(this, newArgs);
 		cache$1 = {
 			lastResult,
@@ -83384,11 +86243,11 @@ var Select = /* @__PURE__ */ function(_Component) {
 		{
 			key: "getCommonProps",
 			value: function getCommonProps() {
-				var clearValue = this.clearValue, cx$19 = this.cx, getStyles = this.getStyles, getClassNames = this.getClassNames, getValue$2 = this.getValue, selectOption = this.selectOption, setValue = this.setValue, props = this.props;
+				var clearValue = this.clearValue, cx$21 = this.cx, getStyles = this.getStyles, getClassNames = this.getClassNames, getValue$2 = this.getValue, selectOption = this.selectOption, setValue = this.setValue, props = this.props;
 				var isMulti = props.isMulti, isRtl = props.isRtl, options$2 = props.options;
 				return {
 					clearValue,
-					cx: cx$19,
+					cx: cx$21,
 					getStyles,
 					getClassNames,
 					getValue: getValue$2,
@@ -83405,7 +86264,7 @@ var Select = /* @__PURE__ */ function(_Component) {
 		},
 		{
 			key: "hasValue",
-			value: function hasValue() {
+			value: function hasValue$1() {
 				return this.state.selectValue.length > 0;
 			}
 		},
@@ -84046,7 +86905,7 @@ var SelectedAccount = () => {
 				className: "SelectedAccount__net-worth-value",
 				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmount_default, {
 					value: account?.equity,
-					showsUsdValue: true
+					showsUsd: true
 				})
 			})]
 		})]
@@ -84078,7 +86937,7 @@ var Option = ({ value: id$2, data, isSelected, ...props }) => {
 					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmount_default, {
 						value: balance,
 						symbol: "ETH",
-						showsUsdValue: true
+						showsUsd: true
 					})
 				})]
 			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
@@ -84091,15 +86950,11 @@ var Option = ({ value: id$2, data, isSelected, ...props }) => {
 var SelectedAccount_default = SelectedAccount;
 var supply_default = "data:image/svg+xml,%3csvg%20width='40'%20height='40'%20viewBox='0%200%2040%2040'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_651_4592)'%3e%3crect%20width='40'%20height='40'%20rx='12'%20fill='%23212367'/%3e%3cpath%20d='M21%2010C21%209.44772%2020.5523%209%2020%209C19.4477%209%2019%209.44772%2019%2010L20%2010L21%2010ZM19.2929%2023.7071C19.6834%2024.0976%2020.3166%2024.0976%2020.7071%2023.7071L27.0711%2017.3431C27.4616%2016.9526%2027.4616%2016.3195%2027.0711%2015.9289C26.6805%2015.5384%2026.0474%2015.5384%2025.6569%2015.9289L20%2021.5858L14.3431%2015.9289C13.9526%2015.5384%2013.3195%2015.5384%2012.9289%2015.9289C12.5384%2016.3195%2012.5384%2016.9526%2012.9289%2017.3431L19.2929%2023.7071ZM20%2010L19%2010L19%2023L20%2023L21%2023L21%2010L20%2010Z'%20fill='%235069DD'/%3e%3cpath%20d='M10%2030H30'%20stroke='%235069DD'%20stroke-width='2'%20stroke-linecap='round'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_651_4592'%3e%3crect%20width='40'%20height='40'%20fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e";
 var TokenName = ({ symbol }) => {
-	const tokenIcon = Tokens[symbol].icon;
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 		className: "TokenName",
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenIcon_default, {
 			className: "TokenName__icon",
-			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
-				src: tokenIcon,
-				alt: `${symbol} icon`
-			})
+			symbol
 		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 			className: "TokenName__title",
 			children: symbol
@@ -84194,7 +87049,7 @@ var Supply = () => {
 			Supplied: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmount_default, {
 				symbol: "ETH",
 				value: account?.balance,
-				showsUsdValue: true
+				showsUsd: true
 			}),
 			APY: "0%"
 		},
@@ -84226,7 +87081,7 @@ var Borrow = () => {
 			"Current Debt": /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmount_default, {
 				value: account?.debt,
 				symbol: "USDC",
-				showsUsdValue: true
+				showsUsd: true
 			}),
 			"Borrow APR": formatPercent(usdcPool?.rate, 0)
 		},
@@ -85419,4 +88274,4 @@ var AppContent = () => {
 };
 var App_default = App;
 (0, import_client.createRoot)(document.getElementById("root")).render(/* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_react.StrictMode, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(App_default, {}) }));
-export { formatAbiItem$1 as $, getUrl as A, InvalidSignatureError as B, numberToBytesBE$1 as C, HttpRequestError as D, validateObject$1 as E, parseAbiParameter as F, InvalidFunctionModifierError as G, UnknownSignatureError as H, parseSignature as I, SolidityProtectedKeywordError as J, InvalidModifierError as K, splitParameters as L, decodeErrorResult as M, parseAbi as N, localBatchGatewayRequest as O, parseStructs as P, modifiers as Q, InvalidParenthesisError as R, memoized as S, numberToHexUnpadded$1 as T, InvalidAbiParametersError as U, InvalidStructSignatureError as V, InvalidAbiTypeParameterError as W, UnknownTypeError as X, InvalidAbiItemError as Y, isStructSignature as Z, createHmacDrbg$1 as _, __export as _t, sha256$3 as a, abytes as at, inRange as b, __toESM as bt, __vitePreload as c, anumber as ct, bitLen$1 as d, randomBytes$1 as dt, formatAbiParameters as et, bitMask$1 as f, toBytes$2 as ft, concatBytes$2 as g, __esmMin as gt, bytesToNumberLE$1 as h, __commonJSMin as ht, isAddressEqual as i, Hash$1 as it, stringify$2 as j, localBatchGatewayUrl as k, aInRange as l, clean as lt, bytesToNumberBE$1 as m, isHex as mt, detect as n, concat$1 as nt, sha256$4 as o, aexists as ot, bytesToHex$2 as p, BaseError$3 as pt, InvalidParameterError as q, require_events as r, keccak_256$1 as rt, call as s, ahash as st, require_dijkstra as t, encodeAbiParameters as tt, abool as u, concatBytes$4 as ut, ensureBytes$1 as v, __reExport as vt, numberToBytesLE$1 as w, isBytes as x, hexToBytes$2 as y, __toCommonJS as yt, CircularReferenceError as z };
+export { formatAbiItem$1 as $, getUrl as A, InvalidSignatureError as B, numberToBytesBE$1 as C, HttpRequestError as D, validateObject$1 as E, parseAbiParameter as F, InvalidFunctionModifierError as G, UnknownSignatureError as H, parseSignature as I, SolidityProtectedKeywordError as J, InvalidModifierError as K, splitParameters as L, decodeErrorResult as M, parseAbi as N, localBatchGatewayRequest as O, parseStructs as P, modifiers as Q, InvalidParenthesisError as R, memoized as S, numberToHexUnpadded$1 as T, InvalidAbiParametersError as U, InvalidStructSignatureError as V, InvalidAbiTypeParameterError as W, UnknownTypeError as X, InvalidAbiItemError as Y, isStructSignature as Z, createHmacDrbg$1 as _, __export as _t, sha256$3 as a, abytes as at, inRange as b, __toESM as bt, __vitePreload as c, anumber as ct, bitLen$1 as d, randomBytes$1 as dt, formatAbiParameters as et, bitMask$1 as f, toBytes$2 as ft, concatBytes$2 as g, __esmMin as gt, bytesToNumberLE$1 as h, __commonJSMin as ht, isAddressEqual as i, Hash$1 as it, stringify$2 as j, localBatchGatewayUrl as k, aInRange as l, clean as lt, bytesToNumberBE$1 as m, isHex as mt, detect as n, concat$1 as nt, sha256$4 as o, aexists as ot, bytesToHex$2 as p, BaseError$3 as pt, InvalidParameterError as q, require_events as r, keccak_256$1 as rt, call$1 as s, ahash as st, require_dijkstra as t, encodeAbiParameters as tt, abool as u, concatBytes$4 as ut, ensureBytes$1 as v, __reExport as vt, numberToBytesLE$1 as w, isBytes as x, hexToBytes$2 as y, __toCommonJS as yt, CircularReferenceError as z };
