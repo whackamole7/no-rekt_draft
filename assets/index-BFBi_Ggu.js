@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-DVJrvKdN.js","assets/secp256k1-MqikfmCh.js","assets/esm-CR-_BPSG.js","assets/dist-BVh3xPz7.js","assets/dist-ChHDEKLB.js","assets/dist-UzsNCz_e.js","assets/index.es-C49Eqvno.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-D2chRhNz.js","assets/secp256k1-CuBzi9ar.js","assets/esm-Cib8AGL9.js","assets/dist-CTuzFrBe.js","assets/dist-BgwVwPJ5.js","assets/dist-C3MVL5gf.js","assets/index.es-CyYU2IBJ.js"])))=>i.map(i=>d[i]);
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -16953,7 +16953,7 @@ async function call$1(client, args) {
 	} catch (err) {
 		const data$1 = getRevertErrorData(err);
 		const { offchainLookup, offchainLookupSignature } = await __vitePreload(async () => {
-			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-CPjHhQkf.js");
+			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-F7-fygsJ.js");
 			return {
 				offchainLookup: offchainLookup$1,
 				offchainLookupSignature: offchainLookupSignature$1
@@ -17454,7 +17454,7 @@ function publicKeyToAddress(publicKey) {
 async function recoverPublicKey({ hash: hash$3, signature }) {
 	const hashHex = isHex(hash$3) ? hash$3 : toHex(hash$3);
 	const { secp256k1: secp256k1$1 } = await __vitePreload(async () => {
-		const { secp256k1: secp256k1$2 } = await import("./secp256k1-DVJrvKdN.js");
+		const { secp256k1: secp256k1$2 } = await import("./secp256k1-D2chRhNz.js");
 		return { secp256k1: secp256k1$2 };
 	}, __vite__mapDeps([0,1]));
 	return `0x${(() => {
@@ -23304,7 +23304,7 @@ function safe(parameters = {}) {
 			if (!provider_) {
 				const { default: SDK } = await (() => {
 					try {
-						return __vitePreload(() => import("./esm-CR-_BPSG.js"), __vite__mapDeps([2,3]));
+						return __vitePreload(() => import("./esm-Cib8AGL9.js"), __vite__mapDeps([2,3]));
 					} catch {
 						throw new Error("dependency \"@safe-global/safe-apps-sdk\" not found");
 					}
@@ -23315,7 +23315,7 @@ function safe(parameters = {}) {
 				provider_ = new (await ((async () => {
 					const Provider = await (() => {
 						try {
-							return __vitePreload(() => import("./dist-ChHDEKLB.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
+							return __vitePreload(() => import("./dist-BgwVwPJ5.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
 						} catch {
 							throw new Error("dependency \"@safe-global/safe-apps-provider\" not found");
 						}
@@ -23480,7 +23480,7 @@ function walletConnect(parameters) {
 				if (!optionalChains.length) return;
 				const { EthereumProvider: EthereumProvider$1 } = await (() => {
 					try {
-						return __vitePreload(() => import("./dist-UzsNCz_e.js"), __vite__mapDeps([5,6,1]));
+						return __vitePreload(() => import("./dist-C3MVL5gf.js"), __vite__mapDeps([5,6,1]));
 					} catch {
 						throw new Error("dependency \"@walletconnect/ethereum-provider\" not found");
 					}
@@ -78054,7 +78054,9 @@ var Modal = ({ isOpen, setIsOpen, isObligatory = false, reset = () => {}, classN
 		parentSelector: () => document.querySelector("#ModalContainer"),
 		onAfterOpen: (data) => {
 			const { contentEl } = data;
-			if (contentEl.scrollHeight > window.innerHeight) setIsScrollable(true);
+			const modalHeight = contentEl.scrollHeight;
+			const viewportHeight = window.innerHeight;
+			if (modalHeight + 100 > viewportHeight) setIsScrollable(true);
 			else setIsScrollable(false);
 		},
 		overlayElement: (props, contentElement) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
@@ -87450,7 +87452,7 @@ var Footer = () => {
 		className: "Footer",
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 			className: "Footer__copyright",
-			children: "© 2026. NoRekt Protocol. All rights reserved."
+			children: "© 2026 NoRekt Protocol. All rights reserved."
 		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 			className: "Footer__socials",
 			children: [
