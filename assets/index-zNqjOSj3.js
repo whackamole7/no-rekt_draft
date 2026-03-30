@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-BEs7SjMJ.js","assets/secp256k1-CjGEpYnA.js","assets/esm-1q0V2uvn.js","assets/dist-D2zX21zm.js","assets/dist-Czw0jn77.js","assets/dist-C7avKlY_.js","assets/index.es-Z-5J11Az.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-BKMwF9XQ.js","assets/secp256k1-AF3EI8WJ.js","assets/esm-BTeGpkoK.js","assets/dist-DkLUADNx.js","assets/dist-2-rW4e5S.js","assets/dist-Cm6KKTxy.js","assets/index.es-Cmgw0ujU.js"])))=>i.map(i=>d[i]);
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -16953,7 +16953,7 @@ async function call$1(client, args) {
 	} catch (err) {
 		const data$1 = getRevertErrorData(err);
 		const { offchainLookup, offchainLookupSignature } = await __vitePreload(async () => {
-			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-38BgvXp4.js");
+			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-DJLmkVgV.js");
 			return {
 				offchainLookup: offchainLookup$1,
 				offchainLookupSignature: offchainLookupSignature$1
@@ -17454,7 +17454,7 @@ function publicKeyToAddress(publicKey) {
 async function recoverPublicKey({ hash: hash$3, signature }) {
 	const hashHex = isHex(hash$3) ? hash$3 : toHex(hash$3);
 	const { secp256k1: secp256k1$1 } = await __vitePreload(async () => {
-		const { secp256k1: secp256k1$2 } = await import("./secp256k1-BEs7SjMJ.js");
+		const { secp256k1: secp256k1$2 } = await import("./secp256k1-BKMwF9XQ.js");
 		return { secp256k1: secp256k1$2 };
 	}, __vite__mapDeps([0,1]));
 	return `0x${(() => {
@@ -22692,7 +22692,7 @@ var require_with_selector_production = /* @__PURE__ */ __commonJSMin(((exports) 
 	function is$1(x$2, y$3) {
 		return x$2 === y$3 && (0 !== x$2 || 1 / x$2 === 1 / y$3) || x$2 !== x$2 && y$3 !== y$3;
 	}
-	var objectIs$1 = "function" === typeof Object.is ? Object.is : is$1, useSyncExternalStore$6 = shim$1.useSyncExternalStore, useRef$20 = React$8.useRef, useEffect$38 = React$8.useEffect, useMemo$18 = React$8.useMemo, useDebugValue$2 = React$8.useDebugValue;
+	var objectIs$1 = "function" === typeof Object.is ? Object.is : is$1, useSyncExternalStore$6 = shim$1.useSyncExternalStore, useRef$20 = React$8.useRef, useEffect$38 = React$8.useEffect, useMemo$19 = React$8.useMemo, useDebugValue$2 = React$8.useDebugValue;
 	exports.useSyncExternalStoreWithSelector = function(subscribe$1, getSnapshot, getServerSnapshot, selector, isEqual$2) {
 		var instRef = useRef$20(null);
 		if (null === instRef.current) {
@@ -22702,7 +22702,7 @@ var require_with_selector_production = /* @__PURE__ */ __commonJSMin(((exports) 
 			};
 			instRef.current = inst;
 		} else inst = instRef.current;
-		instRef = useMemo$18(function() {
+		instRef = useMemo$19(function() {
 			function memoizedSelector(nextSnapshot) {
 				if (!hasMemo) {
 					hasMemo = !0;
@@ -23304,7 +23304,7 @@ function safe(parameters = {}) {
 			if (!provider_) {
 				const { default: SDK } = await (() => {
 					try {
-						return __vitePreload(() => import("./esm-1q0V2uvn.js"), __vite__mapDeps([2,3]));
+						return __vitePreload(() => import("./esm-BTeGpkoK.js"), __vite__mapDeps([2,3]));
 					} catch {
 						throw new Error("dependency \"@safe-global/safe-apps-sdk\" not found");
 					}
@@ -23315,7 +23315,7 @@ function safe(parameters = {}) {
 				provider_ = new (await ((async () => {
 					const Provider = await (() => {
 						try {
-							return __vitePreload(() => import("./dist-Czw0jn77.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
+							return __vitePreload(() => import("./dist-2-rW4e5S.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
 						} catch {
 							throw new Error("dependency \"@safe-global/safe-apps-provider\" not found");
 						}
@@ -23480,7 +23480,7 @@ function walletConnect(parameters) {
 				if (!optionalChains.length) return;
 				const { EthereumProvider: EthereumProvider$1 } = await (() => {
 					try {
-						return __vitePreload(() => import("./dist-C7avKlY_.js"), __vite__mapDeps([5,6,1]));
+						return __vitePreload(() => import("./dist-Cm6KKTxy.js"), __vite__mapDeps([5,6,1]));
 					} catch {
 						throw new Error("dependency \"@walletconnect/ethereum-provider\" not found");
 					}
@@ -75987,7 +75987,7 @@ const getIsLoadingAndErrorForMultiple = (valuesArr) => {
 	};
 };
 var useContractJsons = () => {
-	return {
+	return (0, import_react.useMemo)(() => ({
 		LendingMarginAccountManager: LendingMarginAccountManager_default,
 		MarginAccount: MarginAccount_default,
 		MarginAccountManager: MarginAccountManager_default,
@@ -75997,39 +75997,45 @@ var useContractJsons = () => {
 		OneClickProxy: OneClickProxy_default,
 		OneClickTrading: OneClickTrading_default,
 		UsdcPool: USDC_LiquidityPool_default
-	};
+	}), []);
 };
 var useContracts = () => {
 	const viewContracts = useViewContracts();
 	const signedContracts = useSignedContracts();
+	const contracts$1 = (0, import_react.useMemo)(() => ({
+		view: viewContracts,
+		signed: signedContracts
+	}), [viewContracts, signedContracts]);
 	const { isLoading, hasError } = getIsLoadingAndErrorForMultiple([viewContracts, signedContracts]);
 	if (isLoading) return;
 	if (hasError) return null;
-	return {
-		view: viewContracts,
-		signed: signedContracts
-	};
+	return contracts$1;
 };
 var useViewContracts = () => {
 	const contractJsons = useContractJsons();
 	const alchemyProvider = getAlchemyProvider();
-	const contracts$1 = {};
-	Object.keys(contractJsons).forEach((name) => {
-		const { address: address$9, abi: abi$9 } = contractJsons[name];
-		contracts$1[name] = new Contract(address$9, abi$9, alchemyProvider);
-	});
-	return contracts$1;
+	return (0, import_react.useMemo)(() => {
+		const contracts$1 = {};
+		Object.keys(contractJsons).forEach((name) => {
+			const { address: address$9, abi: abi$9 } = contractJsons[name];
+			contracts$1[name] = new Contract(address$9, abi$9, alchemyProvider);
+		});
+		return contracts$1;
+	}, [contractJsons]);
 };
 var useSignedContracts = () => {
 	const viewContracts = useViewContracts();
-	const signedContracts = {};
 	const signer = useSigner();
+	const signedContracts = (0, import_react.useMemo)(() => {
+		const contracts$1 = {};
+		Object.keys(viewContracts).forEach((name) => {
+			contracts$1[name] = viewContracts[name].connect(signer);
+		});
+		return contracts$1;
+	}, [viewContracts, signer]);
 	const { isLoading, hasError } = getIsLoadingAndError(signer);
 	if (isLoading) return;
 	if (hasError) return null;
-	Object.keys(viewContracts).forEach((name) => {
-		signedContracts[name] = viewContracts[name].connect(signer);
-	});
 	return signedContracts;
 };
 var useSigner = () => {
@@ -82159,6 +82165,7 @@ var Metrics = ({ repayAmount, paymentMethod }) => {
 		updateEstLtv();
 	}, 600, [repayAmount]);
 	(0, import_react.useEffect)(() => {
+		if (!contracts$1) return;
 		updateEstCollateral();
 	}, [slippage]);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(ModalMetrics_default, { children: [
