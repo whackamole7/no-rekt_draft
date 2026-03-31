@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-BJ6GcL21.js","assets/secp256k1-BlpfUxzT.js","assets/esm-BhSwj8tm.js","assets/dist-BHU1OvGI.js","assets/dist-ClkGnOsb.js","assets/dist-DIBAuLu6.js","assets/index.es-QyQlzKY2.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-BLOwFtAj.js","assets/secp256k1-BTrEfQGs.js","assets/esm-DaCPJ2RP.js","assets/dist-BKC6pLvu.js","assets/dist-CkeYuG8A.js","assets/dist-cH8Bh5u6.js","assets/index.es-D6XysE8Y.js"])))=>i.map(i=>d[i]);
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -16953,7 +16953,7 @@ async function call$1(client, args) {
 	} catch (err) {
 		const data$1 = getRevertErrorData(err);
 		const { offchainLookup, offchainLookupSignature } = await __vitePreload(async () => {
-			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-BcWqjTCZ.js");
+			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-cpxqNBuS.js");
 			return {
 				offchainLookup: offchainLookup$1,
 				offchainLookupSignature: offchainLookupSignature$1
@@ -17454,7 +17454,7 @@ function publicKeyToAddress(publicKey) {
 async function recoverPublicKey({ hash: hash$3, signature }) {
 	const hashHex = isHex(hash$3) ? hash$3 : toHex(hash$3);
 	const { secp256k1: secp256k1$1 } = await __vitePreload(async () => {
-		const { secp256k1: secp256k1$2 } = await import("./secp256k1-BJ6GcL21.js");
+		const { secp256k1: secp256k1$2 } = await import("./secp256k1-BLOwFtAj.js");
 		return { secp256k1: secp256k1$2 };
 	}, __vite__mapDeps([0,1]));
 	return `0x${(() => {
@@ -23304,7 +23304,7 @@ function safe(parameters = {}) {
 			if (!provider_) {
 				const { default: SDK } = await (() => {
 					try {
-						return __vitePreload(() => import("./esm-BhSwj8tm.js"), __vite__mapDeps([2,3]));
+						return __vitePreload(() => import("./esm-DaCPJ2RP.js"), __vite__mapDeps([2,3]));
 					} catch {
 						throw new Error("dependency \"@safe-global/safe-apps-sdk\" not found");
 					}
@@ -23315,7 +23315,7 @@ function safe(parameters = {}) {
 				provider_ = new (await ((async () => {
 					const Provider = await (() => {
 						try {
-							return __vitePreload(() => import("./dist-ClkGnOsb.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
+							return __vitePreload(() => import("./dist-CkeYuG8A.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
 						} catch {
 							throw new Error("dependency \"@safe-global/safe-apps-provider\" not found");
 						}
@@ -23480,7 +23480,7 @@ function walletConnect(parameters) {
 				if (!optionalChains.length) return;
 				const { EthereumProvider: EthereumProvider$1 } = await (() => {
 					try {
-						return __vitePreload(() => import("./dist-DIBAuLu6.js"), __vite__mapDeps([5,6,1]));
+						return __vitePreload(() => import("./dist-cH8Bh5u6.js"), __vite__mapDeps([5,6,1]));
 					} catch {
 						throw new Error("dependency \"@walletconnect/ethereum-provider\" not found");
 					}
@@ -79508,7 +79508,7 @@ async function queryLtvAfterWithdraw(account, contracts$1, withdrawAmount) {
 	return _calcLtv(account.value - withdrawAmountUSDC, account.debt);
 }
 function calcLtvAfterBorrow(account, borrowAmount) {
-	return _calcLtv(account.value, account.debt + borrowAmount);
+	return _calcLtv(account.value + borrowAmount, account.debt + borrowAmount);
 }
 function calcLtvAfterRepay(account, repayAmount) {
 	return _calcLtv(account.value - repayAmount, account.debt - repayAmount);
