@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-Cow7XOX8.js","assets/secp256k1-DQbwaQZ3.js","assets/esm-ypKI56-O.js","assets/dist-CEqm72G-.js","assets/dist-D2Uq9OFq.js","assets/dist-Csp013Uk.js","assets/index.es-BDiys0Mr.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-BJCbCQ4B.js","assets/secp256k1-C-f1d_3v.js","assets/esm-DBml43SM.js","assets/dist-V6Z5WCUg.js","assets/dist-CA3ALcEf.js","assets/dist-DkhCx_Sy.js","assets/index.es-GuC1u_8j.js"])))=>i.map(i=>d[i]);
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -16953,7 +16953,7 @@ async function call$1(client, args) {
 	} catch (err) {
 		const data$1 = getRevertErrorData(err);
 		const { offchainLookup, offchainLookupSignature } = await __vitePreload(async () => {
-			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-C_u7qeF7.js");
+			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-Bj02DoOM.js");
 			return {
 				offchainLookup: offchainLookup$1,
 				offchainLookupSignature: offchainLookupSignature$1
@@ -17454,7 +17454,7 @@ function publicKeyToAddress(publicKey) {
 async function recoverPublicKey({ hash: hash$3, signature }) {
 	const hashHex = isHex(hash$3) ? hash$3 : toHex(hash$3);
 	const { secp256k1: secp256k1$1 } = await __vitePreload(async () => {
-		const { secp256k1: secp256k1$2 } = await import("./secp256k1-Cow7XOX8.js");
+		const { secp256k1: secp256k1$2 } = await import("./secp256k1-BJCbCQ4B.js");
 		return { secp256k1: secp256k1$2 };
 	}, __vite__mapDeps([0,1]));
 	return `0x${(() => {
@@ -23304,7 +23304,7 @@ function safe(parameters = {}) {
 			if (!provider_) {
 				const { default: SDK } = await (() => {
 					try {
-						return __vitePreload(() => import("./esm-ypKI56-O.js"), __vite__mapDeps([2,3]));
+						return __vitePreload(() => import("./esm-DBml43SM.js"), __vite__mapDeps([2,3]));
 					} catch {
 						throw new Error("dependency \"@safe-global/safe-apps-sdk\" not found");
 					}
@@ -23315,7 +23315,7 @@ function safe(parameters = {}) {
 				provider_ = new (await ((async () => {
 					const Provider = await (() => {
 						try {
-							return __vitePreload(() => import("./dist-D2Uq9OFq.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
+							return __vitePreload(() => import("./dist-CA3ALcEf.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
 						} catch {
 							throw new Error("dependency \"@safe-global/safe-apps-provider\" not found");
 						}
@@ -23480,7 +23480,7 @@ function walletConnect(parameters) {
 				if (!optionalChains.length) return;
 				const { EthereumProvider: EthereumProvider$1 } = await (() => {
 					try {
-						return __vitePreload(() => import("./dist-Csp013Uk.js"), __vite__mapDeps([5,6,1]));
+						return __vitePreload(() => import("./dist-DkhCx_Sy.js"), __vite__mapDeps([5,6,1]));
 					} catch {
 						throw new Error("dependency \"@walletconnect/ethereum-provider\" not found");
 					}
@@ -81857,7 +81857,7 @@ var queryIsApproved = async (owner, spender, amount, token$1) => {
 		abi: ERC20_abi_default,
 		functionName: "allowance",
 		args: [owner, spender]
-	}).then((res) => bring1eTokenToDefault(res, token$1)) >= amount;
+	}) >= get1eToken(amount, token$1);
 };
 var _approve = async (spender, amount, token$1) => {
 	const amount1eToken = get1eToken(amount, token$1);
