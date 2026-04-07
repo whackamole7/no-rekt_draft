@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-B-fj2zlB.js","assets/secp256k1-ClTwGWV4.js","assets/esm-BOMJe6rH.js","assets/dist-DMnM9TiX.js","assets/dist-Bmz63One.js","assets/dist-BlcTXDP5.js","assets/index.es-Dv9q0qiY.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-_x0uWcrK.js","assets/secp256k1-DDb0Ha9b.js","assets/esm-CyLUVbDx.js","assets/dist-7ZlwWSYf.js","assets/dist-Cglne89t.js","assets/dist-BMIRZDY2.js","assets/index.es-DZEzfUZr.js"])))=>i.map(i=>d[i]);
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -16953,7 +16953,7 @@ async function call$1(client, args) {
 	} catch (err) {
 		const data$1 = getRevertErrorData(err);
 		const { offchainLookup, offchainLookupSignature } = await __vitePreload(async () => {
-			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-CV3lviuu.js");
+			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-BuWqI0Hq.js");
 			return {
 				offchainLookup: offchainLookup$1,
 				offchainLookupSignature: offchainLookupSignature$1
@@ -17454,7 +17454,7 @@ function publicKeyToAddress(publicKey) {
 async function recoverPublicKey({ hash: hash$3, signature }) {
 	const hashHex = isHex(hash$3) ? hash$3 : toHex(hash$3);
 	const { secp256k1: secp256k1$1 } = await __vitePreload(async () => {
-		const { secp256k1: secp256k1$2 } = await import("./secp256k1-B-fj2zlB.js");
+		const { secp256k1: secp256k1$2 } = await import("./secp256k1-_x0uWcrK.js");
 		return { secp256k1: secp256k1$2 };
 	}, __vite__mapDeps([0,1]));
 	return `0x${(() => {
@@ -22635,9 +22635,9 @@ var require_use_sync_external_store_shim_production$1 = /* @__PURE__ */ __common
 	function is$2(x$2, y$3) {
 		return x$2 === y$3 && (0 !== x$2 || 1 / x$2 === 1 / y$3) || x$2 !== x$2 && y$3 !== y$3;
 	}
-	var objectIs$2 = "function" === typeof Object.is ? Object.is : is$2, useState$26 = React$9.useState, useEffect$39 = React$9.useEffect, useLayoutEffect$7 = React$9.useLayoutEffect, useDebugValue$3 = React$9.useDebugValue;
+	var objectIs$2 = "function" === typeof Object.is ? Object.is : is$2, useState$27 = React$9.useState, useEffect$39 = React$9.useEffect, useLayoutEffect$7 = React$9.useLayoutEffect, useDebugValue$3 = React$9.useDebugValue;
 	function useSyncExternalStore$2$6(subscribe$1, getSnapshot) {
-		var value = getSnapshot(), _useState = useState$26({ inst: {
+		var value = getSnapshot(), _useState = useState$27({ inst: {
 			value,
 			getSnapshot
 		} }), inst = _useState[0].inst, forceUpdate = _useState[1];
@@ -23304,7 +23304,7 @@ function safe(parameters = {}) {
 			if (!provider_) {
 				const { default: SDK } = await (() => {
 					try {
-						return __vitePreload(() => import("./esm-BOMJe6rH.js"), __vite__mapDeps([2,3]));
+						return __vitePreload(() => import("./esm-CyLUVbDx.js"), __vite__mapDeps([2,3]));
 					} catch {
 						throw new Error("dependency \"@safe-global/safe-apps-sdk\" not found");
 					}
@@ -23315,7 +23315,7 @@ function safe(parameters = {}) {
 				provider_ = new (await ((async () => {
 					const Provider = await (() => {
 						try {
-							return __vitePreload(() => import("./dist-Bmz63One.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
+							return __vitePreload(() => import("./dist-Cglne89t.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
 						} catch {
 							throw new Error("dependency \"@safe-global/safe-apps-provider\" not found");
 						}
@@ -23480,7 +23480,7 @@ function walletConnect(parameters) {
 				if (!optionalChains.length) return;
 				const { EthereumProvider: EthereumProvider$1 } = await (() => {
 					try {
-						return __vitePreload(() => import("./dist-BlcTXDP5.js"), __vite__mapDeps([5,6,1]));
+						return __vitePreload(() => import("./dist-BMIRZDY2.js"), __vite__mapDeps([5,6,1]));
 					} catch {
 						throw new Error("dependency \"@walletconnect/ethereum-provider\" not found");
 					}
@@ -68649,9 +68649,9 @@ var require_use_sync_external_store_shim_production = /* @__PURE__ */ __commonJS
 	function is(x$2, y$3) {
 		return x$2 === y$3 && (0 !== x$2 || 1 / x$2 === 1 / y$3) || x$2 !== x$2 && y$3 !== y$3;
 	}
-	var objectIs = "function" === typeof Object.is ? Object.is : is, useState$20 = React$6.useState, useEffect$22 = React$6.useEffect, useLayoutEffect$4 = React$6.useLayoutEffect, useDebugValue$1 = React$6.useDebugValue;
+	var objectIs = "function" === typeof Object.is ? Object.is : is, useState$21 = React$6.useState, useEffect$22 = React$6.useEffect, useLayoutEffect$4 = React$6.useLayoutEffect, useDebugValue$1 = React$6.useDebugValue;
 	function useSyncExternalStore$2(subscribe$1, getSnapshot) {
-		var value = getSnapshot(), _useState = useState$20({ inst: {
+		var value = getSnapshot(), _useState = useState$21({ inst: {
 			value,
 			getSnapshot
 		} }), inst = _useState[0].inst, forceUpdate = _useState[1];
@@ -73245,7 +73245,7 @@ var ModularSwapRouter_default = {
 	]
 };
 var OneClickNoRekt_default = {
-	address: "0xd39a1e1665Ec836bd9c7B394b87e65A300a4384a",
+	address: "0x262B8C8bdc290633b2f861eAFaC83eaBD1AD8850",
 	abi: [
 		{
 			"inputs": [
@@ -73663,7 +73663,7 @@ var OneClickNoRekt_default = {
 	]
 };
 var OneClickProxy_default = {
-	address: "0xDF645a02847C3bD9A7F76DD2C095eE7743810fc6",
+	address: "0x4A07F03A2Ed4fb4025fffe6D24BdF6A719581103",
 	abi: [
 		{
 			"inputs": [{
@@ -74416,7 +74416,7 @@ var OneClickProxy_default = {
 	]
 };
 var OneClickTrading_default = {
-	address: "0x1Bd1f5B31EC2D6F224da9Bd9e6B0F11e9127Cb09",
+	address: "0xCcCBD5e6D925b219B7D70020E25Ab204c9d86496",
 	abi: [
 		{
 			"inputs": [
@@ -76683,14 +76683,14 @@ var require_classnames = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 		else window.classNames = classNames$3;
 	})();
 }));
-var import_classnames$26 = /* @__PURE__ */ __toESM(require_classnames(), 1);
-var Button$1 = ({ type = "primary", isMicro = false, isDisabled = false, className, children, ...props }) => {
+var import_classnames$27 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var Button$1 = ({ type = "primary", size: size$4 = "default", isDisabled = false, className, children, ...props }) => {
 	const isFancy = type === "fancy";
 	(0, import_react.useEffect)(() => {
 		if (isFancy) animateFancyButtons();
 	}, []);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-		className: (0, import_classnames$26.default)(className, "Button", `_${type}`, isMicro && "_micro", isFancy && "anim_fancy"),
+		className: (0, import_classnames$27.default)(className, "Button", `_${type}`, `_${size$4}`, isFancy && "anim_fancy"),
 		disabled: isDisabled,
 		...props,
 		children
@@ -78037,7 +78037,7 @@ var import_lib = /* @__PURE__ */ __toESM((/* @__PURE__ */ __commonJSMin(((export
 	exports.default = _Modal2.default;
 	module.exports = exports["default"];
 })))(), 1);
-var import_classnames$25 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$26 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 import_lib.default.setAppElement("#root");
 import_lib.default.defaultStyles = {};
 var TRANSITION_DURATION = 300;
@@ -78051,7 +78051,7 @@ var Modal = ({ isOpen, setIsOpen, isObligatory = false, reset = () => {}, classN
 		setIsOpen(false);
 	};
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_lib.default, {
-		className: (0, import_classnames$25.default)(isScrollable && "_scrollable"),
+		className: (0, import_classnames$26.default)(isScrollable && "_scrollable"),
 		isOpen,
 		shouldCloseOnOverlayClick: false,
 		onRequestClose: closeModal,
@@ -78070,7 +78070,7 @@ var Modal = ({ isOpen, setIsOpen, isObligatory = false, reset = () => {}, classN
 			children: contentElement
 		}),
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-			className: (0, import_classnames$25.default)(className, "ReactModal__box", "box"),
+			className: (0, import_classnames$26.default)(className, "ReactModal__box", "box"),
 			onMouseDown: (e$2) => e$2.stopPropagation(),
 			children
 		}), !isObligatory && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
@@ -78084,7 +78084,7 @@ var Modal_default = Modal;
 var confirm_default = "data:image/svg+xml,%3csvg%20width='40'%20height='40'%20viewBox='0%200%2040%2040'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_284_1636)'%3e%3ccircle%20cx='20'%20cy='20'%20r='20'%20fill='%23112540'/%3e%3cpath%20d='M11%2019.9333L17%2026L29%2013'%20stroke='%2309AF8E'%20stroke-width='3'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_284_1636'%3e%3crect%20width='40'%20height='40'%20fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e";
 var error_default = "data:image/svg+xml,%3csvg%20width='40'%20height='40'%20viewBox='0%200%2040%2040'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_1129_5414)'%3e%3ccircle%20cx='20'%20cy='20'%20r='20'%20fill='%23361536'/%3e%3cpath%20d='M21.4969%2020L25.6868%2015.8101C25.8856%2015.6116%2025.9975%2015.3422%2025.9977%2015.0613C25.998%2014.7803%2025.8866%2014.5107%2025.6881%2014.3119C25.4896%2014.113%2025.2202%2014.0012%2024.9393%2014.0009C24.6583%2014.0007%2024.3887%2014.1121%2024.1899%2014.3106L20%2018.5005L15.8101%2014.3106C15.6113%2014.1117%2015.3416%2014%2015.0603%2014C14.7791%2014%2014.5094%2014.1117%2014.3106%2014.3106C14.1117%2014.5094%2014%2014.7791%2014%2015.0603C14%2015.3416%2014.1117%2015.6113%2014.3106%2015.8101L18.5005%2020L14.3106%2024.1899C14.1117%2024.3887%2014%2024.6584%2014%2024.9397C14%2025.2209%2014.1117%2025.4906%2014.3106%2025.6894C14.5094%2025.8883%2014.7791%2026%2015.0603%2026C15.3416%2026%2015.6113%2025.8883%2015.8101%2025.6894L20%2021.4995L24.1899%2025.6894C24.3887%2025.8883%2024.6584%2026%2024.9397%2026C25.2209%2026%2025.4906%2025.8883%2025.6894%2025.6894C25.8883%2025.4906%2026%2025.2209%2026%2024.9397C26%2024.6584%2025.8883%2024.3887%2025.6894%2024.1899L21.4969%2020Z'%20fill='%23D8563C'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_1129_5414'%3e%3crect%20width='40'%20height='40'%20fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e";
 var tick_default = "data:image/svg+xml,%3csvg%20width='12'%20height='10'%20viewBox='0%200%2012%2010'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M1%205.26667L4.33333%209L11%201'%20stroke='white'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3c/svg%3e";
-var import_classnames$24 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$25 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var TxModal = ({ isOpen, setIsOpen, reset = () => {}, txResult, setTxResult, className, children }) => {
 	const closeModal = () => setIsOpen(false);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Modal_default, {
@@ -78107,7 +78107,7 @@ var TxResult = ({ result, closeModal }) => {
 	const txUrl = hash$3 ? getTxUrl(chainId, hash$3) : "";
 	const hashStr = hash$3 ? hash$3.slice(0, 5) + "..." + hash$3.slice(-4) : "";
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: (0, import_classnames$24.default)("Modal__tx-result", error && "_error"),
+		className: (0, import_classnames$25.default)("Modal__tx-result", error && "_error"),
 		children: [
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 				className: "Modal__tx-result-icon",
@@ -78162,7 +78162,7 @@ var CopyButton = ({ error }) => {
 		setTimeout(() => setIsCopied(false), 2 * SECOND);
 	};
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
-		className: (0, import_classnames$24.default)("Modal__tx-result-button", isCopied && "_copied"),
+		className: (0, import_classnames$25.default)("Modal__tx-result-button", isCopied && "_copied"),
 		onClick: handleClick,
 		children: isCopied ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: ["Copied", /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
 			src: tick_default,
@@ -78171,6 +78171,14 @@ var CopyButton = ({ error }) => {
 	});
 };
 var TxModal_default = TxModal;
+var import_classnames$24 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var List = ({ type = "tick", children }) => {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("ul", {
+		className: (0, import_classnames$24.default)("List", `_${type}`),
+		children
+	});
+};
+var List_default = List;
 var CreateAccountModal = ({ isOpen, setIsOpen }) => {
 	const { createAccount } = useProtocolActions_default();
 	const [isSubmitting, setIsSubmitting] = (0, import_react.useState)(false);
@@ -78211,16 +78219,7 @@ var CreateAccountModal = ({ isOpen, setIsOpen }) => {
 				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 					className: "CreateAccountModal__info-title",
 					children: "What you can do with a lending account:"
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("ul", {
-					className: "CreateAccountModal__info-list text",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("li", {
-						className: "CreateAccountModal__info-point",
-						children: "Borrow USDC at up to 90% LTV using ETH as collateral"
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("li", {
-						className: "CreateAccountModal__info-point",
-						children: "Avoid liquidation risk by using NoRekt protection"
-					})]
-				})]
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(List_default, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("li", { children: "Borrow USDC at up to 90% LTV using ETH as collateral" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("li", { children: "Avoid liquidation risk by using NoRekt protection" })] })]
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
 				className: "CreateAccountModal__button",
@@ -79069,7 +79068,7 @@ var Input$2 = ({ setValue, valueStrState = void 0, maxData = void 0, placeholder
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
 					className: "Input__max-button",
-					isMicro: true,
+					size: "micro",
 					onClick: setMaxValue,
 					children: "Max"
 				})
@@ -81919,8 +81918,8 @@ var Slippage = () => {
 		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 			className: "Slippage__button",
 			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
-				isMicro: true,
 				type: isFocused ? "secondary" : "primary",
+				size: "micro",
 				onClick: () => {
 					if (!isFocused && !isFocusBlocked) inputRef.current.focus();
 				},
@@ -82243,6 +82242,17 @@ var Metrics = ({ repayAmount, paymentMethod }) => {
 	] });
 };
 var RepayModal_default = RepayModal;
+var ProtectionModal = ({ isOpen, setIsOpen }) => {
+	const [txResult, setTxResult] = (0, import_react.useState)(void 0);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TxInputModal_default, {
+		className: "ProtectionModal",
+		isOpen,
+		setIsOpen,
+		txResult,
+		setTxResult
+	});
+};
+var ProtectionModal_default = ProtectionModal;
 var _DashboardContext = (0, import_react.createContext)(null);
 var DashboardContext = ({ children }) => {
 	const [isCreateModalOpen, setIsCreateModalOpen] = (0, import_react.useState)(false);
@@ -82250,6 +82260,7 @@ var DashboardContext = ({ children }) => {
 	const [isWithdrawModalOpen, setIsWithdrawModalOpen] = (0, import_react.useState)(false);
 	const [isBorrowModalOpen, setIsBorrowModalOpen] = (0, import_react.useState)(false);
 	const [isRepayModalOpen, setIsRepayModalOpen] = (0, import_react.useState)(false);
+	const [isProtectionModalOpen, setIsProtectionModalOpen] = (0, import_react.useState)(false);
 	const data = {
 		isCreateModalOpen,
 		setIsCreateModalOpen,
@@ -82265,7 +82276,10 @@ var DashboardContext = ({ children }) => {
 		openBorrowModal: () => setIsBorrowModalOpen(true),
 		isRepayModalOpen,
 		setIsRepayModalOpen,
-		openRepayModal: () => setIsRepayModalOpen(true)
+		openRepayModal: () => setIsRepayModalOpen(true),
+		isProtectionModalOpen,
+		setIsProtectionModalOpen,
+		openProtectionModal: () => setIsProtectionModalOpen(true)
 	};
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(_DashboardContext.Provider, {
 		value: data,
@@ -82290,6 +82304,10 @@ var DashboardContext = ({ children }) => {
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(RepayModal_default, {
 				isOpen: isRepayModalOpen,
 				setIsOpen: setIsRepayModalOpen
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProtectionModal_default, {
+				isOpen: isProtectionModalOpen,
+				setIsOpen: setIsProtectionModalOpen
 			})
 		]
 	});
@@ -83380,9 +83398,9 @@ var jsx = function jsx$4(type, props) {
 	for (var i$3 = 2; i$3 < argsLength; i$3++) createElementArgArray[i$3] = args[i$3];
 	return import_react.createElement.apply(null, createElementArgArray);
 };
-(function(_jsx$59) {
+(function(_jsx$64) {
 	var JSX;
-	(function(_JSX) {})(JSX || (JSX = _jsx$59.JSX || (_jsx$59.JSX = {})));
+	(function(_JSX) {})(JSX || (JSX = _jsx$64.JSX || (_jsx$64.JSX = {})));
 })(jsx || (jsx = {}));
 function css$2() {
 	for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) args[_key] = arguments[_key];
@@ -83757,10 +83775,10 @@ var cleanCommonProps = function cleanCommonProps$1(props) {
 	return _objectSpread2({}, _objectWithoutProperties(props, _excluded$4));
 };
 var getStyleProps = function getStyleProps$1(props, name, classNamesState) {
-	var cx$21 = props.cx, getStyles = props.getStyles, getClassNames = props.getClassNames, className = props.className;
+	var cx$22 = props.cx, getStyles = props.getStyles, getClassNames = props.getClassNames, className = props.className;
 	return {
 		css: getStyles(name, props),
-		className: cx$21(classNamesState !== null && classNamesState !== void 0 ? classNamesState : {}, getClassNames(name, props), className)
+		className: cx$22(classNamesState !== null && classNamesState !== void 0 ? classNamesState : {}, getClassNames(name, props), className)
 	};
 };
 function isDocumentElement(el) {
@@ -84359,13 +84377,13 @@ var groupCSS = function groupCSS$1(_ref$1, unstyled) {
 	};
 };
 var Group = function Group$2(props) {
-	var children = props.children, cx$21 = props.cx, getStyles = props.getStyles, getClassNames = props.getClassNames, Heading = props.Heading, headingProps = props.headingProps, innerProps = props.innerProps, label = props.label, theme = props.theme, selectProps = props.selectProps;
+	var children = props.children, cx$22 = props.cx, getStyles = props.getStyles, getClassNames = props.getClassNames, Heading = props.Heading, headingProps = props.headingProps, innerProps = props.innerProps, label = props.label, theme = props.theme, selectProps = props.selectProps;
 	return jsx("div", _extends({}, getStyleProps(props, "group", { group: true }), innerProps), jsx(Heading, _extends({}, headingProps, {
 		selectProps,
 		theme,
 		getStyles,
 		getClassNames,
-		cx: cx$21
+		cx: cx$22
 	}), label), jsx("div", null, children));
 };
 var groupHeadingCSS = function groupHeadingCSS$1(_ref2$3, unstyled) {
@@ -84439,10 +84457,10 @@ var inputStyle = function inputStyle$1(isHidden) {
 	}, spacingStyle);
 };
 var Input$1 = function Input$3(props) {
-	var cx$21 = props.cx, value = props.value;
+	var cx$22 = props.cx, value = props.value;
 	var _cleanCommonProps = cleanCommonProps(props), innerRef = _cleanCommonProps.innerRef, isDisabled = _cleanCommonProps.isDisabled, isHidden = _cleanCommonProps.isHidden, inputClassName = _cleanCommonProps.inputClassName, innerProps = _objectWithoutProperties(_cleanCommonProps, _excluded$5);
 	return jsx("div", _extends({}, getStyleProps(props, "input", { "input-container": true }), { "data-value": value || "" }), jsx("input", _extends({
-		className: cx$21({ input: true }, inputClassName),
+		className: cx$22({ input: true }, inputClassName),
 		ref: innerRef,
 		style: inputStyle(isHidden),
 		disabled: isDisabled
@@ -86265,11 +86283,11 @@ var Select = /* @__PURE__ */ function(_Component) {
 		{
 			key: "getCommonProps",
 			value: function getCommonProps() {
-				var clearValue = this.clearValue, cx$21 = this.cx, getStyles = this.getStyles, getClassNames = this.getClassNames, getValue$2 = this.getValue, selectOption = this.selectOption, setValue = this.setValue, props = this.props;
+				var clearValue = this.clearValue, cx$22 = this.cx, getStyles = this.getStyles, getClassNames = this.getClassNames, getValue$2 = this.getValue, selectOption = this.selectOption, setValue = this.setValue, props = this.props;
 				var isMulti = props.isMulti, isRtl = props.isRtl, options$2 = props.options;
 				return {
 					clearValue,
-					cx: cx$21,
+					cx: cx$22,
 					getStyles,
 					getClassNames,
 					getValue: getValue$2,
@@ -87049,10 +87067,12 @@ var Mobile = ({ data, btnsData }) => {
 var Buttons = ({ btnsData }) => {
 	const { primary, secondary } = btnsData;
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
+		size: "small",
 		onClick: primary.handleClick,
 		children: primary.name
 	}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
 		type: "secondary",
+		size: "small",
 		onClick: secondary.handleClick,
 		isDisabled: secondary.isDisabled,
 		children: secondary.name
