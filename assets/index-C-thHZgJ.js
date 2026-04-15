@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-_x0uWcrK.js","assets/secp256k1-DDb0Ha9b.js","assets/esm-CyLUVbDx.js","assets/dist-7ZlwWSYf.js","assets/dist-Cglne89t.js","assets/dist-BMIRZDY2.js","assets/index.es-DZEzfUZr.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-C8gFiL0W.js","assets/secp256k1-CiEiaRI8.js","assets/esm-Bnve6bZx.js","assets/dist-Bjh7MmKs.js","assets/dist-CzrjFZgK.js","assets/dist-CdkASfyn.js","assets/index.es-B6JLj1pK.js"])))=>i.map(i=>d[i]);
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -140,8 +140,8 @@ var require_react_production = /* @__PURE__ */ __commonJSMin(((exports) => {
 			"=": "=0",
 			":": "=2"
 		};
-		return "$" + key.replace(/[=:]/g, function(match$1) {
-			return escaperLookup[match$1];
+		return "$" + key.replace(/[=:]/g, function(match$2) {
+			return escaperLookup[match$2];
 		});
 	}
 	var userProvidedKeyEscapeRegex = /\/+/g;
@@ -1047,8 +1047,8 @@ var require_react_dom_client_production = /* @__PURE__ */ __commonJSMin(((export
 		if (void 0 === prefix$2) try {
 			throw Error();
 		} catch (x$2) {
-			var match$1 = x$2.stack.trim().match(/\n( *(at )?)/);
-			prefix$2 = match$1 && match$1[1] || "";
+			var match$2 = x$2.stack.trim().match(/\n( *(at )?)/);
+			prefix$2 = match$2 && match$2[1] || "";
 			suffix = -1 < x$2.stack.indexOf("\n    at") ? " (<anonymous>)" : -1 < x$2.stack.indexOf("@") ? "@unknown:0:0" : "";
 		}
 		return "\n" + prefix$2 + name + suffix;
@@ -12383,7 +12383,7 @@ var BaseError$3 = class BaseError$3 extends Error {
 			...args,
 			docsPath: docsPath$5
 		});
-		const message = [
+		const message$1 = [
 			shortMessage || "An error occurred.",
 			"",
 			...args.metaMessages ? [...args.metaMessages, ""] : [],
@@ -12391,7 +12391,7 @@ var BaseError$3 = class BaseError$3 extends Error {
 			...details ? [`Details: ${details}`] : [],
 			...errorConfig.version ? [`Version: ${errorConfig.version}`] : []
 		].join("\n");
-		super(message, args.cause ? { cause: args.cause } : void 0);
+		super(message$1, args.cause ? { cause: args.cause } : void 0);
 		Object.defineProperty(this, "details", {
 			enumerable: true,
 			configurable: true,
@@ -12638,8 +12638,8 @@ var InvalidDefinitionTypeError = class extends BaseError$3 {
 	}
 };
 var InvalidAddressError = class extends BaseError$3 {
-	constructor({ address: address$9 }) {
-		super(`Address "${address$9}" is invalid.`, {
+	constructor({ address: address$10 }) {
+		super(`Address "${address$10}" is invalid.`, {
 			metaMessages: ["- Address must be a hex value of 20 bytes (40 hex characters).", "- Address must match its checksum counterpart."],
 			name: "InvalidAddressError"
 		});
@@ -13179,14 +13179,14 @@ var LruMap = class extends Map {
 };
 var addressRegex = /^0x[a-fA-F0-9]{40}$/;
 const isAddressCache = /* @__PURE__ */ new LruMap(8192);
-function isAddress(address$9, options$2) {
+function isAddress(address$10, options$2) {
 	const { strict = true } = options$2 ?? {};
-	const cacheKey$1 = `${address$9}.${strict}`;
+	const cacheKey$1 = `${address$10}.${strict}`;
 	if (isAddressCache.has(cacheKey$1)) return isAddressCache.get(cacheKey$1);
 	const result = (() => {
-		if (!addressRegex.test(address$9)) return false;
-		if (address$9.toLowerCase() === address$9) return true;
-		if (strict) return checksumAddress(address$9) === address$9;
+		if (!addressRegex.test(address$10)) return false;
+		if (address$10.toLowerCase() === address$10) return true;
+		if (strict) return checksumAddress(address$10) === address$10;
 		return true;
 	})();
 	isAddressCache.set(cacheKey$1, result);
@@ -13197,18 +13197,18 @@ function checksumAddress(address_, chainId) {
 	if (checksumAddressCache.has(`${address_}.${chainId}`)) return checksumAddressCache.get(`${address_}.${chainId}`);
 	const hexAddress = chainId ? `${chainId}${address_.toLowerCase()}` : address_.substring(2).toLowerCase();
 	const hash$3 = keccak256$1(stringToBytes(hexAddress), "bytes");
-	const address$9 = (chainId ? hexAddress.substring(`${chainId}0x`.length) : hexAddress).split("");
+	const address$10 = (chainId ? hexAddress.substring(`${chainId}0x`.length) : hexAddress).split("");
 	for (let i$3 = 0; i$3 < 40; i$3 += 2) {
-		if (hash$3[i$3 >> 1] >> 4 >= 8 && address$9[i$3]) address$9[i$3] = address$9[i$3].toUpperCase();
-		if ((hash$3[i$3 >> 1] & 15) >= 8 && address$9[i$3 + 1]) address$9[i$3 + 1] = address$9[i$3 + 1].toUpperCase();
+		if (hash$3[i$3 >> 1] >> 4 >= 8 && address$10[i$3]) address$10[i$3] = address$10[i$3].toUpperCase();
+		if ((hash$3[i$3 >> 1] & 15) >= 8 && address$10[i$3 + 1]) address$10[i$3 + 1] = address$10[i$3 + 1].toUpperCase();
 	}
-	const result = `0x${address$9.join("")}`;
+	const result = `0x${address$10.join("")}`;
 	checksumAddressCache.set(`${address_}.${chainId}`, result);
 	return result;
 }
-function getAddress$1(address$9, chainId) {
-	if (!isAddress(address$9, { strict: false })) throw new InvalidAddressError({ address: address$9 });
-	return checksumAddress(address$9, chainId);
+function getAddress$1(address$10, chainId) {
+	if (!isAddress(address$10, { strict: false })) throw new InvalidAddressError({ address: address$10 });
+	return checksumAddress(address$10, chainId);
 }
 var NegativeOffsetError = class extends BaseError$3 {
 	constructor({ offset: offset$1 }) {
@@ -13819,7 +13819,7 @@ var BaseError$5 = class BaseError$5 extends Error {
 	constructor(shortMessage, args = {}) {
 		const details = args.cause instanceof BaseError$5 ? args.cause.details : args.cause?.message ? args.cause.message : args.details;
 		const docsPath$5 = args.cause instanceof BaseError$5 ? args.cause.docsPath || args.docsPath : args.docsPath;
-		const message = [
+		const message$1 = [
 			shortMessage || "An error occurred.",
 			"",
 			...args.metaMessages ? [...args.metaMessages, ""] : [],
@@ -13827,7 +13827,7 @@ var BaseError$5 = class BaseError$5 extends Error {
 			...details ? [`Details: ${details}`] : [],
 			`Version: abitype@${version$6}`
 		].join("\n");
-		super(message);
+		super(message$1);
 		Object.defineProperty(this, "details", {
 			enumerable: true,
 			configurable: true,
@@ -14283,12 +14283,12 @@ function parseSignature(signature, structs = {}) {
 	throw new UnknownSignatureError({ signature });
 }
 function parseFunctionSignature(signature, structs = {}) {
-	const match$1 = execFunctionSignature(signature);
-	if (!match$1) throw new InvalidSignatureError({
+	const match$2 = execFunctionSignature(signature);
+	if (!match$2) throw new InvalidSignatureError({
 		signature,
 		type: "function"
 	});
-	const inputParams = splitParameters(match$1.parameters);
+	const inputParams = splitParameters(match$2.parameters);
 	const inputs = [];
 	const inputLength = inputParams.length;
 	for (let i$3 = 0; i$3 < inputLength; i$3++) inputs.push(parseAbiParameter(inputParams[i$3], {
@@ -14297,8 +14297,8 @@ function parseFunctionSignature(signature, structs = {}) {
 		type: "function"
 	}));
 	const outputs = [];
-	if (match$1.returns) {
-		const outputParams = splitParameters(match$1.returns);
+	if (match$2.returns) {
+		const outputParams = splitParameters(match$2.returns);
 		const outputLength = outputParams.length;
 		for (let i$3 = 0; i$3 < outputLength; i$3++) outputs.push(parseAbiParameter(outputParams[i$3], {
 			modifiers: functionModifiers,
@@ -14307,20 +14307,20 @@ function parseFunctionSignature(signature, structs = {}) {
 		}));
 	}
 	return {
-		name: match$1.name,
+		name: match$2.name,
 		type: "function",
-		stateMutability: match$1.stateMutability ?? "nonpayable",
+		stateMutability: match$2.stateMutability ?? "nonpayable",
 		inputs,
 		outputs
 	};
 }
 function parseEventSignature(signature, structs = {}) {
-	const match$1 = execEventSignature(signature);
-	if (!match$1) throw new InvalidSignatureError({
+	const match$2 = execEventSignature(signature);
+	if (!match$2) throw new InvalidSignatureError({
 		signature,
 		type: "event"
 	});
-	const params = splitParameters(match$1.parameters);
+	const params = splitParameters(match$2.parameters);
 	const abiParameters = [];
 	const length$1 = params.length;
 	for (let i$3 = 0; i$3 < length$1; i$3++) abiParameters.push(parseAbiParameter(params[i$3], {
@@ -14329,18 +14329,18 @@ function parseEventSignature(signature, structs = {}) {
 		type: "event"
 	}));
 	return {
-		name: match$1.name,
+		name: match$2.name,
 		type: "event",
 		inputs: abiParameters
 	};
 }
 function parseErrorSignature(signature, structs = {}) {
-	const match$1 = execErrorSignature(signature);
-	if (!match$1) throw new InvalidSignatureError({
+	const match$2 = execErrorSignature(signature);
+	if (!match$2) throw new InvalidSignatureError({
 		signature,
 		type: "error"
 	});
-	const params = splitParameters(match$1.parameters);
+	const params = splitParameters(match$2.parameters);
 	const abiParameters = [];
 	const length$1 = params.length;
 	for (let i$3 = 0; i$3 < length$1; i$3++) abiParameters.push(parseAbiParameter(params[i$3], {
@@ -14348,18 +14348,18 @@ function parseErrorSignature(signature, structs = {}) {
 		type: "error"
 	}));
 	return {
-		name: match$1.name,
+		name: match$2.name,
 		type: "error",
 		inputs: abiParameters
 	};
 }
 function parseConstructorSignature(signature, structs = {}) {
-	const match$1 = execConstructorSignature(signature);
-	if (!match$1) throw new InvalidSignatureError({
+	const match$2 = execConstructorSignature(signature);
+	if (!match$2) throw new InvalidSignatureError({
 		signature,
 		type: "constructor"
 	});
-	const params = splitParameters(match$1.parameters);
+	const params = splitParameters(match$2.parameters);
 	const abiParameters = [];
 	const length$1 = params.length;
 	for (let i$3 = 0; i$3 < length$1; i$3++) abiParameters.push(parseAbiParameter(params[i$3], {
@@ -14368,19 +14368,19 @@ function parseConstructorSignature(signature, structs = {}) {
 	}));
 	return {
 		type: "constructor",
-		stateMutability: match$1.stateMutability ?? "nonpayable",
+		stateMutability: match$2.stateMutability ?? "nonpayable",
 		inputs: abiParameters
 	};
 }
 function parseFallbackSignature(signature) {
-	const match$1 = execFallbackSignature(signature);
-	if (!match$1) throw new InvalidSignatureError({
+	const match$2 = execFallbackSignature(signature);
+	if (!match$2) throw new InvalidSignatureError({
 		signature,
 		type: "fallback"
 	});
 	return {
 		type: "fallback",
-		stateMutability: match$1.stateMutability ?? "nonpayable"
+		stateMutability: match$2.stateMutability ?? "nonpayable"
 	};
 }
 var abiParameterWithoutTupleRegex = /^(?<type>[a-zA-Z$_][a-zA-Z0-9$_]*(?:\spayable)?)(?<array>(?:\[\d*?\])+?)?(?:\s(?<modifier>calldata|indexed|memory|storage{1}))?(?:\s(?<name>[a-zA-Z$_][a-zA-Z0-9$_]*))?$/;
@@ -14390,47 +14390,47 @@ function parseAbiParameter(param, options$2) {
 	const parameterCacheKey = getParameterCacheKey(param, options$2?.type, options$2?.structs);
 	if (parameterCache.has(parameterCacheKey)) return parameterCache.get(parameterCacheKey);
 	const isTuple = isTupleRegex.test(param);
-	const match$1 = execTyped(isTuple ? abiParameterWithTupleRegex : abiParameterWithoutTupleRegex, param);
-	if (!match$1) throw new InvalidParameterError({ param });
-	if (match$1.name && isSolidityKeyword(match$1.name)) throw new SolidityProtectedKeywordError({
+	const match$2 = execTyped(isTuple ? abiParameterWithTupleRegex : abiParameterWithoutTupleRegex, param);
+	if (!match$2) throw new InvalidParameterError({ param });
+	if (match$2.name && isSolidityKeyword(match$2.name)) throw new SolidityProtectedKeywordError({
 		param,
-		name: match$1.name
+		name: match$2.name
 	});
-	const name = match$1.name ? { name: match$1.name } : {};
-	const indexed = match$1.modifier === "indexed" ? { indexed: true } : {};
+	const name = match$2.name ? { name: match$2.name } : {};
+	const indexed = match$2.modifier === "indexed" ? { indexed: true } : {};
 	const structs = options$2?.structs ?? {};
 	let type;
 	let components$1 = {};
 	if (isTuple) {
 		type = "tuple";
-		const params = splitParameters(match$1.type);
+		const params = splitParameters(match$2.type);
 		const components_ = [];
 		const length$1 = params.length;
 		for (let i$3 = 0; i$3 < length$1; i$3++) components_.push(parseAbiParameter(params[i$3], { structs }));
 		components$1 = { components: components_ };
-	} else if (match$1.type in structs) {
+	} else if (match$2.type in structs) {
 		type = "tuple";
-		components$1 = { components: structs[match$1.type] };
-	} else if (dynamicIntegerRegex.test(match$1.type)) type = `${match$1.type}256`;
-	else if (match$1.type === "address payable") type = "address";
+		components$1 = { components: structs[match$2.type] };
+	} else if (dynamicIntegerRegex.test(match$2.type)) type = `${match$2.type}256`;
+	else if (match$2.type === "address payable") type = "address";
 	else {
-		type = match$1.type;
+		type = match$2.type;
 		if (!(options$2?.type === "struct") && !isSolidityType(type)) throw new UnknownSolidityTypeError({ type });
 	}
-	if (match$1.modifier) {
-		if (!options$2?.modifiers?.has?.(match$1.modifier)) throw new InvalidModifierError({
+	if (match$2.modifier) {
+		if (!options$2?.modifiers?.has?.(match$2.modifier)) throw new InvalidModifierError({
 			param,
 			type: options$2?.type,
-			modifier: match$1.modifier
+			modifier: match$2.modifier
 		});
-		if (functionModifiers.has(match$1.modifier) && !isValidDataLocation(type, !!match$1.array)) throw new InvalidFunctionModifierError({
+		if (functionModifiers.has(match$2.modifier) && !isValidDataLocation(type, !!match$2.array)) throw new InvalidFunctionModifierError({
 			param,
 			type: options$2?.type,
-			modifier: match$1.modifier
+			modifier: match$2.modifier
 		});
 	}
 	const abiParameter = {
-		type: `${type}${match$1.array ?? ""}`,
+		type: `${type}${match$2.array ?? ""}`,
 		...name,
 		...indexed,
 		...components$1
@@ -14474,12 +14474,12 @@ function parseStructs(signatures) {
 	for (let i$3 = 0; i$3 < signaturesLength; i$3++) {
 		const signature = signatures[i$3];
 		if (!isStructSignature(signature)) continue;
-		const match$1 = execStructSignature(signature);
-		if (!match$1) throw new InvalidSignatureError({
+		const match$2 = execStructSignature(signature);
+		if (!match$2) throw new InvalidSignatureError({
 			signature,
 			type: "struct"
 		});
-		const properties = match$1.properties.split(";");
+		const properties = match$2.properties.split(";");
 		const components$1 = [];
 		const propertiesLength = properties.length;
 		for (let k$3 = 0; k$3 < propertiesLength; k$3++) {
@@ -14489,7 +14489,7 @@ function parseStructs(signatures) {
 			components$1.push(abiParameter);
 		}
 		if (!components$1.length) throw new InvalidStructSignatureError({ signature });
-		shallowStructs[match$1.name] = components$1;
+		shallowStructs[match$2.name] = components$1;
 	}
 	const resolvedStructs = {};
 	const entries = Object.entries(shallowStructs);
@@ -14508,9 +14508,9 @@ function resolveStructs(abiParameters = [], structs = {}, ancestors = /* @__PURE
 		const abiParameter = abiParameters[i$3];
 		if (isTupleRegex.test(abiParameter.type)) components$1.push(abiParameter);
 		else {
-			const match$1 = execTyped(typeWithoutTupleRegex, abiParameter.type);
-			if (!match$1?.type) throw new InvalidAbiTypeParameterError({ abiParameter });
-			const { array, type } = match$1;
+			const match$2 = execTyped(typeWithoutTupleRegex, abiParameter.type);
+			if (!match$2?.type) throw new InvalidAbiTypeParameterError({ abiParameter });
+			const { array, type } = match$2;
 			if (type in structs) {
 				if (ancestors.has(type)) throw new CircularReferenceError({ type });
 				components$1.push({
@@ -14526,14 +14526,14 @@ function resolveStructs(abiParameters = [], structs = {}, ancestors = /* @__PURE
 }
 function parseAbi(signatures) {
 	const structs = parseStructs(signatures);
-	const abi$9 = [];
+	const abi$10 = [];
 	const length$1 = signatures.length;
 	for (let i$3 = 0; i$3 < length$1; i$3++) {
 		const signature = signatures[i$3];
 		if (isStructSignature(signature)) continue;
-		abi$9.push(parseSignature(signature, structs));
+		abi$10.push(parseSignature(signature, structs));
 	}
-	return abi$9;
+	return abi$10;
 }
 function normalizeSignature(signature) {
 	let active = true;
@@ -14591,9 +14591,9 @@ function toSignatureHash(fn) {
 const toEventSelector = toSignatureHash;
 const toFunctionSelector = (fn) => slice$1(toSignatureHash(fn), 0, 4);
 function getAbiItem(parameters) {
-	const { abi: abi$9, args = [], name } = parameters;
+	const { abi: abi$10, args = [], name } = parameters;
 	const isSelector = isHex(name, { strict: false });
-	const abiItems = abi$9.filter((abiItem) => {
+	const abiItems = abi$10.filter((abiItem) => {
 		if (isSelector) {
 			if (abiItem.type === "function") return toFunctionSelector(abiItem) === name;
 			if (abiItem.type === "event") return toEventSelector(abiItem) === name;
@@ -14671,11 +14671,11 @@ function getAmbiguousTypes(sourceParameters, targetParameters, args) {
 }
 var docsPath$4 = "/docs/contract/decodeFunctionResult";
 function decodeFunctionResult(parameters) {
-	const { abi: abi$9, args, functionName, data } = parameters;
-	let abiItem = abi$9[0];
+	const { abi: abi$10, args, functionName, data } = parameters;
+	let abiItem = abi$10[0];
 	if (functionName) {
 		const item = getAbiItem({
-			abi: abi$9,
+			abi: abi$10,
 			args,
 			name: functionName
 		});
@@ -14690,11 +14690,11 @@ function decodeFunctionResult(parameters) {
 }
 var docsPath$3 = "/docs/contract/encodeFunctionData";
 function prepareEncodeFunctionData(parameters) {
-	const { abi: abi$9, args, functionName } = parameters;
-	let abiItem = abi$9[0];
+	const { abi: abi$10, args, functionName } = parameters;
+	let abiItem = abi$10[0];
 	if (functionName) {
 		const item = getAbiItem({
-			abi: abi$9,
+			abi: abi$10,
 			args,
 			name: functionName
 		});
@@ -14709,11 +14709,11 @@ function prepareEncodeFunctionData(parameters) {
 }
 function encodeFunctionData(parameters) {
 	const { args } = parameters;
-	const { abi: abi$9, functionName } = (() => {
+	const { abi: abi$10, functionName } = (() => {
 		if (parameters.abi.length === 1 && parameters.functionName?.startsWith("0x")) return parameters;
 		return prepareEncodeFunctionData(parameters);
 	})();
-	const abiItem = abi$9[0];
+	const abiItem = abi$10[0];
 	return concatHex([functionName, ("inputs" in abiItem && abiItem.inputs ? encodeAbiParameters(abiItem.inputs, args ?? []) : void 0) ?? "0x"]);
 }
 var ChainDoesNotSupportContract = class extends BaseError$3 {
@@ -14798,11 +14798,11 @@ const solidityPanic = {
 	type: "error"
 };
 function decodeErrorResult(parameters) {
-	const { abi: abi$9, data, cause } = parameters;
+	const { abi: abi$10, data, cause } = parameters;
 	const signature = slice$1(data, 0, 4);
 	if (signature === "0x") throw new AbiDecodingZeroDataError({ cause });
 	const abiItem = [
-		...abi$9 || [],
+		...abi$10 || [],
 		solidityError,
 		solidityPanic
 	].find((x$2) => x$2.type === "error" && signature === toFunctionSelector(formatAbiItem(x$2)));
@@ -14850,8 +14850,8 @@ function formatGwei(wei, unit = "wei") {
 	return formatUnits$1(wei, gweiUnits[unit]);
 }
 var AccountStateConflictError = class extends BaseError$3 {
-	constructor({ address: address$9 }) {
-		super(`State for account "${address$9}" is set multiple times.`, { name: "AccountStateConflictError" });
+	constructor({ address: address$10 }) {
+		super(`State for account "${address$10}" is set multiple times.`, { name: "AccountStateConflictError" });
 	}
 };
 var StateAssignmentConflictError = class extends BaseError$3 {
@@ -14865,8 +14865,8 @@ function prettyStateMapping(stateMapping) {
 	}, "");
 }
 function prettyStateOverride(stateOverride) {
-	return stateOverride.reduce((pretty, { address: address$9, ...state }) => {
-		let val = `${pretty}    ${address$9}:\n`;
+	return stateOverride.reduce((pretty, { address: address$10, ...state }) => {
+		let val = `${pretty}    ${address$10}:\n`;
 		if (state.nonce) val += `      nonce: ${state.nonce}\n`;
 		if (state.balance) val += `      balance: ${state.balance}\n`;
 		if (state.code) val += `      code: ${state.code}\n`;
@@ -14994,7 +14994,7 @@ var WaitForTransactionReceiptTimeoutError = class extends BaseError$3 {
 		super(`Timed out while waiting for transaction with hash "${hash$3}" to be confirmed.`, { name: "WaitForTransactionReceiptTimeoutError" });
 	}
 };
-const getContractAddress = (address$9) => address$9;
+const getContractAddress = (address$10) => address$10;
 const getUrl = (url) => url;
 var CallExecutionError = class extends BaseError$3 {
 	constructor(cause, { account: account_, docsPath: docsPath$5, chain, data, gas, gasPrice, maxFeePerGas, maxPriorityFeePerGas, nonce, to: to$1, value, stateOverride }) {
@@ -15030,9 +15030,9 @@ var CallExecutionError = class extends BaseError$3 {
 	}
 };
 var ContractFunctionExecutionError = class extends BaseError$3 {
-	constructor(cause, { abi: abi$9, args, contractAddress, docsPath: docsPath$5, functionName, sender }) {
+	constructor(cause, { abi: abi$10, args, contractAddress, docsPath: docsPath$5, functionName, sender }) {
 		const abiItem = getAbiItem({
-			abi: abi$9,
+			abi: abi$10,
 			args,
 			name: functionName
 		});
@@ -15101,7 +15101,7 @@ var ContractFunctionExecutionError = class extends BaseError$3 {
 			writable: true,
 			value: void 0
 		});
-		this.abi = abi$9;
+		this.abi = abi$10;
 		this.args = args;
 		this.cause = cause;
 		this.contractAddress = contractAddress;
@@ -15110,14 +15110,14 @@ var ContractFunctionExecutionError = class extends BaseError$3 {
 	}
 };
 var ContractFunctionRevertedError = class extends BaseError$3 {
-	constructor({ abi: abi$9, data, functionName, message, cause: error }) {
+	constructor({ abi: abi$10, data, functionName, message: message$1, cause: error }) {
 		let cause;
 		let decodedData;
 		let metaMessages;
 		let reason;
 		if (data && data !== "0x") try {
 			decodedData = decodeErrorResult({
-				abi: abi$9,
+				abi: abi$10,
 				data,
 				cause: error
 			});
@@ -15139,7 +15139,7 @@ var ContractFunctionRevertedError = class extends BaseError$3 {
 		} catch (err) {
 			cause = err;
 		}
-		else if (message) reason = message;
+		else if (message$1) reason = message$1;
 		let signature;
 		if (cause instanceof AbiErrorSignatureNotFoundError) {
 			signature = cause.signature;
@@ -15211,8 +15211,8 @@ var CounterfactualDeploymentFailedError = class extends BaseError$3 {
 	}
 };
 var RawContractError = class extends BaseError$3 {
-	constructor({ data, message }) {
-		super(message || "", { name: "RawContractError" });
+	constructor({ data, message: message$1 }) {
+		super(message$1 || "", { name: "RawContractError" });
 		Object.defineProperty(this, "code", {
 			enumerable: true,
 			configurable: true,
@@ -15241,9 +15241,9 @@ function isNullUniversalResolverError(err) {
 	return false;
 }
 function decodeFunctionData(parameters) {
-	const { abi: abi$9, data } = parameters;
+	const { abi: abi$10, data } = parameters;
 	const signature = slice$1(data, 0, 4);
-	const description = abi$9.find((x$2) => x$2.type === "function" && signature === toFunctionSelector(formatAbiItem(x$2)));
+	const description = abi$10.find((x$2) => x$2.type === "function" && signature === toFunctionSelector(formatAbiItem(x$2)));
 	if (!description) throw new AbiFunctionSignatureNotFoundError(signature, { docsPath: "/docs/contract/decodeFunctionData" });
 	return {
 		functionName: description.name,
@@ -15252,11 +15252,11 @@ function decodeFunctionData(parameters) {
 }
 var docsPath$2 = "/docs/contract/encodeErrorResult";
 function encodeErrorResult(parameters) {
-	const { abi: abi$9, errorName, args } = parameters;
-	let abiItem = abi$9[0];
+	const { abi: abi$10, errorName, args } = parameters;
+	let abiItem = abi$10[0];
 	if (errorName) {
 		const item = getAbiItem({
-			abi: abi$9,
+			abi: abi$10,
 			args,
 			name: errorName
 		});
@@ -15274,11 +15274,11 @@ function encodeErrorResult(parameters) {
 }
 var docsPath$1 = "/docs/contract/encodeFunctionResult";
 function encodeFunctionResult(parameters) {
-	const { abi: abi$9, functionName, result } = parameters;
-	let abiItem = abi$9[0];
+	const { abi: abi$10, functionName, result } = parameters;
+	let abiItem = abi$10[0];
 	if (functionName) {
 		const item = getAbiItem({
-			abi: abi$9,
+			abi: abi$10,
 			name: functionName
 		});
 		if (!item) throw new AbiFunctionNotFoundError(functionName, { docsPath: docsPath$1 });
@@ -15908,26 +15908,26 @@ var UnknownRpcError = class extends RpcError$1 {
 	}
 };
 var EXECUTION_REVERTED_ERROR_CODE = 3;
-function getContractError(err, { abi: abi$9, address: address$9, args, docsPath: docsPath$5, functionName, sender }) {
+function getContractError(err, { abi: abi$10, address: address$10, args, docsPath: docsPath$5, functionName, sender }) {
 	const error = err instanceof RawContractError ? err : err instanceof BaseError$3 ? err.walk((err$1) => "data" in err$1) || err.walk() : {};
-	const { code: code$1, data, details, message, shortMessage } = error;
+	const { code: code$1, data, details, message: message$1, shortMessage } = error;
 	return new ContractFunctionExecutionError((() => {
 		if (err instanceof AbiDecodingZeroDataError) return new ContractFunctionZeroDataError({
 			functionName,
 			cause: err
 		});
-		if ([EXECUTION_REVERTED_ERROR_CODE, InternalRpcError.code].includes(code$1) && (data || details || message || shortMessage) || code$1 === InvalidInputRpcError.code && details === "execution reverted" && data) return new ContractFunctionRevertedError({
-			abi: abi$9,
+		if ([EXECUTION_REVERTED_ERROR_CODE, InternalRpcError.code].includes(code$1) && (data || details || message$1 || shortMessage) || code$1 === InvalidInputRpcError.code && details === "execution reverted" && data) return new ContractFunctionRevertedError({
+			abi: abi$10,
 			data: typeof data === "object" ? data.data : data,
 			functionName,
-			message: error instanceof RpcRequestError ? details : shortMessage ?? message,
+			message: error instanceof RpcRequestError ? details : shortMessage ?? message$1,
 			cause: err
 		});
 		return err;
 	})(), {
-		abi: abi$9,
+		abi: abi$10,
 		args,
-		contractAddress: address$9,
+		contractAddress: address$10,
 		docsPath: docsPath$5,
 		functionName,
 		sender
@@ -16151,7 +16151,7 @@ var BaseError$4 = class BaseError$4 extends Error {
 		const docs = `${docsBaseUrl}${docsPath$5 ?? ""}`;
 		const showVersion = Boolean(options$2.version ?? BaseError$4.prototype.showVersion);
 		const version$8 = options$2.version ?? BaseError$4.prototype.version;
-		const message = [
+		const message$1 = [
 			shortMessage || "An error occurred.",
 			...options$2.metaMessages ? ["", ...options$2.metaMessages] : [],
 			...details || docsPath$5 || showVersion ? [
@@ -16161,7 +16161,7 @@ var BaseError$4 = class BaseError$4 extends Error {
 				showVersion ? `Version: ${version$8}` : void 0
 			] : []
 		].filter((x$2) => typeof x$2 === "string").join("\n");
-		super(message, options$2.cause ? { cause: options$2.cause } : void 0);
+		super(message$1, options$2.cause ? { cause: options$2.cause } : void 0);
 		Object.defineProperty(this, "details", {
 			enumerable: true,
 			configurable: true,
@@ -16331,17 +16331,17 @@ const deploylessCallViaFactoryBytecode = "0x608060405234801561001057600080fd5b50
 const multicall3Bytecode = "0x608060405234801561001057600080fd5b506115b9806100206000396000f3fe6080604052600436106100f35760003560e01c80634d2301cc1161008a578063a8b0574e11610059578063a8b0574e14610325578063bce38bd714610350578063c3077fa914610380578063ee82ac5e146103b2576100f3565b80634d2301cc1461026257806372425d9d1461029f57806382ad56cb146102ca57806386d516e8146102fa576100f3565b80633408e470116100c65780633408e470146101af578063399542e9146101da5780633e64a6961461020c57806342cbb15c14610237576100f3565b80630f28c97d146100f8578063174dea7114610123578063252dba421461015357806327e86d6e14610184575b600080fd5b34801561010457600080fd5b5061010d6103ef565b60405161011a9190610c0a565b60405180910390f35b61013d60048036038101906101389190610c94565b6103f7565b60405161014a9190610e94565b60405180910390f35b61016d60048036038101906101689190610f0c565b610615565b60405161017b92919061101b565b60405180910390f35b34801561019057600080fd5b506101996107ab565b6040516101a69190611064565b60405180910390f35b3480156101bb57600080fd5b506101c46107b7565b6040516101d19190610c0a565b60405180910390f35b6101f460048036038101906101ef91906110ab565b6107bf565b6040516102039392919061110b565b60405180910390f35b34801561021857600080fd5b506102216107e1565b60405161022e9190610c0a565b60405180910390f35b34801561024357600080fd5b5061024c6107e9565b6040516102599190610c0a565b60405180910390f35b34801561026e57600080fd5b50610289600480360381019061028491906111a7565b6107f1565b6040516102969190610c0a565b60405180910390f35b3480156102ab57600080fd5b506102b4610812565b6040516102c19190610c0a565b60405180910390f35b6102e460048036038101906102df919061122a565b61081a565b6040516102f19190610e94565b60405180910390f35b34801561030657600080fd5b5061030f6109e4565b60405161031c9190610c0a565b60405180910390f35b34801561033157600080fd5b5061033a6109ec565b6040516103479190611286565b60405180910390f35b61036a600480360381019061036591906110ab565b6109f4565b6040516103779190610e94565b60405180910390f35b61039a60048036038101906103959190610f0c565b610ba6565b6040516103a99392919061110b565b60405180910390f35b3480156103be57600080fd5b506103d960048036038101906103d491906112cd565b610bca565b6040516103e69190611064565b60405180910390f35b600042905090565b60606000808484905090508067ffffffffffffffff81111561041c5761041b6112fa565b5b60405190808252806020026020018201604052801561045557816020015b610442610bd5565b81526020019060019003908161043a5790505b5092503660005b828110156105c957600085828151811061047957610478611329565b5b6020026020010151905087878381811061049657610495611329565b5b90506020028101906104a89190611367565b925060008360400135905080860195508360000160208101906104cb91906111a7565b73ffffffffffffffffffffffffffffffffffffffff16818580606001906104f2919061138f565b604051610500929190611431565b60006040518083038185875af1925050503d806000811461053d576040519150601f19603f3d011682016040523d82523d6000602084013e610542565b606091505b5083600001846020018290528215151515815250505081516020850135176105bc577f08c379a000000000000000000000000000000000000000000000000000000000600052602060045260176024527f4d756c746963616c6c333a2063616c6c206661696c656400000000000000000060445260846000fd5b826001019250505061045c565b5082341461060c576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401610603906114a7565b60405180910390fd5b50505092915050565b6000606043915060008484905090508067ffffffffffffffff81111561063e5761063d6112fa565b5b60405190808252806020026020018201604052801561067157816020015b606081526020019060019003908161065c5790505b5091503660005b828110156107a157600087878381811061069557610694611329565b5b90506020028101906106a791906114c7565b92508260000160208101906106bc91906111a7565b73ffffffffffffffffffffffffffffffffffffffff168380602001906106e2919061138f565b6040516106f0929190611431565b6000604051808303816000865af19150503d806000811461072d576040519150601f19603f3d011682016040523d82523d6000602084013e610732565b606091505b5086848151811061074657610745611329565b5b60200260200101819052819250505080610795576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040161078c9061153b565b60405180910390fd5b81600101915050610678565b5050509250929050565b60006001430340905090565b600046905090565b6000806060439250434091506107d68686866109f4565b905093509350939050565b600048905090565b600043905090565b60008173ffffffffffffffffffffffffffffffffffffffff16319050919050565b600044905090565b606060008383905090508067ffffffffffffffff81111561083e5761083d6112fa565b5b60405190808252806020026020018201604052801561087757816020015b610864610bd5565b81526020019060019003908161085c5790505b5091503660005b828110156109db57600084828151811061089b5761089a611329565b5b602002602001015190508686838181106108b8576108b7611329565b5b90506020028101906108ca919061155b565b92508260000160208101906108df91906111a7565b73ffffffffffffffffffffffffffffffffffffffff16838060400190610905919061138f565b604051610913929190611431565b6000604051808303816000865af19150503d8060008114610950576040519150601f19603f3d011682016040523d82523d6000602084013e610955565b606091505b5082600001836020018290528215151515815250505080516020840135176109cf577f08c379a000000000000000000000000000000000000000000000000000000000600052602060045260176024527f4d756c746963616c6c333a2063616c6c206661696c656400000000000000000060445260646000fd5b8160010191505061087e565b50505092915050565b600045905090565b600041905090565b606060008383905090508067ffffffffffffffff811115610a1857610a176112fa565b5b604051908082528060200260200182016040528015610a5157816020015b610a3e610bd5565b815260200190600190039081610a365790505b5091503660005b82811015610b9c576000848281518110610a7557610a74611329565b5b60200260200101519050868683818110610a9257610a91611329565b5b9050602002810190610aa491906114c7565b9250826000016020810190610ab991906111a7565b73ffffffffffffffffffffffffffffffffffffffff16838060200190610adf919061138f565b604051610aed929190611431565b6000604051808303816000865af19150503d8060008114610b2a576040519150601f19603f3d011682016040523d82523d6000602084013e610b2f565b606091505b508260000183602001829052821515151581525050508715610b90578060000151610b8f576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401610b869061153b565b60405180910390fd5b5b81600101915050610a58565b5050509392505050565b6000806060610bb7600186866107bf565b8093508194508295505050509250925092565b600081409050919050565b6040518060400160405280600015158152602001606081525090565b6000819050919050565b610c0481610bf1565b82525050565b6000602082019050610c1f6000830184610bfb565b92915050565b600080fd5b600080fd5b600080fd5b600080fd5b600080fd5b60008083601f840112610c5457610c53610c2f565b5b8235905067ffffffffffffffff811115610c7157610c70610c34565b5b602083019150836020820283011115610c8d57610c8c610c39565b5b9250929050565b60008060208385031215610cab57610caa610c25565b5b600083013567ffffffffffffffff811115610cc957610cc8610c2a565b5b610cd585828601610c3e565b92509250509250929050565b600081519050919050565b600082825260208201905092915050565b6000819050602082019050919050565b60008115159050919050565b610d2281610d0d565b82525050565b600081519050919050565b600082825260208201905092915050565b60005b83811015610d62578082015181840152602081019050610d47565b83811115610d71576000848401525b50505050565b6000601f19601f8301169050919050565b6000610d9382610d28565b610d9d8185610d33565b9350610dad818560208601610d44565b610db681610d77565b840191505092915050565b6000604083016000830151610dd96000860182610d19565b5060208301518482036020860152610df18282610d88565b9150508091505092915050565b6000610e0a8383610dc1565b905092915050565b6000602082019050919050565b6000610e2a82610ce1565b610e348185610cec565b935083602082028501610e4685610cfd565b8060005b85811015610e825784840389528151610e638582610dfe565b9450610e6e83610e12565b925060208a01995050600181019050610e4a565b50829750879550505050505092915050565b60006020820190508181036000830152610eae8184610e1f565b905092915050565b60008083601f840112610ecc57610ecb610c2f565b5b8235905067ffffffffffffffff811115610ee957610ee8610c34565b5b602083019150836020820283011115610f0557610f04610c39565b5b9250929050565b60008060208385031215610f2357610f22610c25565b5b600083013567ffffffffffffffff811115610f4157610f40610c2a565b5b610f4d85828601610eb6565b92509250509250929050565b600081519050919050565b600082825260208201905092915050565b6000819050602082019050919050565b6000610f918383610d88565b905092915050565b6000602082019050919050565b6000610fb182610f59565b610fbb8185610f64565b935083602082028501610fcd85610f75565b8060005b858110156110095784840389528151610fea8582610f85565b9450610ff583610f99565b925060208a01995050600181019050610fd1565b50829750879550505050505092915050565b60006040820190506110306000830185610bfb565b81810360208301526110428184610fa6565b90509392505050565b6000819050919050565b61105e8161104b565b82525050565b60006020820190506110796000830184611055565b92915050565b61108881610d0d565b811461109357600080fd5b50565b6000813590506110a58161107f565b92915050565b6000806000604084860312156110c4576110c3610c25565b5b60006110d286828701611096565b935050602084013567ffffffffffffffff8111156110f3576110f2610c2a565b5b6110ff86828701610eb6565b92509250509250925092565b60006060820190506111206000830186610bfb565b61112d6020830185611055565b818103604083015261113f8184610e1f565b9050949350505050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b600061117482611149565b9050919050565b61118481611169565b811461118f57600080fd5b50565b6000813590506111a18161117b565b92915050565b6000602082840312156111bd576111bc610c25565b5b60006111cb84828501611192565b91505092915050565b60008083601f8401126111ea576111e9610c2f565b5b8235905067ffffffffffffffff81111561120757611206610c34565b5b60208301915083602082028301111561122357611222610c39565b5b9250929050565b6000806020838503121561124157611240610c25565b5b600083013567ffffffffffffffff81111561125f5761125e610c2a565b5b61126b858286016111d4565b92509250509250929050565b61128081611169565b82525050565b600060208201905061129b6000830184611277565b92915050565b6112aa81610bf1565b81146112b557600080fd5b50565b6000813590506112c7816112a1565b92915050565b6000602082840312156112e3576112e2610c25565b5b60006112f1848285016112b8565b91505092915050565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052604160045260246000fd5b7f4e487b7100000000000000000000000000000000000000000000000000000000600052603260045260246000fd5b600080fd5b600080fd5b600080fd5b60008235600160800383360303811261138357611382611358565b5b80830191505092915050565b600080833560016020038436030381126113ac576113ab611358565b5b80840192508235915067ffffffffffffffff8211156113ce576113cd61135d565b5b6020830192506001820236038313156113ea576113e9611362565b5b509250929050565b600081905092915050565b82818337600083830152505050565b600061141883856113f2565b93506114258385846113fd565b82840190509392505050565b600061143e82848661140c565b91508190509392505050565b600082825260208201905092915050565b7f4d756c746963616c6c333a2076616c7565206d69736d61746368000000000000600082015250565b6000611491601a8361144a565b915061149c8261145b565b602082019050919050565b600060208201905081810360008301526114c081611484565b9050919050565b6000823560016040038336030381126114e3576114e2611358565b5b80830191505092915050565b7f4d756c746963616c6c333a2063616c6c206661696c6564000000000000000000600082015250565b600061152560178361144a565b9150611530826114ef565b602082019050919050565b6000602082019050818103600083015261155481611518565b9050919050565b60008235600160600383360303811261157757611576611358565b5b8083019150509291505056fea264697066735822122020c1bc9aacf8e4a6507193432a895a8e77094f45a1395583f07b24e860ef06cd64736f6c634300080c0033";
 var docsPath = "/docs/contract/encodeDeployData";
 function encodeDeployData(parameters) {
-	const { abi: abi$9, args, bytecode } = parameters;
+	const { abi: abi$10, args, bytecode } = parameters;
 	if (!args || args.length === 0) return bytecode;
-	const description = abi$9.find((x$2) => "type" in x$2 && x$2.type === "constructor");
+	const description = abi$10.find((x$2) => "type" in x$2 && x$2.type === "constructor");
 	if (!description) throw new AbiConstructorNotFoundError({ docsPath });
 	if (!("inputs" in description)) throw new AbiConstructorParamsNotFoundError({ docsPath });
 	if (!description.inputs || description.inputs.length === 0) throw new AbiConstructorParamsNotFoundError({ docsPath });
 	return concatHex([bytecode, encodeAbiParameters(description.inputs, args)]);
 }
 var ExecutionRevertedError = class extends BaseError$3 {
-	constructor({ cause, message } = {}) {
-		const reason = message?.replace("execution reverted: ", "")?.replace("execution reverted", "");
+	constructor({ cause, message: message$1 } = {}) {
+		const reason = message$1?.replace("execution reverted: ", "")?.replace("execution reverted", "");
 		super(`Execution reverted ${reason ? `with reason: ${reason}` : "for an unknown reason"}.`, {
 			cause,
 			name: "ExecutionRevertedError"
@@ -16519,47 +16519,47 @@ var UnknownNodeError = class extends BaseError$3 {
 	}
 };
 function getNodeError(err, args) {
-	const message = (err.details || "").toLowerCase();
+	const message$1 = (err.details || "").toLowerCase();
 	const executionRevertedError = err instanceof BaseError$3 ? err.walk((e$2) => e$2?.code === ExecutionRevertedError.code) : err;
 	if (executionRevertedError instanceof BaseError$3) return new ExecutionRevertedError({
 		cause: err,
 		message: executionRevertedError.details
 	});
-	if (ExecutionRevertedError.nodeMessage.test(message)) return new ExecutionRevertedError({
+	if (ExecutionRevertedError.nodeMessage.test(message$1)) return new ExecutionRevertedError({
 		cause: err,
 		message: err.details
 	});
-	if (FeeCapTooHighError.nodeMessage.test(message)) return new FeeCapTooHighError({
+	if (FeeCapTooHighError.nodeMessage.test(message$1)) return new FeeCapTooHighError({
 		cause: err,
 		maxFeePerGas: args?.maxFeePerGas
 	});
-	if (FeeCapTooLowError.nodeMessage.test(message)) return new FeeCapTooLowError({
+	if (FeeCapTooLowError.nodeMessage.test(message$1)) return new FeeCapTooLowError({
 		cause: err,
 		maxFeePerGas: args?.maxFeePerGas
 	});
-	if (NonceTooHighError.nodeMessage.test(message)) return new NonceTooHighError({
+	if (NonceTooHighError.nodeMessage.test(message$1)) return new NonceTooHighError({
 		cause: err,
 		nonce: args?.nonce
 	});
-	if (NonceTooLowError.nodeMessage.test(message)) return new NonceTooLowError({
+	if (NonceTooLowError.nodeMessage.test(message$1)) return new NonceTooLowError({
 		cause: err,
 		nonce: args?.nonce
 	});
-	if (NonceMaxValueError.nodeMessage.test(message)) return new NonceMaxValueError({
+	if (NonceMaxValueError.nodeMessage.test(message$1)) return new NonceMaxValueError({
 		cause: err,
 		nonce: args?.nonce
 	});
-	if (InsufficientFundsError.nodeMessage.test(message)) return new InsufficientFundsError({ cause: err });
-	if (IntrinsicGasTooHighError.nodeMessage.test(message)) return new IntrinsicGasTooHighError({
+	if (InsufficientFundsError.nodeMessage.test(message$1)) return new InsufficientFundsError({ cause: err });
+	if (IntrinsicGasTooHighError.nodeMessage.test(message$1)) return new IntrinsicGasTooHighError({
 		cause: err,
 		gas: args?.gas
 	});
-	if (IntrinsicGasTooLowError.nodeMessage.test(message)) return new IntrinsicGasTooLowError({
+	if (IntrinsicGasTooLowError.nodeMessage.test(message$1)) return new IntrinsicGasTooLowError({
 		cause: err,
 		gas: args?.gas
 	});
-	if (TransactionTypeNotSupportedError.nodeMessage.test(message)) return new TransactionTypeNotSupportedError({ cause: err });
-	if (TipAboveFeeCapError.nodeMessage.test(message)) return new TipAboveFeeCapError({
+	if (TransactionTypeNotSupportedError.nodeMessage.test(message$1)) return new TransactionTypeNotSupportedError({ cause: err });
+	if (TipAboveFeeCapError.nodeMessage.test(message$1)) return new TipAboveFeeCapError({
 		cause: err,
 		maxFeePerGas: args?.maxFeePerGas,
 		maxPriorityFeePerGas: args?.maxPriorityFeePerGas
@@ -16576,8 +16576,8 @@ function getCallError(err, { docsPath: docsPath$5, ...args }) {
 		...args
 	});
 }
-function extract(value_, { format }) {
-	if (!format) return {};
+function extract(value_, { format: format$1 }) {
+	if (!format$1) return {};
 	const value = {};
 	function extract_(formatted) {
 		const keys = Object.keys(formatted);
@@ -16586,15 +16586,15 @@ function extract(value_, { format }) {
 			if (formatted[key] && typeof formatted[key] === "object" && !Array.isArray(formatted[key])) extract_(formatted[key]);
 		}
 	}
-	extract_(format(value_ || {}));
+	extract_(format$1(value_ || {}));
 	return value;
 }
-function defineFormatter(type, format) {
+function defineFormatter(type, format$1) {
 	return ({ exclude, format: overrides }) => {
 		return {
 			exclude,
 			format: (args, action) => {
-				const formatted = format(args, action);
+				const formatted = format$1(args, action);
 				if (exclude) for (const key of exclude) delete formatted[key];
 				return {
 					...formatted,
@@ -16736,10 +16736,10 @@ function serializeAccountStateOverride(parameters) {
 function serializeStateOverride(parameters) {
 	if (!parameters) return void 0;
 	const rpcStateOverride = {};
-	for (const { address: address$9, ...accountState } of parameters) {
-		if (!isAddress(address$9, { strict: false })) throw new InvalidAddressError({ address: address$9 });
-		if (rpcStateOverride[address$9]) throw new AccountStateConflictError({ address: address$9 });
-		rpcStateOverride[address$9] = serializeAccountStateOverride(accountState);
+	for (const { address: address$10, ...accountState } of parameters) {
+		if (!isAddress(address$10, { strict: false })) throw new InvalidAddressError({ address: address$10 });
+		if (rpcStateOverride[address$10]) throw new AccountStateConflictError({ address: address$10 });
+		rpcStateOverride[address$10] = serializeAccountStateOverride(accountState);
 	}
 	return rpcStateOverride;
 }
@@ -16953,7 +16953,7 @@ async function call$1(client, args) {
 	} catch (err) {
 		const data$1 = getRevertErrorData(err);
 		const { offchainLookup, offchainLookupSignature } = await __vitePreload(async () => {
-			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-BuWqI0Hq.js");
+			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-enXz1fQJ.js");
 			return {
 				offchainLookup: offchainLookup$1,
 				offchainLookupSignature: offchainLookupSignature$1
@@ -17063,9 +17063,9 @@ function getRevertErrorData(err) {
 	return typeof error?.data === "object" ? error.data?.data : error.data;
 }
 async function readContract$1(client, parameters) {
-	const { abi: abi$9, address: address$9, args, functionName, ...rest } = parameters;
+	const { abi: abi$10, address: address$10, args, functionName, ...rest } = parameters;
 	const calldata = encodeFunctionData({
-		abi: abi$9,
+		abi: abi$10,
 		args,
 		functionName
 	});
@@ -17073,18 +17073,18 @@ async function readContract$1(client, parameters) {
 		const { data } = await getAction$1(client, call$1, "call")({
 			...rest,
 			data: calldata,
-			to: address$9
+			to: address$10
 		});
 		return decodeFunctionResult({
-			abi: abi$9,
+			abi: abi$10,
 			args,
 			functionName,
 			data: data || "0x"
 		});
 	} catch (error) {
 		throw getContractError(error, {
-			abi: abi$9,
-			address: address$9,
+			abi: abi$10,
+			address: address$10,
 			args,
 			docsPath: "/docs/contract/readContract",
 			functionName
@@ -17129,15 +17129,15 @@ async function getEnsAddress$1(client, parameters) {
 		};
 		const res = await getAction$1(client, readContract$1, "readContract")(readContractParameters);
 		if (res[0] === "0x") return null;
-		const address$9 = decodeFunctionResult({
+		const address$10 = decodeFunctionResult({
 			abi: addressResolverAbi,
 			args,
 			functionName: "addr",
 			data: res[0]
 		});
-		if (address$9 === "0x") return null;
-		if (trim$1(address$9) === "0x00") return null;
-		return address$9;
+		if (address$10 === "0x") return null;
+		if (trim$1(address$10) === "0x00") return null;
+		return address$10;
 	} catch (err) {
 		if (strict) throw err;
 		if (isNullUniversalResolverError(err)) return null;
@@ -17416,7 +17416,7 @@ async function getEnsAvatar$1(client, { blockNumber, blockTag, assetGatewayUrls,
 	}
 }
 async function getEnsName$1(client, parameters) {
-	const { address: address$9, blockNumber, blockTag, coinType = 60n, gatewayUrls, strict } = parameters;
+	const { address: address$10, blockNumber, blockTag, coinType = 60n, gatewayUrls, strict } = parameters;
 	const { chain } = client;
 	const universalResolverAddress = (() => {
 		if (parameters.universalResolverAddress) return parameters.universalResolverAddress;
@@ -17432,7 +17432,7 @@ async function getEnsName$1(client, parameters) {
 			address: universalResolverAddress,
 			abi: universalResolverReverseAbi,
 			args: [
-				address$9,
+				address$10,
 				coinType,
 				gatewayUrls ?? ["x-batch-gateway:true"]
 			],
@@ -17454,7 +17454,7 @@ function publicKeyToAddress(publicKey) {
 async function recoverPublicKey({ hash: hash$3, signature }) {
 	const hashHex = isHex(hash$3) ? hash$3 : toHex(hash$3);
 	const { secp256k1: secp256k1$1 } = await __vitePreload(async () => {
-		const { secp256k1: secp256k1$2 } = await import("./secp256k1-_x0uWcrK.js");
+		const { secp256k1: secp256k1$2 } = await import("./secp256k1-C8gFiL0W.js");
 		return { secp256k1: secp256k1$2 };
 	}, __vite__mapDeps([0,1]));
 	return `0x${(() => {
@@ -17547,10 +17547,10 @@ function getSizeOfLength(length$1) {
 }
 function hashAuthorization(parameters) {
 	const { chainId, nonce, to: to$1 } = parameters;
-	const address$9 = parameters.contractAddress ?? parameters.address;
+	const address$10 = parameters.contractAddress ?? parameters.address;
 	const hash$3 = keccak256$1(concatHex(["0x05", toRlp([
 		chainId ? numberToHex(chainId) : "0x",
-		address$9,
+		address$10,
 		nonce ? numberToHex(nonce) : "0x"
 	])]));
 	if (to$1 === "bytes") return hexToBytes$1(hash$3);
@@ -17797,10 +17797,10 @@ async function internal_estimateFeesPerGas(client, args) {
 	}
 	return { gasPrice: request?.gasPrice ?? multiply(await getAction$1(client, getGasPrice, "getGasPrice")({})) };
 }
-async function getTransactionCount(client, { address: address$9, blockTag = "latest", blockNumber }) {
+async function getTransactionCount(client, { address: address$10, blockTag = "latest", blockNumber }) {
 	return hexToNumber$1(await client.request({
 		method: "eth_getTransactionCount",
-		params: [address$9, typeof blockNumber === "bigint" ? numberToHex(blockNumber) : blockTag]
+		params: [address$10, typeof blockNumber === "bigint" ? numberToHex(blockNumber) : blockTag]
 	}, { dedupe: Boolean(blockNumber) }));
 }
 function blobsToCommitments(parameters) {
@@ -18531,13 +18531,13 @@ async function estimateGas(client, args) {
 		});
 	}
 }
-async function getBalance$1(client, { address: address$9, blockNumber, blockTag = client.experimental_blockTag ?? "latest" }) {
+async function getBalance$1(client, { address: address$10, blockNumber, blockTag = client.experimental_blockTag ?? "latest" }) {
 	if (client.batch?.multicall && client.chain?.contracts?.multicall3) {
 		const multicall3Address = client.chain.contracts.multicall3.address;
 		const calldata = encodeFunctionData({
 			abi: multicall3Abi,
 			functionName: "getEthBalance",
-			args: [address$9]
+			args: [address$10]
 		});
 		const { data } = await getAction$1(client, call$1, "call")({
 			to: multicall3Address,
@@ -18548,14 +18548,14 @@ async function getBalance$1(client, { address: address$9, blockNumber, blockTag 
 		return decodeFunctionResult({
 			abi: multicall3Abi,
 			functionName: "getEthBalance",
-			args: [address$9],
+			args: [address$10],
 			data: data || "0x"
 		});
 	}
 	const blockNumberHex = typeof blockNumber === "bigint" ? numberToHex(blockNumber) : void 0;
 	const balance = await client.request({
 		method: "eth_getBalance",
-		params: [address$9, blockNumberHex || blockTag]
+		params: [address$10, blockNumberHex || blockTag]
 	});
 	return BigInt(balance);
 }
@@ -18632,8 +18632,8 @@ function assertTransactionEIP7702(transaction) {
 	const { authorizationList } = transaction;
 	if (authorizationList) for (const authorization of authorizationList) {
 		const { chainId } = authorization;
-		const address$9 = authorization.address;
-		if (!isAddress(address$9)) throw new InvalidAddressError({ address: address$9 });
+		const address$10 = authorization.address;
+		if (!isAddress(address$10)) throw new InvalidAddressError({ address: address$10 });
 		if (chainId < 0) throw new InvalidChainIdError({ chainId });
 	}
 	assertTransactionEIP1559(transaction);
@@ -18685,10 +18685,10 @@ function serializeAccessList(accessList) {
 	if (!accessList || accessList.length === 0) return [];
 	const serializedAccessList = [];
 	for (let i$3 = 0; i$3 < accessList.length; i$3++) {
-		const { address: address$9, storageKeys } = accessList[i$3];
+		const { address: address$10, storageKeys } = accessList[i$3];
 		for (let j$3 = 0; j$3 < storageKeys.length; j$3++) if (storageKeys[j$3].length - 2 !== 64) throw new InvalidStorageKeySizeError({ storageKey: storageKeys[j$3] });
-		if (!isAddress(address$9, { strict: false })) throw new InvalidAddressError({ address: address$9 });
-		serializedAccessList.push([address$9, storageKeys]);
+		if (!isAddress(address$10, { strict: false })) throw new InvalidAddressError({ address: address$10 });
+		serializedAccessList.push([address$10, storageKeys]);
 	}
 	return serializedAccessList;
 }
@@ -19223,7 +19223,7 @@ function serializeTypedData(parameters) {
 	});
 }
 function validateTypedData(parameters) {
-	const { domain, message, primaryType, types: types$1 } = parameters;
+	const { domain, message: message$1, primaryType, types: types$1 } = parameters;
 	const validateData = (struct, data) => {
 		for (const param of struct) {
 			const { name, type } = param;
@@ -19256,7 +19256,7 @@ function validateTypedData(parameters) {
 		if (typeof domain !== "object") throw new InvalidDomainError({ domain });
 		validateData(types$1.EIP712Domain, domain);
 	}
-	if (primaryType !== "EIP712Domain") if (types$1[primaryType]) validateData(types$1[primaryType], message);
+	if (primaryType !== "EIP712Domain") if (types$1[primaryType]) validateData(types$1[primaryType], message$1);
 	else throw new InvalidPrimaryTypeError({
 		primaryType,
 		types: types$1
@@ -19731,9 +19731,9 @@ async function sendTransaction(client, parameters) {
 	}
 }
 function deployContract(walletClient, parameters) {
-	const { abi: abi$9, args, bytecode, ...request } = parameters;
+	const { abi: abi$10, args, bytecode, ...request } = parameters;
 	const calldata = encodeDeployData({
-		abi: abi$9,
+		abi: abi$10,
 		args,
 		bytecode
 	});
@@ -19745,7 +19745,7 @@ function deployContract(walletClient, parameters) {
 }
 async function getAddresses(client) {
 	if (client.account?.type === "local") return [client.account.address];
-	return (await client.request({ method: "eth_accounts" }, { dedupe: true })).map((address$9) => checksumAddress(address$9));
+	return (await client.request({ method: "eth_accounts" }, { dedupe: true })).map((address$10) => checksumAddress(address$10));
 }
 const fallbackMagicIdentifier = "0x5792579257925792579257925792579257925792579257925792579257925792";
 const fallbackTransactionErrorMagicIdentifier = numberToHex(0, { size: 32 });
@@ -19800,13 +19800,13 @@ async function sendCalls(client, parameters) {
 		if (experimental_fallback && (error.name === "MethodNotFoundRpcError" || error.name === "MethodNotSupportedRpcError" || error.name === "UnknownRpcError" || error.details.toLowerCase().includes("does not exist / is not available") || error.details.toLowerCase().includes("missing or invalid. request()") || error.details.toLowerCase().includes("did not match any variant of untagged enum") || error.details.toLowerCase().includes("account upgraded to unsupported contract") || error.details.toLowerCase().includes("eip-7702 not supported") || error.details.toLowerCase().includes("unsupported wc_ method") || error.details.toLowerCase().includes("feature toggled misconfigured") || error.details.toLowerCase().includes("jsonrpcengine: response has no error or result for request"))) {
 			if (capabilities) {
 				if (Object.values(capabilities).some((capability) => !capability.optional)) {
-					const message = "non-optional `capabilities` are not supported on fallback to `eth_sendTransaction`.";
-					throw new UnsupportedNonOptionalCapabilityError(new BaseError$3(message, { details: message }));
+					const message$1 = "non-optional `capabilities` are not supported on fallback to `eth_sendTransaction`.";
+					throw new UnsupportedNonOptionalCapabilityError(new BaseError$3(message$1, { details: message$1 }));
 				}
 			}
 			if (forceAtomic && calls.length > 1) {
-				const message = "`forceAtomic` is not supported on fallback to `eth_sendTransaction`.";
-				throw new AtomicityNotSupportedError(new BaseError$3(message, { details: message }));
+				const message$1 = "`forceAtomic` is not supported on fallback to `eth_sendTransaction`.";
+				throw new AtomicityNotSupportedError(new BaseError$3(message$1, { details: message$1 }));
 			}
 			const promises = [];
 			for (const call$2 of calls) {
@@ -19940,7 +19940,7 @@ async function requestAddresses(client) {
 	return (await client.request({ method: "eth_requestAccounts" }, {
 		dedupe: true,
 		retryCount: 0
-	})).map((address$9) => getAddress$1(address$9));
+	})).map((address$10) => getAddress$1(address$10));
 }
 async function requestPermissions(client, permissions) {
 	return client.request({
@@ -20177,14 +20177,14 @@ async function signAuthorization(client, parameters) {
 	const authorization = await prepareAuthorization(client, parameters);
 	return account.signAuthorization(authorization);
 }
-async function signMessage(client, { account: account_ = client.account, message }) {
+async function signMessage(client, { account: account_ = client.account, message: message$1 }) {
 	if (!account_) throw new AccountNotFoundError({ docsPath: "/docs/actions/wallet/signMessage" });
 	const account = parseAccount(account_);
-	if (account.signMessage) return account.signMessage({ message });
+	if (account.signMessage) return account.signMessage({ message: message$1 });
 	const message_ = (() => {
-		if (typeof message === "string") return stringToHex(message);
-		if (message.raw instanceof Uint8Array) return toHex(message.raw);
-		return message.raw;
+		if (typeof message$1 === "string") return stringToHex(message$1);
+		if (message$1.raw instanceof Uint8Array) return toHex(message$1.raw);
+		return message$1.raw;
 	})();
 	return client.request({
 		method: "personal_sign",
@@ -20204,7 +20204,7 @@ async function signTransaction(client, parameters) {
 		currentChainId: chainId,
 		chain
 	});
-	const format = (chain?.formatters || client.chain?.formatters)?.transactionRequest?.format || formatTransactionRequest;
+	const format$1 = (chain?.formatters || client.chain?.formatters)?.transactionRequest?.format || formatTransactionRequest;
 	if (account.signTransaction) return account.signTransaction({
 		...transaction,
 		chainId
@@ -20212,7 +20212,7 @@ async function signTransaction(client, parameters) {
 	return await client.request({
 		method: "eth_signTransaction",
 		params: [{
-			...format({
+			...format$1({
 				...transaction,
 				account
 			}, "signTransaction"),
@@ -20222,7 +20222,7 @@ async function signTransaction(client, parameters) {
 	}, { retryCount: 0 });
 }
 async function signTypedData(client, parameters) {
-	const { account: account_ = client.account, domain, message, primaryType } = parameters;
+	const { account: account_ = client.account, domain, message: message$1, primaryType } = parameters;
 	if (!account_) throw new AccountNotFoundError({ docsPath: "/docs/actions/wallet/signTypedData" });
 	const account = parseAccount(account_);
 	const types$1 = {
@@ -20231,19 +20231,19 @@ async function signTypedData(client, parameters) {
 	};
 	validateTypedData({
 		domain,
-		message,
+		message: message$1,
 		primaryType,
 		types: types$1
 	});
 	if (account.signTypedData) return account.signTypedData({
 		domain,
-		message,
+		message: message$1,
 		primaryType,
 		types: types$1
 	});
 	const typedData = serializeTypedData({
 		domain,
-		message,
+		message: message$1,
 		primaryType,
 		types: types$1
 	});
@@ -20269,25 +20269,25 @@ async function writeContract$1(client, parameters) {
 }
 (function(writeContract$2) {
 	async function internal$2(client, actionFn, name, parameters) {
-		const { abi: abi$9, account: account_ = client.account, address: address$9, args, functionName, ...request } = parameters;
+		const { abi: abi$10, account: account_ = client.account, address: address$10, args, functionName, ...request } = parameters;
 		if (typeof account_ === "undefined") throw new AccountNotFoundError({ docsPath: "/docs/contract/writeContract" });
 		const account = account_ ? parseAccount(account_) : null;
 		const data = encodeFunctionData({
-			abi: abi$9,
+			abi: abi$10,
 			args,
 			functionName
 		});
 		try {
 			return await getAction$1(client, actionFn, name)({
 				data,
-				to: address$9,
+				to: address$10,
 				account,
 				...request
 			});
 		} catch (error) {
 			throw getContractError(error, {
-				abi: abi$9,
-				address: address$9,
+				abi: abi$10,
+				address: address$10,
 				args,
 				docsPath: "/docs/contract/writeContract",
 				functionName,
@@ -20414,8 +20414,8 @@ var ConnectorNotConnectedError = class extends BaseError$2 {
 	}
 };
 var ConnectorAccountNotFoundError = class extends BaseError$2 {
-	constructor({ address: address$9, connector }) {
-		super(`Account "${address$9}" not found for connector "${connector.name}".`);
+	constructor({ address: address$10, connector }) {
+		super(`Account "${address$10}" not found for connector "${connector.name}".`);
 		Object.defineProperty(this, "name", {
 			enumerable: true,
 			configurable: true,
@@ -20478,8 +20478,8 @@ async function connect$1(config, parameters) {
 			status: "connected"
 		}));
 		return {
-			accounts: rest.withCapabilities ? data.accounts.map((address$9) => typeof address$9 === "object" ? address$9 : {
-				address: address$9,
+			accounts: rest.withCapabilities ? data.accounts.map((address$10) => typeof address$10 === "object" ? address$10 : {
+				address: address$10,
 				capabilities: {}
 			}) : data.accounts,
 			chainId: data.chainId
@@ -20759,13 +20759,13 @@ async function disconnect$1(config, parameters = {}) {
 	}
 }
 async function getBalance(config, parameters) {
-	const { address: address$9, blockNumber, blockTag, chainId } = parameters;
+	const { address: address$10, blockNumber, blockTag, chainId } = parameters;
 	const client = config.getClient({ chainId });
 	const value = await getAction(client, getBalance$1, "getBalance")(blockNumber ? {
-		address: address$9,
+		address: address$10,
 		blockNumber
 	} : {
-		address: address$9,
+		address: address$10,
 		blockTag
 	});
 	const chain = config.chains.find((x$2) => x$2.id === chainId) ?? client.chain;
@@ -20819,12 +20819,12 @@ function getConnection(config) {
 	const uid$2 = config.state.current;
 	const connection = config.state.connections.get(uid$2);
 	const addresses = connection?.accounts;
-	const address$9 = addresses?.[0];
+	const address$10 = addresses?.[0];
 	const chain = config.chains.find((chain$1) => chain$1.id === connection?.chainId);
 	const status = config.state.status;
 	switch (status) {
 		case "connected": return {
-			address: address$9,
+			address: address$10,
 			addresses,
 			chain,
 			chainId: connection?.chainId,
@@ -20836,19 +20836,19 @@ function getConnection(config) {
 			status
 		};
 		case "reconnecting": return {
-			address: address$9,
+			address: address$10,
 			addresses,
 			chain,
 			chainId: connection?.chainId,
 			connector: connection?.connector,
-			isConnected: !!address$9,
+			isConnected: !!address$10,
 			isConnecting: false,
 			isDisconnected: false,
 			isReconnecting: true,
 			status
 		};
 		case "connecting": return {
-			address: address$9,
+			address: address$10,
 			addresses,
 			chain,
 			chainId: connection?.chainId,
@@ -21173,8 +21173,8 @@ function injected$1(parameters = {}) {
 				if (shimDisconnect) await config.storage?.removeItem(`${this.id}.disconnected`);
 				if (!parameters.target) await config.storage?.setItem("injected.connected", true);
 				return {
-					accounts: withCapabilities ? accounts.map((address$9) => ({
-						address: address$9,
+					accounts: withCapabilities ? accounts.map((address$10) => ({
+						address: address$10,
 						capabilities: {}
 					})) : accounts,
 					chainId: currentChainId
@@ -22383,7 +22383,7 @@ function hasObjectPrototype(o$1) {
 	return Object.prototype.toString.call(o$1) === "[object Object]";
 }
 function filterQueryOptions(options$2) {
-	const { _defaulted, behavior, gcTime, initialData, initialDataUpdatedAt, maxPages, meta, networkMode, queryFn, queryHash, queryKey, queryKeyHashFn, retry, retryDelay, structuralSharing, getPreviousPageParam: getPreviousPageParam$1, getNextPageParam: getNextPageParam$1, initialPageParam, _optimisticResults, enabled, notifyOnChangeProps, placeholderData, refetchInterval, refetchIntervalInBackground, refetchOnMount, refetchOnReconnect, refetchOnWindowFocus, retryOnMount, select, staleTime, suspense, throwOnError, abi: abi$9, config, connector, query, watch, ...rest } = options$2;
+	const { _defaulted, behavior, gcTime, initialData, initialDataUpdatedAt, maxPages, meta, networkMode, queryFn, queryHash, queryKey, queryKeyHashFn, retry, retryDelay, structuralSharing, getPreviousPageParam: getPreviousPageParam$1, getNextPageParam: getNextPageParam$1, initialPageParam, _optimisticResults, enabled, notifyOnChangeProps, placeholderData, refetchInterval, refetchIntervalInBackground, refetchOnMount, refetchOnReconnect, refetchOnWindowFocus, retryOnMount, select, staleTime, suspense, throwOnError, abi: abi$10, config, connector, query, watch, ...rest } = options$2;
 	if (connector) return {
 		connectorUid: connector?.uid,
 		...rest
@@ -22635,7 +22635,7 @@ var require_use_sync_external_store_shim_production$1 = /* @__PURE__ */ __common
 	function is$2(x$2, y$3) {
 		return x$2 === y$3 && (0 !== x$2 || 1 / x$2 === 1 / y$3) || x$2 !== x$2 && y$3 !== y$3;
 	}
-	var objectIs$2 = "function" === typeof Object.is ? Object.is : is$2, useState$27 = React$9.useState, useEffect$39 = React$9.useEffect, useLayoutEffect$7 = React$9.useLayoutEffect, useDebugValue$3 = React$9.useDebugValue;
+	var objectIs$2 = "function" === typeof Object.is ? Object.is : is$2, useState$27 = React$9.useState, useEffect$40 = React$9.useEffect, useLayoutEffect$7 = React$9.useLayoutEffect, useDebugValue$3 = React$9.useDebugValue;
 	function useSyncExternalStore$2$6(subscribe$1, getSnapshot) {
 		var value = getSnapshot(), _useState = useState$27({ inst: {
 			value,
@@ -22650,7 +22650,7 @@ var require_use_sync_external_store_shim_production$1 = /* @__PURE__ */ __common
 			value,
 			getSnapshot
 		]);
-		useEffect$39(function() {
+		useEffect$40(function() {
 			checkIfSnapshotChanged$1(inst) && forceUpdate({ inst });
 			return subscribe$1(function() {
 				checkIfSnapshotChanged$1(inst) && forceUpdate({ inst });
@@ -22692,7 +22692,7 @@ var require_with_selector_production = /* @__PURE__ */ __commonJSMin(((exports) 
 	function is$1(x$2, y$3) {
 		return x$2 === y$3 && (0 !== x$2 || 1 / x$2 === 1 / y$3) || x$2 !== x$2 && y$3 !== y$3;
 	}
-	var objectIs$1 = "function" === typeof Object.is ? Object.is : is$1, useSyncExternalStore$6 = shim$1.useSyncExternalStore, useRef$20 = React$8.useRef, useEffect$38 = React$8.useEffect, useMemo$19 = React$8.useMemo, useDebugValue$2 = React$8.useDebugValue;
+	var objectIs$1 = "function" === typeof Object.is ? Object.is : is$1, useSyncExternalStore$6 = shim$1.useSyncExternalStore, useRef$20 = React$8.useRef, useEffect$39 = React$8.useEffect, useMemo$19 = React$8.useMemo, useDebugValue$2 = React$8.useDebugValue;
 	exports.useSyncExternalStoreWithSelector = function(subscribe$1, getSnapshot, getServerSnapshot, selector, isEqual$2) {
 		var instRef = useRef$20(null);
 		if (null === instRef.current) {
@@ -22734,7 +22734,7 @@ var require_with_selector_production = /* @__PURE__ */ __commonJSMin(((exports) 
 			isEqual$2
 		]);
 		var value = useSyncExternalStore$6(subscribe$1, instRef[0], instRef[1]);
-		useEffect$38(function() {
+		useEffect$39(function() {
 			inst.hasValue = !0;
 			inst.value = value;
 		}, [value]);
@@ -22809,10 +22809,10 @@ function useConnectionEffect(parameters = {}) {
 	(0, import_react.useEffect)(() => {
 		return watchConnection(config, { onChange(data, prevData) {
 			if ((prevData.status === "reconnecting" || prevData.status === "connecting" && prevData.address === void 0) && data.status === "connected") {
-				const { address: address$9, addresses, chain, chainId, connector } = data;
+				const { address: address$10, addresses, chain, chainId, connector } = data;
 				const isReconnected = prevData.status === "reconnecting" || prevData.status === void 0;
 				onConnect?.({
-					address: address$9,
+					address: address$10,
 					addresses,
 					chain,
 					chainId,
@@ -22834,25 +22834,25 @@ function useConnections(parameters = {}) {
 function useConnectorClient(parameters = {}) {
 	const config = useConfig(parameters);
 	const chainId = useChainId({ config });
-	const { address: address$9, connector } = useConnection({ config });
+	const { address: address$10, connector } = useConnection({ config });
 	const options$2 = getConnectorClientQueryOptions(config, {
 		...parameters,
 		chainId: parameters.chainId ?? chainId,
 		connector: parameters.connector ?? connector,
 		query: parameters.query
 	});
-	const addressRef = (0, import_react.useRef)(address$9);
+	const addressRef = (0, import_react.useRef)(address$10);
 	const queryClient$1 = useQueryClient();
 	(0, import_react.useEffect)(() => {
 		const previousAddress = addressRef.current;
-		if (!address$9 && previousAddress) {
+		if (!address$10 && previousAddress) {
 			queryClient$1.removeQueries({ queryKey: options$2.queryKey });
 			addressRef.current = void 0;
-		} else if (address$9 !== previousAddress) {
+		} else if (address$10 !== previousAddress) {
 			queryClient$1.invalidateQueries({ queryKey: options$2.queryKey });
-			addressRef.current = address$9;
+			addressRef.current = address$10;
 		}
-	}, [address$9, queryClient$1]);
+	}, [address$10, queryClient$1]);
 	return useQuery$1(options$2);
 }
 function useDisconnect(parameters = {}) {
@@ -22902,25 +22902,25 @@ function useSwitchChain(parameters = {}) {
 function useWalletClient(parameters = {}) {
 	const config = useConfig(parameters);
 	const chainId = useChainId({ config });
-	const { address: address$9, connector } = useConnection({ config });
+	const { address: address$10, connector } = useConnection({ config });
 	const options$2 = getWalletClientQueryOptions(config, {
 		...parameters,
 		chainId: parameters.chainId ?? chainId,
 		connector: parameters.connector ?? connector,
 		query: parameters.query
 	});
-	const addressRef = (0, import_react.useRef)(address$9);
+	const addressRef = (0, import_react.useRef)(address$10);
 	const queryClient$1 = useQueryClient();
 	(0, import_react.useEffect)(() => {
 		const previousAddress = addressRef.current;
-		if (!address$9 && previousAddress) {
+		if (!address$10 && previousAddress) {
 			queryClient$1.removeQueries({ queryKey: options$2.queryKey });
 			addressRef.current = void 0;
-		} else if (address$9 !== previousAddress) {
+		} else if (address$10 !== previousAddress) {
 			queryClient$1.invalidateQueries({ queryKey: options$2.queryKey });
-			addressRef.current = address$9;
+			addressRef.current = address$10;
 		}
-	}, [address$9, queryClient$1]);
+	}, [address$10, queryClient$1]);
 	return useQuery$1(options$2);
 }
 const contracts = {
@@ -22931,7 +22931,7 @@ const contracts = {
 	l2StandardBridge: { address: "0x4200000000000000000000000000000000000010" },
 	l2ToL1MessagePasser: { address: "0x4200000000000000000000000000000000000016" }
 };
-const formatters = {
+const formatters$1 = {
 	block: /* @__PURE__ */ defineBlock({ format(args) {
 		return {
 			transactions: args.transactions?.map((transaction) => {
@@ -22999,7 +22999,7 @@ function assertTransactionDeposit(transaction) {
 const chainConfig = {
 	blockTime: 2e3,
 	contracts,
-	formatters,
+	formatters: formatters$1,
 	serializers
 };
 const arbitrum = /* @__PURE__ */ defineChain({
@@ -23133,8 +23133,8 @@ function coinbaseWallet(parameters = {}) {
 					return { id: currentChainId };
 				}))?.id ?? currentChainId;
 				return {
-					accounts: withCapabilities ? accounts.map((address$9) => ({
-						address: address$9,
+					accounts: withCapabilities ? accounts.map((address$10) => ({
+						address: address$10,
 						capabilities: {}
 					})) : accounts,
 					chainId: currentChainId
@@ -23278,8 +23278,8 @@ function safe(parameters = {}) {
 			}
 			if (shimDisconnect) await config.storage?.removeItem("safe.disconnected");
 			return {
-				accounts: withCapabilities ? accounts.map((address$9) => ({
-					address: address$9,
+				accounts: withCapabilities ? accounts.map((address$10) => ({
+					address: address$10,
 					capabilities: {}
 				})) : accounts,
 				chainId
@@ -23304,7 +23304,7 @@ function safe(parameters = {}) {
 			if (!provider_) {
 				const { default: SDK } = await (() => {
 					try {
-						return __vitePreload(() => import("./esm-CyLUVbDx.js"), __vite__mapDeps([2,3]));
+						return __vitePreload(() => import("./esm-Bnve6bZx.js"), __vite__mapDeps([2,3]));
 					} catch {
 						throw new Error("dependency \"@safe-global/safe-apps-sdk\" not found");
 					}
@@ -23315,7 +23315,7 @@ function safe(parameters = {}) {
 				provider_ = new (await ((async () => {
 					const Provider = await (() => {
 						try {
-							return __vitePreload(() => import("./dist-Cglne89t.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
+							return __vitePreload(() => import("./dist-CzrjFZgK.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
 						} catch {
 							throw new Error("dependency \"@safe-global/safe-apps-provider\" not found");
 						}
@@ -23430,8 +23430,8 @@ function walletConnect(parameters) {
 					provider.on("session_delete", sessionDelete);
 				}
 				return {
-					accounts: withCapabilities ? accounts.map((address$9) => ({
-						address: address$9,
+					accounts: withCapabilities ? accounts.map((address$10) => ({
+						address: address$10,
 						capabilities: {}
 					})) : accounts,
 					chainId: currentChainId
@@ -23480,7 +23480,7 @@ function walletConnect(parameters) {
 				if (!optionalChains.length) return;
 				const { EthereumProvider: EthereumProvider$1 } = await (() => {
 					try {
-						return __vitePreload(() => import("./dist-BMIRZDY2.js"), __vite__mapDeps([5,6,1]));
+						return __vitePreload(() => import("./dist-CdkASfyn.js"), __vite__mapDeps([5,6,1]));
 					} catch {
 						throw new Error("dependency \"@walletconnect/ethereum-provider\" not found");
 					}
@@ -24440,7 +24440,7 @@ function clone(configObject) {
 			return q$3;
 		};
 	})();
-	function format(n$3, i$3, rm, id$2) {
+	function format$1(n$3, i$3, rm, id$2) {
 		var c0, e$2, ne$1, len$1, str;
 		if (rm == null) rm = ROUNDING_MODE;
 		else intCheck(rm, 0, 8);
@@ -24972,28 +24972,28 @@ function clone(configObject) {
 			intCheck(dp, 0, MAX);
 			dp++;
 		}
-		return format(this, dp, rm, 1);
+		return format$1(this, dp, rm, 1);
 	};
 	P$2.toFixed = function(dp, rm) {
 		if (dp != null) {
 			intCheck(dp, 0, MAX);
 			dp = dp + this.e + 1;
 		}
-		return format(this, dp, rm);
+		return format$1(this, dp, rm);
 	};
-	P$2.toFormat = function(dp, rm, format$1) {
+	P$2.toFormat = function(dp, rm, format$2) {
 		var str, x$2 = this;
-		if (format$1 == null) if (dp != null && rm && typeof rm == "object") {
-			format$1 = rm;
+		if (format$2 == null) if (dp != null && rm && typeof rm == "object") {
+			format$2 = rm;
 			rm = null;
 		} else if (dp && typeof dp == "object") {
-			format$1 = dp;
+			format$2 = dp;
 			dp = rm = null;
-		} else format$1 = FORMAT;
-		else if (typeof format$1 != "object") throw Error(bignumberError + "Argument not an object: " + format$1);
+		} else format$2 = FORMAT;
+		else if (typeof format$2 != "object") throw Error(bignumberError + "Argument not an object: " + format$2);
 		str = x$2.toFixed(dp, rm);
 		if (x$2.c) {
-			var i$3, arr = str.split("."), g1 = +format$1.groupSize, g2 = +format$1.secondaryGroupSize, groupSeparator = format$1.groupSeparator || "", intPart = arr[0], fractionPart = arr[1], isNeg = x$2.s < 0, intDigits = isNeg ? intPart.slice(1) : intPart, len$1 = intDigits.length;
+			var i$3, arr = str.split("."), g1 = +format$2.groupSize, g2 = +format$2.secondaryGroupSize, groupSeparator = format$2.groupSeparator || "", intPart = arr[0], fractionPart = arr[1], isNeg = x$2.s < 0, intDigits = isNeg ? intPart.slice(1) : intPart, len$1 = intDigits.length;
 			if (g2) {
 				i$3 = g1;
 				g1 = g2;
@@ -25007,9 +25007,9 @@ function clone(configObject) {
 				if (g2 > 0) intPart += groupSeparator + intDigits.slice(i$3);
 				if (isNeg) intPart = "-" + intPart;
 			}
-			str = fractionPart ? intPart + (format$1.decimalSeparator || "") + ((g2 = +format$1.fractionGroupSize) ? fractionPart.replace(new RegExp("\\d{" + g2 + "}\\B", "g"), "$&" + (format$1.fractionGroupSeparator || "")) : fractionPart) : intPart;
+			str = fractionPart ? intPart + (format$2.decimalSeparator || "") + ((g2 = +format$2.fractionGroupSize) ? fractionPart.replace(new RegExp("\\d{" + g2 + "}\\B", "g"), "$&" + (format$2.fractionGroupSeparator || "")) : fractionPart) : intPart;
 		}
-		return (format$1.prefix || "") + str + (format$1.suffix || "");
+		return (format$2.prefix || "") + str + (format$2.suffix || "");
 	};
 	P$2.toFraction = function(md) {
 		var d$2, d0, d1, d2, e$2, exp, n$3, n0, n1, q$3, r$3, s$1, x$2 = this, xc = x$2.c;
@@ -25054,7 +25054,7 @@ function clone(configObject) {
 	};
 	P$2.toPrecision = function(sd, rm) {
 		if (sd != null) intCheck(sd, 1, MAX);
-		return format(this, sd, rm, 2);
+		return format$1(this, sd, rm, 2);
 	};
 	P$2.toString = function(b$4) {
 		var str, n$3 = this, s$1 = n$3.s, e$2 = n$3.e;
@@ -25144,8 +25144,8 @@ var isString$1 = (input) => {
 };
 var CausedError = class extends Error {
 	cause;
-	constructor(message, options$2) {
-		super(message, options$2);
+	constructor(message$1, options$2) {
+		super(message$1, options$2);
 		if (options$2?.cause) {
 			this.cause = options$2.cause;
 			this.message = `${this.message}
@@ -25170,18 +25170,18 @@ var minutesToMs = (minutes) => minutes * 6e4;
 var secondsToMs = (seconds) => seconds * 1e3;
 var msToSeconds = (ms) => ms / 1e3;
 var InvariantError = class extends CausedError {
-	constructor(message, options$2) {
-		super(`InvariantError: ${message}`, options$2);
+	constructor(message$1, options$2) {
+		super(`InvariantError: ${message$1}`, options$2);
 	}
 };
-function invariant$2(condition, message, cause) {
-	if (!condition) throw new InvariantError(message, { cause });
+function invariant$2(condition, message$1, cause) {
+	if (!condition) throw new InvariantError(message$1, { cause });
 }
 function assertError(error) {
 	if (!(error instanceof Error)) throw new InvariantError(`Invalid error type. Received ${typeof error}, expected instance of Error`);
 }
-function never(message, options$2) {
-	throw new InvariantError(message, options$2);
+function never(message$1, options$2) {
+	throw new InvariantError(message$1, options$2);
 }
 var SessionStatus;
 (function(SessionStatus$1) {
@@ -25579,16 +25579,16 @@ var POTENTIALLY_APPROVAL_REQUIRED_METHODS = [
 var RpcError = class RpcError extends Error {
 	code;
 	message;
-	constructor(code$1, message) {
-		super(message);
+	constructor(code$1, message$1) {
+		super(message$1);
 		this.code = code$1;
-		this.message = message;
+		this.message = message$1;
 	}
-	static userRejectedRequest(message) {
-		return new RpcError(4001, message);
+	static userRejectedRequest(message$1) {
+		return new RpcError(4001, message$1);
 	}
-	static unauthorized(message) {
-		return new RpcError(4100, message);
+	static unauthorized(message$1) {
+		return new RpcError(4100, message$1);
 	}
 };
 var LocalRpcHandler = class {
@@ -25708,17 +25708,17 @@ function getRpcRequestHandler(args) {
 	return new PopupModalRpcHandler(args);
 }
 var logger = {
-	error: (message, ...optionalParams) => {
-		console.error("[Aave Wallet]", message, ...optionalParams);
+	error: (message$1, ...optionalParams) => {
+		console.error("[Aave Wallet]", message$1, ...optionalParams);
 	},
-	warn: (message, ...optionalParams) => {
-		console.warn("[Aave Wallet]", message, ...optionalParams);
+	warn: (message$1, ...optionalParams) => {
+		console.warn("[Aave Wallet]", message$1, ...optionalParams);
 	},
-	info: (message, ...optionalParams) => {
-		console.info("[Aave Wallet]", message, ...optionalParams);
+	info: (message$1, ...optionalParams) => {
+		console.info("[Aave Wallet]", message$1, ...optionalParams);
 	},
-	debug: (message, ...optionalParams) => {
-		console.debug("[Aave Wallet]", message, ...optionalParams);
+	debug: (message$1, ...optionalParams) => {
+		console.debug("[Aave Wallet]", message$1, ...optionalParams);
 	}
 };
 var CONNECTION_TIMEOUT = secondsToMs(5);
@@ -25794,8 +25794,8 @@ var EthereumProvider = class {
 			});
 		});
 	}
-	log(message, ...args) {
-		if (this._config?.debug) logger.info(message, ...args);
+	log(message$1, ...args) {
+		if (this._config?.debug) logger.info(message$1, ...args);
 	}
 	isConnected() {
 		return !!cachedSessionStorage.get() || FamilyAccountsSdk.isConnected();
@@ -26546,9 +26546,9 @@ function matchUserAgent(ua) {
 function parseUserAgent(ua) {
 	var matchedRule = matchUserAgent(ua);
 	if (!matchedRule) return null;
-	var name = matchedRule[0], match$1 = matchedRule[1];
+	var name = matchedRule[0], match$2 = matchedRule[1];
 	if (name === "searchbot") return new BotInfo();
-	var versionParts = match$1[1] && match$1[1].split(".").join("_").split("_").slice(0, 3);
+	var versionParts = match$2[1] && match$2[1].split(".").join("_").split("_").slice(0, 3);
 	if (versionParts) {
 		if (versionParts.length < REQUIRED_VERSION_PARTS) versionParts = __spreadArray$1(__spreadArray$1([], versionParts, true), createVersionParts(REQUIRED_VERSION_PARTS - versionParts.length), true);
 	} else versionParts = [];
@@ -30099,11 +30099,11 @@ function useTapGesture(_a) {
 	useUnmountEffect(removePointerEndListener);
 }
 var warned$1 = /* @__PURE__ */ new Set();
-function warnOnce(condition, message, element) {
-	if (condition || warned$1.has(message)) return;
-	console.warn(message);
+function warnOnce(condition, message$1, element) {
+	if (condition || warned$1.has(message$1)) return;
+	console.warn(message$1);
 	if (element) console.warn(element);
-	warned$1.add(message);
+	warned$1.add(message$1);
 }
 init_tslib_es6();
 var observerCallbacks = /* @__PURE__ */ new WeakMap();
@@ -31961,9 +31961,9 @@ function isCSSVariable$1(value) {
 }
 var cssVariableRegex = /var\((--[a-zA-Z0-9-_]+),? ?([a-zA-Z0-9 ()%#.,-]+)?\)/;
 function parseCSSVariable(current) {
-	var match$1 = cssVariableRegex.exec(current);
-	if (!match$1) return [,];
-	var _a = __read(match$1, 3);
+	var match$2 = cssVariableRegex.exec(current);
+	if (!match$2) return [,];
+	var _a = __read(match$2, 3);
 	return [_a[1], _a[2]];
 }
 var maxDepth = 4;
@@ -32303,8 +32303,8 @@ var correctBoxShadow = { correct: function(latest, _a) {
 	var original = latest;
 	var containsCSSVariables = latest.includes("var(");
 	var cssVariables = [];
-	if (containsCSSVariables) latest = latest.replace(cssVariableRegex, function(match$1) {
-		cssVariables.push(match$1);
+	if (containsCSSVariables) latest = latest.replace(cssVariableRegex, function(match$2) {
+		cssVariables.push(match$2);
 		return varToken;
 	});
 	var shadow = complex.parse(latest);
@@ -34493,9 +34493,9 @@ function ne(e$2) {
 	}
 	return !0;
 }
-var re = te("5.3.11"), oe = function() {
+var re$1 = te("5.3.11"), oe = function() {
 	function e$2(e$3, t$2, n$3) {
-		this.rules = e$3, this.staticRulesId = "", this.isStatic = (void 0 === n$3 || n$3.isStatic) && ne(e$3), this.componentId = t$2, this.baseHash = ee(re, t$2), this.baseStyle = n$3, X$2.registerId(t$2);
+		this.rules = e$3, this.staticRulesId = "", this.isStatic = (void 0 === n$3 || n$3.isStatic) && ne(e$3), this.componentId = t$2, this.baseHash = ee(re$1, t$2), this.baseStyle = n$3, X$2.registerId(t$2);
 	}
 	return e$2.prototype.generateAndInjectStyles = function(e$3, t$2, n$3) {
 		var r$3 = this.componentId, o$1 = [];
@@ -35455,11 +35455,11 @@ function check_fenced$1(cps) {
 	let last = -1;
 	for (let i$3 = 1; i$3 < n$3; i$3++) {
 		cp = cps[i$3];
-		let match$1 = FENCED$1.get(cp);
-		if (match$1) {
-			if (last == i$3) throw error_placement$1(`${prev$1} + ${match$1}`);
+		let match$2 = FENCED$1.get(cp);
+		if (match$2) {
+			if (last == i$3) throw error_placement$1(`${prev$1} + ${match$2}`);
 			last = i$3 + 1;
-			prev$1 = match$1;
+			prev$1 = match$2;
 		}
 	}
 	if (last == n$3) throw error_placement$1(`trailing ${prev$1}`);
@@ -36268,7 +36268,7 @@ var require_error_correction_level = /* @__PURE__ */ __commonJSMin(((exports) =>
 			default: throw new Error("Unknown EC Level: " + string);
 		}
 	}
-	exports.isValid = function isValid(level) {
+	exports.isValid = function isValid$1(level) {
 		return level && typeof level.bit !== "undefined" && level.bit >= 0 && level.bit < 4;
 	};
 	exports.from = function from$2(value, defaultValue) {
@@ -36380,7 +36380,7 @@ var require_mask_pattern = /* @__PURE__ */ __commonJSMin(((exports) => {
 		N3: 40,
 		N4: 10
 	};
-	exports.isValid = function isValid(mask$1) {
+	exports.isValid = function isValid$1(mask$1) {
 		return mask$1 != null && mask$1 !== "" && !isNaN(mask$1) && mask$1 >= 0 && mask$1 <= 7;
 	};
 	exports.from = function from$2(value) {
@@ -36906,7 +36906,7 @@ var require_reed_solomon_encoder = /* @__PURE__ */ __commonJSMin(((exports, modu
 	module.exports = ReedSolomonEncoder$1;
 }));
 var require_version_check = /* @__PURE__ */ __commonJSMin(((exports) => {
-	exports.isValid = function isValid(version$8) {
+	exports.isValid = function isValid$1(version$8) {
 		return !isNaN(version$8) && version$8 >= 1 && version$8 <= 40;
 	};
 }));
@@ -36991,7 +36991,7 @@ var require_mode = /* @__PURE__ */ __commonJSMin(((exports) => {
 		if (mode$1 && mode$1.id) return mode$1.id;
 		throw new Error("Invalid mode");
 	};
-	exports.isValid = function isValid(mode$1) {
+	exports.isValid = function isValid$1(mode$1) {
 		return mode$1 && mode$1.bit && mode$1.ccBits;
 	};
 	function fromString(string) {
@@ -39429,11 +39429,11 @@ var Logos = {
 	Talisman
 };
 var truncateRegex = /^(0x[a-zA-Z0-9]{4})[a-zA-Z0-9]+([a-zA-Z0-9]{4})$/;
-var truncateEthAddress = (address$9, separator = "••••") => {
-	if (!address$9) return "";
-	const match$1 = address$9.match(truncateRegex);
-	if (!match$1) return address$9;
-	return `${match$1[1]}${separator}${match$1[2]}`;
+var truncateEthAddress = (address$10, separator = "••••") => {
+	if (!address$10) return "";
+	const match$2 = address$10.match(truncateRegex);
+	if (!match$2) return address$10;
+	return `${match$2[1]}${separator}${match$2[2]}`;
 };
 var truncateENSAddress = (ensName, maxLength) => {
 	if (ensName.length > maxLength) return ensName.replace(".eth", "").slice(0, maxLength) + "...";
@@ -41897,19 +41897,19 @@ var useSIWE = ({ onSignIn, onSignOut } = {}) => {
 		signOut: () => Promise.reject()
 	};
 	const { session, nonce, status, signOut, signIn, resetStatus } = siweContextValue;
-	const { address: address$9, chainId } = session.data || {};
-	const currentStatus = address$9 ? StatusState.SUCCESS : session.isLoading || nonce.isLoading ? StatusState.LOADING : status;
+	const { address: address$10, chainId } = session.data || {};
+	const currentStatus = address$10 ? StatusState.SUCCESS : session.isLoading || nonce.isLoading ? StatusState.LOADING : status;
 	const isLoading = currentStatus === StatusState.LOADING;
 	const isSuccess = currentStatus === StatusState.SUCCESS;
 	const isRejected = currentStatus === StatusState.REJECTED;
 	const isError$1 = currentStatus === StatusState.ERROR;
-	const isReady = !address$9 || nonce.isFetching || isLoading || isSuccess;
+	const isReady = !address$10 || nonce.isFetching || isLoading || isSuccess;
 	const reset = () => resetStatus();
-	const isSignedIn = !!address$9;
+	const isSignedIn = !!address$10;
 	return {
 		isSignedIn,
 		data: isSignedIn ? {
-			address: address$9,
+			address: address$10,
 			chainId
 		} : void 0,
 		status: currentStatus,
@@ -41934,7 +41934,7 @@ var useSIWE = ({ onSignIn, onSignOut } = {}) => {
 		reset
 	};
 };
-var enUS = {
+var enUS$1 = {
 	continueWithFamily: "Continue with Family",
 	orSelectWallet: "or select a wallet from the list below",
 	loginWithEmailOrPhone: "Login with Email or Phone",
@@ -42032,7 +42032,7 @@ var enUS = {
 	signInWithEthereumScreen_signedIn_button: "Sign Out"
 };
 var arAE = {
-	...enUS,
+	...enUS$1,
 	connectWallet: "الاتصال بالمحفظة",
 	disconnect: "قطع الاتصال",
 	connected: "متصل",
@@ -42127,7 +42127,7 @@ var arAE = {
 	signInWithEthereumScreen_signedIn_button: "تسجيل الخروج"
 };
 var eeEE = {
-	...enUS,
+	...enUS$1,
 	connectWallet: "Ühenda rahakott",
 	disconnect: "Katkesta ühendus",
 	connected: "Ühendatud",
@@ -42220,7 +42220,7 @@ var eeEE = {
 	signInWithEthereumScreen_signedIn_button: "Logi välja"
 };
 var esES = {
-	...enUS,
+	...enUS$1,
 	connectWallet: "Conecta una cartera",
 	disconnect: "Desconectar",
 	connected: "Conectado",
@@ -42313,7 +42313,7 @@ var esES = {
 	signInWithEthereumScreen_signedIn_button: "Cerrar sesión"
 };
 var faIR = {
-	...enUS,
+	...enUS$1,
 	connectWallet: "اتصال به کیف پول",
 	disconnect: "قطع ارتباط",
 	connected: "متصل شد",
@@ -42406,7 +42406,7 @@ var faIR = {
 	signInWithEthereumScreen_signedIn_button: "خروج"
 };
 var frFR = {
-	...enUS,
+	...enUS$1,
 	connectWallet: "Connecter le portefeuille",
 	disconnect: "Déconnecter",
 	connected: "Connecté",
@@ -42499,7 +42499,7 @@ var frFR = {
 	signInWithEthereumScreen_signedIn_button: "Se déconnecter"
 };
 var jaJP = {
-	...enUS,
+	...enUS$1,
 	connectWallet: "ウォレットの接続",
 	disconnect: "切断",
 	connected: "接続されました",
@@ -42592,7 +42592,7 @@ var jaJP = {
 	signInWithEthereumScreen_signedIn_button: "サインアウト"
 };
 var ptBR = {
-	...enUS,
+	...enUS$1,
 	connectWallet: "Conectar carteira",
 	disconnect: "Desconectar",
 	connected: "Conectado",
@@ -42685,7 +42685,7 @@ var ptBR = {
 	signInWithEthereumScreen_signedIn_button: "Sair"
 };
 var ruRU = {
-	...enUS,
+	...enUS$1,
 	connectWallet: "Подключить кошелек",
 	disconnect: "Отключить",
 	connected: "Подключена",
@@ -42778,7 +42778,7 @@ var ruRU = {
 	signInWithEthereumScreen_signedIn_button: "Выйти"
 };
 var zhCN = {
-	...enUS,
+	...enUS$1,
 	connectWallet: "绑定钱包",
 	disconnect: "解除绑定",
 	connected: "已绑定",
@@ -42871,7 +42871,7 @@ var zhCN = {
 	signInWithEthereumScreen_signedIn_button: "登出"
 };
 var caAD = {
-	...enUS,
+	...enUS$1,
 	connectWallet: "Connecta la cartera",
 	disconnect: "Desconnectar",
 	connected: "Connectat",
@@ -42964,7 +42964,7 @@ var caAD = {
 	signInWithEthereumScreen_signedIn_button: "Tanca sessió"
 };
 var trTR = {
-	...enUS,
+	...enUS$1,
 	connectWallet: "Cüzdan Bağla",
 	disconnect: "Bağlantıyı Kes",
 	connected: "Bağlandı",
@@ -43057,7 +43057,7 @@ var trTR = {
 	signInWithEthereumScreen_signedIn_button: "Çıkış Yap"
 };
 var viVN = {
-	...enUS,
+	...enUS$1,
 	connectWallet: "Kết nối ví",
 	disconnect: "Ngắt kết nối",
 	connected: "Đã kết nối",
@@ -43163,7 +43163,7 @@ var getLocale = (lang) => {
 		case "ca-AD": return caAD;
 		case "tr-TR": return trTR;
 		case "vi-VN": return viVN;
-		default: return enUS;
+		default: return enUS$1;
 	}
 };
 function useLocales(replacements) {
@@ -43179,11 +43179,11 @@ function useLocales(replacements) {
 	const translated = {};
 	Object.keys(translations).map((key) => {
 		const string = translations[key];
-		return translated[key] = localize(string, replacements);
+		return translated[key] = localize$1(string, replacements);
 	});
 	return translated;
 }
-var localize = (text, replacements) => {
+var localize$1 = (text, replacements) => {
 	let parsedText = text;
 	if (replacements) Object.keys(replacements).forEach((key) => {
 		parsedText = parsedText.replace(new RegExp(`({{ ${key} }})`, "g"), replacements[key]);
@@ -43665,7 +43665,7 @@ var Modal$2 = ({ open, pages, pageId, positionInside, inline: inline$1, demo, on
 			default: return "";
 		}
 	}
-	const Content$2 = (0, import_jsx_runtime.jsx)(ResetContainer, {
+	const Content$3 = (0, import_jsx_runtime.jsx)(ResetContainer, {
 		"$useTheme": (_e$1 = demo === null || demo === void 0 ? void 0 : demo.theme) !== null && _e$1 !== void 0 ? _e$1 : themeContext.theme,
 		"$useMode": (_f = demo === null || demo === void 0 ? void 0 : demo.mode) !== null && _f !== void 0 ? _f : themeContext.mode,
 		"$customTheme": (_g = demo === null || demo === void 0 ? void 0 : demo.customTheme) !== null && _g !== void 0 ? _g : themeContext.customTheme,
@@ -43857,7 +43857,7 @@ var Modal$2 = ({ open, pages, pageId, positionInside, inline: inline$1, demo, on
 			})]
 		})
 	});
-	return (0, import_jsx_runtime.jsx)(import_jsx_runtime.Fragment, { children: mounted && (0, import_jsx_runtime.jsx)(import_jsx_runtime.Fragment, { children: positionInside ? Content$2 : (0, import_jsx_runtime.jsx)(import_jsx_runtime.Fragment, { children: (0, import_jsx_runtime.jsx)(Portal, { children: (0, import_jsx_runtime.jsx)(FocusTrap, { children: Content$2 }) }) }) }) });
+	return (0, import_jsx_runtime.jsx)(import_jsx_runtime.Fragment, { children: mounted && (0, import_jsx_runtime.jsx)(import_jsx_runtime.Fragment, { children: positionInside ? Content$3 : (0, import_jsx_runtime.jsx)(import_jsx_runtime.Fragment, { children: (0, import_jsx_runtime.jsx)(Portal, { children: (0, import_jsx_runtime.jsx)(FocusTrap, { children: Content$3 }) }) }) }) });
 };
 var Page = ({ children, open, initial, prevDepth, currentDepth, enterAnim, exitAnim }) => {
 	const [state, setOpen] = useTransition({
@@ -46207,8 +46207,8 @@ function useWalletConnectUri({ enabled } = { enabled: true }) {
 	const { connectAsync } = useConnect$1();
 	(0, import_react.useEffect)(() => {
 		if (!enabled) return;
-		async function handleMessage(message) {
-			const { type, data } = message;
+		async function handleMessage(message$1) {
+			const { type, data } = message$1;
 			log$6("WC Message", type, data);
 			if (type === "display_uri") setUri(data);
 		}
@@ -47107,7 +47107,7 @@ var MobileConnectors = () => {
 		})] })
 	});
 };
-var Content$1 = styled(motion.div)`
+var Content$2 = styled(motion.div)`
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -47305,7 +47305,7 @@ var TooltipTail = styled(motion.div)`
     border-radius: ${(props) => props.$size === "small" ? 2 : 3}px 0 0 0;
   }
 `;
-var Tooltip = ({ children, message, open, xOffset = 0, yOffset = 0, delay: delay$1 }) => {
+var Tooltip = ({ children, message: message$1, open, xOffset = 0, yOffset = 0, delay: delay$1 }) => {
 	var _a;
 	const context = useContext$9();
 	const themeContext = useThemeContext();
@@ -47397,7 +47397,7 @@ var Tooltip = ({ children, message, open, xOffset = 0, yOffset = 0, delay: delay
 					}
 				}
 			},
-			children: [message, (0, import_jsx_runtime.jsx)(TooltipTail, { "$size": size$4 })]
+			children: [message$1, (0, import_jsx_runtime.jsx)(TooltipTail, { "$size": size$4 })]
 		}) })
 	}) }) })] });
 };
@@ -48898,7 +48898,7 @@ var ConnectWithInjector = ({ switchConnectMethod, forceState }) => {
 	}) }), (0, import_jsx_runtime.jsx)(ModalContentContainer, { children: (0, import_jsx_runtime.jsxs)(AnimatePresence, {
 		initial: false,
 		children: [
-			status === states$1.FAILED && (0, import_jsx_runtime.jsxs)(Content$1, {
+			status === states$1.FAILED && (0, import_jsx_runtime.jsxs)(Content$2, {
 				initial: "initial",
 				animate: "animate",
 				exit: "exit",
@@ -48911,7 +48911,7 @@ var ConnectWithInjector = ({ switchConnectMethod, forceState }) => {
 					children: locales.connectWithFamilyIOS
 				})] })]
 			}, states$1.FAILED),
-			status === states$1.REJECTED && (0, import_jsx_runtime.jsxs)(Content$1, {
+			status === states$1.REJECTED && (0, import_jsx_runtime.jsxs)(Content$2, {
 				initial: "initial",
 				animate: "animate",
 				exit: "exit",
@@ -48924,7 +48924,7 @@ var ConnectWithInjector = ({ switchConnectMethod, forceState }) => {
 					children: locales.connectWithFamilyIOS
 				})] })]
 			}, states$1.REJECTED),
-			(status === states$1.CONNECTING || status === states$1.EXPIRING) && (0, import_jsx_runtime.jsx)(Content$1, {
+			(status === states$1.CONNECTING || status === states$1.EXPIRING) && (0, import_jsx_runtime.jsx)(Content$2, {
 				initial: "initial",
 				animate: "animate",
 				exit: "exit",
@@ -48934,7 +48934,7 @@ var ConnectWithInjector = ({ switchConnectMethod, forceState }) => {
 					children: [(0, import_jsx_runtime.jsx)(ModalH1, { children: wallet.connector.id === "injected" ? locales.injectionScreen_connecting_injected_h1 : locales.injectionScreen_connecting_h1 }), (0, import_jsx_runtime.jsx)(ModalBody, { children: wallet.connector.id === "injected" ? locales.injectionScreen_connecting_injected_p : locales.injectionScreen_connecting_p })]
 				})
 			}, states$1.CONNECTING),
-			status === states$1.CONNECTED && (0, import_jsx_runtime.jsx)(Content$1, {
+			status === states$1.CONNECTED && (0, import_jsx_runtime.jsx)(Content$2, {
 				initial: "initial",
 				animate: "animate",
 				exit: "exit",
@@ -48948,14 +48948,14 @@ var ConnectWithInjector = ({ switchConnectMethod, forceState }) => {
 					]
 				}), (0, import_jsx_runtime.jsx)(ModalBody, { children: locales.injectionScreen_connected_p })] })
 			}, states$1.CONNECTED),
-			status === states$1.NOTCONNECTED && (0, import_jsx_runtime.jsx)(Content$1, {
+			status === states$1.NOTCONNECTED && (0, import_jsx_runtime.jsx)(Content$2, {
 				initial: "initial",
 				animate: "animate",
 				exit: "exit",
 				variants: contentVariants$1,
 				children: (0, import_jsx_runtime.jsxs)(ModalContent, { children: [(0, import_jsx_runtime.jsx)(ModalH1, { children: locales.injectionScreen_notconnected_h1 }), (0, import_jsx_runtime.jsx)(ModalBody, { children: locales.injectionScreen_notconnected_p })] })
 			}, states$1.NOTCONNECTED),
-			status === states$1.UNAVAILABLE && (0, import_jsx_runtime.jsx)(Content$1, {
+			status === states$1.UNAVAILABLE && (0, import_jsx_runtime.jsx)(Content$2, {
 				initial: "initial",
 				animate: "animate",
 				exit: "exit",
@@ -49746,8 +49746,8 @@ var LoadingBalance = styled(motion.div)`
     animation: ${PlaceholderKeyframes$1} 1000ms linear infinite both;
   }
 `;
-function addressToNumber(address$9) {
-	return address$9.split("").map((l$2) => l$2.charCodeAt(0)).reduce((a$2, b$4) => a$2 + b$4) % 100 / 100;
+function addressToNumber(address$10) {
+	return address$10.split("").map((l$2) => l$2.charCodeAt(0)).reduce((a$2, b$4) => a$2 + b$4) % 100 / 100;
 }
 var EnsAvatar = styled(motion.div)`
   will-change: transform; // Needed for Safari
@@ -49805,7 +49805,7 @@ var ensFallbackConfig = createConfig({
 function useEnsFallbackConfig() {
 	return !useChainIsSupported(1) ? ensFallbackConfig : void 0;
 }
-var Avatar = ({ address: address$9, name, size: size$4 = 96, radius = 96 }) => {
+var Avatar = ({ address: address$10, name, size: size$4 = 96, radius = 96 }) => {
 	var _a, _b, _c;
 	const isMounted = useIsMounted();
 	const context = useContext$9();
@@ -49819,7 +49819,7 @@ var Avatar = ({ address: address$9, name, size: size$4 = 96, radius = 96 }) => {
 	});
 	const { data: ensName } = useEnsName({
 		chainId: 1,
-		address: (_a = address$9 !== null && address$9 !== void 0 ? address$9 : ensAddress) !== null && _a !== void 0 ? _a : void 0,
+		address: (_a = address$10 !== null && address$10 !== void 0 ? address$10 : ensAddress) !== null && _a !== void 0 ? _a : void 0,
 		config: ensFallbackConfig$1
 	});
 	const { data: ensAvatar } = useEnsAvatar({
@@ -49828,7 +49828,7 @@ var Avatar = ({ address: address$9, name, size: size$4 = 96, radius = 96 }) => {
 		config: ensFallbackConfig$1
 	});
 	const ens = {
-		address: ensAddress !== null && ensAddress !== void 0 ? ensAddress : address$9,
+		address: ensAddress !== null && ensAddress !== void 0 ? ensAddress : address$10,
 		name: ensName !== null && ensName !== void 0 ? ensName : name,
 		avatar: ensAvatar !== null && ensAvatar !== void 0 ? ensAvatar : void 0
 	};
@@ -49848,7 +49848,7 @@ var Avatar = ({ address: address$9, name, size: size$4 = 96, radius = 96 }) => {
 			overflow: "hidden"
 		},
 		children: (_c = context.options) === null || _c === void 0 ? void 0 : _c.customAvatar({
-			address: address$9 !== null && address$9 !== void 0 ? address$9 : ens === null || ens === void 0 ? void 0 : ens.address,
+			address: address$10 !== null && address$10 !== void 0 ? address$10 : ens === null || ens === void 0 ? void 0 : ens.address,
 			ensName: name !== null && name !== void 0 ? name : ens === null || ens === void 0 ? void 0 : ens.name,
 			ensImage: ens === null || ens === void 0 ? void 0 : ens.avatar,
 			size: size$4,
@@ -51909,15 +51909,15 @@ var Profile = ({ closeModal }) => {
 	const locales = useLocales();
 	const { reset } = useConnect();
 	const { disconnect: disconnect$2 } = useDisconnect();
-	const { address: address$9, isConnected: isConnected$1, connector, chain } = useConnection();
+	const { address: address$10, isConnected: isConnected$1, connector, chain } = useConnection();
 	const isFamilyConnector = isFamilyAccountsConnector(connector === null || connector === void 0 ? void 0 : connector.id);
 	const { data: connectorClient } = useConnectorClient({ connector });
 	const { data: ensName } = useEnsName({
 		chainId: 1,
-		address: address$9,
+		address: address$10,
 		config: useEnsFallbackConfig()
 	});
-	const { data: balance } = useBalance({ address: address$9 });
+	const { data: balance } = useBalance({ address: address$10 });
 	const [shouldDisconnect, setShouldDisconnect] = (0, import_react.useState)(false);
 	(0, import_react.useEffect)(() => {
 		if (!isConnected$1) context.setOpen(false);
@@ -51947,10 +51947,10 @@ var Profile = ({ closeModal }) => {
 				gap: 6
 			},
 			children: [
-				(0, import_jsx_runtime.jsx)(AvatarContainer, { children: (0, import_jsx_runtime.jsxs)(AvatarInner, { children: [(0, import_jsx_runtime.jsx)(ChainSelectorContainer, { children: (0, import_jsx_runtime.jsx)(ChainSelector, {}) }), (0, import_jsx_runtime.jsx)(Avatar, { address: address$9 })] }) }),
+				(0, import_jsx_runtime.jsx)(AvatarContainer, { children: (0, import_jsx_runtime.jsxs)(AvatarInner, { children: [(0, import_jsx_runtime.jsx)(ChainSelectorContainer, { children: (0, import_jsx_runtime.jsx)(ChainSelector, {}) }), (0, import_jsx_runtime.jsx)(Avatar, { address: address$10 })] }) }),
 				(0, import_jsx_runtime.jsx)(ModalH1, { children: (0, import_jsx_runtime.jsx)(CopyToClipboard, {
-					string: address$9,
-					children: ensName !== null && ensName !== void 0 ? ensName : truncateEthAddress(address$9, separator)
+					string: address$10,
+					children: ensName !== null && ensName !== void 0 ? ensName : truncateEthAddress(address$10, separator)
 				}) }),
 				((_c = context === null || context === void 0 ? void 0 : context.options) === null || _c === void 0 ? void 0 : _c.hideBalance) ? null : (0, import_jsx_runtime.jsx)(ModalBody, { children: (0, import_jsx_runtime.jsx)(BalanceContainer, { children: (0, import_jsx_runtime.jsxs)(AnimatePresence, {
 					exitBeforeEnter: true,
@@ -52365,7 +52365,7 @@ var SignInWithEthereum = () => {
 	(0, import_react.useEffect)(() => {
 		if (!isSignedIn) setStatus("signedOut");
 	}, [isSignedIn]);
-	const { address: address$9 } = useConnection();
+	const { address: address$10 } = useConnection();
 	const getFavicons = () => {
 		const favicons$1 = {
 			svg: null,
@@ -52453,7 +52453,7 @@ var SignInWithEthereum = () => {
 							},
 							transition,
 							children: (0, import_jsx_runtime.jsx)(LogoContainer, { children: (0, import_jsx_runtime.jsx)(Avatar, {
-								address: address$9,
+								address: address$10,
 								size: 64
 							}) })
 						}, "avatarImage"),
@@ -52623,9 +52623,9 @@ function useThemeFont(theme) {
 }
 var useConnectCallback = ({ onConnect, onDisconnect }) => {
 	useConnectionEffect({
-		onConnect: ({ address: address$9, connector, isReconnected }) => {
+		onConnect: ({ address: address$10, connector, isReconnected }) => {
 			if (!isReconnected) onConnect === null || onConnect === void 0 || onConnect({
-				address: address$9,
+				address: address$10,
 				connectorId: connector === null || connector === void 0 ? void 0 : connector.id
 			});
 		},
@@ -52654,7 +52654,7 @@ var ConnectKitProvider = ({ children, theme = "auto", mode: mode$1 = "auto", cus
 	});
 	const chains = useChains();
 	const injectedConnector = useConnector("injected");
-	const defaultOptions$2 = {
+	const defaultOptions$3 = {
 		language: "en-US",
 		hideBalance: false,
 		hideTooltips: false,
@@ -52676,7 +52676,7 @@ var ConnectKitProvider = ({ children, theme = "auto", mode: mode$1 = "auto", cus
 		walletOnboardingUrl: void 0,
 		disableSiweRedirect: false
 	};
-	const opts = Object.assign({}, defaultOptions$2, options$2);
+	const opts = Object.assign({}, defaultOptions$3, options$2);
 	if (typeof window !== "undefined") {
 		if (opts.bufferPolyfill) window.Buffer = (_b = window.Buffer) !== null && _b !== void 0 ? _b : import_buffer.Buffer;
 	}
@@ -52732,10 +52732,10 @@ var ConnectKitProvider = ({ children, theme = "auto", mode: mode$1 = "auto", cus
 		errorMessage,
 		debugMode,
 		log: log$6,
-		displayError: (message, code$1) => {
-			setErrorMessage(message);
+		displayError: (message$1, code$1) => {
+			setErrorMessage(message$1);
 			console.log("---------CONNECTKIT DEBUG---------");
-			console.log(message);
+			console.log(message$1);
 			if (code$1) console.table(code$1);
 			console.log("---------/CONNECTKIT DEBUG---------");
 		},
@@ -53069,13 +53069,13 @@ var PulseContainer = styled.div`
 var Balance = ({ hideIcon, hideSymbol }) => {
 	const isMounted = useIsMounted();
 	const [isInitial, setIsInitial] = (0, import_react.useState)(true);
-	const { address: address$9, chain } = useConnection();
+	const { address: address$10, chain } = useConnection();
 	useChains();
 	const isChainSupported = useChainIsSupported(chain === null || chain === void 0 ? void 0 : chain.id);
 	const queryClient$1 = useQueryClient();
 	const { data: blockNumber } = useBlockNumber({ watch: true });
 	const { data: balance, queryKey } = useBalance({
-		address: address$9,
+		address: address$10,
 		chainId: chain === null || chain === void 0 ? void 0 : chain.id
 	});
 	(0, import_react.useEffect)(() => {
@@ -53119,7 +53119,7 @@ var Balance = ({ hideIcon, hideSymbol }) => {
 					],
 					delay: .4
 				},
-				children: !address$9 || !isMounted || (balance === null || balance === void 0 ? void 0 : balance.formatted) === void 0 ? (0, import_jsx_runtime.jsxs)(Container$1, { children: [!hideIcon && (0, import_jsx_runtime.jsx)(Chain$1, { id: chain === null || chain === void 0 ? void 0 : chain.id }), (0, import_jsx_runtime.jsx)("span", {
+				children: !address$10 || !isMounted || (balance === null || balance === void 0 ? void 0 : balance.formatted) === void 0 ? (0, import_jsx_runtime.jsxs)(Container$1, { children: [!hideIcon && (0, import_jsx_runtime.jsx)(Chain$1, { id: chain === null || chain === void 0 ? void 0 : chain.id }), (0, import_jsx_runtime.jsx)("span", {
 					style: { minWidth: 32 },
 					children: (0, import_jsx_runtime.jsxs)(PulseContainer, { children: [
 						(0, import_jsx_runtime.jsx)("span", { style: { animationDelay: "0ms" } }),
@@ -53245,11 +53245,11 @@ var ConnectButtonRenderer = ({ children }) => {
 	const isMounted = useIsMounted();
 	const context = useContext$9();
 	const { open, setOpen } = useModal();
-	const { address: address$9, isConnected: isConnected$1, chain } = useConnection();
+	const { address: address$10, isConnected: isConnected$1, chain } = useConnection();
 	const isChainSupported = useChainIsSupported(chain === null || chain === void 0 ? void 0 : chain.id);
 	const { data: ensName } = useEnsName({
 		chainId: 1,
-		address: address$9,
+		address: address$10,
 		config: useEnsFallbackConfig()
 	});
 	function hide$2() {
@@ -53266,10 +53266,10 @@ var ConnectButtonRenderer = ({ children }) => {
 		hide: hide$2,
 		chain,
 		unsupported: !isChainSupported,
-		isConnected: !!address$9,
+		isConnected: !!address$10,
 		isConnecting: open,
-		address: address$9,
-		truncatedAddress: address$9 ? truncateEthAddress(address$9) : void 0,
+		address: address$10,
+		truncatedAddress: address$10 ? truncateEthAddress(address$10) : void 0,
 		ensName: ensName === null || ensName === void 0 ? void 0 : ensName.toString()
 	}) });
 };
@@ -53279,17 +53279,17 @@ function ConnectKitButtonInner({ label, showAvatar, separator }) {
 	const locales = useLocales({});
 	const context = useContext$9();
 	const { isSignedIn } = useSIWE();
-	const { address: address$9, chain } = useConnection();
+	const { address: address$10, chain } = useConnection();
 	const isChainSupported = useChainIsSupported(chain === null || chain === void 0 ? void 0 : chain.id);
 	const { data: ensName } = useEnsName({
 		chainId: 1,
-		address: address$9,
+		address: address$10,
 		config: useEnsFallbackConfig()
 	});
 	const defaultLabel = locales.connectWallet;
 	return (0, import_jsx_runtime.jsx)(AnimatePresence, {
 		initial: false,
-		children: address$9 ? (0, import_jsx_runtime.jsxs)(TextContainer, {
+		children: address$10 ? (0, import_jsx_runtime.jsxs)(TextContainer, {
 			initial: "initial",
 			animate: "animate",
 			exit: "exit",
@@ -53326,7 +53326,7 @@ function ConnectKitButtonInner({ label, showAvatar, separator }) {
 				})]
 			}), (0, import_jsx_runtime.jsx)(Avatar, {
 				size: 24,
-				address: address$9
+				address: address$10
 			})] }), (0, import_jsx_runtime.jsx)("div", {
 				style: {
 					position: "relative",
@@ -53347,7 +53347,7 @@ function ConnectKitButtonInner({ label, showAvatar, separator }) {
 						exit: "exit",
 						variants: textVariants,
 						style: { position: ensName ? "absolute" : "relative" },
-						children: [truncateEthAddress(address$9, separator), " "]
+						children: [truncateEthAddress(address$10, separator), " "]
 					}, "ckTruncatedAddress")
 				})
 			})]
@@ -53365,7 +53365,7 @@ function ConnectKitButton({ label, showBalance = false, showAvatar = true, theme
 	var _a;
 	const isMounted = useIsMounted();
 	const context = useContext$9();
-	const { isConnected: isConnected$1, address: address$9, chain } = useConnection();
+	const { isConnected: isConnected$1, address: address$10, chain } = useConnection();
 	const chainIsSupported = useChainIsSupported(chain === null || chain === void 0 ? void 0 : chain.id);
 	function show$1() {
 		context.setOpen(true);
@@ -53378,7 +53378,7 @@ function ConnectKitButton({ label, showBalance = false, showAvatar = true, theme
 	].includes((_a = theme !== null && theme !== void 0 ? theme : context.theme) !== null && _a !== void 0 ? _a : "") ? "...." : void 0;
 	if (!isMounted) return null;
 	const shouldShowBalance = showBalance && chainIsSupported;
-	const willShowBalance = address$9 && shouldShowBalance;
+	const willShowBalance = address$10 && shouldShowBalance;
 	return (0, import_jsx_runtime.jsx)(ResetContainer, {
 		"$useTheme": theme !== null && theme !== void 0 ? theme : context.theme,
 		"$useMode": mode$1 !== null && mode$1 !== void 0 ? mode$1 : context.mode,
@@ -53443,7 +53443,7 @@ function ConnectKitButton({ label, showBalance = false, showAvatar = true, theme
 				theme: theme !== null && theme !== void 0 ? theme : context.theme,
 				mode: mode$1 !== null && mode$1 !== void 0 ? mode$1 : context.mode,
 				customTheme: customTheme !== null && customTheme !== void 0 ? customTheme : context.customTheme,
-				style: shouldShowBalance && showBalance && address$9 && (theme === "retro" || context.theme === "retro") ? {
+				style: shouldShowBalance && showBalance && address$10 && (theme === "retro" || context.theme === "retro") ? {
 					boxShadow: "var(--ck-connectbutton-balance-connectbutton-box-shadow)",
 					borderRadius: "var(--ck-connectbutton-balance-connectbutton-border-radius)",
 					overflow: "hidden"
@@ -53511,6 +53511,433 @@ styled.div`
   }
 `;
 var CONNECTKIT_VERSION = "1.9.1";
+var has = Object.prototype.hasOwnProperty;
+function dequal(foo, bar) {
+	var ctor, len$1;
+	if (foo === bar) return true;
+	if (foo && bar && (ctor = foo.constructor) === bar.constructor) {
+		if (ctor === Date) return foo.getTime() === bar.getTime();
+		if (ctor === RegExp) return foo.toString() === bar.toString();
+		if (ctor === Array) {
+			if ((len$1 = foo.length) === bar.length) while (len$1-- && dequal(foo[len$1], bar[len$1]));
+			return len$1 === -1;
+		}
+		if (!ctor || typeof foo === "object") {
+			len$1 = 0;
+			for (ctor in foo) {
+				if (has.call(foo, ctor) && ++len$1 && !has.call(bar, ctor)) return false;
+				if (!(ctor in bar) || !dequal(foo[ctor], bar[ctor])) return false;
+			}
+			return Object.keys(bar).length === len$1;
+		}
+	}
+	return foo !== foo && bar !== bar;
+}
+var SWRGlobalState = /* @__PURE__ */ new WeakMap();
+var noop$2 = () => {};
+var UNDEFINED = noop$2();
+var OBJECT = Object;
+var isUndefined = (v$2) => v$2 === UNDEFINED;
+var isFunction = (v$2) => typeof v$2 == "function";
+var mergeObjects = (a$2, b$4) => ({
+	...a$2,
+	...b$4
+});
+var isPromiseLike = (x$2) => isFunction(x$2.then);
+var EMPTY_CACHE = {};
+var INITIAL_CACHE = {};
+var STR_UNDEFINED = "undefined";
+var isWindowDefined = typeof window != STR_UNDEFINED;
+var isDocumentDefined = typeof document != STR_UNDEFINED;
+var isLegacyDeno = isWindowDefined && "Deno" in window;
+var hasRequestAnimationFrame = () => isWindowDefined && typeof window["requestAnimationFrame"] != STR_UNDEFINED;
+var createCacheHelper = (cache$1, key) => {
+	const state = SWRGlobalState.get(cache$1);
+	return [
+		() => !isUndefined(key) && cache$1.get(key) || EMPTY_CACHE,
+		(info) => {
+			if (!isUndefined(key)) {
+				const prev$1 = cache$1.get(key);
+				if (!(key in INITIAL_CACHE)) INITIAL_CACHE[key] = prev$1;
+				state[5](key, mergeObjects(prev$1, info), prev$1 || EMPTY_CACHE);
+			}
+		},
+		state[6],
+		() => {
+			if (!isUndefined(key)) {
+				if (key in INITIAL_CACHE) return INITIAL_CACHE[key];
+			}
+			return !isUndefined(key) && cache$1.get(key) || EMPTY_CACHE;
+		}
+	];
+};
+var online = true;
+var isOnline = () => online;
+var [onWindowEvent, offWindowEvent] = isWindowDefined && window.addEventListener ? [window.addEventListener.bind(window), window.removeEventListener.bind(window)] : [noop$2, noop$2];
+var isVisible = () => {
+	const visibilityState = isDocumentDefined && document.visibilityState;
+	return isUndefined(visibilityState) || visibilityState !== "hidden";
+};
+var initFocus = (callback) => {
+	if (isDocumentDefined) document.addEventListener("visibilitychange", callback);
+	onWindowEvent("focus", callback);
+	return () => {
+		if (isDocumentDefined) document.removeEventListener("visibilitychange", callback);
+		offWindowEvent("focus", callback);
+	};
+};
+var initReconnect = (callback) => {
+	const onOnline = () => {
+		online = true;
+		callback();
+	};
+	const onOffline = () => {
+		online = false;
+	};
+	onWindowEvent("online", onOnline);
+	onWindowEvent("offline", onOffline);
+	return () => {
+		offWindowEvent("online", onOnline);
+		offWindowEvent("offline", onOffline);
+	};
+};
+var preset = {
+	isOnline,
+	isVisible
+};
+var defaultConfigOptions = {
+	initFocus,
+	initReconnect
+};
+var IS_REACT_LEGACY = !import_react.useId;
+var IS_SERVER = !isWindowDefined || isLegacyDeno;
+var rAF = (f$1) => hasRequestAnimationFrame() ? window["requestAnimationFrame"](f$1) : setTimeout(f$1, 1);
+var useIsomorphicLayoutEffect = IS_SERVER ? import_react.useEffect : import_react.useLayoutEffect;
+var navigatorConnection = typeof navigator !== "undefined" && navigator.connection;
+var slowConnection = !IS_SERVER && navigatorConnection && (["slow-2g", "2g"].includes(navigatorConnection.effectiveType) || navigatorConnection.saveData);
+var table = /* @__PURE__ */ new WeakMap();
+var getTypeName = (value) => OBJECT.prototype.toString.call(value);
+var isObjectTypeName = (typeName, type) => typeName === `[object ${type}]`;
+var counter = 0;
+var stableHash = (arg) => {
+	const type = typeof arg;
+	const typeName = getTypeName(arg);
+	const isDate$1 = isObjectTypeName(typeName, "Date");
+	const isRegex = isObjectTypeName(typeName, "RegExp");
+	const isPlainObject$3 = isObjectTypeName(typeName, "Object");
+	let result;
+	let index$6;
+	if (OBJECT(arg) === arg && !isDate$1 && !isRegex) {
+		result = table.get(arg);
+		if (result) return result;
+		result = ++counter + "~";
+		table.set(arg, result);
+		if (Array.isArray(arg)) {
+			result = "@";
+			for (index$6 = 0; index$6 < arg.length; index$6++) result += stableHash(arg[index$6]) + ",";
+			table.set(arg, result);
+		}
+		if (isPlainObject$3) {
+			result = "#";
+			const keys = OBJECT.keys(arg).sort();
+			while (!isUndefined(index$6 = keys.pop())) if (!isUndefined(arg[index$6])) result += index$6 + ":" + stableHash(arg[index$6]) + ",";
+			table.set(arg, result);
+		}
+	} else result = isDate$1 ? arg.toJSON() : type == "symbol" ? arg.toString() : type == "string" ? JSON.stringify(arg) : "" + arg;
+	return result;
+};
+var serialize$1 = (key) => {
+	if (isFunction(key)) try {
+		key = key();
+	} catch (err) {
+		key = "";
+	}
+	const args = key;
+	key = typeof key == "string" ? key : (Array.isArray(key) ? key.length : key) ? stableHash(key) : "";
+	return [key, args];
+};
+var __timestamp = 0;
+var getTimestamp = () => ++__timestamp;
+async function internalMutate(...args) {
+	const [cache$1, _key, _data, _opts] = args;
+	const options$2 = mergeObjects({
+		populateCache: true,
+		throwOnError: true
+	}, typeof _opts === "boolean" ? { revalidate: _opts } : _opts || {});
+	let populateCache = options$2.populateCache;
+	const rollbackOnErrorOption = options$2.rollbackOnError;
+	let optimisticData = options$2.optimisticData;
+	const rollbackOnError = (error) => {
+		return typeof rollbackOnErrorOption === "function" ? rollbackOnErrorOption(error) : rollbackOnErrorOption !== false;
+	};
+	const throwOnError = options$2.throwOnError;
+	if (isFunction(_key)) {
+		const keyFilter = _key;
+		const matchedKeys = [];
+		const it = cache$1.keys();
+		for (const key of it) if (!/^\$(inf|sub)\$/.test(key) && keyFilter(cache$1.get(key)._k)) matchedKeys.push(key);
+		return Promise.all(matchedKeys.map(mutateByKey));
+	}
+	return mutateByKey(_key);
+	async function mutateByKey(_k) {
+		const [key] = serialize$1(_k);
+		if (!key) return;
+		const [get, set] = createCacheHelper(cache$1, key);
+		const [EVENT_REVALIDATORS, MUTATION, FETCH, PRELOAD] = SWRGlobalState.get(cache$1);
+		const startRevalidate = () => {
+			const revalidators = EVENT_REVALIDATORS[key];
+			if (isFunction(options$2.revalidate) ? options$2.revalidate(get().data, _k) : options$2.revalidate !== false) {
+				delete FETCH[key];
+				delete PRELOAD[key];
+				if (revalidators && revalidators[0]) return revalidators[0](2).then(() => get().data);
+			}
+			return get().data;
+		};
+		if (args.length < 3) return startRevalidate();
+		let data = _data;
+		let error;
+		let isError$1 = false;
+		const beforeMutationTs = getTimestamp();
+		MUTATION[key] = [beforeMutationTs, 0];
+		const hasOptimisticData = !isUndefined(optimisticData);
+		const state = get();
+		const displayedData = state.data;
+		const currentData = state._c;
+		const committedData = isUndefined(currentData) ? displayedData : currentData;
+		if (hasOptimisticData) {
+			optimisticData = isFunction(optimisticData) ? optimisticData(committedData, displayedData) : optimisticData;
+			set({
+				data: optimisticData,
+				_c: committedData
+			});
+		}
+		if (isFunction(data)) try {
+			data = data(committedData);
+		} catch (err) {
+			error = err;
+			isError$1 = true;
+		}
+		if (data && isPromiseLike(data)) {
+			data = await data.catch((err) => {
+				error = err;
+				isError$1 = true;
+			});
+			if (beforeMutationTs !== MUTATION[key][0]) {
+				if (isError$1) throw error;
+				return data;
+			} else if (isError$1 && hasOptimisticData && rollbackOnError(error)) {
+				populateCache = true;
+				set({
+					data: committedData,
+					_c: UNDEFINED
+				});
+			}
+		}
+		if (populateCache) {
+			if (!isError$1) if (isFunction(populateCache)) set({
+				data: populateCache(data, committedData),
+				error: UNDEFINED,
+				_c: UNDEFINED
+			});
+			else set({
+				data,
+				error: UNDEFINED,
+				_c: UNDEFINED
+			});
+		}
+		MUTATION[key][1] = getTimestamp();
+		Promise.resolve(startRevalidate()).then(() => {
+			set({ _c: UNDEFINED });
+		});
+		if (isError$1) {
+			if (throwOnError) throw error;
+			return;
+		}
+		return data;
+	}
+}
+var revalidateAllKeys = (revalidators, type) => {
+	for (const key in revalidators) if (revalidators[key][0]) revalidators[key][0](type);
+};
+var initCache = (provider, options$2) => {
+	if (!SWRGlobalState.has(provider)) {
+		const opts = mergeObjects(defaultConfigOptions, options$2);
+		const EVENT_REVALIDATORS = Object.create(null);
+		const mutate$1 = internalMutate.bind(UNDEFINED, provider);
+		let unmount = noop$2;
+		const subscriptions = Object.create(null);
+		const subscribe$1 = (key, callback) => {
+			const subs = subscriptions[key] || [];
+			subscriptions[key] = subs;
+			subs.push(callback);
+			return () => subs.splice(subs.indexOf(callback), 1);
+		};
+		const setter = (key, value, prev$1) => {
+			provider.set(key, value);
+			const subs = subscriptions[key];
+			if (subs) for (const fn of subs) fn(value, prev$1);
+		};
+		const initProvider = () => {
+			if (!SWRGlobalState.has(provider)) {
+				SWRGlobalState.set(provider, [
+					EVENT_REVALIDATORS,
+					Object.create(null),
+					Object.create(null),
+					Object.create(null),
+					mutate$1,
+					setter,
+					subscribe$1
+				]);
+				if (!IS_SERVER) {
+					const releaseFocus = opts.initFocus(setTimeout.bind(UNDEFINED, revalidateAllKeys.bind(UNDEFINED, EVENT_REVALIDATORS, 0)));
+					const releaseReconnect = opts.initReconnect(setTimeout.bind(UNDEFINED, revalidateAllKeys.bind(UNDEFINED, EVENT_REVALIDATORS, 1)));
+					unmount = () => {
+						releaseFocus && releaseFocus();
+						releaseReconnect && releaseReconnect();
+						SWRGlobalState.delete(provider);
+					};
+				}
+			}
+		};
+		initProvider();
+		return [
+			provider,
+			mutate$1,
+			initProvider,
+			unmount
+		];
+	}
+	return [provider, SWRGlobalState.get(provider)[4]];
+};
+var onErrorRetry = (_$1, __, config, revalidate, opts) => {
+	const maxRetryCount = config.errorRetryCount;
+	const currentRetryCount = opts.retryCount;
+	const timeout = ~~((Math.random() + .5) * (1 << (currentRetryCount < 8 ? currentRetryCount : 8))) * config.errorRetryInterval;
+	if (!isUndefined(maxRetryCount) && currentRetryCount > maxRetryCount) return;
+	setTimeout(revalidate, timeout, opts);
+};
+var compare = dequal;
+var [cache, mutate] = initCache(/* @__PURE__ */ new Map());
+var defaultConfig = mergeObjects({
+	onLoadingSlow: noop$2,
+	onSuccess: noop$2,
+	onError: noop$2,
+	onErrorRetry,
+	onDiscarded: noop$2,
+	revalidateOnFocus: true,
+	revalidateOnReconnect: true,
+	revalidateIfStale: true,
+	shouldRetryOnError: true,
+	errorRetryInterval: slowConnection ? 1e4 : 5e3,
+	focusThrottleInterval: 5 * 1e3,
+	dedupingInterval: 2 * 1e3,
+	loadingTimeout: slowConnection ? 5e3 : 3e3,
+	compare,
+	isPaused: () => false,
+	cache,
+	mutate,
+	fallback: {}
+}, preset);
+var mergeConfigs = (a$2, b$4) => {
+	const v$2 = mergeObjects(a$2, b$4);
+	if (b$4) {
+		const { use: u1, fallback: f1 } = a$2;
+		const { use: u2, fallback: f2 } = b$4;
+		if (u1 && u2) v$2.use = u1.concat(u2);
+		if (f1 && f2) v$2.fallback = mergeObjects(f1, f2);
+	}
+	return v$2;
+};
+var SWRConfigContext = (0, import_react.createContext)({});
+var SWRConfig = (props) => {
+	const { value } = props;
+	const parentConfig = (0, import_react.useContext)(SWRConfigContext);
+	const isFunctionalConfig = isFunction(value);
+	const config = (0, import_react.useMemo)(() => isFunctionalConfig ? value(parentConfig) : value, [
+		isFunctionalConfig,
+		parentConfig,
+		value
+	]);
+	const extendedConfig = (0, import_react.useMemo)(() => isFunctionalConfig ? config : mergeConfigs(parentConfig, config), [
+		isFunctionalConfig,
+		parentConfig,
+		config
+	]);
+	const provider = config && config.provider;
+	const cacheContextRef = (0, import_react.useRef)(UNDEFINED);
+	if (provider && !cacheContextRef.current) cacheContextRef.current = initCache(provider(extendedConfig.cache || cache), config);
+	const cacheContext = cacheContextRef.current;
+	if (cacheContext) {
+		extendedConfig.cache = cacheContext[0];
+		extendedConfig.mutate = cacheContext[1];
+	}
+	useIsomorphicLayoutEffect(() => {
+		if (cacheContext) {
+			cacheContext[2] && cacheContext[2]();
+			return cacheContext[3];
+		}
+	}, []);
+	return (0, import_react.createElement)(SWRConfigContext.Provider, mergeObjects(props, { value: extendedConfig }));
+};
+var enableDevtools = isWindowDefined && window.__SWR_DEVTOOLS_USE__;
+var use$1 = enableDevtools ? window.__SWR_DEVTOOLS_USE__ : [];
+var setupDevTools = () => {
+	if (enableDevtools) window.__SWR_DEVTOOLS_REACT__ = import_react.default;
+};
+var normalize = (args) => {
+	return isFunction(args[1]) ? [
+		args[0],
+		args[1],
+		args[2] || {}
+	] : [
+		args[0],
+		null,
+		(args[1] === null ? args[2] : args[1]) || {}
+	];
+};
+var useSWRConfig = () => {
+	const parentConfig = (0, import_react.useContext)(SWRConfigContext);
+	return (0, import_react.useMemo)(() => mergeObjects(defaultConfig, parentConfig), [parentConfig]);
+};
+var middleware$1 = (useSWRNext) => (key_, fetcher_, config) => {
+	return useSWRNext(key_, fetcher_ && ((...args) => {
+		const [key] = serialize$1(key_);
+		const [, , , PRELOAD] = SWRGlobalState.get(cache);
+		if (key.startsWith("$inf$")) return fetcher_(...args);
+		const req = PRELOAD[key];
+		if (isUndefined(req)) return fetcher_(...args);
+		delete PRELOAD[key];
+		return req;
+	}), config);
+};
+var BUILT_IN_MIDDLEWARE = use$1.concat(middleware$1);
+var withArgs = (hook) => {
+	return function useSWRArgs(...args) {
+		const fallbackConfig = useSWRConfig();
+		const [key, fn, _config] = normalize(args);
+		const config = mergeConfigs(fallbackConfig, _config);
+		let next$1 = hook;
+		const { use: use$3 } = config;
+		const middleware$2 = (use$3 || []).concat(BUILT_IN_MIDDLEWARE);
+		for (let i$3 = middleware$2.length; i$3--;) next$1 = middleware$2[i$3](next$1);
+		return next$1(key, fn || config.fetcher || null, config);
+	};
+};
+var subscribeCallback = (key, callbacks, callback) => {
+	const keyedRevalidators = callbacks[key] || (callbacks[key] = []);
+	keyedRevalidators.push(callback);
+	return () => {
+		const index$6 = keyedRevalidators.indexOf(callback);
+		if (index$6 >= 0) {
+			keyedRevalidators[index$6] = keyedRevalidators[keyedRevalidators.length - 1];
+			keyedRevalidators.pop();
+		}
+	};
+};
+setupDevTools();
+const isSufficient = (value) => {
+	return !isUndefined(value) && value !== null;
+};
 const getEnvVariable = (variableName) => {
 	return {
 		"BASE_URL": "/no-rekt_draft",
@@ -53548,15 +53975,16 @@ const Colors = {
 	BORDER_COLOR: "rgba(172, 169, 187, 0.08)",
 	MODAL_OVERLAY_COLOR: "rgba(13, 11, 58, 0.7)"
 };
-const ButtonLabels = {
-	LOADING: "Please wait...",
-	SUBMITTING: "Submitting...",
-	APPROVING: "Approving..."
-};
 const ErrorMsg = {
 	SHORT: "An error occurred",
 	EXPANDED: "An error occurred. Check the console for details",
 	NO_WALLET: "No wallet connected"
+};
+const ButtonLabels = {
+	LOADING: "Please wait...",
+	SUBMITTING: "Submitting...",
+	APPROVING: "Approving...",
+	ERROR: ErrorMsg.SHORT
 };
 const SentimentSigns = {
 	PLUS: "+",
@@ -53730,14 +54158,14 @@ function createBrowserHistory(options$2 = {}) {
 	}
 	return getUrlBasedHistory(createBrowserLocation, createBrowserHref, null, options$2);
 }
-function invariant(value, message) {
-	if (value === false || value === null || typeof value === "undefined") throw new Error(message);
+function invariant(value, message$1) {
+	if (value === false || value === null || typeof value === "undefined") throw new Error(message$1);
 }
-function warning$2(cond, message) {
+function warning$2(cond, message$1) {
 	if (!cond) {
-		if (typeof console !== "undefined") console.warn(message);
+		if (typeof console !== "undefined") console.warn(message$1);
 		try {
-			throw new Error(message);
+			throw new Error(message$1);
 		} catch (e$2) {}
 	}
 }
@@ -53906,8 +54334,8 @@ function matchRoutesImpl(routes$1, locationArg, basename, allowPartial) {
 	}
 	return matches;
 }
-function convertRouteMatchToUiMatch(match$1, loaderData) {
-	let { route, pathname, params } = match$1;
+function convertRouteMatchToUiMatch(match$2, loaderData) {
+	let { route, pathname, params } = match$2;
 	return {
 		id: route.id,
 		pathname,
@@ -53991,26 +54419,26 @@ function matchRouteBranch(branch, pathname, allowPartial = false) {
 		let meta = routesMeta[i$3];
 		let end = i$3 === routesMeta.length - 1;
 		let remainingPathname = matchedPathname === "/" ? pathname : pathname.slice(matchedPathname.length) || "/";
-		let match$1 = matchPath({
+		let match$2 = matchPath({
 			path: meta.relativePath,
 			caseSensitive: meta.caseSensitive,
 			end
 		}, remainingPathname);
 		let route = meta.route;
-		if (!match$1 && end && allowPartial && !routesMeta[routesMeta.length - 1].route.index) match$1 = matchPath({
+		if (!match$2 && end && allowPartial && !routesMeta[routesMeta.length - 1].route.index) match$2 = matchPath({
 			path: meta.relativePath,
 			caseSensitive: meta.caseSensitive,
 			end: false
 		}, remainingPathname);
-		if (!match$1) return null;
-		Object.assign(matchedParams, match$1.params);
+		if (!match$2) return null;
+		Object.assign(matchedParams, match$2.params);
 		matches.push({
 			params: matchedParams,
-			pathname: joinPaths([matchedPathname, match$1.pathname]),
-			pathnameBase: normalizePathname(joinPaths([matchedPathname, match$1.pathnameBase])),
+			pathname: joinPaths([matchedPathname, match$2.pathname]),
+			pathnameBase: normalizePathname(joinPaths([matchedPathname, match$2.pathnameBase])),
 			route
 		});
-		if (match$1.pathnameBase !== "/") matchedPathname = joinPaths([matchedPathname, match$1.pathnameBase]);
+		if (match$2.pathnameBase !== "/") matchedPathname = joinPaths([matchedPathname, match$2.pathnameBase]);
 	}
 	return matches;
 }
@@ -54021,11 +54449,11 @@ function matchPath(pattern, pathname) {
 		end: true
 	};
 	let [matcher, compiledParams] = compilePath(pattern.path, pattern.caseSensitive, pattern.end);
-	let match$1 = pathname.match(matcher);
-	if (!match$1) return null;
-	let matchedPathname = match$1[0];
+	let match$2 = pathname.match(matcher);
+	if (!match$2) return null;
+	let matchedPathname = match$2[0];
 	let pathnameBase = matchedPathname.replace(/(.)\/+$/, "$1");
-	let captureGroups = match$1.slice(1);
+	let captureGroups = match$2.slice(1);
 	return {
 		params: compiledParams.reduce((memo2, { paramName, isOptional }, index$6) => {
 			if (paramName === "*") {
@@ -54110,11 +54538,11 @@ function getInvalidPathError(char$1, field, dest, path) {
 	return `Cannot include a '${char$1}' character in a manually specified \`to.${field}\` field [${JSON.stringify(path)}].  Please separate it out to the \`to.${dest}\` field. Alternatively you may provide the full path as a string in <Link to="..."> and the router will parse it for you.`;
 }
 function getPathContributingMatches(matches) {
-	return matches.filter((match$1, index$6) => index$6 === 0 || match$1.route.path && match$1.route.path.length > 0);
+	return matches.filter((match$2, index$6) => index$6 === 0 || match$2.route.path && match$2.route.path.length > 0);
 }
 function getResolveToMatches(matches) {
 	let pathMatches = getPathContributingMatches(matches);
-	return pathMatches.map((match$1, idx) => idx === pathMatches.length - 1 ? match$1.pathname : match$1.pathnameBase);
+	return pathMatches.map((match$2, idx) => idx === pathMatches.length - 1 ? match$2.pathname : match$2.pathnameBase);
 }
 function resolveTo(toArg, routePathnames, locationPathname, isPathRelative = false) {
 	let to$1;
@@ -54334,10 +54762,10 @@ Please change the parent <Route path="${parentPath}"> to <Route path="${parentPa
 	let matches = matchRoutes(routes$1, { pathname: remainingPathname });
 	warning$2(parentRoute || matches != null, `No routes matched location "${location.pathname}${location.search}${location.hash}" `);
 	warning$2(matches == null || matches[matches.length - 1].route.element !== void 0 || matches[matches.length - 1].route.Component !== void 0 || matches[matches.length - 1].route.lazy !== void 0, `Matched leaf route at location "${location.pathname}${location.search}${location.hash}" does not have an element or Component. This means it will render an <Outlet /> with a null value by default resulting in an "empty" page.`);
-	let renderedMatches = _renderMatches(matches && matches.map((match$1) => Object.assign({}, match$1, {
-		params: Object.assign({}, parentParams, match$1.params),
-		pathname: joinPaths([parentPathnameBase, navigator$1.encodeLocation ? navigator$1.encodeLocation(match$1.pathname.replace(/\?/g, "%3F").replace(/#/g, "%23")).pathname : match$1.pathname]),
-		pathnameBase: match$1.pathnameBase === "/" ? parentPathnameBase : joinPaths([parentPathnameBase, navigator$1.encodeLocation ? navigator$1.encodeLocation(match$1.pathnameBase.replace(/\?/g, "%3F").replace(/#/g, "%23")).pathname : match$1.pathnameBase])
+	let renderedMatches = _renderMatches(matches && matches.map((match$2) => Object.assign({}, match$2, {
+		params: Object.assign({}, parentParams, match$2.params),
+		pathname: joinPaths([parentPathnameBase, navigator$1.encodeLocation ? navigator$1.encodeLocation(match$2.pathname.replace(/\?/g, "%3F").replace(/#/g, "%23")).pathname : match$2.pathname]),
+		pathnameBase: match$2.pathnameBase === "/" ? parentPathnameBase : joinPaths([parentPathnameBase, navigator$1.encodeLocation ? navigator$1.encodeLocation(match$2.pathnameBase.replace(/\?/g, "%3F").replace(/#/g, "%23")).pathname : match$2.pathnameBase])
 	})), parentMatches, dataRouterState, onError, future);
 	if (locationArg && renderedMatches) return /* @__PURE__ */ import_react.createElement(LocationContext.Provider, { value: {
 		location: {
@@ -54354,7 +54782,7 @@ Please change the parent <Route path="${parentPath}"> to <Route path="${parentPa
 }
 function DefaultErrorComponent() {
 	let error = useRouteError();
-	let message = isRouteErrorResponse(error) ? `${error.status} ${error.statusText}` : error instanceof Error ? error.message : JSON.stringify(error);
+	let message$1 = isRouteErrorResponse(error) ? `${error.status} ${error.statusText}` : error instanceof Error ? error.message : JSON.stringify(error);
 	let stack = error instanceof Error ? error.stack : null;
 	let lightgrey = "rgba(200,200,200, 0.5)";
 	let preStyles = {
@@ -54368,7 +54796,7 @@ function DefaultErrorComponent() {
 	let devInfo = null;
 	console.error("Error handled by React Router default ErrorBoundary:", error);
 	devInfo = /* @__PURE__ */ import_react.createElement(import_react.Fragment, null, /* @__PURE__ */ import_react.createElement("p", null, "💿 Hey developer 👋"), /* @__PURE__ */ import_react.createElement("p", null, "You can provide a way better UX than this when your app throws errors by providing your own ", /* @__PURE__ */ import_react.createElement("code", { style: codeStyles }, "ErrorBoundary"), " or", " ", /* @__PURE__ */ import_react.createElement("code", { style: codeStyles }, "errorElement"), " prop on your route."));
-	return /* @__PURE__ */ import_react.createElement(import_react.Fragment, null, /* @__PURE__ */ import_react.createElement("h2", null, "Unexpected Application Error!"), /* @__PURE__ */ import_react.createElement("h3", { style: { fontStyle: "italic" } }, message), stack ? /* @__PURE__ */ import_react.createElement("pre", { style: preStyles }, stack) : null, devInfo);
+	return /* @__PURE__ */ import_react.createElement(import_react.Fragment, null, /* @__PURE__ */ import_react.createElement("h2", null, "Unexpected Application Error!"), /* @__PURE__ */ import_react.createElement("h3", { style: { fontStyle: "italic" } }, message$1), stack ? /* @__PURE__ */ import_react.createElement("pre", { style: preStyles }, stack) : null, devInfo);
 }
 var defaultErrorElement = /* @__PURE__ */ import_react.createElement(DefaultErrorComponent, null);
 var RenderErrorBoundary = class extends import_react.Component {
@@ -54437,9 +54865,9 @@ function RSCErrorHandler({ children, error }) {
 	}
 	return children;
 }
-function RenderedRoute({ routeContext, match: match$1, children }) {
+function RenderedRoute({ routeContext, match: match$2, children }) {
 	let dataRouterContext = import_react.useContext(DataRouterContext);
-	if (dataRouterContext && dataRouterContext.static && dataRouterContext.staticContext && (match$1.route.errorElement || match$1.route.ErrorBoundary)) dataRouterContext.staticContext._deepestRenderedBoundaryId = match$1.route.id;
+	if (dataRouterContext && dataRouterContext.static && dataRouterContext.staticContext && (match$2.route.errorElement || match$2.route.ErrorBoundary)) dataRouterContext.staticContext._deepestRenderedBoundaryId = match$2.route.id;
 	return /* @__PURE__ */ import_react.createElement(RouteContext.Provider, { value: routeContext }, children);
 }
 function _renderMatches(matches, parentMatches = [], dataRouterState = null, onErrorHandler = null, future = null) {
@@ -54459,12 +54887,12 @@ function _renderMatches(matches, parentMatches = [], dataRouterState = null, onE
 	let renderFallback = false;
 	let fallbackIndex = -1;
 	if (dataRouterState) for (let i$3 = 0; i$3 < renderedMatches.length; i$3++) {
-		let match$1 = renderedMatches[i$3];
-		if (match$1.route.HydrateFallback || match$1.route.hydrateFallbackElement) fallbackIndex = i$3;
-		if (match$1.route.id) {
+		let match$2 = renderedMatches[i$3];
+		if (match$2.route.HydrateFallback || match$2.route.hydrateFallbackElement) fallbackIndex = i$3;
+		if (match$2.route.id) {
 			let { loaderData, errors: errors2 } = dataRouterState;
-			let needsToRunLoader = match$1.route.loader && !loaderData.hasOwnProperty(match$1.route.id) && (!errors2 || errors2[match$1.route.id] === void 0);
-			if (match$1.route.lazy || needsToRunLoader) {
+			let needsToRunLoader = match$2.route.loader && !loaderData.hasOwnProperty(match$2.route.id) && (!errors2 || errors2[match$2.route.id] === void 0);
+			if (match$2.route.lazy || needsToRunLoader) {
 				renderFallback = true;
 				if (fallbackIndex >= 0) renderedMatches = renderedMatches.slice(0, fallbackIndex + 1);
 				else renderedMatches = [renderedMatches[0]];
@@ -54480,14 +54908,14 @@ function _renderMatches(matches, parentMatches = [], dataRouterState = null, onE
 			errorInfo
 		});
 	} : void 0;
-	return renderedMatches.reduceRight((outlet, match$1, index$6) => {
+	return renderedMatches.reduceRight((outlet, match$2, index$6) => {
 		let error;
 		let shouldRenderHydrateFallback = false;
 		let errorElement = null;
 		let hydrateFallbackElement = null;
 		if (dataRouterState) {
-			error = errors$1 && match$1.route.id ? errors$1[match$1.route.id] : void 0;
-			errorElement = match$1.route.errorElement || defaultErrorElement;
+			error = errors$1 && match$2.route.id ? errors$1[match$2.route.id] : void 0;
+			errorElement = match$2.route.errorElement || defaultErrorElement;
 			if (renderFallback) {
 				if (fallbackIndex < 0 && index$6 === 0) {
 					warningOnce$1("route-fallback", false, "No `HydrateFallback` element provided to render during initial hydration");
@@ -54495,7 +54923,7 @@ function _renderMatches(matches, parentMatches = [], dataRouterState = null, onE
 					hydrateFallbackElement = null;
 				} else if (fallbackIndex === index$6) {
 					shouldRenderHydrateFallback = true;
-					hydrateFallbackElement = match$1.route.hydrateFallbackElement || null;
+					hydrateFallbackElement = match$2.route.hydrateFallbackElement || null;
 				}
 			}
 		}
@@ -54504,11 +54932,11 @@ function _renderMatches(matches, parentMatches = [], dataRouterState = null, onE
 			let children;
 			if (error) children = errorElement;
 			else if (shouldRenderHydrateFallback) children = hydrateFallbackElement;
-			else if (match$1.route.Component) children = /* @__PURE__ */ import_react.createElement(match$1.route.Component, null);
-			else if (match$1.route.element) children = match$1.route.element;
+			else if (match$2.route.Component) children = /* @__PURE__ */ import_react.createElement(match$2.route.Component, null);
+			else if (match$2.route.element) children = match$2.route.element;
 			else children = outlet;
 			return /* @__PURE__ */ import_react.createElement(RenderedRoute, {
-				match: match$1,
+				match: match$2,
 				routeContext: {
 					outlet,
 					matches: matches2,
@@ -54517,7 +54945,7 @@ function _renderMatches(matches, parentMatches = [], dataRouterState = null, onE
 				children
 			});
 		};
-		return dataRouterState && (match$1.route.ErrorBoundary || match$1.route.errorElement || index$6 === 0) ? /* @__PURE__ */ import_react.createElement(RenderErrorBoundary, {
+		return dataRouterState && (match$2.route.ErrorBoundary || match$2.route.errorElement || index$6 === 0) ? /* @__PURE__ */ import_react.createElement(RenderErrorBoundary, {
 			location: dataRouterState.location,
 			revalidation: dataRouterState.revalidation,
 			component: errorElement,
@@ -54591,10 +55019,10 @@ function useNavigateStable() {
 	}, [router, id$2]);
 }
 var alreadyWarned = {};
-function warningOnce$1(key, cond, message) {
+function warningOnce$1(key, cond, message$1) {
 	if (!cond && !alreadyWarned[key]) {
 		alreadyWarned[key] = true;
-		warning$2(false, message);
+		warning$2(false, message$1);
 	}
 }
 import_react.useOptimistic;
@@ -54803,8 +55231,8 @@ function getFormSubmissionInfo(target, basename) {
 	};
 }
 Object.getOwnPropertyNames(Object.prototype).sort().join("\0");
-function invariant2(value, message) {
-	if (value === false || value === null || typeof value === "undefined") throw new Error(message);
+function invariant2(value, message$1) {
+	if (value === false || value === null || typeof value === "undefined") throw new Error(message$1);
 }
 function singleFetchUrl(reqUrl, basename, extension) {
 	let url = typeof reqUrl === "string" ? new URL(reqUrl, typeof window === "undefined" ? "server://singlefetch/" : window.location.origin) : reqUrl;
@@ -54840,8 +55268,8 @@ function isHtmlLinkDescriptor(object$1) {
 	return typeof object$1.rel === "string" && typeof object$1.href === "string";
 }
 async function getKeyedPrefetchLinks(matches, manifest, routeModules) {
-	return dedupeLinkDescriptors((await Promise.all(matches.map(async (match$1) => {
-		let route = manifest.routes[match$1.route.id];
+	return dedupeLinkDescriptors((await Promise.all(matches.map(async (match$2) => {
+		let route = manifest.routes[match$2.route.id];
 		if (route) {
 			let mod$1 = await loadRouteModule(route, routeModules);
 			return mod$1.links ? mod$1.links() : [];
@@ -54857,24 +55285,24 @@ async function getKeyedPrefetchLinks(matches, manifest, routeModules) {
 	}));
 }
 function getNewMatchesForLinks(page, nextMatches, currentMatches, manifest, location, mode$1) {
-	let isNew = (match$1, index$6) => {
+	let isNew = (match$2, index$6) => {
 		if (!currentMatches[index$6]) return true;
-		return match$1.route.id !== currentMatches[index$6].route.id;
+		return match$2.route.id !== currentMatches[index$6].route.id;
 	};
-	let matchPathChanged = (match$1, index$6) => {
-		return currentMatches[index$6].pathname !== match$1.pathname || currentMatches[index$6].route.path?.endsWith("*") && currentMatches[index$6].params["*"] !== match$1.params["*"];
+	let matchPathChanged = (match$2, index$6) => {
+		return currentMatches[index$6].pathname !== match$2.pathname || currentMatches[index$6].route.path?.endsWith("*") && currentMatches[index$6].params["*"] !== match$2.params["*"];
 	};
-	if (mode$1 === "assets") return nextMatches.filter((match$1, index$6) => isNew(match$1, index$6) || matchPathChanged(match$1, index$6));
-	if (mode$1 === "data") return nextMatches.filter((match$1, index$6) => {
-		let manifestRoute = manifest.routes[match$1.route.id];
+	if (mode$1 === "assets") return nextMatches.filter((match$2, index$6) => isNew(match$2, index$6) || matchPathChanged(match$2, index$6));
+	if (mode$1 === "data") return nextMatches.filter((match$2, index$6) => {
+		let manifestRoute = manifest.routes[match$2.route.id];
 		if (!manifestRoute || !manifestRoute.hasLoader) return false;
-		if (isNew(match$1, index$6) || matchPathChanged(match$1, index$6)) return true;
-		if (match$1.route.shouldRevalidate) {
-			let routeChoice = match$1.route.shouldRevalidate({
+		if (isNew(match$2, index$6) || matchPathChanged(match$2, index$6)) return true;
+		if (match$2.route.shouldRevalidate) {
+			let routeChoice = match$2.route.shouldRevalidate({
 				currentUrl: new URL(location.pathname + location.search + location.hash, window.origin),
 				currentParams: currentMatches[0]?.params || {},
 				nextUrl: new URL(page, window.origin),
-				nextParams: match$1.params,
+				nextParams: match$2.params,
 				defaultShouldRevalidate: true
 			});
 			if (typeof routeChoice === "boolean") return routeChoice;
@@ -54884,8 +55312,8 @@ function getNewMatchesForLinks(page, nextMatches, currentMatches, manifest, loca
 	return [];
 }
 function getModuleLinkHrefs(matches, manifest, { includeHydrateFallback } = {}) {
-	return dedupeHrefs(matches.map((match$1) => {
-		let route = manifest.routes[match$1.route.id];
+	return dedupeHrefs(matches.map((match$2) => {
+		let route = manifest.routes[match$2.route.id];
 		if (!route) return [];
 		let hrefs = [route.module];
 		if (route.clientActionModule) hrefs = hrefs.concat(route.clientActionModule);
@@ -55394,7 +55822,7 @@ function useFormAction(action, { relative } = {}) {
 	let { basename } = import_react.useContext(NavigationContext);
 	let routeContext = import_react.useContext(RouteContext);
 	invariant(routeContext, "useFormAction must be used inside a RouteContext");
-	let [match$1] = routeContext.matches.slice(-1);
+	let [match$2] = routeContext.matches.slice(-1);
 	let path = { ...useResolvedPath(action ? action : ".", { relative }) };
 	let location = useLocation();
 	if (action == null) {
@@ -55408,7 +55836,7 @@ function useFormAction(action, { relative } = {}) {
 			path.search = qs ? `?${qs}` : "";
 		}
 	}
-	if ((!action || action === ".") && match$1.route.index) path.search = path.search ? path.search.replace(/^\?/, "?index&") : "?index";
+	if ((!action || action === ".") && match$2.route.index) path.search = path.search ? path.search.replace(/^\?/, "?index&") : "?index";
 	if (basename !== "/") path.pathname = path.pathname === "/" ? basename : joinPaths([basename, path.pathname]);
 	return createPath(path);
 }
@@ -55590,8 +56018,8 @@ function isError(error, code$1) {
 function isCallException(error) {
 	return isError(error, "CALL_EXCEPTION");
 }
-function makeError(message, code$1, info) {
-	let shortMessage = message;
+function makeError(message$1, code$1, info) {
+	let shortMessage = message$1;
 	{
 		const details = [];
 		if (info) {
@@ -55604,41 +56032,41 @@ function makeError(message, code$1, info) {
 		}
 		details.push(`code=${code$1}`);
 		details.push(`version=${version}`);
-		if (details.length) message += " (" + details.join(", ") + ")";
+		if (details.length) message$1 += " (" + details.join(", ") + ")";
 	}
 	let error;
 	switch (code$1) {
 		case "INVALID_ARGUMENT":
-			error = new TypeError(message);
+			error = new TypeError(message$1);
 			break;
 		case "NUMERIC_FAULT":
 		case "BUFFER_OVERRUN":
-			error = new RangeError(message);
+			error = new RangeError(message$1);
 			break;
-		default: error = new Error(message);
+		default: error = new Error(message$1);
 	}
 	defineProperties(error, { code: code$1 });
 	if (info) Object.assign(error, info);
 	if (error.shortMessage == null) defineProperties(error, { shortMessage });
 	return error;
 }
-function assert(check, message, code$1, info) {
-	if (!check) throw makeError(message, code$1, info);
+function assert(check, message$1, code$1, info) {
+	if (!check) throw makeError(message$1, code$1, info);
 }
-function assertArgument(check, message, name, value) {
-	assert(check, message, "INVALID_ARGUMENT", {
+function assertArgument(check, message$1, name, value) {
+	assert(check, message$1, "INVALID_ARGUMENT", {
 		argument: name,
 		value
 	});
 }
-function assertArgumentCount(count, expectedCount, message) {
-	if (message == null) message = "";
-	if (message) message = ": " + message;
-	assert(count >= expectedCount, "missing argument" + message, "MISSING_ARGUMENT", {
+function assertArgumentCount(count, expectedCount, message$1) {
+	if (message$1 == null) message$1 = "";
+	if (message$1) message$1 = ": " + message$1;
+	assert(count >= expectedCount, "missing argument" + message$1, "MISSING_ARGUMENT", {
 		count,
 		expectedCount
 	});
-	assert(count <= expectedCount, "too many arguments" + message, "UNEXPECTED_ARGUMENT", {
+	assert(count <= expectedCount, "too many arguments" + message$1, "UNEXPECTED_ARGUMENT", {
 		count,
 		expectedCount
 	});
@@ -56130,9 +56558,9 @@ var reIpfs = new RegExp("^ipfs://(ipfs/)?(.*)$", "i");
 var locked$1 = false;
 async function dataGatewayFunc(url, signal) {
 	try {
-		const match$1 = url.match(reData);
-		if (!match$1) throw new Error("invalid data");
-		return new FetchResponse(200, "OK", { "content-type": match$1[1] || "text/plain" }, match$1[2] ? decodeBase64(match$1[3]) : unpercent(match$1[3]));
+		const match$2 = url.match(reData);
+		if (!match$2) throw new Error("invalid data");
+		return new FetchResponse(200, "OK", { "content-type": match$2[1] || "text/plain" }, match$2[2] ? decodeBase64(match$2[3]) : unpercent(match$2[3]));
 	} catch (error) {
 		return new FetchResponse(599, "BAD REQUEST (invalid data: URI)", {}, null, new FetchRequest(url));
 	}
@@ -56140,9 +56568,9 @@ async function dataGatewayFunc(url, signal) {
 function getIpfsGatewayFunc(baseUrl) {
 	async function gatewayIpfs(url, signal) {
 		try {
-			const match$1 = url.match(reIpfs);
-			if (!match$1) throw new Error("invalid link");
-			return new FetchRequest(`${baseUrl}${match$1[2]}`);
+			const match$2 = url.match(reIpfs);
+			if (!match$2) throw new Error("invalid link");
+			return new FetchRequest(`${baseUrl}${match$2[2]}`);
 		} catch (error) {
 			return new FetchResponse(599, "BAD REQUEST (invalid IPFS URI)", {}, null, new FetchRequest(url));
 		}
@@ -56537,23 +56965,23 @@ var FetchResponse = class FetchResponse {
 		this.#request = request || null;
 		this.#error = { message: "" };
 	}
-	makeServerError(message, error) {
+	makeServerError(message$1, error) {
 		let statusMessage;
-		if (!message) {
-			message = `${this.statusCode} ${this.statusMessage}`;
-			statusMessage = `CLIENT ESCALATED SERVER ERROR (${message})`;
-		} else statusMessage = `CLIENT ESCALATED SERVER ERROR (${this.statusCode} ${this.statusMessage}; ${message})`;
+		if (!message$1) {
+			message$1 = `${this.statusCode} ${this.statusMessage}`;
+			statusMessage = `CLIENT ESCALATED SERVER ERROR (${message$1})`;
+		} else statusMessage = `CLIENT ESCALATED SERVER ERROR (${this.statusCode} ${this.statusMessage}; ${message$1})`;
 		const response = new FetchResponse(599, statusMessage, this.headers, this.body, this.#request || void 0);
 		response.#error = {
-			message,
+			message: message$1,
 			error
 		};
 		return response;
 	}
-	throwThrottleError(message, stall$1) {
+	throwThrottleError(message$1, stall$1) {
 		if (stall$1 == null) stall$1 = -1;
 		else assertArgument(Number.isInteger(stall$1) && stall$1 >= 0, "invalid stall timeout", "stall", stall$1);
-		const error = new Error(message || "throttling requests");
+		const error = new Error(message$1 || "throttling requests");
 		defineProperties(error, {
 			stall: stall$1,
 			throttle: true
@@ -56574,15 +57002,15 @@ var FetchResponse = class FetchResponse {
 	}
 	assertOk() {
 		if (this.ok()) return;
-		let { message, error } = this.#error;
-		if (message === "") message = `server response ${this.statusCode} ${this.statusMessage}`;
+		let { message: message$1, error } = this.#error;
+		if (message$1 === "") message$1 = `server response ${this.statusCode} ${this.statusMessage}`;
 		let requestUrl = null;
 		if (this.request) requestUrl = this.request.url;
 		let responseBody = null;
 		try {
 			if (this.#body) responseBody = toUtf8String(this.#body);
 		} catch (e$2) {}
-		assert(false, message, "SERVER_ERROR", {
+		assert(false, message$1, "SERVER_ERROR", {
 			request: this.request || "unknown request",
 			response: this,
 			error,
@@ -56617,9 +57045,9 @@ function getTens(decimals) {
 	while (result.length < decimals) result += result;
 	return BigInt("1" + result.substring(0, decimals));
 }
-function checkValue(val, format, safeOp) {
-	const width = BigInt(format.width);
-	if (format.signed) {
+function checkValue(val, format$1, safeOp) {
+	const width = BigInt(format$1.width);
+	if (format$1.signed) {
 		const limit = BN_1$3 << width - BN_1$3;
 		assert(safeOp == null || val >= -limit && val < limit, "overflow", "NUMERIC_FAULT", {
 			operation: safeOp,
@@ -56646,11 +57074,11 @@ function getFormat(value) {
 	let decimals = 18;
 	if (typeof value === "string") if (value === "fixed") {} else if (value === "ufixed") signed$2 = false;
 	else {
-		const match$1 = value.match(/^(u?)fixed([0-9]+)x([0-9]+)$/);
-		assertArgument(match$1, "invalid fixed format", "format", value);
-		signed$2 = match$1[1] !== "u";
-		width = parseInt(match$1[2]);
-		decimals = parseInt(match$1[3]);
+		const match$2 = value.match(/^(u?)fixed([0-9]+)x([0-9]+)$/);
+		assertArgument(match$2, "invalid fixed format", "format", value);
+		signed$2 = match$2[1] !== "u";
+		width = parseInt(match$2[2]);
+		decimals = parseInt(match$2[3]);
 	}
 	else if (value) {
 		const v$2 = value;
@@ -56694,16 +57122,16 @@ var FixedNumber = class FixedNumber {
 	#val;
 	#tens;
 	_value;
-	constructor(guard, value, format) {
+	constructor(guard, value, format$1) {
 		assertPrivate(guard, _guard$3, "FixedNumber");
 		this.#val = value;
-		this.#format = format;
-		const _value = toString(value, format.decimals);
+		this.#format = format$1;
+		const _value = toString(value, format$1.decimals);
 		defineProperties(this, {
-			format: format.name,
+			format: format$1.name,
 			_value
 		});
-		this.#tens = getTens(format.decimals);
+		this.#tens = getTens(format$1.decimals);
 	}
 	get signed() {
 		return this.#format.signed;
@@ -56853,14 +57281,14 @@ var FixedNumber = class FixedNumber {
 	toUnsafeFloat() {
 		return parseFloat(this.toString());
 	}
-	toFormat(format) {
-		return FixedNumber.fromString(this.toString(), format);
+	toFormat(format$1) {
+		return FixedNumber.fromString(this.toString(), format$1);
 	}
 	static fromValue(_value, _decimals, _format) {
 		const decimals = _decimals == null ? 0 : getNumber(_decimals);
-		const format = getFormat(_format);
+		const format$1 = getFormat(_format);
 		let value = getBigInt(_value, "value");
-		const delta = decimals - format.decimals;
+		const delta = decimals - format$1.decimals;
 		if (delta > 0) {
 			const tens = getTens(delta);
 			assert(value % tens === BN_0$8, "value loses precision for format", "NUMERIC_FAULT", {
@@ -56870,31 +57298,31 @@ var FixedNumber = class FixedNumber {
 			});
 			value /= tens;
 		} else if (delta < 0) value *= getTens(-delta);
-		checkValue(value, format, "fromValue");
-		return new FixedNumber(_guard$3, value, format);
+		checkValue(value, format$1, "fromValue");
+		return new FixedNumber(_guard$3, value, format$1);
 	}
 	static fromString(_value, _format) {
-		const match$1 = _value.match(/^(-?)([0-9]*)\.?([0-9]*)$/);
-		assertArgument(match$1 && match$1[2].length + match$1[3].length > 0, "invalid FixedNumber string value", "value", _value);
-		const format = getFormat(_format);
-		let whole = match$1[2] || "0", decimal = match$1[3] || "";
-		while (decimal.length < format.decimals) decimal += Zeros$1;
-		assert(decimal.substring(format.decimals).match(/^0*$/), "too many decimals for format", "NUMERIC_FAULT", {
+		const match$2 = _value.match(/^(-?)([0-9]*)\.?([0-9]*)$/);
+		assertArgument(match$2 && match$2[2].length + match$2[3].length > 0, "invalid FixedNumber string value", "value", _value);
+		const format$1 = getFormat(_format);
+		let whole = match$2[2] || "0", decimal = match$2[3] || "";
+		while (decimal.length < format$1.decimals) decimal += Zeros$1;
+		assert(decimal.substring(format$1.decimals).match(/^0*$/), "too many decimals for format", "NUMERIC_FAULT", {
 			operation: "fromString",
 			fault: "underflow",
 			value: _value
 		});
-		decimal = decimal.substring(0, format.decimals);
-		const value = BigInt(match$1[1] + whole + decimal);
-		checkValue(value, format, "fromString");
-		return new FixedNumber(_guard$3, value, format);
+		decimal = decimal.substring(0, format$1.decimals);
+		const value = BigInt(match$2[1] + whole + decimal);
+		checkValue(value, format$1, "fromString");
+		return new FixedNumber(_guard$3, value, format$1);
 	}
 	static fromBytes(_value, _format) {
 		let value = toBigInt(getBytes(_value, "value"));
-		const format = getFormat(_format);
-		if (format.signed) value = fromTwos(value, format.width);
-		checkValue(value, format, "fromBytes");
-		return new FixedNumber(_guard$3, value, format);
+		const format$1 = getFormat(_format);
+		if (format$1.signed) value = fromTwos(value, format$1.width);
+		checkValue(value, format$1, "fromBytes");
+		return new FixedNumber(_guard$3, value, format$1);
 	}
 };
 function hexlifyByte(value) {
@@ -57234,8 +57662,8 @@ var Coder = class {
 			dynamic: "boolean"
 		});
 	}
-	_throwError(message, value) {
-		assertArgument(false, message, this.localName, value);
+	_throwError(message$1, value) {
+		assertArgument(false, message$1, this.localName, value);
 	}
 };
 var Writer = class {
@@ -57467,7 +57895,7 @@ var HMAC = class extends Hash {
 		this.iHash.destroy();
 	}
 };
-const hmac = (hash$3, key, message) => new HMAC(hash$3, key).update(message).digest();
+const hmac = (hash$3, key, message$1) => new HMAC(hash$3, key).update(message$1).digest();
 hmac.create = (hash$3, key) => new HMAC(hash$3, key);
 function setBigUint64(view, byteOffset, value, isLE$2) {
 	if (typeof view.setBigUint64 === "function") return view.setBigUint64(byteOffset, value, isLE$2);
@@ -59602,8 +60030,8 @@ var Signature = class Signature {
 		return bv & BN_1$2 ? 27 : 28;
 	}
 	static from(sig) {
-		function assertError$1(check, message) {
-			assertArgument(check, message, "signature", sig);
+		function assertError$1(check, message$1) {
+			assertArgument(check, message$1, "signature", sig);
 		}
 		if (sig == null) return new Signature(_guard$1, ZeroHash, ZeroHash, 27);
 		if (typeof sig === "string") {
@@ -59716,9 +60144,9 @@ var SigningKey = class SigningKey {
 };
 var BN_0$6 = BigInt(0);
 var BN_36 = BigInt(36);
-function getChecksumAddress(address$9) {
-	address$9 = address$9.toLowerCase();
-	const chars = address$9.substring(2).split("");
+function getChecksumAddress(address$10) {
+	address$10 = address$10.toLowerCase();
+	const chars = address$10.substring(2).split("");
 	const expanded = new Uint8Array(40);
 	for (let i$3 = 0; i$3 < 40; i$3++) expanded[i$3] = chars[i$3].charCodeAt(0);
 	const hashed = getBytes(keccak256(expanded));
@@ -59732,10 +60160,10 @@ var ibanLookup = {};
 for (let i$3 = 0; i$3 < 10; i$3++) ibanLookup[String(i$3)] = String(i$3);
 for (let i$3 = 0; i$3 < 26; i$3++) ibanLookup[String.fromCharCode(65 + i$3)] = String(10 + i$3);
 var safeDigits = 15;
-function ibanChecksum(address$9) {
-	address$9 = address$9.toUpperCase();
-	address$9 = address$9.substring(4) + address$9.substring(0, 2) + "00";
-	let expanded = address$9.split("").map((c$3) => {
+function ibanChecksum(address$10) {
+	address$10 = address$10.toUpperCase();
+	address$10 = address$10.substring(4) + address$10.substring(0, 2) + "00";
+	let expanded = address$10.split("").map((c$3) => {
 		return ibanLookup[c$3];
 	}).join("");
 	while (expanded.length >= safeDigits) {
@@ -59760,21 +60188,21 @@ function fromBase36(value) {
 	for (let i$3 = 0; i$3 < value.length; i$3++) result = result * BN_36 + Base36[value[i$3]];
 	return result;
 }
-function getAddress(address$9) {
-	assertArgument(typeof address$9 === "string", "invalid address", "address", address$9);
-	if (address$9.match(/^(0x)?[0-9a-fA-F]{40}$/)) {
-		if (!address$9.startsWith("0x")) address$9 = "0x" + address$9;
-		const result = getChecksumAddress(address$9);
-		assertArgument(!address$9.match(/([A-F].*[a-f])|([a-f].*[A-F])/) || result === address$9, "bad address checksum", "address", address$9);
+function getAddress(address$10) {
+	assertArgument(typeof address$10 === "string", "invalid address", "address", address$10);
+	if (address$10.match(/^(0x)?[0-9a-fA-F]{40}$/)) {
+		if (!address$10.startsWith("0x")) address$10 = "0x" + address$10;
+		const result = getChecksumAddress(address$10);
+		assertArgument(!address$10.match(/([A-F].*[a-f])|([a-f].*[A-F])/) || result === address$10, "bad address checksum", "address", address$10);
 		return result;
 	}
-	if (address$9.match(/^XE[0-9]{2}[0-9A-Za-z]{30,31}$/)) {
-		assertArgument(address$9.substring(2, 4) === ibanChecksum(address$9), "bad icap checksum", "address", address$9);
-		let result = fromBase36(address$9.substring(4)).toString(16);
+	if (address$10.match(/^XE[0-9]{2}[0-9A-Za-z]{30,31}$/)) {
+		assertArgument(address$10.substring(2, 4) === ibanChecksum(address$10), "bad icap checksum", "address", address$10);
+		let result = fromBase36(address$10.substring(4)).toString(16);
 		while (result.length < 40) result = "0" + result;
 		return getChecksumAddress("0x" + result);
 	}
-	assertArgument(false, "invalid address", "address", address$9);
+	assertArgument(false, "invalid address", "address", address$10);
 }
 function getCreateAddress(tx) {
 	const from$2 = getAddress(tx.from);
@@ -61932,11 +62360,11 @@ function check_fenced(cps) {
 	let last = -1;
 	for (let i$3 = 1; i$3 < n$3; i$3++) {
 		cp = cps[i$3];
-		let match$1 = FENCED.get(cp);
-		if (match$1) {
-			if (last == i$3) throw error_placement(`${prev$1} + ${match$1}`);
+		let match$2 = FENCED.get(cp);
+		if (match$2) {
+			if (last == i$3) throw error_placement(`${prev$1} + ${match$2}`);
 			last = i$3 + 1;
-			prev$1 = match$1;
+			prev$1 = match$2;
 		}
 	}
 	if (last == n$3) throw error_placement(`trailing ${prev$1}`);
@@ -62228,11 +62656,11 @@ var domainChecks = {
 };
 function getBaseEncoder(type) {
 	{
-		const match$1 = type.match(/^(u?)int(\d+)$/);
-		if (match$1) {
-			const signed$2 = match$1[1] === "";
-			const width = parseInt(match$1[2]);
-			assertArgument(width % 8 === 0 && width !== 0 && width <= 256 && match$1[2] === String(width), "invalid numeric width", "type", type);
+		const match$2 = type.match(/^(u?)int(\d+)$/);
+		if (match$2) {
+			const signed$2 = match$2[1] === "";
+			const width = parseInt(match$2[2]);
+			assertArgument(width % 8 === 0 && width !== 0 && width <= 256 && match$2[2] === String(width), "invalid numeric width", "type", type);
 			const boundsUpper = mask(BN_MAX_UINT256, signed$2 ? width - 1 : width);
 			const boundsLower = signed$2 ? (boundsUpper + BN_1) * BN__1 : BN_0$3;
 			return function(_value) {
@@ -62243,10 +62671,10 @@ function getBaseEncoder(type) {
 		}
 	}
 	{
-		const match$1 = type.match(/^bytes(\d+)$/);
-		if (match$1) {
-			const width = parseInt(match$1[1]);
-			assertArgument(width !== 0 && width <= 32 && match$1[1] === String(width), "invalid bytes width", "type", type);
+		const match$2 = type.match(/^bytes(\d+)$/);
+		if (match$2) {
+			const width = parseInt(match$2[1]);
+			assertArgument(width !== 0 && width <= 32 && match$2[1] === String(width), "invalid bytes width", "type", type);
 			return function(value) {
 				assertArgument(getBytes(value).length === width, `invalid length for ${type}`, "value", value);
 				return hexPadRight(value);
@@ -62273,14 +62701,14 @@ function encodeType(name, fields) {
 	return `${name}(${fields.map(({ name: name$1, type }) => type + " " + name$1).join(",")})`;
 }
 function splitArray(type) {
-	const match$1 = type.match(/^([^\x5b]*)((\x5b\d*\x5d)*)(\x5b(\d*)\x5d)$/);
-	if (match$1) return {
-		base: match$1[1],
-		index: match$1[2] + match$1[4],
+	const match$2 = type.match(/^([^\x5b]*)((\x5b\d*\x5d)*)(\x5b(\d*)\x5d)$/);
+	if (match$2) return {
+		base: match$2[1],
+		index: match$2[2] + match$2[4],
 		array: {
-			base: match$1[1],
-			prefix: match$1[1] + match$1[2],
-			count: match$1[5] ? parseInt(match$1[5]) : -1
+			base: match$2[1],
+			prefix: match$2[1] + match$2[2],
+			count: match$2[5] ? parseInt(match$2[5]) : -1
 		}
 	};
 	return { base: type };
@@ -62635,18 +63063,18 @@ var TokenString = class TokenString {
 };
 function lex(text) {
 	const tokens = [];
-	const throwError$1 = (message) => {
+	const throwError$1 = (message$1) => {
 		const token$1 = offset$1 < text.length ? JSON.stringify(text[offset$1]) : "$EOI";
-		throw new Error(`invalid token ${token$1} at ${offset$1}: ${message}`);
+		throw new Error(`invalid token ${token$1} at ${offset$1}: ${message$1}`);
 	};
 	let brackets = [];
 	let commas = [];
 	let offset$1 = 0;
 	while (offset$1 < text.length) {
 		let cur = text.substring(offset$1);
-		let match$1 = cur.match(regexWhitespacePrefix);
-		if (match$1) {
-			offset$1 += match$1[1].length;
+		let match$2 = cur.match(regexWhitespacePrefix);
+		if (match$2) {
+			offset$1 += match$2[1].length;
 			cur = text.substring(offset$1);
 		}
 		const token$1 = {
@@ -62692,9 +63120,9 @@ function lex(text) {
 			}
 			continue;
 		}
-		match$1 = cur.match(regexIdPrefix);
-		if (match$1) {
-			token$1.text = match$1[1];
+		match$2 = cur.match(regexIdPrefix);
+		if (match$2) {
+			token$1.text = match$2[1];
 			offset$1 += token$1.text.length;
 			if (Keywords.has(token$1.text)) {
 				token$1.type = "KEYWORD";
@@ -62707,9 +63135,9 @@ function lex(text) {
 			token$1.type = "ID";
 			continue;
 		}
-		match$1 = cur.match(regexNumberPrefix);
-		if (match$1) {
-			token$1.text = match$1[1];
+		match$2 = cur.match(regexNumberPrefix);
+		if (match$2) {
+			token$1.text = match$2[1];
 			token$1.type = "NUMBER";
 			offset$1 += token$1.text.length;
 			continue;
@@ -62768,15 +63196,15 @@ function consumeEoi(tokens) {
 }
 var regexArrayType = /* @__PURE__ */ new RegExp(/^(.*)\[([0-9]*)\]$/);
 function verifyBasicType(type) {
-	const match$1 = type.match(regexType);
-	assertArgument(match$1, "invalid type", "type", type);
+	const match$2 = type.match(regexType);
+	assertArgument(match$2, "invalid type", "type", type);
 	if (type === "uint") return "uint256";
 	if (type === "int") return "int256";
-	if (match$1[2]) {
-		const length$1 = parseInt(match$1[2]);
+	if (match$2[2]) {
+		const length$1 = parseInt(match$2[2]);
 		assertArgument(length$1 !== 0 && length$1 <= 32, "invalid bytes length", "type", type);
-	} else if (match$1[3]) {
-		const size$4 = parseInt(match$1[3]);
+	} else if (match$2[3]) {
+		const size$4 = parseInt(match$2[3]);
 		assertArgument(size$4 !== 0 && size$4 <= 256 && size$4 % 8 === 0, "invalid numeric width", "type", type);
 	}
 	return type;
@@ -62818,9 +63246,9 @@ var ParamType = class ParamType {
 			arrayChildren
 		});
 	}
-	format(format) {
-		if (format == null) format = "sighash";
-		if (format === "json") {
+	format(format$1) {
+		if (format$1 == null) format$1 = "sighash";
+		if (format$1 === "json") {
 			const name = this.name || "";
 			if (this.isArray()) {
 				const result$2 = JSON.parse(this.arrayChildren.format("json"));
@@ -62833,18 +63261,18 @@ var ParamType = class ParamType {
 				name
 			};
 			if (typeof this.indexed === "boolean") result$1.indexed = this.indexed;
-			if (this.isTuple()) result$1.components = this.components.map((c$3) => JSON.parse(c$3.format(format)));
+			if (this.isTuple()) result$1.components = this.components.map((c$3) => JSON.parse(c$3.format(format$1)));
 			return JSON.stringify(result$1);
 		}
 		let result = "";
 		if (this.isArray()) {
-			result += this.arrayChildren.format(format);
+			result += this.arrayChildren.format(format$1);
 			result += `[${this.arrayLength < 0 ? "" : String(this.arrayLength)}]`;
-		} else if (this.isTuple()) result += "(" + this.components.map((comp) => comp.format(format)).join(format === "full" ? ", " : ",") + ")";
+		} else if (this.isTuple()) result += "(" + this.components.map((comp) => comp.format(format$1)).join(format$1 === "full" ? ", " : ",") + ")";
 		else result += this.type;
-		if (format !== "sighash") {
+		if (format$1 !== "sighash") {
 			if (this.indexed === true) result += " indexed";
-			if (format === "full" && this.name) result += " " + this.name;
+			if (format$1 === "full" && this.name) result += " " + this.name;
 		}
 		return result;
 	}
@@ -63053,8 +63481,8 @@ var NamedFragment = class extends Fragment$1 {
 		defineProperties(this, { name });
 	}
 };
-function joinParams(format, params) {
-	return "(" + params.map((p$2) => p$2.format(format)).join(format === "full" ? ", " : ",") + ")";
+function joinParams(format$1, params) {
+	return "(" + params.map((p$2) => p$2.format(format$1)).join(format$1 === "full" ? ", " : ",") + ")";
 }
 var ErrorFragment = class ErrorFragment extends NamedFragment {
 	constructor(guard, name, inputs) {
@@ -63064,16 +63492,16 @@ var ErrorFragment = class ErrorFragment extends NamedFragment {
 	get selector() {
 		return id(this.format("sighash")).substring(0, 10);
 	}
-	format(format) {
-		if (format == null) format = "sighash";
-		if (format === "json") return JSON.stringify({
+	format(format$1) {
+		if (format$1 == null) format$1 = "sighash";
+		if (format$1 === "json") return JSON.stringify({
 			type: "error",
 			name: this.name,
-			inputs: this.inputs.map((input) => JSON.parse(input.format(format)))
+			inputs: this.inputs.map((input) => JSON.parse(input.format(format$1)))
 		});
 		const result = [];
-		if (format !== "sighash") result.push("error");
-		result.push(this.name + joinParams(format, this.inputs));
+		if (format$1 !== "sighash") result.push("error");
+		result.push(this.name + joinParams(format$1, this.inputs));
 		return result.join(" ");
 	}
 	static from(obj) {
@@ -63101,18 +63529,18 @@ var EventFragment = class EventFragment extends NamedFragment {
 	get topicHash() {
 		return id(this.format("sighash"));
 	}
-	format(format) {
-		if (format == null) format = "sighash";
-		if (format === "json") return JSON.stringify({
+	format(format$1) {
+		if (format$1 == null) format$1 = "sighash";
+		if (format$1 === "json") return JSON.stringify({
 			type: "event",
 			anonymous: this.anonymous,
 			name: this.name,
-			inputs: this.inputs.map((i$3) => JSON.parse(i$3.format(format)))
+			inputs: this.inputs.map((i$3) => JSON.parse(i$3.format(format$1)))
 		});
 		const result = [];
-		if (format !== "sighash") result.push("event");
-		result.push(this.name + joinParams(format, this.inputs));
-		if (format !== "sighash" && this.anonymous) result.push("anonymous");
+		if (format$1 !== "sighash") result.push("event");
+		result.push(this.name + joinParams(format$1, this.inputs));
+		if (format$1 !== "sighash" && this.anonymous) result.push("anonymous");
 		return result.join(" ");
 	}
 	static getTopicHash(name, params) {
@@ -63150,16 +63578,16 @@ var ConstructorFragment = class ConstructorFragment extends Fragment$1 {
 			gas
 		});
 	}
-	format(format) {
-		assert(format != null && format !== "sighash", "cannot format a constructor for sighash", "UNSUPPORTED_OPERATION", { operation: "format(sighash)" });
-		if (format === "json") return JSON.stringify({
+	format(format$1) {
+		assert(format$1 != null && format$1 !== "sighash", "cannot format a constructor for sighash", "UNSUPPORTED_OPERATION", { operation: "format(sighash)" });
+		if (format$1 === "json") return JSON.stringify({
 			type: "constructor",
 			stateMutability: this.payable ? "payable" : "undefined",
 			payable: this.payable,
 			gas: this.gas != null ? this.gas : void 0,
-			inputs: this.inputs.map((i$3) => JSON.parse(i$3.format(format)))
+			inputs: this.inputs.map((i$3) => JSON.parse(i$3.format(format$1)))
 		});
-		const result = [`constructor${joinParams(format, this.inputs)}`];
+		const result = [`constructor${joinParams(format$1, this.inputs)}`];
 		if (this.payable) result.push("payable");
 		if (this.gas != null) result.push(`@${this.gas.toString()}`);
 		return result.join(" ");
@@ -63192,9 +63620,9 @@ var FallbackFragment = class FallbackFragment extends Fragment$1 {
 		Object.defineProperty(this, internal$1, { value: FallbackFragmentInternal });
 		defineProperties(this, { payable });
 	}
-	format(format) {
+	format(format$1) {
 		const type = this.inputs.length === 0 ? "receive" : "fallback";
-		if (format === "json") {
+		if (format$1 === "json") {
 			const stateMutability = this.payable ? "payable" : "nonpayable";
 			return JSON.stringify({
 				type,
@@ -63261,26 +63689,26 @@ var FunctionFragment = class FunctionFragment extends NamedFragment {
 	get selector() {
 		return id(this.format("sighash")).substring(0, 10);
 	}
-	format(format) {
-		if (format == null) format = "sighash";
-		if (format === "json") return JSON.stringify({
+	format(format$1) {
+		if (format$1 == null) format$1 = "sighash";
+		if (format$1 === "json") return JSON.stringify({
 			type: "function",
 			name: this.name,
 			constant: this.constant,
 			stateMutability: this.stateMutability !== "nonpayable" ? this.stateMutability : void 0,
 			payable: this.payable,
 			gas: this.gas != null ? this.gas : void 0,
-			inputs: this.inputs.map((i$3) => JSON.parse(i$3.format(format))),
-			outputs: this.outputs.map((o$1) => JSON.parse(o$1.format(format)))
+			inputs: this.inputs.map((i$3) => JSON.parse(i$3.format(format$1))),
+			outputs: this.outputs.map((o$1) => JSON.parse(o$1.format(format$1)))
 		});
 		const result = [];
-		if (format !== "sighash") result.push("function");
-		result.push(this.name + joinParams(format, this.inputs));
-		if (format !== "sighash") {
+		if (format$1 !== "sighash") result.push("function");
+		result.push(this.name + joinParams(format$1, this.inputs));
+		if (format$1 !== "sighash") {
 			if (this.stateMutability !== "nonpayable") result.push(this.stateMutability);
 			if (this.outputs && this.outputs.length) {
 				result.push("returns");
-				result.push(joinParams(format, this.outputs));
+				result.push(joinParams(format$1, this.outputs));
 			}
 			if (this.gas != null) result.push(`@${this.gas.toString()}`);
 		}
@@ -63366,18 +63794,18 @@ var paramTypeNumber = /* @__PURE__ */ new RegExp(/^(u?int)([0-9]*)$/);
 var defaultCoder = null;
 var defaultMaxInflation = 1024;
 function getBuiltinCallException(action, tx, data, abiCoder) {
-	let message = "missing revert data";
+	let message$1 = "missing revert data";
 	let reason = null;
 	const invocation = null;
 	let revert = null;
 	if (data) {
-		message = "execution reverted";
+		message$1 = "execution reverted";
 		const bytes$1 = getBytes(data);
 		data = hexlify(data);
 		if (bytes$1.length === 0) {
-			message += " (no data present; likely require(false) occurred";
+			message$1 += " (no data present; likely require(false) occurred";
 			reason = "require(false)";
-		} else if (bytes$1.length % 32 !== 4) message += " (could not decode reason; invalid data length)";
+		} else if (bytes$1.length % 32 !== 4) message$1 += " (could not decode reason; invalid data length)";
 		else if (hexlify(bytes$1.slice(0, 4)) === "0x08c379a0") try {
 			reason = abiCoder.decode(["string"], bytes$1.slice(4))[0];
 			revert = {
@@ -63385,9 +63813,9 @@ function getBuiltinCallException(action, tx, data, abiCoder) {
 				name: "Error",
 				args: [reason]
 			};
-			message += `: ${JSON.stringify(reason)}`;
+			message$1 += `: ${JSON.stringify(reason)}`;
 		} catch (error) {
-			message += " (could not decode reason; invalid string data)";
+			message$1 += " (could not decode reason; invalid string data)";
 		}
 		else if (hexlify(bytes$1.slice(0, 4)) === "0x4e487b71") try {
 			const code$1 = Number(abiCoder.decode(["uint256"], bytes$1.slice(4))[0]);
@@ -63397,18 +63825,18 @@ function getBuiltinCallException(action, tx, data, abiCoder) {
 				args: [code$1]
 			};
 			reason = `Panic due to ${PanicReasons$1.get(code$1) || "UNKNOWN"}(${code$1})`;
-			message += `: ${reason}`;
+			message$1 += `: ${reason}`;
 		} catch (error) {
-			message += " (could not decode panic code)";
+			message$1 += " (could not decode panic code)";
 		}
-		else message += " (unknown custom error)";
+		else message$1 += " (unknown custom error)";
 	}
 	const transaction = {
 		to: tx.to ? getAddress(tx.to) : null,
 		data: tx.data || "0x"
 	};
 	if (tx.from) transaction.from = getAddress(tx.from);
-	return makeError(message, "CALL_EXCEPTION", {
+	return makeError(message$1, "CALL_EXCEPTION", {
 		action,
 		data,
 		reason,
@@ -63428,15 +63856,15 @@ var AbiCoder = class AbiCoder {
 			case "bytes": return new BytesCoder(param.name);
 			case "": return new NullCoder(param.name);
 		}
-		let match$1 = param.type.match(paramTypeNumber);
-		if (match$1) {
-			let size$4 = parseInt(match$1[2] || "256");
-			assertArgument(size$4 !== 0 && size$4 <= 256 && size$4 % 8 === 0, "invalid " + match$1[1] + " bit length", "param", param);
-			return new NumberCoder(size$4 / 8, match$1[1] === "int", param.name);
+		let match$2 = param.type.match(paramTypeNumber);
+		if (match$2) {
+			let size$4 = parseInt(match$2[2] || "256");
+			assertArgument(size$4 !== 0 && size$4 <= 256 && size$4 % 8 === 0, "invalid " + match$2[1] + " bit length", "param", param);
+			return new NumberCoder(size$4 / 8, match$2[1] === "int", param.name);
 		}
-		match$1 = param.type.match(paramTypeBytes);
-		if (match$1) {
-			let size$4 = parseInt(match$1[1]);
+		match$2 = param.type.match(paramTypeBytes);
+		if (match$2) {
+			let size$4 = parseInt(match$2[1]);
 			assertArgument(size$4 !== 0 && size$4 <= 32, "invalid bytes length", "param", param);
 			return new FixedBytesCoder(size$4, param.name);
 		}
@@ -63550,8 +63978,8 @@ var BuiltinErrors = {
 		signature: "Error(string)",
 		name: "Error",
 		inputs: ["string"],
-		reason: (message) => {
-			return `reverted with reason string ${JSON.stringify(message)}`;
+		reason: (message$1) => {
+			return `reverted with reason string ${JSON.stringify(message$1)}`;
 		}
 	},
 	"0x4e487b71": {
@@ -63575,14 +64003,14 @@ var Interface = class Interface {
 	#functions;
 	#abiCoder;
 	constructor(fragments) {
-		let abi$9 = [];
-		if (typeof fragments === "string") abi$9 = JSON.parse(fragments);
-		else abi$9 = fragments;
+		let abi$10 = [];
+		if (typeof fragments === "string") abi$10 = JSON.parse(fragments);
+		else abi$10 = fragments;
 		this.#functions = /* @__PURE__ */ new Map();
 		this.#errors = /* @__PURE__ */ new Map();
 		this.#events = /* @__PURE__ */ new Map();
 		const frags = [];
-		for (const a$2 of abi$9) try {
+		for (const a$2 of abi$10) try {
 			frags.push(Fragment$1.from(a$2));
 		} catch (error) {
 			console.log(`[Warning] Invalid Fragment ${JSON.stringify(a$2)}:`, error.message);
@@ -63631,12 +64059,12 @@ var Interface = class Interface {
 		});
 	}
 	format(minimal) {
-		const format = minimal ? "minimal" : "full";
-		return this.fragments.map((f$1) => f$1.format(format));
+		const format$1 = minimal ? "minimal" : "full";
+		return this.fragments.map((f$1) => f$1.format(format$1));
 	}
 	formatJson() {
-		const abi$9 = this.fragments.map((f$1) => f$1.format("json"));
-		return JSON.stringify(abi$9.map((j$3) => JSON.parse(j$3)));
+		const abi$10 = this.fragments.map((f$1) => f$1.format("json"));
+		return JSON.stringify(abi$10.map((j$3) => JSON.parse(j$3)));
 	}
 	getAbiCoder() {
 		return AbiCoder.defaultAbiCoder();
@@ -63839,14 +64267,14 @@ var Interface = class Interface {
 			assertArgument(f$1, "unknown function", "fragment", fragment);
 			fragment = f$1;
 		}
-		let message = "invalid length for result data";
+		let message$1 = "invalid length for result data";
 		const bytes$1 = getBytesCopy(data);
 		if (bytes$1.length % 32 === 0) try {
 			return this.#abiCoder.decode(fragment.outputs, bytes$1);
 		} catch (error) {
-			message = "could not decode result data";
+			message$1 = "could not decode result data";
 		}
-		assert(false, message, "BAD_DATA", {
+		assert(false, message$1, "BAD_DATA", {
 			value: hexlify(bytes$1),
 			info: {
 				method: fragment.name,
@@ -64262,10 +64690,10 @@ var Log = class {
 		});
 	}
 	toJSON() {
-		const { address: address$9, blockHash, blockNumber, data, index: index$6, removed, topics, transactionHash, transactionIndex } = this;
+		const { address: address$10, blockHash, blockNumber, data, index: index$6, removed, topics, transactionHash, transactionIndex } = this;
 		return {
 			_type: "log",
-			address: address$9,
+			address: address$10,
 			blockHash,
 			blockNumber,
 			data,
@@ -65176,10 +65604,10 @@ var BaseContract = class BaseContract {
 	filters;
 	[internal];
 	fallback;
-	constructor(target, abi$9, runner, _deployTx) {
+	constructor(target, abi$10, runner, _deployTx) {
 		assertArgument(typeof target === "string" || isAddressable(target), "invalid value for Contract target", "target", target);
 		if (runner == null) runner = null;
-		const iface = Interface.from(abi$9);
+		const iface = Interface.from(abi$10);
 		defineProperties(this, {
 			target,
 			runner,
@@ -65303,10 +65731,10 @@ var BaseContract = class BaseContract {
 		if (fromBlock == null) fromBlock = 0;
 		if (toBlock == null) toBlock = "latest";
 		const { addr, addrPromise } = getInternal(this);
-		const address$9 = addr ? addr : await addrPromise;
+		const address$10 = addr ? addr : await addrPromise;
 		const { fragment, topics } = await getSubInfo(this, event);
 		const filter$1 = {
-			address: address$9,
+			address: address$10,
 			topics,
 			fromBlock,
 			toBlock
@@ -65403,17 +65831,17 @@ var BaseContract = class BaseContract {
 	async removeListener(event, listener) {
 		return await this.off(event, listener);
 	}
-	static buildClass(abi$9) {
+	static buildClass(abi$10) {
 		class CustomContract extends BaseContract {
-			constructor(address$9, runner = null) {
-				super(address$9, abi$9, runner);
+			constructor(address$10, runner = null) {
+				super(address$10, abi$10, runner);
 			}
 		}
 		return CustomContract;
 	}
-	static from(target, abi$9, runner) {
+	static from(target, abi$10, runner) {
 		if (runner == null) runner = null;
-		return new this(target, abi$9, runner);
+		return new this(target, abi$10, runner);
 	}
 };
 function _ContractBase() {
@@ -65437,7 +65865,7 @@ var MulticoinProviderPlugin = class {
 	supportsCoinType(coinType) {
 		return false;
 	}
-	async encodeAddress(coinType, address$9) {
+	async encodeAddress(coinType, address$10) {
 		throw new Error("unsupported coin");
 	}
 	async decodeAddress(coinType, data) {
@@ -65457,14 +65885,14 @@ var EnsResolver = class EnsResolver {
 	name;
 	#supports2544;
 	#resolver;
-	constructor(provider, address$9, name) {
+	constructor(provider, address$10, name) {
 		defineProperties(this, {
 			provider,
-			address: address$9,
+			address: address$10,
 			name
 		});
 		this.#supports2544 = null;
-		this.#resolver = new Contract(address$9, [
+		this.#resolver = new Contract(address$10, [
 			"function supportsInterface(bytes4) view returns (bool)",
 			"function resolve(bytes, bytes) view returns (bytes)",
 			"function addr(bytes32) view returns (address)",
@@ -65532,8 +65960,8 @@ var EnsResolver = class EnsResolver {
 		if (coinPlugin == null) return null;
 		const data = await this.#fetch("addr(bytes32,uint)", [coinType]);
 		if (data == null || data === "0x") return null;
-		const address$9 = await coinPlugin.decodeAddress(coinType, data);
-		if (address$9 != null) return address$9;
+		const address$10 = await coinPlugin.decodeAddress(coinType, data);
+		if (address$10 != null) return address$10;
 		assert(false, `invalid coin data`, "UNSUPPORTED_OPERATION", {
 			operation: `getAddress(${coinType})`,
 			info: {
@@ -65588,9 +66016,9 @@ var EnsResolver = class EnsResolver {
 				value: avatar
 			});
 			for (let i$3 = 0; i$3 < matchers.length; i$3++) {
-				const match$1 = avatar.match(matchers[i$3]);
-				if (match$1 == null) continue;
-				const scheme = match$1[1].toLowerCase();
+				const match$2 = avatar.match(matchers[i$3]);
+				if (match$2 == null) continue;
+				const scheme = match$2[1].toLowerCase();
 				switch (scheme) {
 					case "https":
 					case "data":
@@ -65635,11 +66063,11 @@ var EnsResolver = class EnsResolver {
 								linkage
 							};
 						}
-						const comps = (match$1[2] || "").split("/");
+						const comps = (match$2[2] || "").split("/");
 						if (comps.length !== 2) {
 							linkage.push({
 								type: `!${scheme}caip`,
-								value: match$1[2] || ""
+								value: match$2[2] || ""
 							});
 							return {
 								url: null,
@@ -65835,23 +66263,23 @@ var EnsResolver = class EnsResolver {
 	}
 };
 var BN_0 = BigInt(0);
-function allowNull(format, nullValue) {
+function allowNull(format$1, nullValue) {
 	return (function(value) {
 		if (value == null) return nullValue;
-		return format(value);
+		return format$1(value);
 	});
 }
-function arrayOf(format, allowNull$1) {
+function arrayOf(format$1, allowNull$1) {
 	return ((array) => {
 		if (allowNull$1 && array == null) return null;
 		if (!Array.isArray(array)) throw new Error("not an array");
-		return array.map((i$3) => format(i$3));
+		return array.map((i$3) => format$1(i$3));
 	});
 }
-function object(format, altNames) {
+function object(format$1, altNames) {
 	return ((value) => {
 		const result = {};
-		for (const key in format) {
+		for (const key in format$1) {
 			let srcKey = key;
 			if (altNames && key in altNames && !(srcKey in value)) {
 				for (const altKey of altNames[key]) if (altKey in value) {
@@ -65860,7 +66288,7 @@ function object(format, altNames) {
 				}
 			}
 			try {
-				const nv = format[key](value[srcKey]);
+				const nv = format$1[key](value[srcKey]);
 				if (nv !== void 0) result[key] = nv;
 			} catch (error) {
 				assert(false, `invalid value for value.${key} (${error instanceof Error ? error.message : "not-an-error"})`, "BAD_DATA", { value });
@@ -66067,10 +66495,10 @@ var GasCostPlugin = class GasCostPlugin extends NetworkPlugin {
 var EnsPlugin = class EnsPlugin extends NetworkPlugin {
 	address;
 	targetNetwork;
-	constructor(address$9, targetNetwork) {
+	constructor(address$10, targetNetwork) {
 		super("org.ethers.plugins.network.Ens");
 		defineProperties(this, {
-			address: address$9 || EnsAddress,
+			address: address$10 || EnsAddress,
 			targetNetwork: targetNetwork == null ? 1 : targetNetwork
 		});
 	}
@@ -66589,7 +67017,7 @@ async function getSubscription(_event, provider) {
 function getTime() {
 	return (/* @__PURE__ */ new Date()).getTime();
 }
-var defaultOptions$1 = {
+var defaultOptions$2 = {
 	cacheTimeout: 250,
 	pollingInterval: 4e3
 };
@@ -66607,7 +67035,7 @@ var AbstractProvider = class {
 	#disableCcipRead;
 	#options;
 	constructor(_network, options$2) {
-		this.#options = Object.assign({}, defaultOptions$1, options$2 || {});
+		this.#options = Object.assign({}, defaultOptions$2, options$2 || {});
 		if (_network === "any") {
 			this.#anyNetwork = true;
 			this.#networkPromise = null;
@@ -66762,8 +67190,8 @@ var AbstractProvider = class {
 		if (this.#lastBlockNumber >= 0) this.#lastBlockNumber = blockNumber;
 		return blockNumber;
 	}
-	_getAddress(address$9) {
-		return resolveAddress(address$9, this);
+	_getAddress(address$10) {
+		return resolveAddress(address$10, this);
 	}
 	_getBlockTag(blockTag) {
 		if (blockTag == null) return "latest";
@@ -66794,42 +67222,42 @@ var AbstractProvider = class {
 		});
 		const blockHash = "blockHash" in filter$1 ? filter$1.blockHash : void 0;
 		const resolve = (_address, fromBlock$1, toBlock$1) => {
-			let address$10 = void 0;
+			let address$11 = void 0;
 			switch (_address.length) {
 				case 0: break;
 				case 1:
-					address$10 = _address[0];
+					address$11 = _address[0];
 					break;
 				default:
 					_address.sort();
-					address$10 = _address;
+					address$11 = _address;
 			}
 			if (blockHash) {
 				if (fromBlock$1 != null || toBlock$1 != null) throw new Error("invalid filter");
 			}
 			const filter$2 = {};
-			if (address$10) filter$2.address = address$10;
+			if (address$11) filter$2.address = address$11;
 			if (topics.length) filter$2.topics = topics;
 			if (fromBlock$1) filter$2.fromBlock = fromBlock$1;
 			if (toBlock$1) filter$2.toBlock = toBlock$1;
 			if (blockHash) filter$2.blockHash = blockHash;
 			return filter$2;
 		};
-		let address$9 = [];
-		if (filter$1.address) if (Array.isArray(filter$1.address)) for (const addr of filter$1.address) address$9.push(this._getAddress(addr));
-		else address$9.push(this._getAddress(filter$1.address));
+		let address$10 = [];
+		if (filter$1.address) if (Array.isArray(filter$1.address)) for (const addr of filter$1.address) address$10.push(this._getAddress(addr));
+		else address$10.push(this._getAddress(filter$1.address));
 		let fromBlock = void 0;
 		if ("fromBlock" in filter$1) fromBlock = this._getBlockTag(filter$1.fromBlock);
 		let toBlock = void 0;
 		if ("toBlock" in filter$1) toBlock = this._getBlockTag(filter$1.toBlock);
-		if (address$9.filter((a$2) => typeof a$2 !== "string").length || fromBlock != null && typeof fromBlock !== "string" || toBlock != null && typeof toBlock !== "string") return Promise.all([
-			Promise.all(address$9),
+		if (address$10.filter((a$2) => typeof a$2 !== "string").length || fromBlock != null && typeof fromBlock !== "string" || toBlock != null && typeof toBlock !== "string") return Promise.all([
+			Promise.all(address$10),
 			fromBlock,
 			toBlock
 		]).then((result) => {
 			return resolve(result[0], result[1], result[2]);
 		});
-		return resolve(address$9, fromBlock, toBlock);
+		return resolve(address$10, fromBlock, toBlock);
 	}
 	_getTransactionRequest(_request) {
 		const request = copyRequest(_request);
@@ -67014,29 +67442,29 @@ var AbstractProvider = class {
 		return await this.#checkNetwork(this.#call(tx, blockTag, _tx.enableCcipRead ? 0 : -1));
 	}
 	async #getAccountValue(request, _address, _blockTag) {
-		let address$9 = this._getAddress(_address);
+		let address$10 = this._getAddress(_address);
 		let blockTag = this._getBlockTag(_blockTag);
-		if (typeof address$9 !== "string" || typeof blockTag !== "string") [address$9, blockTag] = await Promise.all([address$9, blockTag]);
+		if (typeof address$10 !== "string" || typeof blockTag !== "string") [address$10, blockTag] = await Promise.all([address$10, blockTag]);
 		return await this.#checkNetwork(this.#perform(Object.assign(request, {
-			address: address$9,
+			address: address$10,
 			blockTag
 		})));
 	}
-	async getBalance(address$9, blockTag) {
-		return getBigInt(await this.#getAccountValue({ method: "getBalance" }, address$9, blockTag), "%response");
+	async getBalance(address$10, blockTag) {
+		return getBigInt(await this.#getAccountValue({ method: "getBalance" }, address$10, blockTag), "%response");
 	}
-	async getTransactionCount(address$9, blockTag) {
-		return getNumber(await this.#getAccountValue({ method: "getTransactionCount" }, address$9, blockTag), "%response");
+	async getTransactionCount(address$10, blockTag) {
+		return getNumber(await this.#getAccountValue({ method: "getTransactionCount" }, address$10, blockTag), "%response");
 	}
-	async getCode(address$9, blockTag) {
-		return hexlify(await this.#getAccountValue({ method: "getCode" }, address$9, blockTag));
+	async getCode(address$10, blockTag) {
+		return hexlify(await this.#getAccountValue({ method: "getCode" }, address$10, blockTag));
 	}
-	async getStorage(address$9, _position, blockTag) {
+	async getStorage(address$10, _position, blockTag) {
 		const position$1 = getBigInt(_position, "position");
 		return hexlify(await this.#getAccountValue({
 			method: "getStorage",
 			position: position$1
-		}, address$9, blockTag));
+		}, address$10, blockTag));
 	}
 	async broadcastTransaction(signedTx) {
 		const { blockNumber, hash: hash$3, network } = await resolveProperties({
@@ -67142,14 +67570,14 @@ var AbstractProvider = class {
 		if (resolver) return await resolver.getAddress();
 		return null;
 	}
-	async lookupAddress(address$9) {
-		address$9 = getAddress(address$9);
-		const node$1 = namehash(address$9.substring(2).toLowerCase() + ".addr.reverse");
+	async lookupAddress(address$10) {
+		address$10 = getAddress(address$10);
+		const node$1 = namehash(address$10.substring(2).toLowerCase() + ".addr.reverse");
 		try {
 			const resolver = await new Contract(await EnsResolver.getEnsAddress(this), ["function resolver(bytes32) view returns (address)"], this).resolver(node$1);
 			if (resolver == null || resolver === "0x0000000000000000000000000000000000000000") return null;
 			const name = await new Contract(resolver, ["function name(bytes32) view returns (string)"], this).name(node$1);
-			if (await this.resolveName(name) !== address$9) return null;
+			if (await this.resolveName(name) !== address$10) return null;
 			return name;
 		} catch (error) {
 			if (isError(error, "BAD_DATA") && error.value === "0x") return null;
@@ -67512,9 +67940,9 @@ async function populate(signer, tx) {
 	if (pop$2.to != null) pop$2.to = resolveAddress(pop$2.to, signer);
 	if (pop$2.from != null) {
 		const from$2 = pop$2.from;
-		pop$2.from = Promise.all([signer.getAddress(), resolveAddress(from$2, signer)]).then(([address$9, from$3]) => {
-			assertArgument(address$9.toLowerCase() === from$3.toLowerCase(), "transaction from mismatch", "tx.from", from$3);
-			return address$9;
+		pop$2.from = Promise.all([signer.getAddress(), resolveAddress(from$2, signer)]).then(([address$10, from$3]) => {
+			assertArgument(address$10.toLowerCase() === from$3.toLowerCase(), "transaction from mismatch", "tx.from", from$3);
+			return address$10;
 		});
 	} else pop$2.from = signer.getAddress();
 	return await resolveProperties(pop$2);
@@ -67744,7 +68172,7 @@ function getLowerCase(value) {
 function isPollable(value) {
 	return value && typeof value.pollingInterval === "number";
 }
-var defaultOptions = {
+var defaultOptions$1 = {
 	polling: false,
 	staticNetwork: null,
 	batchStallTime: 10,
@@ -67755,10 +68183,10 @@ var defaultOptions = {
 };
 var JsonRpcSigner = class extends AbstractSigner {
 	address;
-	constructor(provider, address$9) {
+	constructor(provider, address$10) {
 		super(provider);
-		address$9 = getAddress(address$9);
-		defineProperties(this, { address: address$9 });
+		address$10 = getAddress(address$10);
+		defineProperties(this, { address: address$10 });
 	}
 	connect(provider) {
 		assert(false, "cannot reconnect JsonRpcSigner", "UNSUPPORTED_OPERATION", { operation: "signer.connect" });
@@ -67845,15 +68273,15 @@ var JsonRpcSigner = class extends AbstractSigner {
 		return await this.provider.send("eth_signTransaction", [hexTx]);
 	}
 	async signMessage(_message) {
-		const message = typeof _message === "string" ? toUtf8Bytes(_message) : _message;
-		return await this.provider.send("personal_sign", [hexlify(message), this.address.toLowerCase()]);
+		const message$1 = typeof _message === "string" ? toUtf8Bytes(_message) : _message;
+		return await this.provider.send("personal_sign", [hexlify(message$1), this.address.toLowerCase()]);
 	}
 	async signTypedData(domain, types$1, _value) {
 		const value = deepCopy(_value);
 		const populated = await TypedDataEncoder.resolveNames(domain, types$1, value, async (value$1) => {
-			const address$9 = await resolveAddress(value$1);
-			assertArgument(address$9 != null, "TypedData does not support null address", "value", value$1);
-			return address$9;
+			const address$10 = await resolveAddress(value$1);
+			assertArgument(address$10 != null, "TypedData does not support null address", "value", value$1);
+			return address$10;
 		});
 		return await this.provider.send("eth_signTypedData_v4", [this.address.toLowerCase(), JSON.stringify(TypedDataEncoder.getPayload(populated.domain, types$1, populated.value))]);
 	}
@@ -67865,8 +68293,8 @@ var JsonRpcSigner = class extends AbstractSigner {
 		]);
 	}
 	async _legacySignMessage(_message) {
-		const message = typeof _message === "string" ? toUtf8Bytes(_message) : _message;
-		return await this.provider.send("eth_sign", [this.address.toLowerCase(), hexlify(message)]);
+		const message$1 = typeof _message === "string" ? toUtf8Bytes(_message) : _message;
+		return await this.provider.send("eth_sign", [this.address.toLowerCase(), hexlify(message$1)]);
 	}
 };
 var JsonRpcApiProvider = class extends AbstractProvider {
@@ -67941,7 +68369,7 @@ var JsonRpcApiProvider = class extends AbstractProvider {
 	constructor(network, options$2) {
 		super(network, options$2);
 		this.#nextId = 1;
-		this.#options = Object.assign({}, defaultOptions, options$2 || {});
+		this.#options = Object.assign({}, defaultOptions$1, options$2 || {});
 		this.#payloads = [];
 		this.#drainTimer = null;
 		this.#network = null;
@@ -68218,7 +68646,7 @@ var JsonRpcApiProvider = class extends AbstractProvider {
 			};
 			return e$2;
 		}
-		const message = JSON.stringify(spelunkMessage(error));
+		const message$1 = JSON.stringify(spelunkMessage(error));
 		if (typeof error.message === "string" && error.message.match(/user denied|ethers-user-denied/i)) return makeError(`user rejected action`, "ACTION_REJECTED", {
 			action: {
 				eth_sign: "signMessage",
@@ -68237,19 +68665,19 @@ var JsonRpcApiProvider = class extends AbstractProvider {
 		});
 		if (method === "eth_sendRawTransaction" || method === "eth_sendTransaction") {
 			const transaction = payload.params[0];
-			if (message.match(/insufficient funds|base fee exceeds gas limit/i)) return makeError("insufficient funds for intrinsic transaction cost", "INSUFFICIENT_FUNDS", {
+			if (message$1.match(/insufficient funds|base fee exceeds gas limit/i)) return makeError("insufficient funds for intrinsic transaction cost", "INSUFFICIENT_FUNDS", {
 				transaction,
 				info: { error }
 			});
-			if (message.match(/nonce/i) && message.match(/too low/i)) return makeError("nonce has already been used", "NONCE_EXPIRED", {
+			if (message$1.match(/nonce/i) && message$1.match(/too low/i)) return makeError("nonce has already been used", "NONCE_EXPIRED", {
 				transaction,
 				info: { error }
 			});
-			if (message.match(/replacement transaction/i) && message.match(/underpriced/i)) return makeError("replacement fee too low", "REPLACEMENT_UNDERPRICED", {
+			if (message$1.match(/replacement transaction/i) && message$1.match(/underpriced/i)) return makeError("replacement fee too low", "REPLACEMENT_UNDERPRICED", {
 				transaction,
 				info: { error }
 			});
-			if (message.match(/only replay-protected/i)) return makeError("legacy pre-eip-155 transactions not supported", "UNSUPPORTED_OPERATION", {
+			if (message$1.match(/only replay-protected/i)) return makeError("legacy pre-eip-155 transactions not supported", "UNSUPPORTED_OPERATION", {
 				operation: method,
 				info: {
 					transaction,
@@ -68257,7 +68685,7 @@ var JsonRpcApiProvider = class extends AbstractProvider {
 				}
 			});
 		}
-		let unsupported = !!message.match(/the method .* does not exist/i);
+		let unsupported = !!message$1.match(/the method .* does not exist/i);
 		if (!unsupported) {
 			if (error && error.details && error.details.startsWith("Unauthorized method:")) unsupported = true;
 		}
@@ -68291,20 +68719,20 @@ var JsonRpcApiProvider = class extends AbstractProvider {
 		this.#scheduleDrain();
 		return promise;
 	}
-	async getSigner(address$9) {
-		if (address$9 == null) address$9 = 0;
+	async getSigner(address$10) {
+		if (address$10 == null) address$10 = 0;
 		const accountsPromise = this.send("eth_accounts", []);
-		if (typeof address$9 === "number") {
+		if (typeof address$10 === "number") {
 			const accounts$1 = await accountsPromise;
-			if (address$9 >= accounts$1.length) throw new Error("no such account");
-			return new JsonRpcSigner(this, accounts$1[address$9]);
+			if (address$10 >= accounts$1.length) throw new Error("no such account");
+			return new JsonRpcSigner(this, accounts$1[address$10]);
 		}
 		const { accounts } = await resolveProperties({
 			network: this.getNetwork(),
 			accounts: accountsPromise
 		});
-		address$9 = getAddress(address$9);
-		for (const account of accounts) if (getAddress(account) === address$9) return new JsonRpcSigner(this, address$9);
+		address$10 = getAddress(address$10);
+		for (const account of accounts) if (getAddress(account) === address$10) return new JsonRpcSigner(this, address$10);
 		throw new Error("invalid account");
 	}
 	async listAccounts() {
@@ -68325,7 +68753,7 @@ var JsonRpcApiPollingProvider = class extends JsonRpcApiProvider {
 	constructor(network, options$2) {
 		super(network, options$2);
 		let pollingInterval = this._getOption("pollingInterval");
-		if (pollingInterval == null) pollingInterval = defaultOptions.pollingInterval;
+		if (pollingInterval == null) pollingInterval = defaultOptions$1.pollingInterval;
 		this.#pollingInterval = pollingInterval;
 	}
 	_getSubscriber(sub) {
@@ -68556,16 +68984,16 @@ var BrowserProvider = class BrowserProvider extends JsonRpcApiPollingProvider {
 		}
 		return super.getRpcError(payload, error);
 	}
-	async hasSigner(address$9) {
-		if (address$9 == null) address$9 = 0;
+	async hasSigner(address$10) {
+		if (address$10 == null) address$10 = 0;
 		const accounts = await this.send("eth_accounts", []);
-		if (typeof address$9 === "number") return accounts.length > address$9;
-		address$9 = address$9.toLowerCase();
-		return accounts.filter((a$2) => a$2.toLowerCase() === address$9).length !== 0;
+		if (typeof address$10 === "number") return accounts.length > address$10;
+		address$10 = address$10.toLowerCase();
+		return accounts.filter((a$2) => a$2.toLowerCase() === address$10).length !== 0;
 	}
-	async getSigner(address$9) {
-		if (address$9 == null) address$9 = 0;
-		if (!await this.hasSigner(address$9)) try {
+	async getSigner(address$10) {
+		if (address$10 == null) address$10 = 0;
+		if (!await this.hasSigner(address$10)) try {
 			await this.#request("eth_requestAccounts", []);
 		} catch (error) {
 			const payload = error.payload;
@@ -68574,7 +69002,7 @@ var BrowserProvider = class BrowserProvider extends JsonRpcApiPollingProvider {
 				error
 			});
 		}
-		return await super.getSigner(address$9);
+		return await super.getSigner(address$10);
 	}
 	static async discover(options$2) {
 		if (options$2 == null) options$2 = {};
@@ -68599,10 +69027,10 @@ var BrowserProvider = class BrowserProvider extends JsonRpcApiPollingProvider {
 					if (filtered == null) resolve(null);
 					else if (filtered instanceof BrowserProvider) resolve(filtered);
 					else {
-						let match$1 = null;
-						if (filtered.uuid) match$1 = found.filter((f$1) => filtered.uuid === f$1.info.uuid)[0];
-						if (match$1) {
-							const { provider, info } = match$1;
+						let match$2 = null;
+						if (filtered.uuid) match$2 = found.filter((f$1) => filtered.uuid === f$1.info.uuid)[0];
+						if (match$2) {
+							const { provider, info } = match$2;
 							resolve(new BrowserProvider(provider, void 0, { providerInfo: info }));
 						} else reject(makeError("filter returned unknown info", "UNSUPPORTED_OPERATION", { value: filtered }));
 					}
@@ -68645,17 +69073,17 @@ const queryTransferEvents = async (senderContract, recieverAddress) => {
 * LICENSE file in the root directory of this source tree.
 */
 var require_use_sync_external_store_shim_production = /* @__PURE__ */ __commonJSMin(((exports) => {
-	var React$6 = require_react();
+	var React$4 = require_react();
 	function is(x$2, y$3) {
 		return x$2 === y$3 && (0 !== x$2 || 1 / x$2 === 1 / y$3) || x$2 !== x$2 && y$3 !== y$3;
 	}
-	var objectIs = "function" === typeof Object.is ? Object.is : is, useState$21 = React$6.useState, useEffect$22 = React$6.useEffect, useLayoutEffect$4 = React$6.useLayoutEffect, useDebugValue$1 = React$6.useDebugValue;
+	var objectIs = "function" === typeof Object.is ? Object.is : is, useState$21 = React$4.useState, useEffect$22 = React$4.useEffect, useLayoutEffect$3 = React$4.useLayoutEffect, useDebugValue$1 = React$4.useDebugValue;
 	function useSyncExternalStore$2(subscribe$1, getSnapshot) {
 		var value = getSnapshot(), _useState = useState$21({ inst: {
 			value,
 			getSnapshot
 		} }), inst = _useState[0].inst, forceUpdate = _useState[1];
-		useLayoutEffect$4(function() {
+		useLayoutEffect$3(function() {
 			inst.value = value;
 			inst.getSnapshot = getSnapshot;
 			checkIfSnapshotChanged(inst) && forceUpdate({ inst });
@@ -68687,435 +69115,11 @@ var require_use_sync_external_store_shim_production = /* @__PURE__ */ __commonJS
 		return getSnapshot();
 	}
 	var shim = "undefined" === typeof window || "undefined" === typeof window.document || "undefined" === typeof window.document.createElement ? useSyncExternalStore$1 : useSyncExternalStore$2;
-	exports.useSyncExternalStore = void 0 !== React$6.useSyncExternalStore ? React$6.useSyncExternalStore : shim;
+	exports.useSyncExternalStore = void 0 !== React$4.useSyncExternalStore ? React$4.useSyncExternalStore : shim;
 }));
 var import_shim = (/* @__PURE__ */ __commonJSMin(((exports, module) => {
 	module.exports = require_use_sync_external_store_shim_production();
 })))();
-var has = Object.prototype.hasOwnProperty;
-function dequal(foo, bar) {
-	var ctor, len$1;
-	if (foo === bar) return true;
-	if (foo && bar && (ctor = foo.constructor) === bar.constructor) {
-		if (ctor === Date) return foo.getTime() === bar.getTime();
-		if (ctor === RegExp) return foo.toString() === bar.toString();
-		if (ctor === Array) {
-			if ((len$1 = foo.length) === bar.length) while (len$1-- && dequal(foo[len$1], bar[len$1]));
-			return len$1 === -1;
-		}
-		if (!ctor || typeof foo === "object") {
-			len$1 = 0;
-			for (ctor in foo) {
-				if (has.call(foo, ctor) && ++len$1 && !has.call(bar, ctor)) return false;
-				if (!(ctor in bar) || !dequal(foo[ctor], bar[ctor])) return false;
-			}
-			return Object.keys(bar).length === len$1;
-		}
-	}
-	return foo !== foo && bar !== bar;
-}
-var SWRGlobalState = /* @__PURE__ */ new WeakMap();
-var noop$2 = () => {};
-var UNDEFINED = noop$2();
-var OBJECT = Object;
-var isUndefined = (v$2) => v$2 === UNDEFINED;
-var isFunction = (v$2) => typeof v$2 == "function";
-var mergeObjects = (a$2, b$4) => ({
-	...a$2,
-	...b$4
-});
-var isPromiseLike = (x$2) => isFunction(x$2.then);
-var EMPTY_CACHE = {};
-var INITIAL_CACHE = {};
-var STR_UNDEFINED = "undefined";
-var isWindowDefined = typeof window != STR_UNDEFINED;
-var isDocumentDefined = typeof document != STR_UNDEFINED;
-var isLegacyDeno = isWindowDefined && "Deno" in window;
-var hasRequestAnimationFrame = () => isWindowDefined && typeof window["requestAnimationFrame"] != STR_UNDEFINED;
-var createCacheHelper = (cache$1, key) => {
-	const state = SWRGlobalState.get(cache$1);
-	return [
-		() => !isUndefined(key) && cache$1.get(key) || EMPTY_CACHE,
-		(info) => {
-			if (!isUndefined(key)) {
-				const prev$1 = cache$1.get(key);
-				if (!(key in INITIAL_CACHE)) INITIAL_CACHE[key] = prev$1;
-				state[5](key, mergeObjects(prev$1, info), prev$1 || EMPTY_CACHE);
-			}
-		},
-		state[6],
-		() => {
-			if (!isUndefined(key)) {
-				if (key in INITIAL_CACHE) return INITIAL_CACHE[key];
-			}
-			return !isUndefined(key) && cache$1.get(key) || EMPTY_CACHE;
-		}
-	];
-};
-var online = true;
-var isOnline = () => online;
-var [onWindowEvent, offWindowEvent] = isWindowDefined && window.addEventListener ? [window.addEventListener.bind(window), window.removeEventListener.bind(window)] : [noop$2, noop$2];
-var isVisible = () => {
-	const visibilityState = isDocumentDefined && document.visibilityState;
-	return isUndefined(visibilityState) || visibilityState !== "hidden";
-};
-var initFocus = (callback) => {
-	if (isDocumentDefined) document.addEventListener("visibilitychange", callback);
-	onWindowEvent("focus", callback);
-	return () => {
-		if (isDocumentDefined) document.removeEventListener("visibilitychange", callback);
-		offWindowEvent("focus", callback);
-	};
-};
-var initReconnect = (callback) => {
-	const onOnline = () => {
-		online = true;
-		callback();
-	};
-	const onOffline = () => {
-		online = false;
-	};
-	onWindowEvent("online", onOnline);
-	onWindowEvent("offline", onOffline);
-	return () => {
-		offWindowEvent("online", onOnline);
-		offWindowEvent("offline", onOffline);
-	};
-};
-var preset = {
-	isOnline,
-	isVisible
-};
-var defaultConfigOptions = {
-	initFocus,
-	initReconnect
-};
-var IS_REACT_LEGACY = !import_react.useId;
-var IS_SERVER = !isWindowDefined || isLegacyDeno;
-var rAF = (f$1) => hasRequestAnimationFrame() ? window["requestAnimationFrame"](f$1) : setTimeout(f$1, 1);
-var useIsomorphicLayoutEffect = IS_SERVER ? import_react.useEffect : import_react.useLayoutEffect;
-var navigatorConnection = typeof navigator !== "undefined" && navigator.connection;
-var slowConnection = !IS_SERVER && navigatorConnection && (["slow-2g", "2g"].includes(navigatorConnection.effectiveType) || navigatorConnection.saveData);
-var table = /* @__PURE__ */ new WeakMap();
-var getTypeName = (value) => OBJECT.prototype.toString.call(value);
-var isObjectTypeName = (typeName, type) => typeName === `[object ${type}]`;
-var counter = 0;
-var stableHash = (arg) => {
-	const type = typeof arg;
-	const typeName = getTypeName(arg);
-	const isDate = isObjectTypeName(typeName, "Date");
-	const isRegex = isObjectTypeName(typeName, "RegExp");
-	const isPlainObject$3 = isObjectTypeName(typeName, "Object");
-	let result;
-	let index$6;
-	if (OBJECT(arg) === arg && !isDate && !isRegex) {
-		result = table.get(arg);
-		if (result) return result;
-		result = ++counter + "~";
-		table.set(arg, result);
-		if (Array.isArray(arg)) {
-			result = "@";
-			for (index$6 = 0; index$6 < arg.length; index$6++) result += stableHash(arg[index$6]) + ",";
-			table.set(arg, result);
-		}
-		if (isPlainObject$3) {
-			result = "#";
-			const keys = OBJECT.keys(arg).sort();
-			while (!isUndefined(index$6 = keys.pop())) if (!isUndefined(arg[index$6])) result += index$6 + ":" + stableHash(arg[index$6]) + ",";
-			table.set(arg, result);
-		}
-	} else result = isDate ? arg.toJSON() : type == "symbol" ? arg.toString() : type == "string" ? JSON.stringify(arg) : "" + arg;
-	return result;
-};
-var serialize$1 = (key) => {
-	if (isFunction(key)) try {
-		key = key();
-	} catch (err) {
-		key = "";
-	}
-	const args = key;
-	key = typeof key == "string" ? key : (Array.isArray(key) ? key.length : key) ? stableHash(key) : "";
-	return [key, args];
-};
-var __timestamp = 0;
-var getTimestamp = () => ++__timestamp;
-async function internalMutate(...args) {
-	const [cache$1, _key, _data, _opts] = args;
-	const options$2 = mergeObjects({
-		populateCache: true,
-		throwOnError: true
-	}, typeof _opts === "boolean" ? { revalidate: _opts } : _opts || {});
-	let populateCache = options$2.populateCache;
-	const rollbackOnErrorOption = options$2.rollbackOnError;
-	let optimisticData = options$2.optimisticData;
-	const rollbackOnError = (error) => {
-		return typeof rollbackOnErrorOption === "function" ? rollbackOnErrorOption(error) : rollbackOnErrorOption !== false;
-	};
-	const throwOnError = options$2.throwOnError;
-	if (isFunction(_key)) {
-		const keyFilter = _key;
-		const matchedKeys = [];
-		const it = cache$1.keys();
-		for (const key of it) if (!/^\$(inf|sub)\$/.test(key) && keyFilter(cache$1.get(key)._k)) matchedKeys.push(key);
-		return Promise.all(matchedKeys.map(mutateByKey));
-	}
-	return mutateByKey(_key);
-	async function mutateByKey(_k) {
-		const [key] = serialize$1(_k);
-		if (!key) return;
-		const [get, set] = createCacheHelper(cache$1, key);
-		const [EVENT_REVALIDATORS, MUTATION, FETCH, PRELOAD] = SWRGlobalState.get(cache$1);
-		const startRevalidate = () => {
-			const revalidators = EVENT_REVALIDATORS[key];
-			if (isFunction(options$2.revalidate) ? options$2.revalidate(get().data, _k) : options$2.revalidate !== false) {
-				delete FETCH[key];
-				delete PRELOAD[key];
-				if (revalidators && revalidators[0]) return revalidators[0](2).then(() => get().data);
-			}
-			return get().data;
-		};
-		if (args.length < 3) return startRevalidate();
-		let data = _data;
-		let error;
-		let isError$1 = false;
-		const beforeMutationTs = getTimestamp();
-		MUTATION[key] = [beforeMutationTs, 0];
-		const hasOptimisticData = !isUndefined(optimisticData);
-		const state = get();
-		const displayedData = state.data;
-		const currentData = state._c;
-		const committedData = isUndefined(currentData) ? displayedData : currentData;
-		if (hasOptimisticData) {
-			optimisticData = isFunction(optimisticData) ? optimisticData(committedData, displayedData) : optimisticData;
-			set({
-				data: optimisticData,
-				_c: committedData
-			});
-		}
-		if (isFunction(data)) try {
-			data = data(committedData);
-		} catch (err) {
-			error = err;
-			isError$1 = true;
-		}
-		if (data && isPromiseLike(data)) {
-			data = await data.catch((err) => {
-				error = err;
-				isError$1 = true;
-			});
-			if (beforeMutationTs !== MUTATION[key][0]) {
-				if (isError$1) throw error;
-				return data;
-			} else if (isError$1 && hasOptimisticData && rollbackOnError(error)) {
-				populateCache = true;
-				set({
-					data: committedData,
-					_c: UNDEFINED
-				});
-			}
-		}
-		if (populateCache) {
-			if (!isError$1) if (isFunction(populateCache)) set({
-				data: populateCache(data, committedData),
-				error: UNDEFINED,
-				_c: UNDEFINED
-			});
-			else set({
-				data,
-				error: UNDEFINED,
-				_c: UNDEFINED
-			});
-		}
-		MUTATION[key][1] = getTimestamp();
-		Promise.resolve(startRevalidate()).then(() => {
-			set({ _c: UNDEFINED });
-		});
-		if (isError$1) {
-			if (throwOnError) throw error;
-			return;
-		}
-		return data;
-	}
-}
-var revalidateAllKeys = (revalidators, type) => {
-	for (const key in revalidators) if (revalidators[key][0]) revalidators[key][0](type);
-};
-var initCache = (provider, options$2) => {
-	if (!SWRGlobalState.has(provider)) {
-		const opts = mergeObjects(defaultConfigOptions, options$2);
-		const EVENT_REVALIDATORS = Object.create(null);
-		const mutate$1 = internalMutate.bind(UNDEFINED, provider);
-		let unmount = noop$2;
-		const subscriptions = Object.create(null);
-		const subscribe$1 = (key, callback) => {
-			const subs = subscriptions[key] || [];
-			subscriptions[key] = subs;
-			subs.push(callback);
-			return () => subs.splice(subs.indexOf(callback), 1);
-		};
-		const setter = (key, value, prev$1) => {
-			provider.set(key, value);
-			const subs = subscriptions[key];
-			if (subs) for (const fn of subs) fn(value, prev$1);
-		};
-		const initProvider = () => {
-			if (!SWRGlobalState.has(provider)) {
-				SWRGlobalState.set(provider, [
-					EVENT_REVALIDATORS,
-					Object.create(null),
-					Object.create(null),
-					Object.create(null),
-					mutate$1,
-					setter,
-					subscribe$1
-				]);
-				if (!IS_SERVER) {
-					const releaseFocus = opts.initFocus(setTimeout.bind(UNDEFINED, revalidateAllKeys.bind(UNDEFINED, EVENT_REVALIDATORS, 0)));
-					const releaseReconnect = opts.initReconnect(setTimeout.bind(UNDEFINED, revalidateAllKeys.bind(UNDEFINED, EVENT_REVALIDATORS, 1)));
-					unmount = () => {
-						releaseFocus && releaseFocus();
-						releaseReconnect && releaseReconnect();
-						SWRGlobalState.delete(provider);
-					};
-				}
-			}
-		};
-		initProvider();
-		return [
-			provider,
-			mutate$1,
-			initProvider,
-			unmount
-		];
-	}
-	return [provider, SWRGlobalState.get(provider)[4]];
-};
-var onErrorRetry = (_$1, __, config, revalidate, opts) => {
-	const maxRetryCount = config.errorRetryCount;
-	const currentRetryCount = opts.retryCount;
-	const timeout = ~~((Math.random() + .5) * (1 << (currentRetryCount < 8 ? currentRetryCount : 8))) * config.errorRetryInterval;
-	if (!isUndefined(maxRetryCount) && currentRetryCount > maxRetryCount) return;
-	setTimeout(revalidate, timeout, opts);
-};
-var compare = dequal;
-var [cache, mutate] = initCache(/* @__PURE__ */ new Map());
-var defaultConfig = mergeObjects({
-	onLoadingSlow: noop$2,
-	onSuccess: noop$2,
-	onError: noop$2,
-	onErrorRetry,
-	onDiscarded: noop$2,
-	revalidateOnFocus: true,
-	revalidateOnReconnect: true,
-	revalidateIfStale: true,
-	shouldRetryOnError: true,
-	errorRetryInterval: slowConnection ? 1e4 : 5e3,
-	focusThrottleInterval: 5 * 1e3,
-	dedupingInterval: 2 * 1e3,
-	loadingTimeout: slowConnection ? 5e3 : 3e3,
-	compare,
-	isPaused: () => false,
-	cache,
-	mutate,
-	fallback: {}
-}, preset);
-var mergeConfigs = (a$2, b$4) => {
-	const v$2 = mergeObjects(a$2, b$4);
-	if (b$4) {
-		const { use: u1, fallback: f1 } = a$2;
-		const { use: u2, fallback: f2 } = b$4;
-		if (u1 && u2) v$2.use = u1.concat(u2);
-		if (f1 && f2) v$2.fallback = mergeObjects(f1, f2);
-	}
-	return v$2;
-};
-var SWRConfigContext = (0, import_react.createContext)({});
-var SWRConfig = (props) => {
-	const { value } = props;
-	const parentConfig = (0, import_react.useContext)(SWRConfigContext);
-	const isFunctionalConfig = isFunction(value);
-	const config = (0, import_react.useMemo)(() => isFunctionalConfig ? value(parentConfig) : value, [
-		isFunctionalConfig,
-		parentConfig,
-		value
-	]);
-	const extendedConfig = (0, import_react.useMemo)(() => isFunctionalConfig ? config : mergeConfigs(parentConfig, config), [
-		isFunctionalConfig,
-		parentConfig,
-		config
-	]);
-	const provider = config && config.provider;
-	const cacheContextRef = (0, import_react.useRef)(UNDEFINED);
-	if (provider && !cacheContextRef.current) cacheContextRef.current = initCache(provider(extendedConfig.cache || cache), config);
-	const cacheContext = cacheContextRef.current;
-	if (cacheContext) {
-		extendedConfig.cache = cacheContext[0];
-		extendedConfig.mutate = cacheContext[1];
-	}
-	useIsomorphicLayoutEffect(() => {
-		if (cacheContext) {
-			cacheContext[2] && cacheContext[2]();
-			return cacheContext[3];
-		}
-	}, []);
-	return (0, import_react.createElement)(SWRConfigContext.Provider, mergeObjects(props, { value: extendedConfig }));
-};
-var enableDevtools = isWindowDefined && window.__SWR_DEVTOOLS_USE__;
-var use$1 = enableDevtools ? window.__SWR_DEVTOOLS_USE__ : [];
-var setupDevTools = () => {
-	if (enableDevtools) window.__SWR_DEVTOOLS_REACT__ = import_react.default;
-};
-var normalize = (args) => {
-	return isFunction(args[1]) ? [
-		args[0],
-		args[1],
-		args[2] || {}
-	] : [
-		args[0],
-		null,
-		(args[1] === null ? args[2] : args[1]) || {}
-	];
-};
-var useSWRConfig = () => {
-	const parentConfig = (0, import_react.useContext)(SWRConfigContext);
-	return (0, import_react.useMemo)(() => mergeObjects(defaultConfig, parentConfig), [parentConfig]);
-};
-var middleware$1 = (useSWRNext) => (key_, fetcher_, config) => {
-	return useSWRNext(key_, fetcher_ && ((...args) => {
-		const [key] = serialize$1(key_);
-		const [, , , PRELOAD] = SWRGlobalState.get(cache);
-		if (key.startsWith("$inf$")) return fetcher_(...args);
-		const req = PRELOAD[key];
-		if (isUndefined(req)) return fetcher_(...args);
-		delete PRELOAD[key];
-		return req;
-	}), config);
-};
-var BUILT_IN_MIDDLEWARE = use$1.concat(middleware$1);
-var withArgs = (hook) => {
-	return function useSWRArgs(...args) {
-		const fallbackConfig = useSWRConfig();
-		const [key, fn, _config] = normalize(args);
-		const config = mergeConfigs(fallbackConfig, _config);
-		let next$1 = hook;
-		const { use: use$3 } = config;
-		const middleware$2 = (use$3 || []).concat(BUILT_IN_MIDDLEWARE);
-		for (let i$3 = middleware$2.length; i$3--;) next$1 = middleware$2[i$3](next$1);
-		return next$1(key, fn || config.fetcher || null, config);
-	};
-};
-var subscribeCallback = (key, callbacks, callback) => {
-	const keyedRevalidators = callbacks[key] || (callbacks[key] = []);
-	keyedRevalidators.push(callback);
-	return () => {
-		const index$6 = keyedRevalidators.indexOf(callback);
-		if (index$6 >= 0) {
-			keyedRevalidators[index$6] = keyedRevalidators[keyedRevalidators.length - 1];
-			keyedRevalidators.pop();
-		}
-	};
-};
-setupDevTools();
 var noop$3 = () => {};
 noop$3();
 var use = import_react.use || ((thenable) => {
@@ -69432,9 +69436,9 @@ const _useGodEyeSetup = () => {
 	const [godEyeAddress, setGodEyeAddress] = (0, import_react.useState)(void 0);
 	const [godEyeAccountId, setGodEyeAccountId] = (0, import_react.useState)(void 0);
 	const loc = useLocation();
-	const enableGodEyeWallet = (address$9) => {
-		setGodEyeAddress(address$9);
-		console.log("God Eye Wallet enabled:", address$9);
+	const enableGodEyeWallet = (address$10) => {
+		setGodEyeAddress(address$10);
+		console.log("God Eye Wallet enabled:", address$10);
 	};
 	const enableGodEyeAccountId = (accountId) => {
 		setGodEyeAccountId(accountId);
@@ -69449,8 +69453,8 @@ const _useGodEyeSetup = () => {
 		const [cheatcode, cheatcodeValue] = getLast(loc.pathname.split("/")).split("=");
 		switch (cheatcode) {
 			case WALLET_CHEATCODE: {
-				const address$9 = cheatcodeValue;
-				if (isAddress(address$9)) enableGodEyeWallet(address$9);
+				const address$10 = cheatcodeValue;
+				if (isAddress(address$10)) enableGodEyeWallet(address$10);
 				else disableGodEye(`Invalid address: ${cheatcodeValue}`);
 				break;
 			}
@@ -73662,6 +73666,780 @@ var OneClickNoRekt_default = {
 		}
 	]
 };
+var OneClickOptions_default = {
+	address: "0xbAc8beadE8D0c5Fdd5bC3a27EB07140Fc3cfbd32",
+	abi: [
+		{
+			"inputs": [
+				{
+					"internalType": "contract IMarginAccountManager",
+					"name": "_marginAccountManager",
+					"type": "address"
+				},
+				{
+					"internalType": "contract IOneClickProxy",
+					"name": "_oneClickProxy",
+					"type": "address"
+				},
+				{
+					"internalType": "contract IPositionsManager",
+					"name": "_hegicPositionManager",
+					"type": "address"
+				},
+				{
+					"internalType": "contract IProxySeller",
+					"name": "_proxySeller",
+					"type": "address"
+				},
+				{
+					"internalType": "contract IMarginAccount",
+					"name": "_marginAccount",
+					"type": "address"
+				},
+				{
+					"internalType": "contract HegicModule",
+					"name": "_hegicModule",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "_hegicTokenIn",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "_referrer",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "_weth",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "_usdc",
+					"type": "address"
+				}
+			],
+			"stateMutability": "nonpayable",
+			"type": "constructor"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "bytes32",
+					"name": "role",
+					"type": "bytes32"
+				},
+				{
+					"indexed": true,
+					"internalType": "bytes32",
+					"name": "previousAdminRole",
+					"type": "bytes32"
+				},
+				{
+					"indexed": true,
+					"internalType": "bytes32",
+					"name": "newAdminRole",
+					"type": "bytes32"
+				}
+			],
+			"name": "RoleAdminChanged",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "bytes32",
+					"name": "role",
+					"type": "bytes32"
+				},
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "account",
+					"type": "address"
+				},
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "sender",
+					"type": "address"
+				}
+			],
+			"name": "RoleGranted",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "bytes32",
+					"name": "role",
+					"type": "bytes32"
+				},
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "account",
+					"type": "address"
+				},
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "sender",
+					"type": "address"
+				}
+			],
+			"name": "RoleRevoked",
+			"type": "event"
+		},
+		{
+			"inputs": [],
+			"name": "DEFAULT_ADMIN_ROLE",
+			"outputs": [{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "MANAGER_ROLE",
+			"outputs": [{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "token",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "to",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "amount",
+					"type": "uint256"
+				}
+			],
+			"name": "approveERC20",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "token",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "to",
+					"type": "address"
+				},
+				{
+					"internalType": "bool",
+					"name": "value",
+					"type": "bool"
+				}
+			],
+			"name": "approveERC721ForAll",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "marginAccountID",
+					"type": "uint256"
+				},
+				{
+					"internalType": "address",
+					"name": "tokenBorrow",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "tokenForOption",
+					"type": "address"
+				},
+				{
+					"internalType": "contract IHegicStrategy",
+					"name": "strategy",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "amountBorrow",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "amountBuy",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "amountWithdraw",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "maxTotalCost",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "period",
+					"type": "uint256"
+				},
+				{
+					"internalType": "bytes[]",
+					"name": "additional",
+					"type": "bytes[]"
+				}
+			],
+			"name": "borrowDoubleWithdrawBuyProvideERC721",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "marginAccountID",
+					"type": "uint256"
+				},
+				{
+					"internalType": "address",
+					"name": "tokenBorrow",
+					"type": "address"
+				},
+				{
+					"internalType": "contract IHegicStrategy",
+					"name": "strategy",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "amountBorrow",
+					"type": "uint256"
+				},
+				{
+					"internalType": "address",
+					"name": "tokenTransfer",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "amountBuy",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "maxTotalCost",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "period",
+					"type": "uint256"
+				},
+				{
+					"internalType": "bytes[]",
+					"name": "additional",
+					"type": "bytes[]"
+				}
+			],
+			"name": "borrowWithdrawTransferBuyProvideERC721",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "marginAccountID",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256[]",
+					"name": "hegopIDs",
+					"type": "uint256[]"
+				},
+				{
+					"internalType": "address",
+					"name": "repayToken",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "amountOutMinimum",
+					"type": "uint256"
+				}
+			],
+			"name": "exercisesSwapRepay",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "marginAccountID",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256[]",
+					"name": "hegopIDs",
+					"type": "uint256[]"
+				},
+				{
+					"internalType": "address",
+					"name": "repayToken",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "amountOutMinimum",
+					"type": "uint256"
+				},
+				{
+					"internalType": "bool",
+					"name": "useAllForWithdraw",
+					"type": "bool"
+				},
+				{
+					"internalType": "uint256",
+					"name": "withdrawAmount",
+					"type": "uint256"
+				},
+				{
+					"internalType": "bool",
+					"name": "isETH",
+					"type": "bool"
+				}
+			],
+			"name": "exercisesSwapRepayAndWithdraw",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			}],
+			"name": "getRoleAdmin",
+			"outputs": [{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			}, {
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}],
+			"name": "grantRole",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			}, {
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}],
+			"name": "hasRole",
+			"outputs": [{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "hegicModule",
+			"outputs": [{
+				"internalType": "contract HegicModule",
+				"name": "",
+				"type": "address"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "hegicPositionManager",
+			"outputs": [{
+				"internalType": "contract IPositionsManager",
+				"name": "",
+				"type": "address"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "hegicTokenIn",
+			"outputs": [{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "marginAccount",
+			"outputs": [{
+				"internalType": "contract IMarginAccount",
+				"name": "",
+				"type": "address"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "marginAccountManager",
+			"outputs": [{
+				"internalType": "contract IMarginAccountManager",
+				"name": "",
+				"type": "address"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				},
+				{
+					"internalType": "bytes",
+					"name": "",
+					"type": "bytes"
+				}
+			],
+			"name": "onERC721Received",
+			"outputs": [{
+				"internalType": "bytes4",
+				"name": "",
+				"type": "bytes4"
+			}],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "oneClickProxy",
+			"outputs": [{
+				"internalType": "contract IOneClickProxy",
+				"name": "",
+				"type": "address"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "proxySeller",
+			"outputs": [{
+				"internalType": "contract IProxySeller",
+				"name": "",
+				"type": "address"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "referrer",
+			"outputs": [{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			}, {
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}],
+			"name": "renounceRole",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			}, {
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}],
+			"name": "revokeRole",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "tokenIn",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "tokenOut",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "module",
+					"type": "address"
+				}
+			],
+			"name": "setUniswapExchangeModules",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "bytes4",
+				"name": "interfaceId",
+				"type": "bytes4"
+			}],
+			"name": "supportsInterface",
+			"outputs": [{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "marginAccountID",
+					"type": "uint256"
+				},
+				{
+					"internalType": "address",
+					"name": "tokenOut",
+					"type": "address"
+				},
+				{
+					"internalType": "contract IHegicStrategy",
+					"name": "strategy",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "amount",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "maxTotalCost",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "period",
+					"type": "uint256"
+				},
+				{
+					"internalType": "bytes[]",
+					"name": "additional",
+					"type": "bytes[]"
+				}
+			],
+			"name": "transferBuyProvideERC721",
+			"outputs": [],
+			"stateMutability": "payable",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}, {
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}],
+			"name": "uniswapExchangeModules",
+			"outputs": [{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "usdc",
+			"outputs": [{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "weth",
+			"outputs": [{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "marginAccountID",
+					"type": "uint256"
+				},
+				{
+					"internalType": "address",
+					"name": "tokenOut",
+					"type": "address"
+				},
+				{
+					"internalType": "contract IHegicStrategy",
+					"name": "strategy",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "amount",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "amountWithdraw",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "maxTotalCost",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "period",
+					"type": "uint256"
+				},
+				{
+					"internalType": "bytes[]",
+					"name": "additional",
+					"type": "bytes[]"
+				}
+			],
+			"name": "withdrawBuyProvideERC721",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "uint256",
+				"name": "marginAccountID",
+				"type": "uint256"
+			}, {
+				"internalType": "uint256",
+				"name": "tokenID",
+				"type": "uint256"
+			}],
+			"name": "withdrawERC721",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"stateMutability": "payable",
+			"type": "receive"
+		}
+	]
+};
 var OneClickProxy_default = {
 	address: "0x4A07F03A2Ed4fb4025fffe6D24BdF6A719581103",
 	abi: [
@@ -75994,6 +76772,7 @@ var useContractJsons = () => {
 		MarginTrading: MarginTrading_default,
 		ModularSwapRouter: ModularSwapRouter_default,
 		OneClickNoRekt: OneClickNoRekt_default,
+		OneClickOptions: OneClickOptions_default,
 		OneClickProxy: OneClickProxy_default,
 		OneClickTrading: OneClickTrading_default,
 		UsdcPool: USDC_LiquidityPool_default
@@ -76017,8 +76796,8 @@ var useViewContracts = () => {
 	return (0, import_react.useMemo)(() => {
 		const contracts$1 = {};
 		Object.keys(contractJsons).forEach((name) => {
-			const { address: address$9, abi: abi$9 } = contractJsons[name];
-			contracts$1[name] = new Contract(address$9, abi$9, alchemyProvider);
+			const { address: address$10, abi: abi$10 } = contractJsons[name];
+			contracts$1[name] = new Contract(address$10, abi$10, alchemyProvider);
 		});
 		return contracts$1;
 	}, [contractJsons]);
@@ -76058,9 +76837,11 @@ const getAlchemyProvider = () => {
 	return new AlchemyProvider(ARBITRUM, getEnvVariable("ALCHEMY_API_KEY"));
 };
 var useContracts_default = useContracts;
-const SECOND = 1e3;
+const MS_IN_SECOND = 1e3;
+const SECOND = MS_IN_SECOND;
 const MINUTE = 60 * SECOND;
-365 * (24 * (60 * MINUTE));
+const DAY = 24 * (60 * MINUTE);
+365 * DAY;
 const Decimals = {
 	DEFAULT: 18,
 	HEGIC: 8,
@@ -76531,6 +77312,9 @@ var AccountStateContext_default = AccountStateContext;
 const useSlippageState = () => {
 	return (0, import_react.useContext)(_GeneralContext).slippageState;
 };
+const useSlippage = () => {
+	return (0, import_react.useContext)(_GeneralContext).slippageState[0];
+};
 const _useGeneralSetup = () => {
 	const [slippage, setSlippage] = useLocalStorage_default("slippage", SLIPPAGE, {
 		serializer: stringFromBigInt,
@@ -76683,14 +77467,14 @@ var require_classnames = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 		else window.classNames = classNames$3;
 	})();
 }));
-var import_classnames$27 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$30 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var Button$1 = ({ type = "primary", size: size$4 = "default", isDisabled = false, className, children, ...props }) => {
 	const isFancy = type === "fancy";
 	(0, import_react.useEffect)(() => {
 		if (isFancy) animateFancyButtons();
 	}, []);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-		className: (0, import_classnames$27.default)(className, "Button", `_${type}`, `_${size$4}`, isFancy && "anim_fancy"),
+		className: (0, import_classnames$30.default)(className, "Button", `_${type}`, `_${size$4}`, isFancy && "anim_fancy"),
 		disabled: isDisabled,
 		...props,
 		children
@@ -76703,9 +77487,6 @@ var useAccountId = () => {
 	return accountState.id;
 };
 var useAccountId_default = useAccountId;
-const isSufficient = (value) => {
-	return !isUndefined(value) && value !== null;
-};
 var swap = async (contracts$1, amountIn, tokenIn, tokenOut, slippage = void 0) => {
 	tokenIn = getTokenData(tokenIn);
 	tokenOut = getTokenData(tokenOut);
@@ -76731,1623 +77512,42 @@ const swapUsdcToEth = async (contracts$1, amountUSDC, slippage = void 0) => {
 	const { ETH } = Tokens;
 	return swapFromUsdc(contracts$1, amountUSDC, ETH, slippage);
 };
-var RepayModalConstants_default = { RepayMethods: {
-	COLLATERAL: "collateral",
-	WALLET: "wallet"
-} };
-var { RepayMethods: RepayMethods$1 } = RepayModalConstants_default;
-var useProtocolActions = () => {
-	const accountId = useAccountId_default();
-	const contracts$1 = useContracts_default();
-	const createAccount = (0, import_react.useCallback)(async () => _createAccount(contracts$1), [contracts$1]);
-	const supply = (0, import_react.useCallback)(async (amount) => _supply(accountId, contracts$1, amount), [accountId, contracts$1]);
-	const withdraw = (0, import_react.useCallback)(async (amount) => _withdraw(accountId, contracts$1, amount), [accountId, contracts$1]);
-	const borrow = (0, import_react.useCallback)(async (amount) => _borrow(accountId, contracts$1, amount), [accountId, contracts$1]);
-	const repay = (0, import_react.useCallback)(async (amount, paymentMethod, shouldWithdraw, slippage = SLIPPAGE) => _repay(accountId, contracts$1, amount, paymentMethod, shouldWithdraw, slippage), [accountId, contracts$1]);
-	return (0, import_react.useMemo)(() => ({
-		createAccount,
-		supply,
-		withdraw,
-		borrow,
-		repay
-	}), [
-		createAccount,
-		supply,
-		withdraw,
-		borrow,
-		repay
-	]);
-};
-var _createAccount = async (contracts$1) => {
-	const { LendingMarginAccountManager } = contracts$1.signed;
-	return LendingMarginAccountManager.createLendingMarginAccount();
-};
-var _supply = async (accountId, contracts$1, amount) => {
-	const { OneClickTrading } = contracts$1.signed;
-	const amount1eToken = get1eToken(amount, "ETH");
-	return OneClickTrading.provideETH(accountId, { value: amount1eToken });
-};
-var _withdraw = async (accountId, contracts$1, amount) => {
-	const { OneClickTrading } = contracts$1.signed;
-	const amount1eToken = get1eToken(amount, "ETH");
-	return OneClickTrading.withdrawETH(accountId, amount1eToken);
-};
-var _borrow = async (accountId, contracts$1, amount) => {
-	const { OneClickTrading } = contracts$1.signed;
-	const { USDC } = Tokens;
-	const amount1eToken = get1eToken(amount, "USDC");
-	return OneClickTrading.borrowWithdraw(accountId, USDC.address, amount1eToken, false);
-};
-var _repay = async (accountId, contracts$1, amount, paymentMethod, shouldWithdraw, slippage) => {
-	switch (paymentMethod) {
-		case RepayMethods$1.COLLATERAL: return _repayCollateral(accountId, contracts$1, amount, shouldWithdraw, slippage);
-		case RepayMethods$1.WALLET: return _repayWallet(accountId, contracts$1, amount, shouldWithdraw);
-		default: console.error("No paymentMethod found:", paymentMethod);
-	}
-};
-var _repayCollateral = async (accountId, contracts$1, amount, shouldWithdraw, slippage) => {
-	const { ETH, USDC } = Tokens;
-	const { OneClickNoRekt } = contracts$1.signed;
-	const amountOut1eToken = get1eToken(amount, USDC);
-	const amountIn1eToken = get1eToken(await swapUsdcToEth(contracts$1, amount, slippage), ETH);
-	return OneClickNoRekt.multiSwapOutputRepayWithdraw(accountId, USDC.address, [[
-		ETH.address,
-		amountOut1eToken,
-		amountIn1eToken
-	]], amountOut1eToken, ETH.address, shouldWithdraw);
-};
-var _repayWallet = async (accountId, contracts$1, amount, shouldWithdraw) => {
-	const { ETH, USDC } = Tokens;
-	const { OneClickTrading } = contracts$1.signed;
-	const amount1eToken = get1eToken(amount, USDC);
-	if (shouldWithdraw) return OneClickTrading.provideERC20RepayWithdraw(accountId, USDC.address, USDC.address, ETH.address, amount1eToken);
-	else return OneClickTrading.provideERC20Repay(accountId, USDC.address, amount1eToken);
-};
-var useProtocolActions_default = useProtocolActions;
-var sendTx = async (executedTx, successMsg, setIsSubmitting, onSuccess, onError) => {
-	setIsSubmitting(true);
-	const chainId = await queryChainId();
-	const handleError = (e$2) => {
-		console.log(e$2);
-		onError(e$2);
-		setIsSubmitting(false);
-	};
-	executedTx.then((tx) => {
-		console.log("Submitting:", tx);
-		tx.wait().then((res) => {
-			logSuccessMsg(chainId, tx.hash, successMsg);
-			onSuccess({
-				res,
-				tx
-			});
-			setIsSubmitting(false);
-		}).catch(handleError);
-	}).catch(handleError);
-};
-var queryChainId = async () => {
-	return (await getWalletClient(WAGMI_CONFIG)).chain.id;
-};
-var logSuccessMsg = (chainId, txHash, successMsg) => {
-	const txUrl = getTxUrl(chainId, txHash);
-	console.log(`${successMsg}\n${txUrl}`);
-};
-var sendTx_default = sendTx;
-var require_ReactPropTypesSecret = /* @__PURE__ */ __commonJSMin(((exports, module) => {
-	module.exports = "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED";
-}));
-var require_factoryWithThrowingShims = /* @__PURE__ */ __commonJSMin(((exports, module) => {
-	var ReactPropTypesSecret = require_ReactPropTypesSecret();
-	function emptyFunction() {}
-	function emptyFunctionWithReset() {}
-	emptyFunctionWithReset.resetWarningCache = emptyFunction;
-	module.exports = function() {
-		function shim$3(props, propName, componentName, location, propFullName, secret) {
-			if (secret === ReactPropTypesSecret) return;
-			var err = /* @__PURE__ */ new Error("Calling PropTypes validators directly is not supported by the `prop-types` package. Use PropTypes.checkPropTypes() to call them. Read more at http://fb.me/use-check-prop-types");
-			err.name = "Invariant Violation";
-			throw err;
-		}
-		shim$3.isRequired = shim$3;
-		function getShim() {
-			return shim$3;
-		}
-		var ReactPropTypes = {
-			array: shim$3,
-			bigint: shim$3,
-			bool: shim$3,
-			func: shim$3,
-			number: shim$3,
-			object: shim$3,
-			string: shim$3,
-			symbol: shim$3,
-			any: shim$3,
-			arrayOf: getShim,
-			element: shim$3,
-			elementType: shim$3,
-			instanceOf: getShim,
-			node: shim$3,
-			objectOf: getShim,
-			oneOf: getShim,
-			oneOfType: getShim,
-			shape: getShim,
-			exact: getShim,
-			checkPropTypes: emptyFunctionWithReset,
-			resetWarningCache: emptyFunction
-		};
-		ReactPropTypes.PropTypes = ReactPropTypes;
-		return ReactPropTypes;
-	};
-}));
-var require_prop_types = /* @__PURE__ */ __commonJSMin(((exports, module) => {
-	module.exports = require_factoryWithThrowingShims()();
-}));
-var require_tabbable = /* @__PURE__ */ __commonJSMin(((exports, module) => {
-	Object.defineProperty(exports, "__esModule", { value: true });
-	exports.default = findTabbableDescendants;
-	var DISPLAY_NONE = "none";
-	var DISPLAY_CONTENTS = "contents";
-	var tabbableNode = /^(input|select|textarea|button|object|iframe)$/;
-	function isNotOverflowing(element, style$1) {
-		return style$1.getPropertyValue("overflow") !== "visible" || element.scrollWidth <= 0 && element.scrollHeight <= 0;
-	}
-	function hidesContents(element) {
-		var zeroSize = element.offsetWidth <= 0 && element.offsetHeight <= 0;
-		if (zeroSize && !element.innerHTML) return true;
-		try {
-			var style$1 = window.getComputedStyle(element);
-			var displayValue = style$1.getPropertyValue("display");
-			return zeroSize ? displayValue !== DISPLAY_CONTENTS && isNotOverflowing(element, style$1) : displayValue === DISPLAY_NONE;
-		} catch (exception) {
-			console.warn("Failed to inspect element style");
-			return false;
-		}
-	}
-	function visible(element) {
-		var parentElement = element;
-		var rootNode = element.getRootNode && element.getRootNode();
-		while (parentElement) {
-			if (parentElement === document.body) break;
-			if (rootNode && parentElement === rootNode) parentElement = rootNode.host.parentNode;
-			if (hidesContents(parentElement)) return false;
-			parentElement = parentElement.parentNode;
-		}
-		return true;
-	}
-	function focusable(element, isTabIndexNotNaN) {
-		var nodeName = element.nodeName.toLowerCase();
-		return (tabbableNode.test(nodeName) && !element.disabled || (nodeName === "a" ? element.href || isTabIndexNotNaN : isTabIndexNotNaN)) && visible(element);
-	}
-	function tabbable(element) {
-		var tabIndex = element.getAttribute("tabindex");
-		if (tabIndex === null) tabIndex = void 0;
-		var isTabIndexNaN = isNaN(tabIndex);
-		return (isTabIndexNaN || tabIndex >= 0) && focusable(element, !isTabIndexNaN);
-	}
-	function findTabbableDescendants(element) {
-		return [].slice.call(element.querySelectorAll("*"), 0).reduce(function(finished, el) {
-			return finished.concat(!el.shadowRoot ? [el] : findTabbableDescendants(el.shadowRoot));
-		}, []).filter(tabbable);
-	}
-	module.exports = exports["default"];
-}));
-var require_focusManager = /* @__PURE__ */ __commonJSMin(((exports) => {
-	Object.defineProperty(exports, "__esModule", { value: true });
-	exports.resetState = resetState$4;
-	exports.log = log$4;
-	exports.handleBlur = handleBlur;
-	exports.handleFocus = handleFocus;
-	exports.markForFocusLater = markForFocusLater;
-	exports.returnFocus = returnFocus;
-	exports.popWithoutFocus = popWithoutFocus;
-	exports.setupScopedFocus = setupScopedFocus;
-	exports.teardownScopedFocus = teardownScopedFocus;
-	var _tabbable2$1 = _interopRequireDefault$7(require_tabbable());
-	function _interopRequireDefault$7(obj) {
-		return obj && obj.__esModule ? obj : { default: obj };
-	}
-	var focusLaterElements = [];
-	var modalElement = null;
-	var needToFocus = false;
-	/* istanbul ignore next */
-	function resetState$4() {
-		focusLaterElements = [];
-	}
-	/* istanbul ignore next */
-	function log$4() {}
-	function handleBlur() {
-		needToFocus = true;
-	}
-	function handleFocus() {
-		if (needToFocus) {
-			needToFocus = false;
-			if (!modalElement) return;
-			setTimeout(function() {
-				if (modalElement.contains(document.activeElement)) return;
-				((0, _tabbable2$1.default)(modalElement)[0] || modalElement).focus();
-			}, 0);
-		}
-	}
-	function markForFocusLater() {
-		focusLaterElements.push(document.activeElement);
-	}
-	function returnFocus() {
-		var preventScroll = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : false;
-		var toFocus = null;
-		try {
-			if (focusLaterElements.length !== 0) {
-				toFocus = focusLaterElements.pop();
-				toFocus.focus({ preventScroll });
-			}
-			return;
-		} catch (e$2) {
-			console.warn([
-				"You tried to return focus to",
-				toFocus,
-				"but it is not in the DOM anymore"
-			].join(" "));
-		}
-	}
-	function popWithoutFocus() {
-		focusLaterElements.length > 0 && focusLaterElements.pop();
-	}
-	function setupScopedFocus(element) {
-		modalElement = element;
-		if (window.addEventListener) {
-			window.addEventListener("blur", handleBlur, false);
-			document.addEventListener("focus", handleFocus, true);
-		} else {
-			window.attachEvent("onBlur", handleBlur);
-			document.attachEvent("onFocus", handleFocus);
-		}
-	}
-	function teardownScopedFocus() {
-		modalElement = null;
-		if (window.addEventListener) {
-			window.removeEventListener("blur", handleBlur);
-			document.removeEventListener("focus", handleFocus);
-		} else {
-			window.detachEvent("onBlur", handleBlur);
-			document.detachEvent("onFocus", handleFocus);
-		}
-	}
-}));
-var require_scopeTab = /* @__PURE__ */ __commonJSMin(((exports, module) => {
-	Object.defineProperty(exports, "__esModule", { value: true });
-	exports.default = scopeTab;
-	var _tabbable2 = _interopRequireDefault$6(require_tabbable());
-	function _interopRequireDefault$6(obj) {
-		return obj && obj.__esModule ? obj : { default: obj };
-	}
-	function getActiveElement() {
-		var el = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : document;
-		return el.activeElement.shadowRoot ? getActiveElement(el.activeElement.shadowRoot) : el.activeElement;
-	}
-	function scopeTab(node$1, event) {
-		var tabbable$1 = (0, _tabbable2.default)(node$1);
-		if (!tabbable$1.length) {
-			event.preventDefault();
-			return;
-		}
-		var target = void 0;
-		var shiftKey = event.shiftKey;
-		var head = tabbable$1[0];
-		var tail = tabbable$1[tabbable$1.length - 1];
-		var activeElement$2 = getActiveElement();
-		if (node$1 === activeElement$2) {
-			if (!shiftKey) return;
-			target = tail;
-		}
-		if (tail === activeElement$2 && !shiftKey) target = head;
-		if (head === activeElement$2 && shiftKey) target = tail;
-		if (target) {
-			event.preventDefault();
-			target.focus();
-			return;
-		}
-		var checkSafari = /(\bChrome\b|\bSafari\b)\//.exec(navigator.userAgent);
-		if (!(checkSafari != null && checkSafari[1] != "Chrome" && /\biPod\b|\biPad\b/g.exec(navigator.userAgent) == null)) return;
-		var x$2 = tabbable$1.indexOf(activeElement$2);
-		if (x$2 > -1) x$2 += shiftKey ? -1 : 1;
-		target = tabbable$1[x$2];
-		if (typeof target === "undefined") {
-			event.preventDefault();
-			target = shiftKey ? tail : head;
-			target.focus();
-			return;
-		}
-		event.preventDefault();
-		target.focus();
-	}
-	module.exports = exports["default"];
-}));
-var require_warning = /* @__PURE__ */ __commonJSMin(((exports, module) => {
-	var __DEV__ = false;
-	var warning$1 = function() {};
-	if (__DEV__) {
-		var printWarning = function printWarning$1(format, args) {
-			var len$1 = arguments.length;
-			args = new Array(len$1 > 1 ? len$1 - 1 : 0);
-			for (var key = 1; key < len$1; key++) args[key - 1] = arguments[key];
-			var argIndex = 0;
-			var message = "Warning: " + format.replace(/%s/g, function() {
-				return args[argIndex++];
-			});
-			if (typeof console !== "undefined") console.error(message);
-			try {
-				throw new Error(message);
-			} catch (x$2) {}
-		};
-		warning$1 = function(condition, format, args) {
-			var len$1 = arguments.length;
-			args = new Array(len$1 > 2 ? len$1 - 2 : 0);
-			for (var key = 2; key < len$1; key++) args[key - 2] = arguments[key];
-			if (format === void 0) throw new Error("`warning(condition, format, ...args)` requires a warning message argument");
-			if (!condition) printWarning.apply(null, [format].concat(args));
-		};
-	}
-	module.exports = warning$1;
-}));
-var require_exenv = /* @__PURE__ */ __commonJSMin(((exports, module) => {
-	(function() {
-		var canUseDOM$2 = !!(typeof window !== "undefined" && window.document && window.document.createElement);
-		var ExecutionEnvironment = {
-			canUseDOM: canUseDOM$2,
-			canUseWorkers: typeof Worker !== "undefined",
-			canUseEventListeners: canUseDOM$2 && !!(window.addEventListener || window.attachEvent),
-			canUseViewport: canUseDOM$2 && !!window.screen
-		};
-		if (typeof define === "function" && typeof define.amd === "object" && define.amd) define(function() {
-			return ExecutionEnvironment;
-		});
-		else if (typeof module !== "undefined" && module.exports) module.exports = ExecutionEnvironment;
-		else window.ExecutionEnvironment = ExecutionEnvironment;
-	})();
-}));
-var require_safeHTMLElement = /* @__PURE__ */ __commonJSMin(((exports) => {
-	Object.defineProperty(exports, "__esModule", { value: true });
-	exports.canUseDOM = exports.SafeNodeList = exports.SafeHTMLCollection = void 0;
-	var _exenv2 = _interopRequireDefault$5(require_exenv());
-	function _interopRequireDefault$5(obj) {
-		return obj && obj.__esModule ? obj : { default: obj };
-	}
-	var EE = _exenv2.default;
-	var SafeHTMLElement = EE.canUseDOM ? window.HTMLElement : {};
-	exports.SafeHTMLCollection = EE.canUseDOM ? window.HTMLCollection : {};
-	exports.SafeNodeList = EE.canUseDOM ? window.NodeList : {};
-	exports.canUseDOM = EE.canUseDOM;
-	exports.default = SafeHTMLElement;
-}));
-var require_ariaAppHider = /* @__PURE__ */ __commonJSMin(((exports) => {
-	Object.defineProperty(exports, "__esModule", { value: true });
-	exports.resetState = resetState$3;
-	exports.log = log$3;
-	exports.assertNodeList = assertNodeList;
-	exports.setElement = setElement;
-	exports.validateElement = validateElement;
-	exports.hide = hide$1;
-	exports.show = show;
-	exports.documentNotReadyOrSSRTesting = documentNotReadyOrSSRTesting;
-	var _warning2 = _interopRequireDefault$4(require_warning());
-	var _safeHTMLElement$2 = require_safeHTMLElement();
-	function _interopRequireDefault$4(obj) {
-		return obj && obj.__esModule ? obj : { default: obj };
-	}
-	var globalElement = null;
-	/* istanbul ignore next */
-	function resetState$3() {
-		if (globalElement) if (globalElement.removeAttribute) globalElement.removeAttribute("aria-hidden");
-		else if (globalElement.length != null) globalElement.forEach(function(element) {
-			return element.removeAttribute("aria-hidden");
-		});
-		else document.querySelectorAll(globalElement).forEach(function(element) {
-			return element.removeAttribute("aria-hidden");
-		});
-		globalElement = null;
-	}
-	/* istanbul ignore next */
-	function log$3() {}
-	function assertNodeList(nodeList, selector) {
-		if (!nodeList || !nodeList.length) throw new Error("react-modal: No elements were found for selector " + selector + ".");
-	}
-	function setElement(element) {
-		var useElement = element;
-		if (typeof useElement === "string" && _safeHTMLElement$2.canUseDOM) {
-			var el = document.querySelectorAll(useElement);
-			assertNodeList(el, useElement);
-			useElement = el;
-		}
-		globalElement = useElement || globalElement;
-		return globalElement;
-	}
-	function validateElement(appElement) {
-		var el = appElement || globalElement;
-		if (el) return Array.isArray(el) || el instanceof HTMLCollection || el instanceof NodeList ? el : [el];
-		else {
-			(0, _warning2.default)(false, [
-				"react-modal: App element is not defined.",
-				"Please use `Modal.setAppElement(el)` or set `appElement={el}`.",
-				"This is needed so screen readers don't see main content",
-				"when modal is opened. It is not recommended, but you can opt-out",
-				"by setting `ariaHideApp={false}`."
-			].join(" "));
-			return [];
-		}
-	}
-	function hide$1(appElement) {
-		var _iteratorNormalCompletion = true;
-		var _didIteratorError = false;
-		var _iteratorError = void 0;
-		try {
-			for (var _iterator = validateElement(appElement)[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) _step.value.setAttribute("aria-hidden", "true");
-		} catch (err) {
-			_didIteratorError = true;
-			_iteratorError = err;
-		} finally {
-			try {
-				if (!_iteratorNormalCompletion && _iterator.return) _iterator.return();
-			} finally {
-				if (_didIteratorError) throw _iteratorError;
-			}
-		}
-	}
-	function show(appElement) {
-		var _iteratorNormalCompletion2 = true;
-		var _didIteratorError2 = false;
-		var _iteratorError2 = void 0;
-		try {
-			for (var _iterator2 = validateElement(appElement)[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) _step2.value.removeAttribute("aria-hidden");
-		} catch (err) {
-			_didIteratorError2 = true;
-			_iteratorError2 = err;
-		} finally {
-			try {
-				if (!_iteratorNormalCompletion2 && _iterator2.return) _iterator2.return();
-			} finally {
-				if (_didIteratorError2) throw _iteratorError2;
-			}
-		}
-	}
-	function documentNotReadyOrSSRTesting() {
-		globalElement = null;
-	}
-}));
-var require_classList = /* @__PURE__ */ __commonJSMin(((exports) => {
-	Object.defineProperty(exports, "__esModule", { value: true });
-	exports.resetState = resetState$2;
-	exports.log = log$2;
-	var htmlClassList = {};
-	var docBodyClassList = {};
-	/* istanbul ignore next */
-	function removeClass(at$1, cls$4) {
-		at$1.classList.remove(cls$4);
-	}
-	/* istanbul ignore next */
-	function resetState$2() {
-		var htmlElement = document.getElementsByTagName("html")[0];
-		for (var cls$4 in htmlClassList) removeClass(htmlElement, htmlClassList[cls$4]);
-		var body = document.body;
-		for (var _cls in docBodyClassList) removeClass(body, docBodyClassList[_cls]);
-		htmlClassList = {};
-		docBodyClassList = {};
-	}
-	/* istanbul ignore next */
-	function log$2() {}
-	var incrementReference = function incrementReference$1(poll$1, className) {
-		if (!poll$1[className]) poll$1[className] = 0;
-		poll$1[className] += 1;
-		return className;
-	};
-	var decrementReference = function decrementReference$1(poll$1, className) {
-		if (poll$1[className]) poll$1[className] -= 1;
-		return className;
-	};
-	var trackClass = function trackClass$1(classListRef, poll$1, classes) {
-		classes.forEach(function(className) {
-			incrementReference(poll$1, className);
-			classListRef.add(className);
-		});
-	};
-	var untrackClass = function untrackClass$1(classListRef, poll$1, classes) {
-		classes.forEach(function(className) {
-			decrementReference(poll$1, className);
-			poll$1[className] === 0 && classListRef.remove(className);
-		});
-	};
-	exports.add = function add$1(element, classString) {
-		return trackClass(element.classList, element.nodeName.toLowerCase() == "html" ? htmlClassList : docBodyClassList, classString.split(" "));
-	};
-	exports.remove = function remove(element, classString) {
-		return untrackClass(element.classList, element.nodeName.toLowerCase() == "html" ? htmlClassList : docBodyClassList, classString.split(" "));
-	};
-}));
-var require_portalOpenInstances = /* @__PURE__ */ __commonJSMin(((exports) => {
-	Object.defineProperty(exports, "__esModule", { value: true });
-	exports.log = log$1;
-	exports.resetState = resetState$1;
-	function _classCallCheck$3(instance, Constructor) {
-		if (!(instance instanceof Constructor)) throw new TypeError("Cannot call a class as a function");
-	}
-	var PortalOpenInstances = function PortalOpenInstances$1() {
-		var _this = this;
-		_classCallCheck$3(this, PortalOpenInstances$1);
-		this.register = function(openInstance) {
-			if (_this.openInstances.indexOf(openInstance) !== -1) return;
-			_this.openInstances.push(openInstance);
-			_this.emit("register");
-		};
-		this.deregister = function(openInstance) {
-			var index$6 = _this.openInstances.indexOf(openInstance);
-			if (index$6 === -1) return;
-			_this.openInstances.splice(index$6, 1);
-			_this.emit("deregister");
-		};
-		this.subscribe = function(callback) {
-			_this.subscribers.push(callback);
-		};
-		this.emit = function(eventType) {
-			_this.subscribers.forEach(function(subscriber) {
-				return subscriber(eventType, _this.openInstances.slice());
-			});
-		};
-		this.openInstances = [];
-		this.subscribers = [];
-	};
-	var portalOpenInstances = new PortalOpenInstances();
-	/* istanbul ignore next */
-	function log$1() {
-		console.log("portalOpenInstances ----------");
-		console.log(portalOpenInstances.openInstances.length);
-		portalOpenInstances.openInstances.forEach(function(p$2) {
-			return console.log(p$2);
-		});
-		console.log("end portalOpenInstances ----------");
-	}
-	/* istanbul ignore next */
-	function resetState$1() {
-		portalOpenInstances = new PortalOpenInstances();
-	}
-	exports.default = portalOpenInstances;
-}));
-var require_bodyTrap = /* @__PURE__ */ __commonJSMin(((exports) => {
-	Object.defineProperty(exports, "__esModule", { value: true });
-	exports.resetState = resetState;
-	exports.log = log;
-	var _portalOpenInstances2$1 = _interopRequireDefault$3(require_portalOpenInstances());
-	function _interopRequireDefault$3(obj) {
-		return obj && obj.__esModule ? obj : { default: obj };
-	}
-	var before = void 0, after = void 0, instances = [];
-	/* istanbul ignore next */
-	function resetState() {
-		var _arr = [before, after];
-		for (var _i = 0; _i < _arr.length; _i++) {
-			var item = _arr[_i];
-			if (!item) continue;
-			item.parentNode && item.parentNode.removeChild(item);
-		}
-		before = after = null;
-		instances = [];
-	}
-	/* istanbul ignore next */
-	function log() {
-		console.log("bodyTrap ----------");
-		console.log(instances.length);
-		var _arr2 = [before, after];
-		for (var _i2 = 0; _i2 < _arr2.length; _i2++) {
-			var check = _arr2[_i2] || {};
-			console.log(check.nodeName, check.className, check.id);
-		}
-		console.log("edn bodyTrap ----------");
-	}
-	function focusContent() {
-		if (instances.length === 0) return;
-		instances[instances.length - 1].focusContent();
-	}
-	function bodyTrap(eventType, openInstances) {
-		if (!before && !after) {
-			before = document.createElement("div");
-			before.setAttribute("data-react-modal-body-trap", "");
-			before.style.position = "absolute";
-			before.style.opacity = "0";
-			before.setAttribute("tabindex", "0");
-			before.addEventListener("focus", focusContent);
-			after = before.cloneNode();
-			after.addEventListener("focus", focusContent);
-		}
-		instances = openInstances;
-		if (instances.length > 0) {
-			if (document.body.firstChild !== before) document.body.insertBefore(before, document.body.firstChild);
-			if (document.body.lastChild !== after) document.body.appendChild(after);
-		} else {
-			if (before.parentElement) before.parentElement.removeChild(before);
-			if (after.parentElement) after.parentElement.removeChild(after);
-		}
-	}
-	_portalOpenInstances2$1.default.subscribe(bodyTrap);
-}));
-var require_ModalPortal = /* @__PURE__ */ __commonJSMin(((exports, module) => {
-	Object.defineProperty(exports, "__esModule", { value: true });
-	var _extends$4 = Object.assign || function(target) {
-		for (var i$3 = 1; i$3 < arguments.length; i$3++) {
-			var source = arguments[i$3];
-			for (var key in source) if (Object.prototype.hasOwnProperty.call(source, key)) target[key] = source[key];
-		}
-		return target;
-	};
-	var _typeof$2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function(obj) {
-		return typeof obj;
-	} : function(obj) {
-		return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-	};
-	var _createClass$2 = function() {
-		function defineProperties$1(target, props) {
-			for (var i$3 = 0; i$3 < props.length; i$3++) {
-				var descriptor = props[i$3];
-				descriptor.enumerable = descriptor.enumerable || false;
-				descriptor.configurable = true;
-				if ("value" in descriptor) descriptor.writable = true;
-				Object.defineProperty(target, descriptor.key, descriptor);
-			}
-		}
-		return function(Constructor, protoProps, staticProps) {
-			if (protoProps) defineProperties$1(Constructor.prototype, protoProps);
-			if (staticProps) defineProperties$1(Constructor, staticProps);
-			return Constructor;
-		};
-	}();
-	var _react$1 = require_react();
-	var _propTypes2$1 = _interopRequireDefault$2(require_prop_types());
-	var focusManager = _interopRequireWildcard$1(require_focusManager());
-	var _scopeTab2 = _interopRequireDefault$2(require_scopeTab());
-	var ariaAppHider$1 = _interopRequireWildcard$1(require_ariaAppHider());
-	var classList = _interopRequireWildcard$1(require_classList());
-	var _safeHTMLElement$1 = require_safeHTMLElement();
-	var _safeHTMLElement2$1 = _interopRequireDefault$2(_safeHTMLElement$1);
-	var _portalOpenInstances2 = _interopRequireDefault$2(require_portalOpenInstances());
-	require_bodyTrap();
-	function _interopRequireWildcard$1(obj) {
-		if (obj && obj.__esModule) return obj;
-		else {
-			var newObj = {};
-			if (obj != null) {
-				for (var key in obj) if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key];
-			}
-			newObj.default = obj;
-			return newObj;
-		}
-	}
-	function _interopRequireDefault$2(obj) {
-		return obj && obj.__esModule ? obj : { default: obj };
-	}
-	function _classCallCheck$2(instance, Constructor) {
-		if (!(instance instanceof Constructor)) throw new TypeError("Cannot call a class as a function");
-	}
-	function _possibleConstructorReturn$2(self$1, call$2) {
-		if (!self$1) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-		return call$2 && (typeof call$2 === "object" || typeof call$2 === "function") ? call$2 : self$1;
-	}
-	function _inherits$2(subClass, superClass) {
-		if (typeof superClass !== "function" && superClass !== null) throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
-		subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: {
-			value: subClass,
-			enumerable: false,
-			writable: true,
-			configurable: true
-		} });
-		if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-	}
-	var CLASS_NAMES = {
-		overlay: "ReactModal__Overlay",
-		content: "ReactModal__Content"
-	};
-	var isTabKey = function isTabKey$1(event) {
-		return event.code === "Tab" || event.keyCode === 9;
-	};
-	var isEscKey = function isEscKey$1(event) {
-		return event.code === "Escape" || event.keyCode === 27;
-	};
-	var ariaHiddenInstances = 0;
-	var ModalPortal = function(_Component) {
-		_inherits$2(ModalPortal$1, _Component);
-		function ModalPortal$1(props) {
-			_classCallCheck$2(this, ModalPortal$1);
-			var _this = _possibleConstructorReturn$2(this, (ModalPortal$1.__proto__ || Object.getPrototypeOf(ModalPortal$1)).call(this, props));
-			_this.setOverlayRef = function(overlay) {
-				_this.overlay = overlay;
-				_this.props.overlayRef && _this.props.overlayRef(overlay);
-			};
-			_this.setContentRef = function(content) {
-				_this.content = content;
-				_this.props.contentRef && _this.props.contentRef(content);
-			};
-			_this.afterClose = function() {
-				var _this$props = _this.props, appElement = _this$props.appElement, ariaHideApp = _this$props.ariaHideApp, htmlOpenClassName = _this$props.htmlOpenClassName, bodyOpenClassName$1 = _this$props.bodyOpenClassName, parentSelector = _this$props.parentSelector;
-				var parentDocument = parentSelector && parentSelector().ownerDocument || document;
-				bodyOpenClassName$1 && classList.remove(parentDocument.body, bodyOpenClassName$1);
-				htmlOpenClassName && classList.remove(parentDocument.getElementsByTagName("html")[0], htmlOpenClassName);
-				if (ariaHideApp && ariaHiddenInstances > 0) {
-					ariaHiddenInstances -= 1;
-					if (ariaHiddenInstances === 0) ariaAppHider$1.show(appElement);
-				}
-				if (_this.props.shouldFocusAfterRender) if (_this.props.shouldReturnFocusAfterClose) {
-					focusManager.returnFocus(_this.props.preventScroll);
-					focusManager.teardownScopedFocus();
-				} else focusManager.popWithoutFocus();
-				if (_this.props.onAfterClose) _this.props.onAfterClose();
-				_portalOpenInstances2.default.deregister(_this);
-			};
-			_this.open = function() {
-				_this.beforeOpen();
-				if (_this.state.afterOpen && _this.state.beforeClose) {
-					clearTimeout(_this.closeTimer);
-					_this.setState({ beforeClose: false });
-				} else {
-					if (_this.props.shouldFocusAfterRender) {
-						focusManager.setupScopedFocus(_this.node);
-						focusManager.markForFocusLater();
-					}
-					_this.setState({ isOpen: true }, function() {
-						_this.openAnimationFrame = requestAnimationFrame(function() {
-							_this.setState({ afterOpen: true });
-							if (_this.props.isOpen && _this.props.onAfterOpen) _this.props.onAfterOpen({
-								overlayEl: _this.overlay,
-								contentEl: _this.content
-							});
-						});
-					});
-				}
-			};
-			_this.close = function() {
-				if (_this.props.closeTimeoutMS > 0) _this.closeWithTimeout();
-				else _this.closeWithoutTimeout();
-			};
-			_this.focusContent = function() {
-				return _this.content && !_this.contentHasFocus() && _this.content.focus({ preventScroll: true });
-			};
-			_this.closeWithTimeout = function() {
-				var closesAt = Date.now() + _this.props.closeTimeoutMS;
-				_this.setState({
-					beforeClose: true,
-					closesAt
-				}, function() {
-					_this.closeTimer = setTimeout(_this.closeWithoutTimeout, _this.state.closesAt - Date.now());
-				});
-			};
-			_this.closeWithoutTimeout = function() {
-				_this.setState({
-					beforeClose: false,
-					isOpen: false,
-					afterOpen: false,
-					closesAt: null
-				}, _this.afterClose);
-			};
-			_this.handleKeyDown = function(event) {
-				if (isTabKey(event)) (0, _scopeTab2.default)(_this.content, event);
-				if (_this.props.shouldCloseOnEsc && isEscKey(event)) {
-					event.stopPropagation();
-					_this.requestClose(event);
-				}
-			};
-			_this.handleOverlayOnClick = function(event) {
-				if (_this.shouldClose === null) _this.shouldClose = true;
-				if (_this.shouldClose && _this.props.shouldCloseOnOverlayClick) if (_this.ownerHandlesClose()) _this.requestClose(event);
-				else _this.focusContent();
-				_this.shouldClose = null;
-			};
-			_this.handleContentOnMouseUp = function() {
-				_this.shouldClose = false;
-			};
-			_this.handleOverlayOnMouseDown = function(event) {
-				if (!_this.props.shouldCloseOnOverlayClick && event.target == _this.overlay) event.preventDefault();
-			};
-			_this.handleContentOnClick = function() {
-				_this.shouldClose = false;
-			};
-			_this.handleContentOnMouseDown = function() {
-				_this.shouldClose = false;
-			};
-			_this.requestClose = function(event) {
-				return _this.ownerHandlesClose() && _this.props.onRequestClose(event);
-			};
-			_this.ownerHandlesClose = function() {
-				return _this.props.onRequestClose;
-			};
-			_this.shouldBeClosed = function() {
-				return !_this.state.isOpen && !_this.state.beforeClose;
-			};
-			_this.contentHasFocus = function() {
-				return document.activeElement === _this.content || _this.content.contains(document.activeElement);
-			};
-			_this.buildClassName = function(which, additional) {
-				var classNames$3 = (typeof additional === "undefined" ? "undefined" : _typeof$2(additional)) === "object" ? additional : {
-					base: CLASS_NAMES[which],
-					afterOpen: CLASS_NAMES[which] + "--after-open",
-					beforeClose: CLASS_NAMES[which] + "--before-close"
-				};
-				var className = classNames$3.base;
-				if (_this.state.afterOpen) className = className + " " + classNames$3.afterOpen;
-				if (_this.state.beforeClose) className = className + " " + classNames$3.beforeClose;
-				return typeof additional === "string" && additional ? className + " " + additional : className;
-			};
-			_this.attributesFromObject = function(prefix$3, items) {
-				return Object.keys(items).reduce(function(acc, name) {
-					acc[prefix$3 + "-" + name] = items[name];
-					return acc;
-				}, {});
-			};
-			_this.state = {
-				afterOpen: false,
-				beforeClose: false
-			};
-			_this.shouldClose = null;
-			_this.moveFromContentToOverlay = null;
-			return _this;
-		}
-		_createClass$2(ModalPortal$1, [
-			{
-				key: "componentDidMount",
-				value: function componentDidMount() {
-					if (this.props.isOpen) this.open();
-				}
-			},
-			{
-				key: "componentDidUpdate",
-				value: function componentDidUpdate(prevProps, prevState) {
-					if (this.props.isOpen && !prevProps.isOpen) this.open();
-					else if (!this.props.isOpen && prevProps.isOpen) this.close();
-					if (this.props.shouldFocusAfterRender && this.state.isOpen && !prevState.isOpen) this.focusContent();
-				}
-			},
-			{
-				key: "componentWillUnmount",
-				value: function componentWillUnmount() {
-					if (this.state.isOpen) this.afterClose();
-					clearTimeout(this.closeTimer);
-					cancelAnimationFrame(this.openAnimationFrame);
-				}
-			},
-			{
-				key: "beforeOpen",
-				value: function beforeOpen() {
-					var _props = this.props, appElement = _props.appElement, ariaHideApp = _props.ariaHideApp, htmlOpenClassName = _props.htmlOpenClassName, bodyOpenClassName$1 = _props.bodyOpenClassName, parentSelector = _props.parentSelector;
-					var parentDocument = parentSelector && parentSelector().ownerDocument || document;
-					bodyOpenClassName$1 && classList.add(parentDocument.body, bodyOpenClassName$1);
-					htmlOpenClassName && classList.add(parentDocument.getElementsByTagName("html")[0], htmlOpenClassName);
-					if (ariaHideApp) {
-						ariaHiddenInstances += 1;
-						ariaAppHider$1.hide(appElement);
-					}
-					_portalOpenInstances2.default.register(this);
-				}
-			},
-			{
-				key: "render",
-				value: function render() {
-					var _props2 = this.props, id$2 = _props2.id, className = _props2.className, overlayClassName = _props2.overlayClassName, defaultStyles$1 = _props2.defaultStyles, children = _props2.children;
-					var contentStyles = className ? {} : defaultStyles$1.content;
-					var overlayStyles = overlayClassName ? {} : defaultStyles$1.overlay;
-					if (this.shouldBeClosed()) return null;
-					var overlayProps = {
-						ref: this.setOverlayRef,
-						className: this.buildClassName("overlay", overlayClassName),
-						style: _extends$4({}, overlayStyles, this.props.style.overlay),
-						onClick: this.handleOverlayOnClick,
-						onMouseDown: this.handleOverlayOnMouseDown
-					};
-					var contentProps = _extends$4({
-						id: id$2,
-						ref: this.setContentRef,
-						style: _extends$4({}, contentStyles, this.props.style.content),
-						className: this.buildClassName("content", className),
-						tabIndex: "-1",
-						onKeyDown: this.handleKeyDown,
-						onMouseDown: this.handleContentOnMouseDown,
-						onMouseUp: this.handleContentOnMouseUp,
-						onClick: this.handleContentOnClick,
-						role: this.props.role,
-						"aria-label": this.props.contentLabel
-					}, this.attributesFromObject("aria", _extends$4({ modal: true }, this.props.aria)), this.attributesFromObject("data", this.props.data || {}), { "data-testid": this.props.testId });
-					var contentElement = this.props.contentElement(contentProps, children);
-					return this.props.overlayElement(overlayProps, contentElement);
-				}
-			}
-		]);
-		return ModalPortal$1;
-	}(_react$1.Component);
-	ModalPortal.defaultProps = {
-		style: {
-			overlay: {},
-			content: {}
-		},
-		defaultStyles: {}
-	};
-	ModalPortal.propTypes = {
-		isOpen: _propTypes2$1.default.bool.isRequired,
-		defaultStyles: _propTypes2$1.default.shape({
-			content: _propTypes2$1.default.object,
-			overlay: _propTypes2$1.default.object
-		}),
-		style: _propTypes2$1.default.shape({
-			content: _propTypes2$1.default.object,
-			overlay: _propTypes2$1.default.object
-		}),
-		className: _propTypes2$1.default.oneOfType([_propTypes2$1.default.string, _propTypes2$1.default.object]),
-		overlayClassName: _propTypes2$1.default.oneOfType([_propTypes2$1.default.string, _propTypes2$1.default.object]),
-		parentSelector: _propTypes2$1.default.func,
-		bodyOpenClassName: _propTypes2$1.default.string,
-		htmlOpenClassName: _propTypes2$1.default.string,
-		ariaHideApp: _propTypes2$1.default.bool,
-		appElement: _propTypes2$1.default.oneOfType([
-			_propTypes2$1.default.instanceOf(_safeHTMLElement2$1.default),
-			_propTypes2$1.default.instanceOf(_safeHTMLElement$1.SafeHTMLCollection),
-			_propTypes2$1.default.instanceOf(_safeHTMLElement$1.SafeNodeList),
-			_propTypes2$1.default.arrayOf(_propTypes2$1.default.instanceOf(_safeHTMLElement2$1.default))
-		]),
-		onAfterOpen: _propTypes2$1.default.func,
-		onAfterClose: _propTypes2$1.default.func,
-		onRequestClose: _propTypes2$1.default.func,
-		closeTimeoutMS: _propTypes2$1.default.number,
-		shouldFocusAfterRender: _propTypes2$1.default.bool,
-		shouldCloseOnOverlayClick: _propTypes2$1.default.bool,
-		shouldReturnFocusAfterClose: _propTypes2$1.default.bool,
-		preventScroll: _propTypes2$1.default.bool,
-		role: _propTypes2$1.default.string,
-		contentLabel: _propTypes2$1.default.string,
-		aria: _propTypes2$1.default.object,
-		data: _propTypes2$1.default.object,
-		children: _propTypes2$1.default.node,
-		shouldCloseOnEsc: _propTypes2$1.default.bool,
-		overlayRef: _propTypes2$1.default.func,
-		contentRef: _propTypes2$1.default.func,
-		id: _propTypes2$1.default.string,
-		overlayElement: _propTypes2$1.default.func,
-		contentElement: _propTypes2$1.default.func,
-		testId: _propTypes2$1.default.string
-	};
-	exports.default = ModalPortal;
-	module.exports = exports["default"];
-}));
-var react_lifecycles_compat_es_exports = /* @__PURE__ */ __export({ polyfill: () => polyfill });
-function componentWillMount() {
-	var state = this.constructor.getDerivedStateFromProps(this.props, this.state);
-	if (state !== null && state !== void 0) this.setState(state);
-}
-function componentWillReceiveProps(nextProps) {
-	function updater(prevState) {
-		var state = this.constructor.getDerivedStateFromProps(nextProps, prevState);
-		return state !== null && state !== void 0 ? state : null;
-	}
-	this.setState(updater.bind(this));
-}
-function componentWillUpdate(nextProps, nextState) {
-	try {
-		var prevProps = this.props;
-		var prevState = this.state;
-		this.props = nextProps;
-		this.state = nextState;
-		this.__reactInternalSnapshotFlag = true;
-		this.__reactInternalSnapshot = this.getSnapshotBeforeUpdate(prevProps, prevState);
-	} finally {
-		this.props = prevProps;
-		this.state = prevState;
-	}
-}
-function polyfill(Component$3) {
-	var prototype = Component$3.prototype;
-	if (!prototype || !prototype.isReactComponent) throw new Error("Can only polyfill class components");
-	if (typeof Component$3.getDerivedStateFromProps !== "function" && typeof prototype.getSnapshotBeforeUpdate !== "function") return Component$3;
-	var foundWillMountName = null;
-	var foundWillReceivePropsName = null;
-	var foundWillUpdateName = null;
-	if (typeof prototype.componentWillMount === "function") foundWillMountName = "componentWillMount";
-	else if (typeof prototype.UNSAFE_componentWillMount === "function") foundWillMountName = "UNSAFE_componentWillMount";
-	if (typeof prototype.componentWillReceiveProps === "function") foundWillReceivePropsName = "componentWillReceiveProps";
-	else if (typeof prototype.UNSAFE_componentWillReceiveProps === "function") foundWillReceivePropsName = "UNSAFE_componentWillReceiveProps";
-	if (typeof prototype.componentWillUpdate === "function") foundWillUpdateName = "componentWillUpdate";
-	else if (typeof prototype.UNSAFE_componentWillUpdate === "function") foundWillUpdateName = "UNSAFE_componentWillUpdate";
-	if (foundWillMountName !== null || foundWillReceivePropsName !== null || foundWillUpdateName !== null) {
-		var componentName = Component$3.displayName || Component$3.name;
-		var newApiName = typeof Component$3.getDerivedStateFromProps === "function" ? "getDerivedStateFromProps()" : "getSnapshotBeforeUpdate()";
-		throw Error("Unsafe legacy lifecycles will not be called for components using new component APIs.\n\n" + componentName + " uses " + newApiName + " but also contains the following legacy lifecycles:" + (foundWillMountName !== null ? "\n  " + foundWillMountName : "") + (foundWillReceivePropsName !== null ? "\n  " + foundWillReceivePropsName : "") + (foundWillUpdateName !== null ? "\n  " + foundWillUpdateName : "") + "\n\nThe above lifecycles should be removed. Learn more about this warning here:\nhttps://fb.me/react-async-component-lifecycle-hooks");
-	}
-	if (typeof Component$3.getDerivedStateFromProps === "function") {
-		prototype.componentWillMount = componentWillMount;
-		prototype.componentWillReceiveProps = componentWillReceiveProps;
-	}
-	if (typeof prototype.getSnapshotBeforeUpdate === "function") {
-		if (typeof prototype.componentDidUpdate !== "function") throw new Error("Cannot polyfill getSnapshotBeforeUpdate() for components that do not define componentDidUpdate() on the prototype");
-		prototype.componentWillUpdate = componentWillUpdate;
-		var componentDidUpdate = prototype.componentDidUpdate;
-		prototype.componentDidUpdate = function componentDidUpdatePolyfill(prevProps, prevState, maybeSnapshot) {
-			var snapshot = this.__reactInternalSnapshotFlag ? this.__reactInternalSnapshot : maybeSnapshot;
-			componentDidUpdate.call(this, prevProps, prevState, snapshot);
-		};
-	}
-	return Component$3;
-}
-var init_react_lifecycles_compat_es = __esmMin((() => {
-	componentWillMount.__suppressDeprecationWarning = true;
-	componentWillReceiveProps.__suppressDeprecationWarning = true;
-	componentWillUpdate.__suppressDeprecationWarning = true;
-}));
-var require_Modal = /* @__PURE__ */ __commonJSMin(((exports) => {
-	Object.defineProperty(exports, "__esModule", { value: true });
-	exports.bodyOpenClassName = exports.portalClassName = void 0;
-	var _extends$3 = Object.assign || function(target) {
-		for (var i$3 = 1; i$3 < arguments.length; i$3++) {
-			var source = arguments[i$3];
-			for (var key in source) if (Object.prototype.hasOwnProperty.call(source, key)) target[key] = source[key];
-		}
-		return target;
-	};
-	var _createClass$1 = function() {
-		function defineProperties$1(target, props) {
-			for (var i$3 = 0; i$3 < props.length; i$3++) {
-				var descriptor = props[i$3];
-				descriptor.enumerable = descriptor.enumerable || false;
-				descriptor.configurable = true;
-				if ("value" in descriptor) descriptor.writable = true;
-				Object.defineProperty(target, descriptor.key, descriptor);
-			}
-		}
-		return function(Constructor, protoProps, staticProps) {
-			if (protoProps) defineProperties$1(Constructor.prototype, protoProps);
-			if (staticProps) defineProperties$1(Constructor, staticProps);
-			return Constructor;
-		};
-	}();
-	var _react = require_react();
-	var _react2 = _interopRequireDefault$1(_react);
-	var _reactDom2 = _interopRequireDefault$1(require_react_dom());
-	var _propTypes2 = _interopRequireDefault$1(require_prop_types());
-	var _ModalPortal2 = _interopRequireDefault$1(require_ModalPortal());
-	var ariaAppHider = _interopRequireWildcard(require_ariaAppHider());
-	var _safeHTMLElement = require_safeHTMLElement();
-	var _safeHTMLElement2 = _interopRequireDefault$1(_safeHTMLElement);
-	var _reactLifecyclesCompat = (init_react_lifecycles_compat_es(), __toCommonJS(react_lifecycles_compat_es_exports));
-	function _interopRequireWildcard(obj) {
-		if (obj && obj.__esModule) return obj;
-		else {
-			var newObj = {};
-			if (obj != null) {
-				for (var key in obj) if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key];
-			}
-			newObj.default = obj;
-			return newObj;
-		}
-	}
-	function _interopRequireDefault$1(obj) {
-		return obj && obj.__esModule ? obj : { default: obj };
-	}
-	function _classCallCheck$1(instance, Constructor) {
-		if (!(instance instanceof Constructor)) throw new TypeError("Cannot call a class as a function");
-	}
-	function _possibleConstructorReturn$1(self$1, call$2) {
-		if (!self$1) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-		return call$2 && (typeof call$2 === "object" || typeof call$2 === "function") ? call$2 : self$1;
-	}
-	function _inherits$1(subClass, superClass) {
-		if (typeof superClass !== "function" && superClass !== null) throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
-		subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: {
-			value: subClass,
-			enumerable: false,
-			writable: true,
-			configurable: true
-		} });
-		if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-	}
-	var portalClassName = exports.portalClassName = "ReactModalPortal";
-	var bodyOpenClassName = exports.bodyOpenClassName = "ReactModal__Body--open";
-	var isReact16 = _safeHTMLElement.canUseDOM && _reactDom2.default.createPortal !== void 0;
-	var createHTMLElement = function createHTMLElement$1(name) {
-		return document.createElement(name);
-	};
-	var getCreatePortal = function getCreatePortal$1() {
-		return isReact16 ? _reactDom2.default.createPortal : _reactDom2.default.unstable_renderSubtreeIntoContainer;
-	};
-	function getParentElement(parentSelector) {
-		return parentSelector();
-	}
-	var Modal$1 = function(_Component) {
-		_inherits$1(Modal$3, _Component);
-		function Modal$3() {
-			var _ref$1;
-			var _temp, _this, _ret;
-			_classCallCheck$1(this, Modal$3);
-			for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) args[_key] = arguments[_key];
-			return _ret = (_temp = (_this = _possibleConstructorReturn$1(this, (_ref$1 = Modal$3.__proto__ || Object.getPrototypeOf(Modal$3)).call.apply(_ref$1, [this].concat(args))), _this), _this.removePortal = function() {
-				!isReact16 && _reactDom2.default.unmountComponentAtNode(_this.node);
-				var parent = getParentElement(_this.props.parentSelector);
-				if (parent && parent.contains(_this.node)) parent.removeChild(_this.node);
-				else console.warn("React-Modal: \"parentSelector\" prop did not returned any DOM element. Make sure that the parent element is unmounted to avoid any memory leaks.");
-			}, _this.portalRef = function(ref) {
-				_this.portal = ref;
-			}, _this.renderPortal = function(props) {
-				var portal = getCreatePortal()(_this, _react2.default.createElement(_ModalPortal2.default, _extends$3({ defaultStyles: Modal$3.defaultStyles }, props)), _this.node);
-				_this.portalRef(portal);
-			}, _temp), _possibleConstructorReturn$1(_this, _ret);
-		}
-		_createClass$1(Modal$3, [
-			{
-				key: "componentDidMount",
-				value: function componentDidMount() {
-					if (!_safeHTMLElement.canUseDOM) return;
-					if (!isReact16) this.node = createHTMLElement("div");
-					this.node.className = this.props.portalClassName;
-					getParentElement(this.props.parentSelector).appendChild(this.node);
-					!isReact16 && this.renderPortal(this.props);
-				}
-			},
-			{
-				key: "getSnapshotBeforeUpdate",
-				value: function getSnapshotBeforeUpdate(prevProps) {
-					return {
-						prevParent: getParentElement(prevProps.parentSelector),
-						nextParent: getParentElement(this.props.parentSelector)
-					};
-				}
-			},
-			{
-				key: "componentDidUpdate",
-				value: function componentDidUpdate(prevProps, _$1, snapshot) {
-					if (!_safeHTMLElement.canUseDOM) return;
-					var _props = this.props, isOpen = _props.isOpen, portalClassName$1 = _props.portalClassName;
-					if (prevProps.portalClassName !== portalClassName$1) this.node.className = portalClassName$1;
-					var prevParent = snapshot.prevParent, nextParent = snapshot.nextParent;
-					if (nextParent !== prevParent) {
-						prevParent.removeChild(this.node);
-						nextParent.appendChild(this.node);
-					}
-					if (!prevProps.isOpen && !isOpen) return;
-					!isReact16 && this.renderPortal(this.props);
-				}
-			},
-			{
-				key: "componentWillUnmount",
-				value: function componentWillUnmount() {
-					if (!_safeHTMLElement.canUseDOM || !this.node || !this.portal) return;
-					var state = this.portal.state;
-					var now$1 = Date.now();
-					var closesAt = state.isOpen && this.props.closeTimeoutMS && (state.closesAt || now$1 + this.props.closeTimeoutMS);
-					if (closesAt) {
-						if (!state.beforeClose) this.portal.closeWithTimeout();
-						setTimeout(this.removePortal, closesAt - now$1);
-					} else this.removePortal();
-				}
-			},
-			{
-				key: "render",
-				value: function render() {
-					if (!_safeHTMLElement.canUseDOM || !isReact16) return null;
-					if (!this.node && isReact16) this.node = createHTMLElement("div");
-					return getCreatePortal()(_react2.default.createElement(_ModalPortal2.default, _extends$3({
-						ref: this.portalRef,
-						defaultStyles: Modal$3.defaultStyles
-					}, this.props)), this.node);
-				}
-			}
-		], [{
-			key: "setAppElement",
-			value: function setAppElement(element) {
-				ariaAppHider.setElement(element);
-			}
-		}]);
-		return Modal$3;
-	}(_react.Component);
-	Modal$1.propTypes = {
-		isOpen: _propTypes2.default.bool.isRequired,
-		style: _propTypes2.default.shape({
-			content: _propTypes2.default.object,
-			overlay: _propTypes2.default.object
-		}),
-		portalClassName: _propTypes2.default.string,
-		bodyOpenClassName: _propTypes2.default.string,
-		htmlOpenClassName: _propTypes2.default.string,
-		className: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.shape({
-			base: _propTypes2.default.string.isRequired,
-			afterOpen: _propTypes2.default.string.isRequired,
-			beforeClose: _propTypes2.default.string.isRequired
-		})]),
-		overlayClassName: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.shape({
-			base: _propTypes2.default.string.isRequired,
-			afterOpen: _propTypes2.default.string.isRequired,
-			beforeClose: _propTypes2.default.string.isRequired
-		})]),
-		appElement: _propTypes2.default.oneOfType([
-			_propTypes2.default.instanceOf(_safeHTMLElement2.default),
-			_propTypes2.default.instanceOf(_safeHTMLElement.SafeHTMLCollection),
-			_propTypes2.default.instanceOf(_safeHTMLElement.SafeNodeList),
-			_propTypes2.default.arrayOf(_propTypes2.default.instanceOf(_safeHTMLElement2.default))
-		]),
-		onAfterOpen: _propTypes2.default.func,
-		onRequestClose: _propTypes2.default.func,
-		closeTimeoutMS: _propTypes2.default.number,
-		ariaHideApp: _propTypes2.default.bool,
-		shouldFocusAfterRender: _propTypes2.default.bool,
-		shouldCloseOnOverlayClick: _propTypes2.default.bool,
-		shouldReturnFocusAfterClose: _propTypes2.default.bool,
-		preventScroll: _propTypes2.default.bool,
-		parentSelector: _propTypes2.default.func,
-		aria: _propTypes2.default.object,
-		data: _propTypes2.default.object,
-		role: _propTypes2.default.string,
-		contentLabel: _propTypes2.default.string,
-		shouldCloseOnEsc: _propTypes2.default.bool,
-		overlayRef: _propTypes2.default.func,
-		contentRef: _propTypes2.default.func,
-		id: _propTypes2.default.string,
-		overlayElement: _propTypes2.default.func,
-		contentElement: _propTypes2.default.func
-	};
-	Modal$1.defaultProps = {
-		isOpen: false,
-		portalClassName,
-		bodyOpenClassName,
-		role: "dialog",
-		ariaHideApp: true,
-		closeTimeoutMS: 0,
-		shouldFocusAfterRender: true,
-		shouldCloseOnEsc: true,
-		shouldCloseOnOverlayClick: true,
-		shouldReturnFocusAfterClose: true,
-		preventScroll: false,
-		parentSelector: function parentSelector() {
-			return document.body;
-		},
-		overlayElement: function overlayElement(props, contentEl) {
-			return _react2.default.createElement("div", props, contentEl);
-		},
-		contentElement: function contentElement(props, children) {
-			return _react2.default.createElement("div", props, children);
-		}
-	};
-	Modal$1.defaultStyles = {
-		overlay: {
-			position: "fixed",
-			top: 0,
-			left: 0,
-			right: 0,
-			bottom: 0,
-			backgroundColor: "rgba(255, 255, 255, 0.75)"
-		},
-		content: {
-			position: "absolute",
-			top: "40px",
-			left: "40px",
-			right: "40px",
-			bottom: "40px",
-			border: "1px solid #ccc",
-			background: "#fff",
-			overflow: "auto",
-			WebkitOverflowScrolling: "touch",
-			borderRadius: "4px",
-			outline: "none",
-			padding: "20px"
-		}
-	};
-	(0, _reactLifecyclesCompat.polyfill)(Modal$1);
-	exports.default = Modal$1;
-}));
-var import_lib = /* @__PURE__ */ __toESM((/* @__PURE__ */ __commonJSMin(((exports, module) => {
-	Object.defineProperty(exports, "__esModule", { value: true });
-	var _Modal2 = _interopRequireDefault(require_Modal());
-	function _interopRequireDefault(obj) {
-		return obj && obj.__esModule ? obj : { default: obj };
-	}
-	exports.default = _Modal2.default;
-	module.exports = exports["default"];
-})))(), 1);
-var import_classnames$26 = /* @__PURE__ */ __toESM(require_classnames(), 1);
-import_lib.default.setAppElement("#root");
-import_lib.default.defaultStyles = {};
-var TRANSITION_DURATION = 300;
-var Modal = ({ isOpen, setIsOpen, isObligatory = false, reset = () => {}, className, children }) => {
-	const [isScrollable, setIsScrollable] = (0, import_react.useState)(false);
-	(0, import_react.useEffect)(() => {
-		if (!isOpen && reset) setTimeout(reset, TRANSITION_DURATION);
-	}, [isOpen]);
-	const closeModal = () => {
-		if (isObligatory) return;
-		setIsOpen(false);
-	};
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_lib.default, {
-		className: (0, import_classnames$26.default)(isScrollable && "_scrollable"),
-		isOpen,
-		shouldCloseOnOverlayClick: false,
-		onRequestClose: closeModal,
-		closeTimeoutMS: TRANSITION_DURATION,
-		parentSelector: () => document.querySelector("#ModalContainer"),
-		onAfterOpen: (data) => {
-			const { contentEl } = data;
-			const modalHeight = contentEl.scrollHeight;
-			const viewportHeight = window.innerHeight;
-			if (modalHeight + 100 > viewportHeight) setIsScrollable(true);
-			else setIsScrollable(false);
-		},
-		overlayElement: (props, contentElement) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-			...props,
-			onMouseDown: closeModal,
-			children: contentElement
-		}),
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-			className: (0, import_classnames$26.default)(className, "ReactModal__box", "box"),
-			onMouseDown: (e$2) => e$2.stopPropagation(),
-			children
-		}), !isObligatory && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-			className: "ReactModal__close-btn",
-			onMouseDown: (e$2) => e$2.stopPropagation(),
-			onClick: closeModal
-		})]
-	});
-};
-var Modal_default = Modal;
-var confirm_default = "data:image/svg+xml,%3csvg%20width='40'%20height='40'%20viewBox='0%200%2040%2040'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_284_1636)'%3e%3ccircle%20cx='20'%20cy='20'%20r='20'%20fill='%23112540'/%3e%3cpath%20d='M11%2019.9333L17%2026L29%2013'%20stroke='%2309AF8E'%20stroke-width='3'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_284_1636'%3e%3crect%20width='40'%20height='40'%20fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e";
-var error_default = "data:image/svg+xml,%3csvg%20width='40'%20height='40'%20viewBox='0%200%2040%2040'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_1129_5414)'%3e%3ccircle%20cx='20'%20cy='20'%20r='20'%20fill='%23361536'/%3e%3cpath%20d='M21.4969%2020L25.6868%2015.8101C25.8856%2015.6116%2025.9975%2015.3422%2025.9977%2015.0613C25.998%2014.7803%2025.8866%2014.5107%2025.6881%2014.3119C25.4896%2014.113%2025.2202%2014.0012%2024.9393%2014.0009C24.6583%2014.0007%2024.3887%2014.1121%2024.1899%2014.3106L20%2018.5005L15.8101%2014.3106C15.6113%2014.1117%2015.3416%2014%2015.0603%2014C14.7791%2014%2014.5094%2014.1117%2014.3106%2014.3106C14.1117%2014.5094%2014%2014.7791%2014%2015.0603C14%2015.3416%2014.1117%2015.6113%2014.3106%2015.8101L18.5005%2020L14.3106%2024.1899C14.1117%2024.3887%2014%2024.6584%2014%2024.9397C14%2025.2209%2014.1117%2025.4906%2014.3106%2025.6894C14.5094%2025.8883%2014.7791%2026%2015.0603%2026C15.3416%2026%2015.6113%2025.8883%2015.8101%2025.6894L20%2021.4995L24.1899%2025.6894C24.3887%2025.8883%2024.6584%2026%2024.9397%2026C25.2209%2026%2025.4906%2025.8883%2025.6894%2025.6894C25.8883%2025.4906%2026%2025.2209%2026%2024.9397C26%2024.6584%2025.8883%2024.3887%2025.6894%2024.1899L21.4969%2020Z'%20fill='%23D8563C'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_1129_5414'%3e%3crect%20width='40'%20height='40'%20fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e";
-var tick_default = "data:image/svg+xml,%3csvg%20width='12'%20height='10'%20viewBox='0%200%2012%2010'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M1%205.26667L4.33333%209L11%201'%20stroke='white'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3c/svg%3e";
-var import_classnames$25 = /* @__PURE__ */ __toESM(require_classnames(), 1);
-var TxModal = ({ isOpen, setIsOpen, reset = () => {}, txResult, setTxResult, className, children }) => {
-	const closeModal = () => setIsOpen(false);
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Modal_default, {
-		className,
-		isOpen,
-		setIsOpen,
-		reset: () => {
-			if (!isUndefined(txResult)) setTxResult(void 0);
-			reset();
-		},
-		children: isUndefined(txResult) ? children : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TxResult, {
-			result: txResult,
-			closeModal
-		})
-	});
-};
-var TxResult = ({ result, closeModal }) => {
-	const chainId = useChainId();
-	const { title, text, hash: hash$3, error } = result;
-	const txUrl = hash$3 ? getTxUrl(chainId, hash$3) : "";
-	const hashStr = hash$3 ? hash$3.slice(0, 5) + "..." + hash$3.slice(-4) : "";
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: (0, import_classnames$25.default)("Modal__tx-result", error && "_error"),
-		children: [
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "Modal__tx-result-icon",
-				children: [
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "_ripple" }),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "_ripple" }),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
-						src: error ? error_default : confirm_default,
-						alt: error ? "red error icon" : "green confirmed icon"
-					})
-				]
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
-				className: "Modal__tx-result-title",
-				children: title
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "Modal__tx-result-text text",
-				children: text
-			}),
-			hash$3 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "Modal__tx-result-url",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-					className: "text",
-					children: "Tx:"
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
-					href: txUrl,
-					target: "_blank",
-					rel: "noreferrer",
-					children: hashStr
-				})]
-			}),
-			error ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CopyButton, { error }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(BackButton, { closeModal })
-		]
-	});
-};
-var BackButton = ({ closeModal }) => {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
-		className: "Modal__tx-result-button",
-		onClick: closeModal,
-		children: "Back to the Dashboard"
-	});
-};
-var CopyButton = ({ error }) => {
-	const [isCopied, setIsCopied] = (0, import_react.useState)(false);
-	const copy$4 = () => {
-		navigator.clipboard.writeText(error);
-	};
-	const handleClick = () => {
-		copy$4();
-		setIsCopied(true);
-		setTimeout(() => setIsCopied(false), 2 * SECOND);
-	};
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
-		className: (0, import_classnames$25.default)("Modal__tx-result-button", isCopied && "_copied"),
-		onClick: handleClick,
-		children: isCopied ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: ["Copied", /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
-			src: tick_default,
-			alt: "tick icon"
-		})] }) : "Copy to clipboard"
-	});
-};
-var TxModal_default = TxModal;
-var import_classnames$24 = /* @__PURE__ */ __toESM(require_classnames(), 1);
-var List = ({ type = "tick", children }) => {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("ul", {
-		className: (0, import_classnames$24.default)("List", `_${type}`),
+var import_classnames$29 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var Field = ({ children, className }) => {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: (0, import_classnames$29.default)("Field", className),
 		children
 	});
 };
-var List_default = List;
-var CreateAccountModal = ({ isOpen, setIsOpen }) => {
-	const { createAccount } = useProtocolActions_default();
-	const [isSubmitting, setIsSubmitting] = (0, import_react.useState)(false);
-	const [txResult, setTxResult] = (0, import_react.useState)(void 0);
-	const txSuccessData = {
-		title: "Account Created!",
-		text: "You can now explore all the features of NoRekt Trading"
-	};
-	const txErrorData = {
-		title: "Action failed",
-		text: "Something went wrong while creating your account"
-	};
-	const getError = () => {
-		if (isSubmitting) return ButtonLabels.SUBMITTING;
-	};
-	const getBtnText = () => {
-		return getError() ?? "Create account";
-	};
-	const handleClick = () => {
-		sendTx_default(createAccount(), "Created Lending Account", setIsSubmitting, () => setTxResult({ ...txSuccessData }), (e$2) => setTxResult({
-			...txErrorData,
-			error: e$2
-		}));
-	};
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(TxModal_default, {
-		className: "CreateAccountModal",
-		isOpen,
-		setIsOpen,
-		txResult,
-		setTxResult,
-		children: [
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
-				className: "CreateAccountModal__title",
-				children: "Create account"
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "CreateAccountModal__info",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "CreateAccountModal__info-title",
-					children: "What you can do with a lending account:"
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(List_default, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("li", { children: "Borrow USDC at up to 90% LTV using ETH as collateral" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("li", { children: "Avoid liquidation risk by using NoRekt protection" })] })]
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
-				className: "CreateAccountModal__button",
-				isDisabled: getError(),
-				onClick: handleClick,
-				children: getBtnText()
-			})
-		]
+var Field_default = Field;
+var import_classnames$28 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var Radio = ({ id: id$2, items, value, setValue, className }) => {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: (0, import_classnames$28.default)("Radio", className),
+		children: items.map((item) => {
+			const itemId = `${id$2}_${item.value}`;
+			return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "Radio__item",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+					type: "radio",
+					name: id$2,
+					id: itemId,
+					value: item.value,
+					onChange: (e$2) => setValue(e$2.target.value),
+					checked: value === item.value,
+					disabled: item.isDisabled
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("label", {
+					htmlFor: itemId,
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "Radio__item-content",
+						children: item.node
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "Radio__item-check" })]
+				})]
+			}, item.value);
+		})
 	});
 };
-var CreateAccountModal_default = CreateAccountModal;
-var formatBigInt = (bigInt, displayDecimals, onlySufficientDecimals) => {
-	const { isLoading } = getIsLoadingAndError(bigInt);
-	if (isLoading) return "...";
-	let result = stringFromBigInt(bigInt);
-	result = limitDecimals(result, displayDecimals, onlySufficientDecimals);
-	result = trimTrailingZeros(result);
-	result = separateThousands(result);
-	result = formatExtraSmallValue(result, bigInt);
-	if (bigInt < 0n) result = formatNegativeValue(result);
-	return result;
-};
-const formatStable = (bigInt, displayDecimals = Decimals.STABLE, onlySufficientDecimals = false) => {
-	return formatBigInt(bigInt, displayDecimals, onlySufficientDecimals);
-};
-const formatBase = (bigInt, displayDecimals = Decimals.BASE, onlySufficientDecimals = true) => {
-	return formatBigInt(bigInt, displayDecimals, onlySufficientDecimals);
-};
-const formatTokenAmount = (tokenAmount, tokenSymb, displayDecimals = void 0) => {
-	const { isStable } = Tokens[tokenSymb];
-	displayDecimals = displayDecimals ?? (isStable ? Decimals.STABLE : Decimals.BASE);
-	return (isStable ? formatStable : formatBase)(tokenAmount, displayDecimals);
-};
-const formatDollarStr = (bigInt, isSigned = false, displayDecimals = Decimals.STABLE) => {
-	const positiveSign = isSigned ? SentimentSigns.PLUS : "";
-	const sign = bigInt < 0n ? SentimentSigns.MINUS : bigInt > 0n ? positiveSign : "";
-	bigInt = absBigInt(bigInt);
-	bigInt = roundBigInt(bigInt, displayDecimals);
-	let result = stringFromBigInt(bigInt);
-	result = padDecimals(result, displayDecimals);
-	result = `${sign}$${separateThousands(result)}`;
-	return result;
-};
-const bigIntFromInputString = (inputStr) => {
-	return bigIntFromString(strFromInputString(inputStr));
-};
-const inputStringFromBigInt = (bigInt) => {
-	return inputStringFromStr(stringFromBigInt(bigInt));
-};
-const inputStringFromStr = (str, symb, shouldRemoveDecimals) => {
-	return separateThousands(removeNonNumeric(str, shouldRemoveDecimals), symb);
-};
-const formatPercent = (bigInt, displayDecimals = 2) => {
-	const { isLoading } = getIsLoadingAndError(bigInt);
-	if (isLoading) return "...%";
-	return formatBigInt(bigInt * 100n, displayDecimals) + "%";
-};
-var limitDecimals = (str, maxDecimals = 0, onlySufficientDecimals = true) => {
-	str = String(str);
-	if (!str.includes(".")) return str;
-	if (str.endsWith(".")) return str;
-	let [intPart, decPart] = str.split(".");
-	let cutFrac = decPart.slice(0, maxDecimals);
-	if (onlySufficientDecimals && intPart === "0") {
-		if (/^0*$/.test(cutFrac)) {
-			const firstNonZeroIndex = decPart.search(/[1-9]/);
-			if (firstNonZeroIndex !== -1) cutFrac = decPart.slice(0, firstNonZeroIndex + 1);
-			else cutFrac = cutFrac.slice(0, maxDecimals);
-		}
-	}
-	return cutFrac.length > 0 ? `${intPart}.${cutFrac}` : intPart;
-};
-var trimTrailingZeros = (str) => {
-	str = String(str);
-	let result = "";
-	if (str.includes(".")) {
-		let [intPart, decPart] = str.split(".");
-		decPart = decPart.replace(/0+$/, "");
-		if (decPart === "") result = intPart;
-		else result = `${intPart}.${decPart}`;
-	} else result = str;
-	return result;
-};
-var separateThousands = (str, symb = ",") => {
-	str = String(str);
-	let [intPart, decPart] = str.split(".");
-	intPart = intPart.replace(/\B(?=(\d{3})+(?!\d))/g, symb);
-	if (decPart || str.endsWith(".")) return [intPart, decPart].join(".");
-	return intPart;
-};
-var formatNegativeValue = (str) => {
-	const absStr = str.replace(/-/g, "");
-	return `${SentimentSigns.MINUS}${absStr}`;
-};
-var formatExtraSmallValue = (str, bigInt) => {
-	if (str === "0" && bigInt !== 0n) return "~0";
-	if (!str.includes(".")) return str;
-	const [intPart, decPart] = str.split(".");
-	if (intPart !== "0") return str;
-	const leadingZeros = decPart.match(/^0+/);
-	if ((leadingZeros ? leadingZeros[0].length : 0) > 8) return "~0";
-	return str;
-};
-var padDecimals = (str, minDecimals) => {
-	str = String(str);
-	const [intPart, decPart] = str.split(".");
-	const decimals = decPart ? decPart.length : 0;
-	if (decimals < minDecimals) {
-		str += decPart ? "" : ".";
-		str += "0".repeat(minDecimals - decimals);
-	}
-	if (Number(str.split(".")[1]) === 0) return intPart;
-	return str;
-};
-var strFromInputString = (inputStr, symb = ",") => {
-	return inputStr.split(symb).join("") || "0";
-};
-var removeNonNumeric = (str, shouldRemoveDecimals) => {
-	let numericString = str.toString().replace(/^\./g, "").replace(/[^0-9.]/g, "").replace(/^0\d/, "");
-	if (numericString.match(/\./g)?.length > 1) {
-		const trimLastDot = (str$1) => {
-			return str$1.replace(/\.$/, "");
-		};
-		numericString = trimLastDot(numericString);
-	}
-	numericString = limitDecimals(numericString, shouldRemoveDecimals ? 0 : Decimals.DEFAULT, false);
-	return numericString;
-};
+var Radio_default = Radio;
 var ChainlinkOracle_abi_default = [
 	{
 		"inputs": [{
@@ -78839,6 +78039,123 @@ const useConvertValueToUsd = (value, tokenSymb) => {
 	if (!tokenPrice) return;
 	return multiplyBigInts(value, tokenPrice);
 };
+var formatBigInt = (bigInt, displayDecimals, onlySufficientDecimals) => {
+	const { isLoading } = getIsLoadingAndError(bigInt);
+	if (isLoading) return "...";
+	let result = stringFromBigInt(bigInt);
+	result = limitDecimals(result, displayDecimals, onlySufficientDecimals);
+	result = trimTrailingZeros(result);
+	result = separateThousands(result);
+	result = formatExtraSmallValue(result, bigInt);
+	if (bigInt < 0n) result = formatNegativeValue(result);
+	return result;
+};
+const formatStable = (bigInt, displayDecimals = Decimals.STABLE, onlySufficientDecimals = false) => {
+	return formatBigInt(bigInt, displayDecimals, onlySufficientDecimals);
+};
+const formatBase = (bigInt, displayDecimals = Decimals.BASE, onlySufficientDecimals = true) => {
+	return formatBigInt(bigInt, displayDecimals, onlySufficientDecimals);
+};
+const formatTokenAmount = (tokenAmount, tokenSymb, displayDecimals = void 0) => {
+	const { isStable } = Tokens[tokenSymb];
+	displayDecimals = displayDecimals ?? (isStable ? Decimals.STABLE : Decimals.BASE);
+	return (isStable ? formatStable : formatBase)(tokenAmount, displayDecimals);
+};
+const formatDollarStr = (bigInt, isSigned = false, displayDecimals = Decimals.STABLE) => {
+	const positiveSign = isSigned ? SentimentSigns.PLUS : "";
+	const sign = bigInt < 0n ? SentimentSigns.MINUS : bigInt > 0n ? positiveSign : "";
+	bigInt = absBigInt(bigInt);
+	bigInt = roundBigInt(bigInt, displayDecimals);
+	let result = stringFromBigInt(bigInt);
+	result = padDecimals(result, displayDecimals);
+	result = `${sign}$${separateThousands(result)}`;
+	return result;
+};
+const bigIntFromInputString = (inputStr) => {
+	return bigIntFromString(strFromInputString(inputStr));
+};
+const inputStringFromBigInt = (bigInt) => {
+	return inputStringFromStr(stringFromBigInt(bigInt));
+};
+const inputStringFromStr = (str, symb, shouldRemoveDecimals) => {
+	return separateThousands(removeNonNumeric(str, shouldRemoveDecimals), symb);
+};
+const formatPercent = (bigInt, displayDecimals = 2) => {
+	const { isLoading } = getIsLoadingAndError(bigInt);
+	if (isLoading) return "...%";
+	return formatBigInt(bigInt * 100n, displayDecimals) + "%";
+};
+var limitDecimals = (str, maxDecimals = 0, onlySufficientDecimals = true) => {
+	str = String(str);
+	if (!str.includes(".")) return str;
+	if (str.endsWith(".")) return str;
+	let [intPart, decPart] = str.split(".");
+	let cutFrac = decPart.slice(0, maxDecimals);
+	if (onlySufficientDecimals && intPart === "0") {
+		if (/^0*$/.test(cutFrac)) {
+			const firstNonZeroIndex = decPart.search(/[1-9]/);
+			if (firstNonZeroIndex !== -1) cutFrac = decPart.slice(0, firstNonZeroIndex + 1);
+			else cutFrac = cutFrac.slice(0, maxDecimals);
+		}
+	}
+	return cutFrac.length > 0 ? `${intPart}.${cutFrac}` : intPart;
+};
+var trimTrailingZeros = (str) => {
+	str = String(str);
+	let result = "";
+	if (str.includes(".")) {
+		let [intPart, decPart] = str.split(".");
+		decPart = decPart.replace(/0+$/, "");
+		if (decPart === "") result = intPart;
+		else result = `${intPart}.${decPart}`;
+	} else result = str;
+	return result;
+};
+var separateThousands = (str, symb = ",") => {
+	str = String(str);
+	let [intPart, decPart] = str.split(".");
+	intPart = intPart.replace(/\B(?=(\d{3})+(?!\d))/g, symb);
+	if (decPart || str.endsWith(".")) return [intPart, decPart].join(".");
+	return intPart;
+};
+var formatNegativeValue = (str) => {
+	const absStr = str.replace(/-/g, "");
+	return `${SentimentSigns.MINUS}${absStr}`;
+};
+var formatExtraSmallValue = (str, bigInt) => {
+	if (str === "0" && bigInt !== 0n) return "~0";
+	if (!str.includes(".")) return str;
+	const [intPart, decPart] = str.split(".");
+	if (intPart !== "0") return str;
+	const leadingZeros = decPart.match(/^0+/);
+	if ((leadingZeros ? leadingZeros[0].length : 0) > 8) return "~0";
+	return str;
+};
+var padDecimals = (str, minDecimals) => {
+	str = String(str);
+	const [intPart, decPart] = str.split(".");
+	const decimals = decPart ? decPart.length : 0;
+	if (decimals < minDecimals) {
+		str += decPart ? "" : ".";
+		str += "0".repeat(minDecimals - decimals);
+	}
+	if (Number(str.split(".")[1]) === 0) return intPart;
+	return str;
+};
+var strFromInputString = (inputStr, symb = ",") => {
+	return inputStr.split(symb).join("") || "0";
+};
+var removeNonNumeric = (str, shouldRemoveDecimals) => {
+	let numericString = str.toString().replace(/^\./g, "").replace(/[^0-9.]/g, "").replace(/^0\d/, "");
+	if (numericString.match(/\./g)?.length > 1) {
+		const trimLastDot = (str$1) => {
+			return str$1.replace(/\.$/, "");
+		};
+		numericString = trimLastDot(numericString);
+	}
+	numericString = limitDecimals(numericString, shouldRemoveDecimals ? 0 : Decimals.DEFAULT, false);
+	return numericString;
+};
 var DefaultContext = {
 	color: void 0,
 	size: void 0,
@@ -78876,15 +78193,15 @@ function _objectWithoutPropertiesLoose$2(source, excluded) {
 	}
 	return target;
 }
-function _extends$2() {
-	_extends$2 = Object.assign ? Object.assign.bind() : function(target) {
+function _extends$4() {
+	_extends$4 = Object.assign ? Object.assign.bind() : function(target) {
 		for (var i$3 = 1; i$3 < arguments.length; i$3++) {
 			var source = arguments[i$3];
 			for (var key in source) if (Object.prototype.hasOwnProperty.call(source, key)) target[key] = source[key];
 		}
 		return target;
 	};
-	return _extends$2.apply(this, arguments);
+	return _extends$4.apply(this, arguments);
 }
 function ownKeys$2(e$2, r$3) {
 	var t$2 = Object.keys(e$2);
@@ -78936,7 +78253,7 @@ function Tree2Element(tree) {
 	return tree && tree.map((node$1, i$3) => /* @__PURE__ */ import_react.createElement(node$1.tag, _objectSpread({ key: i$3 }, node$1.attr), Tree2Element(node$1.child)));
 }
 function GenIcon(data) {
-	return (props) => /* @__PURE__ */ import_react.createElement(IconBase, _extends$2({ attr: _objectSpread({}, data.attr) }, props), Tree2Element(data.child));
+	return (props) => /* @__PURE__ */ import_react.createElement(IconBase, _extends$4({ attr: _objectSpread({}, data.attr) }, props), Tree2Element(data.child));
 }
 function IconBase(props) {
 	var elem = (conf) => {
@@ -78945,7 +78262,7 @@ function IconBase(props) {
 		var className;
 		if (conf.className) className = conf.className;
 		if (props.className) className = (className ? className + " " : "") + props.className;
-		return /* @__PURE__ */ import_react.createElement("svg", _extends$2({
+		return /* @__PURE__ */ import_react.createElement("svg", _extends$4({
 			stroke: "currentColor",
 			fill: "currentColor",
 			strokeWidth: "0"
@@ -78973,19 +78290,19 @@ function ImSpinner2(props) {
 		}]
 	})(props);
 }
-var import_classnames$23 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$27 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var Spinner = ({ className }) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: (0, import_classnames$23.default)("Spinner", className),
+		className: (0, import_classnames$27.default)("Spinner", className),
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ImSpinner2, { className: "Spinner__icon" })
 	});
 };
 var Spinner_default = Spinner;
-var import_classnames$22 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$26 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var TokenIcon = ({ symbol, className }) => {
 	const tokenIcon = Tokens[symbol].icon;
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: (0, import_classnames$22.default)("TokenIcon", className),
+		className: (0, import_classnames$26.default)("TokenIcon", className),
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
 			src: tokenIcon,
 			alt: `${symbol} icon`
@@ -78993,11 +78310,19 @@ var TokenIcon = ({ symbol, className }) => {
 	});
 };
 var TokenIcon_default = TokenIcon;
-var TokenAmount = ({ value, symbol = "USDC", showsUsd = false }) => {
-	const { isLoading } = getIsLoadingAndError(value);
-	const valueStr = isLoading ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Spinner_default, {}) : formatTokenAmount(value, symbol);
+var Muted = ({ children }) => {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: "Muted",
+		children: children ?? "–"
+	});
+};
+var Muted_default = Muted;
+var import_classnames$25 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var TokenAmount = ({ value, symbol = "USDC", showsUsd = false, type = "inline" }) => {
+	const { isLoading, hasError } = getIsLoadingAndError(value);
+	const valueStr = isLoading ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Spinner_default, {}) : hasError ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, {}) : formatTokenAmount(value, symbol);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: "TokenAmount",
+		className: (0, import_classnames$25.default)("TokenAmount", `_${type}`, hasError && "_error"),
 		children: [
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenIcon_default, {
 				className: "TokenAmount__icon",
@@ -79022,79 +78347,6 @@ var UsdValue = ({ tokenValue, tokenSymb }) => {
 	});
 };
 var TokenAmount_default = TokenAmount;
-var import_classnames$21 = /* @__PURE__ */ __toESM(require_classnames(), 1);
-var Input$2 = ({ setValue, valueStrState = void 0, maxData = void 0, placeholder = "0", isDisabled = false }) => {
-	const [valueStr, setValueStr] = valueStrState ?? (0, import_react.useState)("");
-	const [isFocused, setIsFocused] = (0, import_react.useState)(false);
-	const inputRef = (0, import_react.useRef)(null);
-	(0, import_react.useEffect)(() => {
-		setValue(bigIntFromInputString(valueStr));
-	}, [valueStr]);
-	const focusInput = () => {
-		inputRef.current?.focus();
-	};
-	const setMaxValue = () => {
-		setValueStr(inputStringFromBigInt(maxData.value));
-	};
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: (0, import_classnames$21.default)("Input", isFocused && "_focused"),
-		onClick: focusInput,
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputNative, {
-			ref: inputRef,
-			valueStr,
-			setValueStr,
-			maxValue: maxData?.value,
-			placeholder,
-			isDisabled,
-			isFocused,
-			setIsFocused
-		}), !isUndefined(maxData) && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-			className: "Input__max",
-			children: maxData.onlyTokenShown ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenIcon_default, {
-				className: "Input__max-icon",
-				symbol: maxData.token
-			}) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "Input__max-title",
-					children: maxData.title
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "Input__max-value",
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmount_default, {
-						value: maxData.value,
-						symbol: maxData.token,
-						showsUsd: true
-					})
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
-					className: "Input__max-button",
-					size: "micro",
-					onClick: setMaxValue,
-					children: "Max"
-				})
-			] })
-		})]
-	});
-};
-var InputNative = (0, import_react.forwardRef)(function InputNative$1({ valueStr, setValueStr, maxValue: maxValue$1, placeholder, isDisabled, isFocused, setIsFocused }, ref) {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
-		autoFocus: isFocused,
-		type: "text",
-		ref,
-		value: valueStr,
-		disabled: isDisabled,
-		placeholder,
-		onChange: (e$2) => {
-			const inputStr = inputStringFromStr(e$2.target.value);
-			const value = bigIntFromInputString(inputStr);
-			if (!isUndefined(maxValue$1) && value > maxValue$1) setValueStr(inputStringFromBigInt(maxValue$1));
-			else setValueStr(inputStr);
-		},
-		onFocus: () => setIsFocused(true),
-		onBlur: () => setIsFocused(false)
-	});
-});
-var Input_default = Input$2;
 var ERC20_abi_default = [
 	{
 		"inputs": [{
@@ -79363,27 +78615,6 @@ const useBalanceETH = () => {
 	return data?.value;
 };
 var useBalance_default = useBalance$1;
-var BalanceInput = ({ setValue, title = "Amount" }) => {
-	const balanceETH = useBalanceETH();
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: "BalanceInput",
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-			className: "BalanceInput__title",
-			children: title
-		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-			className: "BalanceInput__input",
-			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Input_default, {
-				maxData: {
-					title: "Balance",
-					token: "ETH",
-					value: balanceETH
-				},
-				setValue
-			})
-		})]
-	});
-};
-var BalanceInput_default = BalanceInput;
 var { queryBalance, queryAccountValue, queryDebt, queryLtv, queryLtvCoeffs, queryPrincipal, calcEquity, calcAvailableToBorrow } = Account_default;
 var useAccount = () => {
 	const accountSetup = useAccountSetup();
@@ -79436,6 +78667,1733 @@ var useAccountSetup = () => {
 	};
 };
 var useAccount_default = useAccount;
+const PaymentMethods = {
+	COLLATERAL: "collateral",
+	WALLET: "wallet"
+};
+var PaymentMethod = ({ method, setMethod }) => {
+	const account = useAccount_default();
+	const usdcBalance = useBalance_default("USDC");
+	const paymentMethods = [{
+		value: PaymentMethods.COLLATERAL,
+		node: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "PaymentMethod__item",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "PaymentMethod__item-title",
+				children: "Collateral"
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmount_default, {
+				value: account?.balance,
+				symbol: "ETH",
+				showsUsd: true
+			})]
+		})
+	}, {
+		value: PaymentMethods.WALLET,
+		node: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "PaymentMethod__item",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "PaymentMethod__item-title",
+				children: "Wallet"
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmount_default, {
+				value: usdcBalance,
+				showsUsd: true
+			})]
+		})
+	}];
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Field_default, {
+		className: "PaymentMethod",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "Field__title",
+			children: "Choose Payment Method"
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "Field__content",
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Radio_default, {
+				id: "PaymentMethod_radio",
+				items: paymentMethods,
+				value: method,
+				setValue: setMethod
+			})
+		})]
+	});
+};
+var PaymentMethod_default = PaymentMethod;
+const msInDays = (days) => {
+	return days * DAY;
+};
+const daysFromMs = (ms, shouldFloor = true) => {
+	const days = ms / DAY;
+	return shouldFloor ? Math.floor(days) : days;
+};
+var EXPIRY_PERIODS_DAYS = [
+	7,
+	10,
+	14,
+	21,
+	30,
+	45,
+	60,
+	90
+];
+var HegicConstants_default = {
+	EXPIRY_PERIODS: EXPIRY_PERIODS_DAYS.map(msInDays),
+	EXPIRY_PERIODS_DAYS,
+	TOKEN: "USDC.e",
+	Strategies: {
+		CALL_100_ETH_1: "0x09a4B65b3144733f1bFBa6aEaBEDFb027a38Fb60",
+		CALL_100_ETH_2: "0x6418C3514923a6464A26A2ffA5f17bF1efC96a21",
+		CALL_100_ETH_3: "0xE377A1a97237b3B89a96d8B731A2ab10d5DaC16C",
+		CALL_100_ETH_4: "0x2727B807D22fCAeB7F900F49894054Ed92b9125B"
+	},
+	PRICE_CALCULATOR: "0xC62a0b7e480a23BdCfe13EA08BDAceDc278a14C1"
+};
+var { Strategies } = HegicConstants_default;
+var HegicUtils = {
+	getStrategy,
+	getStrategyScale
+};
+function getStrategy(period) {
+	const { strategy } = getStrategyAndKey(period);
+	return strategy;
+}
+function getStrategyScale(period) {
+	const { key } = getStrategyAndKey(period);
+	if (!key) return;
+	const [, scale$1, ,] = key.split("_");
+	return Number(scale$1);
+}
+var getStrategyAndKey = (period) => {
+	const periodDays = daysFromMs(period, false);
+	if (periodDays < 7 || periodDays > 90) return {};
+	let strategy, key;
+	if (periodDays < 14) key = "CALL_100_ETH_1";
+	else if (periodDays < 30) key = "CALL_100_ETH_2";
+	else if (periodDays < 60) key = "CALL_100_ETH_3";
+	else if (periodDays <= 90) key = "CALL_100_ETH_4";
+	strategy = Strategies[key];
+	return {
+		key,
+		strategy
+	};
+};
+var HegicUtils_default = HegicUtils;
+var useProtocolActions = () => {
+	const accountId = useAccountId_default();
+	const contracts$1 = useContracts_default();
+	const createAccount = (0, import_react.useCallback)(async () => _createAccount(contracts$1), [contracts$1]);
+	const supply = (0, import_react.useCallback)(async (amount) => _supply(accountId, contracts$1, amount), [accountId, contracts$1]);
+	const withdraw = (0, import_react.useCallback)(async (amount) => _withdraw(accountId, contracts$1, amount), [accountId, contracts$1]);
+	const borrow = (0, import_react.useCallback)(async (amount) => _borrow(accountId, contracts$1, amount), [accountId, contracts$1]);
+	const repay = (0, import_react.useCallback)(async (amount, paymentMethod, shouldWithdraw, slippage = SLIPPAGE) => _repay(accountId, contracts$1, amount, paymentMethod, shouldWithdraw, slippage), [accountId, contracts$1]);
+	const buyProtection = (0, import_react.useCallback)(async (amount, period, cost, paymentMethod, slippage = SLIPPAGE) => _buyProtection(accountId, contracts$1, amount, period, cost, paymentMethod, slippage), [accountId, contracts$1]);
+	return (0, import_react.useMemo)(() => ({
+		createAccount,
+		supply,
+		withdraw,
+		borrow,
+		repay,
+		buyProtection
+	}), [
+		createAccount,
+		supply,
+		withdraw,
+		borrow,
+		repay,
+		buyProtection
+	]);
+};
+var _createAccount = async (contracts$1) => {
+	const { LendingMarginAccountManager } = contracts$1.signed;
+	return LendingMarginAccountManager.createLendingMarginAccount();
+};
+var _supply = async (accountId, contracts$1, amount) => {
+	const { OneClickTrading } = contracts$1.signed;
+	const amount1eToken = get1eToken(amount, "ETH");
+	return OneClickTrading.provideETH(accountId, { value: amount1eToken });
+};
+var _withdraw = async (accountId, contracts$1, amount) => {
+	const { OneClickTrading } = contracts$1.signed;
+	const amount1eToken = get1eToken(amount, "ETH");
+	return OneClickTrading.withdrawETH(accountId, amount1eToken);
+};
+var _borrow = async (accountId, contracts$1, amount) => {
+	const { OneClickTrading } = contracts$1.signed;
+	const { USDC } = Tokens;
+	const amount1eToken = get1eToken(amount, "USDC");
+	return OneClickTrading.borrowWithdraw(accountId, USDC.address, amount1eToken, false);
+};
+var _repay = async (accountId, contracts$1, amount, paymentMethod, shouldWithdraw, slippage) => {
+	switch (paymentMethod) {
+		case PaymentMethods.COLLATERAL: return _repayCollateral(accountId, contracts$1, amount, shouldWithdraw, slippage);
+		case PaymentMethods.WALLET: return _repayWallet(accountId, contracts$1, amount, shouldWithdraw);
+		default: printPaymentMethodError(paymentMethod);
+	}
+};
+var _repayCollateral = async (accountId, contracts$1, amount, shouldWithdraw, slippage) => {
+	const { ETH, USDC } = Tokens;
+	const { OneClickNoRekt } = contracts$1.signed;
+	const amountOut1eToken = get1eToken(amount, USDC);
+	const amountIn1eToken = get1eToken(await swapUsdcToEth(contracts$1, amount, slippage), ETH);
+	return OneClickNoRekt.multiSwapOutputRepayWithdraw(accountId, USDC.address, [[
+		ETH.address,
+		amountOut1eToken,
+		amountIn1eToken
+	]], amountOut1eToken, ETH.address, shouldWithdraw);
+};
+var _repayWallet = async (accountId, contracts$1, amount, shouldWithdraw) => {
+	const { ETH, USDC } = Tokens;
+	const { OneClickTrading } = contracts$1.signed;
+	const amount1eToken = get1eToken(amount, USDC);
+	if (shouldWithdraw) return OneClickTrading.provideERC20RepayWithdraw(accountId, USDC.address, USDC.address, ETH.address, amount1eToken);
+	else return OneClickTrading.provideERC20Repay(accountId, USDC.address, amount1eToken);
+};
+var _buyProtection = async (accountId, contracts$1, amount, period, cost, paymentMethod, slippage) => {
+	switch (paymentMethod) {
+		case PaymentMethods.COLLATERAL: return _buyCollateral(accountId, contracts$1, amount, period, cost, slippage);
+		case PaymentMethods.WALLET: return _buyWallet(accountId, contracts$1, amount, period, cost);
+		default: printPaymentMethodError(paymentMethod);
+	}
+};
+var _buyCollateral = async (accountId, contracts$1, amount, period, cost, slippage) => {
+	const { OneClickOptions } = contracts$1.signed;
+	const strategy = HegicUtils_default.getStrategy(period);
+	const tokenOut = Tokens["ETH"];
+	const amount1eToken = get1eToken(amount, "ETH");
+	const amountWithdraw1eToken = get1eToken(await swapUsdcToEth(contracts$1, cost, slippage), "ETH");
+	const cost1eToken = get1eToken(cost, HegicConstants_default.TOKEN);
+	const periodS = period / MS_IN_SECOND;
+	return OneClickOptions.withdrawBuyProvideERC721(accountId, tokenOut.address, strategy, amount1eToken, amountWithdraw1eToken, cost1eToken, periodS, []);
+};
+var _buyWallet = async (accountId, contracts$1, amount, period, cost) => {
+	const { OneClickOptions } = contracts$1.signed;
+	const strategy = HegicUtils_default.getStrategy(period);
+	const tokenOut = Tokens.USDC;
+	const amount1eToken = get1eToken(amount, "ETH");
+	const cost1eToken = get1eToken(cost, HegicConstants_default.TOKEN);
+	const periodS = period / MS_IN_SECOND;
+	return OneClickOptions.transferBuyProvideERC721(accountId, tokenOut.address, strategy, amount1eToken, cost1eToken, periodS, []);
+};
+var printPaymentMethodError = (paymentMethod) => {
+	console.error("No paymentMethod found:", paymentMethod);
+};
+var useProtocolActions_default = useProtocolActions;
+var sendTx = async (executedTx, successMsg, setIsSubmitting, onSuccess, onError) => {
+	setIsSubmitting(true);
+	const chainId = await queryChainId();
+	const handleError = (e$2) => {
+		console.log(e$2);
+		onError(e$2);
+		setIsSubmitting(false);
+	};
+	executedTx.then((tx) => {
+		console.log("Submitting:", tx);
+		tx.wait().then((res) => {
+			logSuccessMsg(chainId, tx.hash, successMsg);
+			onSuccess({
+				res,
+				tx
+			});
+			setIsSubmitting(false);
+		}).catch(handleError);
+	}).catch(handleError);
+};
+var queryChainId = async () => {
+	return (await getWalletClient(WAGMI_CONFIG)).chain.id;
+};
+var logSuccessMsg = (chainId, txHash, successMsg) => {
+	const txUrl = getTxUrl(chainId, txHash);
+	console.log(`${successMsg}\n${txUrl}`);
+};
+var sendTx_default = sendTx;
+var require_ReactPropTypesSecret = /* @__PURE__ */ __commonJSMin(((exports, module) => {
+	module.exports = "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED";
+}));
+var require_factoryWithThrowingShims = /* @__PURE__ */ __commonJSMin(((exports, module) => {
+	var ReactPropTypesSecret = require_ReactPropTypesSecret();
+	function emptyFunction() {}
+	function emptyFunctionWithReset() {}
+	emptyFunctionWithReset.resetWarningCache = emptyFunction;
+	module.exports = function() {
+		function shim$3(props, propName, componentName, location, propFullName, secret) {
+			if (secret === ReactPropTypesSecret) return;
+			var err = /* @__PURE__ */ new Error("Calling PropTypes validators directly is not supported by the `prop-types` package. Use PropTypes.checkPropTypes() to call them. Read more at http://fb.me/use-check-prop-types");
+			err.name = "Invariant Violation";
+			throw err;
+		}
+		shim$3.isRequired = shim$3;
+		function getShim() {
+			return shim$3;
+		}
+		var ReactPropTypes = {
+			array: shim$3,
+			bigint: shim$3,
+			bool: shim$3,
+			func: shim$3,
+			number: shim$3,
+			object: shim$3,
+			string: shim$3,
+			symbol: shim$3,
+			any: shim$3,
+			arrayOf: getShim,
+			element: shim$3,
+			elementType: shim$3,
+			instanceOf: getShim,
+			node: shim$3,
+			objectOf: getShim,
+			oneOf: getShim,
+			oneOfType: getShim,
+			shape: getShim,
+			exact: getShim,
+			checkPropTypes: emptyFunctionWithReset,
+			resetWarningCache: emptyFunction
+		};
+		ReactPropTypes.PropTypes = ReactPropTypes;
+		return ReactPropTypes;
+	};
+}));
+var require_prop_types = /* @__PURE__ */ __commonJSMin(((exports, module) => {
+	module.exports = require_factoryWithThrowingShims()();
+}));
+var require_tabbable = /* @__PURE__ */ __commonJSMin(((exports, module) => {
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.default = findTabbableDescendants;
+	var DISPLAY_NONE = "none";
+	var DISPLAY_CONTENTS = "contents";
+	var tabbableNode = /^(input|select|textarea|button|object|iframe)$/;
+	function isNotOverflowing(element, style$1) {
+		return style$1.getPropertyValue("overflow") !== "visible" || element.scrollWidth <= 0 && element.scrollHeight <= 0;
+	}
+	function hidesContents(element) {
+		var zeroSize = element.offsetWidth <= 0 && element.offsetHeight <= 0;
+		if (zeroSize && !element.innerHTML) return true;
+		try {
+			var style$1 = window.getComputedStyle(element);
+			var displayValue = style$1.getPropertyValue("display");
+			return zeroSize ? displayValue !== DISPLAY_CONTENTS && isNotOverflowing(element, style$1) : displayValue === DISPLAY_NONE;
+		} catch (exception) {
+			console.warn("Failed to inspect element style");
+			return false;
+		}
+	}
+	function visible(element) {
+		var parentElement = element;
+		var rootNode = element.getRootNode && element.getRootNode();
+		while (parentElement) {
+			if (parentElement === document.body) break;
+			if (rootNode && parentElement === rootNode) parentElement = rootNode.host.parentNode;
+			if (hidesContents(parentElement)) return false;
+			parentElement = parentElement.parentNode;
+		}
+		return true;
+	}
+	function focusable(element, isTabIndexNotNaN) {
+		var nodeName = element.nodeName.toLowerCase();
+		return (tabbableNode.test(nodeName) && !element.disabled || (nodeName === "a" ? element.href || isTabIndexNotNaN : isTabIndexNotNaN)) && visible(element);
+	}
+	function tabbable(element) {
+		var tabIndex = element.getAttribute("tabindex");
+		if (tabIndex === null) tabIndex = void 0;
+		var isTabIndexNaN = isNaN(tabIndex);
+		return (isTabIndexNaN || tabIndex >= 0) && focusable(element, !isTabIndexNaN);
+	}
+	function findTabbableDescendants(element) {
+		return [].slice.call(element.querySelectorAll("*"), 0).reduce(function(finished, el) {
+			return finished.concat(!el.shadowRoot ? [el] : findTabbableDescendants(el.shadowRoot));
+		}, []).filter(tabbable);
+	}
+	module.exports = exports["default"];
+}));
+var require_focusManager = /* @__PURE__ */ __commonJSMin(((exports) => {
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.resetState = resetState$4;
+	exports.log = log$4;
+	exports.handleBlur = handleBlur;
+	exports.handleFocus = handleFocus;
+	exports.markForFocusLater = markForFocusLater;
+	exports.returnFocus = returnFocus;
+	exports.popWithoutFocus = popWithoutFocus;
+	exports.setupScopedFocus = setupScopedFocus;
+	exports.teardownScopedFocus = teardownScopedFocus;
+	var _tabbable2$1 = _interopRequireDefault$7(require_tabbable());
+	function _interopRequireDefault$7(obj) {
+		return obj && obj.__esModule ? obj : { default: obj };
+	}
+	var focusLaterElements = [];
+	var modalElement = null;
+	var needToFocus = false;
+	/* istanbul ignore next */
+	function resetState$4() {
+		focusLaterElements = [];
+	}
+	/* istanbul ignore next */
+	function log$4() {}
+	function handleBlur() {
+		needToFocus = true;
+	}
+	function handleFocus() {
+		if (needToFocus) {
+			needToFocus = false;
+			if (!modalElement) return;
+			setTimeout(function() {
+				if (modalElement.contains(document.activeElement)) return;
+				((0, _tabbable2$1.default)(modalElement)[0] || modalElement).focus();
+			}, 0);
+		}
+	}
+	function markForFocusLater() {
+		focusLaterElements.push(document.activeElement);
+	}
+	function returnFocus() {
+		var preventScroll = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : false;
+		var toFocus = null;
+		try {
+			if (focusLaterElements.length !== 0) {
+				toFocus = focusLaterElements.pop();
+				toFocus.focus({ preventScroll });
+			}
+			return;
+		} catch (e$2) {
+			console.warn([
+				"You tried to return focus to",
+				toFocus,
+				"but it is not in the DOM anymore"
+			].join(" "));
+		}
+	}
+	function popWithoutFocus() {
+		focusLaterElements.length > 0 && focusLaterElements.pop();
+	}
+	function setupScopedFocus(element) {
+		modalElement = element;
+		if (window.addEventListener) {
+			window.addEventListener("blur", handleBlur, false);
+			document.addEventListener("focus", handleFocus, true);
+		} else {
+			window.attachEvent("onBlur", handleBlur);
+			document.attachEvent("onFocus", handleFocus);
+		}
+	}
+	function teardownScopedFocus() {
+		modalElement = null;
+		if (window.addEventListener) {
+			window.removeEventListener("blur", handleBlur);
+			document.removeEventListener("focus", handleFocus);
+		} else {
+			window.detachEvent("onBlur", handleBlur);
+			document.detachEvent("onFocus", handleFocus);
+		}
+	}
+}));
+var require_scopeTab = /* @__PURE__ */ __commonJSMin(((exports, module) => {
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.default = scopeTab;
+	var _tabbable2 = _interopRequireDefault$6(require_tabbable());
+	function _interopRequireDefault$6(obj) {
+		return obj && obj.__esModule ? obj : { default: obj };
+	}
+	function getActiveElement() {
+		var el = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : document;
+		return el.activeElement.shadowRoot ? getActiveElement(el.activeElement.shadowRoot) : el.activeElement;
+	}
+	function scopeTab(node$1, event) {
+		var tabbable$1 = (0, _tabbable2.default)(node$1);
+		if (!tabbable$1.length) {
+			event.preventDefault();
+			return;
+		}
+		var target = void 0;
+		var shiftKey = event.shiftKey;
+		var head = tabbable$1[0];
+		var tail = tabbable$1[tabbable$1.length - 1];
+		var activeElement$2 = getActiveElement();
+		if (node$1 === activeElement$2) {
+			if (!shiftKey) return;
+			target = tail;
+		}
+		if (tail === activeElement$2 && !shiftKey) target = head;
+		if (head === activeElement$2 && shiftKey) target = tail;
+		if (target) {
+			event.preventDefault();
+			target.focus();
+			return;
+		}
+		var checkSafari = /(\bChrome\b|\bSafari\b)\//.exec(navigator.userAgent);
+		if (!(checkSafari != null && checkSafari[1] != "Chrome" && /\biPod\b|\biPad\b/g.exec(navigator.userAgent) == null)) return;
+		var x$2 = tabbable$1.indexOf(activeElement$2);
+		if (x$2 > -1) x$2 += shiftKey ? -1 : 1;
+		target = tabbable$1[x$2];
+		if (typeof target === "undefined") {
+			event.preventDefault();
+			target = shiftKey ? tail : head;
+			target.focus();
+			return;
+		}
+		event.preventDefault();
+		target.focus();
+	}
+	module.exports = exports["default"];
+}));
+var require_warning = /* @__PURE__ */ __commonJSMin(((exports, module) => {
+	var __DEV__ = false;
+	var warning$1 = function() {};
+	if (__DEV__) {
+		var printWarning = function printWarning$1(format$1, args) {
+			var len$1 = arguments.length;
+			args = new Array(len$1 > 1 ? len$1 - 1 : 0);
+			for (var key = 1; key < len$1; key++) args[key - 1] = arguments[key];
+			var argIndex = 0;
+			var message$1 = "Warning: " + format$1.replace(/%s/g, function() {
+				return args[argIndex++];
+			});
+			if (typeof console !== "undefined") console.error(message$1);
+			try {
+				throw new Error(message$1);
+			} catch (x$2) {}
+		};
+		warning$1 = function(condition, format$1, args) {
+			var len$1 = arguments.length;
+			args = new Array(len$1 > 2 ? len$1 - 2 : 0);
+			for (var key = 2; key < len$1; key++) args[key - 2] = arguments[key];
+			if (format$1 === void 0) throw new Error("`warning(condition, format, ...args)` requires a warning message argument");
+			if (!condition) printWarning.apply(null, [format$1].concat(args));
+		};
+	}
+	module.exports = warning$1;
+}));
+var require_exenv = /* @__PURE__ */ __commonJSMin(((exports, module) => {
+	(function() {
+		var canUseDOM$2 = !!(typeof window !== "undefined" && window.document && window.document.createElement);
+		var ExecutionEnvironment = {
+			canUseDOM: canUseDOM$2,
+			canUseWorkers: typeof Worker !== "undefined",
+			canUseEventListeners: canUseDOM$2 && !!(window.addEventListener || window.attachEvent),
+			canUseViewport: canUseDOM$2 && !!window.screen
+		};
+		if (typeof define === "function" && typeof define.amd === "object" && define.amd) define(function() {
+			return ExecutionEnvironment;
+		});
+		else if (typeof module !== "undefined" && module.exports) module.exports = ExecutionEnvironment;
+		else window.ExecutionEnvironment = ExecutionEnvironment;
+	})();
+}));
+var require_safeHTMLElement = /* @__PURE__ */ __commonJSMin(((exports) => {
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.canUseDOM = exports.SafeNodeList = exports.SafeHTMLCollection = void 0;
+	var _exenv2 = _interopRequireDefault$5(require_exenv());
+	function _interopRequireDefault$5(obj) {
+		return obj && obj.__esModule ? obj : { default: obj };
+	}
+	var EE = _exenv2.default;
+	var SafeHTMLElement = EE.canUseDOM ? window.HTMLElement : {};
+	exports.SafeHTMLCollection = EE.canUseDOM ? window.HTMLCollection : {};
+	exports.SafeNodeList = EE.canUseDOM ? window.NodeList : {};
+	exports.canUseDOM = EE.canUseDOM;
+	exports.default = SafeHTMLElement;
+}));
+var require_ariaAppHider = /* @__PURE__ */ __commonJSMin(((exports) => {
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.resetState = resetState$3;
+	exports.log = log$3;
+	exports.assertNodeList = assertNodeList;
+	exports.setElement = setElement;
+	exports.validateElement = validateElement;
+	exports.hide = hide$1;
+	exports.show = show;
+	exports.documentNotReadyOrSSRTesting = documentNotReadyOrSSRTesting;
+	var _warning2 = _interopRequireDefault$4(require_warning());
+	var _safeHTMLElement$2 = require_safeHTMLElement();
+	function _interopRequireDefault$4(obj) {
+		return obj && obj.__esModule ? obj : { default: obj };
+	}
+	var globalElement = null;
+	/* istanbul ignore next */
+	function resetState$3() {
+		if (globalElement) if (globalElement.removeAttribute) globalElement.removeAttribute("aria-hidden");
+		else if (globalElement.length != null) globalElement.forEach(function(element) {
+			return element.removeAttribute("aria-hidden");
+		});
+		else document.querySelectorAll(globalElement).forEach(function(element) {
+			return element.removeAttribute("aria-hidden");
+		});
+		globalElement = null;
+	}
+	/* istanbul ignore next */
+	function log$3() {}
+	function assertNodeList(nodeList, selector) {
+		if (!nodeList || !nodeList.length) throw new Error("react-modal: No elements were found for selector " + selector + ".");
+	}
+	function setElement(element) {
+		var useElement = element;
+		if (typeof useElement === "string" && _safeHTMLElement$2.canUseDOM) {
+			var el = document.querySelectorAll(useElement);
+			assertNodeList(el, useElement);
+			useElement = el;
+		}
+		globalElement = useElement || globalElement;
+		return globalElement;
+	}
+	function validateElement(appElement) {
+		var el = appElement || globalElement;
+		if (el) return Array.isArray(el) || el instanceof HTMLCollection || el instanceof NodeList ? el : [el];
+		else {
+			(0, _warning2.default)(false, [
+				"react-modal: App element is not defined.",
+				"Please use `Modal.setAppElement(el)` or set `appElement={el}`.",
+				"This is needed so screen readers don't see main content",
+				"when modal is opened. It is not recommended, but you can opt-out",
+				"by setting `ariaHideApp={false}`."
+			].join(" "));
+			return [];
+		}
+	}
+	function hide$1(appElement) {
+		var _iteratorNormalCompletion = true;
+		var _didIteratorError = false;
+		var _iteratorError = void 0;
+		try {
+			for (var _iterator = validateElement(appElement)[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) _step.value.setAttribute("aria-hidden", "true");
+		} catch (err) {
+			_didIteratorError = true;
+			_iteratorError = err;
+		} finally {
+			try {
+				if (!_iteratorNormalCompletion && _iterator.return) _iterator.return();
+			} finally {
+				if (_didIteratorError) throw _iteratorError;
+			}
+		}
+	}
+	function show(appElement) {
+		var _iteratorNormalCompletion2 = true;
+		var _didIteratorError2 = false;
+		var _iteratorError2 = void 0;
+		try {
+			for (var _iterator2 = validateElement(appElement)[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) _step2.value.removeAttribute("aria-hidden");
+		} catch (err) {
+			_didIteratorError2 = true;
+			_iteratorError2 = err;
+		} finally {
+			try {
+				if (!_iteratorNormalCompletion2 && _iterator2.return) _iterator2.return();
+			} finally {
+				if (_didIteratorError2) throw _iteratorError2;
+			}
+		}
+	}
+	function documentNotReadyOrSSRTesting() {
+		globalElement = null;
+	}
+}));
+var require_classList = /* @__PURE__ */ __commonJSMin(((exports) => {
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.resetState = resetState$2;
+	exports.log = log$2;
+	var htmlClassList = {};
+	var docBodyClassList = {};
+	/* istanbul ignore next */
+	function removeClass(at$1, cls$4) {
+		at$1.classList.remove(cls$4);
+	}
+	/* istanbul ignore next */
+	function resetState$2() {
+		var htmlElement = document.getElementsByTagName("html")[0];
+		for (var cls$4 in htmlClassList) removeClass(htmlElement, htmlClassList[cls$4]);
+		var body = document.body;
+		for (var _cls in docBodyClassList) removeClass(body, docBodyClassList[_cls]);
+		htmlClassList = {};
+		docBodyClassList = {};
+	}
+	/* istanbul ignore next */
+	function log$2() {}
+	var incrementReference = function incrementReference$1(poll$1, className) {
+		if (!poll$1[className]) poll$1[className] = 0;
+		poll$1[className] += 1;
+		return className;
+	};
+	var decrementReference = function decrementReference$1(poll$1, className) {
+		if (poll$1[className]) poll$1[className] -= 1;
+		return className;
+	};
+	var trackClass = function trackClass$1(classListRef, poll$1, classes) {
+		classes.forEach(function(className) {
+			incrementReference(poll$1, className);
+			classListRef.add(className);
+		});
+	};
+	var untrackClass = function untrackClass$1(classListRef, poll$1, classes) {
+		classes.forEach(function(className) {
+			decrementReference(poll$1, className);
+			poll$1[className] === 0 && classListRef.remove(className);
+		});
+	};
+	exports.add = function add$1(element, classString) {
+		return trackClass(element.classList, element.nodeName.toLowerCase() == "html" ? htmlClassList : docBodyClassList, classString.split(" "));
+	};
+	exports.remove = function remove(element, classString) {
+		return untrackClass(element.classList, element.nodeName.toLowerCase() == "html" ? htmlClassList : docBodyClassList, classString.split(" "));
+	};
+}));
+var require_portalOpenInstances = /* @__PURE__ */ __commonJSMin(((exports) => {
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.log = log$1;
+	exports.resetState = resetState$1;
+	function _classCallCheck$3(instance, Constructor) {
+		if (!(instance instanceof Constructor)) throw new TypeError("Cannot call a class as a function");
+	}
+	var PortalOpenInstances = function PortalOpenInstances$1() {
+		var _this = this;
+		_classCallCheck$3(this, PortalOpenInstances$1);
+		this.register = function(openInstance) {
+			if (_this.openInstances.indexOf(openInstance) !== -1) return;
+			_this.openInstances.push(openInstance);
+			_this.emit("register");
+		};
+		this.deregister = function(openInstance) {
+			var index$6 = _this.openInstances.indexOf(openInstance);
+			if (index$6 === -1) return;
+			_this.openInstances.splice(index$6, 1);
+			_this.emit("deregister");
+		};
+		this.subscribe = function(callback) {
+			_this.subscribers.push(callback);
+		};
+		this.emit = function(eventType) {
+			_this.subscribers.forEach(function(subscriber) {
+				return subscriber(eventType, _this.openInstances.slice());
+			});
+		};
+		this.openInstances = [];
+		this.subscribers = [];
+	};
+	var portalOpenInstances = new PortalOpenInstances();
+	/* istanbul ignore next */
+	function log$1() {
+		console.log("portalOpenInstances ----------");
+		console.log(portalOpenInstances.openInstances.length);
+		portalOpenInstances.openInstances.forEach(function(p$2) {
+			return console.log(p$2);
+		});
+		console.log("end portalOpenInstances ----------");
+	}
+	/* istanbul ignore next */
+	function resetState$1() {
+		portalOpenInstances = new PortalOpenInstances();
+	}
+	exports.default = portalOpenInstances;
+}));
+var require_bodyTrap = /* @__PURE__ */ __commonJSMin(((exports) => {
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.resetState = resetState;
+	exports.log = log;
+	var _portalOpenInstances2$1 = _interopRequireDefault$3(require_portalOpenInstances());
+	function _interopRequireDefault$3(obj) {
+		return obj && obj.__esModule ? obj : { default: obj };
+	}
+	var before = void 0, after = void 0, instances = [];
+	/* istanbul ignore next */
+	function resetState() {
+		var _arr = [before, after];
+		for (var _i = 0; _i < _arr.length; _i++) {
+			var item = _arr[_i];
+			if (!item) continue;
+			item.parentNode && item.parentNode.removeChild(item);
+		}
+		before = after = null;
+		instances = [];
+	}
+	/* istanbul ignore next */
+	function log() {
+		console.log("bodyTrap ----------");
+		console.log(instances.length);
+		var _arr2 = [before, after];
+		for (var _i2 = 0; _i2 < _arr2.length; _i2++) {
+			var check = _arr2[_i2] || {};
+			console.log(check.nodeName, check.className, check.id);
+		}
+		console.log("edn bodyTrap ----------");
+	}
+	function focusContent() {
+		if (instances.length === 0) return;
+		instances[instances.length - 1].focusContent();
+	}
+	function bodyTrap(eventType, openInstances) {
+		if (!before && !after) {
+			before = document.createElement("div");
+			before.setAttribute("data-react-modal-body-trap", "");
+			before.style.position = "absolute";
+			before.style.opacity = "0";
+			before.setAttribute("tabindex", "0");
+			before.addEventListener("focus", focusContent);
+			after = before.cloneNode();
+			after.addEventListener("focus", focusContent);
+		}
+		instances = openInstances;
+		if (instances.length > 0) {
+			if (document.body.firstChild !== before) document.body.insertBefore(before, document.body.firstChild);
+			if (document.body.lastChild !== after) document.body.appendChild(after);
+		} else {
+			if (before.parentElement) before.parentElement.removeChild(before);
+			if (after.parentElement) after.parentElement.removeChild(after);
+		}
+	}
+	_portalOpenInstances2$1.default.subscribe(bodyTrap);
+}));
+var require_ModalPortal = /* @__PURE__ */ __commonJSMin(((exports, module) => {
+	Object.defineProperty(exports, "__esModule", { value: true });
+	var _extends$3 = Object.assign || function(target) {
+		for (var i$3 = 1; i$3 < arguments.length; i$3++) {
+			var source = arguments[i$3];
+			for (var key in source) if (Object.prototype.hasOwnProperty.call(source, key)) target[key] = source[key];
+		}
+		return target;
+	};
+	var _typeof$2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function(obj) {
+		return typeof obj;
+	} : function(obj) {
+		return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+	};
+	var _createClass$2 = function() {
+		function defineProperties$1(target, props) {
+			for (var i$3 = 0; i$3 < props.length; i$3++) {
+				var descriptor = props[i$3];
+				descriptor.enumerable = descriptor.enumerable || false;
+				descriptor.configurable = true;
+				if ("value" in descriptor) descriptor.writable = true;
+				Object.defineProperty(target, descriptor.key, descriptor);
+			}
+		}
+		return function(Constructor, protoProps, staticProps) {
+			if (protoProps) defineProperties$1(Constructor.prototype, protoProps);
+			if (staticProps) defineProperties$1(Constructor, staticProps);
+			return Constructor;
+		};
+	}();
+	var _react$1 = require_react();
+	var _propTypes2$1 = _interopRequireDefault$2(require_prop_types());
+	var focusManager = _interopRequireWildcard$1(require_focusManager());
+	var _scopeTab2 = _interopRequireDefault$2(require_scopeTab());
+	var ariaAppHider$1 = _interopRequireWildcard$1(require_ariaAppHider());
+	var classList = _interopRequireWildcard$1(require_classList());
+	var _safeHTMLElement$1 = require_safeHTMLElement();
+	var _safeHTMLElement2$1 = _interopRequireDefault$2(_safeHTMLElement$1);
+	var _portalOpenInstances2 = _interopRequireDefault$2(require_portalOpenInstances());
+	require_bodyTrap();
+	function _interopRequireWildcard$1(obj) {
+		if (obj && obj.__esModule) return obj;
+		else {
+			var newObj = {};
+			if (obj != null) {
+				for (var key in obj) if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key];
+			}
+			newObj.default = obj;
+			return newObj;
+		}
+	}
+	function _interopRequireDefault$2(obj) {
+		return obj && obj.__esModule ? obj : { default: obj };
+	}
+	function _classCallCheck$2(instance, Constructor) {
+		if (!(instance instanceof Constructor)) throw new TypeError("Cannot call a class as a function");
+	}
+	function _possibleConstructorReturn$2(self$1, call$2) {
+		if (!self$1) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+		return call$2 && (typeof call$2 === "object" || typeof call$2 === "function") ? call$2 : self$1;
+	}
+	function _inherits$2(subClass, superClass) {
+		if (typeof superClass !== "function" && superClass !== null) throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
+		subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: {
+			value: subClass,
+			enumerable: false,
+			writable: true,
+			configurable: true
+		} });
+		if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+	}
+	var CLASS_NAMES = {
+		overlay: "ReactModal__Overlay",
+		content: "ReactModal__Content"
+	};
+	var isTabKey = function isTabKey$1(event) {
+		return event.code === "Tab" || event.keyCode === 9;
+	};
+	var isEscKey = function isEscKey$1(event) {
+		return event.code === "Escape" || event.keyCode === 27;
+	};
+	var ariaHiddenInstances = 0;
+	var ModalPortal = function(_Component) {
+		_inherits$2(ModalPortal$1, _Component);
+		function ModalPortal$1(props) {
+			_classCallCheck$2(this, ModalPortal$1);
+			var _this = _possibleConstructorReturn$2(this, (ModalPortal$1.__proto__ || Object.getPrototypeOf(ModalPortal$1)).call(this, props));
+			_this.setOverlayRef = function(overlay) {
+				_this.overlay = overlay;
+				_this.props.overlayRef && _this.props.overlayRef(overlay);
+			};
+			_this.setContentRef = function(content) {
+				_this.content = content;
+				_this.props.contentRef && _this.props.contentRef(content);
+			};
+			_this.afterClose = function() {
+				var _this$props = _this.props, appElement = _this$props.appElement, ariaHideApp = _this$props.ariaHideApp, htmlOpenClassName = _this$props.htmlOpenClassName, bodyOpenClassName$1 = _this$props.bodyOpenClassName, parentSelector = _this$props.parentSelector;
+				var parentDocument = parentSelector && parentSelector().ownerDocument || document;
+				bodyOpenClassName$1 && classList.remove(parentDocument.body, bodyOpenClassName$1);
+				htmlOpenClassName && classList.remove(parentDocument.getElementsByTagName("html")[0], htmlOpenClassName);
+				if (ariaHideApp && ariaHiddenInstances > 0) {
+					ariaHiddenInstances -= 1;
+					if (ariaHiddenInstances === 0) ariaAppHider$1.show(appElement);
+				}
+				if (_this.props.shouldFocusAfterRender) if (_this.props.shouldReturnFocusAfterClose) {
+					focusManager.returnFocus(_this.props.preventScroll);
+					focusManager.teardownScopedFocus();
+				} else focusManager.popWithoutFocus();
+				if (_this.props.onAfterClose) _this.props.onAfterClose();
+				_portalOpenInstances2.default.deregister(_this);
+			};
+			_this.open = function() {
+				_this.beforeOpen();
+				if (_this.state.afterOpen && _this.state.beforeClose) {
+					clearTimeout(_this.closeTimer);
+					_this.setState({ beforeClose: false });
+				} else {
+					if (_this.props.shouldFocusAfterRender) {
+						focusManager.setupScopedFocus(_this.node);
+						focusManager.markForFocusLater();
+					}
+					_this.setState({ isOpen: true }, function() {
+						_this.openAnimationFrame = requestAnimationFrame(function() {
+							_this.setState({ afterOpen: true });
+							if (_this.props.isOpen && _this.props.onAfterOpen) _this.props.onAfterOpen({
+								overlayEl: _this.overlay,
+								contentEl: _this.content
+							});
+						});
+					});
+				}
+			};
+			_this.close = function() {
+				if (_this.props.closeTimeoutMS > 0) _this.closeWithTimeout();
+				else _this.closeWithoutTimeout();
+			};
+			_this.focusContent = function() {
+				return _this.content && !_this.contentHasFocus() && _this.content.focus({ preventScroll: true });
+			};
+			_this.closeWithTimeout = function() {
+				var closesAt = Date.now() + _this.props.closeTimeoutMS;
+				_this.setState({
+					beforeClose: true,
+					closesAt
+				}, function() {
+					_this.closeTimer = setTimeout(_this.closeWithoutTimeout, _this.state.closesAt - Date.now());
+				});
+			};
+			_this.closeWithoutTimeout = function() {
+				_this.setState({
+					beforeClose: false,
+					isOpen: false,
+					afterOpen: false,
+					closesAt: null
+				}, _this.afterClose);
+			};
+			_this.handleKeyDown = function(event) {
+				if (isTabKey(event)) (0, _scopeTab2.default)(_this.content, event);
+				if (_this.props.shouldCloseOnEsc && isEscKey(event)) {
+					event.stopPropagation();
+					_this.requestClose(event);
+				}
+			};
+			_this.handleOverlayOnClick = function(event) {
+				if (_this.shouldClose === null) _this.shouldClose = true;
+				if (_this.shouldClose && _this.props.shouldCloseOnOverlayClick) if (_this.ownerHandlesClose()) _this.requestClose(event);
+				else _this.focusContent();
+				_this.shouldClose = null;
+			};
+			_this.handleContentOnMouseUp = function() {
+				_this.shouldClose = false;
+			};
+			_this.handleOverlayOnMouseDown = function(event) {
+				if (!_this.props.shouldCloseOnOverlayClick && event.target == _this.overlay) event.preventDefault();
+			};
+			_this.handleContentOnClick = function() {
+				_this.shouldClose = false;
+			};
+			_this.handleContentOnMouseDown = function() {
+				_this.shouldClose = false;
+			};
+			_this.requestClose = function(event) {
+				return _this.ownerHandlesClose() && _this.props.onRequestClose(event);
+			};
+			_this.ownerHandlesClose = function() {
+				return _this.props.onRequestClose;
+			};
+			_this.shouldBeClosed = function() {
+				return !_this.state.isOpen && !_this.state.beforeClose;
+			};
+			_this.contentHasFocus = function() {
+				return document.activeElement === _this.content || _this.content.contains(document.activeElement);
+			};
+			_this.buildClassName = function(which, additional) {
+				var classNames$3 = (typeof additional === "undefined" ? "undefined" : _typeof$2(additional)) === "object" ? additional : {
+					base: CLASS_NAMES[which],
+					afterOpen: CLASS_NAMES[which] + "--after-open",
+					beforeClose: CLASS_NAMES[which] + "--before-close"
+				};
+				var className = classNames$3.base;
+				if (_this.state.afterOpen) className = className + " " + classNames$3.afterOpen;
+				if (_this.state.beforeClose) className = className + " " + classNames$3.beforeClose;
+				return typeof additional === "string" && additional ? className + " " + additional : className;
+			};
+			_this.attributesFromObject = function(prefix$3, items) {
+				return Object.keys(items).reduce(function(acc, name) {
+					acc[prefix$3 + "-" + name] = items[name];
+					return acc;
+				}, {});
+			};
+			_this.state = {
+				afterOpen: false,
+				beforeClose: false
+			};
+			_this.shouldClose = null;
+			_this.moveFromContentToOverlay = null;
+			return _this;
+		}
+		_createClass$2(ModalPortal$1, [
+			{
+				key: "componentDidMount",
+				value: function componentDidMount() {
+					if (this.props.isOpen) this.open();
+				}
+			},
+			{
+				key: "componentDidUpdate",
+				value: function componentDidUpdate(prevProps, prevState) {
+					if (this.props.isOpen && !prevProps.isOpen) this.open();
+					else if (!this.props.isOpen && prevProps.isOpen) this.close();
+					if (this.props.shouldFocusAfterRender && this.state.isOpen && !prevState.isOpen) this.focusContent();
+				}
+			},
+			{
+				key: "componentWillUnmount",
+				value: function componentWillUnmount() {
+					if (this.state.isOpen) this.afterClose();
+					clearTimeout(this.closeTimer);
+					cancelAnimationFrame(this.openAnimationFrame);
+				}
+			},
+			{
+				key: "beforeOpen",
+				value: function beforeOpen() {
+					var _props = this.props, appElement = _props.appElement, ariaHideApp = _props.ariaHideApp, htmlOpenClassName = _props.htmlOpenClassName, bodyOpenClassName$1 = _props.bodyOpenClassName, parentSelector = _props.parentSelector;
+					var parentDocument = parentSelector && parentSelector().ownerDocument || document;
+					bodyOpenClassName$1 && classList.add(parentDocument.body, bodyOpenClassName$1);
+					htmlOpenClassName && classList.add(parentDocument.getElementsByTagName("html")[0], htmlOpenClassName);
+					if (ariaHideApp) {
+						ariaHiddenInstances += 1;
+						ariaAppHider$1.hide(appElement);
+					}
+					_portalOpenInstances2.default.register(this);
+				}
+			},
+			{
+				key: "render",
+				value: function render() {
+					var _props2 = this.props, id$2 = _props2.id, className = _props2.className, overlayClassName = _props2.overlayClassName, defaultStyles$1 = _props2.defaultStyles, children = _props2.children;
+					var contentStyles = className ? {} : defaultStyles$1.content;
+					var overlayStyles = overlayClassName ? {} : defaultStyles$1.overlay;
+					if (this.shouldBeClosed()) return null;
+					var overlayProps = {
+						ref: this.setOverlayRef,
+						className: this.buildClassName("overlay", overlayClassName),
+						style: _extends$3({}, overlayStyles, this.props.style.overlay),
+						onClick: this.handleOverlayOnClick,
+						onMouseDown: this.handleOverlayOnMouseDown
+					};
+					var contentProps = _extends$3({
+						id: id$2,
+						ref: this.setContentRef,
+						style: _extends$3({}, contentStyles, this.props.style.content),
+						className: this.buildClassName("content", className),
+						tabIndex: "-1",
+						onKeyDown: this.handleKeyDown,
+						onMouseDown: this.handleContentOnMouseDown,
+						onMouseUp: this.handleContentOnMouseUp,
+						onClick: this.handleContentOnClick,
+						role: this.props.role,
+						"aria-label": this.props.contentLabel
+					}, this.attributesFromObject("aria", _extends$3({ modal: true }, this.props.aria)), this.attributesFromObject("data", this.props.data || {}), { "data-testid": this.props.testId });
+					var contentElement = this.props.contentElement(contentProps, children);
+					return this.props.overlayElement(overlayProps, contentElement);
+				}
+			}
+		]);
+		return ModalPortal$1;
+	}(_react$1.Component);
+	ModalPortal.defaultProps = {
+		style: {
+			overlay: {},
+			content: {}
+		},
+		defaultStyles: {}
+	};
+	ModalPortal.propTypes = {
+		isOpen: _propTypes2$1.default.bool.isRequired,
+		defaultStyles: _propTypes2$1.default.shape({
+			content: _propTypes2$1.default.object,
+			overlay: _propTypes2$1.default.object
+		}),
+		style: _propTypes2$1.default.shape({
+			content: _propTypes2$1.default.object,
+			overlay: _propTypes2$1.default.object
+		}),
+		className: _propTypes2$1.default.oneOfType([_propTypes2$1.default.string, _propTypes2$1.default.object]),
+		overlayClassName: _propTypes2$1.default.oneOfType([_propTypes2$1.default.string, _propTypes2$1.default.object]),
+		parentSelector: _propTypes2$1.default.func,
+		bodyOpenClassName: _propTypes2$1.default.string,
+		htmlOpenClassName: _propTypes2$1.default.string,
+		ariaHideApp: _propTypes2$1.default.bool,
+		appElement: _propTypes2$1.default.oneOfType([
+			_propTypes2$1.default.instanceOf(_safeHTMLElement2$1.default),
+			_propTypes2$1.default.instanceOf(_safeHTMLElement$1.SafeHTMLCollection),
+			_propTypes2$1.default.instanceOf(_safeHTMLElement$1.SafeNodeList),
+			_propTypes2$1.default.arrayOf(_propTypes2$1.default.instanceOf(_safeHTMLElement2$1.default))
+		]),
+		onAfterOpen: _propTypes2$1.default.func,
+		onAfterClose: _propTypes2$1.default.func,
+		onRequestClose: _propTypes2$1.default.func,
+		closeTimeoutMS: _propTypes2$1.default.number,
+		shouldFocusAfterRender: _propTypes2$1.default.bool,
+		shouldCloseOnOverlayClick: _propTypes2$1.default.bool,
+		shouldReturnFocusAfterClose: _propTypes2$1.default.bool,
+		preventScroll: _propTypes2$1.default.bool,
+		role: _propTypes2$1.default.string,
+		contentLabel: _propTypes2$1.default.string,
+		aria: _propTypes2$1.default.object,
+		data: _propTypes2$1.default.object,
+		children: _propTypes2$1.default.node,
+		shouldCloseOnEsc: _propTypes2$1.default.bool,
+		overlayRef: _propTypes2$1.default.func,
+		contentRef: _propTypes2$1.default.func,
+		id: _propTypes2$1.default.string,
+		overlayElement: _propTypes2$1.default.func,
+		contentElement: _propTypes2$1.default.func,
+		testId: _propTypes2$1.default.string
+	};
+	exports.default = ModalPortal;
+	module.exports = exports["default"];
+}));
+var react_lifecycles_compat_es_exports = /* @__PURE__ */ __export({ polyfill: () => polyfill });
+function componentWillMount() {
+	var state = this.constructor.getDerivedStateFromProps(this.props, this.state);
+	if (state !== null && state !== void 0) this.setState(state);
+}
+function componentWillReceiveProps(nextProps) {
+	function updater(prevState) {
+		var state = this.constructor.getDerivedStateFromProps(nextProps, prevState);
+		return state !== null && state !== void 0 ? state : null;
+	}
+	this.setState(updater.bind(this));
+}
+function componentWillUpdate(nextProps, nextState) {
+	try {
+		var prevProps = this.props;
+		var prevState = this.state;
+		this.props = nextProps;
+		this.state = nextState;
+		this.__reactInternalSnapshotFlag = true;
+		this.__reactInternalSnapshot = this.getSnapshotBeforeUpdate(prevProps, prevState);
+	} finally {
+		this.props = prevProps;
+		this.state = prevState;
+	}
+}
+function polyfill(Component$3) {
+	var prototype = Component$3.prototype;
+	if (!prototype || !prototype.isReactComponent) throw new Error("Can only polyfill class components");
+	if (typeof Component$3.getDerivedStateFromProps !== "function" && typeof prototype.getSnapshotBeforeUpdate !== "function") return Component$3;
+	var foundWillMountName = null;
+	var foundWillReceivePropsName = null;
+	var foundWillUpdateName = null;
+	if (typeof prototype.componentWillMount === "function") foundWillMountName = "componentWillMount";
+	else if (typeof prototype.UNSAFE_componentWillMount === "function") foundWillMountName = "UNSAFE_componentWillMount";
+	if (typeof prototype.componentWillReceiveProps === "function") foundWillReceivePropsName = "componentWillReceiveProps";
+	else if (typeof prototype.UNSAFE_componentWillReceiveProps === "function") foundWillReceivePropsName = "UNSAFE_componentWillReceiveProps";
+	if (typeof prototype.componentWillUpdate === "function") foundWillUpdateName = "componentWillUpdate";
+	else if (typeof prototype.UNSAFE_componentWillUpdate === "function") foundWillUpdateName = "UNSAFE_componentWillUpdate";
+	if (foundWillMountName !== null || foundWillReceivePropsName !== null || foundWillUpdateName !== null) {
+		var componentName = Component$3.displayName || Component$3.name;
+		var newApiName = typeof Component$3.getDerivedStateFromProps === "function" ? "getDerivedStateFromProps()" : "getSnapshotBeforeUpdate()";
+		throw Error("Unsafe legacy lifecycles will not be called for components using new component APIs.\n\n" + componentName + " uses " + newApiName + " but also contains the following legacy lifecycles:" + (foundWillMountName !== null ? "\n  " + foundWillMountName : "") + (foundWillReceivePropsName !== null ? "\n  " + foundWillReceivePropsName : "") + (foundWillUpdateName !== null ? "\n  " + foundWillUpdateName : "") + "\n\nThe above lifecycles should be removed. Learn more about this warning here:\nhttps://fb.me/react-async-component-lifecycle-hooks");
+	}
+	if (typeof Component$3.getDerivedStateFromProps === "function") {
+		prototype.componentWillMount = componentWillMount;
+		prototype.componentWillReceiveProps = componentWillReceiveProps;
+	}
+	if (typeof prototype.getSnapshotBeforeUpdate === "function") {
+		if (typeof prototype.componentDidUpdate !== "function") throw new Error("Cannot polyfill getSnapshotBeforeUpdate() for components that do not define componentDidUpdate() on the prototype");
+		prototype.componentWillUpdate = componentWillUpdate;
+		var componentDidUpdate = prototype.componentDidUpdate;
+		prototype.componentDidUpdate = function componentDidUpdatePolyfill(prevProps, prevState, maybeSnapshot) {
+			var snapshot = this.__reactInternalSnapshotFlag ? this.__reactInternalSnapshot : maybeSnapshot;
+			componentDidUpdate.call(this, prevProps, prevState, snapshot);
+		};
+	}
+	return Component$3;
+}
+var init_react_lifecycles_compat_es = __esmMin((() => {
+	componentWillMount.__suppressDeprecationWarning = true;
+	componentWillReceiveProps.__suppressDeprecationWarning = true;
+	componentWillUpdate.__suppressDeprecationWarning = true;
+}));
+var require_Modal = /* @__PURE__ */ __commonJSMin(((exports) => {
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.bodyOpenClassName = exports.portalClassName = void 0;
+	var _extends$2 = Object.assign || function(target) {
+		for (var i$3 = 1; i$3 < arguments.length; i$3++) {
+			var source = arguments[i$3];
+			for (var key in source) if (Object.prototype.hasOwnProperty.call(source, key)) target[key] = source[key];
+		}
+		return target;
+	};
+	var _createClass$1 = function() {
+		function defineProperties$1(target, props) {
+			for (var i$3 = 0; i$3 < props.length; i$3++) {
+				var descriptor = props[i$3];
+				descriptor.enumerable = descriptor.enumerable || false;
+				descriptor.configurable = true;
+				if ("value" in descriptor) descriptor.writable = true;
+				Object.defineProperty(target, descriptor.key, descriptor);
+			}
+		}
+		return function(Constructor, protoProps, staticProps) {
+			if (protoProps) defineProperties$1(Constructor.prototype, protoProps);
+			if (staticProps) defineProperties$1(Constructor, staticProps);
+			return Constructor;
+		};
+	}();
+	var _react = require_react();
+	var _react2 = _interopRequireDefault$1(_react);
+	var _reactDom2 = _interopRequireDefault$1(require_react_dom());
+	var _propTypes2 = _interopRequireDefault$1(require_prop_types());
+	var _ModalPortal2 = _interopRequireDefault$1(require_ModalPortal());
+	var ariaAppHider = _interopRequireWildcard(require_ariaAppHider());
+	var _safeHTMLElement = require_safeHTMLElement();
+	var _safeHTMLElement2 = _interopRequireDefault$1(_safeHTMLElement);
+	var _reactLifecyclesCompat = (init_react_lifecycles_compat_es(), __toCommonJS(react_lifecycles_compat_es_exports));
+	function _interopRequireWildcard(obj) {
+		if (obj && obj.__esModule) return obj;
+		else {
+			var newObj = {};
+			if (obj != null) {
+				for (var key in obj) if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key];
+			}
+			newObj.default = obj;
+			return newObj;
+		}
+	}
+	function _interopRequireDefault$1(obj) {
+		return obj && obj.__esModule ? obj : { default: obj };
+	}
+	function _classCallCheck$1(instance, Constructor) {
+		if (!(instance instanceof Constructor)) throw new TypeError("Cannot call a class as a function");
+	}
+	function _possibleConstructorReturn$1(self$1, call$2) {
+		if (!self$1) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+		return call$2 && (typeof call$2 === "object" || typeof call$2 === "function") ? call$2 : self$1;
+	}
+	function _inherits$1(subClass, superClass) {
+		if (typeof superClass !== "function" && superClass !== null) throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
+		subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: {
+			value: subClass,
+			enumerable: false,
+			writable: true,
+			configurable: true
+		} });
+		if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+	}
+	var portalClassName = exports.portalClassName = "ReactModalPortal";
+	var bodyOpenClassName = exports.bodyOpenClassName = "ReactModal__Body--open";
+	var isReact16 = _safeHTMLElement.canUseDOM && _reactDom2.default.createPortal !== void 0;
+	var createHTMLElement = function createHTMLElement$1(name) {
+		return document.createElement(name);
+	};
+	var getCreatePortal = function getCreatePortal$1() {
+		return isReact16 ? _reactDom2.default.createPortal : _reactDom2.default.unstable_renderSubtreeIntoContainer;
+	};
+	function getParentElement(parentSelector) {
+		return parentSelector();
+	}
+	var Modal$1 = function(_Component) {
+		_inherits$1(Modal$3, _Component);
+		function Modal$3() {
+			var _ref$1;
+			var _temp, _this, _ret;
+			_classCallCheck$1(this, Modal$3);
+			for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) args[_key] = arguments[_key];
+			return _ret = (_temp = (_this = _possibleConstructorReturn$1(this, (_ref$1 = Modal$3.__proto__ || Object.getPrototypeOf(Modal$3)).call.apply(_ref$1, [this].concat(args))), _this), _this.removePortal = function() {
+				!isReact16 && _reactDom2.default.unmountComponentAtNode(_this.node);
+				var parent = getParentElement(_this.props.parentSelector);
+				if (parent && parent.contains(_this.node)) parent.removeChild(_this.node);
+				else console.warn("React-Modal: \"parentSelector\" prop did not returned any DOM element. Make sure that the parent element is unmounted to avoid any memory leaks.");
+			}, _this.portalRef = function(ref) {
+				_this.portal = ref;
+			}, _this.renderPortal = function(props) {
+				var portal = getCreatePortal()(_this, _react2.default.createElement(_ModalPortal2.default, _extends$2({ defaultStyles: Modal$3.defaultStyles }, props)), _this.node);
+				_this.portalRef(portal);
+			}, _temp), _possibleConstructorReturn$1(_this, _ret);
+		}
+		_createClass$1(Modal$3, [
+			{
+				key: "componentDidMount",
+				value: function componentDidMount() {
+					if (!_safeHTMLElement.canUseDOM) return;
+					if (!isReact16) this.node = createHTMLElement("div");
+					this.node.className = this.props.portalClassName;
+					getParentElement(this.props.parentSelector).appendChild(this.node);
+					!isReact16 && this.renderPortal(this.props);
+				}
+			},
+			{
+				key: "getSnapshotBeforeUpdate",
+				value: function getSnapshotBeforeUpdate(prevProps) {
+					return {
+						prevParent: getParentElement(prevProps.parentSelector),
+						nextParent: getParentElement(this.props.parentSelector)
+					};
+				}
+			},
+			{
+				key: "componentDidUpdate",
+				value: function componentDidUpdate(prevProps, _$1, snapshot) {
+					if (!_safeHTMLElement.canUseDOM) return;
+					var _props = this.props, isOpen = _props.isOpen, portalClassName$1 = _props.portalClassName;
+					if (prevProps.portalClassName !== portalClassName$1) this.node.className = portalClassName$1;
+					var prevParent = snapshot.prevParent, nextParent = snapshot.nextParent;
+					if (nextParent !== prevParent) {
+						prevParent.removeChild(this.node);
+						nextParent.appendChild(this.node);
+					}
+					if (!prevProps.isOpen && !isOpen) return;
+					!isReact16 && this.renderPortal(this.props);
+				}
+			},
+			{
+				key: "componentWillUnmount",
+				value: function componentWillUnmount() {
+					if (!_safeHTMLElement.canUseDOM || !this.node || !this.portal) return;
+					var state = this.portal.state;
+					var now$1 = Date.now();
+					var closesAt = state.isOpen && this.props.closeTimeoutMS && (state.closesAt || now$1 + this.props.closeTimeoutMS);
+					if (closesAt) {
+						if (!state.beforeClose) this.portal.closeWithTimeout();
+						setTimeout(this.removePortal, closesAt - now$1);
+					} else this.removePortal();
+				}
+			},
+			{
+				key: "render",
+				value: function render() {
+					if (!_safeHTMLElement.canUseDOM || !isReact16) return null;
+					if (!this.node && isReact16) this.node = createHTMLElement("div");
+					return getCreatePortal()(_react2.default.createElement(_ModalPortal2.default, _extends$2({
+						ref: this.portalRef,
+						defaultStyles: Modal$3.defaultStyles
+					}, this.props)), this.node);
+				}
+			}
+		], [{
+			key: "setAppElement",
+			value: function setAppElement(element) {
+				ariaAppHider.setElement(element);
+			}
+		}]);
+		return Modal$3;
+	}(_react.Component);
+	Modal$1.propTypes = {
+		isOpen: _propTypes2.default.bool.isRequired,
+		style: _propTypes2.default.shape({
+			content: _propTypes2.default.object,
+			overlay: _propTypes2.default.object
+		}),
+		portalClassName: _propTypes2.default.string,
+		bodyOpenClassName: _propTypes2.default.string,
+		htmlOpenClassName: _propTypes2.default.string,
+		className: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.shape({
+			base: _propTypes2.default.string.isRequired,
+			afterOpen: _propTypes2.default.string.isRequired,
+			beforeClose: _propTypes2.default.string.isRequired
+		})]),
+		overlayClassName: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.shape({
+			base: _propTypes2.default.string.isRequired,
+			afterOpen: _propTypes2.default.string.isRequired,
+			beforeClose: _propTypes2.default.string.isRequired
+		})]),
+		appElement: _propTypes2.default.oneOfType([
+			_propTypes2.default.instanceOf(_safeHTMLElement2.default),
+			_propTypes2.default.instanceOf(_safeHTMLElement.SafeHTMLCollection),
+			_propTypes2.default.instanceOf(_safeHTMLElement.SafeNodeList),
+			_propTypes2.default.arrayOf(_propTypes2.default.instanceOf(_safeHTMLElement2.default))
+		]),
+		onAfterOpen: _propTypes2.default.func,
+		onRequestClose: _propTypes2.default.func,
+		closeTimeoutMS: _propTypes2.default.number,
+		ariaHideApp: _propTypes2.default.bool,
+		shouldFocusAfterRender: _propTypes2.default.bool,
+		shouldCloseOnOverlayClick: _propTypes2.default.bool,
+		shouldReturnFocusAfterClose: _propTypes2.default.bool,
+		preventScroll: _propTypes2.default.bool,
+		parentSelector: _propTypes2.default.func,
+		aria: _propTypes2.default.object,
+		data: _propTypes2.default.object,
+		role: _propTypes2.default.string,
+		contentLabel: _propTypes2.default.string,
+		shouldCloseOnEsc: _propTypes2.default.bool,
+		overlayRef: _propTypes2.default.func,
+		contentRef: _propTypes2.default.func,
+		id: _propTypes2.default.string,
+		overlayElement: _propTypes2.default.func,
+		contentElement: _propTypes2.default.func
+	};
+	Modal$1.defaultProps = {
+		isOpen: false,
+		portalClassName,
+		bodyOpenClassName,
+		role: "dialog",
+		ariaHideApp: true,
+		closeTimeoutMS: 0,
+		shouldFocusAfterRender: true,
+		shouldCloseOnEsc: true,
+		shouldCloseOnOverlayClick: true,
+		shouldReturnFocusAfterClose: true,
+		preventScroll: false,
+		parentSelector: function parentSelector() {
+			return document.body;
+		},
+		overlayElement: function overlayElement(props, contentEl) {
+			return _react2.default.createElement("div", props, contentEl);
+		},
+		contentElement: function contentElement(props, children) {
+			return _react2.default.createElement("div", props, children);
+		}
+	};
+	Modal$1.defaultStyles = {
+		overlay: {
+			position: "fixed",
+			top: 0,
+			left: 0,
+			right: 0,
+			bottom: 0,
+			backgroundColor: "rgba(255, 255, 255, 0.75)"
+		},
+		content: {
+			position: "absolute",
+			top: "40px",
+			left: "40px",
+			right: "40px",
+			bottom: "40px",
+			border: "1px solid #ccc",
+			background: "#fff",
+			overflow: "auto",
+			WebkitOverflowScrolling: "touch",
+			borderRadius: "4px",
+			outline: "none",
+			padding: "20px"
+		}
+	};
+	(0, _reactLifecyclesCompat.polyfill)(Modal$1);
+	exports.default = Modal$1;
+}));
+var import_lib = /* @__PURE__ */ __toESM((/* @__PURE__ */ __commonJSMin(((exports, module) => {
+	Object.defineProperty(exports, "__esModule", { value: true });
+	var _Modal2 = _interopRequireDefault(require_Modal());
+	function _interopRequireDefault(obj) {
+		return obj && obj.__esModule ? obj : { default: obj };
+	}
+	exports.default = _Modal2.default;
+	module.exports = exports["default"];
+})))(), 1);
+var import_classnames$24 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+import_lib.default.setAppElement("#root");
+import_lib.default.defaultStyles = {};
+var TRANSITION_DURATION = 300;
+var Modal = ({ isOpen, setIsOpen, isObligatory = false, reset = () => {}, className, children }) => {
+	const [isScrollable, setIsScrollable] = (0, import_react.useState)(false);
+	(0, import_react.useEffect)(() => {
+		if (!isOpen && reset) setTimeout(reset, TRANSITION_DURATION);
+	}, [isOpen]);
+	const closeModal = () => {
+		if (isObligatory) return;
+		setIsOpen(false);
+	};
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_lib.default, {
+		className: (0, import_classnames$24.default)(isScrollable && "_scrollable"),
+		isOpen,
+		shouldCloseOnOverlayClick: false,
+		onRequestClose: closeModal,
+		closeTimeoutMS: TRANSITION_DURATION,
+		parentSelector: () => document.querySelector("#ModalContainer"),
+		onAfterOpen: (data) => {
+			const { contentEl } = data;
+			const modalHeight = contentEl.scrollHeight;
+			const viewportHeight = window.innerHeight;
+			if (modalHeight + 100 > viewportHeight) setIsScrollable(true);
+			else setIsScrollable(false);
+		},
+		overlayElement: (props, contentElement) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			...props,
+			onMouseDown: closeModal,
+			children: contentElement
+		}),
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: (0, import_classnames$24.default)(className, "ReactModal__box", "box"),
+			onMouseDown: (e$2) => e$2.stopPropagation(),
+			children
+		}), !isObligatory && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+			className: "ReactModal__close-btn",
+			onMouseDown: (e$2) => e$2.stopPropagation(),
+			onClick: closeModal
+		})]
+	});
+};
+var Modal_default = Modal;
+var confirm_default = "data:image/svg+xml,%3csvg%20width='40'%20height='40'%20viewBox='0%200%2040%2040'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_284_1636)'%3e%3ccircle%20cx='20'%20cy='20'%20r='20'%20fill='%23112540'/%3e%3cpath%20d='M11%2019.9333L17%2026L29%2013'%20stroke='%2309AF8E'%20stroke-width='3'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_284_1636'%3e%3crect%20width='40'%20height='40'%20fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e";
+var error_default = "data:image/svg+xml,%3csvg%20width='40'%20height='40'%20viewBox='0%200%2040%2040'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_1129_5414)'%3e%3ccircle%20cx='20'%20cy='20'%20r='20'%20fill='%23361536'/%3e%3cpath%20d='M21.4969%2020L25.6868%2015.8101C25.8856%2015.6116%2025.9975%2015.3422%2025.9977%2015.0613C25.998%2014.7803%2025.8866%2014.5107%2025.6881%2014.3119C25.4896%2014.113%2025.2202%2014.0012%2024.9393%2014.0009C24.6583%2014.0007%2024.3887%2014.1121%2024.1899%2014.3106L20%2018.5005L15.8101%2014.3106C15.6113%2014.1117%2015.3416%2014%2015.0603%2014C14.7791%2014%2014.5094%2014.1117%2014.3106%2014.3106C14.1117%2014.5094%2014%2014.7791%2014%2015.0603C14%2015.3416%2014.1117%2015.6113%2014.3106%2015.8101L18.5005%2020L14.3106%2024.1899C14.1117%2024.3887%2014%2024.6584%2014%2024.9397C14%2025.2209%2014.1117%2025.4906%2014.3106%2025.6894C14.5094%2025.8883%2014.7791%2026%2015.0603%2026C15.3416%2026%2015.6113%2025.8883%2015.8101%2025.6894L20%2021.4995L24.1899%2025.6894C24.3887%2025.8883%2024.6584%2026%2024.9397%2026C25.2209%2026%2025.4906%2025.8883%2025.6894%2025.6894C25.8883%2025.4906%2026%2025.2209%2026%2024.9397C26%2024.6584%2025.8883%2024.3887%2025.6894%2024.1899L21.4969%2020Z'%20fill='%23D8563C'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_1129_5414'%3e%3crect%20width='40'%20height='40'%20fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e";
+var tick_default = "data:image/svg+xml,%3csvg%20width='12'%20height='10'%20viewBox='0%200%2012%2010'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M1%205.26667L4.33333%209L11%201'%20stroke='white'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3c/svg%3e";
+var import_classnames$23 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var TxModal = ({ isOpen, setIsOpen, reset = () => {}, txResult, setTxResult, className, children }) => {
+	const closeModal = () => setIsOpen(false);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Modal_default, {
+		className,
+		isOpen,
+		setIsOpen,
+		reset: () => {
+			if (!isUndefined(txResult)) setTxResult(void 0);
+			reset();
+		},
+		children: isUndefined(txResult) ? children : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TxResult, {
+			result: txResult,
+			closeModal
+		})
+	});
+};
+var TxResult = ({ result, closeModal }) => {
+	const chainId = useChainId();
+	const { title, text, hash: hash$3, error } = result;
+	const txUrl = hash$3 ? getTxUrl(chainId, hash$3) : "";
+	const hashStr = hash$3 ? hash$3.slice(0, 5) + "..." + hash$3.slice(-4) : "";
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: (0, import_classnames$23.default)("Modal__tx-result", error && "_error"),
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "Modal__tx-result-icon",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "_ripple" }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "_ripple" }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+						src: error ? error_default : confirm_default,
+						alt: error ? "red error icon" : "green confirmed icon"
+					})
+				]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
+				className: "Modal__tx-result-title",
+				children: title
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "Modal__tx-result-text text",
+				children: text
+			}),
+			hash$3 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "Modal__tx-result-url",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+					className: "text",
+					children: "Tx:"
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+					href: txUrl,
+					target: "_blank",
+					rel: "noreferrer",
+					children: hashStr
+				})]
+			}),
+			error ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CopyButton, { error }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(BackButton, { closeModal })
+		]
+	});
+};
+var BackButton = ({ closeModal }) => {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
+		className: "Modal__tx-result-button",
+		onClick: closeModal,
+		children: "Back to the Dashboard"
+	});
+};
+var CopyButton = ({ error }) => {
+	const [isCopied, setIsCopied] = (0, import_react.useState)(false);
+	const copy$4 = () => {
+		navigator.clipboard.writeText(error);
+	};
+	const handleClick = () => {
+		copy$4();
+		setIsCopied(true);
+		setTimeout(() => setIsCopied(false), 2 * SECOND);
+	};
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
+		className: (0, import_classnames$23.default)("Modal__tx-result-button", isCopied && "_copied"),
+		onClick: handleClick,
+		children: isCopied ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: ["Copied", /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+			src: tick_default,
+			alt: "tick icon"
+		})] }) : "Copy to clipboard"
+	});
+};
+var TxModal_default = TxModal;
+var import_classnames$22 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var List = ({ type = "tick", children }) => {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("ul", {
+		className: (0, import_classnames$22.default)("List", `_${type}`),
+		children
+	});
+};
+var List_default = List;
+var CreateAccountModal = ({ isOpen, setIsOpen }) => {
+	const { createAccount } = useProtocolActions_default();
+	const [isSubmitting, setIsSubmitting] = (0, import_react.useState)(false);
+	const [txResult, setTxResult] = (0, import_react.useState)(void 0);
+	const txSuccessData = {
+		title: "Account Created!",
+		text: "You can now explore all the features of NoRekt Trading"
+	};
+	const txErrorData = {
+		title: "Action failed",
+		text: "Something went wrong while creating your account"
+	};
+	const getError = () => {
+		if (isSubmitting) return ButtonLabels.SUBMITTING;
+	};
+	const getBtnText = () => {
+		return getError() ?? "Create account";
+	};
+	const handleClick = () => {
+		sendTx_default(createAccount(), "Created Lending Account", setIsSubmitting, () => setTxResult({ ...txSuccessData }), (e$2) => setTxResult({
+			...txErrorData,
+			error: e$2
+		}));
+	};
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(TxModal_default, {
+		className: "CreateAccountModal",
+		isOpen,
+		setIsOpen,
+		txResult,
+		setTxResult,
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { children: "Create account" }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "CreateAccountModal__info",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "CreateAccountModal__info-title",
+					children: "What you can do with a lending account:"
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(List_default, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("li", { children: "Borrow USDC at up to 90% LTV using ETH as collateral" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("li", { children: "Avoid liquidation risk by using NoRekt protection" })] })]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
+				className: "CreateAccountModal__button",
+				isDisabled: getError(),
+				onClick: handleClick,
+				children: getBtnText()
+			})
+		]
+	});
+};
+var CreateAccountModal_default = CreateAccountModal;
+var import_classnames$21 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var Input$2 = ({ setValue, valueStrState = void 0, maxData = void 0, placeholder = "0", isDisabled = false }) => {
+	const [valueStr, setValueStr] = valueStrState ?? (0, import_react.useState)("");
+	const [isFocused, setIsFocused] = (0, import_react.useState)(false);
+	const inputRef = (0, import_react.useRef)(null);
+	(0, import_react.useEffect)(() => {
+		setValue(bigIntFromInputString(valueStr));
+	}, [valueStr]);
+	const focusInput = () => {
+		inputRef.current?.focus();
+	};
+	const setMaxValue = () => {
+		setValueStr(inputStringFromBigInt(maxData.value));
+	};
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: (0, import_classnames$21.default)("Input", isFocused && "_focused"),
+		onClick: focusInput,
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputNative, {
+			ref: inputRef,
+			valueStr,
+			setValueStr,
+			maxValue: maxData?.value,
+			placeholder,
+			isDisabled,
+			isFocused,
+			setIsFocused
+		}), !isUndefined(maxData) && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "Input__max",
+			children: maxData.onlyTokenShown ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenIcon_default, {
+				className: "Input__max-icon",
+				symbol: maxData.token
+			}) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
+				maxData.title && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "Input__max-title",
+					children: maxData.title
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "Input__max-value",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmount_default, {
+						value: maxData.value,
+						symbol: maxData.token,
+						showsUsd: maxData.showsUsd ?? true
+					})
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
+					className: "Input__max-button",
+					size: "micro",
+					onClick: setMaxValue,
+					children: "Max"
+				})
+			] })
+		})]
+	});
+};
+var InputNative = (0, import_react.forwardRef)(function InputNative$1({ valueStr, setValueStr, maxValue: maxValue$1, placeholder, isDisabled, isFocused, setIsFocused }, ref) {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
+		autoFocus: isFocused,
+		type: "text",
+		ref,
+		value: valueStr,
+		disabled: isDisabled,
+		placeholder,
+		onChange: (e$2) => {
+			const inputStr = inputStringFromStr(e$2.target.value);
+			const value = bigIntFromInputString(inputStr);
+			if (!isUndefined(maxValue$1) && value > maxValue$1) setValueStr(inputStringFromBigInt(maxValue$1));
+			else setValueStr(inputStr);
+		},
+		onFocus: () => setIsFocused(true),
+		onBlur: () => setIsFocused(false)
+	});
+});
+var Input_default = Input$2;
+var BalanceInput = ({ setValue, title = "Amount" }) => {
+	const balanceETH = useBalanceETH();
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "BalanceInput",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "BalanceInput__title",
+			children: title
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "BalanceInput__input",
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Input_default, {
+				maxData: {
+					title: "Balance",
+					token: "ETH",
+					value: balanceETH
+				},
+				setValue
+			})
+		})]
+	});
+};
+var BalanceInput_default = BalanceInput;
 var ArrowChangeSvg = () => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
 		className: "ArrowChangeSvg",
@@ -79502,7 +80460,8 @@ var Ltv = {
 	queryLtvAfterSupply,
 	queryLtvAfterWithdraw,
 	calcLtvAfterBorrow,
-	calcLtvAfterRepay
+	calcLtvAfterRepay,
+	queryLtvAfterProtect
 };
 async function queryLtvAfterSupply(account, contracts$1, depositAmount) {
 	const depositAmountUSDC = await swapEthToUsdc(contracts$1, depositAmount);
@@ -79517,6 +80476,14 @@ function calcLtvAfterBorrow(account, borrowAmount) {
 }
 function calcLtvAfterRepay(account, repayAmount) {
 	return _calcLtv(account.value - repayAmount, account.debt - repayAmount);
+}
+async function queryLtvAfterProtect(account, cost, paymentMethod) {
+	let estAccountValue;
+	switch (paymentMethod) {
+		case PaymentMethods.COLLATERAL: estAccountValue = account.value - cost;
+		case PaymentMethods.WALLET: estAccountValue = account.value;
+	}
+	return multiplyBigInts(account.ltv, divBigInts(estAccountValue, account.value));
 }
 var _calcLtv = (balance, debt) => {
 	if (debt <= 0n) return maxUint256;
@@ -79571,13 +80538,6 @@ var LtvChange = ({ estLtv }) => {
 	});
 };
 var LtvChange_default = LtvChange;
-var Muted = ({ children }) => {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: "Muted",
-		children: children ?? "–"
-	});
-};
-var Muted_default = Muted;
 var import_classnames$18 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var ModalMetrics = ({ className, children }) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
@@ -79610,8 +80570,15 @@ var Button = ({ children }) => {
 		children
 	});
 };
+var Buttons$1 = ({ children }) => {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: "TxInputModal__buttons",
+		children
+	});
+};
 TxInputModal.Input = Input;
 TxInputModal.Button = Button;
+TxInputModal.Buttons = Buttons$1;
 var TxInputModal_default = TxInputModal;
 function getWindowDimensions() {
 	const { innerWidth: width, innerHeight: height } = window;
@@ -79747,14 +80714,6 @@ var SupplyModal = ({ isOpen, setIsOpen }) => {
 	});
 };
 var SupplyModal_default = SupplyModal;
-var import_classnames$16 = /* @__PURE__ */ __toESM(require_classnames(), 1);
-var Field = ({ children, className }) => {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: (0, import_classnames$16.default)("Field", className),
-		children
-	});
-};
-var Field_default = Field;
 var CollateralStr = () => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [useIsMobile_default(480) ? "Collat." : "Collateral", " Change"] });
 };
@@ -79826,7 +80785,7 @@ var WithdrawModal = ({ isOpen, setIsOpen }) => {
 					className: "Field__title",
 					children: "Amount"
 				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "Field__input",
+					className: "Field__content",
 					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Input_default, {
 						setValue: setWithdrawAmount,
 						maxData: {
@@ -80018,7 +80977,7 @@ var WarningSvg = ({ color: color$1 = "red" }) => {
 	});
 };
 var WarningSvg_default = WarningSvg;
-var import_classnames$15 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$16 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var ICONS = {
 	bell: BellSvg_default,
 	warning: WarningSvg_default,
@@ -80026,7 +80985,7 @@ var ICONS = {
 };
 var Notification = ({ color: color$1 = "yellow", type = "bell", className, children }) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: (0, import_classnames$15.default)("Notification", `_${type}`, className),
+		className: (0, import_classnames$16.default)("Notification", `_${type}`, className),
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 			className: "Notification__icon",
 			children: ICONS[type]({ color: color$1 })
@@ -80037,14 +80996,14 @@ var Notification = ({ color: color$1 = "yellow", type = "bell", className, child
 	});
 };
 var Notification_default = Notification;
-var import_classnames$14 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$15 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var Checkbox = ({ isChecked, setIsChecked, isDisabled, children, className }) => {
 	const handleChange = (e$2) => {
 		const checkbox = e$2.target;
 		setIsChecked(checkbox.checked);
 	};
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: (0, import_classnames$14.default)("Checkbox", className),
+		className: (0, import_classnames$15.default)("Checkbox", className),
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
 			type: "checkbox",
 			checked: isChecked,
@@ -80069,7 +81028,7 @@ var BorrowModal = ({ isOpen, setIsOpen }) => {
 		title: "Action failed",
 		text: "Something went wrong while providing the loan"
 	};
-	const handleClick = () => {
+	const handleClick = async () => {
 		sendTx_default(borrow(borrowAmount), `Borrowed ${inputStringFromBigInt(borrowAmount)} USDC.`, setIsSubmitting, ({ tx }) => {
 			setTxResult({
 				...txSuccessData,
@@ -80133,7 +81092,7 @@ var InputStep = ({ borrowAmount, setBorrowAmount, goForth }) => {
 			className: "Field__title",
 			children: "Amount"
 		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-			className: "Field__input",
+			className: "Field__content",
 			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Input_default, {
 				setValue: setBorrowAmount,
 				maxData: {
@@ -80184,9 +81143,8 @@ var InputStep = ({ borrowAmount, setBorrowAmount, goForth }) => {
 };
 var TermsStep = ({ borrowAmount, goBack, isSubmitting, handleClick }) => {
 	const usdcPool = useUsdcPool_default();
-	const [isChecked, setIsChecked] = (0, import_react.useState)(false);
+	const [isAgreed, setIsAgreed] = (0, import_react.useState)(false);
 	const getError = () => {
-		if (!isChecked) return "Agreement needed";
 		if (isSubmitting) return ButtonLabels.SUBMITTING;
 	};
 	const getBtnText = () => {
@@ -80195,6 +81153,7 @@ var TermsStep = ({ borrowAmount, goBack, isSubmitting, handleClick }) => {
 		return "Borrow without Protection";
 	};
 	const getIsDisabled = () => {
+		if (!isAgreed) return true;
 		const error = getError();
 		return Boolean(error);
 	};
@@ -80224,22 +81183,19 @@ var TermsStep = ({ borrowAmount, goBack, isSubmitting, handleClick }) => {
 			children: "Please note: loans issued without insurance may be subject to liquidation."
 		}),
 		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Checkbox_default, {
-			isChecked,
-			setIsChecked,
+			isChecked: isAgreed,
+			setIsChecked: setIsAgreed,
 			children: "I agree to the loan terms and understand the costs"
 		}),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "BorrowModal__terms-buttons",
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
-				type: "tertiary",
-				onClick: goBack,
-				children: "Back"
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
-				onClick: handleClick,
-				isDisabled: getIsDisabled(),
-				children: getBtnText()
-			})]
-		})
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(TxInputModal_default.Buttons, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
+			type: "tertiary",
+			onClick: goBack,
+			children: "Back"
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
+			onClick: handleClick,
+			isDisabled: getIsDisabled(),
+			children: getBtnText()
+		})] })
 	] });
 };
 var BorrowModal_default = BorrowModal;
@@ -80475,22 +81431,22 @@ var preWarningFns = [];
 var preMessage = function preMessage$1(fn) {
 	preWarningFns.push(fn);
 };
-function warning(valid, message) {}
-function note(valid, message) {}
+function warning(valid, message$1) {}
+function note(valid, message$1) {}
 function resetWarned() {
 	warned = {};
 }
-function call(method, valid, message) {
-	if (!valid && !warned[message]) {
-		method(false, message);
-		warned[message] = true;
+function call(method, valid, message$1) {
+	if (!valid && !warned[message$1]) {
+		method(false, message$1);
+		warned[message$1] = true;
 	}
 }
-function warningOnce(valid, message) {
-	call(warning, valid, message);
+function warningOnce(valid, message$1) {
+	call(warning, valid, message$1);
 }
-function noteOnce(valid, message) {
-	call(note, valid, message);
+function noteOnce(valid, message$1) {
+	call(note, valid, message$1);
 }
 warningOnce.preMessage = preMessage;
 warningOnce.resetWarned = resetWarned;
@@ -80758,7 +81714,7 @@ var context_default = /* @__PURE__ */ import_react.createContext({
 	classNames: {}
 });
 var UnstableContext = /* @__PURE__ */ import_react.createContext({});
-var import_classnames$13 = /* @__PURE__ */ __toESM(require_classnames());
+var import_classnames$14 = /* @__PURE__ */ __toESM(require_classnames());
 var _excluded$8 = [
 	"prefixCls",
 	"value",
@@ -80866,7 +81822,7 @@ var Handle_default = /* @__PURE__ */ import_react.forwardRef(function(props, ref
 	}
 	var handleNode = /* @__PURE__ */ import_react.createElement("div", _extends$1({
 		ref,
-		className: (0, import_classnames$13.default)(handlePrefixCls, _defineProperty$1(_defineProperty$1(_defineProperty$1({}, "".concat(handlePrefixCls, "-").concat(valueIndex + 1), valueIndex !== null && range), "".concat(handlePrefixCls, "-dragging"), dragging), "".concat(handlePrefixCls, "-dragging-delete"), draggingDelete), classNames$3.handle),
+		className: (0, import_classnames$14.default)(handlePrefixCls, _defineProperty$1(_defineProperty$1(_defineProperty$1({}, "".concat(handlePrefixCls, "-").concat(valueIndex + 1), valueIndex !== null && range), "".concat(handlePrefixCls, "-dragging"), dragging), "".concat(handlePrefixCls, "-dragging-delete"), draggingDelete), classNames$3.handle),
 		style: _objectSpread2$1(_objectSpread2$1(_objectSpread2$1({}, positionStyle), style$1), styles$1.handle)
 	}, divProps, restProps));
 	if (render) handleNode = render(handleNode, {
@@ -80953,14 +81909,14 @@ var Handles_default = /* @__PURE__ */ import_react.forwardRef(function(props, re
 		"aria-hidden": true
 	})));
 });
-var import_classnames$12 = /* @__PURE__ */ __toESM(require_classnames());
+var import_classnames$13 = /* @__PURE__ */ __toESM(require_classnames());
 var Mark_default = function Mark$1(props) {
 	var prefixCls = props.prefixCls, style$1 = props.style, children = props.children, value = props.value, _onClick = props.onClick;
 	var _React$useContext = import_react.useContext(context_default), min$1 = _React$useContext.min, max$1 = _React$useContext.max, direction = _React$useContext.direction, includedStart = _React$useContext.includedStart, includedEnd = _React$useContext.includedEnd, included = _React$useContext.included;
 	var textCls = "".concat(prefixCls, "-text");
 	var positionStyle = getDirectionStyle(direction, value, min$1, max$1);
 	return /* @__PURE__ */ import_react.createElement("span", {
-		className: (0, import_classnames$12.default)(textCls, _defineProperty$1({}, "".concat(textCls, "-active"), included && includedStart <= value && value <= includedEnd)),
+		className: (0, import_classnames$13.default)(textCls, _defineProperty$1({}, "".concat(textCls, "-active"), included && includedStart <= value && value <= includedEnd)),
 		style: _objectSpread2$1(_objectSpread2$1({}, positionStyle), style$1),
 		onMouseDown: function onMouseDown(e$2) {
 			e$2.stopPropagation();
@@ -80985,7 +81941,7 @@ var Marks_default = function Marks$1(props) {
 		}, label);
 	}));
 };
-var import_classnames$11 = /* @__PURE__ */ __toESM(require_classnames());
+var import_classnames$12 = /* @__PURE__ */ __toESM(require_classnames());
 var Dot_default = function Dot$2(props) {
 	var prefixCls = props.prefixCls, value = props.value, style$1 = props.style, activeStyle = props.activeStyle;
 	var _React$useContext = import_react.useContext(context_default), min$1 = _React$useContext.min, max$1 = _React$useContext.max, direction = _React$useContext.direction, included = _React$useContext.included, includedStart = _React$useContext.includedStart, includedEnd = _React$useContext.includedEnd;
@@ -80994,7 +81950,7 @@ var Dot_default = function Dot$2(props) {
 	var mergedStyle = _objectSpread2$1(_objectSpread2$1({}, getDirectionStyle(direction, value, min$1, max$1)), typeof style$1 === "function" ? style$1(value) : style$1);
 	if (active) mergedStyle = _objectSpread2$1(_objectSpread2$1({}, mergedStyle), typeof activeStyle === "function" ? activeStyle(value) : activeStyle);
 	return /* @__PURE__ */ import_react.createElement("span", {
-		className: (0, import_classnames$11.default)(dotClassName, _defineProperty$1({}, "".concat(dotClassName, "-active"), active)),
+		className: (0, import_classnames$12.default)(dotClassName, _defineProperty$1({}, "".concat(dotClassName, "-active"), active)),
 		style: mergedStyle
 	});
 };
@@ -81031,7 +81987,7 @@ var Steps_default = function Steps$1(props) {
 		});
 	}));
 };
-var import_classnames$10 = /* @__PURE__ */ __toESM(require_classnames());
+var import_classnames$11 = /* @__PURE__ */ __toESM(require_classnames());
 var Track_default = function Track$1(props) {
 	var prefixCls = props.prefixCls, style$1 = props.style, start = props.start, end = props.end, index$6 = props.index, onStartMove = props.onStartMove, replaceCls = props.replaceCls;
 	var _React$useContext = import_react.useContext(context_default), direction = _React$useContext.direction, min$1 = _React$useContext.min, max$1 = _React$useContext.max, disabled = _React$useContext.disabled, range = _React$useContext.range, classNames$3 = _React$useContext.classNames;
@@ -81059,7 +82015,7 @@ var Track_default = function Track$1(props) {
 			positionStyle.left = "".concat(offsetStart * 100, "%");
 			positionStyle.width = "".concat(offsetEnd * 100 - offsetStart * 100, "%");
 	}
-	var className = replaceCls || (0, import_classnames$10.default)(trackPrefixCls, _defineProperty$1(_defineProperty$1({}, "".concat(trackPrefixCls, "-").concat(index$6 + 1), index$6 !== null && range), "".concat(prefixCls, "-track-draggable"), onStartMove), classNames$3.track);
+	var className = replaceCls || (0, import_classnames$11.default)(trackPrefixCls, _defineProperty$1(_defineProperty$1({}, "".concat(trackPrefixCls, "-").concat(index$6 + 1), index$6 !== null && range), "".concat(prefixCls, "-track-draggable"), onStartMove), classNames$3.track);
 	return /* @__PURE__ */ import_react.createElement("div", {
 		className,
 		style: _objectSpread2$1(_objectSpread2$1({}, positionStyle), style$1),
@@ -81067,7 +82023,7 @@ var Track_default = function Track$1(props) {
 		onTouchStart: onInternalStartMove
 	});
 };
-var import_classnames$9 = /* @__PURE__ */ __toESM(require_classnames());
+var import_classnames$10 = /* @__PURE__ */ __toESM(require_classnames());
 var Tracks_default = function Tracks$1(props) {
 	var prefixCls = props.prefixCls, style$1 = props.style, values = props.values, startPoint = props.startPoint, onStartMove = props.onStartMove;
 	var _React$useContext = import_react.useContext(context_default), included = _React$useContext.included, range = _React$useContext.range, min$1 = _React$useContext.min, styles$1 = _React$useContext.styles, classNames$3 = _React$useContext.classNames;
@@ -81099,7 +82055,7 @@ var Tracks_default = function Tracks$1(props) {
 		prefixCls,
 		start: trackList[0].start,
 		end: trackList[trackList.length - 1].end,
-		replaceCls: (0, import_classnames$9.default)(classNames$3.tracks, "".concat(prefixCls, "-tracks")),
+		replaceCls: (0, import_classnames$10.default)(classNames$3.tracks, "".concat(prefixCls, "-tracks")),
 		style: styles$1.tracks
 	}) : null;
 	return /* @__PURE__ */ import_react.createElement(import_react.Fragment, null, tracksNode, trackList.map(function(_ref$1, index$6) {
@@ -81449,7 +82405,7 @@ function useRange(range) {
 		];
 	}, [range]);
 }
-var import_classnames$8 = /* @__PURE__ */ __toESM(require_classnames());
+var import_classnames$9 = /* @__PURE__ */ __toESM(require_classnames());
 var es_default = /* @__PURE__ */ import_react.forwardRef(function(props, ref) {
 	var _props$prefixCls = props.prefixCls, prefixCls = _props$prefixCls === void 0 ? "rc-slider" : _props$prefixCls, className = props.className, style$1 = props.style, classNames$3 = props.classNames, styles$1 = props.styles, id$2 = props.id, _props$disabled = props.disabled, disabled = _props$disabled === void 0 ? false : _props$disabled, _props$keyboard = props.keyboard, keyboard = _props$keyboard === void 0 ? true : _props$keyboard, autoFocus = props.autoFocus, onFocus = props.onFocus, onBlur = props.onBlur, _props$min = props.min, min$1 = _props$min === void 0 ? 0 : _props$min, _props$max = props.max, max$1 = _props$max === void 0 ? 100 : _props$max, _props$step = props.step, step = _props$step === void 0 ? 1 : _props$step, value = props.value, defaultValue = props.defaultValue, range = props.range, count = props.count, onChange = props.onChange, onBeforeChange = props.onBeforeChange, onAfterChange = props.onAfterChange, onChangeComplete = props.onChangeComplete, _props$allowCross = props.allowCross, allowCross = _props$allowCross === void 0 ? true : _props$allowCross, _props$pushable = props.pushable, pushable = _props$pushable === void 0 ? false : _props$pushable, reverse = props.reverse, vertical = props.vertical, _props$included = props.included, included = _props$included === void 0 ? true : _props$included, startPoint = props.startPoint, trackStyle = props.trackStyle, handleStyle = props.handleStyle, railStyle = props.railStyle, dotStyle = props.dotStyle, activeDotStyle = props.activeDotStyle, marks = props.marks, dots = props.dots, handleRender = props.handleRender, activeHandleRender = props.activeHandleRender, track$1 = props.track, _props$tabIndex = props.tabIndex, tabIndex = _props$tabIndex === void 0 ? 0 : _props$tabIndex, ariaLabelForHandle = props.ariaLabelForHandle, ariaLabelledByForHandle = props.ariaLabelledByForHandle, ariaRequired = props.ariaRequired, ariaValueTextFormatterForHandle = props.ariaValueTextFormatterForHandle;
 	var handlesRef = import_react.useRef(null);
@@ -81701,12 +82657,12 @@ var es_default = /* @__PURE__ */ import_react.forwardRef(function(props, ref) {
 	]);
 	return /* @__PURE__ */ import_react.createElement(context_default.Provider, { value: context }, /* @__PURE__ */ import_react.createElement("div", {
 		ref: containerRef,
-		className: (0, import_classnames$8.default)(prefixCls, className, _defineProperty$1(_defineProperty$1(_defineProperty$1(_defineProperty$1({}, "".concat(prefixCls, "-disabled"), disabled), "".concat(prefixCls, "-vertical"), vertical), "".concat(prefixCls, "-horizontal"), !vertical), "".concat(prefixCls, "-with-marks"), markList.length)),
+		className: (0, import_classnames$9.default)(prefixCls, className, _defineProperty$1(_defineProperty$1(_defineProperty$1(_defineProperty$1({}, "".concat(prefixCls, "-disabled"), disabled), "".concat(prefixCls, "-vertical"), vertical), "".concat(prefixCls, "-horizontal"), !vertical), "".concat(prefixCls, "-with-marks"), markList.length)),
 		style: style$1,
 		onMouseDown: onSliderMouseDown,
 		id: id$2
 	}, /* @__PURE__ */ import_react.createElement("div", {
-		className: (0, import_classnames$8.default)("".concat(prefixCls, "-rail"), classNames$3 === null || classNames$3 === void 0 ? void 0 : classNames$3.rail),
+		className: (0, import_classnames$9.default)("".concat(prefixCls, "-rail"), classNames$3 === null || classNames$3 === void 0 ? void 0 : classNames$3.rail),
 		style: _objectSpread2$1(_objectSpread2$1({}, railStyle), styles$1 === null || styles$1 === void 0 ? void 0 : styles$1.rail)
 	}), track$1 !== false && /* @__PURE__ */ import_react.createElement(Tracks_default, {
 		prefixCls,
@@ -81749,20 +82705,18 @@ var MULTIPLIERS_DISPLAYED = [
 	.8,
 	1
 ];
-var Slider = ({ value, setValue, min: min$1, max: max$1, step, isDisabled = false, showsPercents = true }) => {
+var Slider = ({ value, setValue, min: min$1, max: max$1, step, isDisabled = false, showsPercents = false }) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 		className: "Slider",
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 			className: "Slider__input",
 			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(es_default, {
-				value: Number(stringFromBigInt(value ?? min$1)),
-				min: Number(stringFromBigInt(min$1)),
-				max: Number(stringFromBigInt(max$1)),
-				step: Number(stringFromBigInt(step)),
+				value: value ?? min$1,
+				min: min$1,
+				max: max$1,
+				step,
 				disabled: isDisabled,
-				onChange: (valueNum) => {
-					setValue(bigIntFromString(valueNum));
-				}
+				onChange: setValue
 			})
 		}), showsPercents && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 			className: "Slider__percents",
@@ -81783,14 +82737,14 @@ var InputMultiplied = ({ setValue, valueStrState, maxData }) => {
 	const [multiplier, setMultiplier] = (0, import_react.useState)(null);
 	useDebounce(() => {
 		if (!isSufficient(multiplier)) return;
-		setValueStr(inputStringFromBigInt(floorBigInt(multiplyBigInts(maxData.value, multiplier), Decimals.DEFAULT)));
+		setValueStr(inputStringFromBigInt(floorBigInt(multiplyBigIntByNumber(maxData.value, multiplier), Decimals.DEFAULT)));
 	}, 200, [multiplier]);
 	(0, import_react.useEffect)(() => {
 		if (!valueStr) {
 			setMultiplier(null);
 			return;
 		}
-		setMultiplier(divBigInts(bigIntFromInputString(valueStr), maxData.value));
+		setMultiplier(stringFromBigInt(divBigInts(bigIntFromInputString(valueStr), maxData.value)));
 	}, [valueStr]);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 		className: "InputMultiplied",
@@ -81800,40 +82754,15 @@ var InputMultiplied = ({ setValue, valueStrState, maxData }) => {
 			maxData
 		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Slider_default, {
 			value: multiplier,
-			setValue: setMultiplier,
-			min: bigIntFromString(0),
-			max: bigIntFromString(1),
-			step: bigIntFromString(.1)
+			setValue: (value) => setMultiplier(String(value)),
+			min: 0,
+			max: 1,
+			step: .1,
+			showsPercents: true
 		})]
 	});
 };
 var InputMultiplied_default = InputMultiplied;
-var Radio = ({ id: id$2, items, value, setValue }) => {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: "Radio",
-		children: items.map((item) => {
-			const itemId = `${id$2}_${item.value}`;
-			return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "Radio__item",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
-					type: "radio",
-					name: id$2,
-					id: itemId,
-					value: item.value,
-					onChange: (e$2) => setValue(e$2.target.value),
-					checked: value === item.value
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("label", {
-					htmlFor: itemId,
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "Radio__item-content",
-						children: item.node
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "Radio__item-check" })]
-				})]
-			}, item.value);
-		})
-	});
-};
-var Radio_default = Radio;
 var useApprover = (spender, token$1, setIsApproved) => {
 	const { userAddress } = useWallet_default();
 	token$1 = getTokenData(token$1);
@@ -81872,7 +82801,7 @@ var _approve = async (spender, amount, token$1) => {
 	});
 };
 var useApprover_default = useApprover;
-var import_classnames$7 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$8 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var Slippage = () => {
 	const [slippage, setSlippage] = useSlippageState();
 	const [slippagePercentStr, setSlippagePercentStr] = (0, import_react.useState)(inputStringFromBigInt(slippage * 100n));
@@ -81905,7 +82834,7 @@ var Slippage = () => {
 		if (e$2.keyCode === 13 && isFocused) inputRef.current.blur();
 	});
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: (0, import_classnames$7.default)("Slippage", isFocused && "_focused"),
+		className: (0, import_classnames$8.default)("Slippage", isFocused && "_focused"),
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 			className: "Slippage__input",
 			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(_Input, {
@@ -81944,7 +82873,6 @@ var _Input = (0, import_react.forwardRef)(function _Input$1({ slippagePercentStr
 	});
 });
 var Slippage_default = Slippage;
-var { RepayMethods } = RepayModalConstants_default;
 var RepayModal = ({ isOpen, setIsOpen }) => {
 	const account = useAccount_default();
 	const { isLoading } = getIsLoadingAndError(account);
@@ -81954,12 +82882,12 @@ var RepayModal = ({ isOpen, setIsOpen }) => {
 	const { repay } = useProtocolActions_default();
 	const [repayAmount, setRepayAmount] = (0, import_react.useState)(null);
 	const [shouldWithdraw, setShouldWithdraw] = (0, import_react.useState)(false);
-	const [paymentMethod, setPaymentMethod] = (0, import_react.useState)(RepayMethods.COLLATERAL);
-	const [slippage] = useSlippageState();
+	const [paymentMethod, setPaymentMethod] = (0, import_react.useState)(PaymentMethods.COLLATERAL);
+	const slippage = useSlippage();
 	const [isApproved, setIsApproved] = (0, import_react.useState)(void 0);
 	const [isSubmitting, setIsSubmitting] = (0, import_react.useState)(false);
 	const [txResult, setTxResult] = (0, import_react.useState)(void 0);
-	const isWallet = paymentMethod === RepayMethods.WALLET;
+	const isWallet = paymentMethod === PaymentMethods.WALLET;
 	const Approver = useApprover_default(OneClickTrading?.target, "USDC", setIsApproved);
 	const txSuccessData = {
 		title: "Repay confirmed!",
@@ -81971,13 +82899,14 @@ var RepayModal = ({ isOpen, setIsOpen }) => {
 	};
 	(0, import_react.useEffect)(() => {
 		if (isUndefined(isApproved)) return;
-		if (isWallet && repayAmount) setIsApproved(void 0);
+		if (isWallet) setIsApproved(void 0);
 	}, [repayAmount]);
 	useDebounce(() => {
 		if (isWallet && repayAmount) Approver.update(repayAmount);
 	}, 600, [repayAmount]);
 	(0, import_react.useEffect)(() => {
 		if (isWallet && repayAmount) Approver.update(repayAmount);
+		else setIsApproved(void 0);
 	}, [paymentMethod]);
 	const getError = () => {
 		if (!repayAmount) return "Enter amount";
@@ -82025,6 +82954,7 @@ var RepayModal = ({ isOpen, setIsOpen }) => {
 		setTxResult,
 		reset: () => {
 			setRepayAmount(null);
+			setShouldWithdraw(false);
 			setIsApproved(void 0);
 		},
 		children: [
@@ -82034,16 +82964,16 @@ var RepayModal = ({ isOpen, setIsOpen }) => {
 				shouldWithdraw,
 				setShouldWithdraw
 			}) }),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaymentMethod, {
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaymentMethod_default, {
 				method: paymentMethod,
 				setMethod: setPaymentMethod
 			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Metrics, {
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Metrics$1, {
 				repayAmount,
 				paymentMethod
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TxInputModal_default.Button, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
-				type: isWallet && repayAmount && isApproved === false ? "green" : "primary",
+				type: isWallet && isApproved === false ? "green" : "primary",
 				onClick: handleClick,
 				isDisabled: getIsDisabled(),
 				children: getBtnText()
@@ -82072,7 +83002,7 @@ var AmountInput = ({ setRepayAmount, shouldWithdraw, setShouldWithdraw }) => {
 				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmount_default, { value: bigIntFromInputString(valueStr) }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: [" / ", formatStable(account?.debt)] })]
 			})]
 		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-			className: "Field__input",
+			className: "Field__content",
 			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputMultiplied_default, {
 				setValue: setRepayAmount,
 				valueStrState: [valueStr, setValueStr],
@@ -82090,59 +83020,14 @@ var AmountInput = ({ setRepayAmount, shouldWithdraw, setShouldWithdraw }) => {
 		})]
 	});
 };
-var PaymentMethod = ({ method, setMethod }) => {
-	const account = useAccount_default();
-	const usdcBalance = useBalance_default("USDC");
-	const paymentMethods = [{
-		value: RepayMethods.COLLATERAL,
-		node: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "RepayModal__payment-method-item",
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "RepayModal__payment-method-item-title",
-				children: "Collateral"
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmount_default, {
-				value: account?.balance,
-				symbol: "ETH",
-				showsUsd: true
-			})]
-		})
-	}, {
-		value: RepayMethods.WALLET,
-		node: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "RepayModal__payment-method-item",
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "RepayModal__payment-method-item-title",
-				children: "Wallet"
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmount_default, {
-				value: usdcBalance,
-				showsUsd: true
-			})]
-		})
-	}];
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Field_default, {
-		className: "RepayModal__payment-method",
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-			className: "Field__title",
-			children: "Choose Payment Method"
-		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-			className: "Field__input",
-			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Radio_default, {
-				id: "RepayModal__payment-method-radio",
-				items: paymentMethods,
-				value: method,
-				setValue: setMethod
-			})
-		})]
-	});
-};
-var Metrics = ({ repayAmount, paymentMethod }) => {
+var Metrics$1 = ({ repayAmount, paymentMethod }) => {
 	const account = useAccount_default();
 	const contracts$1 = useContracts_default();
 	const [estCollateral, setEstCollateral] = (0, import_react.useState)(null);
 	const [estDebt, setEstDebt] = (0, import_react.useState)(null);
 	const [estLtv, setEstLtv] = (0, import_react.useState)(null);
-	const [slippage] = useSlippageState();
-	const isCollateral = paymentMethod === RepayMethods.COLLATERAL;
+	const slippage = useSlippage();
+	const isCollateral = paymentMethod === PaymentMethods.COLLATERAL;
 	const setAllEsts = (value) => {
 		setEstCollateral(value);
 		setEstDebt(value);
@@ -82242,18 +83127,2231 @@ var Metrics = ({ repayAmount, paymentMethod }) => {
 	] });
 };
 var RepayModal_default = RepayModal;
+const daysInYear = 365.2425;
+Math.pow(10, 8) * 24 * 60 * 60 * 1e3;
+const millisecondsInWeek = 6048e5;
+const millisecondsInDay = 864e5;
+const secondsInDay = 3600 * 24;
+secondsInDay * 7;
+secondsInDay * daysInYear / 12 * 3;
+const constructFromSymbol = Symbol.for("constructDateFrom");
+function constructFrom(date, value) {
+	if (typeof date === "function") return date(value);
+	if (date && typeof date === "object" && constructFromSymbol in date) return date[constructFromSymbol](value);
+	if (date instanceof Date) return new date.constructor(value);
+	return new Date(value);
+}
+function toDate(argument, context) {
+	return constructFrom(context || argument, argument);
+}
+var defaultOptions = {};
+function getDefaultOptions() {
+	return defaultOptions;
+}
+function startOfWeek(date, options$2) {
+	const defaultOptions$3 = getDefaultOptions();
+	const weekStartsOn = options$2?.weekStartsOn ?? options$2?.locale?.options?.weekStartsOn ?? defaultOptions$3.weekStartsOn ?? defaultOptions$3.locale?.options?.weekStartsOn ?? 0;
+	const _date = toDate(date, options$2?.in);
+	const day = _date.getDay();
+	const diff = (day < weekStartsOn ? 7 : 0) + day - weekStartsOn;
+	_date.setDate(_date.getDate() - diff);
+	_date.setHours(0, 0, 0, 0);
+	return _date;
+}
+function startOfISOWeek(date, options$2) {
+	return startOfWeek(date, {
+		...options$2,
+		weekStartsOn: 1
+	});
+}
+function getISOWeekYear(date, options$2) {
+	const _date = toDate(date, options$2?.in);
+	const year = _date.getFullYear();
+	const fourthOfJanuaryOfNextYear = constructFrom(_date, 0);
+	fourthOfJanuaryOfNextYear.setFullYear(year + 1, 0, 4);
+	fourthOfJanuaryOfNextYear.setHours(0, 0, 0, 0);
+	const startOfNextYear = startOfISOWeek(fourthOfJanuaryOfNextYear);
+	const fourthOfJanuaryOfThisYear = constructFrom(_date, 0);
+	fourthOfJanuaryOfThisYear.setFullYear(year, 0, 4);
+	fourthOfJanuaryOfThisYear.setHours(0, 0, 0, 0);
+	const startOfThisYear = startOfISOWeek(fourthOfJanuaryOfThisYear);
+	if (_date.getTime() >= startOfNextYear.getTime()) return year + 1;
+	else if (_date.getTime() >= startOfThisYear.getTime()) return year;
+	else return year - 1;
+}
+function getTimezoneOffsetInMilliseconds(date) {
+	const _date = toDate(date);
+	const utcDate = new Date(Date.UTC(_date.getFullYear(), _date.getMonth(), _date.getDate(), _date.getHours(), _date.getMinutes(), _date.getSeconds(), _date.getMilliseconds()));
+	utcDate.setUTCFullYear(_date.getFullYear());
+	return +date - +utcDate;
+}
+function normalizeDates(context, ...dates) {
+	const normalize$3 = constructFrom.bind(null, context || dates.find((date) => typeof date === "object"));
+	return dates.map(normalize$3);
+}
+function startOfDay(date, options$2) {
+	const _date = toDate(date, options$2?.in);
+	_date.setHours(0, 0, 0, 0);
+	return _date;
+}
+function differenceInCalendarDays(laterDate, earlierDate, options$2) {
+	const [laterDate_, earlierDate_] = normalizeDates(options$2?.in, laterDate, earlierDate);
+	const laterStartOfDay = startOfDay(laterDate_);
+	const earlierStartOfDay = startOfDay(earlierDate_);
+	const laterTimestamp = +laterStartOfDay - getTimezoneOffsetInMilliseconds(laterStartOfDay);
+	const earlierTimestamp = +earlierStartOfDay - getTimezoneOffsetInMilliseconds(earlierStartOfDay);
+	return Math.round((laterTimestamp - earlierTimestamp) / millisecondsInDay);
+}
+function startOfISOWeekYear(date, options$2) {
+	const year = getISOWeekYear(date, options$2);
+	const fourthOfJanuary = constructFrom(options$2?.in || date, 0);
+	fourthOfJanuary.setFullYear(year, 0, 4);
+	fourthOfJanuary.setHours(0, 0, 0, 0);
+	return startOfISOWeek(fourthOfJanuary);
+}
+function isDate(value) {
+	return value instanceof Date || typeof value === "object" && Object.prototype.toString.call(value) === "[object Date]";
+}
+function isValid(date) {
+	return !(!isDate(date) && typeof date !== "number" || isNaN(+toDate(date)));
+}
+function startOfYear(date, options$2) {
+	const date_ = toDate(date, options$2?.in);
+	date_.setFullYear(date_.getFullYear(), 0, 1);
+	date_.setHours(0, 0, 0, 0);
+	return date_;
+}
+var formatDistanceLocale = {
+	lessThanXSeconds: {
+		one: "less than a second",
+		other: "less than {{count}} seconds"
+	},
+	xSeconds: {
+		one: "1 second",
+		other: "{{count}} seconds"
+	},
+	halfAMinute: "half a minute",
+	lessThanXMinutes: {
+		one: "less than a minute",
+		other: "less than {{count}} minutes"
+	},
+	xMinutes: {
+		one: "1 minute",
+		other: "{{count}} minutes"
+	},
+	aboutXHours: {
+		one: "about 1 hour",
+		other: "about {{count}} hours"
+	},
+	xHours: {
+		one: "1 hour",
+		other: "{{count}} hours"
+	},
+	xDays: {
+		one: "1 day",
+		other: "{{count}} days"
+	},
+	aboutXWeeks: {
+		one: "about 1 week",
+		other: "about {{count}} weeks"
+	},
+	xWeeks: {
+		one: "1 week",
+		other: "{{count}} weeks"
+	},
+	aboutXMonths: {
+		one: "about 1 month",
+		other: "about {{count}} months"
+	},
+	xMonths: {
+		one: "1 month",
+		other: "{{count}} months"
+	},
+	aboutXYears: {
+		one: "about 1 year",
+		other: "about {{count}} years"
+	},
+	xYears: {
+		one: "1 year",
+		other: "{{count}} years"
+	},
+	overXYears: {
+		one: "over 1 year",
+		other: "over {{count}} years"
+	},
+	almostXYears: {
+		one: "almost 1 year",
+		other: "almost {{count}} years"
+	}
+};
+const formatDistance = (token$1, count, options$2) => {
+	let result;
+	const tokenValue = formatDistanceLocale[token$1];
+	if (typeof tokenValue === "string") result = tokenValue;
+	else if (count === 1) result = tokenValue.one;
+	else result = tokenValue.other.replace("{{count}}", count.toString());
+	if (options$2?.addSuffix) if (options$2.comparison && options$2.comparison > 0) return "in " + result;
+	else return result + " ago";
+	return result;
+};
+function buildFormatLongFn(args) {
+	return (options$2 = {}) => {
+		const width = options$2.width ? String(options$2.width) : args.defaultWidth;
+		return args.formats[width] || args.formats[args.defaultWidth];
+	};
+}
+const formatLong = {
+	date: buildFormatLongFn({
+		formats: {
+			full: "EEEE, MMMM do, y",
+			long: "MMMM do, y",
+			medium: "MMM d, y",
+			short: "MM/dd/yyyy"
+		},
+		defaultWidth: "full"
+	}),
+	time: buildFormatLongFn({
+		formats: {
+			full: "h:mm:ss a zzzz",
+			long: "h:mm:ss a z",
+			medium: "h:mm:ss a",
+			short: "h:mm a"
+		},
+		defaultWidth: "full"
+	}),
+	dateTime: buildFormatLongFn({
+		formats: {
+			full: "{{date}} 'at' {{time}}",
+			long: "{{date}} 'at' {{time}}",
+			medium: "{{date}}, {{time}}",
+			short: "{{date}}, {{time}}"
+		},
+		defaultWidth: "full"
+	})
+};
+var formatRelativeLocale = {
+	lastWeek: "'last' eeee 'at' p",
+	yesterday: "'yesterday at' p",
+	today: "'today at' p",
+	tomorrow: "'tomorrow at' p",
+	nextWeek: "eeee 'at' p",
+	other: "P"
+};
+const formatRelative = (token$1, _date, _baseDate, _options) => formatRelativeLocale[token$1];
+function buildLocalizeFn(args) {
+	return (value, options$2) => {
+		const context = options$2?.context ? String(options$2.context) : "standalone";
+		let valuesArray;
+		if (context === "formatting" && args.formattingValues) {
+			const defaultWidth = args.defaultFormattingWidth || args.defaultWidth;
+			const width = options$2?.width ? String(options$2.width) : defaultWidth;
+			valuesArray = args.formattingValues[width] || args.formattingValues[defaultWidth];
+		} else {
+			const defaultWidth = args.defaultWidth;
+			const width = options$2?.width ? String(options$2.width) : args.defaultWidth;
+			valuesArray = args.values[width] || args.values[defaultWidth];
+		}
+		const index$6 = args.argumentCallback ? args.argumentCallback(value) : value;
+		return valuesArray[index$6];
+	};
+}
+var eraValues = {
+	narrow: ["B", "A"],
+	abbreviated: ["BC", "AD"],
+	wide: ["Before Christ", "Anno Domini"]
+};
+var quarterValues = {
+	narrow: [
+		"1",
+		"2",
+		"3",
+		"4"
+	],
+	abbreviated: [
+		"Q1",
+		"Q2",
+		"Q3",
+		"Q4"
+	],
+	wide: [
+		"1st quarter",
+		"2nd quarter",
+		"3rd quarter",
+		"4th quarter"
+	]
+};
+var monthValues = {
+	narrow: [
+		"J",
+		"F",
+		"M",
+		"A",
+		"M",
+		"J",
+		"J",
+		"A",
+		"S",
+		"O",
+		"N",
+		"D"
+	],
+	abbreviated: [
+		"Jan",
+		"Feb",
+		"Mar",
+		"Apr",
+		"May",
+		"Jun",
+		"Jul",
+		"Aug",
+		"Sep",
+		"Oct",
+		"Nov",
+		"Dec"
+	],
+	wide: [
+		"January",
+		"February",
+		"March",
+		"April",
+		"May",
+		"June",
+		"July",
+		"August",
+		"September",
+		"October",
+		"November",
+		"December"
+	]
+};
+var dayValues = {
+	narrow: [
+		"S",
+		"M",
+		"T",
+		"W",
+		"T",
+		"F",
+		"S"
+	],
+	short: [
+		"Su",
+		"Mo",
+		"Tu",
+		"We",
+		"Th",
+		"Fr",
+		"Sa"
+	],
+	abbreviated: [
+		"Sun",
+		"Mon",
+		"Tue",
+		"Wed",
+		"Thu",
+		"Fri",
+		"Sat"
+	],
+	wide: [
+		"Sunday",
+		"Monday",
+		"Tuesday",
+		"Wednesday",
+		"Thursday",
+		"Friday",
+		"Saturday"
+	]
+};
+var dayPeriodValues = {
+	narrow: {
+		am: "a",
+		pm: "p",
+		midnight: "mi",
+		noon: "n",
+		morning: "morning",
+		afternoon: "afternoon",
+		evening: "evening",
+		night: "night"
+	},
+	abbreviated: {
+		am: "AM",
+		pm: "PM",
+		midnight: "midnight",
+		noon: "noon",
+		morning: "morning",
+		afternoon: "afternoon",
+		evening: "evening",
+		night: "night"
+	},
+	wide: {
+		am: "a.m.",
+		pm: "p.m.",
+		midnight: "midnight",
+		noon: "noon",
+		morning: "morning",
+		afternoon: "afternoon",
+		evening: "evening",
+		night: "night"
+	}
+};
+var formattingDayPeriodValues = {
+	narrow: {
+		am: "a",
+		pm: "p",
+		midnight: "mi",
+		noon: "n",
+		morning: "in the morning",
+		afternoon: "in the afternoon",
+		evening: "in the evening",
+		night: "at night"
+	},
+	abbreviated: {
+		am: "AM",
+		pm: "PM",
+		midnight: "midnight",
+		noon: "noon",
+		morning: "in the morning",
+		afternoon: "in the afternoon",
+		evening: "in the evening",
+		night: "at night"
+	},
+	wide: {
+		am: "a.m.",
+		pm: "p.m.",
+		midnight: "midnight",
+		noon: "noon",
+		morning: "in the morning",
+		afternoon: "in the afternoon",
+		evening: "in the evening",
+		night: "at night"
+	}
+};
+var ordinalNumber = (dirtyNumber, _options) => {
+	const number$2 = Number(dirtyNumber);
+	const rem100 = number$2 % 100;
+	if (rem100 > 20 || rem100 < 10) switch (rem100 % 10) {
+		case 1: return number$2 + "st";
+		case 2: return number$2 + "nd";
+		case 3: return number$2 + "rd";
+	}
+	return number$2 + "th";
+};
+const localize = {
+	ordinalNumber,
+	era: buildLocalizeFn({
+		values: eraValues,
+		defaultWidth: "wide"
+	}),
+	quarter: buildLocalizeFn({
+		values: quarterValues,
+		defaultWidth: "wide",
+		argumentCallback: (quarter) => quarter - 1
+	}),
+	month: buildLocalizeFn({
+		values: monthValues,
+		defaultWidth: "wide"
+	}),
+	day: buildLocalizeFn({
+		values: dayValues,
+		defaultWidth: "wide"
+	}),
+	dayPeriod: buildLocalizeFn({
+		values: dayPeriodValues,
+		defaultWidth: "wide",
+		formattingValues: formattingDayPeriodValues,
+		defaultFormattingWidth: "wide"
+	})
+};
+function buildMatchFn(args) {
+	return (string, options$2 = {}) => {
+		const width = options$2.width;
+		const matchPattern = width && args.matchPatterns[width] || args.matchPatterns[args.defaultMatchWidth];
+		const matchResult = string.match(matchPattern);
+		if (!matchResult) return null;
+		const matchedString = matchResult[0];
+		const parsePatterns = width && args.parsePatterns[width] || args.parsePatterns[args.defaultParseWidth];
+		const key = Array.isArray(parsePatterns) ? findIndex(parsePatterns, (pattern) => pattern.test(matchedString)) : findKey(parsePatterns, (pattern) => pattern.test(matchedString));
+		let value;
+		value = args.valueCallback ? args.valueCallback(key) : key;
+		value = options$2.valueCallback ? options$2.valueCallback(value) : value;
+		const rest = string.slice(matchedString.length);
+		return {
+			value,
+			rest
+		};
+	};
+}
+function findKey(object$1, predicate) {
+	for (const key in object$1) if (Object.prototype.hasOwnProperty.call(object$1, key) && predicate(object$1[key])) return key;
+}
+function findIndex(array, predicate) {
+	for (let key = 0; key < array.length; key++) if (predicate(array[key])) return key;
+}
+function buildMatchPatternFn(args) {
+	return (string, options$2 = {}) => {
+		const matchResult = string.match(args.matchPattern);
+		if (!matchResult) return null;
+		const matchedString = matchResult[0];
+		const parseResult = string.match(args.parsePattern);
+		if (!parseResult) return null;
+		let value = args.valueCallback ? args.valueCallback(parseResult[0]) : parseResult[0];
+		value = options$2.valueCallback ? options$2.valueCallback(value) : value;
+		const rest = string.slice(matchedString.length);
+		return {
+			value,
+			rest
+		};
+	};
+}
+const enUS = {
+	code: "en-US",
+	formatDistance,
+	formatLong,
+	formatRelative,
+	localize,
+	match: {
+		ordinalNumber: buildMatchPatternFn({
+			matchPattern: /^(\d+)(th|st|nd|rd)?/i,
+			parsePattern: /\d+/i,
+			valueCallback: (value) => parseInt(value, 10)
+		}),
+		era: buildMatchFn({
+			matchPatterns: {
+				narrow: /^(b|a)/i,
+				abbreviated: /^(b\.?\s?c\.?|b\.?\s?c\.?\s?e\.?|a\.?\s?d\.?|c\.?\s?e\.?)/i,
+				wide: /^(before christ|before common era|anno domini|common era)/i
+			},
+			defaultMatchWidth: "wide",
+			parsePatterns: { any: [/^b/i, /^(a|c)/i] },
+			defaultParseWidth: "any"
+		}),
+		quarter: buildMatchFn({
+			matchPatterns: {
+				narrow: /^[1234]/i,
+				abbreviated: /^q[1234]/i,
+				wide: /^[1234](th|st|nd|rd)? quarter/i
+			},
+			defaultMatchWidth: "wide",
+			parsePatterns: { any: [
+				/1/i,
+				/2/i,
+				/3/i,
+				/4/i
+			] },
+			defaultParseWidth: "any",
+			valueCallback: (index$6) => index$6 + 1
+		}),
+		month: buildMatchFn({
+			matchPatterns: {
+				narrow: /^[jfmasond]/i,
+				abbreviated: /^(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)/i,
+				wide: /^(january|february|march|april|may|june|july|august|september|october|november|december)/i
+			},
+			defaultMatchWidth: "wide",
+			parsePatterns: {
+				narrow: [
+					/^j/i,
+					/^f/i,
+					/^m/i,
+					/^a/i,
+					/^m/i,
+					/^j/i,
+					/^j/i,
+					/^a/i,
+					/^s/i,
+					/^o/i,
+					/^n/i,
+					/^d/i
+				],
+				any: [
+					/^ja/i,
+					/^f/i,
+					/^mar/i,
+					/^ap/i,
+					/^may/i,
+					/^jun/i,
+					/^jul/i,
+					/^au/i,
+					/^s/i,
+					/^o/i,
+					/^n/i,
+					/^d/i
+				]
+			},
+			defaultParseWidth: "any"
+		}),
+		day: buildMatchFn({
+			matchPatterns: {
+				narrow: /^[smtwf]/i,
+				short: /^(su|mo|tu|we|th|fr|sa)/i,
+				abbreviated: /^(sun|mon|tue|wed|thu|fri|sat)/i,
+				wide: /^(sunday|monday|tuesday|wednesday|thursday|friday|saturday)/i
+			},
+			defaultMatchWidth: "wide",
+			parsePatterns: {
+				narrow: [
+					/^s/i,
+					/^m/i,
+					/^t/i,
+					/^w/i,
+					/^t/i,
+					/^f/i,
+					/^s/i
+				],
+				any: [
+					/^su/i,
+					/^m/i,
+					/^tu/i,
+					/^w/i,
+					/^th/i,
+					/^f/i,
+					/^sa/i
+				]
+			},
+			defaultParseWidth: "any"
+		}),
+		dayPeriod: buildMatchFn({
+			matchPatterns: {
+				narrow: /^(a|p|mi|n|(in the|at) (morning|afternoon|evening|night))/i,
+				any: /^([ap]\.?\s?m\.?|midnight|noon|(in the|at) (morning|afternoon|evening|night))/i
+			},
+			defaultMatchWidth: "any",
+			parsePatterns: { any: {
+				am: /^a/i,
+				pm: /^p/i,
+				midnight: /^mi/i,
+				noon: /^no/i,
+				morning: /morning/i,
+				afternoon: /afternoon/i,
+				evening: /evening/i,
+				night: /night/i
+			} },
+			defaultParseWidth: "any"
+		})
+	},
+	options: {
+		weekStartsOn: 0,
+		firstWeekContainsDate: 1
+	}
+};
+function getDayOfYear(date, options$2) {
+	const _date = toDate(date, options$2?.in);
+	return differenceInCalendarDays(_date, startOfYear(_date)) + 1;
+}
+function getISOWeek(date, options$2) {
+	const _date = toDate(date, options$2?.in);
+	const diff = +startOfISOWeek(_date) - +startOfISOWeekYear(_date);
+	return Math.round(diff / millisecondsInWeek) + 1;
+}
+function getWeekYear(date, options$2) {
+	const _date = toDate(date, options$2?.in);
+	const year = _date.getFullYear();
+	const defaultOptions$3 = getDefaultOptions();
+	const firstWeekContainsDate = options$2?.firstWeekContainsDate ?? options$2?.locale?.options?.firstWeekContainsDate ?? defaultOptions$3.firstWeekContainsDate ?? defaultOptions$3.locale?.options?.firstWeekContainsDate ?? 1;
+	const firstWeekOfNextYear = constructFrom(options$2?.in || date, 0);
+	firstWeekOfNextYear.setFullYear(year + 1, 0, firstWeekContainsDate);
+	firstWeekOfNextYear.setHours(0, 0, 0, 0);
+	const startOfNextYear = startOfWeek(firstWeekOfNextYear, options$2);
+	const firstWeekOfThisYear = constructFrom(options$2?.in || date, 0);
+	firstWeekOfThisYear.setFullYear(year, 0, firstWeekContainsDate);
+	firstWeekOfThisYear.setHours(0, 0, 0, 0);
+	const startOfThisYear = startOfWeek(firstWeekOfThisYear, options$2);
+	if (+_date >= +startOfNextYear) return year + 1;
+	else if (+_date >= +startOfThisYear) return year;
+	else return year - 1;
+}
+function startOfWeekYear(date, options$2) {
+	const defaultOptions$3 = getDefaultOptions();
+	const firstWeekContainsDate = options$2?.firstWeekContainsDate ?? options$2?.locale?.options?.firstWeekContainsDate ?? defaultOptions$3.firstWeekContainsDate ?? defaultOptions$3.locale?.options?.firstWeekContainsDate ?? 1;
+	const year = getWeekYear(date, options$2);
+	const firstWeek = constructFrom(options$2?.in || date, 0);
+	firstWeek.setFullYear(year, 0, firstWeekContainsDate);
+	firstWeek.setHours(0, 0, 0, 0);
+	return startOfWeek(firstWeek, options$2);
+}
+function getWeek(date, options$2) {
+	const _date = toDate(date, options$2?.in);
+	const diff = +startOfWeek(_date, options$2) - +startOfWeekYear(_date, options$2);
+	return Math.round(diff / millisecondsInWeek) + 1;
+}
+function addLeadingZeros(number$2, targetLength) {
+	return (number$2 < 0 ? "-" : "") + Math.abs(number$2).toString().padStart(targetLength, "0");
+}
+const lightFormatters = {
+	y(date, token$1) {
+		const signedYear = date.getFullYear();
+		const year = signedYear > 0 ? signedYear : 1 - signedYear;
+		return addLeadingZeros(token$1 === "yy" ? year % 100 : year, token$1.length);
+	},
+	M(date, token$1) {
+		const month = date.getMonth();
+		return token$1 === "M" ? String(month + 1) : addLeadingZeros(month + 1, 2);
+	},
+	d(date, token$1) {
+		return addLeadingZeros(date.getDate(), token$1.length);
+	},
+	a(date, token$1) {
+		const dayPeriodEnumValue = date.getHours() / 12 >= 1 ? "pm" : "am";
+		switch (token$1) {
+			case "a":
+			case "aa": return dayPeriodEnumValue.toUpperCase();
+			case "aaa": return dayPeriodEnumValue;
+			case "aaaaa": return dayPeriodEnumValue[0];
+			case "aaaa":
+			default: return dayPeriodEnumValue === "am" ? "a.m." : "p.m.";
+		}
+	},
+	h(date, token$1) {
+		return addLeadingZeros(date.getHours() % 12 || 12, token$1.length);
+	},
+	H(date, token$1) {
+		return addLeadingZeros(date.getHours(), token$1.length);
+	},
+	m(date, token$1) {
+		return addLeadingZeros(date.getMinutes(), token$1.length);
+	},
+	s(date, token$1) {
+		return addLeadingZeros(date.getSeconds(), token$1.length);
+	},
+	S(date, token$1) {
+		const numberOfDigits = token$1.length;
+		const milliseconds = date.getMilliseconds();
+		return addLeadingZeros(Math.trunc(milliseconds * Math.pow(10, numberOfDigits - 3)), token$1.length);
+	}
+};
+var dayPeriodEnum = {
+	am: "am",
+	pm: "pm",
+	midnight: "midnight",
+	noon: "noon",
+	morning: "morning",
+	afternoon: "afternoon",
+	evening: "evening",
+	night: "night"
+};
+const formatters = {
+	G: function(date, token$1, localize$2) {
+		const era = date.getFullYear() > 0 ? 1 : 0;
+		switch (token$1) {
+			case "G":
+			case "GG":
+			case "GGG": return localize$2.era(era, { width: "abbreviated" });
+			case "GGGGG": return localize$2.era(era, { width: "narrow" });
+			case "GGGG":
+			default: return localize$2.era(era, { width: "wide" });
+		}
+	},
+	y: function(date, token$1, localize$2) {
+		if (token$1 === "yo") {
+			const signedYear = date.getFullYear();
+			const year = signedYear > 0 ? signedYear : 1 - signedYear;
+			return localize$2.ordinalNumber(year, { unit: "year" });
+		}
+		return lightFormatters.y(date, token$1);
+	},
+	Y: function(date, token$1, localize$2, options$2) {
+		const signedWeekYear = getWeekYear(date, options$2);
+		const weekYear = signedWeekYear > 0 ? signedWeekYear : 1 - signedWeekYear;
+		if (token$1 === "YY") return addLeadingZeros(weekYear % 100, 2);
+		if (token$1 === "Yo") return localize$2.ordinalNumber(weekYear, { unit: "year" });
+		return addLeadingZeros(weekYear, token$1.length);
+	},
+	R: function(date, token$1) {
+		return addLeadingZeros(getISOWeekYear(date), token$1.length);
+	},
+	u: function(date, token$1) {
+		return addLeadingZeros(date.getFullYear(), token$1.length);
+	},
+	Q: function(date, token$1, localize$2) {
+		const quarter = Math.ceil((date.getMonth() + 1) / 3);
+		switch (token$1) {
+			case "Q": return String(quarter);
+			case "QQ": return addLeadingZeros(quarter, 2);
+			case "Qo": return localize$2.ordinalNumber(quarter, { unit: "quarter" });
+			case "QQQ": return localize$2.quarter(quarter, {
+				width: "abbreviated",
+				context: "formatting"
+			});
+			case "QQQQQ": return localize$2.quarter(quarter, {
+				width: "narrow",
+				context: "formatting"
+			});
+			case "QQQQ":
+			default: return localize$2.quarter(quarter, {
+				width: "wide",
+				context: "formatting"
+			});
+		}
+	},
+	q: function(date, token$1, localize$2) {
+		const quarter = Math.ceil((date.getMonth() + 1) / 3);
+		switch (token$1) {
+			case "q": return String(quarter);
+			case "qq": return addLeadingZeros(quarter, 2);
+			case "qo": return localize$2.ordinalNumber(quarter, { unit: "quarter" });
+			case "qqq": return localize$2.quarter(quarter, {
+				width: "abbreviated",
+				context: "standalone"
+			});
+			case "qqqqq": return localize$2.quarter(quarter, {
+				width: "narrow",
+				context: "standalone"
+			});
+			case "qqqq":
+			default: return localize$2.quarter(quarter, {
+				width: "wide",
+				context: "standalone"
+			});
+		}
+	},
+	M: function(date, token$1, localize$2) {
+		const month = date.getMonth();
+		switch (token$1) {
+			case "M":
+			case "MM": return lightFormatters.M(date, token$1);
+			case "Mo": return localize$2.ordinalNumber(month + 1, { unit: "month" });
+			case "MMM": return localize$2.month(month, {
+				width: "abbreviated",
+				context: "formatting"
+			});
+			case "MMMMM": return localize$2.month(month, {
+				width: "narrow",
+				context: "formatting"
+			});
+			case "MMMM":
+			default: return localize$2.month(month, {
+				width: "wide",
+				context: "formatting"
+			});
+		}
+	},
+	L: function(date, token$1, localize$2) {
+		const month = date.getMonth();
+		switch (token$1) {
+			case "L": return String(month + 1);
+			case "LL": return addLeadingZeros(month + 1, 2);
+			case "Lo": return localize$2.ordinalNumber(month + 1, { unit: "month" });
+			case "LLL": return localize$2.month(month, {
+				width: "abbreviated",
+				context: "standalone"
+			});
+			case "LLLLL": return localize$2.month(month, {
+				width: "narrow",
+				context: "standalone"
+			});
+			case "LLLL":
+			default: return localize$2.month(month, {
+				width: "wide",
+				context: "standalone"
+			});
+		}
+	},
+	w: function(date, token$1, localize$2, options$2) {
+		const week = getWeek(date, options$2);
+		if (token$1 === "wo") return localize$2.ordinalNumber(week, { unit: "week" });
+		return addLeadingZeros(week, token$1.length);
+	},
+	I: function(date, token$1, localize$2) {
+		const isoWeek = getISOWeek(date);
+		if (token$1 === "Io") return localize$2.ordinalNumber(isoWeek, { unit: "week" });
+		return addLeadingZeros(isoWeek, token$1.length);
+	},
+	d: function(date, token$1, localize$2) {
+		if (token$1 === "do") return localize$2.ordinalNumber(date.getDate(), { unit: "date" });
+		return lightFormatters.d(date, token$1);
+	},
+	D: function(date, token$1, localize$2) {
+		const dayOfYear = getDayOfYear(date);
+		if (token$1 === "Do") return localize$2.ordinalNumber(dayOfYear, { unit: "dayOfYear" });
+		return addLeadingZeros(dayOfYear, token$1.length);
+	},
+	E: function(date, token$1, localize$2) {
+		const dayOfWeek = date.getDay();
+		switch (token$1) {
+			case "E":
+			case "EE":
+			case "EEE": return localize$2.day(dayOfWeek, {
+				width: "abbreviated",
+				context: "formatting"
+			});
+			case "EEEEE": return localize$2.day(dayOfWeek, {
+				width: "narrow",
+				context: "formatting"
+			});
+			case "EEEEEE": return localize$2.day(dayOfWeek, {
+				width: "short",
+				context: "formatting"
+			});
+			case "EEEE":
+			default: return localize$2.day(dayOfWeek, {
+				width: "wide",
+				context: "formatting"
+			});
+		}
+	},
+	e: function(date, token$1, localize$2, options$2) {
+		const dayOfWeek = date.getDay();
+		const localDayOfWeek = (dayOfWeek - options$2.weekStartsOn + 8) % 7 || 7;
+		switch (token$1) {
+			case "e": return String(localDayOfWeek);
+			case "ee": return addLeadingZeros(localDayOfWeek, 2);
+			case "eo": return localize$2.ordinalNumber(localDayOfWeek, { unit: "day" });
+			case "eee": return localize$2.day(dayOfWeek, {
+				width: "abbreviated",
+				context: "formatting"
+			});
+			case "eeeee": return localize$2.day(dayOfWeek, {
+				width: "narrow",
+				context: "formatting"
+			});
+			case "eeeeee": return localize$2.day(dayOfWeek, {
+				width: "short",
+				context: "formatting"
+			});
+			case "eeee":
+			default: return localize$2.day(dayOfWeek, {
+				width: "wide",
+				context: "formatting"
+			});
+		}
+	},
+	c: function(date, token$1, localize$2, options$2) {
+		const dayOfWeek = date.getDay();
+		const localDayOfWeek = (dayOfWeek - options$2.weekStartsOn + 8) % 7 || 7;
+		switch (token$1) {
+			case "c": return String(localDayOfWeek);
+			case "cc": return addLeadingZeros(localDayOfWeek, token$1.length);
+			case "co": return localize$2.ordinalNumber(localDayOfWeek, { unit: "day" });
+			case "ccc": return localize$2.day(dayOfWeek, {
+				width: "abbreviated",
+				context: "standalone"
+			});
+			case "ccccc": return localize$2.day(dayOfWeek, {
+				width: "narrow",
+				context: "standalone"
+			});
+			case "cccccc": return localize$2.day(dayOfWeek, {
+				width: "short",
+				context: "standalone"
+			});
+			case "cccc":
+			default: return localize$2.day(dayOfWeek, {
+				width: "wide",
+				context: "standalone"
+			});
+		}
+	},
+	i: function(date, token$1, localize$2) {
+		const dayOfWeek = date.getDay();
+		const isoDayOfWeek = dayOfWeek === 0 ? 7 : dayOfWeek;
+		switch (token$1) {
+			case "i": return String(isoDayOfWeek);
+			case "ii": return addLeadingZeros(isoDayOfWeek, token$1.length);
+			case "io": return localize$2.ordinalNumber(isoDayOfWeek, { unit: "day" });
+			case "iii": return localize$2.day(dayOfWeek, {
+				width: "abbreviated",
+				context: "formatting"
+			});
+			case "iiiii": return localize$2.day(dayOfWeek, {
+				width: "narrow",
+				context: "formatting"
+			});
+			case "iiiiii": return localize$2.day(dayOfWeek, {
+				width: "short",
+				context: "formatting"
+			});
+			case "iiii":
+			default: return localize$2.day(dayOfWeek, {
+				width: "wide",
+				context: "formatting"
+			});
+		}
+	},
+	a: function(date, token$1, localize$2) {
+		const dayPeriodEnumValue = date.getHours() / 12 >= 1 ? "pm" : "am";
+		switch (token$1) {
+			case "a":
+			case "aa": return localize$2.dayPeriod(dayPeriodEnumValue, {
+				width: "abbreviated",
+				context: "formatting"
+			});
+			case "aaa": return localize$2.dayPeriod(dayPeriodEnumValue, {
+				width: "abbreviated",
+				context: "formatting"
+			}).toLowerCase();
+			case "aaaaa": return localize$2.dayPeriod(dayPeriodEnumValue, {
+				width: "narrow",
+				context: "formatting"
+			});
+			case "aaaa":
+			default: return localize$2.dayPeriod(dayPeriodEnumValue, {
+				width: "wide",
+				context: "formatting"
+			});
+		}
+	},
+	b: function(date, token$1, localize$2) {
+		const hours = date.getHours();
+		let dayPeriodEnumValue;
+		if (hours === 12) dayPeriodEnumValue = dayPeriodEnum.noon;
+		else if (hours === 0) dayPeriodEnumValue = dayPeriodEnum.midnight;
+		else dayPeriodEnumValue = hours / 12 >= 1 ? "pm" : "am";
+		switch (token$1) {
+			case "b":
+			case "bb": return localize$2.dayPeriod(dayPeriodEnumValue, {
+				width: "abbreviated",
+				context: "formatting"
+			});
+			case "bbb": return localize$2.dayPeriod(dayPeriodEnumValue, {
+				width: "abbreviated",
+				context: "formatting"
+			}).toLowerCase();
+			case "bbbbb": return localize$2.dayPeriod(dayPeriodEnumValue, {
+				width: "narrow",
+				context: "formatting"
+			});
+			case "bbbb":
+			default: return localize$2.dayPeriod(dayPeriodEnumValue, {
+				width: "wide",
+				context: "formatting"
+			});
+		}
+	},
+	B: function(date, token$1, localize$2) {
+		const hours = date.getHours();
+		let dayPeriodEnumValue;
+		if (hours >= 17) dayPeriodEnumValue = dayPeriodEnum.evening;
+		else if (hours >= 12) dayPeriodEnumValue = dayPeriodEnum.afternoon;
+		else if (hours >= 4) dayPeriodEnumValue = dayPeriodEnum.morning;
+		else dayPeriodEnumValue = dayPeriodEnum.night;
+		switch (token$1) {
+			case "B":
+			case "BB":
+			case "BBB": return localize$2.dayPeriod(dayPeriodEnumValue, {
+				width: "abbreviated",
+				context: "formatting"
+			});
+			case "BBBBB": return localize$2.dayPeriod(dayPeriodEnumValue, {
+				width: "narrow",
+				context: "formatting"
+			});
+			case "BBBB":
+			default: return localize$2.dayPeriod(dayPeriodEnumValue, {
+				width: "wide",
+				context: "formatting"
+			});
+		}
+	},
+	h: function(date, token$1, localize$2) {
+		if (token$1 === "ho") {
+			let hours = date.getHours() % 12;
+			if (hours === 0) hours = 12;
+			return localize$2.ordinalNumber(hours, { unit: "hour" });
+		}
+		return lightFormatters.h(date, token$1);
+	},
+	H: function(date, token$1, localize$2) {
+		if (token$1 === "Ho") return localize$2.ordinalNumber(date.getHours(), { unit: "hour" });
+		return lightFormatters.H(date, token$1);
+	},
+	K: function(date, token$1, localize$2) {
+		const hours = date.getHours() % 12;
+		if (token$1 === "Ko") return localize$2.ordinalNumber(hours, { unit: "hour" });
+		return addLeadingZeros(hours, token$1.length);
+	},
+	k: function(date, token$1, localize$2) {
+		let hours = date.getHours();
+		if (hours === 0) hours = 24;
+		if (token$1 === "ko") return localize$2.ordinalNumber(hours, { unit: "hour" });
+		return addLeadingZeros(hours, token$1.length);
+	},
+	m: function(date, token$1, localize$2) {
+		if (token$1 === "mo") return localize$2.ordinalNumber(date.getMinutes(), { unit: "minute" });
+		return lightFormatters.m(date, token$1);
+	},
+	s: function(date, token$1, localize$2) {
+		if (token$1 === "so") return localize$2.ordinalNumber(date.getSeconds(), { unit: "second" });
+		return lightFormatters.s(date, token$1);
+	},
+	S: function(date, token$1) {
+		return lightFormatters.S(date, token$1);
+	},
+	X: function(date, token$1, _localize) {
+		const timezoneOffset = date.getTimezoneOffset();
+		if (timezoneOffset === 0) return "Z";
+		switch (token$1) {
+			case "X": return formatTimezoneWithOptionalMinutes(timezoneOffset);
+			case "XXXX":
+			case "XX": return formatTimezone(timezoneOffset);
+			case "XXXXX":
+			case "XXX":
+			default: return formatTimezone(timezoneOffset, ":");
+		}
+	},
+	x: function(date, token$1, _localize) {
+		const timezoneOffset = date.getTimezoneOffset();
+		switch (token$1) {
+			case "x": return formatTimezoneWithOptionalMinutes(timezoneOffset);
+			case "xxxx":
+			case "xx": return formatTimezone(timezoneOffset);
+			case "xxxxx":
+			case "xxx":
+			default: return formatTimezone(timezoneOffset, ":");
+		}
+	},
+	O: function(date, token$1, _localize) {
+		const timezoneOffset = date.getTimezoneOffset();
+		switch (token$1) {
+			case "O":
+			case "OO":
+			case "OOO": return "GMT" + formatTimezoneShort(timezoneOffset, ":");
+			case "OOOO":
+			default: return "GMT" + formatTimezone(timezoneOffset, ":");
+		}
+	},
+	z: function(date, token$1, _localize) {
+		const timezoneOffset = date.getTimezoneOffset();
+		switch (token$1) {
+			case "z":
+			case "zz":
+			case "zzz": return "GMT" + formatTimezoneShort(timezoneOffset, ":");
+			case "zzzz":
+			default: return "GMT" + formatTimezone(timezoneOffset, ":");
+		}
+	},
+	t: function(date, token$1, _localize) {
+		return addLeadingZeros(Math.trunc(+date / 1e3), token$1.length);
+	},
+	T: function(date, token$1, _localize) {
+		return addLeadingZeros(+date, token$1.length);
+	}
+};
+function formatTimezoneShort(offset$1, delimiter$1 = "") {
+	const sign = offset$1 > 0 ? "-" : "+";
+	const absOffset = Math.abs(offset$1);
+	const hours = Math.trunc(absOffset / 60);
+	const minutes = absOffset % 60;
+	if (minutes === 0) return sign + String(hours);
+	return sign + String(hours) + delimiter$1 + addLeadingZeros(minutes, 2);
+}
+function formatTimezoneWithOptionalMinutes(offset$1, delimiter$1) {
+	if (offset$1 % 60 === 0) return (offset$1 > 0 ? "-" : "+") + addLeadingZeros(Math.abs(offset$1) / 60, 2);
+	return formatTimezone(offset$1, delimiter$1);
+}
+function formatTimezone(offset$1, delimiter$1 = "") {
+	const sign = offset$1 > 0 ? "-" : "+";
+	const absOffset = Math.abs(offset$1);
+	const hours = addLeadingZeros(Math.trunc(absOffset / 60), 2);
+	const minutes = addLeadingZeros(absOffset % 60, 2);
+	return sign + hours + delimiter$1 + minutes;
+}
+var dateLongFormatter = (pattern, formatLong$1) => {
+	switch (pattern) {
+		case "P": return formatLong$1.date({ width: "short" });
+		case "PP": return formatLong$1.date({ width: "medium" });
+		case "PPP": return formatLong$1.date({ width: "long" });
+		case "PPPP":
+		default: return formatLong$1.date({ width: "full" });
+	}
+};
+var timeLongFormatter = (pattern, formatLong$1) => {
+	switch (pattern) {
+		case "p": return formatLong$1.time({ width: "short" });
+		case "pp": return formatLong$1.time({ width: "medium" });
+		case "ppp": return formatLong$1.time({ width: "long" });
+		case "pppp":
+		default: return formatLong$1.time({ width: "full" });
+	}
+};
+var dateTimeLongFormatter = (pattern, formatLong$1) => {
+	const matchResult = pattern.match(/(P+)(p+)?/) || [];
+	const datePattern = matchResult[1];
+	const timePattern = matchResult[2];
+	if (!timePattern) return dateLongFormatter(pattern, formatLong$1);
+	let dateTimeFormat;
+	switch (datePattern) {
+		case "P":
+			dateTimeFormat = formatLong$1.dateTime({ width: "short" });
+			break;
+		case "PP":
+			dateTimeFormat = formatLong$1.dateTime({ width: "medium" });
+			break;
+		case "PPP":
+			dateTimeFormat = formatLong$1.dateTime({ width: "long" });
+			break;
+		case "PPPP":
+		default:
+			dateTimeFormat = formatLong$1.dateTime({ width: "full" });
+			break;
+	}
+	return dateTimeFormat.replace("{{date}}", dateLongFormatter(datePattern, formatLong$1)).replace("{{time}}", timeLongFormatter(timePattern, formatLong$1));
+};
+const longFormatters = {
+	p: timeLongFormatter,
+	P: dateTimeLongFormatter
+};
+var dayOfYearTokenRE = /^D+$/;
+var weekYearTokenRE = /^Y+$/;
+var throwTokens = [
+	"D",
+	"DD",
+	"YY",
+	"YYYY"
+];
+function isProtectedDayOfYearToken(token$1) {
+	return dayOfYearTokenRE.test(token$1);
+}
+function isProtectedWeekYearToken(token$1) {
+	return weekYearTokenRE.test(token$1);
+}
+function warnOrThrowProtectedError(token$1, format$1, input) {
+	const _message = message(token$1, format$1, input);
+	console.warn(_message);
+	if (throwTokens.includes(token$1)) throw new RangeError(_message);
+}
+function message(token$1, format$1, input) {
+	const subject = token$1[0] === "Y" ? "years" : "days of the month";
+	return `Use \`${token$1.toLowerCase()}\` instead of \`${token$1}\` (in \`${format$1}\`) for formatting ${subject} to the input \`${input}\`; see: https://github.com/date-fns/date-fns/blob/master/docs/unicodeTokens.md`;
+}
+var formattingTokensRegExp = /[yYQqMLwIdDecihHKkms]o|(\w)\1*|''|'(''|[^'])+('|$)|./g;
+var longFormattingTokensRegExp = /P+p+|P+|p+|''|'(''|[^'])+('|$)|./g;
+var escapedStringRegExp = /^'([^]*?)'?$/;
+var doubleQuoteRegExp = /''/g;
+var unescapedLatinCharacterRegExp = /[a-zA-Z]/;
+function format(date, formatStr, options$2) {
+	const defaultOptions$3 = getDefaultOptions();
+	const locale = options$2?.locale ?? defaultOptions$3.locale ?? enUS;
+	const firstWeekContainsDate = options$2?.firstWeekContainsDate ?? options$2?.locale?.options?.firstWeekContainsDate ?? defaultOptions$3.firstWeekContainsDate ?? defaultOptions$3.locale?.options?.firstWeekContainsDate ?? 1;
+	const weekStartsOn = options$2?.weekStartsOn ?? options$2?.locale?.options?.weekStartsOn ?? defaultOptions$3.weekStartsOn ?? defaultOptions$3.locale?.options?.weekStartsOn ?? 0;
+	const originalDate = toDate(date, options$2?.in);
+	if (!isValid(originalDate)) throw new RangeError("Invalid time value");
+	let parts = formatStr.match(longFormattingTokensRegExp).map((substring) => {
+		const firstCharacter = substring[0];
+		if (firstCharacter === "p" || firstCharacter === "P") {
+			const longFormatter = longFormatters[firstCharacter];
+			return longFormatter(substring, locale.formatLong);
+		}
+		return substring;
+	}).join("").match(formattingTokensRegExp).map((substring) => {
+		if (substring === "''") return {
+			isToken: false,
+			value: "'"
+		};
+		const firstCharacter = substring[0];
+		if (firstCharacter === "'") return {
+			isToken: false,
+			value: cleanEscapedString(substring)
+		};
+		if (formatters[firstCharacter]) return {
+			isToken: true,
+			value: substring
+		};
+		if (firstCharacter.match(unescapedLatinCharacterRegExp)) throw new RangeError("Format string contains an unescaped latin alphabet character `" + firstCharacter + "`");
+		return {
+			isToken: false,
+			value: substring
+		};
+	});
+	if (locale.localize.preprocessor) parts = locale.localize.preprocessor(originalDate, parts);
+	const formatterOptions = {
+		firstWeekContainsDate,
+		weekStartsOn,
+		locale
+	};
+	return parts.map((part) => {
+		if (!part.isToken) return part.value;
+		const token$1 = part.value;
+		if (!options$2?.useAdditionalWeekYearTokens && isProtectedWeekYearToken(token$1) || !options$2?.useAdditionalDayOfYearTokens && isProtectedDayOfYearToken(token$1)) warnOrThrowProtectedError(token$1, formatStr, String(date));
+		const formatter = formatters[token$1[0]];
+		return formatter(originalDate, token$1, locale.localize, formatterOptions);
+	}).join("");
+}
+function cleanEscapedString(input) {
+	const matched = input.match(escapedStringRegExp);
+	if (!matched) return input;
+	return matched[1].replace(doubleQuoteRegExp, "'");
+}
+var HegicStrategy_abi_default = /* @__PURE__ */ JSON.parse("[{\"inputs\":[{\"internalType\":\"contract AggregatorV3Interface\",\"name\":\"_priceProvider\",\"type\":\"address\"},{\"internalType\":\"contract IPremiumCalculator\",\"name\":\"_pricer\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_limit\",\"type\":\"uint256\"},{\"internalType\":\"uint8\",\"name\":\"_spotDecimals\",\"type\":\"uint8\"},{\"internalType\":\"uint16\",\"name\":\"_priceScale\",\"type\":\"uint16\"},{\"internalType\":\"uint48[2]\",\"name\":\"periodLimits\",\"type\":\"uint48[2]\"},{\"internalType\":\"uint48\",\"name\":\"_exerciseWindowDuration\",\"type\":\"uint48\"},{\"internalType\":\"contract LimitController\",\"name\":\"_limitController\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"components\":[{\"internalType\":\"uint128\",\"name\":\"amount\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"strike\",\"type\":\"uint128\"}],\"indexed\":false,\"internalType\":\"struct IHegicStrategy.StrategyData\",\"name\":\"data\",\"type\":\"tuple\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"negativepnl\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"positivepnl\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"period\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bytes[]\",\"name\":\"additional\",\"type\":\"bytes[]\"}],\"name\":\"Acquired\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"previousAdminRole\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"newAdminRole\",\"type\":\"bytes32\"}],\"name\":\"RoleAdminChanged\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"RoleGranted\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"RoleRevoked\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"limit\",\"type\":\"uint256\"}],\"name\":\"SetLimit\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"DEFAULT_ADMIN_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"period\",\"type\":\"uint256\"},{\"internalType\":\"bytes[]\",\"name\":\"\",\"type\":\"bytes[]\"}],\"name\":\"calculateNegativepnlAndPositivepnl\",\"outputs\":[{\"internalType\":\"uint128\",\"name\":\"negativepnl\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"positivepnl\",\"type\":\"uint128\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"connect\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"holder\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"period\",\"type\":\"uint256\"},{\"internalType\":\"bytes[]\",\"name\":\"additional\",\"type\":\"bytes[]\"}],\"name\":\"create\",\"outputs\":[{\"internalType\":\"uint32\",\"name\":\"expiration\",\"type\":\"uint32\"},{\"internalType\":\"uint256\",\"name\":\"negativePNL\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"positivePNL\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"exerciseWindowDuration\",\"outputs\":[{\"internalType\":\"uint48\",\"name\":\"\",\"type\":\"uint48\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint32\",\"name\":\"period\",\"type\":\"uint32\"},{\"internalType\":\"bytes[]\",\"name\":\"additional\",\"type\":\"bytes[]\"}],\"name\":\"getAvailableContracts\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"available\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getLockedByStrategy\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"}],\"name\":\"getRoleAdmin\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"grantRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"hasRole\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"positionID\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"caller\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"isPayoffAvailable\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"k\",\"outputs\":[{\"internalType\":\"uint48\",\"name\":\"\",\"type\":\"uint48\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"limitController\",\"outputs\":[{\"internalType\":\"contract LimitController\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"lockedLimit\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"maxPeriod\",\"outputs\":[{\"internalType\":\"uint48\",\"name\":\"\",\"type\":\"uint48\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"minPeriod\",\"outputs\":[{\"internalType\":\"uint48\",\"name\":\"\",\"type\":\"uint48\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"optionID\",\"type\":\"uint256\"}],\"name\":\"payOffAmount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"profit\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"pool\",\"outputs\":[{\"internalType\":\"contract IOperationalTreasury\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"positionExpiration\",\"outputs\":[{\"internalType\":\"uint32\",\"name\":\"\",\"type\":\"uint32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"priceProvider\",\"outputs\":[{\"internalType\":\"contract AggregatorV3Interface\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"pricer\",\"outputs\":[{\"internalType\":\"contract IPremiumCalculator\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"renounceRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"revokeRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint48\",\"name\":\"value\",\"type\":\"uint48\"}],\"name\":\"setK\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"setLimit\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract LimitController\",\"name\":\"value\",\"type\":\"address\"}],\"name\":\"setLimitController\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint48[2]\",\"name\":\"periodLimits\",\"type\":\"uint48[2]\"}],\"name\":\"setPeriodLimits\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract IPremiumCalculator\",\"name\":\"value\",\"type\":\"address\"}],\"name\":\"setPricer\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"strategyData\",\"outputs\":[{\"internalType\":\"uint128\",\"name\":\"amount\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"strike\",\"type\":\"uint128\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes4\",\"name\":\"interfaceId\",\"type\":\"bytes4\"}],\"name\":\"supportsInterface\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"}]");
+var HegicPriceCalculator_abi_default = [
+	{
+		"inputs": [
+			{
+				"internalType": "int256[5]",
+				"name": "initialCoefficients",
+				"type": "int256[5]"
+			},
+			{
+				"internalType": "contract AggregatorV3Interface",
+				"name": "_priceProvider",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_tokenDecimals",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			},
+			{
+				"indexed": true,
+				"internalType": "bytes32",
+				"name": "previousAdminRole",
+				"type": "bytes32"
+			},
+			{
+				"indexed": true,
+				"internalType": "bytes32",
+				"name": "newAdminRole",
+				"type": "bytes32"
+			}
+		],
+		"name": "RoleAdminChanged",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "sender",
+				"type": "address"
+			}
+		],
+		"name": "RoleGranted",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "sender",
+				"type": "address"
+			}
+		],
+		"name": "RoleRevoked",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [{
+			"indexed": false,
+			"internalType": "uint256[3]",
+			"name": "values",
+			"type": "uint256[3]"
+		}],
+		"name": "SetBorders",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [{
+			"indexed": false,
+			"internalType": "int256[5]",
+			"name": "values",
+			"type": "int256[5]"
+		}],
+		"name": "SetCoefficients",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [{
+			"indexed": false,
+			"internalType": "int256[5]",
+			"name": "values",
+			"type": "int256[5]"
+		}],
+		"name": "SetDiscountCall",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [{
+			"indexed": false,
+			"internalType": "int256[5]",
+			"name": "values",
+			"type": "int256[5]"
+		}],
+		"name": "SetDiscountPut",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [{
+			"indexed": false,
+			"internalType": "uint8",
+			"name": "values",
+			"type": "uint8"
+		}],
+		"name": "SetDiscountSpread",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [{
+			"indexed": false,
+			"internalType": "uint256",
+			"name": "value",
+			"type": "uint256"
+		}],
+		"name": "SetImpliedVolRate",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [{
+			"indexed": false,
+			"internalType": "uint256[4]",
+			"name": "values",
+			"type": "uint256[4]"
+		}],
+		"name": "SetImpliedVolRates",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [{
+			"indexed": false,
+			"internalType": "uint256",
+			"name": "min",
+			"type": "uint256"
+		}, {
+			"indexed": false,
+			"internalType": "uint256",
+			"name": "max",
+			"type": "uint256"
+		}],
+		"name": "SetPeriodLimits",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [{
+			"indexed": false,
+			"internalType": "uint256",
+			"name": "value",
+			"type": "uint256"
+		}],
+		"name": "SetSettlementFeeShare",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [{
+			"indexed": false,
+			"internalType": "uint256",
+			"name": "value",
+			"type": "uint256"
+		}],
+		"name": "SetStrikePercentage",
+		"type": "event"
+	},
+	{
+		"inputs": [],
+		"name": "DEFAULT_ADMIN_ROLE",
+		"outputs": [{
+			"internalType": "bytes32",
+			"name": "",
+			"type": "bytes32"
+		}],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "period",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "strike",
+				"type": "uint256"
+			}
+		],
+		"name": "calculatePremium",
+		"outputs": [{
+			"internalType": "uint256",
+			"name": "premium",
+			"type": "uint256"
+		}],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [{
+			"internalType": "uint256",
+			"name": "",
+			"type": "uint256"
+		}],
+		"name": "coefficients",
+		"outputs": [{
+			"internalType": "int256",
+			"name": "",
+			"type": "int256"
+		}],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [{
+			"internalType": "bytes32",
+			"name": "role",
+			"type": "bytes32"
+		}],
+		"name": "getRoleAdmin",
+		"outputs": [{
+			"internalType": "bytes32",
+			"name": "",
+			"type": "bytes32"
+		}],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [{
+			"internalType": "bytes32",
+			"name": "role",
+			"type": "bytes32"
+		}, {
+			"internalType": "address",
+			"name": "account",
+			"type": "address"
+		}],
+		"name": "grantRole",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [{
+			"internalType": "bytes32",
+			"name": "role",
+			"type": "bytes32"
+		}, {
+			"internalType": "address",
+			"name": "account",
+			"type": "address"
+		}],
+		"name": "hasRole",
+		"outputs": [{
+			"internalType": "bool",
+			"name": "",
+			"type": "bool"
+		}],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "maxPeriod",
+		"outputs": [{
+			"internalType": "uint256",
+			"name": "",
+			"type": "uint256"
+		}],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "minPeriod",
+		"outputs": [{
+			"internalType": "uint256",
+			"name": "",
+			"type": "uint256"
+		}],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "priceProvider",
+		"outputs": [{
+			"internalType": "contract AggregatorV3Interface",
+			"name": "",
+			"type": "address"
+		}],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [{
+			"internalType": "bytes32",
+			"name": "role",
+			"type": "bytes32"
+		}, {
+			"internalType": "address",
+			"name": "account",
+			"type": "address"
+		}],
+		"name": "renounceRole",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [{
+			"internalType": "bytes32",
+			"name": "role",
+			"type": "bytes32"
+		}, {
+			"internalType": "address",
+			"name": "account",
+			"type": "address"
+		}],
+		"name": "revokeRole",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [{
+			"internalType": "int256[5]",
+			"name": "values",
+			"type": "int256[5]"
+		}],
+		"name": "setCoefficients",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [{
+			"internalType": "uint256",
+			"name": "min",
+			"type": "uint256"
+		}, {
+			"internalType": "uint256",
+			"name": "max",
+			"type": "uint256"
+		}],
+		"name": "setPeriodLimits",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [{
+			"internalType": "bytes4",
+			"name": "interfaceId",
+			"type": "bytes4"
+		}],
+		"name": "supportsInterface",
+		"outputs": [{
+			"internalType": "bool",
+			"name": "",
+			"type": "bool"
+		}],
+		"stateMutability": "view",
+		"type": "function"
+	}
+];
+var useHegicStrike = (period) => {
+	const contracts$1 = useContracts_default();
+	const assetPrice = useTokenPrice("ETH");
+	const { data: strike, error: strikeError } = useSWR(contracts$1 && [period, "useHegicStrike"], async () => {
+		if (!period) return;
+		return await queryStrike(contracts$1, assetPrice, period);
+	});
+	if (strikeError) console.log("useHegicStrike error!\n", strikeError);
+	return strike;
+};
+var queryStrike = async (contracts$1, assetPrice, period) => {
+	return {
+		price: calcStrikePrice(HegicUtils_default.getStrategyScale(period), assetPrice),
+		period,
+		liquidity: await queryLiquidity(period),
+		queryPremium: async (amount) => queryPremium(contracts$1, period, amount)
+	};
+};
+var queryLiquidity = async (period) => {
+	const Strategy = new Contract(HegicUtils_default.getStrategy(period), HegicStrategy_abi_default, getAlchemyProvider());
+	const periodS = period / MS_IN_SECOND;
+	return bring1eTokenToDefault(await Strategy.getAvailableContracts(periodS, []).catch(() => 0n), "ETH");
+};
+var queryPremium = async (contracts$1, period, amount) => {
+	const PriceCalculator = new Contract(HegicConstants_default.PRICE_CALCULATOR, HegicPriceCalculator_abi_default, getAlchemyProvider());
+	const { TOKEN } = HegicConstants_default;
+	const amount1eToken = get1eToken(amount, "ETH");
+	const periodS = period / MS_IN_SECOND;
+	return await swapToUsdc(contracts$1, bring1eTokenToDefault(await PriceCalculator.calculatePremium(periodS, amount1eToken, 0), TOKEN), TOKEN);
+};
+var calcStrikePrice = (strikeScale, assetPrice) => {
+	return floorBigInt(multiplyBigIntByNumber(assetPrice, strikeScale / 100));
+};
+var useHegicStrike_default = useHegicStrike;
+var UTCDateMini = class extends Date {
+	constructor() {
+		super();
+		this.setTime(arguments.length === 0 ? Date.now() : arguments.length === 1 ? typeof arguments[0] === "string" ? +new Date(arguments[0]) : arguments[0] : Date.UTC(...arguments));
+	}
+	getTimezoneOffset() {
+		return 0;
+	}
+};
+var re = /^(get|set)(?!UTC)/;
+Object.getOwnPropertyNames(Date.prototype).forEach((method) => {
+	if (re.test(method)) {
+		const utcMethod = Date.prototype[method.replace(re, "$1UTC")];
+		if (utcMethod) UTCDateMini.prototype[method] = utcMethod;
+	}
+});
+var UTCDate = class extends UTCDateMini {
+	toString() {
+		return `${this.toDateString()} ${this.toTimeString()}`;
+	}
+	toDateString() {
+		return `${weekdayFormat.format(this)} ${dateFormat.format(this)} ${this.getFullYear()}`;
+	}
+	toTimeString() {
+		return `${timeFormat.format(this)} GMT+0000 (Coordinated Universal Time)`;
+	}
+	toLocaleString(locales, options$2) {
+		return Date.prototype.toLocaleString.call(this, locales, {
+			timeZone: "UTC",
+			...options$2
+		});
+	}
+	toLocaleDateString(locales, options$2) {
+		return Date.prototype.toLocaleDateString.call(this, locales, {
+			timeZone: "UTC",
+			...options$2
+		});
+	}
+	toLocaleTimeString(locales, options$2) {
+		return Date.prototype.toLocaleTimeString.call(this, locales, {
+			timeZone: "UTC",
+			...options$2
+		});
+	}
+};
+var weekdayFormat = new Intl.DateTimeFormat("en-US", {
+	weekday: "short",
+	timeZone: "UTC"
+});
+var dateFormat = new Intl.DateTimeFormat("en-US", {
+	month: "short",
+	day: "numeric",
+	timeZone: "UTC"
+});
+var timeFormat = new Intl.DateTimeFormat("en-GB", {
+	hour12: false,
+	hour: "numeric",
+	minute: "numeric",
+	second: "numeric",
+	timeZone: "UTC"
+});
+const utc = (value) => new UTCDate(+new Date(value));
+var import_classnames$7 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var Types = {
+	OPTION: "option",
+	AUTO_SHORT: "auto-short"
+};
 var ProtectionModal = ({ isOpen, setIsOpen }) => {
+	const [protectAmount, setProtectAmount] = (0, import_react.useState)(null);
+	const [period, setPeriod] = (0, import_react.useState)(null);
+	const [cost, setCost] = (0, import_react.useState)(null);
+	const [paymentMethod, setPaymentMethod] = (0, import_react.useState)(PaymentMethods.COLLATERAL);
+	const slippage = useSlippage();
+	const [step, setStep] = (0, import_react.useState)(0);
 	const [txResult, setTxResult] = (0, import_react.useState)(void 0);
+	const [isSubmitting, setIsSubmitting] = (0, import_react.useState)(false);
+	const { buyProtection } = useProtocolActions_default();
+	const mutateAccount = useAccountMutate();
+	const txSuccessData = {
+		title: "NoRekt Protection activated!",
+		text: "Your NoRekt protection is now active. You can view the details and manage your coverage in your dashboard"
+	};
+	const txErrorData = {
+		title: "Action failed",
+		text: "Something went wrong while activating protection"
+	};
+	const handleClick = async () => {
+		sendTx_default(buyProtection(protectAmount, period, cost, paymentMethod, slippage), `Activated protection for ${inputStringFromBigInt(protectAmount)} ETH.`, setIsSubmitting, ({ tx }) => {
+			setTxResult({
+				...txSuccessData,
+				hash: tx.hash
+			});
+			mutateAccount();
+		}, (e$2) => setTxResult({
+			...txErrorData,
+			error: e$2
+		}));
+	};
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TxInputModal_default, {
 		className: "ProtectionModal",
 		isOpen,
 		setIsOpen,
 		txResult,
-		setTxResult
+		setTxResult,
+		reset: () => {
+			setStep(0);
+			setProtectAmount(null);
+			setPeriod(null);
+			setCost(null);
+		},
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(BuyStep, {
+			protectAmount,
+			setProtectAmount,
+			period,
+			setPeriod,
+			cost,
+			setCost,
+			paymentMethod,
+			setPaymentMethod,
+			isSubmitting,
+			setIsSubmitting,
+			goForth: () => setStep(1)
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ReviewStep, {
+			period,
+			cost,
+			isSubmitting,
+			handleClick,
+			goBack: () => setStep(0)
+		})][step]
 	});
 };
+var BuyStep = ({ protectAmount, setProtectAmount, period, setPeriod, cost, setCost, paymentMethod, setPaymentMethod, isSubmitting, setIsSubmitting, goForth }) => {
+	const { OneClickOptions } = useContracts_default()?.view ?? {};
+	const [type, setType] = (0, import_react.useState)(Types.OPTION);
+	const isOption = type === Types.OPTION;
+	const isWallet = paymentMethod === PaymentMethods.WALLET;
+	const [isApproved, setIsApproved] = (0, import_react.useState)(void 0);
+	const Approver = useApprover_default(OneClickOptions?.target, "USDC", setIsApproved);
+	(0, import_react.useEffect)(() => {
+		if (!isWallet) return;
+		if (cost) Approver.update(cost);
+		else setIsApproved(void 0);
+	}, [cost]);
+	(0, import_react.useEffect)(() => {
+		if (!protectAmount) setIsApproved(void 0);
+	}, [protectAmount]);
+	(0, import_react.useEffect)(() => {
+		if (isWallet && cost) Approver.update(cost);
+		else setIsApproved(void 0);
+	}, [paymentMethod]);
+	const getError = () => {
+		if (!protectAmount) return "Enter Amount";
+		if (!period) return "Choose period";
+		const { isLoading, hasError } = getIsLoadingAndError(cost);
+		if (isLoading) return ButtonLabels.LOADING;
+		if (hasError) return ButtonLabels.ERROR;
+		const { isApprovedLoading } = getIsLoadingAndError(isApproved, "approved");
+		if (isWallet && isApprovedLoading) return ButtonLabels.LOADING;
+		if (isSubmitting) {
+			if (isWallet && !isApproved) return ButtonLabels.APPROVING;
+			return ButtonLabels.SUBMITTING;
+		}
+	};
+	const getBtnText = () => {
+		const error = getError();
+		if (error) return error;
+		if (isWallet && !isApproved) return "Approve to Buy Protection";
+		return "Continue";
+	};
+	const getIsDisabled = () => {
+		const error = getError();
+		return Boolean(error);
+	};
+	const handleClick = () => {
+		if (isWallet && !isApproved) {
+			setIsSubmitting(true);
+			return Approver.approve(cost).finally(() => {
+				setIsSubmitting(false);
+				Approver.update(cost);
+			});
+		} else goForth();
+	};
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "ProtectionModal__buy",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { children: "Buy Protection" }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Graph, {}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "ProtectionModal__body",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TypeRadio, {
+						type,
+						setType
+					}),
+					isOption && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(OptionInputs, {
+						protectAmount,
+						setProtectAmount,
+						period,
+						setPeriod,
+						cost,
+						setCost
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaymentMethod_default, {
+						method: paymentMethod,
+						setMethod: setPaymentMethod
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Metrics, {
+						cost,
+						paymentMethod
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TxInputModal_default.Button, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
+						type: isWallet && isApproved === false ? "green" : "primary",
+						onClick: handleClick,
+						isDisabled: getIsDisabled(),
+						children: getBtnText()
+					}) })
+				]
+			})
+		]
+	});
+};
+var ReviewStep = ({ period, cost, isSubmitting, handleClick, goBack }) => {
+	const usdcPool = useUsdcPool_default();
+	const [isAgreed, setIsAgreed] = (0, import_react.useState)(false);
+	const expDate = format(Date.now() + period, "dd/MM/yyyy, HH:mm", { in: utc });
+	const getError = () => {
+		if (isSubmitting) return ButtonLabels.SUBMITTING;
+	};
+	const getBtnText = () => {
+		const error = getError();
+		if (error) return error;
+		return "Buy Protection";
+	};
+	const getIsDisabled = () => {
+		if (!isAgreed) return true;
+		const error = getError();
+		return Boolean(error);
+	};
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "ProtectionModal__review",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { children: "Review Protection Terms" }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(ModalMetrics_default, { children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "ModalMetrics__row",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "ModalMetrics__row-title",
+						children: "Period of Protection"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "ModalMetrics__row-value",
+						children: [daysFromMs(period), " Days"]
+					})]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "ModalMetrics__row",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "ModalMetrics__row-title",
+						children: "Protection Exp. Date"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "ModalMetrics__row-value _exp-date",
+						children: [expDate, /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "UTC" })]
+					})]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "ModalMetrics__row",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "ModalMetrics__row-title",
+						children: "Borrow Rate"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "ModalMetrics__row-value",
+						children: formatPercent(usdcPool?.rate, 0)
+					})]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "ModalMetrics__row",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "ModalMetrics__row-title",
+						children: "Protection Cost"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "ModalMetrics__row-value",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmount_default, { value: cost })
+					})]
+				})
+			] }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "ProtectionModal__review-terms",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "ProtectionModal__review-terms-title",
+					children: "Protection terms"
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(List_default, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", { children: [
+					"Your position will be protected from liquidation until ",
+					expDate + " UTC",
+					" thanks to the purchased protection"
+				] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("li", { children: "After this date, if the price of $ETH drops, your loan may become subject to liquidation" })] })]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Checkbox_default, {
+				isChecked: isAgreed,
+				setIsChecked: setIsAgreed,
+				children: "I agree to the terms and understand the costs"
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(TxInputModal_default.Buttons, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
+				type: "tertiary",
+				onClick: goBack,
+				children: "Back"
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
+				isDisabled: getIsDisabled(),
+				onClick: handleClick,
+				children: getBtnText()
+			})] })
+		]
+	});
+};
+var Graph = () => {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "ProtectionModal__graph" });
+};
+var TypeRadio = ({ type, setType }) => {
+	const types$1 = [{
+		value: Types.OPTION,
+		node: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "tip",
+			children: "Option"
+		})
+	}, {
+		value: Types.AUTO_SHORT,
+		node: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "tip",
+			"aria-description": "Coming soon!",
+			children: "Auto-short"
+		}),
+		isDisabled: true
+	}];
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Field_default, {
+		className: "ProtectionModal__type",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "Field__title",
+			children: "Choose protection type"
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "Field__content",
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Radio_default, {
+				id: "ProtectionModal_type_radio",
+				items: types$1,
+				value: type,
+				setValue: setType
+			})
+		})]
+	});
+};
+var OptionInputs = ({ protectAmount, setProtectAmount, period, setPeriod, cost, setCost }) => {
+	const account = useAccount_default();
+	const [minPeriodDays, maxPeriodDays] = [HegicConstants_default.EXPIRY_PERIODS_DAYS[0], getLast(HegicConstants_default.EXPIRY_PERIODS_DAYS)];
+	const [periodDays, setPeriodDays] = (0, import_react.useState)(null);
+	const slippage = useSlippage();
+	const strike = useHegicStrike_default(period);
+	const updateCost = async () => {
+		setCost(void 0);
+		setCost(getBigIntWithSlippage(await strike.queryPremium(protectAmount), slippage));
+	};
+	useDebounce(() => {
+		if (periodDays) setPeriod(msInDays(periodDays));
+		else setPeriod(null);
+	}, 200, [periodDays]);
+	useDebounce(() => {
+		if (protectAmount && strike) updateCost();
+		else setCost(null);
+	}, 600, [protectAmount]);
+	(0, import_react.useEffect)(() => {
+		if (protectAmount && strike) updateCost();
+	}, [strike, slippage]);
+	(0, import_react.useEffect)(() => {
+		if (protectAmount && strike) setCost(void 0);
+	}, [protectAmount, period]);
+	const getExpStr = () => {
+		if (!isSufficient(period)) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, {});
+		return format(Date.now() + period, "d MMM, HH:mm");
+	};
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "ProtectionModal__option-inputs",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Field_default, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "Field__title",
+				children: "Amount to protect"
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "Field__content",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Input_default, {
+					setValue: setProtectAmount,
+					maxData: {
+						value: account?.balance,
+						token: "ETH",
+						title: "Collateral",
+						showsUsd: false
+					}
+				})
+			})] }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Field_default, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "Field__title",
+				children: "Protection cost"
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "Field__content",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmount_default, {
+					value: cost,
+					symbol: "USDC",
+					type: "boxed"
+				})
+			})] }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: (0, import_classnames$7.default)("ProtectionModal__period", isSufficient(period) && "_active"),
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "ProtectionModal__period-head",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: "Period" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "_result",
+						children: [periodDays ?? 0, " Days"]
+					})]
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "ProtectionModal__period-slider",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Slider_default, {
+						value: periodDays ?? 0,
+						setValue: setPeriodDays,
+						min: minPeriodDays,
+						max: maxPeriodDays,
+						step: 1
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "ProtectionModal__period-exp",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: "Expiration Date" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "_result",
+							children: getExpStr()
+						})]
+					})]
+				})]
+			})
+		]
+	});
+};
+var Metrics = ({ cost, paymentMethod }) => {
+	const account = useAccount_default();
+	const contracts$1 = useContracts_default();
+	const usdcPool = useUsdcPool_default();
+	const slippage = useSlippage();
+	const [estCollateral, setEstCollateral] = (0, import_react.useState)(null);
+	const [estLtv, setEstLtv] = (0, import_react.useState)(null);
+	const isCollateral = paymentMethod === PaymentMethods.COLLATERAL;
+	const updateEstCollateral = async () => {
+		setEstCollateral(void 0);
+		const collateralPaid = await swapUsdcToEth(contracts$1, cost, slippage);
+		setEstCollateral(account.balance - collateralPaid);
+	};
+	const updateEstLtv = async () => {
+		setEstLtv(void 0);
+		setEstLtv(await Ltv_default.queryLtvAfterProtect(account, cost, paymentMethod));
+	};
+	(0, import_react.useEffect)(() => {
+		if (!account || !cost) {
+			setEstCollateral(null);
+			setEstLtv(null);
+			return;
+		}
+		updateEstCollateral();
+		updateEstLtv();
+	}, [cost]);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(ModalMetrics_default, { children: [
+		isCollateral && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "ModalMetrics__row",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "ModalMetrics__row-title",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CollateralStr_default, {})
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "ModalMetrics__row-value",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmountChange_default, {
+					curAmount: account?.balance,
+					estAmount: estCollateral,
+					symbol: "ETH"
+				})
+			})]
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "ModalMetrics__row",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "ModalMetrics__row-title",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceStr_default, {})
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "ModalMetrics__row-value",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, {})
+			})]
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "ModalMetrics__row",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "ModalMetrics__row-title",
+				children: "LtV Change"
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "ModalMetrics__row-value",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LtvChange_default, { estLtv })
+			})]
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "ModalMetrics__row",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "ModalMetrics__row-title",
+				children: "Borrow Rate"
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "ModalMetrics__row-value",
+				children: formatPercent(usdcPool?.rate, 0)
+			})]
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "ModalMetrics__row",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "ModalMetrics__row-title",
+				children: "Total Cost of Protection"
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "ModalMetrics__row-value",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmount_default, { value: cost })
+			})]
+		}),
+		isCollateral && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "ModalMetrics__row",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "ModalMetrics__row-title",
+				children: "Slippage Control"
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "ModalMetrics__row-value",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Slippage_default, {})
+			})]
+		})
+	] });
+};
 var ProtectionModal_default = ProtectionModal;
-var _DashboardContext = (0, import_react.createContext)(null);
+var _DashboardContext = (0, import_react.createContext)({});
 var DashboardContext = ({ children }) => {
 	const [isCreateModalOpen, setIsCreateModalOpen] = (0, import_react.useState)(false);
 	const [isSupplyModalOpen, setIsSupplyModalOpen] = (0, import_react.useState)(false);
@@ -83227,7 +86325,7 @@ var processStyleName = /* @__PURE__ */ memoize(function(styleName) {
 var processStyleValue = function processStyleValue$1(key, value) {
 	switch (key) {
 		case "animation":
-		case "animationName": if (typeof value === "string") return value.replace(animationRegex, function(match$1, p1, p2) {
+		case "animationName": if (typeof value === "string") return value.replace(animationRegex, function(match$2, p1, p2) {
 			cursor = {
 				name: p1,
 				styles: p2,
@@ -83329,8 +86427,8 @@ function serializeStyles(args, registered, mergedProps) {
 	}
 	labelPattern.lastIndex = 0;
 	var identifierName = "";
-	var match$1;
-	while ((match$1 = labelPattern.exec(styles$1)) !== null) identifierName += "-" + match$1[1];
+	var match$2;
+	while ((match$2 = labelPattern.exec(styles$1)) !== null) identifierName += "-" + match$2[1];
 	return {
 		name: murmur2(styles$1) + identifierName,
 		styles: styles$1,
@@ -83398,9 +86496,9 @@ var jsx = function jsx$4(type, props) {
 	for (var i$3 = 2; i$3 < argsLength; i$3++) createElementArgArray[i$3] = args[i$3];
 	return import_react.createElement.apply(null, createElementArgArray);
 };
-(function(_jsx$64) {
+(function(_jsx$65) {
 	var JSX;
-	(function(_JSX) {})(JSX || (JSX = _jsx$64.JSX || (_jsx$64.JSX = {})));
+	(function(_JSX) {})(JSX || (JSX = _jsx$65.JSX || (_jsx$65.JSX = {})));
 })(jsx || (jsx = {}));
 function css$2() {
 	for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) args[_key] = arguments[_key];
@@ -83775,10 +86873,10 @@ var cleanCommonProps = function cleanCommonProps$1(props) {
 	return _objectSpread2({}, _objectWithoutProperties(props, _excluded$4));
 };
 var getStyleProps = function getStyleProps$1(props, name, classNamesState) {
-	var cx$22 = props.cx, getStyles = props.getStyles, getClassNames = props.getClassNames, className = props.className;
+	var cx$25 = props.cx, getStyles = props.getStyles, getClassNames = props.getClassNames, className = props.className;
 	return {
 		css: getStyles(name, props),
-		className: cx$22(classNamesState !== null && classNamesState !== void 0 ? classNamesState : {}, getClassNames(name, props), className)
+		className: cx$25(classNamesState !== null && classNamesState !== void 0 ? classNamesState : {}, getClassNames(name, props), className)
 	};
 };
 function isDocumentElement(el) {
@@ -84377,13 +87475,13 @@ var groupCSS = function groupCSS$1(_ref$1, unstyled) {
 	};
 };
 var Group = function Group$2(props) {
-	var children = props.children, cx$22 = props.cx, getStyles = props.getStyles, getClassNames = props.getClassNames, Heading = props.Heading, headingProps = props.headingProps, innerProps = props.innerProps, label = props.label, theme = props.theme, selectProps = props.selectProps;
+	var children = props.children, cx$25 = props.cx, getStyles = props.getStyles, getClassNames = props.getClassNames, Heading = props.Heading, headingProps = props.headingProps, innerProps = props.innerProps, label = props.label, theme = props.theme, selectProps = props.selectProps;
 	return jsx("div", _extends({}, getStyleProps(props, "group", { group: true }), innerProps), jsx(Heading, _extends({}, headingProps, {
 		selectProps,
 		theme,
 		getStyles,
 		getClassNames,
-		cx: cx$22
+		cx: cx$25
 	}), label), jsx("div", null, children));
 };
 var groupHeadingCSS = function groupHeadingCSS$1(_ref2$3, unstyled) {
@@ -84457,10 +87555,10 @@ var inputStyle = function inputStyle$1(isHidden) {
 	}, spacingStyle);
 };
 var Input$1 = function Input$3(props) {
-	var cx$22 = props.cx, value = props.value;
+	var cx$25 = props.cx, value = props.value;
 	var _cleanCommonProps = cleanCommonProps(props), innerRef = _cleanCommonProps.innerRef, isDisabled = _cleanCommonProps.isDisabled, isHidden = _cleanCommonProps.isHidden, inputClassName = _cleanCommonProps.inputClassName, innerProps = _objectWithoutProperties(_cleanCommonProps, _excluded$5);
 	return jsx("div", _extends({}, getStyleProps(props, "input", { "input-container": true }), { "data-value": value || "" }), jsx("input", _extends({
-		className: cx$22({ input: true }, inputClassName),
+		className: cx$25({ input: true }, inputClassName),
 		ref: innerRef,
 		style: inputStyle(isHidden),
 		disabled: isDisabled
@@ -84722,7 +87820,7 @@ var LiveRegion$1 = function LiveRegion(props) {
 		return _objectSpread2(_objectSpread2({}, defaultAriaLiveMessages), ariaLiveMessages || {});
 	}, [ariaLiveMessages]);
 	var ariaSelected = (0, import_react.useMemo)(function() {
-		var message = "";
+		var message$1 = "";
 		if (ariaSelection && messages.onChange) {
 			var option = ariaSelection.option, selectedOptions = ariaSelection.options, removedValue = ariaSelection.removedValue, removedValues = ariaSelection.removedValues, value = ariaSelection.value;
 			var selected = removedValue || option || function asOption(val) {
@@ -84736,9 +87834,9 @@ var LiveRegion$1 = function LiveRegion(props) {
 				label,
 				labels
 			}, ariaSelection);
-			message = messages.onChange(onChangeProps);
+			message$1 = messages.onChange(onChangeProps);
 		}
-		return message;
+		return message$1;
 	}, [
 		ariaSelection,
 		messages,
@@ -85177,8 +88275,8 @@ for (var i = 0; i < diacritics.length; i++) {
 	for (var j = 0; j < diacritic.letters.length; j++) diacriticToBase[diacritic.letters[j]] = diacritic.base;
 }
 var stripDiacritics = function stripDiacritics$1(str) {
-	return str.replace(anyDiacritic, function(match$1) {
-		return diacriticToBase[match$1];
+	return str.replace(anyDiacritic, function(match$2) {
+		return diacriticToBase[match$2];
 	});
 };
 var memoizedStripDiacriticsForInput = memoizeOne(stripDiacritics);
@@ -85463,9 +88561,9 @@ var RequiredInput$1 = function RequiredInput(_ref$1) {
 		onChange: function onChange() {}
 	});
 };
-function testPlatform(re$1) {
+function testPlatform(re$2) {
 	var _window$navigator$use;
-	return typeof window !== "undefined" && window.navigator != null ? re$1.test(((_window$navigator$use = window.navigator["userAgentData"]) === null || _window$navigator$use === void 0 ? void 0 : _window$navigator$use.platform) || window.navigator.platform) : false;
+	return typeof window !== "undefined" && window.navigator != null ? re$2.test(((_window$navigator$use = window.navigator["userAgentData"]) === null || _window$navigator$use === void 0 ? void 0 : _window$navigator$use.platform) || window.navigator.platform) : false;
 }
 function isIPhone() {
 	return testPlatform(/^iPhone/i);
@@ -86283,11 +89381,11 @@ var Select = /* @__PURE__ */ function(_Component) {
 		{
 			key: "getCommonProps",
 			value: function getCommonProps() {
-				var clearValue = this.clearValue, cx$22 = this.cx, getStyles = this.getStyles, getClassNames = this.getClassNames, getValue$2 = this.getValue, selectOption = this.selectOption, setValue = this.setValue, props = this.props;
+				var clearValue = this.clearValue, cx$25 = this.cx, getStyles = this.getStyles, getClassNames = this.getClassNames, getValue$2 = this.getValue, selectOption = this.selectOption, setValue = this.setValue, props = this.props;
 				var isMulti = props.isMulti, isRtl = props.isRtl, options$2 = props.options;
 				return {
 					clearValue,
-					cx: cx$22,
+					cx: cx$25,
 					getStyles,
 					getClassNames,
 					getValue: getValue$2,
@@ -86629,9 +89727,9 @@ var Select = /* @__PURE__ */ function(_Component) {
 					} else if (item.type === "option") return render(item, "".concat(item.index));
 				});
 				else if (isLoading) {
-					var message = loadingMessage({ inputValue });
-					if (message === null) return null;
-					menuUI = /* @__PURE__ */ import_react.createElement(LoadingMessage$1, commonProps, message);
+					var message$1 = loadingMessage({ inputValue });
+					if (message$1 === null) return null;
+					menuUI = /* @__PURE__ */ import_react.createElement(LoadingMessage$1, commonProps, message$1);
 				} else {
 					var _message = noOptionsMessage({ inputValue });
 					if (_message === null) return null;
@@ -87141,6 +90239,81 @@ var Borrow = () => {
 	});
 };
 var Borrow_default = Borrow;
+var LtvLevel = () => {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: "LtvLevel Protection__panel",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "Protection__panel-title",
+			children: "Current LtV"
+		})
+	});
+};
+var LtvLevel_default = LtvLevel;
+var ProtectionLevel = () => {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: "ProtectionLevel Protection__panel",
+		children: useAccount_default()?.debt ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Content$1, {}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(NothingToProtect, {})
+	});
+};
+var Content$1 = () => {
+	const { openProtectionModal } = useDashboardContext();
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "ProtectionLevel__title Protection__panel-title",
+			children: "Protection level"
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "ProtectionLevel__body",
+			children: [
+				"in progress",
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "ProtectionLevel__percent",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "ProtectionLevel__percent-bar" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "ProtectionLevel__percent-shields" })]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "ProtectionLevel__assessment" })
+			]
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "ProtectionLevel__footer",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "ProtectionLevel__liq",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "ProtectionLevel__liq-title",
+					children: "Liquidation Price"
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "ProtectionLevel__liq-value",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, {})
+				})]
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "ProtectionLevel__button",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
+					type: "green",
+					size: "small",
+					onClick: openProtectionModal,
+					children: "Buy protection"
+				})
+			})]
+		})
+	] });
+};
+var NothingToProtect = () => {
+	const account = useAccount_default();
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: "\n					ProtectionLevel__title\n					Protection__panel-title\n					hlight",
+		children: "Nothing to protect yet"
+	}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(List_default, { children: {
+		noSupply: ["To activate NoRekt protection, supply ETH and borrow USDC", "After that you'll be able to add NoRekt protection to avoid liquidation risk"],
+		noBorrow: ["You’ve supplied assets, but you haven’t borrowed USDC yet", "Borrow USDC and add protection to save your position from liquidation"]
+	}[!account?.balance ? "noSupply" : "noBorrow"].map((msg, i$3) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("li", { children: msg }, i$3)) })] });
+};
+var ProtectionLevel_default = ProtectionLevel;
+var Protection = () => {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "Protection box _sm",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(LtvLevel_default, {}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProtectionLevel_default, {})]
+	});
+};
+var Protection_default = Protection;
 require_classnames();
 var Dashboard = () => {
 	const { isConnected: isConnected$1 } = useWallet_default();
@@ -87164,6 +90337,7 @@ var Error$1 = ({ children }) => {
 var Content = () => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
 		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SelectedAccount_default, {}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Protection_default, {}),
 		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Supply_default, {}),
 		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Borrow_default, {})
 	] });
