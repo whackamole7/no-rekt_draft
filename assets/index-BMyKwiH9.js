@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-DmalZnhv.js","assets/secp256k1-FlPecG8-.js","assets/esm-BjXUGy-A.js","assets/dist-D6WiXG4D.js","assets/dist-BHqs2-Cg.js","assets/dist-C25iTPEb.js","assets/index.es-Dy63v5vr.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-oSotV04d.js","assets/secp256k1-DFKgr6nq.js","assets/esm-CtTWGsap.js","assets/dist-wghfQXe-.js","assets/dist-CvQF6SM9.js","assets/dist-BTuNKyhg.js","assets/index.es-CVXZN5zX.js"])))=>i.map(i=>d[i]);
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -16953,7 +16953,7 @@ async function call$1(client, args) {
 	} catch (err) {
 		const data$1 = getRevertErrorData(err);
 		const { offchainLookup, offchainLookupSignature } = await __vitePreload(async () => {
-			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-C7p9wOVg.js");
+			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-ZfZ1Z9ap.js");
 			return {
 				offchainLookup: offchainLookup$1,
 				offchainLookupSignature: offchainLookupSignature$1
@@ -17454,7 +17454,7 @@ function publicKeyToAddress(publicKey) {
 async function recoverPublicKey({ hash: hash$3, signature }) {
 	const hashHex = isHex(hash$3) ? hash$3 : toHex(hash$3);
 	const { secp256k1: secp256k1$1 } = await __vitePreload(async () => {
-		const { secp256k1: secp256k1$2 } = await import("./secp256k1-DmalZnhv.js");
+		const { secp256k1: secp256k1$2 } = await import("./secp256k1-oSotV04d.js");
 		return { secp256k1: secp256k1$2 };
 	}, __vite__mapDeps([0,1]));
 	return `0x${(() => {
@@ -23304,7 +23304,7 @@ function safe(parameters = {}) {
 			if (!provider_) {
 				const { default: SDK } = await (() => {
 					try {
-						return __vitePreload(() => import("./esm-BjXUGy-A.js"), __vite__mapDeps([2,3]));
+						return __vitePreload(() => import("./esm-CtTWGsap.js"), __vite__mapDeps([2,3]));
 					} catch {
 						throw new Error("dependency \"@safe-global/safe-apps-sdk\" not found");
 					}
@@ -23315,7 +23315,7 @@ function safe(parameters = {}) {
 				provider_ = new (await ((async () => {
 					const Provider = await (() => {
 						try {
-							return __vitePreload(() => import("./dist-BHqs2-Cg.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
+							return __vitePreload(() => import("./dist-CvQF6SM9.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
 						} catch {
 							throw new Error("dependency \"@safe-global/safe-apps-provider\" not found");
 						}
@@ -23480,7 +23480,7 @@ function walletConnect(parameters) {
 				if (!optionalChains.length) return;
 				const { EthereumProvider: EthereumProvider$1 } = await (() => {
 					try {
-						return __vitePreload(() => import("./dist-C25iTPEb.js"), __vite__mapDeps([5,6,1]));
+						return __vitePreload(() => import("./dist-BTuNKyhg.js"), __vite__mapDeps([5,6,1]));
 					} catch {
 						throw new Error("dependency \"@walletconnect/ethereum-provider\" not found");
 					}
@@ -78739,12 +78739,12 @@ var HegicConstants_default = {
 	EXPIRY_PERIODS_DAYS,
 	TOKEN: "USDC.e",
 	Strategies: {
-		CALL_100_ETH_1: "0x09a4B65b3144733f1bFBa6aEaBEDFb027a38Fb60",
-		CALL_100_ETH_2: "0x6418C3514923a6464A26A2ffA5f17bF1efC96a21",
-		CALL_100_ETH_3: "0xE377A1a97237b3B89a96d8B731A2ab10d5DaC16C",
-		CALL_100_ETH_4: "0x2727B807D22fCAeB7F900F49894054Ed92b9125B"
+		PUT_100_ETH_1: "0xaA0DfBFb8dA7f45BB41c0fB68B71FAEB959B22aa",
+		PUT_100_ETH_2: "0x2739A4C003080A5B3Ade22b92c3321EDa2Da3A9e",
+		PUT_100_ETH_3: "0xf711D0BC60F37cA28845BA623ccd9C635E5073A1",
+		PUT_100_ETH_4: "0x015FAA9aF7599e6cea597EBC7e7e04A149a3E992"
 	},
-	PRICE_CALCULATOR: "0xC62a0b7e480a23BdCfe13EA08BDAceDc278a14C1"
+	PRICE_CALCULATOR: "0xB72FC913e45522cD721252476fEfB7F50a65E23A"
 };
 var { Strategies } = HegicConstants_default;
 var HegicUtils = {
@@ -78764,11 +78764,12 @@ function getStrategyScale(period) {
 var getStrategyAndKey = (period) => {
 	const periodDays = daysFromMs(period, false);
 	if (periodDays < 7 || periodDays > 90) return {};
+	const keys = Object.keys(Strategies);
 	let strategy, key;
-	if (periodDays < 14) key = "CALL_100_ETH_1";
-	else if (periodDays < 30) key = "CALL_100_ETH_2";
-	else if (periodDays < 60) key = "CALL_100_ETH_3";
-	else if (periodDays <= 90) key = "CALL_100_ETH_4";
+	if (periodDays < 14) key = keys[0];
+	else if (periodDays < 30) key = keys[1];
+	else if (periodDays < 60) key = keys[2];
+	else if (periodDays <= 90) key = keys[3];
 	strategy = Strategies[key];
 	return {
 		key,
