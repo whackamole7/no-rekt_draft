@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-DgQYWnQe.js","assets/secp256k1-CUt6i9w0.js","assets/esm-C0XRYzWh.js","assets/dist-DdOrF4_6.js","assets/dist-Bgpb91mq.js","assets/dist-Cv4rRxPM.js","assets/index.es-DQKKtNek.js","assets/alchemy-provider-2577f5a5-CzlUbm9G.js","assets/alchemy-provider-2577f5a5-xMqXxXeq.js","assets/alchemy-websocket-provider-ee041890-BtGCcV4W.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-BvfZl3IR.js","assets/secp256k1-dgZBT4en.js","assets/esm-DijMeDLx.js","assets/dist-Bw3bWNd4.js","assets/dist-DnB7A1B1.js","assets/dist-DccytWZk.js","assets/index.es-BEMT7wGy.js","assets/alchemy-provider-2577f5a5-Dab-iDEB.js","assets/alchemy-provider-2577f5a5-BlRbsT70.js","assets/alchemy-websocket-provider-ee041890-DSnUwMos.js"])))=>i.map(i=>d[i]);
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -16953,7 +16953,7 @@ async function call$1(client, args) {
 	} catch (err) {
 		const data$1 = getRevertErrorData(err);
 		const { offchainLookup, offchainLookupSignature } = await __vitePreload(async () => {
-			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-BFAeWwF8.js");
+			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-BKYSG_Wd.js");
 			return {
 				offchainLookup: offchainLookup$1,
 				offchainLookupSignature: offchainLookupSignature$1
@@ -17454,7 +17454,7 @@ function publicKeyToAddress(publicKey) {
 async function recoverPublicKey({ hash: hash$3, signature }) {
 	const hashHex = isHex(hash$3) ? hash$3 : toHex$2(hash$3);
 	const { secp256k1: secp256k1$1 } = await __vitePreload(async () => {
-		const { secp256k1: secp256k1$2 } = await import("./secp256k1-DgQYWnQe.js");
+		const { secp256k1: secp256k1$2 } = await import("./secp256k1-BvfZl3IR.js");
 		return { secp256k1: secp256k1$2 };
 	}, __vite__mapDeps([0,1]));
 	return `0x${(() => {
@@ -23304,7 +23304,7 @@ function safe(parameters = {}) {
 			if (!provider_) {
 				const { default: SDK } = await (() => {
 					try {
-						return __vitePreload(() => import("./esm-C0XRYzWh.js"), __vite__mapDeps([2,3]));
+						return __vitePreload(() => import("./esm-DijMeDLx.js"), __vite__mapDeps([2,3]));
 					} catch {
 						throw new Error("dependency \"@safe-global/safe-apps-sdk\" not found");
 					}
@@ -23315,7 +23315,7 @@ function safe(parameters = {}) {
 				provider_ = new (await ((async () => {
 					const Provider$1 = await (() => {
 						try {
-							return __vitePreload(() => import("./dist-Bgpb91mq.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
+							return __vitePreload(() => import("./dist-DnB7A1B1.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
 						} catch {
 							throw new Error("dependency \"@safe-global/safe-apps-provider\" not found");
 						}
@@ -23480,7 +23480,7 @@ function walletConnect(parameters) {
 				if (!optionalChains.length) return;
 				const { EthereumProvider: EthereumProvider$1 } = await (() => {
 					try {
-						return __vitePreload(() => import("./dist-Cv4rRxPM.js"), __vite__mapDeps([5,6,1]));
+						return __vitePreload(() => import("./dist-DccytWZk.js"), __vite__mapDeps([5,6,1]));
 					} catch {
 						throw new Error("dependency \"@walletconnect/ethereum-provider\" not found");
 					}
@@ -83677,14 +83677,14 @@ var AlchemyConfig = class {
 	}
 	getProvider() {
 		if (!this._baseAlchemyProvider) this._baseAlchemyProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-CzlUbm9G.js"), __vite__mapDeps([7,8]));
+			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-Dab-iDEB.js"), __vite__mapDeps([7,8]));
 			return new AlchemyProvider$1(this);
 		}))();
 		return this._baseAlchemyProvider;
 	}
 	getWebSocketProvider() {
 		if (!this._baseAlchemyWssProvider) this._baseAlchemyWssProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-BtGCcV4W.js"), __vite__mapDeps([9,8]));
+			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-DSnUwMos.js"), __vite__mapDeps([9,8]));
 			return new AlchemyWebSocketProvider(this);
 		}))();
 		return this._baseAlchemyWssProvider;
@@ -100069,7 +100069,7 @@ var Protections = () => {
 };
 var Content$1 = ({ positions }) => {
 	const isMobile$1 = useIsMobile_default(992);
-	if (!positions.length) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, { children: "No protections (design is to be done)" });
+	if (!positions.length) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, { children: "No protections (design for empty list is to be done)" });
 	return isMobile$1 ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(_Mobile$1, { positions }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(_Desktop$1, { positions });
 };
 var _Desktop$1 = ({ positions }) => {
