@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-JkhuFqtd.js","assets/secp256k1-Dn25ocdP.js","assets/esm-DNBdiMBY.js","assets/dist-D9LUU3lF.js","assets/dist-Bj6_COMH.js","assets/dist-76mjnKn_.js","assets/index.es-Dg1to9eW.js","assets/alchemy-provider-2577f5a5-D0yNq_sZ.js","assets/alchemy-provider-2577f5a5-BvnOpgnJ.js","assets/alchemy-websocket-provider-ee041890-BTfeQlmt.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-DgQYWnQe.js","assets/secp256k1-CUt6i9w0.js","assets/esm-C0XRYzWh.js","assets/dist-DdOrF4_6.js","assets/dist-Bgpb91mq.js","assets/dist-Cv4rRxPM.js","assets/index.es-DQKKtNek.js","assets/alchemy-provider-2577f5a5-CzlUbm9G.js","assets/alchemy-provider-2577f5a5-xMqXxXeq.js","assets/alchemy-websocket-provider-ee041890-BtGCcV4W.js"])))=>i.map(i=>d[i]);
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -16953,7 +16953,7 @@ async function call$1(client, args) {
 	} catch (err) {
 		const data$1 = getRevertErrorData(err);
 		const { offchainLookup, offchainLookupSignature } = await __vitePreload(async () => {
-			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-yQCSQUKq.js");
+			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-BFAeWwF8.js");
 			return {
 				offchainLookup: offchainLookup$1,
 				offchainLookupSignature: offchainLookupSignature$1
@@ -17454,7 +17454,7 @@ function publicKeyToAddress(publicKey) {
 async function recoverPublicKey({ hash: hash$3, signature }) {
 	const hashHex = isHex(hash$3) ? hash$3 : toHex$2(hash$3);
 	const { secp256k1: secp256k1$1 } = await __vitePreload(async () => {
-		const { secp256k1: secp256k1$2 } = await import("./secp256k1-JkhuFqtd.js");
+		const { secp256k1: secp256k1$2 } = await import("./secp256k1-DgQYWnQe.js");
 		return { secp256k1: secp256k1$2 };
 	}, __vite__mapDeps([0,1]));
 	return `0x${(() => {
@@ -23304,7 +23304,7 @@ function safe(parameters = {}) {
 			if (!provider_) {
 				const { default: SDK } = await (() => {
 					try {
-						return __vitePreload(() => import("./esm-DNBdiMBY.js"), __vite__mapDeps([2,3]));
+						return __vitePreload(() => import("./esm-C0XRYzWh.js"), __vite__mapDeps([2,3]));
 					} catch {
 						throw new Error("dependency \"@safe-global/safe-apps-sdk\" not found");
 					}
@@ -23315,7 +23315,7 @@ function safe(parameters = {}) {
 				provider_ = new (await ((async () => {
 					const Provider$1 = await (() => {
 						try {
-							return __vitePreload(() => import("./dist-Bj6_COMH.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
+							return __vitePreload(() => import("./dist-Bgpb91mq.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
 						} catch {
 							throw new Error("dependency \"@safe-global/safe-apps-provider\" not found");
 						}
@@ -23480,7 +23480,7 @@ function walletConnect(parameters) {
 				if (!optionalChains.length) return;
 				const { EthereumProvider: EthereumProvider$1 } = await (() => {
 					try {
-						return __vitePreload(() => import("./dist-76mjnKn_.js"), __vite__mapDeps([5,6,1]));
+						return __vitePreload(() => import("./dist-Cv4rRxPM.js"), __vite__mapDeps([5,6,1]));
 					} catch {
 						throw new Error("dependency \"@walletconnect/ethereum-provider\" not found");
 					}
@@ -35234,7 +35234,7 @@ function decomposed$1(cps) {
 	let ret = [];
 	let buf = [];
 	let check_order = false;
-	function add$1(cp) {
+	function add$2(cp) {
 		let cc$1 = SHIFTED_RANK$1.get(cp);
 		if (cc$1) {
 			check_order = true;
@@ -35249,13 +35249,13 @@ function decomposed$1(cps) {
 			let l_index = s_index / N_COUNT$1 | 0;
 			let v_index = s_index % N_COUNT$1 / T_COUNT$1 | 0;
 			let t_index = s_index % T_COUNT$1;
-			add$1(L0$1 + l_index);
-			add$1(V0$1 + v_index);
-			if (t_index > 0) add$1(T0$1 + t_index);
+			add$2(L0$1 + l_index);
+			add$2(V0$1 + v_index);
+			if (t_index > 0) add$2(T0$1 + t_index);
 		} else {
 			let mapped = DECOMP$1.get(cp);
 			if (mapped) buf.push(...mapped);
-			else add$1(cp);
+			else add$2(cp);
 		}
 		if (!buf.length) break;
 		cp = buf.pop();
@@ -58177,7 +58177,7 @@ var rotlSH = (h$1, l$2, s$1) => h$1 << s$1 | l$2 >>> 32 - s$1;
 var rotlSL = (h$1, l$2, s$1) => l$2 << s$1 | h$1 >>> 32 - s$1;
 var rotlBH = (h$1, l$2, s$1) => l$2 << s$1 - 32 | h$1 >>> 64 - s$1;
 var rotlBL = (h$1, l$2, s$1) => h$1 << s$1 - 32 | l$2 >>> 64 - s$1;
-function add(Ah, Al, Bh, Bl) {
+function add$1(Ah, Al, Bh, Bl) {
 	const l$2 = (Al >>> 0) + (Bl >>> 0);
 	return {
 		h: Ah + Bh + (l$2 / 2 ** 32 | 0) | 0,
@@ -58206,7 +58206,7 @@ var _u64_default = {
 	rotlSL,
 	rotlBH,
 	rotlBL,
-	add,
+	add: add$1,
 	add3L,
 	add3H,
 	add4L,
@@ -61790,20 +61790,20 @@ var Transaction = class Transaction {
 	}
 	toString() {
 		const output$1 = [];
-		const add$1 = (key) => {
+		const add$2 = (key) => {
 			let value = this[key];
 			if (typeof value === "string") value = JSON.stringify(value);
 			output$1.push(`${key}: ${value}`);
 		};
-		if (this.type) add$1("type");
-		add$1("to");
-		add$1("data");
-		add$1("nonce");
-		add$1("gasLimit");
-		add$1("value");
-		if (this.chainId != null) add$1("chainId");
+		if (this.type) add$2("type");
+		add$2("to");
+		add$2("data");
+		add$2("nonce");
+		add$2("gasLimit");
+		add$2("value");
+		if (this.chainId != null) add$2("chainId");
 		if (this.signature) {
-			add$1("from");
+			add$2("from");
 			output$1.push(`signature: ${this.signature.toString()}`);
 		}
 		const auths = this.authorizationList;
@@ -62139,7 +62139,7 @@ function decomposed(cps) {
 	let ret = [];
 	let buf = [];
 	let check_order = false;
-	function add$1(cp) {
+	function add$2(cp) {
 		let cc$1 = SHIFTED_RANK.get(cp);
 		if (cc$1) {
 			check_order = true;
@@ -62154,13 +62154,13 @@ function decomposed(cps) {
 			let l_index = s_index / N_COUNT | 0;
 			let v_index = s_index % N_COUNT / T_COUNT | 0;
 			let t_index = s_index % T_COUNT;
-			add$1(L0 + l_index);
-			add$1(V0 + v_index);
-			if (t_index > 0) add$1(T0 + t_index);
+			add$2(L0 + l_index);
+			add$2(V0 + v_index);
+			if (t_index > 0) add$2(T0 + t_index);
 		} else {
 			let mapped = DECOMP.get(cp);
 			if (mapped) buf.push(...mapped);
-			else add$1(cp);
+			else add$2(cp);
 		}
 		if (!buf.length) break;
 		cp = buf.pop();
@@ -78132,7 +78132,7 @@ var require_bn = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 			} else if (a$2 !== this) for (; i$3 < a$2.length; i$3++) this.words[i$3] = a$2.words[i$3];
 			return this;
 		};
-		BN$1.prototype.add = function add$1(num) {
+		BN$1.prototype.add = function add$2(num) {
 			var res;
 			if (num.negative !== 0 && this.negative === 0) {
 				num.negative = 0;
@@ -79805,7 +79805,7 @@ var require_bn = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 			if (a$2.isZero()) return a$2.clone();
 			return this.m.sub(a$2)._forceRed(this);
 		};
-		Red.prototype.add = function add$1(a$2, b$4) {
+		Red.prototype.add = function add$2(a$2, b$4) {
 			this._verify2(a$2, b$4);
 			var res = a$2.add(b$4);
 			if (res.cmp(this.m) >= 0) res.isub(this.m);
@@ -83677,14 +83677,14 @@ var AlchemyConfig = class {
 	}
 	getProvider() {
 		if (!this._baseAlchemyProvider) this._baseAlchemyProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-D0yNq_sZ.js"), __vite__mapDeps([7,8]));
+			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-CzlUbm9G.js"), __vite__mapDeps([7,8]));
 			return new AlchemyProvider$1(this);
 		}))();
 		return this._baseAlchemyProvider;
 	}
 	getWebSocketProvider() {
 		if (!this._baseAlchemyWssProvider) this._baseAlchemyWssProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-BTfeQlmt.js"), __vite__mapDeps([9,8]));
+			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-BtGCcV4W.js"), __vite__mapDeps([9,8]));
 			return new AlchemyWebSocketProvider(this);
 		}))();
 		return this._baseAlchemyWssProvider;
@@ -89205,7 +89205,7 @@ var require_classList = /* @__PURE__ */ __commonJSMin(((exports) => {
 			poll$1[className] === 0 && classListRef.remove(className);
 		});
 	};
-	exports.add = function add$1(element, classString) {
+	exports.add = function add$2(element, classString) {
 		return trackClass(element.classList, element.nodeName.toLowerCase() == "html" ? htmlClassList : docBodyClassList, classString.split(" "));
 	};
 	exports.remove = function remove(element, classString) {
@@ -93000,6 +93000,8 @@ const daysInYear = 365.2425;
 Math.pow(10, 8) * 24 * 60 * 60 * 1e3;
 const millisecondsInWeek = 6048e5;
 const millisecondsInDay = 864e5;
+const millisecondsInMinute = 6e4;
+const millisecondsInHour = 36e5;
 const secondsInDay = 3600 * 24;
 secondsInDay * 7;
 secondsInDay * daysInYear / 12 * 3;
@@ -93012,6 +93014,34 @@ function constructFrom(date, value) {
 }
 function toDate(argument, context) {
 	return constructFrom(context || argument, argument);
+}
+function addDays(date, amount, options$2) {
+	const _date = toDate(date, options$2?.in);
+	if (isNaN(amount)) return constructFrom(options$2?.in || date, NaN);
+	if (!amount) return _date;
+	_date.setDate(_date.getDate() + amount);
+	return _date;
+}
+function addMonths(date, amount, options$2) {
+	const _date = toDate(date, options$2?.in);
+	if (isNaN(amount)) return constructFrom(options$2?.in || date, NaN);
+	if (!amount) return _date;
+	const dayOfMonth = _date.getDate();
+	const endOfDesiredMonth = constructFrom(options$2?.in || date, _date.getTime());
+	endOfDesiredMonth.setMonth(_date.getMonth() + amount + 1, 0);
+	if (dayOfMonth >= endOfDesiredMonth.getDate()) return endOfDesiredMonth;
+	else {
+		_date.setFullYear(endOfDesiredMonth.getFullYear(), endOfDesiredMonth.getMonth(), dayOfMonth);
+		return _date;
+	}
+}
+function add(date, duration, options$2) {
+	const { years = 0, months = 0, weeks = 0, days = 0, hours = 0, minutes = 0, seconds = 0 } = duration;
+	const _date = toDate(date, options$2?.in);
+	const dateWithMonths = months || years ? addMonths(_date, months + years * 12) : _date;
+	const dateWithDays = days || weeks ? addDays(dateWithMonths, days + weeks * 7) : dateWithMonths;
+	const msToAdd = (seconds + (minutes + hours * 60) * 60) * 1e3;
+	return constructFrom(options$2?.in || date, +dateWithDays + msToAdd);
 }
 var defaultOptions = {};
 function getDefaultOptions() {
@@ -93078,11 +93108,107 @@ function startOfISOWeekYear(date, options$2) {
 	fourthOfJanuary.setHours(0, 0, 0, 0);
 	return startOfISOWeek(fourthOfJanuary);
 }
+function compareAsc(dateLeft, dateRight) {
+	const diff = +toDate(dateLeft) - +toDate(dateRight);
+	if (diff < 0) return -1;
+	else if (diff > 0) return 1;
+	return diff;
+}
 function isDate(value) {
 	return value instanceof Date || typeof value === "object" && Object.prototype.toString.call(value) === "[object Date]";
 }
 function isValid(date) {
 	return !(!isDate(date) && typeof date !== "number" || isNaN(+toDate(date)));
+}
+function differenceInCalendarMonths(laterDate, earlierDate, options$2) {
+	const [laterDate_, earlierDate_] = normalizeDates(options$2?.in, laterDate, earlierDate);
+	const yearsDiff = laterDate_.getFullYear() - earlierDate_.getFullYear();
+	const monthsDiff = laterDate_.getMonth() - earlierDate_.getMonth();
+	return yearsDiff * 12 + monthsDiff;
+}
+function differenceInCalendarYears(laterDate, earlierDate, options$2) {
+	const [laterDate_, earlierDate_] = normalizeDates(options$2?.in, laterDate, earlierDate);
+	return laterDate_.getFullYear() - earlierDate_.getFullYear();
+}
+function differenceInDays(laterDate, earlierDate, options$2) {
+	const [laterDate_, earlierDate_] = normalizeDates(options$2?.in, laterDate, earlierDate);
+	const sign = compareLocalAsc(laterDate_, earlierDate_);
+	const difference = Math.abs(differenceInCalendarDays(laterDate_, earlierDate_));
+	laterDate_.setDate(laterDate_.getDate() - sign * difference);
+	const result = sign * (difference - Number(compareLocalAsc(laterDate_, earlierDate_) === -sign));
+	return result === 0 ? 0 : result;
+}
+function compareLocalAsc(laterDate, earlierDate) {
+	const diff = laterDate.getFullYear() - earlierDate.getFullYear() || laterDate.getMonth() - earlierDate.getMonth() || laterDate.getDate() - earlierDate.getDate() || laterDate.getHours() - earlierDate.getHours() || laterDate.getMinutes() - earlierDate.getMinutes() || laterDate.getSeconds() - earlierDate.getSeconds() || laterDate.getMilliseconds() - earlierDate.getMilliseconds();
+	if (diff < 0) return -1;
+	if (diff > 0) return 1;
+	return diff;
+}
+function getRoundingMethod(method) {
+	return (number$2) => {
+		const result = (method ? Math[method] : Math.trunc)(number$2);
+		return result === 0 ? 0 : result;
+	};
+}
+function differenceInHours(laterDate, earlierDate, options$2) {
+	const [laterDate_, earlierDate_] = normalizeDates(options$2?.in, laterDate, earlierDate);
+	const diff = (+laterDate_ - +earlierDate_) / millisecondsInHour;
+	return getRoundingMethod(options$2?.roundingMethod)(diff);
+}
+function differenceInMilliseconds(laterDate, earlierDate) {
+	return +toDate(laterDate) - +toDate(earlierDate);
+}
+function differenceInMinutes(dateLeft, dateRight, options$2) {
+	const diff = differenceInMilliseconds(dateLeft, dateRight) / millisecondsInMinute;
+	return getRoundingMethod(options$2?.roundingMethod)(diff);
+}
+function endOfDay(date, options$2) {
+	const _date = toDate(date, options$2?.in);
+	_date.setHours(23, 59, 59, 999);
+	return _date;
+}
+function endOfMonth(date, options$2) {
+	const _date = toDate(date, options$2?.in);
+	const month = _date.getMonth();
+	_date.setFullYear(_date.getFullYear(), month + 1, 0);
+	_date.setHours(23, 59, 59, 999);
+	return _date;
+}
+function isLastDayOfMonth(date, options$2) {
+	const _date = toDate(date, options$2?.in);
+	return +endOfDay(_date, options$2) === +endOfMonth(_date, options$2);
+}
+function differenceInMonths(laterDate, earlierDate, options$2) {
+	const [laterDate_, workingLaterDate, earlierDate_] = normalizeDates(options$2?.in, laterDate, laterDate, earlierDate);
+	const sign = compareAsc(workingLaterDate, earlierDate_);
+	const difference = Math.abs(differenceInCalendarMonths(workingLaterDate, earlierDate_));
+	if (difference < 1) return 0;
+	if (workingLaterDate.getMonth() === 1 && workingLaterDate.getDate() > 27) workingLaterDate.setDate(30);
+	workingLaterDate.setMonth(workingLaterDate.getMonth() - sign * difference);
+	let isLastMonthNotFull = compareAsc(workingLaterDate, earlierDate_) === -sign;
+	if (isLastDayOfMonth(laterDate_) && difference === 1 && compareAsc(laterDate_, earlierDate_) === 1) isLastMonthNotFull = false;
+	const result = sign * (difference - +isLastMonthNotFull);
+	return result === 0 ? 0 : result;
+}
+function differenceInSeconds(laterDate, earlierDate, options$2) {
+	const diff = differenceInMilliseconds(laterDate, earlierDate) / 1e3;
+	return getRoundingMethod(options$2?.roundingMethod)(diff);
+}
+function differenceInYears(laterDate, earlierDate, options$2) {
+	const [laterDate_, earlierDate_] = normalizeDates(options$2?.in, laterDate, earlierDate);
+	const sign = compareAsc(laterDate_, earlierDate_);
+	const diff = Math.abs(differenceInCalendarYears(laterDate_, earlierDate_));
+	laterDate_.setFullYear(1584);
+	earlierDate_.setFullYear(1584);
+	const result = sign * (diff - +(compareAsc(laterDate_, earlierDate_) === -sign));
+	return result === 0 ? 0 : result;
+}
+function normalizeInterval(context, interval) {
+	const [start, end] = normalizeDates(context, interval.start, interval.end);
+	return {
+		start,
+		end
+	};
 }
 function startOfYear(date, options$2) {
 	const date_ = toDate(date, options$2?.in);
@@ -94239,6 +94365,27 @@ function cleanEscapedString(input) {
 	const matched = input.match(escapedStringRegExp);
 	if (!matched) return input;
 	return matched[1].replace(doubleQuoteRegExp, "'");
+}
+function intervalToDuration(interval, options$2) {
+	const { start, end } = normalizeInterval(options$2?.in, interval);
+	const duration = {};
+	const years = differenceInYears(end, start);
+	if (years) duration.years = years;
+	const remainingMonths = add(start, { years: duration.years });
+	const months = differenceInMonths(end, remainingMonths);
+	if (months) duration.months = months;
+	const remainingDays = add(remainingMonths, { months: duration.months });
+	const days = differenceInDays(end, remainingDays);
+	if (days) duration.days = days;
+	const remainingHours = add(remainingDays, { days: duration.days });
+	const hours = differenceInHours(end, remainingHours);
+	if (hours) duration.hours = hours;
+	const remainingMinutes = add(remainingHours, { hours: duration.hours });
+	const minutes = differenceInMinutes(end, remainingMinutes);
+	if (minutes) duration.minutes = minutes;
+	const seconds = differenceInSeconds(end, add(remainingMinutes, { minutes: duration.minutes }));
+	if (seconds) duration.seconds = seconds;
+	return duration;
 }
 var { Strategy_abi: Strategy_abi$1, PriceCalculator_abi } = HegicConstants_default;
 var useHegicStrike = (period) => {
@@ -99953,7 +100100,16 @@ var Amount = ({ position: position$1 }) => {
 };
 var Period = ({ option }) => {
 	const { exp } = option;
-	const [expDays, expHours, expMinutes] = format(exp, "dd:HH:mm").split(":");
+	const duration = intervalToDuration({
+		start: Date.now(),
+		end: exp
+	});
+	const pad$2 = (n$3) => String(n$3).padStart(2, "0");
+	const [daysLeft, hoursLeft, minutesLeft] = [
+		pad$2(duration.days ?? 0),
+		pad$2(duration.hours ?? 0),
+		pad$2(duration.minutes ?? 0)
+	];
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 		className: "Protections__period",
 		children: ["? Days (to be done)", /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
@@ -99961,11 +100117,11 @@ var Period = ({ option }) => {
 			children: ["Ends in", /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 				className: "Protections__period-timer-value",
 				children: [
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: [expDays, "d"] }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: [daysLeft, "d"] }),
 					":",
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: [expHours, "h"] }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: [hoursLeft, "h"] }),
 					":",
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: [expMinutes, "m"] })
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: [minutesLeft, "m"] })
 				]
 			})]
 		})]
