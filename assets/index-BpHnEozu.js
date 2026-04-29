@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-BvfZl3IR.js","assets/secp256k1-dgZBT4en.js","assets/esm-DijMeDLx.js","assets/dist-Bw3bWNd4.js","assets/dist-DnB7A1B1.js","assets/dist-DccytWZk.js","assets/index.es-BEMT7wGy.js","assets/alchemy-provider-2577f5a5-Dab-iDEB.js","assets/alchemy-provider-2577f5a5-BlRbsT70.js","assets/alchemy-websocket-provider-ee041890-DSnUwMos.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-BnCSkpwz.js","assets/secp256k1-CJhRi9A6.js","assets/esm-C0aibowm.js","assets/dist-DoZYiDvp.js","assets/dist-BG7mNJMW.js","assets/dist-CgV2GmoA.js","assets/index.es-Dr8jkvvk.js","assets/alchemy-provider-2577f5a5-C6EboQTJ.js","assets/alchemy-provider-2577f5a5-BX-KJJY0.js","assets/alchemy-websocket-provider-ee041890-C-so4mOx.js"])))=>i.map(i=>d[i]);
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -16953,7 +16953,7 @@ async function call$1(client, args) {
 	} catch (err) {
 		const data$1 = getRevertErrorData(err);
 		const { offchainLookup, offchainLookupSignature } = await __vitePreload(async () => {
-			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-BKYSG_Wd.js");
+			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-DyWoIyPW.js");
 			return {
 				offchainLookup: offchainLookup$1,
 				offchainLookupSignature: offchainLookupSignature$1
@@ -17454,7 +17454,7 @@ function publicKeyToAddress(publicKey) {
 async function recoverPublicKey({ hash: hash$3, signature }) {
 	const hashHex = isHex(hash$3) ? hash$3 : toHex$2(hash$3);
 	const { secp256k1: secp256k1$1 } = await __vitePreload(async () => {
-		const { secp256k1: secp256k1$2 } = await import("./secp256k1-BvfZl3IR.js");
+		const { secp256k1: secp256k1$2 } = await import("./secp256k1-BnCSkpwz.js");
 		return { secp256k1: secp256k1$2 };
 	}, __vite__mapDeps([0,1]));
 	return `0x${(() => {
@@ -22635,7 +22635,7 @@ var require_use_sync_external_store_shim_production$1 = /* @__PURE__ */ __common
 	function is$2(x$2, y$3) {
 		return x$2 === y$3 && (0 !== x$2 || 1 / x$2 === 1 / y$3) || x$2 !== x$2 && y$3 !== y$3;
 	}
-	var objectIs$2 = "function" === typeof Object.is ? Object.is : is$2, useState$28 = React$9.useState, useEffect$40 = React$9.useEffect, useLayoutEffect$7 = React$9.useLayoutEffect, useDebugValue$3 = React$9.useDebugValue;
+	var objectIs$2 = "function" === typeof Object.is ? Object.is : is$2, useState$28 = React$9.useState, useEffect$41 = React$9.useEffect, useLayoutEffect$7 = React$9.useLayoutEffect, useDebugValue$3 = React$9.useDebugValue;
 	function useSyncExternalStore$2$6(subscribe$1, getSnapshot) {
 		var value = getSnapshot(), _useState = useState$28({ inst: {
 			value,
@@ -22650,7 +22650,7 @@ var require_use_sync_external_store_shim_production$1 = /* @__PURE__ */ __common
 			value,
 			getSnapshot
 		]);
-		useEffect$40(function() {
+		useEffect$41(function() {
 			checkIfSnapshotChanged$1(inst) && forceUpdate({ inst });
 			return subscribe$1(function() {
 				checkIfSnapshotChanged$1(inst) && forceUpdate({ inst });
@@ -22692,7 +22692,7 @@ var require_with_selector_production = /* @__PURE__ */ __commonJSMin(((exports) 
 	function is$1(x$2, y$3) {
 		return x$2 === y$3 && (0 !== x$2 || 1 / x$2 === 1 / y$3) || x$2 !== x$2 && y$3 !== y$3;
 	}
-	var objectIs$1 = "function" === typeof Object.is ? Object.is : is$1, useSyncExternalStore$6 = shim$1.useSyncExternalStore, useRef$20 = React$8.useRef, useEffect$39 = React$8.useEffect, useMemo$19 = React$8.useMemo, useDebugValue$2 = React$8.useDebugValue;
+	var objectIs$1 = "function" === typeof Object.is ? Object.is : is$1, useSyncExternalStore$6 = shim$1.useSyncExternalStore, useRef$20 = React$8.useRef, useEffect$40 = React$8.useEffect, useMemo$19 = React$8.useMemo, useDebugValue$2 = React$8.useDebugValue;
 	exports.useSyncExternalStoreWithSelector = function(subscribe$1, getSnapshot, getServerSnapshot, selector, isEqual$2) {
 		var instRef = useRef$20(null);
 		if (null === instRef.current) {
@@ -22734,7 +22734,7 @@ var require_with_selector_production = /* @__PURE__ */ __commonJSMin(((exports) 
 			isEqual$2
 		]);
 		var value = useSyncExternalStore$6(subscribe$1, instRef[0], instRef[1]);
-		useEffect$39(function() {
+		useEffect$40(function() {
 			inst.hasValue = !0;
 			inst.value = value;
 		}, [value]);
@@ -23304,7 +23304,7 @@ function safe(parameters = {}) {
 			if (!provider_) {
 				const { default: SDK } = await (() => {
 					try {
-						return __vitePreload(() => import("./esm-DijMeDLx.js"), __vite__mapDeps([2,3]));
+						return __vitePreload(() => import("./esm-C0aibowm.js"), __vite__mapDeps([2,3]));
 					} catch {
 						throw new Error("dependency \"@safe-global/safe-apps-sdk\" not found");
 					}
@@ -23315,7 +23315,7 @@ function safe(parameters = {}) {
 				provider_ = new (await ((async () => {
 					const Provider$1 = await (() => {
 						try {
-							return __vitePreload(() => import("./dist-DnB7A1B1.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
+							return __vitePreload(() => import("./dist-BG7mNJMW.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
 						} catch {
 							throw new Error("dependency \"@safe-global/safe-apps-provider\" not found");
 						}
@@ -23480,7 +23480,7 @@ function walletConnect(parameters) {
 				if (!optionalChains.length) return;
 				const { EthereumProvider: EthereumProvider$1 } = await (() => {
 					try {
-						return __vitePreload(() => import("./dist-DccytWZk.js"), __vite__mapDeps([5,6,1]));
+						return __vitePreload(() => import("./dist-CgV2GmoA.js"), __vite__mapDeps([5,6,1]));
 					} catch {
 						throw new Error("dependency \"@walletconnect/ethereum-provider\" not found");
 					}
@@ -83677,14 +83677,14 @@ var AlchemyConfig = class {
 	}
 	getProvider() {
 		if (!this._baseAlchemyProvider) this._baseAlchemyProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-Dab-iDEB.js"), __vite__mapDeps([7,8]));
+			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-C6EboQTJ.js"), __vite__mapDeps([7,8]));
 			return new AlchemyProvider$1(this);
 		}))();
 		return this._baseAlchemyProvider;
 	}
 	getWebSocketProvider() {
 		if (!this._baseAlchemyWssProvider) this._baseAlchemyWssProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-DSnUwMos.js"), __vite__mapDeps([9,8]));
+			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-C-so4mOx.js"), __vite__mapDeps([9,8]));
 			return new AlchemyWebSocketProvider(this);
 		}))();
 		return this._baseAlchemyWssProvider;
@@ -85856,7 +85856,7 @@ var require_use_sync_external_store_shim_production = /* @__PURE__ */ __commonJS
 	function is(x$2, y$3) {
 		return x$2 === y$3 && (0 !== x$2 || 1 / x$2 === 1 / y$3) || x$2 !== x$2 && y$3 !== y$3;
 	}
-	var objectIs = "function" === typeof Object.is ? Object.is : is, useState$21 = React$4.useState, useEffect$21 = React$4.useEffect, useLayoutEffect$3 = React$4.useLayoutEffect, useDebugValue$1 = React$4.useDebugValue;
+	var objectIs = "function" === typeof Object.is ? Object.is : is, useState$21 = React$4.useState, useEffect$22 = React$4.useEffect, useLayoutEffect$3 = React$4.useLayoutEffect, useDebugValue$1 = React$4.useDebugValue;
 	function useSyncExternalStore$2(subscribe$1, getSnapshot) {
 		var value = getSnapshot(), _useState = useState$21({ inst: {
 			value,
@@ -85871,7 +85871,7 @@ var require_use_sync_external_store_shim_production = /* @__PURE__ */ __commonJS
 			value,
 			getSnapshot
 		]);
-		useEffect$21(function() {
+		useEffect$22(function() {
 			checkIfSnapshotChanged(inst) && forceUpdate({ inst });
 			return subscribe$1(function() {
 				checkIfSnapshotChanged(inst) && forceUpdate({ inst });
@@ -86472,6 +86472,9 @@ const roundBigInt = (bigInt, roundDecimals = 0) => {
 };
 const getBigIntWithSlippage = (bigInt, slippage = SLIPPAGE) => {
 	return multiplyBigInts(bigInt, bigIntFromString(1) + slippage);
+};
+const minBigInt = (...values) => {
+	return values.reduce((a$2, b$4) => a$2 < b$4 ? a$2 : b$4);
 };
 var convertExponentToStr = (expStr) => {
 	let str = String(expStr);
@@ -90444,13 +90447,13 @@ var LtvChange = ({ estLtv }) => {
 };
 var LtvChange_default = LtvChange;
 var import_classnames$17 = /* @__PURE__ */ __toESM(require_classnames(), 1);
-var ModalMetrics = ({ className, children }) => {
+var Metrics = ({ className, children }) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: (0, import_classnames$17.default)("ModalMetrics", className),
+		className: (0, import_classnames$17.default)("Metrics", className),
 		children
 	});
 };
-var ModalMetrics_default = ModalMetrics;
+var Metrics_default = Metrics;
 function getWindowDimensions() {
 	const { innerWidth: width, innerHeight: height } = window;
 	return {
@@ -90540,14 +90543,14 @@ var SupplyModal = ({ isOpen, setIsOpen }) => {
 		children: [
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { children: "Supply" }),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TxModal_default.Input, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(BalanceInput_default, { setValue: setSupplyAmount }) }),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(ModalMetrics_default, { children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Metrics_default, { children: [
 				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "ModalMetrics__row",
+					className: "Metrics__row",
 					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "ModalMetrics__row-title",
+						className: "Metrics__row-title",
 						children: "Supply Change"
 					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "ModalMetrics__row-value",
+						className: "Metrics__row-value",
 						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmountChange_default, {
 							symbol: "ETH",
 							curAmount: account?.balance,
@@ -90556,22 +90559,22 @@ var SupplyModal = ({ isOpen, setIsOpen }) => {
 					})]
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "ModalMetrics__row",
+					className: "Metrics__row",
 					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "ModalMetrics__row-title",
+						className: "Metrics__row-title",
 						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceStr_default, {})
 					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "ModalMetrics__row-value",
+						className: "Metrics__row-value",
 						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, {})
 					})]
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "ModalMetrics__row",
+					className: "Metrics__row",
 					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "ModalMetrics__row-title",
+						className: "Metrics__row-title",
 						children: "LtV"
 					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "ModalMetrics__row-value",
+						className: "Metrics__row-value",
 						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LtvChange_default, { estLtv })
 					})]
 				})
@@ -90664,14 +90667,14 @@ var WithdrawModal = ({ isOpen, setIsOpen }) => {
 					}
 				})
 			})] }) }),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(ModalMetrics_default, { children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Metrics_default, { children: [
 				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "ModalMetrics__row",
+					className: "Metrics__row",
 					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "ModalMetrics__row-title",
+						className: "Metrics__row-title",
 						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CollateralStr_default, {})
 					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "ModalMetrics__row-value",
+						className: "Metrics__row-value",
 						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmountChange_default, {
 							symbol: "ETH",
 							curAmount: account?.balance,
@@ -90680,22 +90683,22 @@ var WithdrawModal = ({ isOpen, setIsOpen }) => {
 					})]
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "ModalMetrics__row",
+					className: "Metrics__row",
 					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "ModalMetrics__row-title",
+						className: "Metrics__row-title",
 						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceStr_default, {})
 					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "ModalMetrics__row-value",
+						className: "Metrics__row-value",
 						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, {})
 					})]
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "ModalMetrics__row",
+					className: "Metrics__row",
 					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "ModalMetrics__row-title",
+						className: "Metrics__row-title",
 						children: "LtV"
 					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "ModalMetrics__row-value",
+						className: "Metrics__row-value",
 						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LtvChange_default, { estLtv })
 					})]
 				})
@@ -90970,34 +90973,34 @@ var InputStep = ({ borrowAmount, setBorrowAmount, goForth }) => {
 				}
 			})
 		})] }) }),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(ModalMetrics_default, { children: [
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Metrics_default, { children: [
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "ModalMetrics__row",
+				className: "Metrics__row",
 				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "ModalMetrics__row-title",
+					className: "Metrics__row-title",
 					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceStr_default, {})
 				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "ModalMetrics__row-value",
+					className: "Metrics__row-value",
 					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, {})
 				})]
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "ModalMetrics__row",
+				className: "Metrics__row",
 				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "ModalMetrics__row-title",
+					className: "Metrics__row-title",
 					children: "LtV"
 				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "ModalMetrics__row-value",
+					className: "Metrics__row-value",
 					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LtvChange_default, { estLtv })
 				})]
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "ModalMetrics__row",
+				className: "Metrics__row",
 				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "ModalMetrics__row-title",
+					className: "Metrics__row-title",
 					children: "Borrow Rate"
 				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "ModalMetrics__row-value",
+					className: "Metrics__row-value",
 					children: formatPercent(usdcPool?.rate, 0)
 				})]
 			})
@@ -91027,22 +91030,22 @@ var TermsStep = ({ borrowAmount, goBack, isSubmitting, handleClick }) => {
 	};
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
 		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { children: "Review Loan Terms" }),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(ModalMetrics_default, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "ModalMetrics__row",
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Metrics_default, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "Metrics__row",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "ModalMetrics__row-title",
+				className: "Metrics__row-title",
 				children: "Borrow Amount"
 			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "ModalMetrics__row-value",
+				className: "Metrics__row-value",
 				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmount_default, { value: borrowAmount })
 			})]
 		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "ModalMetrics__row",
+			className: "Metrics__row",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "ModalMetrics__row-title",
+				className: "Metrics__row-title",
 				children: "Borrow Rate"
 			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "ModalMetrics__row-value",
+				className: "Metrics__row-value",
 				children: formatPercent(usdcPool?.rate, 0)
 			})]
 		})] }),
@@ -92837,7 +92840,7 @@ var RepayModal = ({ isOpen, setIsOpen }) => {
 				method: paymentMethod,
 				setMethod: setPaymentMethod
 			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Metrics$1, {
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ModalMetrics$1, {
 				repayAmount,
 				paymentMethod
 			}),
@@ -92889,7 +92892,7 @@ var AmountInput = ({ setRepayAmount, shouldWithdraw, setShouldWithdraw }) => {
 		})]
 	});
 };
-var Metrics$1 = ({ repayAmount, paymentMethod }) => {
+var ModalMetrics$1 = ({ repayAmount, paymentMethod }) => {
 	const account = useAccount_default();
 	const contracts$1 = useContracts_default();
 	const [estCollateral, setEstCollateral] = (0, import_react.useState)(null);
@@ -92908,11 +92911,9 @@ var Metrics$1 = ({ repayAmount, paymentMethod }) => {
 		setEstCollateral(account.balance - collateralPaid);
 	};
 	const updateEstDebt = () => {
-		setEstDebt(void 0);
 		setEstDebt(account.debt - repayAmount);
 	};
-	const updateEstLtv = async () => {
-		setEstLtv(void 0);
+	const updateEstLtv = () => {
 		setEstLtv(Ltv_default.calcLtvAfterRepay(account, repayAmount));
 	};
 	useDebounce(() => {
@@ -92928,14 +92929,14 @@ var Metrics$1 = ({ repayAmount, paymentMethod }) => {
 		if (!contracts$1) return;
 		updateEstCollateral();
 	}, [slippage]);
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(ModalMetrics_default, { children: [
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Metrics_default, { children: [
 		isCollateral && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "ModalMetrics__row",
+			className: "Metrics__row",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "ModalMetrics__row-title",
+				className: "Metrics__row-title",
 				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CollateralStr_default, {})
 			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "ModalMetrics__row-value",
+				className: "Metrics__row-value",
 				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmountChange_default, {
 					curAmount: account?.balance,
 					estAmount: estCollateral,
@@ -92944,12 +92945,12 @@ var Metrics$1 = ({ repayAmount, paymentMethod }) => {
 			})]
 		}),
 		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "ModalMetrics__row",
+			className: "Metrics__row",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "ModalMetrics__row-title",
+				className: "Metrics__row-title",
 				children: "Debt Change"
 			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "ModalMetrics__row-value",
+				className: "Metrics__row-value",
 				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmountChange_default, {
 					curAmount: account?.debt,
 					estAmount: estDebt
@@ -92957,39 +92958,39 @@ var Metrics$1 = ({ repayAmount, paymentMethod }) => {
 			})]
 		}),
 		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "ModalMetrics__row",
+			className: "Metrics__row",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "ModalMetrics__row-title",
+				className: "Metrics__row-title",
 				children: "Principal Repaid"
 			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "ModalMetrics__row-value",
+				className: "Metrics__row-value",
 				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmount_default, { value: account?.principal })
 			})]
 		}),
 		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "ModalMetrics__row",
+			className: "Metrics__row",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "ModalMetrics__row-title",
+				className: "Metrics__row-title",
 				children: "Interest Paid"
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "ModalMetrics__row-value" })]
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "Metrics__row-value" })]
 		}),
 		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "ModalMetrics__row",
+			className: "Metrics__row",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "ModalMetrics__row-title",
+				className: "Metrics__row-title",
 				children: "LtV Change"
 			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "ModalMetrics__row-value",
+				className: "Metrics__row-value",
 				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LtvChange_default, { estLtv })
 			})]
 		}),
 		isCollateral && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "ModalMetrics__row",
+			className: "Metrics__row",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "ModalMetrics__row-title",
+				className: "Metrics__row-title",
 				children: "Slippage Control"
 			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "ModalMetrics__row-value",
+				className: "Metrics__row-value",
 				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Slippage_default, {})
 			})]
 		})
@@ -94504,8 +94505,7 @@ var _useHegicOptions = () => {
 	const { isConnected: isConnected$1 } = useWallet_default();
 	const accountId = useAccountId_default();
 	const contracts$1 = useContracts_default();
-	const assetPrice = useTokenPrice("ETH");
-	const { data: options$2, error: optionsError, mutate: mutate$1 } = useSWR(isConnected$1 && assetPrice && contracts$1 && [accountId, "useHegicOptions"], async () => {
+	const { data: options$2, error: optionsError, mutate: mutate$1 } = useSWR(isConnected$1 && contracts$1 && [accountId, "useHegicOptions"], async () => {
 		if (isUndefined(accountId)) return [];
 		const { MarginAccount } = contracts$1.view;
 		const optionIds = await MarginAccount.getErc721ByContract(accountId, HegicConstants_default.POSITION_MANAGER).then((ids) => ids.map(BigInt));
@@ -94527,6 +94527,7 @@ var queryOption = async (contracts$1, id$2) => {
 	const { amount: amount1eToken } = await Strategy.strategyData(id$2);
 	return {
 		id: id$2,
+		asset: "ETH",
 		amount: bring1eTokenToDefault(amount1eToken, "ETH"),
 		exp,
 		premium,
@@ -94680,7 +94681,7 @@ var BuyStep = ({ protectAmount, setProtectAmount, period, setPeriod, cost, setCo
 						method: paymentMethod,
 						setMethod: setPaymentMethod
 					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Metrics, {
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ModalMetrics, {
 						cost,
 						paymentMethod
 					}),
@@ -94716,44 +94717,44 @@ var ReviewStep = ({ period, cost, isSubmitting, handleClick, goBack }) => {
 		className: "ProtectionModal__review",
 		children: [
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { children: "Review Protection Terms" }),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(ModalMetrics_default, { children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Metrics_default, { children: [
 				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "ModalMetrics__row",
+					className: "Metrics__row",
 					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "ModalMetrics__row-title",
+						className: "Metrics__row-title",
 						children: "Period of Protection"
 					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "ModalMetrics__row-value",
+						className: "Metrics__row-value",
 						children: [daysFromMs(period), " Days"]
 					})]
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "ModalMetrics__row",
+					className: "Metrics__row",
 					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "ModalMetrics__row-title",
+						className: "Metrics__row-title",
 						children: "Protection Exp. Date"
 					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "ModalMetrics__row-value _exp-date",
+						className: "Metrics__row-value _exp-date",
 						children: [expDate, /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "UTC" })]
 					})]
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "ModalMetrics__row",
+					className: "Metrics__row",
 					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "ModalMetrics__row-title",
+						className: "Metrics__row-title",
 						children: "Borrow Rate"
 					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "ModalMetrics__row-value",
+						className: "Metrics__row-value",
 						children: formatPercent(usdcPool?.rate, 0)
 					})]
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "ModalMetrics__row",
+					className: "Metrics__row",
 					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "ModalMetrics__row-title",
+						className: "Metrics__row-title",
 						children: "Protection Cost"
 					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "ModalMetrics__row-value",
+						className: "Metrics__row-value",
 						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmount_default, { value: cost })
 					})]
 				})
@@ -94906,7 +94907,7 @@ var OptionInputs = ({ protectAmount, setProtectAmount, period, setPeriod, cost, 
 		]
 	});
 };
-var Metrics = ({ cost, paymentMethod }) => {
+var ModalMetrics = ({ cost, paymentMethod }) => {
 	const account = useAccount_default();
 	const contracts$1 = useContracts_default();
 	const usdcPool = useUsdcPool_default();
@@ -94932,14 +94933,14 @@ var Metrics = ({ cost, paymentMethod }) => {
 		updateEstCollateral();
 		updateEstLtv();
 	}, [cost]);
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(ModalMetrics_default, { children: [
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Metrics_default, { children: [
 		isCollateral && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "ModalMetrics__row",
+			className: "Metrics__row",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "ModalMetrics__row-title",
+				className: "Metrics__row-title",
 				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CollateralStr_default, {})
 			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "ModalMetrics__row-value",
+				className: "Metrics__row-value",
 				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmountChange_default, {
 					curAmount: account?.balance,
 					estAmount: estCollateral,
@@ -94948,52 +94949,52 @@ var Metrics = ({ cost, paymentMethod }) => {
 			})]
 		}),
 		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "ModalMetrics__row",
+			className: "Metrics__row",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "ModalMetrics__row-title",
+				className: "Metrics__row-title",
 				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceStr_default, {})
 			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "ModalMetrics__row-value",
+				className: "Metrics__row-value",
 				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, {})
 			})]
 		}),
 		isCollateral && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "ModalMetrics__row",
+			className: "Metrics__row",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "ModalMetrics__row-title",
+				className: "Metrics__row-title",
 				children: "LtV Change"
 			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "ModalMetrics__row-value",
+				className: "Metrics__row-value",
 				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LtvChange_default, { estLtv })
 			})]
 		}),
 		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "ModalMetrics__row",
+			className: "Metrics__row",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "ModalMetrics__row-title",
+				className: "Metrics__row-title",
 				children: "Borrow Rate"
 			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "ModalMetrics__row-value",
+				className: "Metrics__row-value",
 				children: formatPercent(usdcPool?.rate, 0)
 			})]
 		}),
 		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "ModalMetrics__row",
+			className: "Metrics__row",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "ModalMetrics__row-title",
+				className: "Metrics__row-title",
 				children: "Total Cost of Protection"
 			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "ModalMetrics__row-value",
+				className: "Metrics__row-value",
 				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmount_default, { value: cost })
 			})]
 		}),
 		isCollateral && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "ModalMetrics__row",
+			className: "Metrics__row",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "ModalMetrics__row-title",
+				className: "Metrics__row-title",
 				children: "Slippage Control"
 			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "ModalMetrics__row-value",
+				className: "Metrics__row-value",
 				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Slippage_default, {})
 			})]
 		})
@@ -95001,6 +95002,9 @@ var Metrics = ({ cost, paymentMethod }) => {
 };
 var ProtectionModal_default = ProtectionModal;
 var ClaimModal = ({ isOpen, setIsOpen, position: position$1, setPosition }) => {
+	const account = useAccount_default();
+	const [estLtv, setEstLtv] = (0, import_react.useState)(null);
+	const [estDebt, setEstDebt] = (0, import_react.useState)(null);
 	const [isSubmitting, setIsSubmitting] = (0, import_react.useState)(false);
 	const [txResult, setTxResult] = (0, import_react.useState)(void 0);
 	const { claim } = useProtocolActions_default();
@@ -95014,6 +95018,15 @@ var ClaimModal = ({ isOpen, setIsOpen, position: position$1, setPosition }) => {
 		title: "Action failed",
 		text: "Something went wrong while claiming your profit"
 	};
+	(0, import_react.useEffect)(() => {
+		if (!account || !position$1) {
+			setEstDebt(null);
+			setEstLtv(null);
+			return;
+		}
+		updateEstDebt();
+		updateEstLtv();
+	}, [position$1]);
 	const getError = () => {
 		if (isSubmitting) return ButtonLabels.SUBMITTING;
 	};
@@ -95040,7 +95053,16 @@ var ClaimModal = ({ isOpen, setIsOpen, position: position$1, setPosition }) => {
 			error: e$2
 		}));
 	};
+	const updateEstLtv = () => {
+		const repayAmount = minBigInt(position$1.profit, account.debt);
+		setEstLtv(Ltv_default.calcLtvAfterRepay(account, repayAmount));
+	};
+	const updateEstDebt = () => {
+		const repayAmount = minBigInt(position$1.profit, account.debt);
+		setEstDebt(account.debt - repayAmount);
+	};
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(TxModal_default, {
+		className: "ClaimModal",
 		isOpen,
 		setIsOpen,
 		txResult,
@@ -95048,14 +95070,54 @@ var ClaimModal = ({ isOpen, setIsOpen, position: position$1, setPosition }) => {
 		reset: () => setPosition(null),
 		children: [
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { children: "Claim" }),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "text",
-				children: [
-					"- Claim with and without withdraw is available",
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
-					"- Claim info in progress"
-				]
-			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Metrics_default, { children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "Metrics__row",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "Metrics__row-title",
+						children: "Info"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "Metrics__row-value _info-value",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Hedge Contract" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmount_default, {
+							symbol: position$1?.asset,
+							value: position$1?.amount
+						})]
+					})]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "Metrics__row",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "Metrics__row-title",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceStr_default, {})
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "Metrics__row-value",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, {})
+					})]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "Metrics__row",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "Metrics__row-title",
+						children: "Debt change"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "Metrics__row-value",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmountChange_default, {
+							curAmount: account?.debt,
+							estAmount: estDebt
+						})
+					})]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "Metrics__row",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "Metrics__row-title",
+						children: "LtV change"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "Metrics__row-value",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LtvChange_default, { estLtv })
+					})]
+				})
+			] }),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TxModal_default.Button, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
 				onClick: handleClick,
 				isDisabled: getIsDisabled(),
@@ -100092,10 +100154,10 @@ var Type = ({ position: position$1 }) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Option" });
 };
 var Amount = ({ position: position$1 }) => {
-	const { amount } = position$1;
+	const { amount, asset } = position$1;
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmount_default, {
 		value: amount,
-		symbol: "ETH"
+		symbol: asset
 	});
 };
 var Period = ({ option }) => {
