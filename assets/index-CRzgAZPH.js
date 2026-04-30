@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-BnCSkpwz.js","assets/secp256k1-CJhRi9A6.js","assets/esm-C0aibowm.js","assets/dist-DoZYiDvp.js","assets/dist-BG7mNJMW.js","assets/dist-CgV2GmoA.js","assets/index.es-Dr8jkvvk.js","assets/alchemy-provider-2577f5a5-C6EboQTJ.js","assets/alchemy-provider-2577f5a5-BX-KJJY0.js","assets/alchemy-websocket-provider-ee041890-C-so4mOx.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-B5yofJnc.js","assets/secp256k1-VTvXqRnl.js","assets/esm-CkVNa7Mb.js","assets/dist-CcYI37xk.js","assets/dist-d_Ims1h7.js","assets/dist-Du_lbbRV.js","assets/index.es-DX-DCB3R.js","assets/alchemy-provider-2577f5a5-BsYBj6ms.js","assets/alchemy-provider-2577f5a5-BOsrk1Sq.js","assets/alchemy-websocket-provider-ee041890-FayMl5Pt.js"])))=>i.map(i=>d[i]);
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -12638,8 +12638,8 @@ var InvalidDefinitionTypeError = class extends BaseError$3 {
 	}
 };
 var InvalidAddressError = class extends BaseError$3 {
-	constructor({ address: address$11 }) {
-		super(`Address "${address$11}" is invalid.`, {
+	constructor({ address: address$12 }) {
+		super(`Address "${address$12}" is invalid.`, {
 			metaMessages: ["- Address must be a hex value of 20 bytes (40 hex characters).", "- Address must match its checksum counterpart."],
 			name: "InvalidAddressError"
 		});
@@ -13179,14 +13179,14 @@ var LruMap = class extends Map {
 };
 var addressRegex = /^0x[a-fA-F0-9]{40}$/;
 const isAddressCache = /* @__PURE__ */ new LruMap(8192);
-function isAddress(address$11, options$2) {
+function isAddress(address$12, options$2) {
 	const { strict = true } = options$2 ?? {};
-	const cacheKey$1 = `${address$11}.${strict}`;
+	const cacheKey$1 = `${address$12}.${strict}`;
 	if (isAddressCache.has(cacheKey$1)) return isAddressCache.get(cacheKey$1);
 	const result = (() => {
-		if (!addressRegex.test(address$11)) return false;
-		if (address$11.toLowerCase() === address$11) return true;
-		if (strict) return checksumAddress(address$11) === address$11;
+		if (!addressRegex.test(address$12)) return false;
+		if (address$12.toLowerCase() === address$12) return true;
+		if (strict) return checksumAddress(address$12) === address$12;
 		return true;
 	})();
 	isAddressCache.set(cacheKey$1, result);
@@ -13197,18 +13197,18 @@ function checksumAddress(address_, chainId) {
 	if (checksumAddressCache.has(`${address_}.${chainId}`)) return checksumAddressCache.get(`${address_}.${chainId}`);
 	const hexAddress = chainId ? `${chainId}${address_.toLowerCase()}` : address_.substring(2).toLowerCase();
 	const hash$3 = keccak256$1(stringToBytes(hexAddress), "bytes");
-	const address$11 = (chainId ? hexAddress.substring(`${chainId}0x`.length) : hexAddress).split("");
+	const address$12 = (chainId ? hexAddress.substring(`${chainId}0x`.length) : hexAddress).split("");
 	for (let i$3 = 0; i$3 < 40; i$3 += 2) {
-		if (hash$3[i$3 >> 1] >> 4 >= 8 && address$11[i$3]) address$11[i$3] = address$11[i$3].toUpperCase();
-		if ((hash$3[i$3 >> 1] & 15) >= 8 && address$11[i$3 + 1]) address$11[i$3 + 1] = address$11[i$3 + 1].toUpperCase();
+		if (hash$3[i$3 >> 1] >> 4 >= 8 && address$12[i$3]) address$12[i$3] = address$12[i$3].toUpperCase();
+		if ((hash$3[i$3 >> 1] & 15) >= 8 && address$12[i$3 + 1]) address$12[i$3 + 1] = address$12[i$3 + 1].toUpperCase();
 	}
-	const result = `0x${address$11.join("")}`;
+	const result = `0x${address$12.join("")}`;
 	checksumAddressCache.set(`${address_}.${chainId}`, result);
 	return result;
 }
-function getAddress$1(address$11, chainId) {
-	if (!isAddress(address$11, { strict: false })) throw new InvalidAddressError({ address: address$11 });
-	return checksumAddress(address$11, chainId);
+function getAddress$1(address$12, chainId) {
+	if (!isAddress(address$12, { strict: false })) throw new InvalidAddressError({ address: address$12 });
+	return checksumAddress(address$12, chainId);
 }
 var NegativeOffsetError = class extends BaseError$3 {
 	constructor({ offset: offset$1 }) {
@@ -14526,14 +14526,14 @@ function resolveStructs(abiParameters = [], structs = {}, ancestors = /* @__PURE
 }
 function parseAbi(signatures) {
 	const structs = parseStructs(signatures);
-	const abi$11 = [];
+	const abi$12 = [];
 	const length$1 = signatures.length;
 	for (let i$3 = 0; i$3 < length$1; i$3++) {
 		const signature = signatures[i$3];
 		if (isStructSignature(signature)) continue;
-		abi$11.push(parseSignature(signature, structs));
+		abi$12.push(parseSignature(signature, structs));
 	}
-	return abi$11;
+	return abi$12;
 }
 function normalizeSignature(signature) {
 	let active = true;
@@ -14591,9 +14591,9 @@ function toSignatureHash(fn) {
 const toEventSelector = toSignatureHash;
 const toFunctionSelector = (fn) => slice$1(toSignatureHash(fn), 0, 4);
 function getAbiItem(parameters) {
-	const { abi: abi$11, args = [], name } = parameters;
+	const { abi: abi$12, args = [], name } = parameters;
 	const isSelector = isHex(name, { strict: false });
-	const abiItems = abi$11.filter((abiItem) => {
+	const abiItems = abi$12.filter((abiItem) => {
 		if (isSelector) {
 			if (abiItem.type === "function") return toFunctionSelector(abiItem) === name;
 			if (abiItem.type === "event") return toEventSelector(abiItem) === name;
@@ -14671,11 +14671,11 @@ function getAmbiguousTypes(sourceParameters, targetParameters, args) {
 }
 var docsPath$4 = "/docs/contract/decodeFunctionResult";
 function decodeFunctionResult(parameters) {
-	const { abi: abi$11, args, functionName, data } = parameters;
-	let abiItem = abi$11[0];
+	const { abi: abi$12, args, functionName, data } = parameters;
+	let abiItem = abi$12[0];
 	if (functionName) {
 		const item = getAbiItem({
-			abi: abi$11,
+			abi: abi$12,
 			args,
 			name: functionName
 		});
@@ -14690,11 +14690,11 @@ function decodeFunctionResult(parameters) {
 }
 var docsPath$3 = "/docs/contract/encodeFunctionData";
 function prepareEncodeFunctionData(parameters) {
-	const { abi: abi$11, args, functionName } = parameters;
-	let abiItem = abi$11[0];
+	const { abi: abi$12, args, functionName } = parameters;
+	let abiItem = abi$12[0];
 	if (functionName) {
 		const item = getAbiItem({
-			abi: abi$11,
+			abi: abi$12,
 			args,
 			name: functionName
 		});
@@ -14709,11 +14709,11 @@ function prepareEncodeFunctionData(parameters) {
 }
 function encodeFunctionData(parameters) {
 	const { args } = parameters;
-	const { abi: abi$11, functionName } = (() => {
+	const { abi: abi$12, functionName } = (() => {
 		if (parameters.abi.length === 1 && parameters.functionName?.startsWith("0x")) return parameters;
 		return prepareEncodeFunctionData(parameters);
 	})();
-	const abiItem = abi$11[0];
+	const abiItem = abi$12[0];
 	return concatHex([functionName, ("inputs" in abiItem && abiItem.inputs ? encodeAbiParameters(abiItem.inputs, args ?? []) : void 0) ?? "0x"]);
 }
 var ChainDoesNotSupportContract = class extends BaseError$3 {
@@ -14798,11 +14798,11 @@ const solidityPanic = {
 	type: "error"
 };
 function decodeErrorResult(parameters) {
-	const { abi: abi$11, data, cause } = parameters;
+	const { abi: abi$12, data, cause } = parameters;
 	const signature = slice$1(data, 0, 4);
 	if (signature === "0x") throw new AbiDecodingZeroDataError({ cause });
 	const abiItem = [
-		...abi$11 || [],
+		...abi$12 || [],
 		solidityError,
 		solidityPanic
 	].find((x$2) => x$2.type === "error" && signature === toFunctionSelector(formatAbiItem(x$2)));
@@ -14850,8 +14850,8 @@ function formatGwei(wei, unit = "wei") {
 	return formatUnits$2(wei, gweiUnits[unit]);
 }
 var AccountStateConflictError = class extends BaseError$3 {
-	constructor({ address: address$11 }) {
-		super(`State for account "${address$11}" is set multiple times.`, { name: "AccountStateConflictError" });
+	constructor({ address: address$12 }) {
+		super(`State for account "${address$12}" is set multiple times.`, { name: "AccountStateConflictError" });
 	}
 };
 var StateAssignmentConflictError = class extends BaseError$3 {
@@ -14865,8 +14865,8 @@ function prettyStateMapping(stateMapping) {
 	}, "");
 }
 function prettyStateOverride(stateOverride) {
-	return stateOverride.reduce((pretty, { address: address$11, ...state }) => {
-		let val = `${pretty}    ${address$11}:\n`;
+	return stateOverride.reduce((pretty, { address: address$12, ...state }) => {
+		let val = `${pretty}    ${address$12}:\n`;
 		if (state.nonce) val += `      nonce: ${state.nonce}\n`;
 		if (state.balance) val += `      balance: ${state.balance}\n`;
 		if (state.code) val += `      code: ${state.code}\n`;
@@ -14994,7 +14994,7 @@ var WaitForTransactionReceiptTimeoutError = class extends BaseError$3 {
 		super(`Timed out while waiting for transaction with hash "${hash$3}" to be confirmed.`, { name: "WaitForTransactionReceiptTimeoutError" });
 	}
 };
-const getContractAddress = (address$11) => address$11;
+const getContractAddress = (address$12) => address$12;
 const getUrl = (url) => url;
 var CallExecutionError = class extends BaseError$3 {
 	constructor(cause, { account: account_, docsPath: docsPath$5, chain, data, gas, gasPrice, maxFeePerGas, maxPriorityFeePerGas, nonce, to: to$1, value, stateOverride }) {
@@ -15030,9 +15030,9 @@ var CallExecutionError = class extends BaseError$3 {
 	}
 };
 var ContractFunctionExecutionError = class extends BaseError$3 {
-	constructor(cause, { abi: abi$11, args, contractAddress, docsPath: docsPath$5, functionName, sender }) {
+	constructor(cause, { abi: abi$12, args, contractAddress, docsPath: docsPath$5, functionName, sender }) {
 		const abiItem = getAbiItem({
-			abi: abi$11,
+			abi: abi$12,
 			args,
 			name: functionName
 		});
@@ -15101,7 +15101,7 @@ var ContractFunctionExecutionError = class extends BaseError$3 {
 			writable: true,
 			value: void 0
 		});
-		this.abi = abi$11;
+		this.abi = abi$12;
 		this.args = args;
 		this.cause = cause;
 		this.contractAddress = contractAddress;
@@ -15110,14 +15110,14 @@ var ContractFunctionExecutionError = class extends BaseError$3 {
 	}
 };
 var ContractFunctionRevertedError = class extends BaseError$3 {
-	constructor({ abi: abi$11, data, functionName, message: message$1, cause: error }) {
+	constructor({ abi: abi$12, data, functionName, message: message$1, cause: error }) {
 		let cause;
 		let decodedData;
 		let metaMessages;
 		let reason;
 		if (data && data !== "0x") try {
 			decodedData = decodeErrorResult({
-				abi: abi$11,
+				abi: abi$12,
 				data,
 				cause: error
 			});
@@ -15241,9 +15241,9 @@ function isNullUniversalResolverError(err) {
 	return false;
 }
 function decodeFunctionData(parameters) {
-	const { abi: abi$11, data } = parameters;
+	const { abi: abi$12, data } = parameters;
 	const signature = slice$1(data, 0, 4);
-	const description = abi$11.find((x$2) => x$2.type === "function" && signature === toFunctionSelector(formatAbiItem(x$2)));
+	const description = abi$12.find((x$2) => x$2.type === "function" && signature === toFunctionSelector(formatAbiItem(x$2)));
 	if (!description) throw new AbiFunctionSignatureNotFoundError(signature, { docsPath: "/docs/contract/decodeFunctionData" });
 	return {
 		functionName: description.name,
@@ -15252,11 +15252,11 @@ function decodeFunctionData(parameters) {
 }
 var docsPath$2 = "/docs/contract/encodeErrorResult";
 function encodeErrorResult(parameters) {
-	const { abi: abi$11, errorName, args } = parameters;
-	let abiItem = abi$11[0];
+	const { abi: abi$12, errorName, args } = parameters;
+	let abiItem = abi$12[0];
 	if (errorName) {
 		const item = getAbiItem({
-			abi: abi$11,
+			abi: abi$12,
 			args,
 			name: errorName
 		});
@@ -15274,11 +15274,11 @@ function encodeErrorResult(parameters) {
 }
 var docsPath$1 = "/docs/contract/encodeFunctionResult";
 function encodeFunctionResult(parameters) {
-	const { abi: abi$11, functionName, result } = parameters;
-	let abiItem = abi$11[0];
+	const { abi: abi$12, functionName, result } = parameters;
+	let abiItem = abi$12[0];
 	if (functionName) {
 		const item = getAbiItem({
-			abi: abi$11,
+			abi: abi$12,
 			name: functionName
 		});
 		if (!item) throw new AbiFunctionNotFoundError(functionName, { docsPath: docsPath$1 });
@@ -15908,7 +15908,7 @@ var UnknownRpcError = class extends RpcError$1 {
 	}
 };
 var EXECUTION_REVERTED_ERROR_CODE = 3;
-function getContractError(err, { abi: abi$11, address: address$11, args, docsPath: docsPath$5, functionName, sender }) {
+function getContractError(err, { abi: abi$12, address: address$12, args, docsPath: docsPath$5, functionName, sender }) {
 	const error = err instanceof RawContractError ? err : err instanceof BaseError$3 ? err.walk((err$1) => "data" in err$1) || err.walk() : {};
 	const { code: code$1, data, details, message: message$1, shortMessage } = error;
 	return new ContractFunctionExecutionError((() => {
@@ -15917,7 +15917,7 @@ function getContractError(err, { abi: abi$11, address: address$11, args, docsPat
 			cause: err
 		});
 		if ([EXECUTION_REVERTED_ERROR_CODE, InternalRpcError.code].includes(code$1) && (data || details || message$1 || shortMessage) || code$1 === InvalidInputRpcError.code && details === "execution reverted" && data) return new ContractFunctionRevertedError({
-			abi: abi$11,
+			abi: abi$12,
 			data: typeof data === "object" ? data.data : data,
 			functionName,
 			message: error instanceof RpcRequestError ? details : shortMessage ?? message$1,
@@ -15925,9 +15925,9 @@ function getContractError(err, { abi: abi$11, address: address$11, args, docsPat
 		});
 		return err;
 	})(), {
-		abi: abi$11,
+		abi: abi$12,
 		args,
-		contractAddress: address$11,
+		contractAddress: address$12,
 		docsPath: docsPath$5,
 		functionName,
 		sender
@@ -16331,9 +16331,9 @@ const deploylessCallViaFactoryBytecode = "0x608060405234801561001057600080fd5b50
 const multicall3Bytecode = "0x608060405234801561001057600080fd5b506115b9806100206000396000f3fe6080604052600436106100f35760003560e01c80634d2301cc1161008a578063a8b0574e11610059578063a8b0574e14610325578063bce38bd714610350578063c3077fa914610380578063ee82ac5e146103b2576100f3565b80634d2301cc1461026257806372425d9d1461029f57806382ad56cb146102ca57806386d516e8146102fa576100f3565b80633408e470116100c65780633408e470146101af578063399542e9146101da5780633e64a6961461020c57806342cbb15c14610237576100f3565b80630f28c97d146100f8578063174dea7114610123578063252dba421461015357806327e86d6e14610184575b600080fd5b34801561010457600080fd5b5061010d6103ef565b60405161011a9190610c0a565b60405180910390f35b61013d60048036038101906101389190610c94565b6103f7565b60405161014a9190610e94565b60405180910390f35b61016d60048036038101906101689190610f0c565b610615565b60405161017b92919061101b565b60405180910390f35b34801561019057600080fd5b506101996107ab565b6040516101a69190611064565b60405180910390f35b3480156101bb57600080fd5b506101c46107b7565b6040516101d19190610c0a565b60405180910390f35b6101f460048036038101906101ef91906110ab565b6107bf565b6040516102039392919061110b565b60405180910390f35b34801561021857600080fd5b506102216107e1565b60405161022e9190610c0a565b60405180910390f35b34801561024357600080fd5b5061024c6107e9565b6040516102599190610c0a565b60405180910390f35b34801561026e57600080fd5b50610289600480360381019061028491906111a7565b6107f1565b6040516102969190610c0a565b60405180910390f35b3480156102ab57600080fd5b506102b4610812565b6040516102c19190610c0a565b60405180910390f35b6102e460048036038101906102df919061122a565b61081a565b6040516102f19190610e94565b60405180910390f35b34801561030657600080fd5b5061030f6109e4565b60405161031c9190610c0a565b60405180910390f35b34801561033157600080fd5b5061033a6109ec565b6040516103479190611286565b60405180910390f35b61036a600480360381019061036591906110ab565b6109f4565b6040516103779190610e94565b60405180910390f35b61039a60048036038101906103959190610f0c565b610ba6565b6040516103a99392919061110b565b60405180910390f35b3480156103be57600080fd5b506103d960048036038101906103d491906112cd565b610bca565b6040516103e69190611064565b60405180910390f35b600042905090565b60606000808484905090508067ffffffffffffffff81111561041c5761041b6112fa565b5b60405190808252806020026020018201604052801561045557816020015b610442610bd5565b81526020019060019003908161043a5790505b5092503660005b828110156105c957600085828151811061047957610478611329565b5b6020026020010151905087878381811061049657610495611329565b5b90506020028101906104a89190611367565b925060008360400135905080860195508360000160208101906104cb91906111a7565b73ffffffffffffffffffffffffffffffffffffffff16818580606001906104f2919061138f565b604051610500929190611431565b60006040518083038185875af1925050503d806000811461053d576040519150601f19603f3d011682016040523d82523d6000602084013e610542565b606091505b5083600001846020018290528215151515815250505081516020850135176105bc577f08c379a000000000000000000000000000000000000000000000000000000000600052602060045260176024527f4d756c746963616c6c333a2063616c6c206661696c656400000000000000000060445260846000fd5b826001019250505061045c565b5082341461060c576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401610603906114a7565b60405180910390fd5b50505092915050565b6000606043915060008484905090508067ffffffffffffffff81111561063e5761063d6112fa565b5b60405190808252806020026020018201604052801561067157816020015b606081526020019060019003908161065c5790505b5091503660005b828110156107a157600087878381811061069557610694611329565b5b90506020028101906106a791906114c7565b92508260000160208101906106bc91906111a7565b73ffffffffffffffffffffffffffffffffffffffff168380602001906106e2919061138f565b6040516106f0929190611431565b6000604051808303816000865af19150503d806000811461072d576040519150601f19603f3d011682016040523d82523d6000602084013e610732565b606091505b5086848151811061074657610745611329565b5b60200260200101819052819250505080610795576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040161078c9061153b565b60405180910390fd5b81600101915050610678565b5050509250929050565b60006001430340905090565b600046905090565b6000806060439250434091506107d68686866109f4565b905093509350939050565b600048905090565b600043905090565b60008173ffffffffffffffffffffffffffffffffffffffff16319050919050565b600044905090565b606060008383905090508067ffffffffffffffff81111561083e5761083d6112fa565b5b60405190808252806020026020018201604052801561087757816020015b610864610bd5565b81526020019060019003908161085c5790505b5091503660005b828110156109db57600084828151811061089b5761089a611329565b5b602002602001015190508686838181106108b8576108b7611329565b5b90506020028101906108ca919061155b565b92508260000160208101906108df91906111a7565b73ffffffffffffffffffffffffffffffffffffffff16838060400190610905919061138f565b604051610913929190611431565b6000604051808303816000865af19150503d8060008114610950576040519150601f19603f3d011682016040523d82523d6000602084013e610955565b606091505b5082600001836020018290528215151515815250505080516020840135176109cf577f08c379a000000000000000000000000000000000000000000000000000000000600052602060045260176024527f4d756c746963616c6c333a2063616c6c206661696c656400000000000000000060445260646000fd5b8160010191505061087e565b50505092915050565b600045905090565b600041905090565b606060008383905090508067ffffffffffffffff811115610a1857610a176112fa565b5b604051908082528060200260200182016040528015610a5157816020015b610a3e610bd5565b815260200190600190039081610a365790505b5091503660005b82811015610b9c576000848281518110610a7557610a74611329565b5b60200260200101519050868683818110610a9257610a91611329565b5b9050602002810190610aa491906114c7565b9250826000016020810190610ab991906111a7565b73ffffffffffffffffffffffffffffffffffffffff16838060200190610adf919061138f565b604051610aed929190611431565b6000604051808303816000865af19150503d8060008114610b2a576040519150601f19603f3d011682016040523d82523d6000602084013e610b2f565b606091505b508260000183602001829052821515151581525050508715610b90578060000151610b8f576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401610b869061153b565b60405180910390fd5b5b81600101915050610a58565b5050509392505050565b6000806060610bb7600186866107bf565b8093508194508295505050509250925092565b600081409050919050565b6040518060400160405280600015158152602001606081525090565b6000819050919050565b610c0481610bf1565b82525050565b6000602082019050610c1f6000830184610bfb565b92915050565b600080fd5b600080fd5b600080fd5b600080fd5b600080fd5b60008083601f840112610c5457610c53610c2f565b5b8235905067ffffffffffffffff811115610c7157610c70610c34565b5b602083019150836020820283011115610c8d57610c8c610c39565b5b9250929050565b60008060208385031215610cab57610caa610c25565b5b600083013567ffffffffffffffff811115610cc957610cc8610c2a565b5b610cd585828601610c3e565b92509250509250929050565b600081519050919050565b600082825260208201905092915050565b6000819050602082019050919050565b60008115159050919050565b610d2281610d0d565b82525050565b600081519050919050565b600082825260208201905092915050565b60005b83811015610d62578082015181840152602081019050610d47565b83811115610d71576000848401525b50505050565b6000601f19601f8301169050919050565b6000610d9382610d28565b610d9d8185610d33565b9350610dad818560208601610d44565b610db681610d77565b840191505092915050565b6000604083016000830151610dd96000860182610d19565b5060208301518482036020860152610df18282610d88565b9150508091505092915050565b6000610e0a8383610dc1565b905092915050565b6000602082019050919050565b6000610e2a82610ce1565b610e348185610cec565b935083602082028501610e4685610cfd565b8060005b85811015610e825784840389528151610e638582610dfe565b9450610e6e83610e12565b925060208a01995050600181019050610e4a565b50829750879550505050505092915050565b60006020820190508181036000830152610eae8184610e1f565b905092915050565b60008083601f840112610ecc57610ecb610c2f565b5b8235905067ffffffffffffffff811115610ee957610ee8610c34565b5b602083019150836020820283011115610f0557610f04610c39565b5b9250929050565b60008060208385031215610f2357610f22610c25565b5b600083013567ffffffffffffffff811115610f4157610f40610c2a565b5b610f4d85828601610eb6565b92509250509250929050565b600081519050919050565b600082825260208201905092915050565b6000819050602082019050919050565b6000610f918383610d88565b905092915050565b6000602082019050919050565b6000610fb182610f59565b610fbb8185610f64565b935083602082028501610fcd85610f75565b8060005b858110156110095784840389528151610fea8582610f85565b9450610ff583610f99565b925060208a01995050600181019050610fd1565b50829750879550505050505092915050565b60006040820190506110306000830185610bfb565b81810360208301526110428184610fa6565b90509392505050565b6000819050919050565b61105e8161104b565b82525050565b60006020820190506110796000830184611055565b92915050565b61108881610d0d565b811461109357600080fd5b50565b6000813590506110a58161107f565b92915050565b6000806000604084860312156110c4576110c3610c25565b5b60006110d286828701611096565b935050602084013567ffffffffffffffff8111156110f3576110f2610c2a565b5b6110ff86828701610eb6565b92509250509250925092565b60006060820190506111206000830186610bfb565b61112d6020830185611055565b818103604083015261113f8184610e1f565b9050949350505050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b600061117482611149565b9050919050565b61118481611169565b811461118f57600080fd5b50565b6000813590506111a18161117b565b92915050565b6000602082840312156111bd576111bc610c25565b5b60006111cb84828501611192565b91505092915050565b60008083601f8401126111ea576111e9610c2f565b5b8235905067ffffffffffffffff81111561120757611206610c34565b5b60208301915083602082028301111561122357611222610c39565b5b9250929050565b6000806020838503121561124157611240610c25565b5b600083013567ffffffffffffffff81111561125f5761125e610c2a565b5b61126b858286016111d4565b92509250509250929050565b61128081611169565b82525050565b600060208201905061129b6000830184611277565b92915050565b6112aa81610bf1565b81146112b557600080fd5b50565b6000813590506112c7816112a1565b92915050565b6000602082840312156112e3576112e2610c25565b5b60006112f1848285016112b8565b91505092915050565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052604160045260246000fd5b7f4e487b7100000000000000000000000000000000000000000000000000000000600052603260045260246000fd5b600080fd5b600080fd5b600080fd5b60008235600160800383360303811261138357611382611358565b5b80830191505092915050565b600080833560016020038436030381126113ac576113ab611358565b5b80840192508235915067ffffffffffffffff8211156113ce576113cd61135d565b5b6020830192506001820236038313156113ea576113e9611362565b5b509250929050565b600081905092915050565b82818337600083830152505050565b600061141883856113f2565b93506114258385846113fd565b82840190509392505050565b600061143e82848661140c565b91508190509392505050565b600082825260208201905092915050565b7f4d756c746963616c6c333a2076616c7565206d69736d61746368000000000000600082015250565b6000611491601a8361144a565b915061149c8261145b565b602082019050919050565b600060208201905081810360008301526114c081611484565b9050919050565b6000823560016040038336030381126114e3576114e2611358565b5b80830191505092915050565b7f4d756c746963616c6c333a2063616c6c206661696c6564000000000000000000600082015250565b600061152560178361144a565b9150611530826114ef565b602082019050919050565b6000602082019050818103600083015261155481611518565b9050919050565b60008235600160600383360303811261157757611576611358565b5b8083019150509291505056fea264697066735822122020c1bc9aacf8e4a6507193432a895a8e77094f45a1395583f07b24e860ef06cd64736f6c634300080c0033";
 var docsPath = "/docs/contract/encodeDeployData";
 function encodeDeployData(parameters) {
-	const { abi: abi$11, args, bytecode } = parameters;
+	const { abi: abi$12, args, bytecode } = parameters;
 	if (!args || args.length === 0) return bytecode;
-	const description = abi$11.find((x$2) => "type" in x$2 && x$2.type === "constructor");
+	const description = abi$12.find((x$2) => "type" in x$2 && x$2.type === "constructor");
 	if (!description) throw new AbiConstructorNotFoundError({ docsPath });
 	if (!("inputs" in description)) throw new AbiConstructorParamsNotFoundError({ docsPath });
 	if (!description.inputs || description.inputs.length === 0) throw new AbiConstructorParamsNotFoundError({ docsPath });
@@ -16736,10 +16736,10 @@ function serializeAccountStateOverride(parameters) {
 function serializeStateOverride(parameters) {
 	if (!parameters) return void 0;
 	const rpcStateOverride = {};
-	for (const { address: address$11, ...accountState } of parameters) {
-		if (!isAddress(address$11, { strict: false })) throw new InvalidAddressError({ address: address$11 });
-		if (rpcStateOverride[address$11]) throw new AccountStateConflictError({ address: address$11 });
-		rpcStateOverride[address$11] = serializeAccountStateOverride(accountState);
+	for (const { address: address$12, ...accountState } of parameters) {
+		if (!isAddress(address$12, { strict: false })) throw new InvalidAddressError({ address: address$12 });
+		if (rpcStateOverride[address$12]) throw new AccountStateConflictError({ address: address$12 });
+		rpcStateOverride[address$12] = serializeAccountStateOverride(accountState);
 	}
 	return rpcStateOverride;
 }
@@ -16953,7 +16953,7 @@ async function call$1(client, args) {
 	} catch (err) {
 		const data$1 = getRevertErrorData(err);
 		const { offchainLookup, offchainLookupSignature } = await __vitePreload(async () => {
-			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-DyWoIyPW.js");
+			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-l2wi846X.js");
 			return {
 				offchainLookup: offchainLookup$1,
 				offchainLookupSignature: offchainLookupSignature$1
@@ -17063,9 +17063,9 @@ function getRevertErrorData(err) {
 	return typeof error?.data === "object" ? error.data?.data : error.data;
 }
 async function readContract$1(client, parameters) {
-	const { abi: abi$11, address: address$11, args, functionName, ...rest } = parameters;
+	const { abi: abi$12, address: address$12, args, functionName, ...rest } = parameters;
 	const calldata = encodeFunctionData({
-		abi: abi$11,
+		abi: abi$12,
 		args,
 		functionName
 	});
@@ -17073,18 +17073,18 @@ async function readContract$1(client, parameters) {
 		const { data } = await getAction$1(client, call$1, "call")({
 			...rest,
 			data: calldata,
-			to: address$11
+			to: address$12
 		});
 		return decodeFunctionResult({
-			abi: abi$11,
+			abi: abi$12,
 			args,
 			functionName,
 			data: data || "0x"
 		});
 	} catch (error) {
 		throw getContractError(error, {
-			abi: abi$11,
-			address: address$11,
+			abi: abi$12,
+			address: address$12,
 			args,
 			docsPath: "/docs/contract/readContract",
 			functionName
@@ -17129,15 +17129,15 @@ async function getEnsAddress$1(client, parameters) {
 		};
 		const res = await getAction$1(client, readContract$1, "readContract")(readContractParameters);
 		if (res[0] === "0x") return null;
-		const address$11 = decodeFunctionResult({
+		const address$12 = decodeFunctionResult({
 			abi: addressResolverAbi,
 			args,
 			functionName: "addr",
 			data: res[0]
 		});
-		if (address$11 === "0x") return null;
-		if (trim$2(address$11) === "0x00") return null;
-		return address$11;
+		if (address$12 === "0x") return null;
+		if (trim$2(address$12) === "0x00") return null;
+		return address$12;
 	} catch (err) {
 		if (strict) throw err;
 		if (isNullUniversalResolverError(err)) return null;
@@ -17416,7 +17416,7 @@ async function getEnsAvatar$1(client, { blockNumber, blockTag, assetGatewayUrls,
 	}
 }
 async function getEnsName$1(client, parameters) {
-	const { address: address$11, blockNumber, blockTag, coinType = 60n, gatewayUrls, strict } = parameters;
+	const { address: address$12, blockNumber, blockTag, coinType = 60n, gatewayUrls, strict } = parameters;
 	const { chain } = client;
 	const universalResolverAddress = (() => {
 		if (parameters.universalResolverAddress) return parameters.universalResolverAddress;
@@ -17432,7 +17432,7 @@ async function getEnsName$1(client, parameters) {
 			address: universalResolverAddress,
 			abi: universalResolverReverseAbi,
 			args: [
-				address$11,
+				address$12,
 				coinType,
 				gatewayUrls ?? ["x-batch-gateway:true"]
 			],
@@ -17454,7 +17454,7 @@ function publicKeyToAddress(publicKey) {
 async function recoverPublicKey({ hash: hash$3, signature }) {
 	const hashHex = isHex(hash$3) ? hash$3 : toHex$2(hash$3);
 	const { secp256k1: secp256k1$1 } = await __vitePreload(async () => {
-		const { secp256k1: secp256k1$2 } = await import("./secp256k1-BnCSkpwz.js");
+		const { secp256k1: secp256k1$2 } = await import("./secp256k1-B5yofJnc.js");
 		return { secp256k1: secp256k1$2 };
 	}, __vite__mapDeps([0,1]));
 	return `0x${(() => {
@@ -17547,10 +17547,10 @@ function getSizeOfLength(length$1) {
 }
 function hashAuthorization(parameters) {
 	const { chainId, nonce, to: to$1 } = parameters;
-	const address$11 = parameters.contractAddress ?? parameters.address;
+	const address$12 = parameters.contractAddress ?? parameters.address;
 	const hash$3 = keccak256$1(concatHex(["0x05", toRlp([
 		chainId ? numberToHex(chainId) : "0x",
-		address$11,
+		address$12,
 		nonce ? numberToHex(nonce) : "0x"
 	])]));
 	if (to$1 === "bytes") return hexToBytes$1(hash$3);
@@ -17797,10 +17797,10 @@ async function internal_estimateFeesPerGas(client, args) {
 	}
 	return { gasPrice: request?.gasPrice ?? multiply(await getAction$1(client, getGasPrice, "getGasPrice")({})) };
 }
-async function getTransactionCount(client, { address: address$11, blockTag = "latest", blockNumber }) {
+async function getTransactionCount(client, { address: address$12, blockTag = "latest", blockNumber }) {
 	return hexToNumber$1(await client.request({
 		method: "eth_getTransactionCount",
-		params: [address$11, typeof blockNumber === "bigint" ? numberToHex(blockNumber) : blockTag]
+		params: [address$12, typeof blockNumber === "bigint" ? numberToHex(blockNumber) : blockTag]
 	}, { dedupe: Boolean(blockNumber) }));
 }
 function blobsToCommitments(parameters) {
@@ -18531,13 +18531,13 @@ async function estimateGas(client, args) {
 		});
 	}
 }
-async function getBalance$1(client, { address: address$11, blockNumber, blockTag = client.experimental_blockTag ?? "latest" }) {
+async function getBalance$1(client, { address: address$12, blockNumber, blockTag = client.experimental_blockTag ?? "latest" }) {
 	if (client.batch?.multicall && client.chain?.contracts?.multicall3) {
 		const multicall3Address = client.chain.contracts.multicall3.address;
 		const calldata = encodeFunctionData({
 			abi: multicall3Abi,
 			functionName: "getEthBalance",
-			args: [address$11]
+			args: [address$12]
 		});
 		const { data } = await getAction$1(client, call$1, "call")({
 			to: multicall3Address,
@@ -18548,14 +18548,14 @@ async function getBalance$1(client, { address: address$11, blockNumber, blockTag
 		return decodeFunctionResult({
 			abi: multicall3Abi,
 			functionName: "getEthBalance",
-			args: [address$11],
+			args: [address$12],
 			data: data || "0x"
 		});
 	}
 	const blockNumberHex = typeof blockNumber === "bigint" ? numberToHex(blockNumber) : void 0;
 	const balance = await client.request({
 		method: "eth_getBalance",
-		params: [address$11, blockNumberHex || blockTag]
+		params: [address$12, blockNumberHex || blockTag]
 	});
 	return BigInt(balance);
 }
@@ -18632,8 +18632,8 @@ function assertTransactionEIP7702(transaction) {
 	const { authorizationList } = transaction;
 	if (authorizationList) for (const authorization of authorizationList) {
 		const { chainId } = authorization;
-		const address$11 = authorization.address;
-		if (!isAddress(address$11)) throw new InvalidAddressError({ address: address$11 });
+		const address$12 = authorization.address;
+		if (!isAddress(address$12)) throw new InvalidAddressError({ address: address$12 });
 		if (chainId < 0) throw new InvalidChainIdError({ chainId });
 	}
 	assertTransactionEIP1559(transaction);
@@ -18685,10 +18685,10 @@ function serializeAccessList(accessList) {
 	if (!accessList || accessList.length === 0) return [];
 	const serializedAccessList = [];
 	for (let i$3 = 0; i$3 < accessList.length; i$3++) {
-		const { address: address$11, storageKeys } = accessList[i$3];
+		const { address: address$12, storageKeys } = accessList[i$3];
 		for (let j$3 = 0; j$3 < storageKeys.length; j$3++) if (storageKeys[j$3].length - 2 !== 64) throw new InvalidStorageKeySizeError({ storageKey: storageKeys[j$3] });
-		if (!isAddress(address$11, { strict: false })) throw new InvalidAddressError({ address: address$11 });
-		serializedAccessList.push([address$11, storageKeys]);
+		if (!isAddress(address$12, { strict: false })) throw new InvalidAddressError({ address: address$12 });
+		serializedAccessList.push([address$12, storageKeys]);
 	}
 	return serializedAccessList;
 }
@@ -19731,9 +19731,9 @@ async function sendTransaction(client, parameters) {
 	}
 }
 function deployContract(walletClient, parameters) {
-	const { abi: abi$11, args, bytecode, ...request } = parameters;
+	const { abi: abi$12, args, bytecode, ...request } = parameters;
 	const calldata = encodeDeployData({
-		abi: abi$11,
+		abi: abi$12,
 		args,
 		bytecode
 	});
@@ -19745,7 +19745,7 @@ function deployContract(walletClient, parameters) {
 }
 async function getAddresses(client) {
 	if (client.account?.type === "local") return [client.account.address];
-	return (await client.request({ method: "eth_accounts" }, { dedupe: true })).map((address$11) => checksumAddress(address$11));
+	return (await client.request({ method: "eth_accounts" }, { dedupe: true })).map((address$12) => checksumAddress(address$12));
 }
 const fallbackMagicIdentifier = "0x5792579257925792579257925792579257925792579257925792579257925792";
 const fallbackTransactionErrorMagicIdentifier = numberToHex(0, { size: 32 });
@@ -19940,7 +19940,7 @@ async function requestAddresses(client) {
 	return (await client.request({ method: "eth_requestAccounts" }, {
 		dedupe: true,
 		retryCount: 0
-	})).map((address$11) => getAddress$1(address$11));
+	})).map((address$12) => getAddress$1(address$12));
 }
 async function requestPermissions(client, permissions) {
 	return client.request({
@@ -20269,25 +20269,25 @@ async function writeContract$1(client, parameters) {
 }
 (function(writeContract$2) {
 	async function internal$2(client, actionFn, name, parameters) {
-		const { abi: abi$11, account: account_ = client.account, address: address$11, args, functionName, ...request } = parameters;
+		const { abi: abi$12, account: account_ = client.account, address: address$12, args, functionName, ...request } = parameters;
 		if (typeof account_ === "undefined") throw new AccountNotFoundError({ docsPath: "/docs/contract/writeContract" });
 		const account = account_ ? parseAccount(account_) : null;
 		const data = encodeFunctionData({
-			abi: abi$11,
+			abi: abi$12,
 			args,
 			functionName
 		});
 		try {
 			return await getAction$1(client, actionFn, name)({
 				data,
-				to: address$11,
+				to: address$12,
 				account,
 				...request
 			});
 		} catch (error) {
 			throw getContractError(error, {
-				abi: abi$11,
-				address: address$11,
+				abi: abi$12,
+				address: address$12,
 				args,
 				docsPath: "/docs/contract/writeContract",
 				functionName,
@@ -20414,8 +20414,8 @@ var ConnectorNotConnectedError = class extends BaseError$2 {
 	}
 };
 var ConnectorAccountNotFoundError = class extends BaseError$2 {
-	constructor({ address: address$11, connector }) {
-		super(`Account "${address$11}" not found for connector "${connector.name}".`);
+	constructor({ address: address$12, connector }) {
+		super(`Account "${address$12}" not found for connector "${connector.name}".`);
 		Object.defineProperty(this, "name", {
 			enumerable: true,
 			configurable: true,
@@ -20478,8 +20478,8 @@ async function connect$1(config, parameters) {
 			status: "connected"
 		}));
 		return {
-			accounts: rest.withCapabilities ? data.accounts.map((address$11) => typeof address$11 === "object" ? address$11 : {
-				address: address$11,
+			accounts: rest.withCapabilities ? data.accounts.map((address$12) => typeof address$12 === "object" ? address$12 : {
+				address: address$12,
 				capabilities: {}
 			}) : data.accounts,
 			chainId: data.chainId
@@ -20759,13 +20759,13 @@ async function disconnect$1(config, parameters = {}) {
 	}
 }
 async function getBalance(config, parameters) {
-	const { address: address$11, blockNumber, blockTag, chainId } = parameters;
+	const { address: address$12, blockNumber, blockTag, chainId } = parameters;
 	const client = config.getClient({ chainId });
 	const value = await getAction(client, getBalance$1, "getBalance")(blockNumber ? {
-		address: address$11,
+		address: address$12,
 		blockNumber
 	} : {
-		address: address$11,
+		address: address$12,
 		blockTag
 	});
 	const chain = config.chains.find((x$2) => x$2.id === chainId) ?? client.chain;
@@ -20819,12 +20819,12 @@ function getConnection(config) {
 	const uid$2 = config.state.current;
 	const connection = config.state.connections.get(uid$2);
 	const addresses = connection?.accounts;
-	const address$11 = addresses?.[0];
+	const address$12 = addresses?.[0];
 	const chain = config.chains.find((chain$1) => chain$1.id === connection?.chainId);
 	const status = config.state.status;
 	switch (status) {
 		case "connected": return {
-			address: address$11,
+			address: address$12,
 			addresses,
 			chain,
 			chainId: connection?.chainId,
@@ -20836,19 +20836,19 @@ function getConnection(config) {
 			status
 		};
 		case "reconnecting": return {
-			address: address$11,
+			address: address$12,
 			addresses,
 			chain,
 			chainId: connection?.chainId,
 			connector: connection?.connector,
-			isConnected: !!address$11,
+			isConnected: !!address$12,
 			isConnecting: false,
 			isDisconnected: false,
 			isReconnecting: true,
 			status
 		};
 		case "connecting": return {
-			address: address$11,
+			address: address$12,
 			addresses,
 			chain,
 			chainId: connection?.chainId,
@@ -21173,8 +21173,8 @@ function injected$1(parameters = {}) {
 				if (shimDisconnect) await config.storage?.removeItem(`${this.id}.disconnected`);
 				if (!parameters.target) await config.storage?.setItem("injected.connected", true);
 				return {
-					accounts: withCapabilities ? accounts.map((address$11) => ({
-						address: address$11,
+					accounts: withCapabilities ? accounts.map((address$12) => ({
+						address: address$12,
 						capabilities: {}
 					})) : accounts,
 					chainId: currentChainId
@@ -22383,7 +22383,7 @@ function hasObjectPrototype(o$1) {
 	return Object.prototype.toString.call(o$1) === "[object Object]";
 }
 function filterQueryOptions(options$2) {
-	const { _defaulted, behavior, gcTime, initialData, initialDataUpdatedAt, maxPages, meta, networkMode, queryFn, queryHash, queryKey, queryKeyHashFn, retry, retryDelay, structuralSharing, getPreviousPageParam: getPreviousPageParam$1, getNextPageParam: getNextPageParam$1, initialPageParam, _optimisticResults, enabled, notifyOnChangeProps, placeholderData, refetchInterval, refetchIntervalInBackground, refetchOnMount, refetchOnReconnect, refetchOnWindowFocus, retryOnMount, select, staleTime, suspense, throwOnError, abi: abi$11, config, connector, query, watch, ...rest } = options$2;
+	const { _defaulted, behavior, gcTime, initialData, initialDataUpdatedAt, maxPages, meta, networkMode, queryFn, queryHash, queryKey, queryKeyHashFn, retry, retryDelay, structuralSharing, getPreviousPageParam: getPreviousPageParam$1, getNextPageParam: getNextPageParam$1, initialPageParam, _optimisticResults, enabled, notifyOnChangeProps, placeholderData, refetchInterval, refetchIntervalInBackground, refetchOnMount, refetchOnReconnect, refetchOnWindowFocus, retryOnMount, select, staleTime, suspense, throwOnError, abi: abi$12, config, connector, query, watch, ...rest } = options$2;
 	if (connector) return {
 		connectorUid: connector?.uid,
 		...rest
@@ -22809,10 +22809,10 @@ function useConnectionEffect(parameters = {}) {
 	(0, import_react.useEffect)(() => {
 		return watchConnection(config, { onChange(data, prevData) {
 			if ((prevData.status === "reconnecting" || prevData.status === "connecting" && prevData.address === void 0) && data.status === "connected") {
-				const { address: address$11, addresses, chain, chainId, connector } = data;
+				const { address: address$12, addresses, chain, chainId, connector } = data;
 				const isReconnected = prevData.status === "reconnecting" || prevData.status === void 0;
 				onConnect?.({
-					address: address$11,
+					address: address$12,
 					addresses,
 					chain,
 					chainId,
@@ -22834,25 +22834,25 @@ function useConnections(parameters = {}) {
 function useConnectorClient(parameters = {}) {
 	const config = useConfig(parameters);
 	const chainId = useChainId({ config });
-	const { address: address$11, connector } = useConnection({ config });
+	const { address: address$12, connector } = useConnection({ config });
 	const options$2 = getConnectorClientQueryOptions(config, {
 		...parameters,
 		chainId: parameters.chainId ?? chainId,
 		connector: parameters.connector ?? connector,
 		query: parameters.query
 	});
-	const addressRef = (0, import_react.useRef)(address$11);
+	const addressRef = (0, import_react.useRef)(address$12);
 	const queryClient$1 = useQueryClient();
 	(0, import_react.useEffect)(() => {
 		const previousAddress = addressRef.current;
-		if (!address$11 && previousAddress) {
+		if (!address$12 && previousAddress) {
 			queryClient$1.removeQueries({ queryKey: options$2.queryKey });
 			addressRef.current = void 0;
-		} else if (address$11 !== previousAddress) {
+		} else if (address$12 !== previousAddress) {
 			queryClient$1.invalidateQueries({ queryKey: options$2.queryKey });
-			addressRef.current = address$11;
+			addressRef.current = address$12;
 		}
-	}, [address$11, queryClient$1]);
+	}, [address$12, queryClient$1]);
 	return useQuery$1(options$2);
 }
 function useDisconnect(parameters = {}) {
@@ -22902,25 +22902,25 @@ function useSwitchChain(parameters = {}) {
 function useWalletClient(parameters = {}) {
 	const config = useConfig(parameters);
 	const chainId = useChainId({ config });
-	const { address: address$11, connector } = useConnection({ config });
+	const { address: address$12, connector } = useConnection({ config });
 	const options$2 = getWalletClientQueryOptions(config, {
 		...parameters,
 		chainId: parameters.chainId ?? chainId,
 		connector: parameters.connector ?? connector,
 		query: parameters.query
 	});
-	const addressRef = (0, import_react.useRef)(address$11);
+	const addressRef = (0, import_react.useRef)(address$12);
 	const queryClient$1 = useQueryClient();
 	(0, import_react.useEffect)(() => {
 		const previousAddress = addressRef.current;
-		if (!address$11 && previousAddress) {
+		if (!address$12 && previousAddress) {
 			queryClient$1.removeQueries({ queryKey: options$2.queryKey });
 			addressRef.current = void 0;
-		} else if (address$11 !== previousAddress) {
+		} else if (address$12 !== previousAddress) {
 			queryClient$1.invalidateQueries({ queryKey: options$2.queryKey });
-			addressRef.current = address$11;
+			addressRef.current = address$12;
 		}
-	}, [address$11, queryClient$1]);
+	}, [address$12, queryClient$1]);
 	return useQuery$1(options$2);
 }
 const contracts = {
@@ -23133,8 +23133,8 @@ function coinbaseWallet(parameters = {}) {
 					return { id: currentChainId };
 				}))?.id ?? currentChainId;
 				return {
-					accounts: withCapabilities ? accounts.map((address$11) => ({
-						address: address$11,
+					accounts: withCapabilities ? accounts.map((address$12) => ({
+						address: address$12,
 						capabilities: {}
 					})) : accounts,
 					chainId: currentChainId
@@ -23278,8 +23278,8 @@ function safe(parameters = {}) {
 			}
 			if (shimDisconnect) await config.storage?.removeItem("safe.disconnected");
 			return {
-				accounts: withCapabilities ? accounts.map((address$11) => ({
-					address: address$11,
+				accounts: withCapabilities ? accounts.map((address$12) => ({
+					address: address$12,
 					capabilities: {}
 				})) : accounts,
 				chainId
@@ -23304,7 +23304,7 @@ function safe(parameters = {}) {
 			if (!provider_) {
 				const { default: SDK } = await (() => {
 					try {
-						return __vitePreload(() => import("./esm-C0aibowm.js"), __vite__mapDeps([2,3]));
+						return __vitePreload(() => import("./esm-CkVNa7Mb.js"), __vite__mapDeps([2,3]));
 					} catch {
 						throw new Error("dependency \"@safe-global/safe-apps-sdk\" not found");
 					}
@@ -23315,7 +23315,7 @@ function safe(parameters = {}) {
 				provider_ = new (await ((async () => {
 					const Provider$1 = await (() => {
 						try {
-							return __vitePreload(() => import("./dist-BG7mNJMW.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
+							return __vitePreload(() => import("./dist-d_Ims1h7.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
 						} catch {
 							throw new Error("dependency \"@safe-global/safe-apps-provider\" not found");
 						}
@@ -23430,8 +23430,8 @@ function walletConnect(parameters) {
 					provider.on("session_delete", sessionDelete);
 				}
 				return {
-					accounts: withCapabilities ? accounts.map((address$11) => ({
-						address: address$11,
+					accounts: withCapabilities ? accounts.map((address$12) => ({
+						address: address$12,
 						capabilities: {}
 					})) : accounts,
 					chainId: currentChainId
@@ -23480,7 +23480,7 @@ function walletConnect(parameters) {
 				if (!optionalChains.length) return;
 				const { EthereumProvider: EthereumProvider$1 } = await (() => {
 					try {
-						return __vitePreload(() => import("./dist-CgV2GmoA.js"), __vite__mapDeps([5,6,1]));
+						return __vitePreload(() => import("./dist-Du_lbbRV.js"), __vite__mapDeps([5,6,1]));
 					} catch {
 						throw new Error("dependency \"@walletconnect/ethereum-provider\" not found");
 					}
@@ -39429,10 +39429,10 @@ var Logos = {
 	Talisman
 };
 var truncateRegex = /^(0x[a-zA-Z0-9]{4})[a-zA-Z0-9]+([a-zA-Z0-9]{4})$/;
-var truncateEthAddress = (address$11, separator = "••••") => {
-	if (!address$11) return "";
-	const match$2 = address$11.match(truncateRegex);
-	if (!match$2) return address$11;
+var truncateEthAddress = (address$12, separator = "••••") => {
+	if (!address$12) return "";
+	const match$2 = address$12.match(truncateRegex);
+	if (!match$2) return address$12;
 	return `${match$2[1]}${separator}${match$2[2]}`;
 };
 var truncateENSAddress = (ensName, maxLength) => {
@@ -41897,19 +41897,19 @@ var useSIWE = ({ onSignIn, onSignOut } = {}) => {
 		signOut: () => Promise.reject()
 	};
 	const { session, nonce, status, signOut, signIn, resetStatus } = siweContextValue;
-	const { address: address$11, chainId } = session.data || {};
-	const currentStatus = address$11 ? StatusState.SUCCESS : session.isLoading || nonce.isLoading ? StatusState.LOADING : status;
+	const { address: address$12, chainId } = session.data || {};
+	const currentStatus = address$12 ? StatusState.SUCCESS : session.isLoading || nonce.isLoading ? StatusState.LOADING : status;
 	const isLoading = currentStatus === StatusState.LOADING;
 	const isSuccess = currentStatus === StatusState.SUCCESS;
 	const isRejected = currentStatus === StatusState.REJECTED;
 	const isError$1 = currentStatus === StatusState.ERROR;
-	const isReady = !address$11 || nonce.isFetching || isLoading || isSuccess;
+	const isReady = !address$12 || nonce.isFetching || isLoading || isSuccess;
 	const reset = () => resetStatus();
-	const isSignedIn = !!address$11;
+	const isSignedIn = !!address$12;
 	return {
 		isSignedIn,
 		data: isSignedIn ? {
-			address: address$11,
+			address: address$12,
 			chainId
 		} : void 0,
 		status: currentStatus,
@@ -49746,8 +49746,8 @@ var LoadingBalance = styled(motion.div)`
     animation: ${PlaceholderKeyframes$1} 1000ms linear infinite both;
   }
 `;
-function addressToNumber(address$11) {
-	return address$11.split("").map((l$2) => l$2.charCodeAt(0)).reduce((a$2, b$4) => a$2 + b$4) % 100 / 100;
+function addressToNumber(address$12) {
+	return address$12.split("").map((l$2) => l$2.charCodeAt(0)).reduce((a$2, b$4) => a$2 + b$4) % 100 / 100;
 }
 var EnsAvatar = styled(motion.div)`
   will-change: transform; // Needed for Safari
@@ -49805,7 +49805,7 @@ var ensFallbackConfig = createConfig({
 function useEnsFallbackConfig() {
 	return !useChainIsSupported(1) ? ensFallbackConfig : void 0;
 }
-var Avatar = ({ address: address$11, name, size: size$4 = 96, radius = 96 }) => {
+var Avatar = ({ address: address$12, name, size: size$4 = 96, radius = 96 }) => {
 	var _a, _b, _c;
 	const isMounted = useIsMounted();
 	const context = useContext$9();
@@ -49819,7 +49819,7 @@ var Avatar = ({ address: address$11, name, size: size$4 = 96, radius = 96 }) => 
 	});
 	const { data: ensName } = useEnsName({
 		chainId: 1,
-		address: (_a = address$11 !== null && address$11 !== void 0 ? address$11 : ensAddress) !== null && _a !== void 0 ? _a : void 0,
+		address: (_a = address$12 !== null && address$12 !== void 0 ? address$12 : ensAddress) !== null && _a !== void 0 ? _a : void 0,
 		config: ensFallbackConfig$1
 	});
 	const { data: ensAvatar } = useEnsAvatar({
@@ -49828,7 +49828,7 @@ var Avatar = ({ address: address$11, name, size: size$4 = 96, radius = 96 }) => 
 		config: ensFallbackConfig$1
 	});
 	const ens = {
-		address: ensAddress !== null && ensAddress !== void 0 ? ensAddress : address$11,
+		address: ensAddress !== null && ensAddress !== void 0 ? ensAddress : address$12,
 		name: ensName !== null && ensName !== void 0 ? ensName : name,
 		avatar: ensAvatar !== null && ensAvatar !== void 0 ? ensAvatar : void 0
 	};
@@ -49848,7 +49848,7 @@ var Avatar = ({ address: address$11, name, size: size$4 = 96, radius = 96 }) => 
 			overflow: "hidden"
 		},
 		children: (_c = context.options) === null || _c === void 0 ? void 0 : _c.customAvatar({
-			address: address$11 !== null && address$11 !== void 0 ? address$11 : ens === null || ens === void 0 ? void 0 : ens.address,
+			address: address$12 !== null && address$12 !== void 0 ? address$12 : ens === null || ens === void 0 ? void 0 : ens.address,
 			ensName: name !== null && name !== void 0 ? name : ens === null || ens === void 0 ? void 0 : ens.name,
 			ensImage: ens === null || ens === void 0 ? void 0 : ens.avatar,
 			size: size$4,
@@ -51909,15 +51909,15 @@ var Profile = ({ closeModal }) => {
 	const locales = useLocales();
 	const { reset } = useConnect();
 	const { disconnect: disconnect$2 } = useDisconnect();
-	const { address: address$11, isConnected: isConnected$1, connector, chain } = useConnection();
+	const { address: address$12, isConnected: isConnected$1, connector, chain } = useConnection();
 	const isFamilyConnector = isFamilyAccountsConnector(connector === null || connector === void 0 ? void 0 : connector.id);
 	const { data: connectorClient } = useConnectorClient({ connector });
 	const { data: ensName } = useEnsName({
 		chainId: 1,
-		address: address$11,
+		address: address$12,
 		config: useEnsFallbackConfig()
 	});
-	const { data: balance } = useBalance({ address: address$11 });
+	const { data: balance } = useBalance({ address: address$12 });
 	const [shouldDisconnect, setShouldDisconnect] = (0, import_react.useState)(false);
 	(0, import_react.useEffect)(() => {
 		if (!isConnected$1) context.setOpen(false);
@@ -51947,10 +51947,10 @@ var Profile = ({ closeModal }) => {
 				gap: 6
 			},
 			children: [
-				(0, import_jsx_runtime.jsx)(AvatarContainer, { children: (0, import_jsx_runtime.jsxs)(AvatarInner, { children: [(0, import_jsx_runtime.jsx)(ChainSelectorContainer, { children: (0, import_jsx_runtime.jsx)(ChainSelector, {}) }), (0, import_jsx_runtime.jsx)(Avatar, { address: address$11 })] }) }),
+				(0, import_jsx_runtime.jsx)(AvatarContainer, { children: (0, import_jsx_runtime.jsxs)(AvatarInner, { children: [(0, import_jsx_runtime.jsx)(ChainSelectorContainer, { children: (0, import_jsx_runtime.jsx)(ChainSelector, {}) }), (0, import_jsx_runtime.jsx)(Avatar, { address: address$12 })] }) }),
 				(0, import_jsx_runtime.jsx)(ModalH1, { children: (0, import_jsx_runtime.jsx)(CopyToClipboard, {
-					string: address$11,
-					children: ensName !== null && ensName !== void 0 ? ensName : truncateEthAddress(address$11, separator)
+					string: address$12,
+					children: ensName !== null && ensName !== void 0 ? ensName : truncateEthAddress(address$12, separator)
 				}) }),
 				((_c = context === null || context === void 0 ? void 0 : context.options) === null || _c === void 0 ? void 0 : _c.hideBalance) ? null : (0, import_jsx_runtime.jsx)(ModalBody, { children: (0, import_jsx_runtime.jsx)(BalanceContainer, { children: (0, import_jsx_runtime.jsxs)(AnimatePresence, {
 					exitBeforeEnter: true,
@@ -52365,7 +52365,7 @@ var SignInWithEthereum = () => {
 	(0, import_react.useEffect)(() => {
 		if (!isSignedIn) setStatus("signedOut");
 	}, [isSignedIn]);
-	const { address: address$11 } = useConnection();
+	const { address: address$12 } = useConnection();
 	const getFavicons = () => {
 		const favicons$1 = {
 			svg: null,
@@ -52453,7 +52453,7 @@ var SignInWithEthereum = () => {
 							},
 							transition,
 							children: (0, import_jsx_runtime.jsx)(LogoContainer, { children: (0, import_jsx_runtime.jsx)(Avatar, {
-								address: address$11,
+								address: address$12,
 								size: 64
 							}) })
 						}, "avatarImage"),
@@ -52623,9 +52623,9 @@ function useThemeFont(theme) {
 }
 var useConnectCallback = ({ onConnect, onDisconnect }) => {
 	useConnectionEffect({
-		onConnect: ({ address: address$11, connector, isReconnected }) => {
+		onConnect: ({ address: address$12, connector, isReconnected }) => {
 			if (!isReconnected) onConnect === null || onConnect === void 0 || onConnect({
-				address: address$11,
+				address: address$12,
 				connectorId: connector === null || connector === void 0 ? void 0 : connector.id
 			});
 		},
@@ -53069,13 +53069,13 @@ var PulseContainer = styled.div`
 var Balance = ({ hideIcon, hideSymbol }) => {
 	const isMounted = useIsMounted();
 	const [isInitial, setIsInitial] = (0, import_react.useState)(true);
-	const { address: address$11, chain } = useConnection();
+	const { address: address$12, chain } = useConnection();
 	useChains();
 	const isChainSupported = useChainIsSupported(chain === null || chain === void 0 ? void 0 : chain.id);
 	const queryClient$1 = useQueryClient();
 	const { data: blockNumber } = useBlockNumber({ watch: true });
 	const { data: balance, queryKey } = useBalance({
-		address: address$11,
+		address: address$12,
 		chainId: chain === null || chain === void 0 ? void 0 : chain.id
 	});
 	(0, import_react.useEffect)(() => {
@@ -53119,7 +53119,7 @@ var Balance = ({ hideIcon, hideSymbol }) => {
 					],
 					delay: .4
 				},
-				children: !address$11 || !isMounted || (balance === null || balance === void 0 ? void 0 : balance.formatted) === void 0 ? (0, import_jsx_runtime.jsxs)(Container$1, { children: [!hideIcon && (0, import_jsx_runtime.jsx)(Chain$1, { id: chain === null || chain === void 0 ? void 0 : chain.id }), (0, import_jsx_runtime.jsx)("span", {
+				children: !address$12 || !isMounted || (balance === null || balance === void 0 ? void 0 : balance.formatted) === void 0 ? (0, import_jsx_runtime.jsxs)(Container$1, { children: [!hideIcon && (0, import_jsx_runtime.jsx)(Chain$1, { id: chain === null || chain === void 0 ? void 0 : chain.id }), (0, import_jsx_runtime.jsx)("span", {
 					style: { minWidth: 32 },
 					children: (0, import_jsx_runtime.jsxs)(PulseContainer, { children: [
 						(0, import_jsx_runtime.jsx)("span", { style: { animationDelay: "0ms" } }),
@@ -53245,11 +53245,11 @@ var ConnectButtonRenderer = ({ children }) => {
 	const isMounted = useIsMounted();
 	const context = useContext$9();
 	const { open, setOpen } = useModal();
-	const { address: address$11, isConnected: isConnected$1, chain } = useConnection();
+	const { address: address$12, isConnected: isConnected$1, chain } = useConnection();
 	const isChainSupported = useChainIsSupported(chain === null || chain === void 0 ? void 0 : chain.id);
 	const { data: ensName } = useEnsName({
 		chainId: 1,
-		address: address$11,
+		address: address$12,
 		config: useEnsFallbackConfig()
 	});
 	function hide$2() {
@@ -53266,10 +53266,10 @@ var ConnectButtonRenderer = ({ children }) => {
 		hide: hide$2,
 		chain,
 		unsupported: !isChainSupported,
-		isConnected: !!address$11,
+		isConnected: !!address$12,
 		isConnecting: open,
-		address: address$11,
-		truncatedAddress: address$11 ? truncateEthAddress(address$11) : void 0,
+		address: address$12,
+		truncatedAddress: address$12 ? truncateEthAddress(address$12) : void 0,
 		ensName: ensName === null || ensName === void 0 ? void 0 : ensName.toString()
 	}) });
 };
@@ -53279,17 +53279,17 @@ function ConnectKitButtonInner({ label, showAvatar, separator }) {
 	const locales = useLocales({});
 	const context = useContext$9();
 	const { isSignedIn } = useSIWE();
-	const { address: address$11, chain } = useConnection();
+	const { address: address$12, chain } = useConnection();
 	const isChainSupported = useChainIsSupported(chain === null || chain === void 0 ? void 0 : chain.id);
 	const { data: ensName } = useEnsName({
 		chainId: 1,
-		address: address$11,
+		address: address$12,
 		config: useEnsFallbackConfig()
 	});
 	const defaultLabel = locales.connectWallet;
 	return (0, import_jsx_runtime.jsx)(AnimatePresence, {
 		initial: false,
-		children: address$11 ? (0, import_jsx_runtime.jsxs)(TextContainer, {
+		children: address$12 ? (0, import_jsx_runtime.jsxs)(TextContainer, {
 			initial: "initial",
 			animate: "animate",
 			exit: "exit",
@@ -53326,7 +53326,7 @@ function ConnectKitButtonInner({ label, showAvatar, separator }) {
 				})]
 			}), (0, import_jsx_runtime.jsx)(Avatar, {
 				size: 24,
-				address: address$11
+				address: address$12
 			})] }), (0, import_jsx_runtime.jsx)("div", {
 				style: {
 					position: "relative",
@@ -53347,7 +53347,7 @@ function ConnectKitButtonInner({ label, showAvatar, separator }) {
 						exit: "exit",
 						variants: textVariants,
 						style: { position: ensName ? "absolute" : "relative" },
-						children: [truncateEthAddress(address$11, separator), " "]
+						children: [truncateEthAddress(address$12, separator), " "]
 					}, "ckTruncatedAddress")
 				})
 			})]
@@ -53365,7 +53365,7 @@ function ConnectKitButton({ label, showBalance = false, showAvatar = true, theme
 	var _a;
 	const isMounted = useIsMounted();
 	const context = useContext$9();
-	const { isConnected: isConnected$1, address: address$11, chain } = useConnection();
+	const { isConnected: isConnected$1, address: address$12, chain } = useConnection();
 	const chainIsSupported = useChainIsSupported(chain === null || chain === void 0 ? void 0 : chain.id);
 	function show$1() {
 		context.setOpen(true);
@@ -53378,7 +53378,7 @@ function ConnectKitButton({ label, showBalance = false, showAvatar = true, theme
 	].includes((_a = theme !== null && theme !== void 0 ? theme : context.theme) !== null && _a !== void 0 ? _a : "") ? "...." : void 0;
 	if (!isMounted) return null;
 	const shouldShowBalance = showBalance && chainIsSupported;
-	const willShowBalance = address$11 && shouldShowBalance;
+	const willShowBalance = address$12 && shouldShowBalance;
 	return (0, import_jsx_runtime.jsx)(ResetContainer, {
 		"$useTheme": theme !== null && theme !== void 0 ? theme : context.theme,
 		"$useMode": mode$1 !== null && mode$1 !== void 0 ? mode$1 : context.mode,
@@ -53443,7 +53443,7 @@ function ConnectKitButton({ label, showBalance = false, showAvatar = true, theme
 				theme: theme !== null && theme !== void 0 ? theme : context.theme,
 				mode: mode$1 !== null && mode$1 !== void 0 ? mode$1 : context.mode,
 				customTheme: customTheme !== null && customTheme !== void 0 ? customTheme : context.customTheme,
-				style: shouldShowBalance && showBalance && address$11 && (theme === "retro" || context.theme === "retro") ? {
+				style: shouldShowBalance && showBalance && address$12 && (theme === "retro" || context.theme === "retro") ? {
 					boxShadow: "var(--ck-connectbutton-balance-connectbutton-box-shadow)",
 					borderRadius: "var(--ck-connectbutton-balance-connectbutton-border-radius)",
 					overflow: "hidden"
@@ -60144,9 +60144,9 @@ var SigningKey = class SigningKey {
 };
 var BN_0$6 = BigInt(0);
 var BN_36 = BigInt(36);
-function getChecksumAddress(address$11) {
-	address$11 = address$11.toLowerCase();
-	const chars = address$11.substring(2).split("");
+function getChecksumAddress(address$12) {
+	address$12 = address$12.toLowerCase();
+	const chars = address$12.substring(2).split("");
 	const expanded = new Uint8Array(40);
 	for (let i$3 = 0; i$3 < 40; i$3++) expanded[i$3] = chars[i$3].charCodeAt(0);
 	const hashed = getBytes(keccak256(expanded));
@@ -60160,10 +60160,10 @@ var ibanLookup = {};
 for (let i$3 = 0; i$3 < 10; i$3++) ibanLookup[String(i$3)] = String(i$3);
 for (let i$3 = 0; i$3 < 26; i$3++) ibanLookup[String.fromCharCode(65 + i$3)] = String(10 + i$3);
 var safeDigits = 15;
-function ibanChecksum(address$11) {
-	address$11 = address$11.toUpperCase();
-	address$11 = address$11.substring(4) + address$11.substring(0, 2) + "00";
-	let expanded = address$11.split("").map((c$3) => {
+function ibanChecksum(address$12) {
+	address$12 = address$12.toUpperCase();
+	address$12 = address$12.substring(4) + address$12.substring(0, 2) + "00";
+	let expanded = address$12.split("").map((c$3) => {
 		return ibanLookup[c$3];
 	}).join("");
 	while (expanded.length >= safeDigits) {
@@ -60188,21 +60188,21 @@ function fromBase36(value) {
 	for (let i$3 = 0; i$3 < value.length; i$3++) result = result * BN_36 + Base36[value[i$3]];
 	return result;
 }
-function getAddress(address$11) {
-	assertArgument(typeof address$11 === "string", "invalid address", "address", address$11);
-	if (address$11.match(/^(0x)?[0-9a-fA-F]{40}$/)) {
-		if (!address$11.startsWith("0x")) address$11 = "0x" + address$11;
-		const result = getChecksumAddress(address$11);
-		assertArgument(!address$11.match(/([A-F].*[a-f])|([a-f].*[A-F])/) || result === address$11, "bad address checksum", "address", address$11);
+function getAddress(address$12) {
+	assertArgument(typeof address$12 === "string", "invalid address", "address", address$12);
+	if (address$12.match(/^(0x)?[0-9a-fA-F]{40}$/)) {
+		if (!address$12.startsWith("0x")) address$12 = "0x" + address$12;
+		const result = getChecksumAddress(address$12);
+		assertArgument(!address$12.match(/([A-F].*[a-f])|([a-f].*[A-F])/) || result === address$12, "bad address checksum", "address", address$12);
 		return result;
 	}
-	if (address$11.match(/^XE[0-9]{2}[0-9A-Za-z]{30,31}$/)) {
-		assertArgument(address$11.substring(2, 4) === ibanChecksum(address$11), "bad icap checksum", "address", address$11);
-		let result = fromBase36(address$11.substring(4)).toString(16);
+	if (address$12.match(/^XE[0-9]{2}[0-9A-Za-z]{30,31}$/)) {
+		assertArgument(address$12.substring(2, 4) === ibanChecksum(address$12), "bad icap checksum", "address", address$12);
+		let result = fromBase36(address$12.substring(4)).toString(16);
 		while (result.length < 40) result = "0" + result;
 		return getChecksumAddress("0x" + result);
 	}
-	assertArgument(false, "invalid address", "address", address$11);
+	assertArgument(false, "invalid address", "address", address$12);
 }
 function getCreateAddress(tx) {
 	const from$2 = getAddress(tx.from);
@@ -64003,14 +64003,14 @@ var Interface = class Interface {
 	#functions;
 	#abiCoder;
 	constructor(fragments) {
-		let abi$11 = [];
-		if (typeof fragments === "string") abi$11 = JSON.parse(fragments);
-		else abi$11 = fragments;
+		let abi$12 = [];
+		if (typeof fragments === "string") abi$12 = JSON.parse(fragments);
+		else abi$12 = fragments;
 		this.#functions = /* @__PURE__ */ new Map();
 		this.#errors = /* @__PURE__ */ new Map();
 		this.#events = /* @__PURE__ */ new Map();
 		const frags = [];
-		for (const a$2 of abi$11) try {
+		for (const a$2 of abi$12) try {
 			frags.push(Fragment$1.from(a$2));
 		} catch (error) {
 			console.log(`[Warning] Invalid Fragment ${JSON.stringify(a$2)}:`, error.message);
@@ -64063,8 +64063,8 @@ var Interface = class Interface {
 		return this.fragments.map((f$1) => f$1.format(format$1));
 	}
 	formatJson() {
-		const abi$11 = this.fragments.map((f$1) => f$1.format("json"));
-		return JSON.stringify(abi$11.map((j$3) => JSON.parse(j$3)));
+		const abi$12 = this.fragments.map((f$1) => f$1.format("json"));
+		return JSON.stringify(abi$12.map((j$3) => JSON.parse(j$3)));
 	}
 	getAbiCoder() {
 		return AbiCoder.defaultAbiCoder();
@@ -64690,10 +64690,10 @@ var Log = class {
 		});
 	}
 	toJSON() {
-		const { address: address$11, blockHash, blockNumber, data, index: index$6, removed, topics, transactionHash, transactionIndex } = this;
+		const { address: address$12, blockHash, blockNumber, data, index: index$6, removed, topics, transactionHash, transactionIndex } = this;
 		return {
 			_type: "log",
-			address: address$11,
+			address: address$12,
 			blockHash,
 			blockNumber,
 			data,
@@ -65604,10 +65604,10 @@ var BaseContract = class BaseContract {
 	filters;
 	[internal];
 	fallback;
-	constructor(target, abi$11, runner, _deployTx) {
+	constructor(target, abi$12, runner, _deployTx) {
 		assertArgument(typeof target === "string" || isAddressable(target), "invalid value for Contract target", "target", target);
 		if (runner == null) runner = null;
-		const iface = Interface.from(abi$11);
+		const iface = Interface.from(abi$12);
 		defineProperties(this, {
 			target,
 			runner,
@@ -65731,10 +65731,10 @@ var BaseContract = class BaseContract {
 		if (fromBlock == null) fromBlock = 0;
 		if (toBlock == null) toBlock = "latest";
 		const { addr, addrPromise } = getInternal(this);
-		const address$11 = addr ? addr : await addrPromise;
+		const address$12 = addr ? addr : await addrPromise;
 		const { fragment, topics } = await getSubInfo(this, event);
 		const filter$1 = {
-			address: address$11,
+			address: address$12,
 			topics,
 			fromBlock,
 			toBlock
@@ -65831,17 +65831,17 @@ var BaseContract = class BaseContract {
 	async removeListener(event, listener) {
 		return await this.off(event, listener);
 	}
-	static buildClass(abi$11) {
+	static buildClass(abi$12) {
 		class CustomContract extends BaseContract {
-			constructor(address$11, runner = null) {
-				super(address$11, abi$11, runner);
+			constructor(address$12, runner = null) {
+				super(address$12, abi$12, runner);
 			}
 		}
 		return CustomContract;
 	}
-	static from(target, abi$11, runner) {
+	static from(target, abi$12, runner) {
 		if (runner == null) runner = null;
-		return new this(target, abi$11, runner);
+		return new this(target, abi$12, runner);
 	}
 };
 function _ContractBase() {
@@ -65865,7 +65865,7 @@ var MulticoinProviderPlugin = class {
 	supportsCoinType(coinType) {
 		return false;
 	}
-	async encodeAddress(coinType, address$11) {
+	async encodeAddress(coinType, address$12) {
 		throw new Error("unsupported coin");
 	}
 	async decodeAddress(coinType, data) {
@@ -65885,14 +65885,14 @@ var EnsResolver = class EnsResolver {
 	name;
 	#supports2544;
 	#resolver;
-	constructor(provider, address$11, name) {
+	constructor(provider, address$12, name) {
 		defineProperties(this, {
 			provider,
-			address: address$11,
+			address: address$12,
 			name
 		});
 		this.#supports2544 = null;
-		this.#resolver = new Contract(address$11, [
+		this.#resolver = new Contract(address$12, [
 			"function supportsInterface(bytes4) view returns (bool)",
 			"function resolve(bytes, bytes) view returns (bytes)",
 			"function addr(bytes32) view returns (address)",
@@ -65960,8 +65960,8 @@ var EnsResolver = class EnsResolver {
 		if (coinPlugin == null) return null;
 		const data = await this.#fetch("addr(bytes32,uint)", [coinType]);
 		if (data == null || data === "0x") return null;
-		const address$11 = await coinPlugin.decodeAddress(coinType, data);
-		if (address$11 != null) return address$11;
+		const address$12 = await coinPlugin.decodeAddress(coinType, data);
+		if (address$12 != null) return address$12;
 		assert(false, `invalid coin data`, "UNSUPPORTED_OPERATION", {
 			operation: `getAddress(${coinType})`,
 			info: {
@@ -66495,10 +66495,10 @@ var GasCostPlugin = class GasCostPlugin extends NetworkPlugin {
 var EnsPlugin = class EnsPlugin extends NetworkPlugin {
 	address;
 	targetNetwork;
-	constructor(address$11, targetNetwork) {
+	constructor(address$12, targetNetwork) {
 		super("org.ethers.plugins.network.Ens");
 		defineProperties(this, {
-			address: address$11 || EnsAddress,
+			address: address$12 || EnsAddress,
 			targetNetwork: targetNetwork == null ? 1 : targetNetwork
 		});
 	}
@@ -67190,8 +67190,8 @@ var AbstractProvider = class {
 		if (this.#lastBlockNumber >= 0) this.#lastBlockNumber = blockNumber;
 		return blockNumber;
 	}
-	_getAddress(address$11) {
-		return resolveAddress(address$11, this);
+	_getAddress(address$12) {
+		return resolveAddress(address$12, this);
 	}
 	_getBlockTag(blockTag) {
 		if (blockTag == null) return "latest";
@@ -67222,42 +67222,42 @@ var AbstractProvider = class {
 		});
 		const blockHash = "blockHash" in filter$1 ? filter$1.blockHash : void 0;
 		const resolve = (_address, fromBlock$1, toBlock$1) => {
-			let address$12 = void 0;
+			let address$13 = void 0;
 			switch (_address.length) {
 				case 0: break;
 				case 1:
-					address$12 = _address[0];
+					address$13 = _address[0];
 					break;
 				default:
 					_address.sort();
-					address$12 = _address;
+					address$13 = _address;
 			}
 			if (blockHash) {
 				if (fromBlock$1 != null || toBlock$1 != null) throw new Error("invalid filter");
 			}
 			const filter$2 = {};
-			if (address$12) filter$2.address = address$12;
+			if (address$13) filter$2.address = address$13;
 			if (topics.length) filter$2.topics = topics;
 			if (fromBlock$1) filter$2.fromBlock = fromBlock$1;
 			if (toBlock$1) filter$2.toBlock = toBlock$1;
 			if (blockHash) filter$2.blockHash = blockHash;
 			return filter$2;
 		};
-		let address$11 = [];
-		if (filter$1.address) if (Array.isArray(filter$1.address)) for (const addr of filter$1.address) address$11.push(this._getAddress(addr));
-		else address$11.push(this._getAddress(filter$1.address));
+		let address$12 = [];
+		if (filter$1.address) if (Array.isArray(filter$1.address)) for (const addr of filter$1.address) address$12.push(this._getAddress(addr));
+		else address$12.push(this._getAddress(filter$1.address));
 		let fromBlock = void 0;
 		if ("fromBlock" in filter$1) fromBlock = this._getBlockTag(filter$1.fromBlock);
 		let toBlock = void 0;
 		if ("toBlock" in filter$1) toBlock = this._getBlockTag(filter$1.toBlock);
-		if (address$11.filter((a$2) => typeof a$2 !== "string").length || fromBlock != null && typeof fromBlock !== "string" || toBlock != null && typeof toBlock !== "string") return Promise.all([
-			Promise.all(address$11),
+		if (address$12.filter((a$2) => typeof a$2 !== "string").length || fromBlock != null && typeof fromBlock !== "string" || toBlock != null && typeof toBlock !== "string") return Promise.all([
+			Promise.all(address$12),
 			fromBlock,
 			toBlock
 		]).then((result) => {
 			return resolve(result[0], result[1], result[2]);
 		});
-		return resolve(address$11, fromBlock, toBlock);
+		return resolve(address$12, fromBlock, toBlock);
 	}
 	_getTransactionRequest(_request) {
 		const request = copyRequest(_request);
@@ -67442,29 +67442,29 @@ var AbstractProvider = class {
 		return await this.#checkNetwork(this.#call(tx, blockTag, _tx.enableCcipRead ? 0 : -1));
 	}
 	async #getAccountValue(request, _address, _blockTag) {
-		let address$11 = this._getAddress(_address);
+		let address$12 = this._getAddress(_address);
 		let blockTag = this._getBlockTag(_blockTag);
-		if (typeof address$11 !== "string" || typeof blockTag !== "string") [address$11, blockTag] = await Promise.all([address$11, blockTag]);
+		if (typeof address$12 !== "string" || typeof blockTag !== "string") [address$12, blockTag] = await Promise.all([address$12, blockTag]);
 		return await this.#checkNetwork(this.#perform(Object.assign(request, {
-			address: address$11,
+			address: address$12,
 			blockTag
 		})));
 	}
-	async getBalance(address$11, blockTag) {
-		return getBigInt(await this.#getAccountValue({ method: "getBalance" }, address$11, blockTag), "%response");
+	async getBalance(address$12, blockTag) {
+		return getBigInt(await this.#getAccountValue({ method: "getBalance" }, address$12, blockTag), "%response");
 	}
-	async getTransactionCount(address$11, blockTag) {
-		return getNumber(await this.#getAccountValue({ method: "getTransactionCount" }, address$11, blockTag), "%response");
+	async getTransactionCount(address$12, blockTag) {
+		return getNumber(await this.#getAccountValue({ method: "getTransactionCount" }, address$12, blockTag), "%response");
 	}
-	async getCode(address$11, blockTag) {
-		return hexlify$1(await this.#getAccountValue({ method: "getCode" }, address$11, blockTag));
+	async getCode(address$12, blockTag) {
+		return hexlify$1(await this.#getAccountValue({ method: "getCode" }, address$12, blockTag));
 	}
-	async getStorage(address$11, _position, blockTag) {
+	async getStorage(address$12, _position, blockTag) {
 		const position$1 = getBigInt(_position, "position");
 		return hexlify$1(await this.#getAccountValue({
 			method: "getStorage",
 			position: position$1
-		}, address$11, blockTag));
+		}, address$12, blockTag));
 	}
 	async broadcastTransaction(signedTx) {
 		const { blockNumber, hash: hash$3, network } = await resolveProperties$2({
@@ -67570,14 +67570,14 @@ var AbstractProvider = class {
 		if (resolver) return await resolver.getAddress();
 		return null;
 	}
-	async lookupAddress(address$11) {
-		address$11 = getAddress(address$11);
-		const node$1 = namehash(address$11.substring(2).toLowerCase() + ".addr.reverse");
+	async lookupAddress(address$12) {
+		address$12 = getAddress(address$12);
+		const node$1 = namehash(address$12.substring(2).toLowerCase() + ".addr.reverse");
 		try {
 			const resolver = await new Contract(await EnsResolver.getEnsAddress(this), ["function resolver(bytes32) view returns (address)"], this).resolver(node$1);
 			if (resolver == null || resolver === "0x0000000000000000000000000000000000000000") return null;
 			const name = await new Contract(resolver, ["function name(bytes32) view returns (string)"], this).name(node$1);
-			if (await this.resolveName(name) !== address$11) return null;
+			if (await this.resolveName(name) !== address$12) return null;
 			return name;
 		} catch (error) {
 			if (isError(error, "BAD_DATA") && error.value === "0x") return null;
@@ -67940,9 +67940,9 @@ async function populate(signer, tx) {
 	if (pop$2.to != null) pop$2.to = resolveAddress(pop$2.to, signer);
 	if (pop$2.from != null) {
 		const from$2 = pop$2.from;
-		pop$2.from = Promise.all([signer.getAddress(), resolveAddress(from$2, signer)]).then(([address$11, from$3]) => {
-			assertArgument(address$11.toLowerCase() === from$3.toLowerCase(), "transaction from mismatch", "tx.from", from$3);
-			return address$11;
+		pop$2.from = Promise.all([signer.getAddress(), resolveAddress(from$2, signer)]).then(([address$12, from$3]) => {
+			assertArgument(address$12.toLowerCase() === from$3.toLowerCase(), "transaction from mismatch", "tx.from", from$3);
+			return address$12;
 		});
 	} else pop$2.from = signer.getAddress();
 	return await resolveProperties$2(pop$2);
@@ -68183,10 +68183,10 @@ var defaultOptions$1 = {
 };
 var JsonRpcSigner = class extends AbstractSigner {
 	address;
-	constructor(provider, address$11) {
+	constructor(provider, address$12) {
 		super(provider);
-		address$11 = getAddress(address$11);
-		defineProperties(this, { address: address$11 });
+		address$12 = getAddress(address$12);
+		defineProperties(this, { address: address$12 });
 	}
 	connect(provider) {
 		assert(false, "cannot reconnect JsonRpcSigner", "UNSUPPORTED_OPERATION", { operation: "signer.connect" });
@@ -68279,9 +68279,9 @@ var JsonRpcSigner = class extends AbstractSigner {
 	async signTypedData(domain, types$1, _value) {
 		const value = deepCopy$2(_value);
 		const populated = await TypedDataEncoder.resolveNames(domain, types$1, value, async (value$1) => {
-			const address$11 = await resolveAddress(value$1);
-			assertArgument(address$11 != null, "TypedData does not support null address", "value", value$1);
-			return address$11;
+			const address$12 = await resolveAddress(value$1);
+			assertArgument(address$12 != null, "TypedData does not support null address", "value", value$1);
+			return address$12;
 		});
 		return await this.provider.send("eth_signTypedData_v4", [this.address.toLowerCase(), JSON.stringify(TypedDataEncoder.getPayload(populated.domain, types$1, populated.value))]);
 	}
@@ -68719,20 +68719,20 @@ var JsonRpcApiProvider = class extends AbstractProvider {
 		this.#scheduleDrain();
 		return promise;
 	}
-	async getSigner(address$11) {
-		if (address$11 == null) address$11 = 0;
+	async getSigner(address$12) {
+		if (address$12 == null) address$12 = 0;
 		const accountsPromise = this.send("eth_accounts", []);
-		if (typeof address$11 === "number") {
+		if (typeof address$12 === "number") {
 			const accounts$1 = await accountsPromise;
-			if (address$11 >= accounts$1.length) throw new Error("no such account");
-			return new JsonRpcSigner(this, accounts$1[address$11]);
+			if (address$12 >= accounts$1.length) throw new Error("no such account");
+			return new JsonRpcSigner(this, accounts$1[address$12]);
 		}
 		const { accounts } = await resolveProperties$2({
 			network: this.getNetwork(),
 			accounts: accountsPromise
 		});
-		address$11 = getAddress(address$11);
-		for (const account of accounts) if (getAddress(account) === address$11) return new JsonRpcSigner(this, address$11);
+		address$12 = getAddress(address$12);
+		for (const account of accounts) if (getAddress(account) === address$12) return new JsonRpcSigner(this, address$12);
 		throw new Error("invalid account");
 	}
 	async listAccounts() {
@@ -68984,16 +68984,16 @@ var BrowserProvider = class BrowserProvider extends JsonRpcApiPollingProvider {
 		}
 		return super.getRpcError(payload, error);
 	}
-	async hasSigner(address$11) {
-		if (address$11 == null) address$11 = 0;
+	async hasSigner(address$12) {
+		if (address$12 == null) address$12 = 0;
 		const accounts = await this.send("eth_accounts", []);
-		if (typeof address$11 === "number") return accounts.length > address$11;
-		address$11 = address$11.toLowerCase();
-		return accounts.filter((a$2) => a$2.toLowerCase() === address$11).length !== 0;
+		if (typeof address$12 === "number") return accounts.length > address$12;
+		address$12 = address$12.toLowerCase();
+		return accounts.filter((a$2) => a$2.toLowerCase() === address$12).length !== 0;
 	}
-	async getSigner(address$11) {
-		if (address$11 == null) address$11 = 0;
-		if (!await this.hasSigner(address$11)) try {
+	async getSigner(address$12) {
+		if (address$12 == null) address$12 = 0;
+		if (!await this.hasSigner(address$12)) try {
 			await this.#request("eth_requestAccounts", []);
 		} catch (error) {
 			const payload = error.payload;
@@ -69002,7 +69002,7 @@ var BrowserProvider = class BrowserProvider extends JsonRpcApiPollingProvider {
 				error
 			});
 		}
-		return await super.getSigner(address$11);
+		return await super.getSigner(address$12);
 	}
 	static async discover(options$2) {
 		if (options$2 == null) options$2 = {};
@@ -76853,6 +76853,569 @@ var HegicOperationalTreasury_default = {
 		}
 	]
 };
+var HegicPositionManager_default = {
+	address: "0x5fe380d68fee022d8acd42dc4d36fbfb249a76d5",
+	abi: [
+		{
+			"inputs": [],
+			"stateMutability": "nonpayable",
+			"type": "constructor"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "owner",
+					"type": "address"
+				},
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "approved",
+					"type": "address"
+				},
+				{
+					"indexed": true,
+					"internalType": "uint256",
+					"name": "tokenId",
+					"type": "uint256"
+				}
+			],
+			"name": "Approval",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "owner",
+					"type": "address"
+				},
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "operator",
+					"type": "address"
+				},
+				{
+					"indexed": false,
+					"internalType": "bool",
+					"name": "approved",
+					"type": "bool"
+				}
+			],
+			"name": "ApprovalForAll",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "bytes32",
+					"name": "role",
+					"type": "bytes32"
+				},
+				{
+					"indexed": true,
+					"internalType": "bytes32",
+					"name": "previousAdminRole",
+					"type": "bytes32"
+				},
+				{
+					"indexed": true,
+					"internalType": "bytes32",
+					"name": "newAdminRole",
+					"type": "bytes32"
+				}
+			],
+			"name": "RoleAdminChanged",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "bytes32",
+					"name": "role",
+					"type": "bytes32"
+				},
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "account",
+					"type": "address"
+				},
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "sender",
+					"type": "address"
+				}
+			],
+			"name": "RoleGranted",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "bytes32",
+					"name": "role",
+					"type": "bytes32"
+				},
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "account",
+					"type": "address"
+				},
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "sender",
+					"type": "address"
+				}
+			],
+			"name": "RoleRevoked",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "from",
+					"type": "address"
+				},
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "to",
+					"type": "address"
+				},
+				{
+					"indexed": true,
+					"internalType": "uint256",
+					"name": "tokenId",
+					"type": "uint256"
+				}
+			],
+			"name": "Transfer",
+			"type": "event"
+		},
+		{
+			"inputs": [],
+			"name": "DEFAULT_ADMIN_ROLE",
+			"outputs": [{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "HEGIC_POOL_ROLE",
+			"outputs": [{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
+			}, {
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			}],
+			"name": "approve",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "address",
+				"name": "owner",
+				"type": "address"
+			}],
+			"name": "balanceOf",
+			"outputs": [{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "address",
+				"name": "holder",
+				"type": "address"
+			}],
+			"name": "createOptionFor",
+			"outputs": [{
+				"internalType": "uint256",
+				"name": "id",
+				"type": "uint256"
+			}],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			}],
+			"name": "getApproved",
+			"outputs": [{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			}],
+			"name": "getRoleAdmin",
+			"outputs": [{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			}, {
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}],
+			"name": "grantRole",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			}, {
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}],
+			"name": "hasRole",
+			"outputs": [{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "address",
+				"name": "owner",
+				"type": "address"
+			}, {
+				"internalType": "address",
+				"name": "operator",
+				"type": "address"
+			}],
+			"name": "isApprovedForAll",
+			"outputs": [{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "address",
+				"name": "spender",
+				"type": "address"
+			}, {
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			}],
+			"name": "isApprovedOrOwner",
+			"outputs": [{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "name",
+			"outputs": [{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "nextTokenId",
+			"outputs": [{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			}],
+			"name": "ownerOf",
+			"outputs": [{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			}, {
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}],
+			"name": "renounceRole",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			}, {
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			}],
+			"name": "revokeRole",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "from",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "to",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "tokenId",
+					"type": "uint256"
+				}
+			],
+			"name": "safeTransferFrom",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "from",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "to",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "tokenId",
+					"type": "uint256"
+				},
+				{
+					"internalType": "bytes",
+					"name": "data",
+					"type": "bytes"
+				}
+			],
+			"name": "safeTransferFrom",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "address",
+				"name": "operator",
+				"type": "address"
+			}, {
+				"internalType": "bool",
+				"name": "approved",
+				"type": "bool"
+			}],
+			"name": "setApprovalForAll",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "contract IERC721Metadata",
+				"name": "_uriBuilder",
+				"type": "address"
+			}],
+			"name": "setURIBuilder",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "bytes4",
+				"name": "interfaceId",
+				"type": "bytes4"
+			}],
+			"name": "supportsInterface",
+			"outputs": [{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "symbol",
+			"outputs": [{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}],
+			"name": "tokenPool",
+			"outputs": [{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			}],
+			"name": "tokenURI",
+			"outputs": [{
+				"internalType": "string",
+				"name": "uri",
+				"type": "string"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "from",
+					"type": "address"
+				},
+				{
+					"internalType": "address",
+					"name": "to",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "tokenId",
+					"type": "uint256"
+				}
+			],
+			"name": "transferFrom",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "uriBuilder",
+			"outputs": [{
+				"internalType": "contract IERC721Metadata",
+				"name": "",
+				"type": "address"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		}
+	]
+};
 const capitalizeFirstLetter = (str) => {
 	return str.charAt(0).toUpperCase() + str.slice(1);
 };
@@ -76903,7 +77466,8 @@ var useContractJsons = () => {
 		OneClickProxy: OneClickProxy_default,
 		OneClickTrading: OneClickTrading_default,
 		UsdcPool: USDC_LiquidityPool_default,
-		HegicOperationalTreasury: HegicOperationalTreasury_default
+		HegicOperationalTreasury: HegicOperationalTreasury_default,
+		HegicPositionManager: HegicPositionManager_default
 	}), []);
 };
 var useContracts = () => {
@@ -76924,8 +77488,8 @@ var useViewContracts = () => {
 	return (0, import_react.useMemo)(() => {
 		const contracts$1 = {};
 		Object.keys(contractJsons).forEach((name) => {
-			const { address: address$11, abi: abi$11 } = contractJsons[name];
-			const contract = new Contract(address$11, abi$11, alchemyProvider);
+			const { address: address$12, abi: abi$12 } = contractJsons[name];
+			const contract = new Contract(address$12, abi$12, alchemyProvider);
 			contract.address = contract.target;
 			contracts$1[name] = contract;
 		});
@@ -83677,14 +84241,14 @@ var AlchemyConfig = class {
 	}
 	getProvider() {
 		if (!this._baseAlchemyProvider) this._baseAlchemyProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-C6EboQTJ.js"), __vite__mapDeps([7,8]));
+			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-BsYBj6ms.js"), __vite__mapDeps([7,8]));
 			return new AlchemyProvider$1(this);
 		}))();
 		return this._baseAlchemyProvider;
 	}
 	getWebSocketProvider() {
 		if (!this._baseAlchemyWssProvider) this._baseAlchemyWssProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-C-so4mOx.js"), __vite__mapDeps([9,8]));
+			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-FayMl5Pt.js"), __vite__mapDeps([9,8]));
 			return new AlchemyWebSocketProvider(this);
 		}))();
 		return this._baseAlchemyWssProvider;
@@ -84175,8 +84739,8 @@ function getFilter(config, filter$1) {
 			result[key] = provider._getBlockTag(resolvedFilter[key]);
 		});
 		result = provider.formatter.filter(yield resolveProperties(result));
-		if (Array.isArray(resolvedFilter.address)) result.address = yield Promise.all(resolvedFilter.address.map((address$11) => __awaiter$1(this, void 0, void 0, function* () {
-			return provider._getAddress(address$11);
+		if (Array.isArray(resolvedFilter.address)) result.address = yield Promise.all(resolvedFilter.address.map((address$12) => __awaiter$1(this, void 0, void 0, function* () {
+			return provider._getAddress(address$12);
 		})));
 		else if (resolvedFilter.address != null) result.address = yield provider._getAddress(resolvedFilter.address);
 		return result;
@@ -84201,9 +84765,9 @@ var CoreNamespace = class {
 			return (yield this.config.getProvider()).getBalance(addressOrName, blockTag);
 		});
 	}
-	isContractAddress(address$11) {
+	isContractAddress(address$12) {
 		return __awaiter$1(this, void 0, void 0, function* () {
-			return (yield (yield this.config.getProvider()).getCode(address$11)) !== "0x";
+			return (yield (yield this.config.getProvider()).getCode(address$12)) !== "0x";
 		});
 	}
 	getCode(addressOrName, blockTag) {
@@ -84313,13 +84877,13 @@ var CoreNamespace = class {
 	getTokenBalances(addressOrName, contractAddressesOrOptions) {
 		return __awaiter$1(this, void 0, void 0, function* () {
 			const provider = yield this.config.getProvider();
-			const address$11 = yield provider._getAddress(addressOrName);
+			const address$12 = yield provider._getAddress(addressOrName);
 			if (Array.isArray(contractAddressesOrOptions)) {
 				if (contractAddressesOrOptions.length > 1500) throw new Error("You cannot pass in more than 1500 contract addresses to getTokenBalances()");
 				if (contractAddressesOrOptions.length === 0) throw new Error("getTokenBalances() requires at least one contractAddress when using an array");
-				return provider._send("alchemy_getTokenBalances", [address$11, contractAddressesOrOptions], "getTokenBalances");
+				return provider._send("alchemy_getTokenBalances", [address$12, contractAddressesOrOptions], "getTokenBalances");
 			} else {
-				const params = [address$11, contractAddressesOrOptions === void 0 ? TokenBalanceType.ERC20 : contractAddressesOrOptions.type];
+				const params = [address$12, contractAddressesOrOptions === void 0 ? TokenBalanceType.ERC20 : contractAddressesOrOptions.type];
 				if ((contractAddressesOrOptions === null || contractAddressesOrOptions === void 0 ? void 0 : contractAddressesOrOptions.type) === TokenBalanceType.ERC20 && contractAddressesOrOptions.pageKey) params.push({ pageKey: contractAddressesOrOptions.pageKey });
 				return provider._send("alchemy_getTokenBalances", params, "getTokenBalances");
 			}
@@ -84348,9 +84912,9 @@ var CoreNamespace = class {
 			};
 		});
 	}
-	getTokenMetadata(address$11) {
+	getTokenMetadata(address$12) {
 		return __awaiter$1(this, void 0, void 0, function* () {
-			return (yield this.config.getProvider())._send("alchemy_getTokenMetadata", [address$11], "getTokenMetadata");
+			return (yield this.config.getProvider())._send("alchemy_getTokenMetadata", [address$12], "getTokenMetadata");
 		});
 	}
 	getAssetTransfers(params) {
@@ -84368,18 +84932,18 @@ var CoreNamespace = class {
 			return (yield this.config.getProvider()).resolveName(name);
 		});
 	}
-	lookupAddress(address$11) {
+	lookupAddress(address$12) {
 		return __awaiter$1(this, void 0, void 0, function* () {
-			return (yield this.config.getProvider()).lookupAddress(address$11);
+			return (yield this.config.getProvider()).lookupAddress(address$12);
 		});
 	}
 };
-function binarySearchFirstBlock(start, end, address$11, config) {
+function binarySearchFirstBlock(start, end, address$12, config) {
 	return __awaiter$1(this, void 0, void 0, function* () {
 		if (start >= end) return end;
 		const mid = Math.floor((start + end) / 2);
-		if ((yield (yield config.getProvider()).getCode(address$11, mid)) === ETH_NULL_VALUE) return binarySearchFirstBlock(mid + 1, end, address$11, config);
-		return binarySearchFirstBlock(start, mid, address$11, config);
+		if ((yield (yield config.getProvider()).getCode(address$12, mid)) === ETH_NULL_VALUE) return binarySearchFirstBlock(mid + 1, end, address$12, config);
+		return binarySearchFirstBlock(start, mid, address$12, config);
 	});
 }
 var DebugNamespace = class {
@@ -85283,9 +85847,9 @@ var NotifyNamespace = class {
 			if (addresses === void 0) return [];
 			const resolvedAddresses = [];
 			const provider = yield this.config.getProvider();
-			for (const address$11 of addresses) {
-				const rawAddress = yield provider.resolveName(address$11);
-				if (rawAddress === null) throw new Error(`Unable to resolve the ENS address: ${address$11}`);
+			for (const address$12 of addresses) {
+				const rawAddress = yield provider.resolveName(address$12);
+				if (rawAddress === null) throw new Error(`Unable to resolve the ENS address: ${address$12}`);
 				resolvedAddresses.push(rawAddress);
 			}
 			return resolvedAddresses;
@@ -85458,13 +86022,13 @@ function getHistoricalPriceBySymbol(config, symbol, startTime$1, endTime, interv
 		}));
 	});
 }
-function getHistoricalPriceByAddress(config, network, address$11, startTime$1, endTime, interval, srcMethod = "getHistoricalPriceByAddress") {
+function getHistoricalPriceByAddress(config, network, address$12, startTime$1, endTime, interval, srcMethod = "getHistoricalPriceByAddress") {
 	return __awaiter$1(this, void 0, void 0, function* () {
 		return nullsToUndefined(yield requestHttpWithBackoff(config, AlchemyApiType.PRICES, "tokens/historical", srcMethod, {}, {
 			method: "POST",
 			data: {
 				network,
-				address: address$11,
+				address: address$12,
 				startTime: startTime$1,
 				endTime,
 				interval
@@ -85485,8 +86049,8 @@ var PricesNamespace = class {
 	getHistoricalPriceBySymbol(symbol, startTime$1, endTime, interval) {
 		return getHistoricalPriceBySymbol(this.config, symbol, startTime$1, endTime, interval);
 	}
-	getHistoricalPriceByAddress(network, address$11, startTime$1, endTime, interval) {
-		return getHistoricalPriceByAddress(this.config, network, address$11, startTime$1, endTime, interval);
+	getHistoricalPriceByAddress(network, address$12, startTime$1, endTime, interval) {
+		return getHistoricalPriceByAddress(this.config, network, address$12, startTime$1, endTime, interval);
 	}
 };
 var GAS_OPTIMIZED_TX_FEE_MULTIPLES = [
@@ -85637,11 +86201,11 @@ var Event$1 = class {
 	get filter() {
 		const comps = this.tag.split(":");
 		if (comps[0] !== "filter") throw new Error("Not a transaction event");
-		const address$11 = comps[1];
+		const address$12 = comps[1];
 		const topics = deserializeTopics(comps[2]);
 		const filter$1 = {};
 		if (topics.length > 0) filter$1.topics = topics;
-		if (address$11 && address$11 !== "*") filter$1.address = address$11;
+		if (address$12 && address$12 !== "*") filter$1.address = address$12;
 		return filter$1;
 	}
 	pollable() {
@@ -85796,17 +86360,17 @@ var WebSocketNamespace = class {
 			if (!isAlchemyEvent(eventName)) return eventName;
 			if (eventName.method === AlchemySubscription.MINED_TRANSACTIONS && eventName.addresses) {
 				const processedAddresses = [];
-				for (const address$11 of eventName.addresses) {
-					if (address$11.to) address$11.to = yield this._resolveNameOrError(address$11.to);
-					if (address$11.from) address$11.from = yield this._resolveNameOrError(address$11.from);
-					processedAddresses.push(address$11);
+				for (const address$12 of eventName.addresses) {
+					if (address$12.to) address$12.to = yield this._resolveNameOrError(address$12.to);
+					if (address$12.from) address$12.from = yield this._resolveNameOrError(address$12.from);
+					processedAddresses.push(address$12);
 				}
 				eventName.addresses = processedAddresses;
 			} else if (eventName.method === AlchemySubscription.PENDING_TRANSACTIONS) {
 				if (eventName.fromAddress) if (typeof eventName.fromAddress === "string") eventName.fromAddress = yield this._resolveNameOrError(eventName.fromAddress);
-				else eventName.fromAddress = yield Promise.all(eventName.fromAddress.map((address$11) => this._resolveNameOrError(address$11)));
+				else eventName.fromAddress = yield Promise.all(eventName.fromAddress.map((address$12) => this._resolveNameOrError(address$12)));
 				if (eventName.toAddress) if (typeof eventName.toAddress === "string") eventName.toAddress = yield this._resolveNameOrError(eventName.toAddress);
-				else eventName.toAddress = yield Promise.all(eventName.toAddress.map((address$11) => this._resolveNameOrError(address$11)));
+				else eventName.toAddress = yield Promise.all(eventName.toAddress.map((address$12) => this._resolveNameOrError(address$12)));
 			}
 			return eventName;
 		});
@@ -86221,9 +86785,9 @@ const _useGodEyeSetup = () => {
 	const [godEyeAddress, setGodEyeAddress] = (0, import_react.useState)(void 0);
 	const [godEyeAccountId, setGodEyeAccountId] = (0, import_react.useState)(void 0);
 	const loc = useLocation();
-	const enableGodEyeWallet = (address$11) => {
-		setGodEyeAddress(address$11);
-		console.log("God Eye Wallet enabled:", address$11);
+	const enableGodEyeWallet = (address$12) => {
+		setGodEyeAddress(address$12);
+		console.log("God Eye Wallet enabled:", address$12);
 	};
 	const enableGodEyeAccountId = (accountId) => {
 		setGodEyeAccountId(accountId);
@@ -86238,8 +86802,8 @@ const _useGodEyeSetup = () => {
 		const [cheatcode, cheatcodeValue] = getLast(loc.pathname.split("/")).split("=");
 		switch (cheatcode) {
 			case WALLET_CHEATCODE: {
-				const address$11 = cheatcodeValue;
-				if (isAddress(address$11)) enableGodEyeWallet(address$11);
+				const address$12 = cheatcodeValue;
+				if (isAddress(address$12)) enableGodEyeWallet(address$12);
 				else disableGodEye(`Invalid address: ${cheatcodeValue}`);
 				break;
 			}
@@ -94523,6 +95087,8 @@ var queryOption = async (contracts$1, id$2) => {
 	const premium = bring1eTokenToDefault(premium1eToken, HegicConstants_default.TOKEN);
 	const exp = Number(expS) * MS_IN_SECOND;
 	if (Date.now() > exp || state === 0) return null;
+	const transferTimestamp = await queryTransferTimestamp(contracts$1, id$2);
+	const periodDays = Math.round(daysFromMs(exp - transferTimestamp, false));
 	const Strategy = new Contract(strategy, Strategy_abi, getAlchemyProvider());
 	const { amount: amount1eToken } = await Strategy.strategyData(id$2);
 	return {
@@ -94530,9 +95096,26 @@ var queryOption = async (contracts$1, id$2) => {
 		asset: "ETH",
 		amount: bring1eTokenToDefault(amount1eToken, "ETH"),
 		exp,
+		periodDays,
 		premium,
 		profit: await swapToUsdc(contracts$1, bring1eTokenToDefault(await Strategy.payOffAmount(id$2), HegicConstants_default.TOKEN), HegicConstants_default.TOKEN)
 	};
+};
+var queryTransferTimestamp = async (contracts$1, optionId) => {
+	const transferEvent = await queryTransferEvent(contracts$1, optionId);
+	return (await getAlchemyProvider().getBlock(transferEvent.blockNumber)).timestamp * MS_IN_SECOND;
+};
+var queryTransferEvent = async (contracts$1, optionId) => {
+	const { HegicPositionManager, MarginAccount } = contracts$1.view;
+	const topics = [
+		id("Transfer(address,address,uint256)"),
+		null,
+		zeroPadValue(MarginAccount.address, 32),
+		zeroPadValue(toBeHex(optionId), 32)
+	];
+	const events = await HegicPositionManager.queryFilter(topics);
+	if (events.length !== 1) throw new Error("Incorrect events length:\n", events);
+	return events[0];
 };
 var useHegicOptions_default = useHegicOptions;
 var import_classnames$7 = /* @__PURE__ */ __toESM(require_classnames(), 1);
@@ -100161,7 +100744,7 @@ var Amount = ({ position: position$1 }) => {
 	});
 };
 var Period = ({ option }) => {
-	const { exp } = option;
+	const { exp, periodDays } = option;
 	const duration = intervalToDuration({
 		start: Date.now(),
 		end: exp
@@ -100174,19 +100757,23 @@ var Period = ({ option }) => {
 	];
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 		className: "Protections__period",
-		children: ["? Days (to be done)", /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "Protections__period-timer",
-			children: ["Ends in", /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "Protections__period-timer-value",
-				children: [
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: [daysLeft, "d"] }),
-					":",
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: [hoursLeft, "h"] }),
-					":",
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: [minutesLeft, "m"] })
-				]
-			})]
-		})]
+		children: [
+			periodDays,
+			" Days",
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "Protections__period-timer",
+				children: ["Ends in", /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "Protections__period-timer-value",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: [daysLeft, "d"] }),
+						":",
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: [hoursLeft, "h"] }),
+						":",
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: [minutesLeft, "m"] })
+					]
+				})]
+			})
+		]
 	});
 };
 var ProtectionCost = ({ position: position$1 }) => {
