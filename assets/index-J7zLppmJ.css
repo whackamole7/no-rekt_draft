@@ -901,31 +901,40 @@
 .LtvValue._red svg path {
   fill: #D8563C;
 }.Metrics {
-  background-color: #130B3A;
-  border: 1px solid rgba(172, 169, 187, 0.08);
-  border-radius: 10px;
-  padding: 0;
   white-space: nowrap;
 }
 .Metrics__row {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   flex-wrap: wrap;
   column-gap: 20px;
   row-gap: 5px;
   border-bottom: 1px solid rgba(172, 169, 187, 0.08);
   padding: 10px 0;
-  margin: 0 15px;
 }
 .Metrics__row-title {
   color: #9A94B8;
 }
 .Metrics__row:first-child {
-  padding-top: 12px;
+  padding-top: 0;
 }
 .Metrics__row:last-child {
   border-bottom: none;
+  padding-bottom: 0;
+}
+.Metrics._boxed {
+  background-color: #130B3A;
+  border: 1px solid rgba(172, 169, 187, 0.08);
+  border-radius: 10px;
+  padding: 0;
+}
+.Metrics._boxed .Metrics__row {
+  margin: 0 15px;
+}
+.Metrics._boxed .Metrics__row:first-child {
+  padding-top: 12px;
+}
+.Metrics._boxed .Metrics__row:last-child {
   padding-bottom: 14px;
 }.BorrowModal__terms-notification {
   margin: 20px 0;
@@ -1519,20 +1528,7 @@
     flex-direction: column;
     row-gap: 15px;
   }
-}.ClaimModal .Metrics {
-  background-color: transparent;
-  border: none;
-}
-.ClaimModal .Metrics__row {
-  margin: 0;
-}
-.ClaimModal .Metrics__row:first-child {
-  padding-top: 0;
-}
-.ClaimModal .Metrics__row:last-child {
-  padding-bottom: 0;
-}
-.ClaimModal .Metrics ._info-value {
+}.ClaimModal .Metrics ._info-value {
   display: flex;
   align-items: center;
   column-gap: 8px;
@@ -1831,6 +1827,9 @@
   }
 }
 @media (max-width: 480px) {
+  .LendingPanel {
+    padding-bottom: 15px;
+  }
   .LendingPanel__head {
     margin-bottom: 15px;
   }
@@ -1971,9 +1970,61 @@
   padding: 3px 5px;
   color: #ffffff;
 }
+.Protections__items {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+.Protections__item {
+  background-color: #130B3A;
+  border: 1px solid rgba(172, 169, 187, 0.08);
+  border-radius: 15px;
+  padding: 10px;
+}
+.Protections__item:first-of-type {
+  border-top: none;
+  border-radius: 0 0 15px 15px;
+}
+.Protections__item .Button {
+  width: 100%;
+  margin-top: 25px;
+}
 @media (max-width: 992px) {
+  .Protections:not(._no-protections) {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+  }
+  .Protections:not(._no-protections) .Protections__title {
+    background-color: #130B3A;
+    border: 1px solid rgba(172, 169, 187, 0.08);
+    border-radius: 15px 15px 0 0;
+    padding: 10px;
+    border-bottom: none;
+    padding-bottom: 0 !important;
+    margin-bottom: 0;
+  }
+  .Protections:not(._no-protections) .Protections__title, .Protections:not(._no-protections) .Protections__item {
+    padding: 25px 30px 20px;
+  }
   .Protections__no-protections {
     margin-bottom: 20px;
+  }
+  .Protections__period {
+    text-align: right;
+  }
+}
+@media (max-width: 768px) {
+  .Protections:not(._no-protections) .Protections__title, .Protections:not(._no-protections) .Protections__item {
+    padding: 25px;
+  }
+}
+@media (max-width: 480px) {
+  .Protections:not(._no-protections) .Protections__title, .Protections:not(._no-protections) .Protections__item {
+    padding: 15px;
+  }
+  .Protections__item .Button {
+    margin-top: 20px;
   }
 }
 @media (max-width: 400px) {
