@@ -1838,7 +1838,6 @@
   grid-column: 7/13;
 }.LtvLevel {
   display: flex;
-  column-gap: 20px;
   justify-content: space-between;
 }
 .LtvLevel .Spinner {
@@ -1900,6 +1899,7 @@
 }
 .ProtectionPanel__metric-title {
   color: #9A94B8;
+  white-space: nowrap;
 }
 @media (max-width: 1440px) {
   .ProtectionPanel {
@@ -1914,6 +1914,15 @@
 @media (max-width: 992px) {
   .ProtectionPanel {
     flex-direction: column;
+  }
+}
+@media (max-width: 380px) {
+  .ProtectionPanel__metric {
+    border-radius: 12px;
+    padding: 12px;
+  }
+  .ProtectionPanel__metric-title {
+    font-size: 12px;
   }
 }.ProtectionLevel__title {
   margin-bottom: 14px;
