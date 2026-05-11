@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-BQ6i1WZ5.js","assets/secp256k1-dyFcpKTD.js","assets/esm-VdCDTkMZ.js","assets/dist-BlK0JlSD.js","assets/dist-BD3p9f3r.js","assets/dist-BdoE39-v.js","assets/index.es-FWggE2xq.js","assets/alchemy-provider-2577f5a5-CTNxeM9s.js","assets/alchemy-provider-2577f5a5-B66HDHd7.js","assets/alchemy-websocket-provider-ee041890-D1nT1nYB.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-DWJUNb3x.js","assets/secp256k1-Dtv5f3Mx.js","assets/esm-DHh901pJ.js","assets/dist-C12dDlJV.js","assets/dist-CvyqNqCi.js","assets/dist-DbgB2RBo.js","assets/index.es-WpvxsgLu.js","assets/alchemy-provider-2577f5a5-13UWqBUt.js","assets/alchemy-provider-2577f5a5-CF0mPqX4.js","assets/alchemy-websocket-provider-ee041890-CW9AMPjN.js"])))=>i.map(i=>d[i]);
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -16953,7 +16953,7 @@ async function call$1(client, args) {
 	} catch (err) {
 		const data$1 = getRevertErrorData(err);
 		const { offchainLookup, offchainLookupSignature } = await __vitePreload(async () => {
-			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-Ce_FCSpG.js");
+			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-COw-vJau.js");
 			return {
 				offchainLookup: offchainLookup$1,
 				offchainLookupSignature: offchainLookupSignature$1
@@ -17454,7 +17454,7 @@ function publicKeyToAddress(publicKey) {
 async function recoverPublicKey({ hash: hash$3, signature }) {
 	const hashHex = isHex(hash$3) ? hash$3 : toHex$2(hash$3);
 	const { secp256k1: secp256k1$1 } = await __vitePreload(async () => {
-		const { secp256k1: secp256k1$2 } = await import("./secp256k1-BQ6i1WZ5.js");
+		const { secp256k1: secp256k1$2 } = await import("./secp256k1-DWJUNb3x.js");
 		return { secp256k1: secp256k1$2 };
 	}, __vite__mapDeps([0,1]));
 	return `0x${(() => {
@@ -23304,7 +23304,7 @@ function safe(parameters = {}) {
 			if (!provider_) {
 				const { default: SDK } = await (() => {
 					try {
-						return __vitePreload(() => import("./esm-VdCDTkMZ.js"), __vite__mapDeps([2,3]));
+						return __vitePreload(() => import("./esm-DHh901pJ.js"), __vite__mapDeps([2,3]));
 					} catch {
 						throw new Error("dependency \"@safe-global/safe-apps-sdk\" not found");
 					}
@@ -23315,7 +23315,7 @@ function safe(parameters = {}) {
 				provider_ = new (await ((async () => {
 					const Provider$1 = await (() => {
 						try {
-							return __vitePreload(() => import("./dist-BD3p9f3r.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
+							return __vitePreload(() => import("./dist-CvyqNqCi.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
 						} catch {
 							throw new Error("dependency \"@safe-global/safe-apps-provider\" not found");
 						}
@@ -23480,7 +23480,7 @@ function walletConnect(parameters) {
 				if (!optionalChains.length) return;
 				const { EthereumProvider: EthereumProvider$1 } = await (() => {
 					try {
-						return __vitePreload(() => import("./dist-BdoE39-v.js"), __vite__mapDeps([5,6,1]));
+						return __vitePreload(() => import("./dist-DbgB2RBo.js"), __vite__mapDeps([5,6,1]));
 					} catch {
 						throw new Error("dependency \"@walletconnect/ethereum-provider\" not found");
 					}
@@ -53962,8 +53962,11 @@ const CHAINS_METADATA = { [ARBITRUM]: {
 } };
 const Colors = {
 	GREEN: "#09AF8E",
+	GREEN_2: "#112540",
 	RED: "#D8563C",
+	RED_2: "#361536",
 	YELLOW: "#FE9673",
+	YELLOW_2: "#2A163C",
 	BLUE: "#5069DD",
 	VIOLET: "#8E3ECD",
 	VIOLET_DIM: "#3C1B68",
@@ -84241,14 +84244,14 @@ var AlchemyConfig = class {
 	}
 	getProvider() {
 		if (!this._baseAlchemyProvider) this._baseAlchemyProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-CTNxeM9s.js"), __vite__mapDeps([7,8]));
+			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-13UWqBUt.js"), __vite__mapDeps([7,8]));
 			return new AlchemyProvider$1(this);
 		}))();
 		return this._baseAlchemyProvider;
 	}
 	getWebSocketProvider() {
 		if (!this._baseAlchemyWssProvider) this._baseAlchemyWssProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-D1nT1nYB.js"), __vite__mapDeps([9,8]));
+			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-CW9AMPjN.js"), __vite__mapDeps([9,8]));
 			return new AlchemyWebSocketProvider(this);
 		}))();
 		return this._baseAlchemyWssProvider;
@@ -87465,14 +87468,14 @@ var require_classnames = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 		else window.classNames = classNames$3;
 	})();
 }));
-var import_classnames$29 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$30 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var Button = ({ type = "primary", size: size$4 = "default", isDisabled = false, className, children, ...props }) => {
 	const isFancy = type === "fancy";
 	(0, import_react.useEffect)(() => {
 		if (isFancy) animateFancyButtons();
 	}, []);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-		className: (0, import_classnames$29.default)(className, "Button", `_${type}`, `_${size$4}`, isFancy && "anim_fancy"),
+		className: (0, import_classnames$30.default)(className, "Button", `_${type}`, `_${size$4}`, isFancy && "anim_fancy"),
 		disabled: isDisabled,
 		...props,
 		children
@@ -87510,18 +87513,18 @@ const swapUsdcToEth = async (contracts$1, amountUSDC, slippage = void 0) => {
 	const { ETH } = Tokens;
 	return swapFromUsdc(contracts$1, amountUSDC, ETH, slippage);
 };
-var import_classnames$28 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$29 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var Field = ({ children, className }) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: (0, import_classnames$28.default)("Field", className),
+		className: (0, import_classnames$29.default)("Field", className),
 		children
 	});
 };
 var Field_default = Field;
-var import_classnames$27 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$28 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var Radio = ({ id: id$2, items, value, setValue, className }) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: (0, import_classnames$27.default)("Radio", className),
+		className: (0, import_classnames$28.default)("Radio", className),
 		children: items.map((item) => {
 			const itemId = `${id$2}_${item.value}`;
 			return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
@@ -88284,19 +88287,19 @@ function ImSpinner2(props) {
 		}]
 	})(props);
 }
-var import_classnames$26 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$27 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var Spinner = ({ className }) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: (0, import_classnames$26.default)("Spinner", className),
+		className: (0, import_classnames$27.default)("Spinner", className),
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ImSpinner2, { className: "Spinner__icon" })
 	});
 };
 var Spinner_default = Spinner;
-var import_classnames$25 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$26 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var TokenIcon = ({ symbol, className }) => {
 	const tokenIcon = Tokens[symbol].icon;
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: (0, import_classnames$25.default)("TokenIcon", className),
+		className: (0, import_classnames$26.default)("TokenIcon", className),
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
 			src: tokenIcon,
 			alt: `${symbol} icon`
@@ -88311,12 +88314,12 @@ var Muted = ({ children }) => {
 	});
 };
 var Muted_default = Muted;
-var import_classnames$24 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$25 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var TokenAmount = ({ value, symbol = "USDC", showsUsd = false, type = "inline" }) => {
 	const { isLoading, hasError } = getIsLoadingAndError(value);
 	const valueStr = isLoading ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Spinner_default, {}) : hasError ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, {}) : formatTokenAmount(value, symbol);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: (0, import_classnames$24.default)("TokenAmount", `_${type}`, hasError && "_error"),
+		className: (0, import_classnames$25.default)("TokenAmount", `_${type}`, hasError && "_error"),
 		children: [
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenIcon_default, {
 				className: "TokenAmount__icon",
@@ -90556,7 +90559,7 @@ var import_lib = /* @__PURE__ */ __toESM((/* @__PURE__ */ __commonJSMin(((export
 	exports.default = _Modal2.default;
 	module.exports = exports["default"];
 })))(), 1);
-var import_classnames$23 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$24 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 import_lib.default.setAppElement("#root");
 import_lib.default.defaultStyles = {};
 var TRANSITION_DURATION = 300;
@@ -90570,7 +90573,7 @@ var Modal = ({ isOpen, setIsOpen, isObligatory = false, reset = () => {}, classN
 		setIsOpen(false);
 	};
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_lib.default, {
-		className: (0, import_classnames$23.default)(isScrollable && "_scrollable"),
+		className: (0, import_classnames$24.default)(isScrollable && "_scrollable"),
 		isOpen,
 		shouldCloseOnOverlayClick: false,
 		onRequestClose: closeModal,
@@ -90589,7 +90592,7 @@ var Modal = ({ isOpen, setIsOpen, isObligatory = false, reset = () => {}, classN
 			children: contentElement
 		}),
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-			className: (0, import_classnames$23.default)(className, "ReactModal__box", "box"),
+			className: (0, import_classnames$24.default)(className, "ReactModal__box", "box"),
 			onMouseDown: (e$2) => e$2.stopPropagation(),
 			children
 		}), !isObligatory && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
@@ -90603,11 +90606,11 @@ var Modal_default = Modal;
 var confirm_default = "data:image/svg+xml,%3csvg%20width='40'%20height='40'%20viewBox='0%200%2040%2040'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_284_1636)'%3e%3ccircle%20cx='20'%20cy='20'%20r='20'%20fill='%23112540'/%3e%3cpath%20d='M11%2019.9333L17%2026L29%2013'%20stroke='%2309AF8E'%20stroke-width='3'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_284_1636'%3e%3crect%20width='40'%20height='40'%20fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e";
 var error_default = "data:image/svg+xml,%3csvg%20width='40'%20height='40'%20viewBox='0%200%2040%2040'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_1129_5414)'%3e%3ccircle%20cx='20'%20cy='20'%20r='20'%20fill='%23361536'/%3e%3cpath%20d='M21.4969%2020L25.6868%2015.8101C25.8856%2015.6116%2025.9975%2015.3422%2025.9977%2015.0613C25.998%2014.7803%2025.8866%2014.5107%2025.6881%2014.3119C25.4896%2014.113%2025.2202%2014.0012%2024.9393%2014.0009C24.6583%2014.0007%2024.3887%2014.1121%2024.1899%2014.3106L20%2018.5005L15.8101%2014.3106C15.6113%2014.1117%2015.3416%2014%2015.0603%2014C14.7791%2014%2014.5094%2014.1117%2014.3106%2014.3106C14.1117%2014.5094%2014%2014.7791%2014%2015.0603C14%2015.3416%2014.1117%2015.6113%2014.3106%2015.8101L18.5005%2020L14.3106%2024.1899C14.1117%2024.3887%2014%2024.6584%2014%2024.9397C14%2025.2209%2014.1117%2025.4906%2014.3106%2025.6894C14.5094%2025.8883%2014.7791%2026%2015.0603%2026C15.3416%2026%2015.6113%2025.8883%2015.8101%2025.6894L20%2021.4995L24.1899%2025.6894C24.3887%2025.8883%2024.6584%2026%2024.9397%2026C25.2209%2026%2025.4906%2025.8883%2025.6894%2025.6894C25.8883%2025.4906%2026%2025.2209%2026%2024.9397C26%2024.6584%2025.8883%2024.3887%2025.6894%2024.1899L21.4969%2020Z'%20fill='%23D8563C'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_1129_5414'%3e%3crect%20width='40'%20height='40'%20fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e";
 var tick_default = "data:image/svg+xml,%3csvg%20width='12'%20height='10'%20viewBox='0%200%2012%2010'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M1%205.26667L4.33333%209L11%201'%20stroke='white'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3c/svg%3e";
-var import_classnames$22 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$23 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var TxModal = ({ isOpen, setIsOpen, reset = () => {}, txResult, setTxResult, className, children }) => {
 	const closeModal = () => setIsOpen(false);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Modal_default, {
-		className: (0, import_classnames$22.default)("TxModal", className),
+		className: (0, import_classnames$23.default)("TxModal", className),
 		isOpen,
 		setIsOpen,
 		reset: () => {
@@ -90626,7 +90629,7 @@ var TxResult = ({ result, closeModal }) => {
 	const txUrl = hash$3 ? getTxUrl(chainId, hash$3) : "";
 	const hashStr = hash$3 ? hash$3.slice(0, 5) + "..." + hash$3.slice(-4) : "";
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: (0, import_classnames$22.default)("TxModal__tx-result", error && "_error"),
+		className: (0, import_classnames$23.default)("TxModal__tx-result", error && "_error"),
 		children: [
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 				className: "TxModal__tx-result-icon",
@@ -90681,7 +90684,7 @@ var CopyButton = ({ error }) => {
 		setTimeout(() => setIsCopied(false), 2 * SECOND);
 	};
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
-		className: (0, import_classnames$22.default)("TxModal__tx-result-button", isCopied && "_copied"),
+		className: (0, import_classnames$23.default)("TxModal__tx-result-button", isCopied && "_copied"),
 		onClick: handleClick,
 		children: isCopied ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: ["Copied", /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
 			src: tick_default,
@@ -90711,10 +90714,10 @@ TxModal.Input = _Input$1;
 TxModal.Button = _Button;
 TxModal.Buttons = _Buttons;
 var TxModal_default = TxModal;
-var import_classnames$21 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$22 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var List = ({ type = "tick", children }) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("ul", {
-		className: (0, import_classnames$21.default)("List", `_${type}`),
+		className: (0, import_classnames$22.default)("List", `_${type}`),
 		children
 	});
 };
@@ -90772,7 +90775,7 @@ var CreateAccountModal = ({ isOpen, setIsOpen }) => {
 	});
 };
 var CreateAccountModal_default = CreateAccountModal;
-var import_classnames$20 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$21 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var Input = ({ setValue, valueStrState = void 0, maxData = void 0, placeholder = "0", isDisabled = false }) => {
 	const [valueStr, setValueStr] = valueStrState ?? (0, import_react.useState)("");
 	const [isFocused, setIsFocused] = (0, import_react.useState)(false);
@@ -90787,7 +90790,7 @@ var Input = ({ setValue, valueStrState = void 0, maxData = void 0, placeholder =
 		setValueStr(inputStringFromBigInt(maxData.value));
 	};
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: (0, import_classnames$20.default)("Input", isFocused && "_focused"),
+		className: (0, import_classnames$21.default)("Input", isFocused && "_focused"),
 		onClick: focusInput,
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputNative, {
 			ref: inputRef,
@@ -90897,13 +90900,13 @@ var ArrowChangeSvg = () => {
 	});
 };
 var ArrowChangeSvg_default = ArrowChangeSvg;
-var import_classnames$19 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$20 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var ValueChange = ({ curValue, estValue, className }) => {
 	const hasEstValue = estValue !== null;
 	const { isCurLoading } = getIsLoadingAndError(curValue, "cur");
 	const { isEstLoading } = getIsLoadingAndError(estValue, "est");
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: (0, import_classnames$19.default)("ValueChange", className, hasEstValue && "_active"),
+		className: (0, import_classnames$20.default)("ValueChange", className, hasEstValue && "_active"),
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 			className: "ValueChange__cur",
 			children: isCurLoading ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Spinner_default, {}) : curValue
@@ -90929,11 +90932,17 @@ var TokenAmountChange = ({ curAmount, estAmount, symbol }) => {
 };
 var TokenAmountChange_default = TokenAmountChange;
 var Ltv = {
+	CoeffTypes: {
+		RED: "red",
+		YELLOW: "yellow",
+		GREEN: "green"
+	},
 	queryLtvAfterSupply,
 	queryLtvAfterWithdraw,
 	calcLtvAfterBorrow,
 	calcLtvAfterRepay,
-	queryLtvAfterProtect
+	queryLtvAfterProtect,
+	getCoeffType
 };
 async function queryLtvAfterSupply(account, contracts$1, depositAmount) {
 	const depositAmountUSDC = await swapEthToUsdc(contracts$1, depositAmount);
@@ -90952,10 +90961,24 @@ function calcLtvAfterRepay(account, repayAmount) {
 async function queryLtvAfterProtect(account, cost, paymentMethod) {
 	let estAccountValue;
 	switch (paymentMethod) {
-		case PaymentMethods.COLLATERAL: estAccountValue = account.value - cost;
-		case PaymentMethods.WALLET: estAccountValue = account.value;
+		case PaymentMethods.COLLATERAL:
+			estAccountValue = account.value - cost;
+			break;
+		case PaymentMethods.WALLET:
+			estAccountValue = account.value;
+			break;
 	}
 	return multiplyBigInts(account.ltv, divBigInts(estAccountValue, account.value));
+}
+function getCoeffType(account) {
+	const { ltv } = account;
+	const { red, yellow } = account.ltvCoeffs;
+	const { RED: RED$1, YELLOW, GREEN: GREEN$1 } = Ltv.CoeffTypes;
+	let coeffType;
+	if (ltv < red) coeffType = RED$1;
+	else if (ltv < yellow) coeffType = YELLOW;
+	else coeffType = GREEN$1;
+	return coeffType;
 }
 var _calcLtv = (balance, debt) => {
 	if (debt <= 0n) return maxUint256;
@@ -90981,23 +91004,20 @@ var EternitySvg = () => {
 	});
 };
 var EternitySvg_default = EternitySvg;
-var import_classnames$18 = /* @__PURE__ */ __toESM(require_classnames(), 1);
-var LtvValue = ({ ltv }) => {
+var import_classnames$19 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var LtvValue = ({ ltv = void 0, maxLtvLabel = void 0 }) => {
 	const account = useAccount_default();
-	const { isLoading: areCoeffsLoading } = getIsLoadingAndError(account?.ltvCoeffs);
-	const { isLoading } = getIsLoadingAndError(ltv);
-	if (isLoading || areCoeffsLoading) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Spinner_default, {});
-	const { red, yellow } = account.ltvCoeffs;
-	let coeff;
-	if (ltv < red) coeff = "_red";
-	else if (ltv < yellow) coeff = "_yellow";
-	else coeff = "_green";
-	const ltvStr = ltv >= bigIntFromString(100) ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+	ltv = ltv ?? account?.ltv;
+	const { isLoading, hasError } = getIsLoadingAndError(account);
+	if (isLoading) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Spinner_default, {});
+	if (hasError) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, { children: "Error" });
+	const coeffType = Ltv_default.getCoeffType(account);
+	const ltvStr = ltv >= bigIntFromString(100) ? maxLtvLabel ?? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 		className: "LtvValue__svg",
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(EternitySvg_default, {})
 	}) : formatStable(ltv);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: (0, import_classnames$18.default)("LtvValue", coeff),
+		className: (0, import_classnames$19.default)("LtvValue", `_${coeffType}`),
 		children: ltvStr
 	});
 };
@@ -91010,10 +91030,10 @@ var LtvChange = ({ estLtv }) => {
 	});
 };
 var LtvChange_default = LtvChange;
-var import_classnames$17 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$18 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var Metrics = ({ isBoxed = true, className, children }) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: (0, import_classnames$17.default)("Metrics", isBoxed && "_boxed", className),
+		className: (0, import_classnames$18.default)("Metrics", isBoxed && "_boxed", className),
 		children
 	});
 };
@@ -91412,7 +91432,7 @@ var WarningSvg = ({ color: color$1 = "red" }) => {
 	});
 };
 var WarningSvg_default = WarningSvg;
-var import_classnames$16 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$17 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var ICONS = {
 	bell: BellSvg_default,
 	warning: WarningSvg_default,
@@ -91420,7 +91440,7 @@ var ICONS = {
 };
 var Notification = ({ color: color$1 = "yellow", type = "bell", className, children }) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: (0, import_classnames$16.default)("Notification", `_${type}`, className),
+		className: (0, import_classnames$17.default)("Notification", `_${type}`, className),
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 			className: "Notification__icon",
 			children: ICONS[type]({ color: color$1 })
@@ -91431,14 +91451,14 @@ var Notification = ({ color: color$1 = "yellow", type = "bell", className, child
 	});
 };
 var Notification_default = Notification;
-var import_classnames$15 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$16 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var Checkbox = ({ isChecked, setIsChecked, isDisabled, children, className }) => {
 	const handleChange = (e$2) => {
 		const checkbox = e$2.target;
 		setIsChecked(checkbox.checked);
 	};
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: (0, import_classnames$15.default)("Checkbox", className),
+		className: (0, import_classnames$16.default)("Checkbox", className),
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
 			type: "checkbox",
 			checked: isChecked,
@@ -92149,7 +92169,7 @@ var context_default = /* @__PURE__ */ import_react.createContext({
 	classNames: {}
 });
 var UnstableContext = /* @__PURE__ */ import_react.createContext({});
-var import_classnames$14 = /* @__PURE__ */ __toESM(require_classnames());
+var import_classnames$15 = /* @__PURE__ */ __toESM(require_classnames());
 var _excluded$8 = [
 	"prefixCls",
 	"value",
@@ -92257,7 +92277,7 @@ var Handle_default = /* @__PURE__ */ import_react.forwardRef(function(props, ref
 	}
 	var handleNode = /* @__PURE__ */ import_react.createElement("div", _extends$1({
 		ref,
-		className: (0, import_classnames$14.default)(handlePrefixCls, _defineProperty$1(_defineProperty$1(_defineProperty$1({}, "".concat(handlePrefixCls, "-").concat(valueIndex + 1), valueIndex !== null && range), "".concat(handlePrefixCls, "-dragging"), dragging), "".concat(handlePrefixCls, "-dragging-delete"), draggingDelete), classNames$3.handle),
+		className: (0, import_classnames$15.default)(handlePrefixCls, _defineProperty$1(_defineProperty$1(_defineProperty$1({}, "".concat(handlePrefixCls, "-").concat(valueIndex + 1), valueIndex !== null && range), "".concat(handlePrefixCls, "-dragging"), dragging), "".concat(handlePrefixCls, "-dragging-delete"), draggingDelete), classNames$3.handle),
 		style: _objectSpread2$1(_objectSpread2$1(_objectSpread2$1({}, positionStyle), style$1), styles$1.handle)
 	}, divProps, restProps));
 	if (render) handleNode = render(handleNode, {
@@ -92344,14 +92364,14 @@ var Handles_default = /* @__PURE__ */ import_react.forwardRef(function(props, re
 		"aria-hidden": true
 	})));
 });
-var import_classnames$13 = /* @__PURE__ */ __toESM(require_classnames());
+var import_classnames$14 = /* @__PURE__ */ __toESM(require_classnames());
 var Mark_default = function Mark$1(props) {
 	var prefixCls = props.prefixCls, style$1 = props.style, children = props.children, value = props.value, _onClick = props.onClick;
 	var _React$useContext = import_react.useContext(context_default), min$1 = _React$useContext.min, max$1 = _React$useContext.max, direction = _React$useContext.direction, includedStart = _React$useContext.includedStart, includedEnd = _React$useContext.includedEnd, included = _React$useContext.included;
 	var textCls = "".concat(prefixCls, "-text");
 	var positionStyle = getDirectionStyle(direction, value, min$1, max$1);
 	return /* @__PURE__ */ import_react.createElement("span", {
-		className: (0, import_classnames$13.default)(textCls, _defineProperty$1({}, "".concat(textCls, "-active"), included && includedStart <= value && value <= includedEnd)),
+		className: (0, import_classnames$14.default)(textCls, _defineProperty$1({}, "".concat(textCls, "-active"), included && includedStart <= value && value <= includedEnd)),
 		style: _objectSpread2$1(_objectSpread2$1({}, positionStyle), style$1),
 		onMouseDown: function onMouseDown(e$2) {
 			e$2.stopPropagation();
@@ -92376,7 +92396,7 @@ var Marks_default = function Marks$1(props) {
 		}, label);
 	}));
 };
-var import_classnames$12 = /* @__PURE__ */ __toESM(require_classnames());
+var import_classnames$13 = /* @__PURE__ */ __toESM(require_classnames());
 var Dot_default = function Dot$2(props) {
 	var prefixCls = props.prefixCls, value = props.value, style$1 = props.style, activeStyle = props.activeStyle;
 	var _React$useContext = import_react.useContext(context_default), min$1 = _React$useContext.min, max$1 = _React$useContext.max, direction = _React$useContext.direction, included = _React$useContext.included, includedStart = _React$useContext.includedStart, includedEnd = _React$useContext.includedEnd;
@@ -92385,7 +92405,7 @@ var Dot_default = function Dot$2(props) {
 	var mergedStyle = _objectSpread2$1(_objectSpread2$1({}, getDirectionStyle(direction, value, min$1, max$1)), typeof style$1 === "function" ? style$1(value) : style$1);
 	if (active) mergedStyle = _objectSpread2$1(_objectSpread2$1({}, mergedStyle), typeof activeStyle === "function" ? activeStyle(value) : activeStyle);
 	return /* @__PURE__ */ import_react.createElement("span", {
-		className: (0, import_classnames$12.default)(dotClassName, _defineProperty$1({}, "".concat(dotClassName, "-active"), active)),
+		className: (0, import_classnames$13.default)(dotClassName, _defineProperty$1({}, "".concat(dotClassName, "-active"), active)),
 		style: mergedStyle
 	});
 };
@@ -92422,7 +92442,7 @@ var Steps_default = function Steps$1(props) {
 		});
 	}));
 };
-var import_classnames$11 = /* @__PURE__ */ __toESM(require_classnames());
+var import_classnames$12 = /* @__PURE__ */ __toESM(require_classnames());
 var Track_default = function Track$1(props) {
 	var prefixCls = props.prefixCls, style$1 = props.style, start = props.start, end = props.end, index$6 = props.index, onStartMove = props.onStartMove, replaceCls = props.replaceCls;
 	var _React$useContext = import_react.useContext(context_default), direction = _React$useContext.direction, min$1 = _React$useContext.min, max$1 = _React$useContext.max, disabled = _React$useContext.disabled, range = _React$useContext.range, classNames$3 = _React$useContext.classNames;
@@ -92450,7 +92470,7 @@ var Track_default = function Track$1(props) {
 			positionStyle.left = "".concat(offsetStart * 100, "%");
 			positionStyle.width = "".concat(offsetEnd * 100 - offsetStart * 100, "%");
 	}
-	var className = replaceCls || (0, import_classnames$11.default)(trackPrefixCls, _defineProperty$1(_defineProperty$1({}, "".concat(trackPrefixCls, "-").concat(index$6 + 1), index$6 !== null && range), "".concat(prefixCls, "-track-draggable"), onStartMove), classNames$3.track);
+	var className = replaceCls || (0, import_classnames$12.default)(trackPrefixCls, _defineProperty$1(_defineProperty$1({}, "".concat(trackPrefixCls, "-").concat(index$6 + 1), index$6 !== null && range), "".concat(prefixCls, "-track-draggable"), onStartMove), classNames$3.track);
 	return /* @__PURE__ */ import_react.createElement("div", {
 		className,
 		style: _objectSpread2$1(_objectSpread2$1({}, positionStyle), style$1),
@@ -92458,7 +92478,7 @@ var Track_default = function Track$1(props) {
 		onTouchStart: onInternalStartMove
 	});
 };
-var import_classnames$10 = /* @__PURE__ */ __toESM(require_classnames());
+var import_classnames$11 = /* @__PURE__ */ __toESM(require_classnames());
 var Tracks_default = function Tracks$1(props) {
 	var prefixCls = props.prefixCls, style$1 = props.style, values = props.values, startPoint = props.startPoint, onStartMove = props.onStartMove;
 	var _React$useContext = import_react.useContext(context_default), included = _React$useContext.included, range = _React$useContext.range, min$1 = _React$useContext.min, styles$1 = _React$useContext.styles, classNames$3 = _React$useContext.classNames;
@@ -92490,7 +92510,7 @@ var Tracks_default = function Tracks$1(props) {
 		prefixCls,
 		start: trackList[0].start,
 		end: trackList[trackList.length - 1].end,
-		replaceCls: (0, import_classnames$10.default)(classNames$3.tracks, "".concat(prefixCls, "-tracks")),
+		replaceCls: (0, import_classnames$11.default)(classNames$3.tracks, "".concat(prefixCls, "-tracks")),
 		style: styles$1.tracks
 	}) : null;
 	return /* @__PURE__ */ import_react.createElement(import_react.Fragment, null, tracksNode, trackList.map(function(_ref$1, index$6) {
@@ -92840,7 +92860,7 @@ function useRange(range) {
 		];
 	}, [range]);
 }
-var import_classnames$9 = /* @__PURE__ */ __toESM(require_classnames());
+var import_classnames$10 = /* @__PURE__ */ __toESM(require_classnames());
 var es_default = /* @__PURE__ */ import_react.forwardRef(function(props, ref) {
 	var _props$prefixCls = props.prefixCls, prefixCls = _props$prefixCls === void 0 ? "rc-slider" : _props$prefixCls, className = props.className, style$1 = props.style, classNames$3 = props.classNames, styles$1 = props.styles, id$2 = props.id, _props$disabled = props.disabled, disabled = _props$disabled === void 0 ? false : _props$disabled, _props$keyboard = props.keyboard, keyboard = _props$keyboard === void 0 ? true : _props$keyboard, autoFocus = props.autoFocus, onFocus = props.onFocus, onBlur = props.onBlur, _props$min = props.min, min$1 = _props$min === void 0 ? 0 : _props$min, _props$max = props.max, max$1 = _props$max === void 0 ? 100 : _props$max, _props$step = props.step, step = _props$step === void 0 ? 1 : _props$step, value = props.value, defaultValue = props.defaultValue, range = props.range, count = props.count, onChange = props.onChange, onBeforeChange = props.onBeforeChange, onAfterChange = props.onAfterChange, onChangeComplete = props.onChangeComplete, _props$allowCross = props.allowCross, allowCross = _props$allowCross === void 0 ? true : _props$allowCross, _props$pushable = props.pushable, pushable = _props$pushable === void 0 ? false : _props$pushable, reverse = props.reverse, vertical = props.vertical, _props$included = props.included, included = _props$included === void 0 ? true : _props$included, startPoint = props.startPoint, trackStyle = props.trackStyle, handleStyle = props.handleStyle, railStyle = props.railStyle, dotStyle = props.dotStyle, activeDotStyle = props.activeDotStyle, marks = props.marks, dots = props.dots, handleRender = props.handleRender, activeHandleRender = props.activeHandleRender, track$1 = props.track, _props$tabIndex = props.tabIndex, tabIndex = _props$tabIndex === void 0 ? 0 : _props$tabIndex, ariaLabelForHandle = props.ariaLabelForHandle, ariaLabelledByForHandle = props.ariaLabelledByForHandle, ariaRequired = props.ariaRequired, ariaValueTextFormatterForHandle = props.ariaValueTextFormatterForHandle;
 	var handlesRef = import_react.useRef(null);
@@ -93092,12 +93112,12 @@ var es_default = /* @__PURE__ */ import_react.forwardRef(function(props, ref) {
 	]);
 	return /* @__PURE__ */ import_react.createElement(context_default.Provider, { value: context }, /* @__PURE__ */ import_react.createElement("div", {
 		ref: containerRef,
-		className: (0, import_classnames$9.default)(prefixCls, className, _defineProperty$1(_defineProperty$1(_defineProperty$1(_defineProperty$1({}, "".concat(prefixCls, "-disabled"), disabled), "".concat(prefixCls, "-vertical"), vertical), "".concat(prefixCls, "-horizontal"), !vertical), "".concat(prefixCls, "-with-marks"), markList.length)),
+		className: (0, import_classnames$10.default)(prefixCls, className, _defineProperty$1(_defineProperty$1(_defineProperty$1(_defineProperty$1({}, "".concat(prefixCls, "-disabled"), disabled), "".concat(prefixCls, "-vertical"), vertical), "".concat(prefixCls, "-horizontal"), !vertical), "".concat(prefixCls, "-with-marks"), markList.length)),
 		style: style$1,
 		onMouseDown: onSliderMouseDown,
 		id: id$2
 	}, /* @__PURE__ */ import_react.createElement("div", {
-		className: (0, import_classnames$9.default)("".concat(prefixCls, "-rail"), classNames$3 === null || classNames$3 === void 0 ? void 0 : classNames$3.rail),
+		className: (0, import_classnames$10.default)("".concat(prefixCls, "-rail"), classNames$3 === null || classNames$3 === void 0 ? void 0 : classNames$3.rail),
 		style: _objectSpread2$1(_objectSpread2$1({}, railStyle), styles$1 === null || styles$1 === void 0 ? void 0 : styles$1.rail)
 	}), track$1 !== false && /* @__PURE__ */ import_react.createElement(Tracks_default, {
 		prefixCls,
@@ -93237,7 +93257,7 @@ var _approve = async (spender, amount, token$1) => {
 	});
 };
 var useApprover_default = useApprover;
-var import_classnames$8 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$9 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var Slippage = () => {
 	const [slippage, setSlippage] = useSlippageState();
 	const [slippagePercentStr, setSlippagePercentStr] = (0, import_react.useState)(inputStringFromBigInt(slippage * 100n));
@@ -93270,7 +93290,7 @@ var Slippage = () => {
 		if (e$2.keyCode === 13 && isFocused) inputRef.current.blur();
 	});
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: (0, import_classnames$8.default)("Slippage", isFocused && "_focused"),
+		className: (0, import_classnames$9.default)("Slippage", isFocused && "_focused"),
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 			className: "Slippage__input",
 			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(_Input, {
@@ -95118,7 +95138,7 @@ var queryTransferEvent = async (contracts$1, optionId) => {
 	return events[0];
 };
 var useHegicOptions_default = useHegicOptions;
-var import_classnames$7 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$8 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var Types = {
 	OPTION: "option",
 	AUTO_SHORT: "auto-short"
@@ -95463,7 +95483,7 @@ var OptionInputs = ({ protectAmount, setProtectAmount, period, setPeriod, cost, 
 				})
 			})] }),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: (0, import_classnames$7.default)("ProtectionModal__period", isSufficient(period) && "_active"),
+				className: (0, import_classnames$8.default)("ProtectionModal__period", isSufficient(period) && "_active"),
 				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 					className: "ProtectionModal__period-head",
 					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: "Period" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
@@ -96872,9 +96892,9 @@ var jsx = function jsx$4(type, props) {
 	for (var i$3 = 2; i$3 < argsLength; i$3++) createElementArgArray[i$3] = args[i$3];
 	return import_react.createElement.apply(null, createElementArgArray);
 };
-(function(_jsx$66) {
+(function(_jsx$67) {
 	var JSX;
-	(function(_JSX) {})(JSX || (JSX = _jsx$66.JSX || (_jsx$66.JSX = {})));
+	(function(_JSX) {})(JSX || (JSX = _jsx$67.JSX || (_jsx$67.JSX = {})));
 })(jsx || (jsx = {}));
 function css$2() {
 	for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) args[_key] = arguments[_key];
@@ -97249,10 +97269,10 @@ var cleanCommonProps = function cleanCommonProps$1(props) {
 	return _objectSpread2({}, _objectWithoutProperties(props, _excluded$4));
 };
 var getStyleProps = function getStyleProps$1(props, name, classNamesState) {
-	var cx$24 = props.cx, getStyles = props.getStyles, getClassNames = props.getClassNames, className = props.className;
+	var cx$25 = props.cx, getStyles = props.getStyles, getClassNames = props.getClassNames, className = props.className;
 	return {
 		css: getStyles(name, props),
-		className: cx$24(classNamesState !== null && classNamesState !== void 0 ? classNamesState : {}, getClassNames(name, props), className)
+		className: cx$25(classNamesState !== null && classNamesState !== void 0 ? classNamesState : {}, getClassNames(name, props), className)
 	};
 };
 function isDocumentElement(el) {
@@ -97851,13 +97871,13 @@ var groupCSS = function groupCSS$1(_ref$1, unstyled) {
 	};
 };
 var Group = function Group$2(props) {
-	var children = props.children, cx$24 = props.cx, getStyles = props.getStyles, getClassNames = props.getClassNames, Heading = props.Heading, headingProps = props.headingProps, innerProps = props.innerProps, label = props.label, theme = props.theme, selectProps = props.selectProps;
+	var children = props.children, cx$25 = props.cx, getStyles = props.getStyles, getClassNames = props.getClassNames, Heading = props.Heading, headingProps = props.headingProps, innerProps = props.innerProps, label = props.label, theme = props.theme, selectProps = props.selectProps;
 	return jsx("div", _extends({}, getStyleProps(props, "group", { group: true }), innerProps), jsx(Heading, _extends({}, headingProps, {
 		selectProps,
 		theme,
 		getStyles,
 		getClassNames,
-		cx: cx$24
+		cx: cx$25
 	}), label), jsx("div", null, children));
 };
 var groupHeadingCSS = function groupHeadingCSS$1(_ref2$3, unstyled) {
@@ -97931,10 +97951,10 @@ var inputStyle = function inputStyle$1(isHidden) {
 	}, spacingStyle);
 };
 var Input$1 = function Input$2(props) {
-	var cx$24 = props.cx, value = props.value;
+	var cx$25 = props.cx, value = props.value;
 	var _cleanCommonProps = cleanCommonProps(props), innerRef = _cleanCommonProps.innerRef, isDisabled = _cleanCommonProps.isDisabled, isHidden = _cleanCommonProps.isHidden, inputClassName = _cleanCommonProps.inputClassName, innerProps = _objectWithoutProperties(_cleanCommonProps, _excluded$5);
 	return jsx("div", _extends({}, getStyleProps(props, "input", { "input-container": true }), { "data-value": value || "" }), jsx("input", _extends({
-		className: cx$24({ input: true }, inputClassName),
+		className: cx$25({ input: true }, inputClassName),
 		ref: innerRef,
 		style: inputStyle(isHidden),
 		disabled: isDisabled
@@ -99757,11 +99777,11 @@ var Select = /* @__PURE__ */ function(_Component) {
 		{
 			key: "getCommonProps",
 			value: function getCommonProps() {
-				var clearValue = this.clearValue, cx$24 = this.cx, getStyles = this.getStyles, getClassNames = this.getClassNames, getValue$2 = this.getValue, selectOption = this.selectOption, setValue = this.setValue, props = this.props;
+				var clearValue = this.clearValue, cx$25 = this.cx, getStyles = this.getStyles, getClassNames = this.getClassNames, getValue$2 = this.getValue, selectOption = this.selectOption, setValue = this.setValue, props = this.props;
 				var isMulti = props.isMulti, isRtl = props.isRtl, options$2 = props.options;
 				return {
 					clearValue,
-					cx: cx$24,
+					cx: cx$25,
 					getStyles,
 					getClassNames,
 					getValue: getValue$2,
@@ -100299,10 +100319,10 @@ var StateManagedSelect$1 = /* @__PURE__ */ (0, import_react.forwardRef)(function
 	var baseSelectProps = useStateManager(props);
 	return /* @__PURE__ */ import_react.createElement(Select, _extends({ ref }, baseSelectProps));
 });
-var import_classnames$6 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$7 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var DropdownSvg = ({ className }) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
-		className: (0, import_classnames$6.default)("DropdownSvg", className),
+		className: (0, import_classnames$7.default)("DropdownSvg", className),
 		xmlns: "http://www.w3.org/2000/svg",
 		width: "14",
 		height: "7",
@@ -100318,14 +100338,14 @@ var DropdownSvg = ({ className }) => {
 	});
 };
 var DropdownSvg_default = DropdownSvg;
-var import_classnames$5 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$6 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var Selector = ({ className, options: options$2, defaultValue, defaultOption, isDisabled, onChange, ...props }) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(StateManagedSelect$1, {
 		unstyled: true,
 		options: options$2,
 		defaultValue: defaultOption ?? findDefaultOption(defaultValue, options$2) ?? options$2[0],
 		onChange,
-		className: (0, import_classnames$5.default)("Selector", className),
+		className: (0, import_classnames$6.default)("Selector", className),
 		classNamePrefix: "Selector",
 		isClearable: false,
 		isSearchable: false,
@@ -100365,7 +100385,7 @@ var ConfirmSvg = () => {
 	});
 };
 var ConfirmSvg_default = ConfirmSvg;
-var import_classnames$4 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$5 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var SelectedAccount = () => {
 	const accounts = useAccounts_default();
 	const account = useAccount_default();
@@ -100437,7 +100457,7 @@ var MenuList = ({ children, ...props }) => {
 var Option = ({ value: id$2, data, isSelected, ...props }) => {
 	const { balance } = data.account;
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(components.Option, {
-		className: (0, import_classnames$4.default)(isSelected && "Selector__option--is-selected"),
+		className: (0, import_classnames$5.default)(isSelected && "Selector__option--is-selected"),
 		...props,
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 			className: "_account",
@@ -100476,11 +100496,11 @@ var TokenName = ({ symbol }) => {
 	});
 };
 var TokenName_default = TokenName;
-var import_classnames$3 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$4 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var LendingPanel = ({ title, icon, data, btnsData, className }) => {
 	const isMobile$1 = useIsMobile_default(992);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: (0, import_classnames$3.default)(className, "LendingPanel", "box", "_sm"),
+		className: (0, import_classnames$4.default)(className, "LendingPanel", "box", "_sm"),
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 			className: "LendingPanel__head",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
@@ -100615,13 +100635,121 @@ var Borrow = () => {
 	});
 };
 var Borrow_default = Borrow;
+var indicator_default = "data:image/svg+xml,%3csvg%20width='150'%20height='75'%20viewBox='0%200%20150%2075'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cmask%20id='path-1-inside-1_225_1583'%20fill='white'%3e%3cpath%20d='M145.5%2075C147.985%2075%20150.014%2072.9835%20149.865%2070.5026C149.366%2062.1914%20147.485%2054.0105%20144.291%2046.2987C140.522%2037.1993%20134.997%2028.9314%20128.033%2021.967C121.069%2015.0026%20112.801%209.47814%20103.701%205.70903C95.9895%202.51473%2087.8086%200.634229%2079.4973%200.134958C77.0165%20-0.0140692%2075%202.01472%2075%204.5C75%206.98528%2077.0171%208.98403%2079.4966%209.15335C86.6251%209.64014%2093.6375%2011.282%20100.257%2014.0239C108.265%2017.3408%20115.54%2022.2023%20121.669%2028.331C127.798%2034.4596%20132.659%2041.7354%20135.976%2049.7429C138.718%2056.3625%20140.36%2063.3749%20140.847%2070.5034C141.016%2072.9829%20143.015%2075%20145.5%2075Z'/%3e%3c/mask%3e%3cpath%20d='M145.5%2075C147.985%2075%20150.014%2072.9835%20149.865%2070.5026C149.366%2062.1914%20147.485%2054.0105%20144.291%2046.2987C140.522%2037.1993%20134.997%2028.9314%20128.033%2021.967C121.069%2015.0026%20112.801%209.47814%20103.701%205.70903C95.9895%202.51473%2087.8086%200.634229%2079.4973%200.134958C77.0165%20-0.0140692%2075%202.01472%2075%204.5C75%206.98528%2077.0171%208.98403%2079.4966%209.15335C86.6251%209.64014%2093.6375%2011.282%20100.257%2014.0239C108.265%2017.3408%20115.54%2022.2023%20121.669%2028.331C127.798%2034.4596%20132.659%2041.7354%20135.976%2049.7429C138.718%2056.3625%20140.36%2063.3749%20140.847%2070.5034C141.016%2072.9829%20143.015%2075%20145.5%2075Z'%20stroke='%2309AF8E'%20stroke-width='16'%20mask='url(%23path-1-inside-1_225_1583)'/%3e%3cmask%20id='path-2-inside-2_225_1583'%20fill='white'%3e%3cpath%20d='M72.9901%204.52865C72.9193%202.04438%2070.8452%200.0739105%2068.3697%200.293546C52.4188%201.70868%2037.3343%208.19565%2025.3353%2018.8001C23.473%2020.4459%2023.4766%2023.3067%2025.2311%2025.067C26.9856%2026.8272%2029.8253%2026.8188%2031.701%2025.1883C42.0577%2016.1851%2054.969%2010.6327%2068.6278%209.30822C71.1015%209.06836%2073.061%207.01292%2072.9901%204.52865Z'/%3e%3c/mask%3e%3cpath%20d='M72.9901%204.52865C72.9193%202.04438%2070.8452%200.0739105%2068.3697%200.293546C52.4188%201.70868%2037.3343%208.19565%2025.3353%2018.8001C23.473%2020.4459%2023.4766%2023.3067%2025.2311%2025.067C26.9856%2026.8272%2029.8253%2026.8188%2031.701%2025.1883C42.0577%2016.1851%2054.969%2010.6327%2068.6278%209.30822C71.1015%209.06836%2073.061%207.01292%2072.9901%204.52865Z'%20stroke='%23FE9673'%20stroke-width='16'%20mask='url(%23path-2-inside-2_225_1583)'/%3e%3cmask%20id='path-3-inside-3_225_1583'%20fill='white'%3e%3cpath%20d='M23.6758%2026.667C21.8666%2024.9632%2019.0068%2025.0407%2017.4144%2026.9488C7.15148%2039.2474%201.09438%2054.515%200.134763%2070.5044C-0.0141344%2072.9852%202.01472%2075.0022%204.5%2075.0021C6.98528%2075.002%208.98395%2072.9847%209.15313%2070.5052C10.0875%2056.81%2015.272%2043.7419%2023.9805%2033.1308C25.5572%2031.2097%2025.4851%2028.3709%2023.6758%2026.667Z'/%3e%3c/mask%3e%3cpath%20d='M23.6758%2026.667C21.8666%2024.9632%2019.0068%2025.0407%2017.4144%2026.9488C7.15148%2039.2474%201.09438%2054.515%200.134763%2070.5044C-0.0141344%2072.9852%202.01472%2075.0022%204.5%2075.0021C6.98528%2075.002%208.98395%2072.9847%209.15313%2070.5052C10.0875%2056.81%2015.272%2043.7419%2023.9805%2033.1308C25.5572%2031.2097%2025.4851%2028.3709%2023.6758%2026.667Z'%20stroke='%23D8563C'%20stroke-width='16'%20mask='url(%23path-3-inside-3_225_1583)'/%3e%3c/svg%3e";
+var indicator_empty_default = "data:image/svg+xml,%3csvg%20width='150'%20height='75'%20viewBox='0%200%20150%2075'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cmask%20id='path-1-inside-1_656_5058'%20fill='white'%3e%3cpath%20d='M145.5%2075C147.985%2075%20150.014%2072.9835%20149.865%2070.5026C149.366%2062.1914%20147.485%2054.0105%20144.291%2046.2987C140.522%2037.1993%20134.997%2028.9314%20128.033%2021.967C121.069%2015.0026%20112.801%209.47814%20103.701%205.70903C95.9895%202.51473%2087.8086%200.634229%2079.4973%200.134958C77.0165%20-0.0140692%2075%202.01472%2075%204.5C75%206.98528%2077.0171%208.98403%2079.4966%209.15335C86.6251%209.64014%2093.6375%2011.282%20100.257%2014.0239C108.265%2017.3408%20115.54%2022.2023%20121.669%2028.331C127.798%2034.4596%20132.659%2041.7354%20135.976%2049.7429C138.718%2056.3625%20140.36%2063.3749%20140.847%2070.5034C141.016%2072.9829%20143.015%2075%20145.5%2075Z'/%3e%3c/mask%3e%3cpath%20d='M145.5%2075C147.985%2075%20150.014%2072.9835%20149.865%2070.5026C149.366%2062.1914%20147.485%2054.0105%20144.291%2046.2987C140.522%2037.1993%20134.997%2028.9314%20128.033%2021.967C121.069%2015.0026%20112.801%209.47814%20103.701%205.70903C95.9895%202.51473%2087.8086%200.634229%2079.4973%200.134958C77.0165%20-0.0140692%2075%202.01472%2075%204.5C75%206.98528%2077.0171%208.98403%2079.4966%209.15335C86.6251%209.64014%2093.6375%2011.282%20100.257%2014.0239C108.265%2017.3408%20115.54%2022.2023%20121.669%2028.331C127.798%2034.4596%20132.659%2041.7354%20135.976%2049.7429C138.718%2056.3625%20140.36%2063.3749%20140.847%2070.5034C141.016%2072.9829%20143.015%2075%20145.5%2075Z'%20stroke='%239A94B8'%20stroke-width='16'%20mask='url(%23path-1-inside-1_656_5058)'/%3e%3cmask%20id='path-2-inside-2_656_5058'%20fill='white'%3e%3cpath%20d='M72.9901%204.52865C72.9193%202.04438%2070.8452%200.0739105%2068.3697%200.293546C52.4188%201.70868%2037.3343%208.19565%2025.3353%2018.8001C23.473%2020.4459%2023.4766%2023.3067%2025.2311%2025.067C26.9856%2026.8272%2029.8253%2026.8188%2031.701%2025.1883C42.0577%2016.1851%2054.969%2010.6327%2068.6278%209.30822C71.1015%209.06836%2073.061%207.01292%2072.9901%204.52865Z'/%3e%3c/mask%3e%3cpath%20d='M72.9901%204.52865C72.9193%202.04438%2070.8452%200.0739105%2068.3697%200.293546C52.4188%201.70868%2037.3343%208.19565%2025.3353%2018.8001C23.473%2020.4459%2023.4766%2023.3067%2025.2311%2025.067C26.9856%2026.8272%2029.8253%2026.8188%2031.701%2025.1883C42.0577%2016.1851%2054.969%2010.6327%2068.6278%209.30822C71.1015%209.06836%2073.061%207.01292%2072.9901%204.52865Z'%20stroke='%239A94B8'%20stroke-width='16'%20mask='url(%23path-2-inside-2_656_5058)'/%3e%3cmask%20id='path-3-inside-3_656_5058'%20fill='white'%3e%3cpath%20d='M23.6758%2026.667C21.8666%2024.9632%2019.0068%2025.0407%2017.4144%2026.9488C7.15148%2039.2474%201.09438%2054.515%200.134763%2070.5044C-0.0141344%2072.9852%202.01472%2075.0022%204.5%2075.0021C6.98528%2075.002%208.98395%2072.9847%209.15313%2070.5052C10.0875%2056.81%2015.272%2043.7419%2023.9805%2033.1308C25.5572%2031.2097%2025.4851%2028.3709%2023.6758%2026.667Z'/%3e%3c/mask%3e%3cpath%20d='M23.6758%2026.667C21.8666%2024.9632%2019.0068%2025.0407%2017.4144%2026.9488C7.15148%2039.2474%201.09438%2054.515%200.134763%2070.5044C-0.0141344%2072.9852%202.01472%2075.0022%204.5%2075.0021C6.98528%2075.002%208.98395%2072.9847%209.15313%2070.5052C10.0875%2056.81%2015.272%2043.7419%2023.9805%2033.1308C25.5572%2031.2097%2025.4851%2028.3709%2023.6758%2026.667Z'%20stroke='%239A94B8'%20stroke-width='16'%20mask='url(%23path-3-inside-3_656_5058)'/%3e%3c/svg%3e";
+var TickSvg = ({ coeffType }) => {
+	const { RED: RED$1, YELLOW, GREEN: GREEN$1 } = Ltv_default.CoeffTypes;
+	const colors$1 = {
+		[RED$1]: {
+			main: Colors.RED,
+			bg: Colors.RED_2
+		},
+		[YELLOW]: {
+			main: Colors.YELLOW,
+			bg: Colors.YELLOW_2
+		},
+		[GREEN$1]: {
+			main: Colors.GREEN,
+			bg: Colors.GREEN_2
+		}
+	};
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
+		xmlns: "http://www.w3.org/2000/svg",
+		width: "16",
+		height: "16",
+		viewBox: "0 0 16 16",
+		fill: "none",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
+			cx: "8",
+			cy: "8",
+			r: "7",
+			fill: colors$1[coeffType].bg
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
+			d: "M5 8.13333L7 10L11 6",
+			stroke: colors$1[coeffType].main,
+			strokeWidth: "1.5",
+			strokeLinecap: "round",
+			strokeLinejoin: "round"
+		})]
+	});
+};
+var TickSvg_default = TickSvg;
+var import_classnames$3 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var LtvLevel = () => {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+	const account = useAccount_default();
+	const { isLoading, hasError } = getIsLoadingAndError(account);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 		className: "LtvLevel ProtectionPanel__metric",
-		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-			className: "ProtectionPanel__metric-title",
-			children: "Current LtV"
-		})
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "ProtectionPanel__metric-title",
+				children: "Current LtV"
+			}),
+			isLoading && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Spinner_default, {}),
+			hasError && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, { children: ErrorMsg.SHORT }),
+			!isLoading && !hasError && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Indicator, { account })
+		]
+	});
+};
+var Indicator = ({ account }) => {
+	const { debt, ltv } = account;
+	const coeffType = Ltv_default.getCoeffType(account);
+	const { RED: RED$1, YELLOW, GREEN: GREEN$1 } = Ltv_default.CoeffTypes;
+	const getPointerPosition = () => {
+		if (!debt) return {
+			left: "-6px",
+			bottom: 0
+		};
+		switch (coeffType) {
+			case RED$1: return {
+				left: 0,
+				top: "34px"
+			};
+			case YELLOW: return {
+				left: "36px",
+				top: 0
+			};
+			case GREEN$1:
+				if (ltv > bigIntFromString(2)) return {
+					right: "-6px",
+					bottom: 0
+				};
+				if (ltv <= bigIntFromString(1.15)) return {
+					top: "-3px",
+					right: "47px"
+				};
+				return {
+					top: "18px",
+					right: "12px"
+				};
+		}
+	};
+	const getIndicatorText = () => {
+		if (!debt) return "No active borrowing";
+		switch (coeffType) {
+			case RED$1: return "High Risk";
+			case YELLOW: return "Medium Risk";
+			case GREEN$1: return "Low Risk";
+		}
+	};
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: (0, import_classnames$3.default)("LtvLevel__indicator", `_${coeffType}`, !debt && "_empty"),
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "LtvLevel__indicator-scale",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+				src: debt ? indicator_default : indicator_empty_default,
+				alt: "Ltv indicator scale"
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "LtvLevel__indicator-pointer",
+				style: getPointerPosition()
+			})]
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "LtvLevel__indicator-value",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(LtvValue_default, { maxLtvLabel: debt ? "∞" : "0" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "LtvLevel__indicator-value-text",
+				children: [debt ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TickSvg_default, { coeffType }) : "", getIndicatorText()]
+			})]
+		})]
 	});
 };
 var LtvLevel_default = LtvLevel;

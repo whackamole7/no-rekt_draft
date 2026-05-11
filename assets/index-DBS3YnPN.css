@@ -1836,6 +1836,55 @@
 }.Borrow {
   grid-row: 2/3;
   grid-column: 7/13;
+}.LtvLevel {
+  display: flex;
+  column-gap: 20px;
+  justify-content: space-between;
+}
+.LtvLevel .Spinner {
+  width: 150px;
+}
+.LtvLevel__indicator {
+  margin-bottom: -15px;
+}
+.LtvLevel__indicator-scale {
+  position: relative;
+}
+.LtvLevel__indicator-pointer {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+}
+.LtvLevel__indicator-value {
+  text-align: center;
+  transform: translateY(-15px);
+}
+.LtvLevel__indicator-value .LtvValue {
+  font-family: "Nohemi", sans-serif;
+  font-size: 32px;
+  color: #ffffff;
+}
+.LtvLevel__indicator-value-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 5px;
+  color: #9A94B8;
+  margin-top: 10px;
+}
+.LtvLevel__indicator._red .LtvLevel__indicator-pointer {
+  background-color: #D8563C;
+}
+.LtvLevel__indicator._yellow .LtvLevel__indicator-pointer {
+  background-color: #FE9673;
+}
+.LtvLevel__indicator._green .LtvLevel__indicator-pointer {
+  background-color: #09AF8E;
+}
+.LtvLevel__indicator._empty .LtvLevel__indicator-pointer {
+  background-color: #9A94B8;
 }.ProtectionPanel {
   display: flex;
   gap: 20px;
