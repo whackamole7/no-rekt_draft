@@ -1960,6 +1960,7 @@
   padding: 2px;
 }
 .ProtectionLevel__percent-bar ._progress {
+  min-width: 15px;
   display: flex;
   align-items: center;
   height: 100%;

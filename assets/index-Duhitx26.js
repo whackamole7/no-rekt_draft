@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-CqJFmEET.js","assets/secp256k1-DaZephRq.js","assets/esm-BCVwU7Qj.js","assets/dist-J0SG2iUC.js","assets/dist-j8SM6X3h.js","assets/dist-C64aoQuG.js","assets/index.es-ptlsd2md.js","assets/alchemy-provider-2577f5a5-C87dglyn.js","assets/alchemy-provider-2577f5a5-fY2dfFzF.js","assets/alchemy-websocket-provider-ee041890-CXYYch73.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-EOWC6vjz.js","assets/secp256k1-DuwZ1blu.js","assets/esm-NGIxxDen.js","assets/dist-CXJ1-9wo.js","assets/dist-CYTz0h3K.js","assets/dist-CoXWUrqf.js","assets/index.es-BuMcftZr.js","assets/alchemy-provider-2577f5a5-BXARQqAB.js","assets/alchemy-provider-2577f5a5-DtHMuaYO.js","assets/alchemy-websocket-provider-ee041890-CcDGzS7J.js"])))=>i.map(i=>d[i]);
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -16953,7 +16953,7 @@ async function call$1(client, args) {
 	} catch (err) {
 		const data$1 = getRevertErrorData(err);
 		const { offchainLookup, offchainLookupSignature } = await __vitePreload(async () => {
-			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-C0m4EJvY.js");
+			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-CSNNPYHa.js");
 			return {
 				offchainLookup: offchainLookup$1,
 				offchainLookupSignature: offchainLookupSignature$1
@@ -17454,7 +17454,7 @@ function publicKeyToAddress(publicKey) {
 async function recoverPublicKey({ hash: hash$3, signature }) {
 	const hashHex = isHex(hash$3) ? hash$3 : toHex$2(hash$3);
 	const { secp256k1: secp256k1$1 } = await __vitePreload(async () => {
-		const { secp256k1: secp256k1$2 } = await import("./secp256k1-CqJFmEET.js");
+		const { secp256k1: secp256k1$2 } = await import("./secp256k1-EOWC6vjz.js");
 		return { secp256k1: secp256k1$2 };
 	}, __vite__mapDeps([0,1]));
 	return `0x${(() => {
@@ -23304,7 +23304,7 @@ function safe(parameters = {}) {
 			if (!provider_) {
 				const { default: SDK } = await (() => {
 					try {
-						return __vitePreload(() => import("./esm-BCVwU7Qj.js"), __vite__mapDeps([2,3]));
+						return __vitePreload(() => import("./esm-NGIxxDen.js"), __vite__mapDeps([2,3]));
 					} catch {
 						throw new Error("dependency \"@safe-global/safe-apps-sdk\" not found");
 					}
@@ -23315,7 +23315,7 @@ function safe(parameters = {}) {
 				provider_ = new (await ((async () => {
 					const Provider$1 = await (() => {
 						try {
-							return __vitePreload(() => import("./dist-j8SM6X3h.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
+							return __vitePreload(() => import("./dist-CYTz0h3K.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
 						} catch {
 							throw new Error("dependency \"@safe-global/safe-apps-provider\" not found");
 						}
@@ -23480,7 +23480,7 @@ function walletConnect(parameters) {
 				if (!optionalChains.length) return;
 				const { EthereumProvider: EthereumProvider$1 } = await (() => {
 					try {
-						return __vitePreload(() => import("./dist-C64aoQuG.js"), __vite__mapDeps([5,6,1]));
+						return __vitePreload(() => import("./dist-CoXWUrqf.js"), __vite__mapDeps([5,6,1]));
 					} catch {
 						throw new Error("dependency \"@walletconnect/ethereum-provider\" not found");
 					}
@@ -59906,6 +59906,8 @@ const secp256k1 = createCurve({
 secp256k1.ProjectivePoint;
 const ZeroAddress = "0x0000000000000000000000000000000000000000";
 const ZeroHash = "0x0000000000000000000000000000000000000000000000000000000000000000";
+const MaxUint256 = BigInt("0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
+BigInt("0x8000000000000000000000000000000000000000000000000000000000000000") * BigInt(-1);
 var BN_0$7 = BigInt(0);
 var BN_1$2 = BigInt(1);
 var BN_2$2 = BigInt(2);
@@ -84244,14 +84246,14 @@ var AlchemyConfig = class {
 	}
 	getProvider() {
 		if (!this._baseAlchemyProvider) this._baseAlchemyProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-C87dglyn.js"), __vite__mapDeps([7,8]));
+			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-BXARQqAB.js"), __vite__mapDeps([7,8]));
 			return new AlchemyProvider$1(this);
 		}))();
 		return this._baseAlchemyProvider;
 	}
 	getWebSocketProvider() {
 		if (!this._baseAlchemyWssProvider) this._baseAlchemyWssProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-CXYYch73.js"), __vite__mapDeps([9,8]));
+			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-CcDGzS7J.js"), __vite__mapDeps([9,8]));
 			return new AlchemyWebSocketProvider(this);
 		}))();
 		return this._baseAlchemyWssProvider;
@@ -86838,20 +86840,6 @@ var useWallet = () => {
 	};
 };
 var useWallet_default = useWallet;
-const Decimals = {
-	DEFAULT: 18,
-	HEGIC: 8,
-	CHAINLINK: 8,
-	SUFFICIENT: 6,
-	STABLE: 2,
-	BASE: 4
-};
-const floorNumber = (num, decimals = 0) => {
-	return Math.floor(num * 10 ** decimals) / 10 ** decimals;
-};
-const roundNumber = (num, decimals = 0) => {
-	return Math.round(num * 10 ** decimals) / 10 ** decimals;
-};
 var ETH_default = "data:image/svg+xml,%3csvg%20width='15'%20height='16'%20viewBox='0%200%2016%2015'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M8%2015C12.1421%2015%2015.5%2011.6421%2015.5%207.5C15.5%203.35786%2012.1421%200%208%200C3.85786%200%200.5%203.35786%200.5%207.5C0.5%2011.6421%203.85786%2015%208%2015Z'%20fill='%23627EEA'/%3e%3cpath%20d='M8.23438%201.875V6.03281L11.7486%207.60312L8.23438%201.875Z'%20fill='white'%20fill-opacity='0.602'/%3e%3cpath%20d='M8.23344%201.875L4.71875%207.60312L8.23344%206.03281V1.875Z'%20fill='white'/%3e%3cpath%20d='M8.23438%2010.2976V13.1227L11.7509%208.25757L8.23438%2010.2976Z'%20fill='white'%20fill-opacity='0.602'/%3e%3cpath%20d='M8.23344%2013.1227V10.2971L4.71875%208.25757L8.23344%2013.1227Z'%20fill='white'/%3e%3cpath%20d='M8.23438%209.64354L11.7486%207.60307L8.23438%206.03369V9.64354Z'%20fill='white'%20fill-opacity='0.2'/%3e%3cpath%20d='M4.71875%207.60307L8.23344%209.64354V6.03369L4.71875%207.60307Z'%20fill='white'%20fill-opacity='0.602'/%3e%3c/svg%3e";
 var ETH_circled_default = "data:image/svg+xml,%3csvg%20width='50'%20height='50'%20viewBox='0%200%2050%2050'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3ccircle%20cx='25'%20cy='25'%20r='24.5'%20fill='%2320224E'%20stroke='url(%23paint0_linear_799_7072)'/%3e%3cg%20clip-path='url(%23clip0_799_7072)'%3e%3cpath%20d='M25%2037C31.6274%2037%2037%2031.6274%2037%2025C37%2018.3726%2031.6274%2013%2025%2013C18.3726%2013%2013%2018.3726%2013%2025C13%2031.6274%2018.3726%2037%2025%2037Z'%20fill='%23627EEA'/%3e%3cpath%20d='M25.3734%2016V22.6525L30.9962%2025.165L25.3734%2016Z'%20fill='white'%20fill-opacity='0.602'/%3e%3cpath%20d='M25.3735%2016L19.75%2025.165L25.3735%2022.6525V16Z'%20fill='white'/%3e%3cpath%20d='M25.3734%2029.476V33.9963L30.9999%2026.212L25.3734%2029.476Z'%20fill='white'%20fill-opacity='0.602'/%3e%3cpath%20d='M25.3735%2033.9963V29.4753L19.75%2026.212L25.3735%2033.9963Z'%20fill='white'/%3e%3cpath%20d='M25.3734%2028.4297L30.9962%2025.165L25.3734%2022.654V28.4297Z'%20fill='white'%20fill-opacity='0.2'/%3e%3cpath%20d='M19.75%2025.165L25.3735%2028.4297V22.654L19.75%2025.165Z'%20fill='white'%20fill-opacity='0.602'/%3e%3c/g%3e%3cdefs%3e%3clinearGradient%20id='paint0_linear_799_7072'%20x1='-1.15922e-07'%20y1='-0.594059'%20x2='41.4722'%20y2='56.2245'%20gradientUnits='userSpaceOnUse'%3e%3cstop%20stop-color='%23384263'%20stop-opacity='0.25'/%3e%3cstop%20offset='1'%20stop-color='%23384263'%20stop-opacity='0.15'/%3e%3c/linearGradient%3e%3cclipPath%20id='clip0_799_7072'%3e%3crect%20width='24'%20height='24'%20fill='white'%20transform='translate(13%2013)'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e";
 var BTC_default = "data:image/svg+xml,%3csvg%20width='15'%20height='16'%20viewBox='0%200%2015%2016'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_1_3471)'%3e%3cpath%20d='M14.7756%209.81429C13.7738%2013.8322%209.70387%2016.2774%205.68504%2015.2755C1.6679%2014.2738%20-0.777593%2010.204%200.224639%206.18648C1.22599%202.16814%205.29593%20-0.277254%209.31351%200.724426C13.332%201.7261%2015.7774%205.79628%2014.7755%209.81436L14.7756%209.81429H14.7756Z'%20fill='%23F7931A'/%3e%3cpath%20d='M10.9791%206.52009C11.1455%205.46933%2010.2984%204.9045%209.13994%204.5277L9.51574%203.10435L8.5982%202.88845L8.23237%204.27433C7.99116%204.21752%207.74344%204.16399%207.49724%204.11092L7.86573%202.7159L6.94876%202.5L6.57276%203.92289C6.37314%203.87998%206.17709%203.83756%205.98688%203.79287L5.98794%203.78839L4.72264%203.49002L4.47856%204.41543C4.47856%204.41543%205.1593%204.56278%205.14495%204.57185C5.5165%204.65942%205.58369%204.89169%205.57254%205.07578L5.14446%206.69732C5.17005%206.70345%205.20323%206.71233%205.23985%206.72622C5.20924%206.71905%205.17667%206.71121%205.14287%206.70357L4.54285%208.97511C4.49745%209.08171%204.38219%209.24168%204.12242%209.18093C4.13162%209.19352%203.45554%209.02378%203.45554%209.02378L3%2010.0156L4.19402%2010.2967C4.41615%2010.3493%204.63383%2010.4043%204.84819%2010.456L4.46851%2011.8957L5.38498%2012.1116L5.76099%2010.6872C6.01136%2010.7514%206.25434%2010.8106%206.4922%2010.8664L6.11746%2012.2841L7.03504%2012.5L7.41468%2011.063C8.97928%2011.3426%2010.1557%2011.2299%2010.6509%209.89354C11.0499%208.81761%2010.631%208.19701%209.80792%207.79231C10.4074%207.66175%2010.859%207.28939%2010.9794%206.52021L10.9791%206.52001L10.9791%206.52009ZM8.88274%209.29602C8.59918%2010.372%206.68082%209.79034%206.05885%209.64449L6.5627%207.73716C7.18462%207.88378%209.17909%208.17393%208.88278%209.29602H8.88274ZM9.1665%206.5045C8.90784%207.48317%207.31116%206.98596%206.79321%206.86404L7.25002%205.13421C7.76796%205.25613%209.43596%205.48368%209.16659%206.5045H9.1665Z'%20fill='white'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_1_3471'%3e%3crect%20width='15'%20height='15'%20fill='white'%20transform='translate(0%200.5)'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e";
@@ -86969,6 +86957,14 @@ const Tokens = {
 		icon: USDT_default
 	}
 };
+const Decimals = {
+	DEFAULT: 18,
+	HEGIC: 8,
+	CHAINLINK: 8,
+	SUFFICIENT: 6,
+	STABLE: 2,
+	BASE: 4
+};
 const unwrapTokenSymbol = (symbol) => {
 	if (Tokens[symbol].name.startsWith("Wrapped")) return symbol.split("W")[1];
 	return symbol;
@@ -87002,6 +86998,12 @@ const expandBigIntDec = (bigInt, expandDecimals) => {
 };
 const reduceBigIntDec = (bigInt, reduceDecimals) => {
 	return bigInt / BigInt(10 ** reduceDecimals);
+};
+const floorNumber = (num, decimals = 0) => {
+	return Math.floor(num * 10 ** decimals) / 10 ** decimals;
+};
+const roundNumber = (num, decimals = 0) => {
+	return Math.round(num * 10 ** decimals) / 10 ** decimals;
 };
 const bigIntFromString = (str) => {
 	str = String(str);
@@ -87059,8 +87061,36 @@ var convertExponentToStr = (expStr) => {
 	}
 	return str;
 };
-const BORROW_COEF = .9;
 const SLIPPAGE = bigIntFromString(.003);
+const BORROW_COEF = .9;
+const LIQ_COEF = 1.05;
+var Calculator = {
+	calcEquity: calcEquity$1,
+	calcAvailableToBorrow: calcAvailableToBorrow$1,
+	calcProtectionLevel: calcProtectionLevel$1,
+	calcLiqPrice
+};
+function calcEquity$1(accountValue, debt) {
+	return accountValue - debt;
+}
+function calcAvailableToBorrow$1(accountValue, debt) {
+	return multiplyBigIntByNumber(accountValue, BORROW_COEF) - debt;
+}
+function calcProtectionLevel$1(accountValue, debt) {
+	return bigIntFromString(1) - divBigInts(debt, accountValue);
+}
+function calcLiqPrice(account, options$2) {
+	const { balance, debt } = account;
+	const optionsAmountSum = options$2.reduce((sum, option) => {
+		return sum + option.amount;
+	}, 0n);
+	const optionsAmountUsdSum = options$2.reduce((sum, option) => {
+		return sum + option.amountUsd;
+	}, 0n);
+	if (optionsAmountSum > balance) return MaxUint256;
+	return multiplyBigIntByNumber(debt, LIQ_COEF) - divBigInts(optionsAmountUsdSum, balance - optionsAmountSum);
+}
+var Calculator_default = Calculator;
 var Account = {
 	queryAccountValue: queryAccountValue$1,
 	queryDebt: queryDebt$1,
@@ -87068,10 +87098,7 @@ var Account = {
 	queryBalance: queryBalance$2,
 	queryLtv: queryLtv$1,
 	queryLtvCoeffs: queryLtvCoeffs$1,
-	queryPrincipal: queryPrincipal$1,
-	calcEquity: calcEquity$1,
-	calcAvailableToBorrow: calcAvailableToBorrow$1,
-	calcProtectionLevel: calcProtectionLevel$1
+	queryPrincipal: queryPrincipal$1
 };
 async function queryAccountValue$1(accountId, contracts$1) {
 	const { MarginTrading } = contracts$1.view;
@@ -87083,7 +87110,7 @@ async function queryDebt$1(accountId, contracts$1) {
 }
 async function queryEquity$1(accountId, contracts$1) {
 	const [accountValue, debt] = await Promise.all([queryAccountValue$1(accountId, contracts$1), queryDebt$1(accountId, contracts$1)]);
-	return calcEquity$1(accountValue, debt);
+	return Calculator_default.calcEquity(accountValue, debt);
 }
 async function queryBalance$2(accountId, contracts$1) {
 	const { MarginAccount } = contracts$1.view;
@@ -87106,15 +87133,6 @@ async function queryLtvCoeffs$1(contracts$1) {
 async function queryPrincipal$1(accountId, contracts$1) {
 	const { UsdcPool } = contracts$1.view;
 	return bring1eTokenToDefault(await UsdcPool.portfolioIdToDebt(accountId), "USDC");
-}
-function calcEquity$1(accountValue, debt) {
-	return accountValue - debt;
-}
-function calcAvailableToBorrow$1(accountValue, debt) {
-	return multiplyBigIntByNumber(accountValue, BORROW_COEF) - debt;
-}
-function calcProtectionLevel$1(accountValue, debt) {
-	return bigIntFromString(1) - divBigInts(debt, accountValue);
 }
 var Account_default = Account;
 var { queryBalance: queryBalance$1, queryEquity } = Account_default;
@@ -88616,7 +88634,8 @@ const useBalanceETH = () => {
 	return data?.value;
 };
 var useBalance_default = useBalance$1;
-var { queryBalance, queryAccountValue, queryDebt, queryLtv, queryLtvCoeffs, queryPrincipal, calcEquity, calcAvailableToBorrow, calcProtectionLevel } = Account_default;
+var { queryBalance, queryAccountValue, queryDebt, queryLtv, queryLtvCoeffs, queryPrincipal } = Account_default;
+var { calcEquity, calcAvailableToBorrow, calcProtectionLevel } = Calculator_default;
 var useAccount = () => {
 	const accountSetup = useAccountSetup();
 	if (accountSetup === null) return null;
@@ -90985,7 +91004,7 @@ function getCoeffType(account, ltv) {
 	return coeffType;
 }
 var _calcLtv = (balance, debt) => {
-	if (debt <= 0n) return maxUint256;
+	if (debt <= 0n) return MaxUint256;
 	return divBigInts(balance, debt);
 };
 var Ltv_default = Ltv;
