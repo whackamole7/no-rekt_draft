@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-YN-AQlkA.js","assets/secp256k1-LxWUxUX4.js","assets/esm-DmJSBoox.js","assets/dist-DHUwYotz.js","assets/dist-_LDP2Aaa.js","assets/dist-DnXyHW5j.js","assets/index.es-NZO6wrs6.js","assets/alchemy-provider-2577f5a5-Ch0hOUAk.js","assets/alchemy-provider-2577f5a5-DPWb8oE4.js","assets/alchemy-websocket-provider-ee041890-BhOHDf3M.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-KbArZZsg.js","assets/secp256k1-9nOr2R5A.js","assets/esm-BhY7S5j4.js","assets/dist-49kPAgCI.js","assets/dist-J2SYYWNm.js","assets/dist-D8AHI9Md.js","assets/index.es-FJeqR7-K.js","assets/alchemy-provider-2577f5a5-De0jOJGm.js","assets/alchemy-provider-2577f5a5-h9WhRgre.js","assets/alchemy-websocket-provider-ee041890-Bb_FiuxQ.js"])))=>i.map(i=>d[i]);
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -16953,7 +16953,7 @@ async function call$1(client, args) {
 	} catch (err) {
 		const data$1 = getRevertErrorData(err);
 		const { offchainLookup, offchainLookupSignature } = await __vitePreload(async () => {
-			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-C7JCC03h.js");
+			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-dh3tBaHX.js");
 			return {
 				offchainLookup: offchainLookup$1,
 				offchainLookupSignature: offchainLookupSignature$1
@@ -17454,7 +17454,7 @@ function publicKeyToAddress(publicKey) {
 async function recoverPublicKey({ hash: hash$3, signature }) {
 	const hashHex = isHex(hash$3) ? hash$3 : toHex$2(hash$3);
 	const { secp256k1: secp256k1$1 } = await __vitePreload(async () => {
-		const { secp256k1: secp256k1$2 } = await import("./secp256k1-YN-AQlkA.js");
+		const { secp256k1: secp256k1$2 } = await import("./secp256k1-KbArZZsg.js");
 		return { secp256k1: secp256k1$2 };
 	}, __vite__mapDeps([0,1]));
 	return `0x${(() => {
@@ -23304,7 +23304,7 @@ function safe(parameters = {}) {
 			if (!provider_) {
 				const { default: SDK } = await (() => {
 					try {
-						return __vitePreload(() => import("./esm-DmJSBoox.js"), __vite__mapDeps([2,3]));
+						return __vitePreload(() => import("./esm-BhY7S5j4.js"), __vite__mapDeps([2,3]));
 					} catch {
 						throw new Error("dependency \"@safe-global/safe-apps-sdk\" not found");
 					}
@@ -23315,7 +23315,7 @@ function safe(parameters = {}) {
 				provider_ = new (await ((async () => {
 					const Provider$1 = await (() => {
 						try {
-							return __vitePreload(() => import("./dist-_LDP2Aaa.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
+							return __vitePreload(() => import("./dist-J2SYYWNm.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
 						} catch {
 							throw new Error("dependency \"@safe-global/safe-apps-provider\" not found");
 						}
@@ -23480,7 +23480,7 @@ function walletConnect(parameters) {
 				if (!optionalChains.length) return;
 				const { EthereumProvider: EthereumProvider$1 } = await (() => {
 					try {
-						return __vitePreload(() => import("./dist-DnXyHW5j.js"), __vite__mapDeps([5,6,1]));
+						return __vitePreload(() => import("./dist-D8AHI9Md.js"), __vite__mapDeps([5,6,1]));
 					} catch {
 						throw new Error("dependency \"@walletconnect/ethereum-provider\" not found");
 					}
@@ -84244,14 +84244,14 @@ var AlchemyConfig = class {
 	}
 	getProvider() {
 		if (!this._baseAlchemyProvider) this._baseAlchemyProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-Ch0hOUAk.js"), __vite__mapDeps([7,8]));
+			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-De0jOJGm.js"), __vite__mapDeps([7,8]));
 			return new AlchemyProvider$1(this);
 		}))();
 		return this._baseAlchemyProvider;
 	}
 	getWebSocketProvider() {
 		if (!this._baseAlchemyWssProvider) this._baseAlchemyWssProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-BhOHDf3M.js"), __vite__mapDeps([9,8]));
+			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-Bb_FiuxQ.js"), __vite__mapDeps([9,8]));
 			return new AlchemyWebSocketProvider(this);
 		}))();
 		return this._baseAlchemyWssProvider;
@@ -87070,7 +87070,8 @@ var Account = {
 	queryLtvCoeffs: queryLtvCoeffs$1,
 	queryPrincipal: queryPrincipal$1,
 	calcEquity: calcEquity$1,
-	calcAvailableToBorrow: calcAvailableToBorrow$1
+	calcAvailableToBorrow: calcAvailableToBorrow$1,
+	calcProtectionLevel: calcProtectionLevel$1
 };
 async function queryAccountValue$1(accountId, contracts$1) {
 	const { MarginTrading } = contracts$1.view;
@@ -87111,6 +87112,9 @@ function calcEquity$1(accountValue, debt) {
 }
 function calcAvailableToBorrow$1(accountValue, debt) {
 	return multiplyBigIntByNumber(accountValue, BORROW_COEF) - debt;
+}
+function calcProtectionLevel$1(accountValue, debt) {
+	return divBigInts(debt, accountValue);
 }
 var Account_default = Account;
 var { queryBalance: queryBalance$1, queryEquity } = Account_default;
@@ -87468,14 +87472,14 @@ var require_classnames = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 		else window.classNames = classNames$3;
 	})();
 }));
-var import_classnames$30 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$31 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var Button = ({ type = "primary", size: size$4 = "default", isDisabled = false, className, children, ...props }) => {
 	const isFancy = type === "fancy";
 	(0, import_react.useEffect)(() => {
 		if (isFancy) animateFancyButtons();
 	}, []);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-		className: (0, import_classnames$30.default)(className, "Button", `_${type}`, `_${size$4}`, isFancy && "anim_fancy"),
+		className: (0, import_classnames$31.default)(className, "Button", `_${type}`, `_${size$4}`, isFancy && "anim_fancy"),
 		disabled: isDisabled,
 		...props,
 		children
@@ -87513,18 +87517,18 @@ const swapUsdcToEth = async (contracts$1, amountUSDC, slippage = void 0) => {
 	const { ETH } = Tokens;
 	return swapFromUsdc(contracts$1, amountUSDC, ETH, slippage);
 };
-var import_classnames$29 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$30 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var Field = ({ children, className }) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: (0, import_classnames$29.default)("Field", className),
+		className: (0, import_classnames$30.default)("Field", className),
 		children
 	});
 };
 var Field_default = Field;
-var import_classnames$28 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$29 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var Radio = ({ id: id$2, items, value, setValue, className }) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: (0, import_classnames$28.default)("Radio", className),
+		className: (0, import_classnames$29.default)("Radio", className),
 		children: items.map((item) => {
 			const itemId = `${id$2}_${item.value}`;
 			return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
@@ -88287,19 +88291,19 @@ function ImSpinner2(props) {
 		}]
 	})(props);
 }
-var import_classnames$27 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$28 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var Spinner = ({ className }) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: (0, import_classnames$27.default)("Spinner", className),
+		className: (0, import_classnames$28.default)("Spinner", className),
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ImSpinner2, { className: "Spinner__icon" })
 	});
 };
 var Spinner_default = Spinner;
-var import_classnames$26 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$27 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var TokenIcon = ({ symbol, className }) => {
 	const tokenIcon = Tokens[symbol].icon;
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: (0, import_classnames$26.default)("TokenIcon", className),
+		className: (0, import_classnames$27.default)("TokenIcon", className),
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
 			src: tokenIcon,
 			alt: `${symbol} icon`
@@ -88314,12 +88318,12 @@ var Muted = ({ children }) => {
 	});
 };
 var Muted_default = Muted;
-var import_classnames$25 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$26 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var TokenAmount = ({ value, symbol = "USDC", showsUsd = false, type = "inline" }) => {
 	const { isLoading, hasError } = getIsLoadingAndError(value);
 	const valueStr = isLoading ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Spinner_default, {}) : hasError ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, {}) : formatTokenAmount(value, symbol);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: (0, import_classnames$25.default)("TokenAmount", `_${type}`, hasError && "_error"),
+		className: (0, import_classnames$26.default)("TokenAmount", `_${type}`, hasError && "_error"),
 		children: [
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenIcon_default, {
 				className: "TokenAmount__icon",
@@ -88612,7 +88616,7 @@ const useBalanceETH = () => {
 	return data?.value;
 };
 var useBalance_default = useBalance$1;
-var { queryBalance, queryAccountValue, queryDebt, queryLtv, queryLtvCoeffs, queryPrincipal, calcEquity, calcAvailableToBorrow } = Account_default;
+var { queryBalance, queryAccountValue, queryDebt, queryLtv, queryLtvCoeffs, queryPrincipal, calcEquity, calcAvailableToBorrow, calcProtectionLevel } = Account_default;
 var useAccount = () => {
 	const accountSetup = useAccountSetup();
 	if (accountSetup === null) return null;
@@ -88644,7 +88648,8 @@ var useAccountSetup = () => {
 			ltv,
 			ltvCoeffs,
 			equity: calcEquity(value, debt),
-			availableToBorrow: calcAvailableToBorrow(value, debt)
+			availableToBorrow: calcAvailableToBorrow(value, debt),
+			protectionLevel: calcProtectionLevel(value, debt)
 		};
 	}, getSwrConfig(5 * MINUTE));
 	if (isUndefined(accountId)) return {
@@ -90559,7 +90564,7 @@ var import_lib = /* @__PURE__ */ __toESM((/* @__PURE__ */ __commonJSMin(((export
 	exports.default = _Modal2.default;
 	module.exports = exports["default"];
 })))(), 1);
-var import_classnames$24 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$25 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 import_lib.default.setAppElement("#root");
 import_lib.default.defaultStyles = {};
 var TRANSITION_DURATION = 300;
@@ -90573,7 +90578,7 @@ var Modal = ({ isOpen, setIsOpen, isObligatory = false, reset = () => {}, classN
 		setIsOpen(false);
 	};
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_lib.default, {
-		className: (0, import_classnames$24.default)(isScrollable && "_scrollable"),
+		className: (0, import_classnames$25.default)(isScrollable && "_scrollable"),
 		isOpen,
 		shouldCloseOnOverlayClick: false,
 		onRequestClose: closeModal,
@@ -90592,7 +90597,7 @@ var Modal = ({ isOpen, setIsOpen, isObligatory = false, reset = () => {}, classN
 			children: contentElement
 		}),
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-			className: (0, import_classnames$24.default)(className, "ReactModal__box", "box"),
+			className: (0, import_classnames$25.default)(className, "ReactModal__box", "box"),
 			onMouseDown: (e$2) => e$2.stopPropagation(),
 			children
 		}), !isObligatory && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
@@ -90606,11 +90611,11 @@ var Modal_default = Modal;
 var confirm_default = "data:image/svg+xml,%3csvg%20width='40'%20height='40'%20viewBox='0%200%2040%2040'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_284_1636)'%3e%3ccircle%20cx='20'%20cy='20'%20r='20'%20fill='%23112540'/%3e%3cpath%20d='M11%2019.9333L17%2026L29%2013'%20stroke='%2309AF8E'%20stroke-width='3'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_284_1636'%3e%3crect%20width='40'%20height='40'%20fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e";
 var error_default = "data:image/svg+xml,%3csvg%20width='40'%20height='40'%20viewBox='0%200%2040%2040'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_1129_5414)'%3e%3ccircle%20cx='20'%20cy='20'%20r='20'%20fill='%23361536'/%3e%3cpath%20d='M21.4969%2020L25.6868%2015.8101C25.8856%2015.6116%2025.9975%2015.3422%2025.9977%2015.0613C25.998%2014.7803%2025.8866%2014.5107%2025.6881%2014.3119C25.4896%2014.113%2025.2202%2014.0012%2024.9393%2014.0009C24.6583%2014.0007%2024.3887%2014.1121%2024.1899%2014.3106L20%2018.5005L15.8101%2014.3106C15.6113%2014.1117%2015.3416%2014%2015.0603%2014C14.7791%2014%2014.5094%2014.1117%2014.3106%2014.3106C14.1117%2014.5094%2014%2014.7791%2014%2015.0603C14%2015.3416%2014.1117%2015.6113%2014.3106%2015.8101L18.5005%2020L14.3106%2024.1899C14.1117%2024.3887%2014%2024.6584%2014%2024.9397C14%2025.2209%2014.1117%2025.4906%2014.3106%2025.6894C14.5094%2025.8883%2014.7791%2026%2015.0603%2026C15.3416%2026%2015.6113%2025.8883%2015.8101%2025.6894L20%2021.4995L24.1899%2025.6894C24.3887%2025.8883%2024.6584%2026%2024.9397%2026C25.2209%2026%2025.4906%2025.8883%2025.6894%2025.6894C25.8883%2025.4906%2026%2025.2209%2026%2024.9397C26%2024.6584%2025.8883%2024.3887%2025.6894%2024.1899L21.4969%2020Z'%20fill='%23D8563C'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_1129_5414'%3e%3crect%20width='40'%20height='40'%20fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e";
 var tick_default = "data:image/svg+xml,%3csvg%20width='12'%20height='10'%20viewBox='0%200%2012%2010'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M1%205.26667L4.33333%209L11%201'%20stroke='white'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3c/svg%3e";
-var import_classnames$23 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$24 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var TxModal = ({ isOpen, setIsOpen, reset = () => {}, txResult, setTxResult, className, children }) => {
 	const closeModal = () => setIsOpen(false);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Modal_default, {
-		className: (0, import_classnames$23.default)("TxModal", className),
+		className: (0, import_classnames$24.default)("TxModal", className),
 		isOpen,
 		setIsOpen,
 		reset: () => {
@@ -90629,7 +90634,7 @@ var TxResult = ({ result, closeModal }) => {
 	const txUrl = hash$3 ? getTxUrl(chainId, hash$3) : "";
 	const hashStr = hash$3 ? hash$3.slice(0, 5) + "..." + hash$3.slice(-4) : "";
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: (0, import_classnames$23.default)("TxModal__tx-result", error && "_error"),
+		className: (0, import_classnames$24.default)("TxModal__tx-result", error && "_error"),
 		children: [
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 				className: "TxModal__tx-result-icon",
@@ -90684,7 +90689,7 @@ var CopyButton = ({ error }) => {
 		setTimeout(() => setIsCopied(false), 2 * SECOND);
 	};
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
-		className: (0, import_classnames$23.default)("TxModal__tx-result-button", isCopied && "_copied"),
+		className: (0, import_classnames$24.default)("TxModal__tx-result-button", isCopied && "_copied"),
 		onClick: handleClick,
 		children: isCopied ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: ["Copied", /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
 			src: tick_default,
@@ -90714,10 +90719,10 @@ TxModal.Input = _Input$1;
 TxModal.Button = _Button;
 TxModal.Buttons = _Buttons;
 var TxModal_default = TxModal;
-var import_classnames$22 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$23 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var List = ({ type = "tick", children }) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("ul", {
-		className: (0, import_classnames$22.default)("List", `_${type}`),
+		className: (0, import_classnames$23.default)("List", `_${type}`),
 		children
 	});
 };
@@ -90775,7 +90780,7 @@ var CreateAccountModal = ({ isOpen, setIsOpen }) => {
 	});
 };
 var CreateAccountModal_default = CreateAccountModal;
-var import_classnames$21 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$22 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var Input = ({ setValue, valueStrState = void 0, maxData = void 0, placeholder = "0", isDisabled = false }) => {
 	const [valueStr, setValueStr] = valueStrState ?? (0, import_react.useState)("");
 	const [isFocused, setIsFocused] = (0, import_react.useState)(false);
@@ -90790,7 +90795,7 @@ var Input = ({ setValue, valueStrState = void 0, maxData = void 0, placeholder =
 		setValueStr(inputStringFromBigInt(maxData.value));
 	};
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: (0, import_classnames$21.default)("Input", isFocused && "_focused"),
+		className: (0, import_classnames$22.default)("Input", isFocused && "_focused"),
 		onClick: focusInput,
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputNative, {
 			ref: inputRef,
@@ -90900,13 +90905,13 @@ var ArrowChangeSvg = () => {
 	});
 };
 var ArrowChangeSvg_default = ArrowChangeSvg;
-var import_classnames$20 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$21 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var ValueChange = ({ curValue, estValue, className }) => {
 	const hasEstValue = estValue !== null;
 	const { isCurLoading } = getIsLoadingAndError(curValue, "cur");
 	const { isEstLoading } = getIsLoadingAndError(estValue, "est");
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: (0, import_classnames$20.default)("ValueChange", className, hasEstValue && "_active"),
+		className: (0, import_classnames$21.default)("ValueChange", className, hasEstValue && "_active"),
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 			className: "ValueChange__cur",
 			children: isCurLoading ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Spinner_default, {}) : curValue
@@ -91003,7 +91008,7 @@ var EternitySvg = () => {
 	});
 };
 var EternitySvg_default = EternitySvg;
-var import_classnames$19 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$20 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var LtvValue = ({ ltv = void 0, maxLtvLabel = void 0 }) => {
 	const account = useAccount_default();
 	ltv = ltv ?? account?.ltv;
@@ -91016,7 +91021,7 @@ var LtvValue = ({ ltv = void 0, maxLtvLabel = void 0 }) => {
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(EternitySvg_default, {})
 	}) : formatStable(ltv);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: (0, import_classnames$19.default)("LtvValue", `_${coeffType}`),
+		className: (0, import_classnames$20.default)("LtvValue", `_${coeffType}`),
 		children: ltvStr
 	});
 };
@@ -91029,10 +91034,10 @@ var LtvChange = ({ estLtv }) => {
 	});
 };
 var LtvChange_default = LtvChange;
-var import_classnames$18 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$19 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var Metrics = ({ isBoxed = true, className, children }) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: (0, import_classnames$18.default)("Metrics", isBoxed && "_boxed", className),
+		className: (0, import_classnames$19.default)("Metrics", isBoxed && "_boxed", className),
 		children
 	});
 };
@@ -91431,7 +91436,7 @@ var WarningSvg = ({ color: color$1 = "red" }) => {
 	});
 };
 var WarningSvg_default = WarningSvg;
-var import_classnames$17 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$18 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var ICONS = {
 	bell: BellSvg_default,
 	warning: WarningSvg_default,
@@ -91439,7 +91444,7 @@ var ICONS = {
 };
 var Notification = ({ color: color$1 = "yellow", type = "bell", className, children }) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: (0, import_classnames$17.default)("Notification", `_${type}`, className),
+		className: (0, import_classnames$18.default)("Notification", `_${type}`, className),
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 			className: "Notification__icon",
 			children: ICONS[type]({ color: color$1 })
@@ -91450,14 +91455,14 @@ var Notification = ({ color: color$1 = "yellow", type = "bell", className, child
 	});
 };
 var Notification_default = Notification;
-var import_classnames$16 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$17 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var Checkbox = ({ isChecked, setIsChecked, isDisabled, children, className }) => {
 	const handleChange = (e$2) => {
 		const checkbox = e$2.target;
 		setIsChecked(checkbox.checked);
 	};
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: (0, import_classnames$16.default)("Checkbox", className),
+		className: (0, import_classnames$17.default)("Checkbox", className),
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
 			type: "checkbox",
 			checked: isChecked,
@@ -92168,7 +92173,7 @@ var context_default = /* @__PURE__ */ import_react.createContext({
 	classNames: {}
 });
 var UnstableContext = /* @__PURE__ */ import_react.createContext({});
-var import_classnames$15 = /* @__PURE__ */ __toESM(require_classnames());
+var import_classnames$16 = /* @__PURE__ */ __toESM(require_classnames());
 var _excluded$8 = [
 	"prefixCls",
 	"value",
@@ -92276,7 +92281,7 @@ var Handle_default = /* @__PURE__ */ import_react.forwardRef(function(props, ref
 	}
 	var handleNode = /* @__PURE__ */ import_react.createElement("div", _extends$1({
 		ref,
-		className: (0, import_classnames$15.default)(handlePrefixCls, _defineProperty$1(_defineProperty$1(_defineProperty$1({}, "".concat(handlePrefixCls, "-").concat(valueIndex + 1), valueIndex !== null && range), "".concat(handlePrefixCls, "-dragging"), dragging), "".concat(handlePrefixCls, "-dragging-delete"), draggingDelete), classNames$3.handle),
+		className: (0, import_classnames$16.default)(handlePrefixCls, _defineProperty$1(_defineProperty$1(_defineProperty$1({}, "".concat(handlePrefixCls, "-").concat(valueIndex + 1), valueIndex !== null && range), "".concat(handlePrefixCls, "-dragging"), dragging), "".concat(handlePrefixCls, "-dragging-delete"), draggingDelete), classNames$3.handle),
 		style: _objectSpread2$1(_objectSpread2$1(_objectSpread2$1({}, positionStyle), style$1), styles$1.handle)
 	}, divProps, restProps));
 	if (render) handleNode = render(handleNode, {
@@ -92363,14 +92368,14 @@ var Handles_default = /* @__PURE__ */ import_react.forwardRef(function(props, re
 		"aria-hidden": true
 	})));
 });
-var import_classnames$14 = /* @__PURE__ */ __toESM(require_classnames());
+var import_classnames$15 = /* @__PURE__ */ __toESM(require_classnames());
 var Mark_default = function Mark$1(props) {
 	var prefixCls = props.prefixCls, style$1 = props.style, children = props.children, value = props.value, _onClick = props.onClick;
 	var _React$useContext = import_react.useContext(context_default), min$1 = _React$useContext.min, max$1 = _React$useContext.max, direction = _React$useContext.direction, includedStart = _React$useContext.includedStart, includedEnd = _React$useContext.includedEnd, included = _React$useContext.included;
 	var textCls = "".concat(prefixCls, "-text");
 	var positionStyle = getDirectionStyle(direction, value, min$1, max$1);
 	return /* @__PURE__ */ import_react.createElement("span", {
-		className: (0, import_classnames$14.default)(textCls, _defineProperty$1({}, "".concat(textCls, "-active"), included && includedStart <= value && value <= includedEnd)),
+		className: (0, import_classnames$15.default)(textCls, _defineProperty$1({}, "".concat(textCls, "-active"), included && includedStart <= value && value <= includedEnd)),
 		style: _objectSpread2$1(_objectSpread2$1({}, positionStyle), style$1),
 		onMouseDown: function onMouseDown(e$2) {
 			e$2.stopPropagation();
@@ -92395,7 +92400,7 @@ var Marks_default = function Marks$1(props) {
 		}, label);
 	}));
 };
-var import_classnames$13 = /* @__PURE__ */ __toESM(require_classnames());
+var import_classnames$14 = /* @__PURE__ */ __toESM(require_classnames());
 var Dot_default = function Dot$2(props) {
 	var prefixCls = props.prefixCls, value = props.value, style$1 = props.style, activeStyle = props.activeStyle;
 	var _React$useContext = import_react.useContext(context_default), min$1 = _React$useContext.min, max$1 = _React$useContext.max, direction = _React$useContext.direction, included = _React$useContext.included, includedStart = _React$useContext.includedStart, includedEnd = _React$useContext.includedEnd;
@@ -92404,7 +92409,7 @@ var Dot_default = function Dot$2(props) {
 	var mergedStyle = _objectSpread2$1(_objectSpread2$1({}, getDirectionStyle(direction, value, min$1, max$1)), typeof style$1 === "function" ? style$1(value) : style$1);
 	if (active) mergedStyle = _objectSpread2$1(_objectSpread2$1({}, mergedStyle), typeof activeStyle === "function" ? activeStyle(value) : activeStyle);
 	return /* @__PURE__ */ import_react.createElement("span", {
-		className: (0, import_classnames$13.default)(dotClassName, _defineProperty$1({}, "".concat(dotClassName, "-active"), active)),
+		className: (0, import_classnames$14.default)(dotClassName, _defineProperty$1({}, "".concat(dotClassName, "-active"), active)),
 		style: mergedStyle
 	});
 };
@@ -92441,7 +92446,7 @@ var Steps_default = function Steps$1(props) {
 		});
 	}));
 };
-var import_classnames$12 = /* @__PURE__ */ __toESM(require_classnames());
+var import_classnames$13 = /* @__PURE__ */ __toESM(require_classnames());
 var Track_default = function Track$1(props) {
 	var prefixCls = props.prefixCls, style$1 = props.style, start = props.start, end = props.end, index$6 = props.index, onStartMove = props.onStartMove, replaceCls = props.replaceCls;
 	var _React$useContext = import_react.useContext(context_default), direction = _React$useContext.direction, min$1 = _React$useContext.min, max$1 = _React$useContext.max, disabled = _React$useContext.disabled, range = _React$useContext.range, classNames$3 = _React$useContext.classNames;
@@ -92469,7 +92474,7 @@ var Track_default = function Track$1(props) {
 			positionStyle.left = "".concat(offsetStart * 100, "%");
 			positionStyle.width = "".concat(offsetEnd * 100 - offsetStart * 100, "%");
 	}
-	var className = replaceCls || (0, import_classnames$12.default)(trackPrefixCls, _defineProperty$1(_defineProperty$1({}, "".concat(trackPrefixCls, "-").concat(index$6 + 1), index$6 !== null && range), "".concat(prefixCls, "-track-draggable"), onStartMove), classNames$3.track);
+	var className = replaceCls || (0, import_classnames$13.default)(trackPrefixCls, _defineProperty$1(_defineProperty$1({}, "".concat(trackPrefixCls, "-").concat(index$6 + 1), index$6 !== null && range), "".concat(prefixCls, "-track-draggable"), onStartMove), classNames$3.track);
 	return /* @__PURE__ */ import_react.createElement("div", {
 		className,
 		style: _objectSpread2$1(_objectSpread2$1({}, positionStyle), style$1),
@@ -92477,7 +92482,7 @@ var Track_default = function Track$1(props) {
 		onTouchStart: onInternalStartMove
 	});
 };
-var import_classnames$11 = /* @__PURE__ */ __toESM(require_classnames());
+var import_classnames$12 = /* @__PURE__ */ __toESM(require_classnames());
 var Tracks_default = function Tracks$1(props) {
 	var prefixCls = props.prefixCls, style$1 = props.style, values = props.values, startPoint = props.startPoint, onStartMove = props.onStartMove;
 	var _React$useContext = import_react.useContext(context_default), included = _React$useContext.included, range = _React$useContext.range, min$1 = _React$useContext.min, styles$1 = _React$useContext.styles, classNames$3 = _React$useContext.classNames;
@@ -92509,7 +92514,7 @@ var Tracks_default = function Tracks$1(props) {
 		prefixCls,
 		start: trackList[0].start,
 		end: trackList[trackList.length - 1].end,
-		replaceCls: (0, import_classnames$11.default)(classNames$3.tracks, "".concat(prefixCls, "-tracks")),
+		replaceCls: (0, import_classnames$12.default)(classNames$3.tracks, "".concat(prefixCls, "-tracks")),
 		style: styles$1.tracks
 	}) : null;
 	return /* @__PURE__ */ import_react.createElement(import_react.Fragment, null, tracksNode, trackList.map(function(_ref$1, index$6) {
@@ -92859,7 +92864,7 @@ function useRange(range) {
 		];
 	}, [range]);
 }
-var import_classnames$10 = /* @__PURE__ */ __toESM(require_classnames());
+var import_classnames$11 = /* @__PURE__ */ __toESM(require_classnames());
 var es_default = /* @__PURE__ */ import_react.forwardRef(function(props, ref) {
 	var _props$prefixCls = props.prefixCls, prefixCls = _props$prefixCls === void 0 ? "rc-slider" : _props$prefixCls, className = props.className, style$1 = props.style, classNames$3 = props.classNames, styles$1 = props.styles, id$2 = props.id, _props$disabled = props.disabled, disabled = _props$disabled === void 0 ? false : _props$disabled, _props$keyboard = props.keyboard, keyboard = _props$keyboard === void 0 ? true : _props$keyboard, autoFocus = props.autoFocus, onFocus = props.onFocus, onBlur = props.onBlur, _props$min = props.min, min$1 = _props$min === void 0 ? 0 : _props$min, _props$max = props.max, max$1 = _props$max === void 0 ? 100 : _props$max, _props$step = props.step, step = _props$step === void 0 ? 1 : _props$step, value = props.value, defaultValue = props.defaultValue, range = props.range, count = props.count, onChange = props.onChange, onBeforeChange = props.onBeforeChange, onAfterChange = props.onAfterChange, onChangeComplete = props.onChangeComplete, _props$allowCross = props.allowCross, allowCross = _props$allowCross === void 0 ? true : _props$allowCross, _props$pushable = props.pushable, pushable = _props$pushable === void 0 ? false : _props$pushable, reverse = props.reverse, vertical = props.vertical, _props$included = props.included, included = _props$included === void 0 ? true : _props$included, startPoint = props.startPoint, trackStyle = props.trackStyle, handleStyle = props.handleStyle, railStyle = props.railStyle, dotStyle = props.dotStyle, activeDotStyle = props.activeDotStyle, marks = props.marks, dots = props.dots, handleRender = props.handleRender, activeHandleRender = props.activeHandleRender, track$1 = props.track, _props$tabIndex = props.tabIndex, tabIndex = _props$tabIndex === void 0 ? 0 : _props$tabIndex, ariaLabelForHandle = props.ariaLabelForHandle, ariaLabelledByForHandle = props.ariaLabelledByForHandle, ariaRequired = props.ariaRequired, ariaValueTextFormatterForHandle = props.ariaValueTextFormatterForHandle;
 	var handlesRef = import_react.useRef(null);
@@ -93111,12 +93116,12 @@ var es_default = /* @__PURE__ */ import_react.forwardRef(function(props, ref) {
 	]);
 	return /* @__PURE__ */ import_react.createElement(context_default.Provider, { value: context }, /* @__PURE__ */ import_react.createElement("div", {
 		ref: containerRef,
-		className: (0, import_classnames$10.default)(prefixCls, className, _defineProperty$1(_defineProperty$1(_defineProperty$1(_defineProperty$1({}, "".concat(prefixCls, "-disabled"), disabled), "".concat(prefixCls, "-vertical"), vertical), "".concat(prefixCls, "-horizontal"), !vertical), "".concat(prefixCls, "-with-marks"), markList.length)),
+		className: (0, import_classnames$11.default)(prefixCls, className, _defineProperty$1(_defineProperty$1(_defineProperty$1(_defineProperty$1({}, "".concat(prefixCls, "-disabled"), disabled), "".concat(prefixCls, "-vertical"), vertical), "".concat(prefixCls, "-horizontal"), !vertical), "".concat(prefixCls, "-with-marks"), markList.length)),
 		style: style$1,
 		onMouseDown: onSliderMouseDown,
 		id: id$2
 	}, /* @__PURE__ */ import_react.createElement("div", {
-		className: (0, import_classnames$10.default)("".concat(prefixCls, "-rail"), classNames$3 === null || classNames$3 === void 0 ? void 0 : classNames$3.rail),
+		className: (0, import_classnames$11.default)("".concat(prefixCls, "-rail"), classNames$3 === null || classNames$3 === void 0 ? void 0 : classNames$3.rail),
 		style: _objectSpread2$1(_objectSpread2$1({}, railStyle), styles$1 === null || styles$1 === void 0 ? void 0 : styles$1.rail)
 	}), track$1 !== false && /* @__PURE__ */ import_react.createElement(Tracks_default, {
 		prefixCls,
@@ -93256,7 +93261,7 @@ var _approve = async (spender, amount, token$1) => {
 	});
 };
 var useApprover_default = useApprover;
-var import_classnames$9 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$10 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var Slippage = () => {
 	const [slippage, setSlippage] = useSlippageState();
 	const [slippagePercentStr, setSlippagePercentStr] = (0, import_react.useState)(inputStringFromBigInt(slippage * 100n));
@@ -93289,7 +93294,7 @@ var Slippage = () => {
 		if (e$2.keyCode === 13 && isFocused) inputRef.current.blur();
 	});
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: (0, import_classnames$9.default)("Slippage", isFocused && "_focused"),
+		className: (0, import_classnames$10.default)("Slippage", isFocused && "_focused"),
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 			className: "Slippage__input",
 			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(_Input, {
@@ -95137,7 +95142,7 @@ var queryTransferEvent = async (contracts$1, optionId) => {
 	return events[0];
 };
 var useHegicOptions_default = useHegicOptions;
-var import_classnames$8 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$9 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var Types = {
 	OPTION: "option",
 	AUTO_SHORT: "auto-short"
@@ -95482,7 +95487,7 @@ var OptionInputs = ({ protectAmount, setProtectAmount, period, setPeriod, cost, 
 				})
 			})] }),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: (0, import_classnames$8.default)("ProtectionModal__period", isSufficient(period) && "_active"),
+				className: (0, import_classnames$9.default)("ProtectionModal__period", isSufficient(period) && "_active"),
 				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 					className: "ProtectionModal__period-head",
 					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: "Period" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
@@ -97268,10 +97273,10 @@ var cleanCommonProps = function cleanCommonProps$1(props) {
 	return _objectSpread2({}, _objectWithoutProperties(props, _excluded$4));
 };
 var getStyleProps = function getStyleProps$1(props, name, classNamesState) {
-	var cx$25 = props.cx, getStyles = props.getStyles, getClassNames = props.getClassNames, className = props.className;
+	var cx$26 = props.cx, getStyles = props.getStyles, getClassNames = props.getClassNames, className = props.className;
 	return {
 		css: getStyles(name, props),
-		className: cx$25(classNamesState !== null && classNamesState !== void 0 ? classNamesState : {}, getClassNames(name, props), className)
+		className: cx$26(classNamesState !== null && classNamesState !== void 0 ? classNamesState : {}, getClassNames(name, props), className)
 	};
 };
 function isDocumentElement(el) {
@@ -97870,13 +97875,13 @@ var groupCSS = function groupCSS$1(_ref$1, unstyled) {
 	};
 };
 var Group = function Group$2(props) {
-	var children = props.children, cx$25 = props.cx, getStyles = props.getStyles, getClassNames = props.getClassNames, Heading = props.Heading, headingProps = props.headingProps, innerProps = props.innerProps, label = props.label, theme = props.theme, selectProps = props.selectProps;
+	var children = props.children, cx$26 = props.cx, getStyles = props.getStyles, getClassNames = props.getClassNames, Heading = props.Heading, headingProps = props.headingProps, innerProps = props.innerProps, label = props.label, theme = props.theme, selectProps = props.selectProps;
 	return jsx("div", _extends({}, getStyleProps(props, "group", { group: true }), innerProps), jsx(Heading, _extends({}, headingProps, {
 		selectProps,
 		theme,
 		getStyles,
 		getClassNames,
-		cx: cx$25
+		cx: cx$26
 	}), label), jsx("div", null, children));
 };
 var groupHeadingCSS = function groupHeadingCSS$1(_ref2$3, unstyled) {
@@ -97950,10 +97955,10 @@ var inputStyle = function inputStyle$1(isHidden) {
 	}, spacingStyle);
 };
 var Input$1 = function Input$2(props) {
-	var cx$25 = props.cx, value = props.value;
+	var cx$26 = props.cx, value = props.value;
 	var _cleanCommonProps = cleanCommonProps(props), innerRef = _cleanCommonProps.innerRef, isDisabled = _cleanCommonProps.isDisabled, isHidden = _cleanCommonProps.isHidden, inputClassName = _cleanCommonProps.inputClassName, innerProps = _objectWithoutProperties(_cleanCommonProps, _excluded$5);
 	return jsx("div", _extends({}, getStyleProps(props, "input", { "input-container": true }), { "data-value": value || "" }), jsx("input", _extends({
-		className: cx$25({ input: true }, inputClassName),
+		className: cx$26({ input: true }, inputClassName),
 		ref: innerRef,
 		style: inputStyle(isHidden),
 		disabled: isDisabled
@@ -99776,11 +99781,11 @@ var Select = /* @__PURE__ */ function(_Component) {
 		{
 			key: "getCommonProps",
 			value: function getCommonProps() {
-				var clearValue = this.clearValue, cx$25 = this.cx, getStyles = this.getStyles, getClassNames = this.getClassNames, getValue$2 = this.getValue, selectOption = this.selectOption, setValue = this.setValue, props = this.props;
+				var clearValue = this.clearValue, cx$26 = this.cx, getStyles = this.getStyles, getClassNames = this.getClassNames, getValue$2 = this.getValue, selectOption = this.selectOption, setValue = this.setValue, props = this.props;
 				var isMulti = props.isMulti, isRtl = props.isRtl, options$2 = props.options;
 				return {
 					clearValue,
-					cx: cx$25,
+					cx: cx$26,
 					getStyles,
 					getClassNames,
 					getValue: getValue$2,
@@ -100318,10 +100323,10 @@ var StateManagedSelect$1 = /* @__PURE__ */ (0, import_react.forwardRef)(function
 	var baseSelectProps = useStateManager(props);
 	return /* @__PURE__ */ import_react.createElement(Select, _extends({ ref }, baseSelectProps));
 });
-var import_classnames$7 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$8 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var DropdownSvg = ({ className }) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
-		className: (0, import_classnames$7.default)("DropdownSvg", className),
+		className: (0, import_classnames$8.default)("DropdownSvg", className),
 		xmlns: "http://www.w3.org/2000/svg",
 		width: "14",
 		height: "7",
@@ -100337,14 +100342,14 @@ var DropdownSvg = ({ className }) => {
 	});
 };
 var DropdownSvg_default = DropdownSvg;
-var import_classnames$6 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$7 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var Selector = ({ className, options: options$2, defaultValue, defaultOption, isDisabled, onChange, ...props }) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(StateManagedSelect$1, {
 		unstyled: true,
 		options: options$2,
 		defaultValue: defaultOption ?? findDefaultOption(defaultValue, options$2) ?? options$2[0],
 		onChange,
-		className: (0, import_classnames$6.default)("Selector", className),
+		className: (0, import_classnames$7.default)("Selector", className),
 		classNamePrefix: "Selector",
 		isClearable: false,
 		isSearchable: false,
@@ -100384,7 +100389,7 @@ var ConfirmSvg = () => {
 	});
 };
 var ConfirmSvg_default = ConfirmSvg;
-var import_classnames$5 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$6 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var SelectedAccount = () => {
 	const accounts = useAccounts_default();
 	const account = useAccount_default();
@@ -100456,7 +100461,7 @@ var MenuList = ({ children, ...props }) => {
 var Option = ({ value: id$2, data, isSelected, ...props }) => {
 	const { balance } = data.account;
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(components.Option, {
-		className: (0, import_classnames$5.default)(isSelected && "Selector__option--is-selected"),
+		className: (0, import_classnames$6.default)(isSelected && "Selector__option--is-selected"),
 		...props,
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 			className: "_account",
@@ -100495,11 +100500,11 @@ var TokenName = ({ symbol }) => {
 	});
 };
 var TokenName_default = TokenName;
-var import_classnames$4 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$5 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var LendingPanel = ({ title, icon, data, btnsData, className }) => {
-	const isMobile$1 = useIsMobile_default(992);
+	const isMobile$1 = useIsMobile_default(1200);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: (0, import_classnames$4.default)(className, "LendingPanel", "box", "_sm"),
+		className: (0, import_classnames$5.default)(className, "LendingPanel", "box", "_sm"),
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 			className: "LendingPanel__head",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
@@ -100673,7 +100678,7 @@ var TickSvg = ({ coeffType }) => {
 	});
 };
 var TickSvg_default = TickSvg;
-var import_classnames$3 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$4 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var LtvLevel = () => {
 	const account = useAccount_default();
 	const { isLoading, hasError } = getIsLoadingAndError(account);
@@ -100732,7 +100737,7 @@ var Indicator = ({ account }) => {
 		}
 	};
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: (0, import_classnames$3.default)("LtvLevel__indicator", `_${coeffType}`, !debt && "_empty"),
+		className: (0, import_classnames$4.default)("LtvLevel__indicator", `_${coeffType}`, !debt && "_empty"),
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 			className: "LtvLevel__indicator-scale",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
@@ -100752,14 +100757,22 @@ var Indicator = ({ account }) => {
 	});
 };
 var LtvLevel_default = LtvLevel;
+var shields_green_default = "data:image/svg+xml,%3csvg%20width='52'%20height='20'%20viewBox='0%200%2052%2020'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3crect%20width='52'%20height='20'%20rx='10'%20fill='%23112540'/%3e%3cpath%20d='M10%2015C9.94167%2015%209.8875%2014.9958%209.8375%2014.9873C9.7875%2014.9789%209.7375%2014.9662%209.6875%2014.9494C8.5625%2014.5696%207.66667%2013.8672%207%2012.842C6.33333%2011.8169%206%2010.7134%206%209.53165V7.13924C6%206.92827%206.0605%206.7384%206.1815%206.56962C6.3025%206.40084%206.45867%206.27848%206.65%206.20253L9.65%205.06329C9.76667%205.0211%209.88333%205%2010%205C10.1167%205%2010.2333%205.0211%2010.35%205.06329L13.35%206.20253C13.5417%206.27848%2013.698%206.40084%2013.819%206.56962C13.94%206.7384%2014.0003%206.92827%2014%207.13924V9.53165C14%2010.7131%2013.6667%2011.8165%2013%2012.842C12.3333%2013.8675%2011.4375%2014.57%2010.3125%2014.9494C10.2625%2014.9662%2010.2125%2014.9789%2010.1625%2014.9873C10.1125%2014.9958%2010.0583%2015%2010%2015Z'%20fill='%2309AF8E'/%3e%3cpath%20d='M26%2015C25.9417%2015%2025.8875%2014.9958%2025.8375%2014.9873C25.7875%2014.9789%2025.7375%2014.9662%2025.6875%2014.9494C24.5625%2014.5696%2023.6667%2013.8672%2023%2012.842C22.3333%2011.8169%2022%2010.7134%2022%209.53165V7.13924C22%206.92827%2022.0605%206.7384%2022.1815%206.56962C22.3025%206.40084%2022.4587%206.27848%2022.65%206.20253L25.65%205.06329C25.7667%205.0211%2025.8833%205%2026%205C26.1167%205%2026.2333%205.0211%2026.35%205.06329L29.35%206.20253C29.5417%206.27848%2029.698%206.40084%2029.819%206.56962C29.94%206.7384%2030.0003%206.92827%2030%207.13924V9.53165C30%2010.7131%2029.6667%2011.8165%2029%2012.842C28.3333%2013.8675%2027.4375%2014.57%2026.3125%2014.9494C26.2625%2014.9662%2026.2125%2014.9789%2026.1625%2014.9873C26.1125%2014.9958%2026.0583%2015%2026%2015Z'%20fill='%2309AF8E'/%3e%3cpath%20d='M42%2015C41.9417%2015%2041.8875%2014.9958%2041.8375%2014.9873C41.7875%2014.9789%2041.7375%2014.9662%2041.6875%2014.9494C40.5625%2014.5696%2039.6667%2013.8672%2039%2012.842C38.3333%2011.8169%2038%2010.7134%2038%209.53165V7.13924C38%206.92827%2038.0605%206.7384%2038.1815%206.56962C38.3025%206.40084%2038.4587%206.27848%2038.65%206.20253L41.65%205.06329C41.7667%205.0211%2041.8833%205%2042%205C42.1167%205%2042.2333%205.0211%2042.35%205.06329L45.35%206.20253C45.5417%206.27848%2045.698%206.40084%2045.819%206.56962C45.94%206.7384%2046.0003%206.92827%2046%207.13924V9.53165C46%2010.7131%2045.6667%2011.8165%2045%2012.842C44.3333%2013.8675%2043.4375%2014.57%2042.3125%2014.9494C42.2625%2014.9662%2042.2125%2014.9789%2042.1625%2014.9873C42.1125%2014.9958%2042.0583%2015%2042%2015Z'%20fill='%2309AF8E'/%3e%3c/svg%3e";
+var shields_yellow_default = "data:image/svg+xml,%3csvg%20width='52'%20height='20'%20viewBox='0%200%2052%2020'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3crect%20width='52'%20height='20'%20rx='10'%20fill='%232A163C'/%3e%3cpath%20d='M10%2015C9.94167%2015%209.8875%2014.9958%209.8375%2014.9873C9.7875%2014.9789%209.7375%2014.9662%209.6875%2014.9494C8.5625%2014.5696%207.66667%2013.8672%207%2012.842C6.33333%2011.8169%206%2010.7134%206%209.53165V7.13924C6%206.92827%206.0605%206.7384%206.1815%206.56962C6.3025%206.40084%206.45867%206.27848%206.65%206.20253L9.65%205.06329C9.76667%205.0211%209.88333%205%2010%205C10.1167%205%2010.2333%205.0211%2010.35%205.06329L13.35%206.20253C13.5417%206.27848%2013.698%206.40084%2013.819%206.56962C13.94%206.7384%2014.0003%206.92827%2014%207.13924V9.53165C14%2010.7131%2013.6667%2011.8165%2013%2012.842C12.3333%2013.8675%2011.4375%2014.57%2010.3125%2014.9494C10.2625%2014.9662%2010.2125%2014.9789%2010.1625%2014.9873C10.1125%2014.9958%2010.0583%2015%2010%2015Z'%20fill='%23FE9673'/%3e%3cpath%20d='M26%2015C25.9417%2015%2025.8875%2014.9958%2025.8375%2014.9873C25.7875%2014.9789%2025.7375%2014.9662%2025.6875%2014.9494C24.5625%2014.5696%2023.6667%2013.8672%2023%2012.842C22.3333%2011.8169%2022%2010.7134%2022%209.53165V7.13924C22%206.92827%2022.0605%206.7384%2022.1815%206.56962C22.3025%206.40084%2022.4587%206.27848%2022.65%206.20253L25.65%205.06329C25.7667%205.0211%2025.8833%205%2026%205C26.1167%205%2026.2333%205.0211%2026.35%205.06329L29.35%206.20253C29.5417%206.27848%2029.698%206.40084%2029.819%206.56962C29.94%206.7384%2030.0003%206.92827%2030%207.13924V9.53165C30%2010.7131%2029.6667%2011.8165%2029%2012.842C28.3333%2013.8675%2027.4375%2014.57%2026.3125%2014.9494C26.2625%2014.9662%2026.2125%2014.9789%2026.1625%2014.9873C26.1125%2014.9958%2026.0583%2015%2026%2015Z'%20fill='%23FE9673'/%3e%3cg%20opacity='0.4'%3e%3cpath%20d='M42%2015C41.9417%2015%2041.8875%2014.9958%2041.8375%2014.9873C41.7875%2014.9789%2041.7375%2014.9662%2041.6875%2014.9494C40.5625%2014.5696%2039.6667%2013.8672%2039%2012.842C38.3333%2011.8169%2038%2010.7134%2038%209.53165V7.13924C38%206.92827%2038.0605%206.7384%2038.1815%206.56962C38.3025%206.40084%2038.4587%206.27848%2038.65%206.20253L41.65%205.06329C41.7667%205.0211%2041.8833%205%2042%205C42.1167%205%2042.2333%205.0211%2042.35%205.06329L45.35%206.20253C45.5417%206.27848%2045.698%206.40084%2045.819%206.56962C45.94%206.7384%2046.0003%206.92827%2046%207.13924V9.53165C46%2010.7131%2045.6667%2011.8165%2045%2012.842C44.3333%2013.8675%2043.4375%2014.57%2042.3125%2014.9494C42.2625%2014.9662%2042.2125%2014.9789%2042.1625%2014.9873C42.1125%2014.9958%2042.0583%2015%2042%2015Z'%20fill='%23FE9673'/%3e%3c/g%3e%3c/svg%3e";
+var shields_red_default = "data:image/svg+xml,%3csvg%20width='52'%20height='20'%20viewBox='0%200%2052%2020'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3crect%20width='52'%20height='20'%20rx='10'%20fill='%23361536'/%3e%3cpath%20d='M10%2015C9.94167%2015%209.8875%2014.9958%209.8375%2014.9873C9.7875%2014.9789%209.7375%2014.9662%209.6875%2014.9494C8.5625%2014.5696%207.66667%2013.8672%207%2012.842C6.33333%2011.8169%206%2010.7134%206%209.53165V7.13924C6%206.92827%206.0605%206.7384%206.1815%206.56962C6.3025%206.40084%206.45867%206.27848%206.65%206.20253L9.65%205.06329C9.76667%205.0211%209.88333%205%2010%205C10.1167%205%2010.2333%205.0211%2010.35%205.06329L13.35%206.20253C13.5417%206.27848%2013.698%206.40084%2013.819%206.56962C13.94%206.7384%2014.0003%206.92827%2014%207.13924V9.53165C14%2010.7131%2013.6667%2011.8165%2013%2012.842C12.3333%2013.8675%2011.4375%2014.57%2010.3125%2014.9494C10.2625%2014.9662%2010.2125%2014.9789%2010.1625%2014.9873C10.1125%2014.9958%2010.0583%2015%2010%2015Z'%20fill='%23D8563C'/%3e%3cg%20opacity='0.4'%3e%3cpath%20d='M26%2015C25.9417%2015%2025.8875%2014.9958%2025.8375%2014.9873C25.7875%2014.9789%2025.7375%2014.9662%2025.6875%2014.9494C24.5625%2014.5696%2023.6667%2013.8672%2023%2012.842C22.3333%2011.8169%2022%2010.7134%2022%209.53165V7.13924C22%206.92827%2022.0605%206.7384%2022.1815%206.56962C22.3025%206.40084%2022.4587%206.27848%2022.65%206.20253L25.65%205.06329C25.7667%205.0211%2025.8833%205%2026%205C26.1167%205%2026.2333%205.0211%2026.35%205.06329L29.35%206.20253C29.5417%206.27848%2029.698%206.40084%2029.819%206.56962C29.94%206.7384%2030.0003%206.92827%2030%207.13924V9.53165C30%2010.7131%2029.6667%2011.8165%2029%2012.842C28.3333%2013.8675%2027.4375%2014.57%2026.3125%2014.9494C26.2625%2014.9662%2026.2125%2014.9789%2026.1625%2014.9873C26.1125%2014.9958%2026.0583%2015%2026%2015Z'%20fill='%23D8563C'/%3e%3c/g%3e%3cg%20opacity='0.4'%3e%3cpath%20d='M42%2015C41.9417%2015%2041.8875%2014.9958%2041.8375%2014.9873C41.7875%2014.9789%2041.7375%2014.9662%2041.6875%2014.9494C40.5625%2014.5696%2039.6667%2013.8672%2039%2012.842C38.3333%2011.8169%2038%2010.7134%2038%209.53165V7.13924C38%206.92827%2038.0605%206.7384%2038.1815%206.56962C38.3025%206.40084%2038.4587%206.27848%2038.65%206.20253L41.65%205.06329C41.7667%205.0211%2041.8833%205%2042%205C42.1167%205%2042.2333%205.0211%2042.35%205.06329L45.35%206.20253C45.5417%206.27848%2045.698%206.40084%2045.819%206.56962C45.94%206.7384%2046.0003%206.92827%2046%207.13924V9.53165C46%2010.7131%2045.6667%2011.8165%2045%2012.842C44.3333%2013.8675%2043.4375%2014.57%2042.3125%2014.9494C42.2625%2014.9662%2042.2125%2014.9789%2042.1625%2014.9873C42.1125%2014.9958%2042.0583%2015%2042%2015Z'%20fill='%23D8563C'/%3e%3c/g%3e%3c/svg%3e";
+var import_classnames$3 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var ProtectionLevel = () => {
+	const account = useAccount_default();
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 		className: "ProtectionLevel ProtectionPanel__metric",
-		children: useAccount_default()?.debt ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Content$2, {}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(NothingToProtect, {})
+		children: account?.debt ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Content$2, { account }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(NothingToProtect, {})
 	});
 };
-var Content$2 = () => {
+var Content$2 = ({ account }) => {
 	const { openProtectionModal } = useDashboardContext();
+	const { protectionLevel } = account;
+	const protectionLevelStr = formatPercent(protectionLevel, 0);
+	const levelZone = getLevelZone(protectionLevel);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
 		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 			className: "ProtectionLevel__title ProtectionPanel__metric-title",
@@ -100768,9 +100781,25 @@ var Content$2 = () => {
 		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 			className: "ProtectionLevel__body",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "ProtectionLevel__percent",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "ProtectionLevel__percent-bar" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "ProtectionLevel__percent-shields" })]
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "ProtectionLevel__assessment" })]
+				className: (0, import_classnames$3.default)("ProtectionLevel__percent", `_${levelZone.name}`),
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "ProtectionLevel__percent-bar",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "_progress",
+						style: { width: protectionLevelStr },
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: protectionLevelStr })
+					})
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "ProtectionLevel__percent-shields",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+						src: levelZone.icon,
+						alt: "Shields icon"
+					})
+				})]
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "ProtectionLevel__text",
+				children: levelZone.text
+			})]
 		}),
 		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 			className: "ProtectionLevel__footer",
@@ -100798,12 +100827,38 @@ var Content$2 = () => {
 var NothingToProtect = () => {
 	const account = useAccount_default();
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: "\n					ProtectionLevel__title\n					Protection__panel-title\n					hlight",
+		className: "\n					ProtectionLevel__title\n					Protection__panel-title\n					hlight\n			",
 		children: "Nothing to protect yet"
 	}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(List_default, { children: {
 		noSupply: ["To activate NoRekt protection, supply ETH and borrow USDC", "After that you'll be able to add NoRekt protection to avoid liquidation risk"],
 		noBorrow: ["You’ve supplied assets, but you haven’t borrowed USDC yet", "Borrow USDC and add protection to save your position from liquidation"]
 	}[!account?.balance ? "noSupply" : "noBorrow"].map((msg, i$3) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("li", { children: msg }, i$3)) })] });
+};
+var ZONES = [
+	{
+		name: "green",
+		breakpoint: 100,
+		text: "Strong NoRekt Coverage",
+		icon: shields_green_default
+	},
+	{
+		name: "yellow",
+		breakpoint: .7,
+		text: "Partial NoRekt Coverage",
+		icon: shields_yellow_default
+	},
+	{
+		name: "red",
+		breakpoint: .3,
+		text: "Limited NoRekt Coverage",
+		icon: shields_red_default
+	}
+];
+var getLevelZone = (protectionLevel) => {
+	return ZONES.reduce((prev$1, cur) => {
+		if (bigIntFromString(cur.breakpoint) > protectionLevel) return cur;
+		else return prev$1;
+	});
 };
 var ProtectionLevel_default = ProtectionLevel;
 var ProtectionPanel = () => {
@@ -100845,7 +100900,7 @@ var Protections = () => {
 	});
 };
 var Content$1 = ({ positions }) => {
-	const isMobile$1 = useIsMobile_default(992);
+	const isMobile$1 = useIsMobile_default(1200);
 	if (!positions.length) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(NoProtections, {});
 	return isMobile$1 ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(_Mobile$1, { positions }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(_Desktop$1, { positions });
 };
@@ -101058,11 +101113,15 @@ var AppRoutes = () => {
 	] });
 };
 var AppRoutes_default = AppRoutes;
+var Logo_default$1 = "data:image/svg+xml,%3csvg%20width='42'%20height='42'%20viewBox='0%200%2042%2042'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M20.5003%2019.4961L19.5003%2019L17.0003%2017.5V19.5L20.5003%2021.6396V39C20.5003%2039%2010.6367%2031.4609%207.43198%2025.1904C4.50705%2019.4671%205.03745%209.37012%205.03745%209.37012C12.1323%208.38889%2015.0953%206.93758%2020.5003%203V19.4961Z'%20fill='url(%23paint0_linear_1674_2446)'/%3e%3cg%20filter='url(%23filter0_f_1674_2446)'%3e%3ccircle%20cx='11'%20cy='14'%20r='3'%20fill='white'/%3e%3c/g%3e%3cg%20filter='url(%23filter1_i_1674_2446)'%3e%3cpath%20d='M20.5%203C25.0601%206.88874%2028.3829%208.26313%2035.998%209.37012C35.9994%209.45032%2036.1646%2019.472%2033.2705%2025.1875C30.147%2031.3557%2020.5056%2038.9956%2020.5%2039V3ZM22.7275%2020.5996L20.5088%2019.5V21.6445L22.7275%2023C23.4824%2022.5613%2031.7975%2015.0705%2035%2011L22.7275%2020.5996Z'%20fill='url(%23paint1_linear_1674_2446)'%20fill-opacity='0.55'/%3e%3c/g%3e%3cpath%20d='M20.5%2018L35%2011L28.5%2016L22.5%2020.5L20.5%2019.5V18Z'%20fill='url(%23paint2_linear_1674_2446)'%20fill-opacity='0.2'/%3e%3cdefs%3e%3cfilter%20id='filter0_f_1674_2446'%20x='2'%20y='5'%20width='18'%20height='18'%20filterUnits='userSpaceOnUse'%20color-interpolation-filters='sRGB'%3e%3cfeFlood%20flood-opacity='0'%20result='BackgroundImageFix'/%3e%3cfeBlend%20mode='normal'%20in='SourceGraphic'%20in2='BackgroundImageFix'%20result='shape'/%3e%3cfeGaussianBlur%20stdDeviation='3'%20result='effect1_foregroundBlur_1674_2446'/%3e%3c/filter%3e%3cfilter%20id='filter1_i_1674_2446'%20x='20.5'%20y='3'%20width='17.5001'%20height='37'%20filterUnits='userSpaceOnUse'%20color-interpolation-filters='sRGB'%3e%3cfeFlood%20flood-opacity='0'%20result='BackgroundImageFix'/%3e%3cfeBlend%20mode='normal'%20in='SourceGraphic'%20in2='BackgroundImageFix'%20result='shape'/%3e%3cfeColorMatrix%20in='SourceAlpha'%20type='matrix'%20values='0%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%200%20127%200'%20result='hardAlpha'/%3e%3cfeOffset%20dx='2'%20dy='1'/%3e%3cfeGaussianBlur%20stdDeviation='2'/%3e%3cfeComposite%20in2='hardAlpha'%20operator='arithmetic'%20k2='-1'%20k3='1'/%3e%3cfeColorMatrix%20type='matrix'%20values='0%200%200%200%200.121569%200%200%200%200%200.0666667%200%200%200%200%200.223529%200%200%200%200.3%200'/%3e%3cfeBlend%20mode='normal'%20in2='shape'%20result='effect1_innerShadow_1674_2446'/%3e%3c/filter%3e%3clinearGradient%20id='paint0_linear_1674_2446'%20x1='19.3051'%20y1='37.5'%20x2='4.76888'%20y2='8.36609'%20gradientUnits='userSpaceOnUse'%3e%3cstop%20offset='0.0240385'%20stop-color='%2331C1A3'%20stop-opacity='0.15'/%3e%3cstop%20offset='0.379808'%20stop-color='%2309AF8E'%20stop-opacity='0.7'/%3e%3cstop%20offset='0.951923'%20stop-color='%2309AF8E'/%3e%3c/linearGradient%3e%3clinearGradient%20id='paint1_linear_1674_2446'%20x1='37.9882'%20y1='40'%20x2='22.8262'%20y2='7.30668'%20gradientUnits='userSpaceOnUse'%3e%3cstop%20offset='0.00150221'%20stop-color='%2331C1A3'%20stop-opacity='0.1'/%3e%3cstop%20offset='0.520773'%20stop-color='%2309AF8E'%20stop-opacity='0.6'/%3e%3cstop%20offset='0.952609'%20stop-color='%2309AF8E'/%3e%3c/linearGradient%3e%3clinearGradient%20id='paint2_linear_1674_2446'%20x1='28.4816'%20y1='21'%20x2='28.0154'%20y2='16.7566'%20gradientUnits='userSpaceOnUse'%3e%3cstop%20offset='0.00150221'%20stop-color='%2331C1A3'%20stop-opacity='0.1'/%3e%3cstop%20offset='0.520773'%20stop-color='%2309AF8E'%20stop-opacity='0.6'/%3e%3cstop%20offset='0.952609'%20stop-color='%2309AF8E'/%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e";
 var Logo = () => {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
 		className: "Logo",
 		href: "https://norekt.xyz",
-		children: "NoRekt"
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+			src: Logo_default$1,
+			alt: "NoRekt logo"
+		}), "NoRekt"]
 	});
 };
 var Logo_default = Logo;

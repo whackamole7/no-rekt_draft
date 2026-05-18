@@ -286,7 +286,7 @@
   grid-template-rows: repeat(2, auto);
   gap: 30px;
 }
-@media (max-width: 992px) {
+@media (max-width: 1200px) {
   .Dashboard {
     display: flex;
     flex-direction: column;
@@ -1621,7 +1621,7 @@
     grid-column: 1/6;
   }
 }
-@media (max-width: 1200px) {
+@media (max-width: 992px) {
   .SelectedAccount {
     grid-column: 1/7;
   }
@@ -1818,7 +1818,7 @@
   column-gap: 10px;
   margin-top: 15px;
 }
-@media (max-width: 992px) {
+@media (max-width: 1200px) {
   .LendingPanel {
     padding-bottom: 20px;
   }
@@ -1839,12 +1839,16 @@
 }.LtvLevel {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+  column-gap: 20px;
+  grid-column: 1/5;
 }
 .LtvLevel .Spinner {
   width: 150px;
 }
 .LtvLevel__indicator {
   margin-bottom: -15px;
+  margin-left: auto;
 }
 .LtvLevel__indicator-scale {
   position: relative;
@@ -1885,9 +1889,9 @@
 .LtvLevel__indicator._empty .LtvLevel__indicator-pointer {
   background-color: #9A94B8;
 }.ProtectionPanel {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
   gap: 20px;
-  flex-wrap: wrap;
   grid-column: 5/13;
 }
 .ProtectionPanel__metric {
@@ -1909,6 +1913,8 @@
 @media (max-width: 1200px) {
   .ProtectionPanel {
     grid-column: 7/13;
+    display: flex;
+    flex-direction: column;
   }
 }
 @media (max-width: 992px) {
@@ -1924,14 +1930,19 @@
   .ProtectionPanel__metric-title {
     font-size: 12px;
   }
-}.ProtectionLevel__title {
+}.ProtectionLevel {
+  grid-column: 5/10;
+}
+.ProtectionLevel__title {
   margin-bottom: 14px;
 }
 .ProtectionLevel__body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   column-gap: 20px;
+  row-gap: 10px;
   border-bottom: 1px solid rgba(172, 169, 187, 0.08);
   padding-bottom: 18px;
   margin-bottom: 15px;
@@ -1940,6 +1951,47 @@
   display: flex;
   align-items: center;
   column-gap: 10px;
+}
+.ProtectionLevel__percent-bar {
+  width: 155px;
+  height: 20px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 2px;
+}
+.ProtectionLevel__percent-bar ._progress {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  border-radius: 10px;
+  padding-left: 4px;
+}
+.ProtectionLevel__percent-bar ._progress span {
+  font-size: 12px;
+}
+.ProtectionLevel__percent._red .ProtectionLevel__percent-bar {
+  background-color: #361536;
+  border-color: #D8563C;
+}
+.ProtectionLevel__percent._red .ProtectionLevel__percent-bar ._progress {
+  background-color: #D8563C;
+}
+.ProtectionLevel__percent._yellow .ProtectionLevel__percent-bar {
+  background-color: #2A163C;
+  border-color: #FE9673;
+}
+.ProtectionLevel__percent._yellow .ProtectionLevel__percent-bar ._progress {
+  background-color: #FE9673;
+}
+.ProtectionLevel__percent._green .ProtectionLevel__percent-bar {
+  background-color: #112540;
+  border-color: #09AF8E;
+}
+.ProtectionLevel__percent._green .ProtectionLevel__percent-bar ._progress {
+  background-color: #09AF8E;
+}
+.ProtectionLevel__text {
+  white-space: nowrap;
 }
 .ProtectionLevel__footer {
   display: flex;
@@ -1954,6 +2006,17 @@
 }
 .ProtectionLevel__liq-title {
   color: #9A94B8;
+}
+@media (max-width: 440px) {
+  .ProtectionLevel__footer {
+    display: block;
+  }
+  .ProtectionLevel__button {
+    margin: 15px 0 3px;
+  }
+  .ProtectionLevel__button .Button {
+    width: 100%;
+  }
 }.Protections {
   grid-column: 1/13;
 }
@@ -2047,7 +2110,7 @@
   width: 100%;
   margin-top: 25px;
 }
-@media (max-width: 992px) {
+@media (max-width: 1200px) {
   .Protections:not(._no-protections) {
     background-color: transparent;
     border: none;
@@ -2097,7 +2160,7 @@
   background-color: #130B3A;
   border: 1px solid rgba(172, 169, 187, 0.08);
   border-radius: 20px;
-  padding: 0 20px 0 40px;
+  padding: 0 20px;
   margin-bottom: 50px;
 }
 .Header._desktop .Header__nav {
@@ -2383,6 +2446,7 @@
 }
 @media (max-width: 480px) {
   .Header {
+    padding: 10px;
     margin-bottom: 20px;
   }
   .Header._mobile {
@@ -2405,8 +2469,16 @@
     row-gap: 8px;
   }
 }.Logo {
+  display: flex;
+  align-items: center;
+  column-gap: 6px;
   font-family: "Nohemi", sans-serif;
   font-size: 25px;
+}
+@media (max-width: 480px) {
+  .Logo {
+    font-size: 18px;
+  }
 }.Footer {
   display: flex;
   align-items: center;
