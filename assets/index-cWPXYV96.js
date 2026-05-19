@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-CyOHjTAX.js","assets/secp256k1-EXvBHXU9.js","assets/esm-CSVRiTz3.js","assets/dist-6Z_1Avki.js","assets/dist-DMizBxh1.js","assets/dist-BuktXDaJ.js","assets/index.es-i80pzQEI.js","assets/alchemy-provider-2577f5a5-DuB9wnOi.js","assets/alchemy-provider-2577f5a5-BV-D7p3S.js","assets/alchemy-websocket-provider-ee041890-BSFt0GTQ.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-CLbO2EEb.js","assets/secp256k1-BClhGzQl.js","assets/esm-DiqwlGW4.js","assets/dist-DKxjZi6Y.js","assets/dist-DkWrrcO4.js","assets/dist-Ba6GfABO.js","assets/index.es-74jGlhJO.js","assets/alchemy-provider-2577f5a5-Bv0U2CN5.js","assets/alchemy-provider-2577f5a5-CPHe4M0I.js","assets/alchemy-websocket-provider-ee041890-D-m6SI40.js"])))=>i.map(i=>d[i]);
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -16953,7 +16953,7 @@ async function call$1(client, args) {
 	} catch (err) {
 		const data$1 = getRevertErrorData(err);
 		const { offchainLookup, offchainLookupSignature } = await __vitePreload(async () => {
-			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-CTAZh1P-.js");
+			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-kvch62mb.js");
 			return {
 				offchainLookup: offchainLookup$1,
 				offchainLookupSignature: offchainLookupSignature$1
@@ -17454,7 +17454,7 @@ function publicKeyToAddress(publicKey) {
 async function recoverPublicKey({ hash: hash$3, signature }) {
 	const hashHex = isHex(hash$3) ? hash$3 : toHex$2(hash$3);
 	const { secp256k1: secp256k1$1 } = await __vitePreload(async () => {
-		const { secp256k1: secp256k1$2 } = await import("./secp256k1-CyOHjTAX.js");
+		const { secp256k1: secp256k1$2 } = await import("./secp256k1-CLbO2EEb.js");
 		return { secp256k1: secp256k1$2 };
 	}, __vite__mapDeps([0,1]));
 	return `0x${(() => {
@@ -23304,7 +23304,7 @@ function safe(parameters = {}) {
 			if (!provider_) {
 				const { default: SDK } = await (() => {
 					try {
-						return __vitePreload(() => import("./esm-CSVRiTz3.js"), __vite__mapDeps([2,3]));
+						return __vitePreload(() => import("./esm-DiqwlGW4.js"), __vite__mapDeps([2,3]));
 					} catch {
 						throw new Error("dependency \"@safe-global/safe-apps-sdk\" not found");
 					}
@@ -23315,7 +23315,7 @@ function safe(parameters = {}) {
 				provider_ = new (await ((async () => {
 					const Provider$1 = await (() => {
 						try {
-							return __vitePreload(() => import("./dist-DMizBxh1.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
+							return __vitePreload(() => import("./dist-DkWrrcO4.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
 						} catch {
 							throw new Error("dependency \"@safe-global/safe-apps-provider\" not found");
 						}
@@ -23480,7 +23480,7 @@ function walletConnect(parameters) {
 				if (!optionalChains.length) return;
 				const { EthereumProvider: EthereumProvider$1 } = await (() => {
 					try {
-						return __vitePreload(() => import("./dist-BuktXDaJ.js"), __vite__mapDeps([5,6,1]));
+						return __vitePreload(() => import("./dist-Ba6GfABO.js"), __vite__mapDeps([5,6,1]));
 					} catch {
 						throw new Error("dependency \"@walletconnect/ethereum-provider\" not found");
 					}
@@ -53981,7 +53981,8 @@ const Colors = {
 const ErrorMsg = {
 	SHORT: "An error occurred",
 	EXPANDED: "An error occurred. Check the console for details",
-	NO_WALLET: "No wallet connected"
+	NO_WALLET: "No wallet connected",
+	LOW_LTV: "LtV is too low"
 };
 const ButtonLabels = {
 	LOADING: "Please wait...",
@@ -84246,14 +84247,14 @@ var AlchemyConfig = class {
 	}
 	getProvider() {
 		if (!this._baseAlchemyProvider) this._baseAlchemyProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-DuB9wnOi.js"), __vite__mapDeps([7,8]));
+			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-Bv0U2CN5.js"), __vite__mapDeps([7,8]));
 			return new AlchemyProvider$1(this);
 		}))();
 		return this._baseAlchemyProvider;
 	}
 	getWebSocketProvider() {
 		if (!this._baseAlchemyWssProvider) this._baseAlchemyWssProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-BSFt0GTQ.js"), __vite__mapDeps([9,8]));
+			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-D-m6SI40.js"), __vite__mapDeps([9,8]));
 			return new AlchemyWebSocketProvider(this);
 		}))();
 		return this._baseAlchemyWssProvider;
@@ -90956,7 +90957,7 @@ var TokenAmountChange = ({ curAmount, estAmount, symbol }) => {
 };
 var TokenAmountChange_default = TokenAmountChange;
 var Ltv = {
-	CoeffTypes: {
+	Zones: {
 		RED: "red",
 		YELLOW: "yellow",
 		GREEN: "green"
@@ -90966,7 +90967,7 @@ var Ltv = {
 	calcLtvAfterBorrow,
 	calcLtvAfterRepay,
 	queryLtvAfterProtect,
-	getCoeffType
+	getZone
 };
 async function queryLtvAfterSupply(account, contracts$1, depositAmount) {
 	const depositAmountUSDC = await swapEthToUsdc(contracts$1, depositAmount);
@@ -90994,14 +90995,14 @@ async function queryLtvAfterProtect(account, cost, paymentMethod) {
 	}
 	return multiplyBigInts(account.ltv, divBigInts(estAccountValue, account.value));
 }
-function getCoeffType(account, ltv) {
+function getZone(account, ltv) {
 	const { red, yellow } = account.ltvCoeffs;
-	const { RED: RED$1, YELLOW, GREEN: GREEN$1 } = Ltv.CoeffTypes;
-	let coeffType;
-	if (ltv < red) coeffType = RED$1;
-	else if (ltv < yellow) coeffType = YELLOW;
-	else coeffType = GREEN$1;
-	return coeffType;
+	const { RED: RED$1, YELLOW, GREEN: GREEN$1 } = Ltv.Zones;
+	let zone;
+	if (ltv < red) zone = RED$1;
+	else if (ltv < yellow) zone = YELLOW;
+	else zone = GREEN$1;
+	return zone;
 }
 var _calcLtv = (balance, debt) => {
 	if (debt <= 0n) return MaxUint256;
@@ -91034,13 +91035,13 @@ var LtvValue = ({ ltv = void 0, maxLtvLabel = void 0 }) => {
 	const { isLoading, hasError } = getIsLoadingAndError(account);
 	if (isLoading) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Spinner_default, {});
 	if (hasError) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, { children: "Error" });
-	const coeffType = Ltv_default.getCoeffType(account, ltv);
+	const ltvZone = Ltv_default.getZone(account, ltv);
 	const ltvStr = ltv >= bigIntFromString(100) ? maxLtvLabel ?? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 		className: "LtvValue__svg",
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(EternitySvg_default, {})
 	}) : formatStable(ltv);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: (0, import_classnames$20.default)("LtvValue", `_${coeffType}`),
+		className: (0, import_classnames$20.default)("LtvValue", `_${ltvZone}`),
 		children: ltvStr
 	});
 };
@@ -91229,12 +91230,13 @@ var WithdrawModal = ({ isOpen, setIsOpen }) => {
 	}, [withdrawAmount]);
 	const getError = () => {
 		if (!withdrawAmount) return "Enter Amount";
+		const { isLoading } = getIsLoadingAndError(estLtv);
+		if (isLoading) return ButtonLabels.LOADING;
+		if (Ltv_default.getZone(account, estLtv) === Ltv_default.Zones.RED) return ErrorMsg.LOW_LTV;
 		if (isSubmitting) return ButtonLabels.SUBMITTING;
 	};
 	const getBtnText = () => {
-		const error = getError();
-		if (error) return error;
-		return "Withdraw";
+		return getError() ?? "Withdraw";
 	};
 	const getIsDisabled = () => {
 		const error = getError();
@@ -95233,11 +95235,13 @@ var ProtectionModal = ({ isOpen, setIsOpen }) => {
 	});
 };
 var BuyStep = ({ protectAmount, setProtectAmount, period, setPeriod, cost, setCost, paymentMethod, setPaymentMethod, isSubmitting, setIsSubmitting, goForth }) => {
+	const account = useAccount_default();
 	const { OneClickOptions } = useContracts_default()?.view ?? {};
 	const [type, setType] = (0, import_react.useState)(Types.OPTION);
 	const isOption = type === Types.OPTION;
 	const isWallet = paymentMethod === PaymentMethods.WALLET;
 	const [isApproved, setIsApproved] = (0, import_react.useState)(void 0);
+	const [estLtv, setEstLtv] = (0, import_react.useState)(null);
 	const Approver = useApprover_default(OneClickOptions?.address, "USDC", setIsApproved);
 	(0, import_react.useEffect)(() => {
 		if (!isWallet) return;
@@ -95255,8 +95259,10 @@ var BuyStep = ({ protectAmount, setProtectAmount, period, setPeriod, cost, setCo
 		if (!protectAmount) return "Enter Amount";
 		if (!period) return "Choose period";
 		const { isLoading, hasError } = getIsLoadingAndError(cost);
-		if (isLoading) return ButtonLabels.LOADING;
+		if (isLoading || !estLtv) return ButtonLabels.LOADING;
 		if (hasError) return ButtonLabels.ERROR;
+		const estLtvZone = Ltv_default.getZone(account, estLtv);
+		if (!isWallet && estLtvZone !== Ltv_default.Zones.GREEN) return ErrorMsg.LOW_LTV;
 		const { isApprovedLoading } = getIsLoadingAndError(isApproved, "approved");
 		if (isWallet && isApprovedLoading) return ButtonLabels.LOADING;
 		if (isSubmitting) {
@@ -95309,7 +95315,9 @@ var BuyStep = ({ protectAmount, setProtectAmount, period, setPeriod, cost, setCo
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ModalMetrics, {
 						cost,
-						paymentMethod
+						paymentMethod,
+						estLtv,
+						setEstLtv
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TxModal_default.Button, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
 						type: isWallet && isApproved === false ? "green" : "primary",
@@ -95533,13 +95541,12 @@ var OptionInputs = ({ protectAmount, setProtectAmount, period, setPeriod, cost, 
 		]
 	});
 };
-var ModalMetrics = ({ cost, paymentMethod }) => {
+var ModalMetrics = ({ cost, paymentMethod, estLtv, setEstLtv }) => {
 	const account = useAccount_default();
 	const contracts$1 = useContracts_default();
 	const usdcPool = useUsdcPool_default();
 	const slippage = useSlippage();
 	const [estCollateral, setEstCollateral] = (0, import_react.useState)(null);
-	const [estLtv, setEstLtv] = (0, import_react.useState)(null);
 	const isCollateral = paymentMethod === PaymentMethods.COLLATERAL;
 	const updateEstCollateral = async () => {
 		setEstCollateral(void 0);
@@ -100660,8 +100667,8 @@ var Borrow = () => {
 var Borrow_default = Borrow;
 var indicator_default = "data:image/svg+xml,%3csvg%20width='150'%20height='75'%20viewBox='0%200%20150%2075'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cmask%20id='path-1-inside-1_225_1583'%20fill='white'%3e%3cpath%20d='M145.5%2075C147.985%2075%20150.014%2072.9835%20149.865%2070.5026C149.366%2062.1914%20147.485%2054.0105%20144.291%2046.2987C140.522%2037.1993%20134.997%2028.9314%20128.033%2021.967C121.069%2015.0026%20112.801%209.47814%20103.701%205.70903C95.9895%202.51473%2087.8086%200.634229%2079.4973%200.134958C77.0165%20-0.0140692%2075%202.01472%2075%204.5C75%206.98528%2077.0171%208.98403%2079.4966%209.15335C86.6251%209.64014%2093.6375%2011.282%20100.257%2014.0239C108.265%2017.3408%20115.54%2022.2023%20121.669%2028.331C127.798%2034.4596%20132.659%2041.7354%20135.976%2049.7429C138.718%2056.3625%20140.36%2063.3749%20140.847%2070.5034C141.016%2072.9829%20143.015%2075%20145.5%2075Z'/%3e%3c/mask%3e%3cpath%20d='M145.5%2075C147.985%2075%20150.014%2072.9835%20149.865%2070.5026C149.366%2062.1914%20147.485%2054.0105%20144.291%2046.2987C140.522%2037.1993%20134.997%2028.9314%20128.033%2021.967C121.069%2015.0026%20112.801%209.47814%20103.701%205.70903C95.9895%202.51473%2087.8086%200.634229%2079.4973%200.134958C77.0165%20-0.0140692%2075%202.01472%2075%204.5C75%206.98528%2077.0171%208.98403%2079.4966%209.15335C86.6251%209.64014%2093.6375%2011.282%20100.257%2014.0239C108.265%2017.3408%20115.54%2022.2023%20121.669%2028.331C127.798%2034.4596%20132.659%2041.7354%20135.976%2049.7429C138.718%2056.3625%20140.36%2063.3749%20140.847%2070.5034C141.016%2072.9829%20143.015%2075%20145.5%2075Z'%20stroke='%2309AF8E'%20stroke-width='16'%20mask='url(%23path-1-inside-1_225_1583)'/%3e%3cmask%20id='path-2-inside-2_225_1583'%20fill='white'%3e%3cpath%20d='M72.9901%204.52865C72.9193%202.04438%2070.8452%200.0739105%2068.3697%200.293546C52.4188%201.70868%2037.3343%208.19565%2025.3353%2018.8001C23.473%2020.4459%2023.4766%2023.3067%2025.2311%2025.067C26.9856%2026.8272%2029.8253%2026.8188%2031.701%2025.1883C42.0577%2016.1851%2054.969%2010.6327%2068.6278%209.30822C71.1015%209.06836%2073.061%207.01292%2072.9901%204.52865Z'/%3e%3c/mask%3e%3cpath%20d='M72.9901%204.52865C72.9193%202.04438%2070.8452%200.0739105%2068.3697%200.293546C52.4188%201.70868%2037.3343%208.19565%2025.3353%2018.8001C23.473%2020.4459%2023.4766%2023.3067%2025.2311%2025.067C26.9856%2026.8272%2029.8253%2026.8188%2031.701%2025.1883C42.0577%2016.1851%2054.969%2010.6327%2068.6278%209.30822C71.1015%209.06836%2073.061%207.01292%2072.9901%204.52865Z'%20stroke='%23FE9673'%20stroke-width='16'%20mask='url(%23path-2-inside-2_225_1583)'/%3e%3cmask%20id='path-3-inside-3_225_1583'%20fill='white'%3e%3cpath%20d='M23.6758%2026.667C21.8666%2024.9632%2019.0068%2025.0407%2017.4144%2026.9488C7.15148%2039.2474%201.09438%2054.515%200.134763%2070.5044C-0.0141344%2072.9852%202.01472%2075.0022%204.5%2075.0021C6.98528%2075.002%208.98395%2072.9847%209.15313%2070.5052C10.0875%2056.81%2015.272%2043.7419%2023.9805%2033.1308C25.5572%2031.2097%2025.4851%2028.3709%2023.6758%2026.667Z'/%3e%3c/mask%3e%3cpath%20d='M23.6758%2026.667C21.8666%2024.9632%2019.0068%2025.0407%2017.4144%2026.9488C7.15148%2039.2474%201.09438%2054.515%200.134763%2070.5044C-0.0141344%2072.9852%202.01472%2075.0022%204.5%2075.0021C6.98528%2075.002%208.98395%2072.9847%209.15313%2070.5052C10.0875%2056.81%2015.272%2043.7419%2023.9805%2033.1308C25.5572%2031.2097%2025.4851%2028.3709%2023.6758%2026.667Z'%20stroke='%23D8563C'%20stroke-width='16'%20mask='url(%23path-3-inside-3_225_1583)'/%3e%3c/svg%3e";
 var indicator_empty_default = "data:image/svg+xml,%3csvg%20width='150'%20height='75'%20viewBox='0%200%20150%2075'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cmask%20id='path-1-inside-1_656_5058'%20fill='white'%3e%3cpath%20d='M145.5%2075C147.985%2075%20150.014%2072.9835%20149.865%2070.5026C149.366%2062.1914%20147.485%2054.0105%20144.291%2046.2987C140.522%2037.1993%20134.997%2028.9314%20128.033%2021.967C121.069%2015.0026%20112.801%209.47814%20103.701%205.70903C95.9895%202.51473%2087.8086%200.634229%2079.4973%200.134958C77.0165%20-0.0140692%2075%202.01472%2075%204.5C75%206.98528%2077.0171%208.98403%2079.4966%209.15335C86.6251%209.64014%2093.6375%2011.282%20100.257%2014.0239C108.265%2017.3408%20115.54%2022.2023%20121.669%2028.331C127.798%2034.4596%20132.659%2041.7354%20135.976%2049.7429C138.718%2056.3625%20140.36%2063.3749%20140.847%2070.5034C141.016%2072.9829%20143.015%2075%20145.5%2075Z'/%3e%3c/mask%3e%3cpath%20d='M145.5%2075C147.985%2075%20150.014%2072.9835%20149.865%2070.5026C149.366%2062.1914%20147.485%2054.0105%20144.291%2046.2987C140.522%2037.1993%20134.997%2028.9314%20128.033%2021.967C121.069%2015.0026%20112.801%209.47814%20103.701%205.70903C95.9895%202.51473%2087.8086%200.634229%2079.4973%200.134958C77.0165%20-0.0140692%2075%202.01472%2075%204.5C75%206.98528%2077.0171%208.98403%2079.4966%209.15335C86.6251%209.64014%2093.6375%2011.282%20100.257%2014.0239C108.265%2017.3408%20115.54%2022.2023%20121.669%2028.331C127.798%2034.4596%20132.659%2041.7354%20135.976%2049.7429C138.718%2056.3625%20140.36%2063.3749%20140.847%2070.5034C141.016%2072.9829%20143.015%2075%20145.5%2075Z'%20stroke='%239A94B8'%20stroke-width='16'%20mask='url(%23path-1-inside-1_656_5058)'/%3e%3cmask%20id='path-2-inside-2_656_5058'%20fill='white'%3e%3cpath%20d='M72.9901%204.52865C72.9193%202.04438%2070.8452%200.0739105%2068.3697%200.293546C52.4188%201.70868%2037.3343%208.19565%2025.3353%2018.8001C23.473%2020.4459%2023.4766%2023.3067%2025.2311%2025.067C26.9856%2026.8272%2029.8253%2026.8188%2031.701%2025.1883C42.0577%2016.1851%2054.969%2010.6327%2068.6278%209.30822C71.1015%209.06836%2073.061%207.01292%2072.9901%204.52865Z'/%3e%3c/mask%3e%3cpath%20d='M72.9901%204.52865C72.9193%202.04438%2070.8452%200.0739105%2068.3697%200.293546C52.4188%201.70868%2037.3343%208.19565%2025.3353%2018.8001C23.473%2020.4459%2023.4766%2023.3067%2025.2311%2025.067C26.9856%2026.8272%2029.8253%2026.8188%2031.701%2025.1883C42.0577%2016.1851%2054.969%2010.6327%2068.6278%209.30822C71.1015%209.06836%2073.061%207.01292%2072.9901%204.52865Z'%20stroke='%239A94B8'%20stroke-width='16'%20mask='url(%23path-2-inside-2_656_5058)'/%3e%3cmask%20id='path-3-inside-3_656_5058'%20fill='white'%3e%3cpath%20d='M23.6758%2026.667C21.8666%2024.9632%2019.0068%2025.0407%2017.4144%2026.9488C7.15148%2039.2474%201.09438%2054.515%200.134763%2070.5044C-0.0141344%2072.9852%202.01472%2075.0022%204.5%2075.0021C6.98528%2075.002%208.98395%2072.9847%209.15313%2070.5052C10.0875%2056.81%2015.272%2043.7419%2023.9805%2033.1308C25.5572%2031.2097%2025.4851%2028.3709%2023.6758%2026.667Z'/%3e%3c/mask%3e%3cpath%20d='M23.6758%2026.667C21.8666%2024.9632%2019.0068%2025.0407%2017.4144%2026.9488C7.15148%2039.2474%201.09438%2054.515%200.134763%2070.5044C-0.0141344%2072.9852%202.01472%2075.0022%204.5%2075.0021C6.98528%2075.002%208.98395%2072.9847%209.15313%2070.5052C10.0875%2056.81%2015.272%2043.7419%2023.9805%2033.1308C25.5572%2031.2097%2025.4851%2028.3709%2023.6758%2026.667Z'%20stroke='%239A94B8'%20stroke-width='16'%20mask='url(%23path-3-inside-3_656_5058)'/%3e%3c/svg%3e";
-var TickSvg = ({ coeffType }) => {
-	const { RED: RED$1, YELLOW, GREEN: GREEN$1 } = Ltv_default.CoeffTypes;
+var TickSvg = ({ ltvZone }) => {
+	const { RED: RED$1, YELLOW, GREEN: GREEN$1 } = Ltv_default.Zones;
 	const colors$1 = {
 		[RED$1]: {
 			main: Colors.RED,
@@ -100686,10 +100693,10 @@ var TickSvg = ({ coeffType }) => {
 			cx: "8",
 			cy: "8",
 			r: "7",
-			fill: colors$1[coeffType].bg
+			fill: colors$1[ltvZone].bg
 		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
 			d: "M5 8.13333L7 10L11 6",
-			stroke: colors$1[coeffType].main,
+			stroke: colors$1[ltvZone].main,
 			strokeWidth: "1.5",
 			strokeLinecap: "round",
 			strokeLinejoin: "round"
@@ -100716,14 +100723,14 @@ var LtvLevel = () => {
 };
 var Indicator = ({ account }) => {
 	const { debt, ltv } = account;
-	const coeffType = Ltv_default.getCoeffType(account, ltv);
-	const { RED: RED$1, YELLOW, GREEN: GREEN$1 } = Ltv_default.CoeffTypes;
+	const ltvZone = Ltv_default.getZone(account, ltv);
+	const { RED: RED$1, YELLOW, GREEN: GREEN$1 } = Ltv_default.Zones;
 	const getPointerPosition = () => {
 		if (!debt) return {
 			left: "-6px",
 			bottom: 0
 		};
-		switch (coeffType) {
+		switch (ltvZone) {
 			case RED$1: return {
 				left: 0,
 				top: "34px"
@@ -100749,14 +100756,14 @@ var Indicator = ({ account }) => {
 	};
 	const getIndicatorText = () => {
 		if (!debt) return "No active borrowing";
-		switch (coeffType) {
+		switch (ltvZone) {
 			case RED$1: return "High Risk";
 			case YELLOW: return "Medium Risk";
 			case GREEN$1: return "Low Risk";
 		}
 	};
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: (0, import_classnames$4.default)("LtvLevel__indicator", `_${coeffType}`, !debt && "_empty"),
+		className: (0, import_classnames$4.default)("LtvLevel__indicator", `_${ltvZone}`, !debt && "_empty"),
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 			className: "LtvLevel__indicator-scale",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
@@ -100770,7 +100777,7 @@ var Indicator = ({ account }) => {
 			className: "LtvLevel__indicator-value",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(LtvValue_default, { maxLtvLabel: debt ? "∞" : "0" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 				className: "LtvLevel__indicator-value-text",
-				children: [debt ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TickSvg_default, { coeffType }) : "", getIndicatorText()]
+				children: [debt ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TickSvg_default, { ltvZone }) : "", getIndicatorText()]
 			})]
 		})]
 	});
