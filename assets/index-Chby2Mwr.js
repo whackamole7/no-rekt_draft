@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-Ch0T3SLl.js","assets/secp256k1-CVSsd16x.js","assets/esm-BWTl0aL1.js","assets/dist-BBGtZcnS.js","assets/dist-Cc2zvv7o.js","assets/dist-DArMzVQZ.js","assets/index.es-BYgLQwa3.js","assets/alchemy-provider-2577f5a5-DxLNsYHk.js","assets/alchemy-provider-2577f5a5-C5y0Oc2S.js","assets/alchemy-websocket-provider-ee041890-WaD5e-bP.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-DrSioVa5.js","assets/secp256k1-ydkiuIq4.js","assets/esm-CbHRJ2y9.js","assets/dist-DuwZ9jlz.js","assets/dist-DtDGyVRh.js","assets/dist-BOKtzKh8.js","assets/index.es-BkVoOYQL.js","assets/alchemy-provider-2577f5a5-IRo35nZE.js","assets/alchemy-provider-2577f5a5-BJ4vjTGC.js","assets/alchemy-websocket-provider-ee041890-C-cRvysw.js"])))=>i.map(i=>d[i]);
 var __create = Object.create;
 var __defProp$1 = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -16953,7 +16953,7 @@ async function call$2(client, args) {
 	} catch (err) {
 		const data$1 = getRevertErrorData(err);
 		const { offchainLookup, offchainLookupSignature } = await __vitePreload(async () => {
-			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-DvBWeQ-z.js");
+			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-C7Mcf8ZL.js");
 			return {
 				offchainLookup: offchainLookup$1,
 				offchainLookupSignature: offchainLookupSignature$1
@@ -17454,7 +17454,7 @@ function publicKeyToAddress(publicKey) {
 async function recoverPublicKey({ hash: hash$3, signature }) {
 	const hashHex = isHex(hash$3) ? hash$3 : toHex$2(hash$3);
 	const { secp256k1: secp256k1$1 } = await __vitePreload(async () => {
-		const { secp256k1: secp256k1$2 } = await import("./secp256k1-Ch0T3SLl.js");
+		const { secp256k1: secp256k1$2 } = await import("./secp256k1-DrSioVa5.js");
 		return { secp256k1: secp256k1$2 };
 	}, __vite__mapDeps([0,1]));
 	return `0x${(() => {
@@ -23304,7 +23304,7 @@ function safe(parameters = {}) {
 			if (!provider_) {
 				const { default: SDK } = await (() => {
 					try {
-						return __vitePreload(() => import("./esm-BWTl0aL1.js"), __vite__mapDeps([2,3]));
+						return __vitePreload(() => import("./esm-CbHRJ2y9.js"), __vite__mapDeps([2,3]));
 					} catch {
 						throw new Error("dependency \"@safe-global/safe-apps-sdk\" not found");
 					}
@@ -23315,7 +23315,7 @@ function safe(parameters = {}) {
 				provider_ = new (await ((async () => {
 					const Provider$1 = await (() => {
 						try {
-							return __vitePreload(() => import("./dist-Cc2zvv7o.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
+							return __vitePreload(() => import("./dist-DtDGyVRh.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
 						} catch {
 							throw new Error("dependency \"@safe-global/safe-apps-provider\" not found");
 						}
@@ -23480,7 +23480,7 @@ function walletConnect(parameters) {
 				if (!optionalChains.length) return;
 				const { EthereumProvider: EthereumProvider$1 } = await (() => {
 					try {
-						return __vitePreload(() => import("./dist-DArMzVQZ.js"), __vite__mapDeps([5,6,1]));
+						return __vitePreload(() => import("./dist-BOKtzKh8.js"), __vite__mapDeps([5,6,1]));
 					} catch {
 						throw new Error("dependency \"@walletconnect/ethereum-provider\" not found");
 					}
@@ -53979,7 +53979,7 @@ const Colors = {
 	MODAL_OVERLAY_COLOR: "rgba(13, 11, 58, 0.7)"
 };
 const ErrorMsg = {
-	SHORT: "An error occurred",
+	DEFAULT: "An error occurred",
 	EXPANDED: "An error occurred. Check the console for details",
 	NO_WALLET: "No wallet connected",
 	LOW_LTV: "LtV is too low"
@@ -53988,7 +53988,7 @@ const ButtonLabels = {
 	LOADING: "Please wait...",
 	SUBMITTING: "Submitting...",
 	APPROVING: "Approving...",
-	ERROR: ErrorMsg.SHORT
+	ERROR: ErrorMsg.DEFAULT
 };
 const SentimentSigns = {
 	PLUS: "+",
@@ -84247,14 +84247,14 @@ var AlchemyConfig = class {
 	}
 	getProvider() {
 		if (!this._baseAlchemyProvider) this._baseAlchemyProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-DxLNsYHk.js"), __vite__mapDeps([7,8]));
+			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-IRo35nZE.js"), __vite__mapDeps([7,8]));
 			return new AlchemyProvider$1(this);
 		}))();
 		return this._baseAlchemyProvider;
 	}
 	getWebSocketProvider() {
 		if (!this._baseAlchemyWssProvider) this._baseAlchemyWssProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-WaD5e-bP.js"), __vite__mapDeps([9,8]));
+			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-C-cRvysw.js"), __vite__mapDeps([9,8]));
 			return new AlchemyWebSocketProvider(this);
 		}))();
 		return this._baseAlchemyWssProvider;
@@ -86771,6 +86771,11 @@ var GodEyeContext_default = GodEyeContext;
 const getLast = (arr) => {
 	return arr[arr.length - 1];
 };
+const sumObjValues = (arr, key) => {
+	return arr.reduce((sum$2, obj) => {
+		return sum$2 + obj[key];
+	}, 0n);
+};
 const filterUnique = (val, index$6, arr) => {
 	return arr.indexOf(val) === index$6;
 };
@@ -87068,7 +87073,7 @@ const LIQ_COEF = 1.05;
 var Calculator = {
 	calcEquity: calcEquity$1,
 	calcAvailableToBorrow: calcAvailableToBorrow$1,
-	calcProtectionLevel: calcProtectionLevel$1,
+	calcProtectionLevel,
 	calcLiqPrice
 };
 function calcEquity$1(accountValue, debt) {
@@ -87077,17 +87082,13 @@ function calcEquity$1(accountValue, debt) {
 function calcAvailableToBorrow$1(accountValue, debt) {
 	return multiplyBigIntByNumber(accountValue, BORROW_COEF) - debt;
 }
-function calcProtectionLevel$1(accountValue, debt) {
-	return bigIntFromString(1) - divBigInts(debt, accountValue);
+function calcProtectionLevel(options$2, accountBalance) {
+	return divBigInts(sumObjValues(options$2, "amount"), accountBalance);
 }
 function calcLiqPrice(account, options$2) {
 	const { balance, debt } = account;
-	const optionsAmountSum = options$2.reduce((sum$2, option) => {
-		return sum$2 + option.amount;
-	}, 0n);
-	const optionsAmountUsdSum = options$2.reduce((sum$2, option) => {
-		return sum$2 + option.amountUsd;
-	}, 0n);
+	const optionsAmountSum = sumObjValues(options$2, "amount");
+	const optionsAmountUsdSum = sumObjValues(options$2, "amountUsd");
 	if (optionsAmountSum > balance) return MaxUint256;
 	return multiplyBigIntByNumber(debt, LIQ_COEF) - divBigInts(optionsAmountUsdSum, balance - optionsAmountSum);
 }
@@ -88636,7 +88637,7 @@ const useBalanceETH = () => {
 };
 var useBalance_default = useBalance$1;
 var { queryBalance, queryAccountValue, queryDebt, queryLtv, queryLtvCoeffs, queryPrincipal } = Account_default;
-var { calcEquity, calcAvailableToBorrow, calcProtectionLevel } = Calculator_default;
+var { calcEquity, calcAvailableToBorrow } = Calculator_default;
 var useAccount = () => {
 	const accountSetup = useAccountSetup();
 	if (accountSetup === null) return null;
@@ -88668,8 +88669,7 @@ var useAccountSetup = () => {
 			ltv,
 			ltvCoeffs,
 			equity: calcEquity(value, debt),
-			availableToBorrow: calcAvailableToBorrow(value, debt),
-			protectionLevel: calcProtectionLevel(value, debt)
+			availableToBorrow: calcAvailableToBorrow(value, debt)
 		};
 	}, getSwrConfig(5 * MINUTE));
 	if (isUndefined(accountId)) return {
@@ -100716,7 +100716,7 @@ var LtvLevel = () => {
 				children: "Current LtV"
 			}),
 			isLoading && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Spinner_default, {}),
-			hasError && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, { children: ErrorMsg.SHORT }),
+			hasError && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, { children: ErrorMsg.DEFAULT }),
 			!isLoading && !hasError && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Indicator, { account })
 		]
 	});
@@ -100795,8 +100795,12 @@ var ProtectionLevel = () => {
 	});
 };
 var Content$2 = ({ account }) => {
+	const options$2 = useHegicOptions_default();
 	const { openProtectionModal } = useDashboardContext();
-	const { protectionLevel } = account;
+	const { isLoading, hasError } = getIsLoadingAndError(options$2);
+	if (isLoading) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Spinner_default, {});
+	if (hasError) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, { children: ErrorMsg.DEFAULT });
+	const protectionLevel = Calculator_default.calcProtectionLevel(options$2, account.balance);
 	const protectionLevelStr = formatPercent(protectionLevel, 0);
 	const levelZone = getLevelZone(protectionLevel);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
@@ -100881,10 +100885,12 @@ var ZONES = [
 	}
 ];
 var getLevelZone = (protectionLevel) => {
-	return ZONES.reduce((prev$1, cur) => {
+	const zone = ZONES.reduce((prev$1, cur) => {
 		if (bigIntFromString(cur.breakpoint) > protectionLevel) return cur;
 		else return prev$1;
 	});
+	if (protectionLevel === 0n) zone.text = "No Coverage";
+	return zone;
 };
 var ProtectionLevel_default = ProtectionLevel;
 var ProtectionPanel = () => {
