@@ -2154,6 +2154,37 @@
   .Protections__no-protections {
     width: 100%;
   }
+}.Chart {
+  height: 435px;
+  grid-column: 1/13;
+  color: #9A94B8;
+  background-color: #1D1446;
+  overflow: hidden;
+  padding: 0;
+}
+.Chart__point._current {
+  width: 15px;
+  height: 15px;
+}
+.Chart__tooltip {
+  width: max-content;
+  color: #ffffff;
+  background-color: #130B3A;
+  border-radius: 8px;
+  padding: 7px 10px;
+}
+.Chart__tooltip-line {
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+}
+.Chart__tooltip-line span:first-child {
+  color: #9A94B8;
+}
+@media (max-width: 480px) {
+  .Chart {
+    display: none;
+  }
 }.Header {
   position: relative;
   display: flex;
