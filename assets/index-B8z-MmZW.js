@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-CiMMASkE.js","assets/secp256k1-BjMmICd6.js","assets/esm-C4l1VnAg.js","assets/dist-BqUpnRfh.js","assets/dist-BmBASJc4.js","assets/dist-C7Zqsfhy.js","assets/index.es-xB9_ZZ93.js","assets/alchemy-provider-2577f5a5-CNTiAMgK.js","assets/alchemy-provider-2577f5a5-BHoxQl24.js","assets/alchemy-websocket-provider-ee041890-CTK-Ek5k.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-Duh41nWI.js","assets/secp256k1-DjgSJqTa.js","assets/esm-nxtnwJBb.js","assets/dist-s0pNFEFK.js","assets/dist-DC17OHtF.js","assets/dist-BXjgKTHB.js","assets/index.es-DPCIWI1G.js","assets/alchemy-provider-2577f5a5-CVdcKqkD.js","assets/alchemy-provider-2577f5a5-ByVW4TH2.js","assets/alchemy-websocket-provider-ee041890-DmMkD-P6.js"])))=>i.map(i=>d[i]);
 var __create = Object.create;
 var __defProp$1 = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -16953,7 +16953,7 @@ async function call$2(client, args) {
 	} catch (err) {
 		const data$1 = getRevertErrorData(err);
 		const { offchainLookup, offchainLookupSignature } = await __vitePreload(async () => {
-			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-r9K4EHTf.js");
+			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-k0QUevGx.js");
 			return {
 				offchainLookup: offchainLookup$1,
 				offchainLookupSignature: offchainLookupSignature$1
@@ -17454,7 +17454,7 @@ function publicKeyToAddress(publicKey) {
 async function recoverPublicKey({ hash: hash$3, signature }) {
 	const hashHex = isHex(hash$3) ? hash$3 : toHex$2(hash$3);
 	const { secp256k1: secp256k1$1 } = await __vitePreload(async () => {
-		const { secp256k1: secp256k1$2 } = await import("./secp256k1-CiMMASkE.js");
+		const { secp256k1: secp256k1$2 } = await import("./secp256k1-Duh41nWI.js");
 		return { secp256k1: secp256k1$2 };
 	}, __vite__mapDeps([0,1]));
 	return `0x${(() => {
@@ -22692,7 +22692,7 @@ var require_with_selector_production = /* @__PURE__ */ __commonJSMin(((exports) 
 	function is$2(x$7, y$8) {
 		return x$7 === y$8 && (0 !== x$7 || 1 / x$7 === 1 / y$8) || x$7 !== x$7 && y$8 !== y$8;
 	}
-	var objectIs$1 = "function" === typeof Object.is ? Object.is : is$2, useSyncExternalStore$6 = shim$1.useSyncExternalStore, useRef$23 = React$8.useRef, useEffect$42 = React$8.useEffect, useMemo$19 = React$8.useMemo, useDebugValue$2 = React$8.useDebugValue;
+	var objectIs$1 = "function" === typeof Object.is ? Object.is : is$2, useSyncExternalStore$6 = shim$1.useSyncExternalStore, useRef$23 = React$8.useRef, useEffect$42 = React$8.useEffect, useMemo$22 = React$8.useMemo, useDebugValue$2 = React$8.useDebugValue;
 	exports.useSyncExternalStoreWithSelector = function(subscribe$1, getSnapshot, getServerSnapshot, selector, isEqual$4) {
 		var instRef = useRef$23(null);
 		if (null === instRef.current) {
@@ -22702,7 +22702,7 @@ var require_with_selector_production = /* @__PURE__ */ __commonJSMin(((exports) 
 			};
 			instRef.current = inst;
 		} else inst = instRef.current;
-		instRef = useMemo$19(function() {
+		instRef = useMemo$22(function() {
 			function memoizedSelector(nextSnapshot) {
 				if (!hasMemo) {
 					hasMemo = !0;
@@ -23304,7 +23304,7 @@ function safe(parameters = {}) {
 			if (!provider_) {
 				const { default: SDK } = await (() => {
 					try {
-						return __vitePreload(() => import("./esm-C4l1VnAg.js"), __vite__mapDeps([2,3]));
+						return __vitePreload(() => import("./esm-nxtnwJBb.js"), __vite__mapDeps([2,3]));
 					} catch {
 						throw new Error("dependency \"@safe-global/safe-apps-sdk\" not found");
 					}
@@ -23315,7 +23315,7 @@ function safe(parameters = {}) {
 				provider_ = new (await ((async () => {
 					const Provider$1 = await (() => {
 						try {
-							return __vitePreload(() => import("./dist-BmBASJc4.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
+							return __vitePreload(() => import("./dist-DC17OHtF.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
 						} catch {
 							throw new Error("dependency \"@safe-global/safe-apps-provider\" not found");
 						}
@@ -23480,7 +23480,7 @@ function walletConnect(parameters) {
 				if (!optionalChains.length) return;
 				const { EthereumProvider: EthereumProvider$1 } = await (() => {
 					try {
-						return __vitePreload(() => import("./dist-C7Zqsfhy.js"), __vite__mapDeps([5,6,1]));
+						return __vitePreload(() => import("./dist-BXjgKTHB.js"), __vite__mapDeps([5,6,1]));
 					} catch {
 						throw new Error("dependency \"@walletconnect/ethereum-provider\" not found");
 					}
@@ -84248,14 +84248,14 @@ var AlchemyConfig = class {
 	}
 	getProvider() {
 		if (!this._baseAlchemyProvider) this._baseAlchemyProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-CNTiAMgK.js"), __vite__mapDeps([7,8]));
+			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-CVdcKqkD.js"), __vite__mapDeps([7,8]));
 			return new AlchemyProvider$1(this);
 		}))();
 		return this._baseAlchemyProvider;
 	}
 	getWebSocketProvider() {
 		if (!this._baseAlchemyWssProvider) this._baseAlchemyWssProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-CTK-Ek5k.js"), __vite__mapDeps([9,8]));
+			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-DmMkD-P6.js"), __vite__mapDeps([9,8]));
 			return new AlchemyWebSocketProvider(this);
 		}))();
 		return this._baseAlchemyWssProvider;
@@ -87164,14 +87164,15 @@ var useAccountsSetup = () => {
 		});
 		return sortAccounts(await Promise.all(accountQueries));
 	}, getSwrConfig(5 * MINUTE));
+	const accountsSetup = (0, import_react.useMemo)(() => ({
+		accounts,
+		mutate: mutate$1
+	}), [accounts]);
 	if (accountsError) {
 		console.log("useAccounts error!\n", accountsError);
 		return null;
 	}
-	return {
-		accounts,
-		mutate: mutate$1
-	};
+	return accountsSetup;
 };
 var queryIds = async (userAddress, contracts$1) => {
 	const { MarginAccountManager } = contracts$1.view;
@@ -88673,18 +88674,15 @@ var useAccountSetup = () => {
 			availableToBorrow: calcAvailableToBorrow(value, debt)
 		};
 	}, getSwrConfig(5 * MINUTE));
-	if (isUndefined(accountId)) return {
-		account: {},
+	const accountSetup = (0, import_react.useMemo)(() => ({
+		account,
 		mutate: mutate$1
-	};
+	}), [account]);
 	if (accountError) {
 		console.log("useAccount error!\n", accountError);
 		return null;
 	}
-	return {
-		account,
-		mutate: mutate$1
-	};
+	return accountSetup;
 };
 var useAccount_default = useAccount;
 const PaymentMethods = {
@@ -95121,11 +95119,12 @@ var _useHegicOptions = () => {
 		const optionIds = await MarginAccount.getErc721ByContract(accountId, HegicConstants_default.POSITION_MANAGER).then((ids) => ids.map(BigInt));
 		return (await Promise.all(optionIds.map((id$2) => queryOption(contracts$1, id$2)))).filter(filterSufficient);
 	}, getSwrConfig());
-	if (optionsError) console.log("useHegicOptions error!\n", optionsError);
-	return {
+	const optionsSetup = (0, import_react.useMemo)(() => ({
 		options: options$2,
 		mutate: mutate$1
-	};
+	}), [options$2]);
+	if (optionsError) console.log("useHegicOptions error!\n", optionsError);
+	return optionsSetup;
 };
 var queryOption = async (contracts$1, id$2) => {
 	const { HegicOperationalTreasury } = contracts$1.view;
