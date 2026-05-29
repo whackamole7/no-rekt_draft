@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-Duh41nWI.js","assets/secp256k1-DjgSJqTa.js","assets/esm-nxtnwJBb.js","assets/dist-s0pNFEFK.js","assets/dist-DC17OHtF.js","assets/dist-BXjgKTHB.js","assets/index.es-DPCIWI1G.js","assets/alchemy-provider-2577f5a5-CVdcKqkD.js","assets/alchemy-provider-2577f5a5-ByVW4TH2.js","assets/alchemy-websocket-provider-ee041890-DmMkD-P6.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-DvMzONvT.js","assets/secp256k1-YE8iK_EC.js","assets/esm-gBdtg6AA.js","assets/dist-yuz4m7xr.js","assets/dist-B9mCSxq_.js","assets/dist-BIeH3e1u.js","assets/index.es-BsqWmPnl.js","assets/alchemy-provider-2577f5a5-D5jz1V7J.js","assets/alchemy-provider-2577f5a5-DW2aonge.js","assets/alchemy-websocket-provider-ee041890-C3zGqJxD.js"])))=>i.map(i=>d[i]);
 var __create = Object.create;
 var __defProp$1 = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -16953,7 +16953,7 @@ async function call$2(client, args) {
 	} catch (err) {
 		const data$1 = getRevertErrorData(err);
 		const { offchainLookup, offchainLookupSignature } = await __vitePreload(async () => {
-			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-k0QUevGx.js");
+			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-DwrDzq6N.js");
 			return {
 				offchainLookup: offchainLookup$1,
 				offchainLookupSignature: offchainLookupSignature$1
@@ -17454,7 +17454,7 @@ function publicKeyToAddress(publicKey) {
 async function recoverPublicKey({ hash: hash$3, signature }) {
 	const hashHex = isHex(hash$3) ? hash$3 : toHex$2(hash$3);
 	const { secp256k1: secp256k1$1 } = await __vitePreload(async () => {
-		const { secp256k1: secp256k1$2 } = await import("./secp256k1-Duh41nWI.js");
+		const { secp256k1: secp256k1$2 } = await import("./secp256k1-DvMzONvT.js");
 		return { secp256k1: secp256k1$2 };
 	}, __vite__mapDeps([0,1]));
 	return `0x${(() => {
@@ -23304,7 +23304,7 @@ function safe(parameters = {}) {
 			if (!provider_) {
 				const { default: SDK } = await (() => {
 					try {
-						return __vitePreload(() => import("./esm-nxtnwJBb.js"), __vite__mapDeps([2,3]));
+						return __vitePreload(() => import("./esm-gBdtg6AA.js"), __vite__mapDeps([2,3]));
 					} catch {
 						throw new Error("dependency \"@safe-global/safe-apps-sdk\" not found");
 					}
@@ -23315,7 +23315,7 @@ function safe(parameters = {}) {
 				provider_ = new (await ((async () => {
 					const Provider$1 = await (() => {
 						try {
-							return __vitePreload(() => import("./dist-DC17OHtF.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
+							return __vitePreload(() => import("./dist-B9mCSxq_.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
 						} catch {
 							throw new Error("dependency \"@safe-global/safe-apps-provider\" not found");
 						}
@@ -23480,7 +23480,7 @@ function walletConnect(parameters) {
 				if (!optionalChains.length) return;
 				const { EthereumProvider: EthereumProvider$1 } = await (() => {
 					try {
-						return __vitePreload(() => import("./dist-BXjgKTHB.js"), __vite__mapDeps([5,6,1]));
+						return __vitePreload(() => import("./dist-BIeH3e1u.js"), __vite__mapDeps([5,6,1]));
 					} catch {
 						throw new Error("dependency \"@walletconnect/ethereum-provider\" not found");
 					}
@@ -53938,6 +53938,9 @@ setupDevTools();
 const isSufficient = (value) => {
 	return !isUndefined(value) && value !== null;
 };
+const isEveryUndefined = (...values) => {
+	return values.every(isUndefined);
+};
 const getEnvVariable = (variableName) => {
 	return {
 		"BASE_URL": "/no-rekt_draft",
@@ -84248,14 +84251,14 @@ var AlchemyConfig = class {
 	}
 	getProvider() {
 		if (!this._baseAlchemyProvider) this._baseAlchemyProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-CVdcKqkD.js"), __vite__mapDeps([7,8]));
+			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-D5jz1V7J.js"), __vite__mapDeps([7,8]));
 			return new AlchemyProvider$1(this);
 		}))();
 		return this._baseAlchemyProvider;
 	}
 	getWebSocketProvider() {
 		if (!this._baseAlchemyWssProvider) this._baseAlchemyWssProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-DmMkD-P6.js"), __vite__mapDeps([9,8]));
+			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-C3zGqJxD.js"), __vite__mapDeps([9,8]));
 			return new AlchemyWebSocketProvider(this);
 		}))();
 		return this._baseAlchemyWssProvider;
@@ -87086,12 +87089,13 @@ function calcAvailableToBorrow$1(accountValue, debt) {
 function calcProtectionLevel(options$2, accountBalance) {
 	return divBigInts(sumObjectValues(options$2, "amount"), accountBalance);
 }
-function calcLiqPrice(account, options$2) {
-	const { balance, debt } = account;
+function calcLiqPrice(balance, debt, options$2) {
 	const optionsAmountSum = sumObjectValues(options$2, "amount");
-	const optionsAmountUsdSum = sumObjectValues(options$2, "amountUsd");
-	if (optionsAmountSum > balance) return MaxUint256;
-	return multiplyBigIntByNumber(debt, LIQ_COEF) - divBigInts(optionsAmountUsdSum, balance - optionsAmountSum);
+	const optionsASSum = options$2.reduce((sum$2, opt) => {
+		return sum$2 + multiplyBigInts(opt.strike, opt.amount);
+	}, 0n);
+	if (optionsAmountSum >= balance) return MaxUint256;
+	return divBigInts(multiplyBigIntByNumber(debt, LIQ_COEF) - optionsASSum, balance - optionsAmountSum);
 }
 var Calculator_default = Calculator;
 var Account = {
@@ -88084,7 +88088,7 @@ const formatTokenAmount = (tokenAmount, tokenSymb, displayDecimals = void 0) => 
 	displayDecimals = displayDecimals ?? (isStable ? Decimals.STABLE : Decimals.BASE);
 	return (isStable ? formatStable : formatBase)(tokenAmount, displayDecimals);
 };
-const formatDollarStr = (bigInt, isSigned = false, displayDecimals = Decimals.STABLE) => {
+const formatDollarStr = (bigInt, displayDecimals = Decimals.STABLE, isSigned = false) => {
 	const positiveSign = isSigned ? SentimentSigns.PLUS : "";
 	const sign$1 = bigInt < 0n ? SentimentSigns.MINUS : bigInt > 0n ? positiveSign : "";
 	bigInt = absBigInt(bigInt);
@@ -88333,13 +88337,13 @@ var TokenIcon = ({ symbol, className }) => {
 	});
 };
 var TokenIcon_default = TokenIcon;
-var Muted = ({ children }) => {
+var Muted$1 = ({ children }) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 		className: "Muted",
 		children: children ?? "–"
 	});
 };
-var Muted_default = Muted;
+var Muted_default = Muted$1;
 var import_classnames$26 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var TokenAmount = ({ value, symbol = "USDC", showsUsd = false, type = "inline" }) => {
 	const { isLoading, hasError } = getIsLoadingAndError(value);
@@ -91061,6 +91065,72 @@ var Metrics = ({ isBoxed = true, className, children }) => {
 	});
 };
 var Metrics_default = Metrics;
+var { Strategy_abi: Strategy_abi$1 } = HegicConstants_default;
+var useHegicOptions = () => {
+	const optionsSetup = _useHegicOptions();
+	if (optionsSetup === null) return null;
+	return optionsSetup?.options;
+};
+const useHegicOptionsMutate = () => {
+	const optionsSetup = _useHegicOptions();
+	if (optionsSetup === null) return null;
+	return optionsSetup?.mutate;
+};
+var _useHegicOptions = () => {
+	const { isConnected: isConnected$1 } = useWallet_default();
+	const accountId = useAccountId_default();
+	const contracts$1 = useContracts_default();
+	const { data: options$2, error: optionsError, mutate: mutate$1 } = useSWR(isConnected$1 && contracts$1 && [accountId, "useHegicOptions"], async () => {
+		if (isUndefined(accountId)) return [];
+		const { MarginAccount } = contracts$1.view;
+		const optionIds = await MarginAccount.getErc721ByContract(accountId, HegicConstants_default.POSITION_MANAGER).then((ids) => ids.map(BigInt));
+		return (await Promise.all(optionIds.map((id$2) => queryOption(contracts$1, id$2)))).filter(filterSufficient);
+	}, getSwrConfig());
+	const optionsSetup = (0, import_react.useMemo)(() => ({
+		options: options$2,
+		mutate: mutate$1
+	}), [options$2]);
+	if (optionsError) console.log("useHegicOptions error!\n", optionsError);
+	return optionsSetup;
+};
+var queryOption = async (contracts$1, id$2) => {
+	const { HegicOperationalTreasury } = contracts$1.view;
+	const { state, strategy, expiration: expS, positivepnl: premium1eToken } = await HegicOperationalTreasury.lockedLiquidity(id$2);
+	const premium = bring1eTokenToDefault(premium1eToken, HegicConstants_default.TOKEN);
+	const exp = Number(expS) * MS_IN_SECOND;
+	if (Date.now() > exp || state === 0) return null;
+	const transferTimestamp = await queryTransferTimestamp(contracts$1, id$2);
+	const periodDays = Math.round(daysFromMs(exp - transferTimestamp, false));
+	const Strategy = new Contract(strategy, Strategy_abi$1, getAlchemyProvider());
+	const { amount: amount1eToken, strike: strike1e8 } = await Strategy.strategyData(id$2);
+	return {
+		id: id$2,
+		asset: "ETH",
+		amount: bring1eTokenToDefault(amount1eToken, "ETH"),
+		strike: bringToDefaultDec(strike1e8, 8),
+		exp,
+		periodDays,
+		premium,
+		profit: await swapToUsdc(contracts$1, bring1eTokenToDefault(await Strategy.payOffAmount(id$2), HegicConstants_default.TOKEN), HegicConstants_default.TOKEN)
+	};
+};
+var queryTransferTimestamp = async (contracts$1, optionId) => {
+	const transferEvent = await queryTransferEvent(contracts$1, optionId);
+	return (await getAlchemyProvider().getBlock(transferEvent.blockNumber)).timestamp * MS_IN_SECOND;
+};
+var queryTransferEvent = async (contracts$1, optionId) => {
+	const { HegicPositionManager, MarginAccount } = contracts$1.view;
+	const topics = [
+		id("Transfer(address,address,uint256)"),
+		null,
+		zeroPadValue(MarginAccount.address, 32),
+		zeroPadValue(toBeHex(optionId), 32)
+	];
+	const events = await HegicPositionManager.queryFilter(topics);
+	if (events.length !== 1) throw new Error("Incorrect events length:\n", events);
+	return events[0];
+};
+var useHegicOptions_default = useHegicOptions;
 function getWindowDimensions() {
 	const { innerWidth: width, innerHeight: height } = window;
 	return {
@@ -91084,10 +91154,29 @@ var useIsMobile = (breakpoint = 768) => {
 	return width < breakpoint;
 };
 var useIsMobile_default = useIsMobile;
-var LiqPriceStr = () => {
+var LiqPriceChange = ({ estBalance = void 0, estDebt = void 0, estOption = void 0 }) => {
+	const account = useAccount_default();
+	const options$2 = useHegicOptions_default();
+	const { isLoading, hasError } = getIsLoadingAndErrorForMultiple([account, options$2]);
+	if (isLoading) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Spinner_default, {});
+	if (hasError) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted, { children: "Error" });
+	const { balance, debt } = account;
+	const estOptions = estOption ? [...options$2, estOption] : void 0;
+	const liqPrice = Calculator_default.calcLiqPrice(balance, debt, options$2);
+	const estLiqPrice = isEveryUndefined(estBalance, estDebt, estOption) ? null : Calculator_default.calcLiqPrice(estBalance ?? balance, estDebt ?? debt, estOptions ?? options$2);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: "LiqPriceChange",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ValueChange_default, {
+			curValue: formatDollarStr(liqPrice, 0),
+			estValue: estLiqPrice ? estLiqPrice === MaxUint256 ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(EternitySvg_default, {}) : formatDollarStr(estLiqPrice, 0) : null
+		})
+	});
+};
+var Title = () => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [useIsMobile_default(480) ? "Liq." : "Liquidation", " Price Change"] });
 };
-var LiqPriceStr_default = LiqPriceStr;
+LiqPriceChange.Title = Title;
+var LiqPriceChange_default = LiqPriceChange;
 var SupplyModal = ({ isOpen, setIsOpen }) => {
 	const account = useAccount_default();
 	const [supplyAmount, setSupplyAmount] = (0, import_react.useState)(void 0);
@@ -91169,10 +91258,10 @@ var SupplyModal = ({ isOpen, setIsOpen }) => {
 					className: "Metrics__row",
 					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 						className: "Metrics__row-title",
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceStr_default, {})
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceChange_default.Title, {})
 					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 						className: "Metrics__row-value",
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, {})
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceChange_default, { estBalance: account && supplyAmount ? account.balance + supplyAmount : void 0 })
 					})]
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
@@ -91294,10 +91383,10 @@ var WithdrawModal = ({ isOpen, setIsOpen }) => {
 					className: "Metrics__row",
 					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 						className: "Metrics__row-title",
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceStr_default, {})
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceChange_default.Title, {})
 					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 						className: "Metrics__row-value",
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, {})
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceChange_default, { estBalance: account && withdrawAmount ? account.balance - withdrawAmount : void 0 })
 					})]
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
@@ -91586,10 +91675,10 @@ var InputStep = ({ borrowAmount, setBorrowAmount, goForth }) => {
 				className: "Metrics__row",
 				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 					className: "Metrics__row-title",
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceStr_default, {})
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceChange_default.Title, {})
 				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 					className: "Metrics__row-value",
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, {})
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceChange_default, { estDebt: account && borrowAmount ? account.debt + borrowAmount : void 0 })
 				})]
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
@@ -94996,7 +95085,7 @@ function intervalToDuration(interval, options$2) {
 	if (seconds$2) duration.seconds = seconds$2;
 	return duration;
 }
-var { Strategy_abi: Strategy_abi$1, PriceCalculator_abi } = HegicConstants_default;
+var { Strategy_abi, PriceCalculator_abi } = HegicConstants_default;
 var useHegicStrike = (period) => {
 	const contracts$1 = useContracts_default();
 	const assetPrice = useTokenPrice("ETH");
@@ -95020,7 +95109,7 @@ var queryStrike = async (contracts$1, assetPrice, period) => {
 	};
 };
 var queryLiquidity = async (period) => {
-	const Strategy = new Contract(HegicUtils_default.getStrategy(period), Strategy_abi$1, getAlchemyProvider());
+	const Strategy = new Contract(HegicUtils_default.getStrategy(period), Strategy_abi, getAlchemyProvider());
 	const periodS = period / MS_IN_SECOND;
 	return bring1eTokenToDefault(await Strategy.getAvailableContracts(periodS, []).catch(() => 0n), "ETH");
 };
@@ -95098,72 +95187,6 @@ var timeFormat$2 = new Intl.DateTimeFormat("en-GB", {
 	timeZone: "UTC"
 });
 const utc = (value) => new UTCDate(+new Date(value));
-var { Strategy_abi } = HegicConstants_default;
-var useHegicOptions = () => {
-	const optionsSetup = _useHegicOptions();
-	if (optionsSetup === null) return null;
-	return optionsSetup?.options;
-};
-const useHegicOptionsMutate = () => {
-	const optionsSetup = _useHegicOptions();
-	if (optionsSetup === null) return null;
-	return optionsSetup?.mutate;
-};
-var _useHegicOptions = () => {
-	const { isConnected: isConnected$1 } = useWallet_default();
-	const accountId = useAccountId_default();
-	const contracts$1 = useContracts_default();
-	const { data: options$2, error: optionsError, mutate: mutate$1 } = useSWR(isConnected$1 && contracts$1 && [accountId, "useHegicOptions"], async () => {
-		if (isUndefined(accountId)) return [];
-		const { MarginAccount } = contracts$1.view;
-		const optionIds = await MarginAccount.getErc721ByContract(accountId, HegicConstants_default.POSITION_MANAGER).then((ids) => ids.map(BigInt));
-		return (await Promise.all(optionIds.map((id$2) => queryOption(contracts$1, id$2)))).filter(filterSufficient);
-	}, getSwrConfig());
-	const optionsSetup = (0, import_react.useMemo)(() => ({
-		options: options$2,
-		mutate: mutate$1
-	}), [options$2]);
-	if (optionsError) console.log("useHegicOptions error!\n", optionsError);
-	return optionsSetup;
-};
-var queryOption = async (contracts$1, id$2) => {
-	const { HegicOperationalTreasury } = contracts$1.view;
-	const { state, strategy, expiration: expS, positivepnl: premium1eToken } = await HegicOperationalTreasury.lockedLiquidity(id$2);
-	const premium = bring1eTokenToDefault(premium1eToken, HegicConstants_default.TOKEN);
-	const exp = Number(expS) * MS_IN_SECOND;
-	if (Date.now() > exp || state === 0) return null;
-	const transferTimestamp = await queryTransferTimestamp(contracts$1, id$2);
-	const periodDays = Math.round(daysFromMs(exp - transferTimestamp, false));
-	const Strategy = new Contract(strategy, Strategy_abi, getAlchemyProvider());
-	const { amount: amount1eToken, strike: strike1e8 } = await Strategy.strategyData(id$2);
-	return {
-		id: id$2,
-		asset: "ETH",
-		amount: bring1eTokenToDefault(amount1eToken, "ETH"),
-		strike: bringToDefaultDec(strike1e8, 8),
-		exp,
-		periodDays,
-		premium,
-		profit: await swapToUsdc(contracts$1, bring1eTokenToDefault(await Strategy.payOffAmount(id$2), HegicConstants_default.TOKEN), HegicConstants_default.TOKEN)
-	};
-};
-var queryTransferTimestamp = async (contracts$1, optionId) => {
-	const transferEvent = await queryTransferEvent(contracts$1, optionId);
-	return (await getAlchemyProvider().getBlock(transferEvent.blockNumber)).timestamp * MS_IN_SECOND;
-};
-var queryTransferEvent = async (contracts$1, optionId) => {
-	const { HegicPositionManager, MarginAccount } = contracts$1.view;
-	const topics = [
-		id("Transfer(address,address,uint256)"),
-		null,
-		zeroPadValue(MarginAccount.address, 32),
-		zeroPadValue(toBeHex(optionId), 32)
-	];
-	const events = await HegicPositionManager.queryFilter(topics);
-	if (events.length !== 1) throw new Error("Incorrect events length:\n", events);
-	return events[0];
-};
-var useHegicOptions_default = useHegicOptions;
 var import_classnames$9 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var Types = {
 	OPTION: "option",
@@ -95586,10 +95609,10 @@ var ModalMetrics = ({ cost, paymentMethod, estLtv, setEstLtv }) => {
 			className: "Metrics__row",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 				className: "Metrics__row-title",
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceStr_default, {})
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceChange_default.Title, {})
 			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 				className: "Metrics__row-value",
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, {})
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceChange_default, {})
 			})]
 		}),
 		isCollateral && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
@@ -95724,10 +95747,10 @@ var ClaimModal = ({ isOpen, setIsOpen, position: position$1, setPosition }) => {
 						className: "Metrics__row",
 						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 							className: "Metrics__row-title",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceStr_default, {})
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceChange_default.Title, {})
 						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 							className: "Metrics__row-value",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, {})
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceChange_default, {})
 						})]
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
@@ -96923,9 +96946,9 @@ var jsx = function jsx$4(type, props) {
 	for (var i$12 = 2; i$12 < argsLength; i$12++) createElementArgArray[i$12] = args[i$12];
 	return import_react.createElement.apply(null, createElementArgArray);
 };
-(function(_jsx$68) {
+(function(_jsx$69) {
 	var JSX;
-	(function(_JSX) {})(JSX || (JSX = _jsx$68.JSX || (_jsx$68.JSX = {})));
+	(function(_JSX) {})(JSX || (JSX = _jsx$69.JSX || (_jsx$69.JSX = {})));
 })(jsx || (jsx = {}));
 function css$2() {
 	for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) args[_key] = arguments[_key];
@@ -100841,7 +100864,7 @@ var Content$2 = ({ account }) => {
 					children: "Liquidation Price"
 				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 					className: "ProtectionLevel__liq-value",
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, {})
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceChange_default, {})
 				})]
 			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 				className: "ProtectionLevel__button",
@@ -116204,10 +116227,10 @@ var Chart = () => {
 			},
 			markers: [{
 				axis: "y",
-				legend: formatDollarStr(assetPrice, false, 0),
+				legend: formatDollarStr(assetPrice, 0),
 				value: Number(stringFromBigInt(assetPrice)),
 				lineStyle: {
-					stroke: "#4d476c",
+					stroke: "#454061",
 					strokeDasharray: "6 6"
 				},
 				textStyle: {
