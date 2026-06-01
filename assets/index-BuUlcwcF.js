@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-BqUQRqtD.js","assets/secp256k1-Bbgpomeu.js","assets/esm-OyKP_XKB.js","assets/dist-BOaKNEgu.js","assets/dist-C_Pa1o8q.js","assets/dist-DFGkmJjO.js","assets/index.es-fTw4VkxK.js","assets/alchemy-provider-2577f5a5-CZW12XNQ.js","assets/alchemy-provider-2577f5a5-BB6-f0Bm.js","assets/alchemy-websocket-provider-ee041890-Cvczz1YM.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-CVQ5gU9f.js","assets/secp256k1-BeAd_o9W.js","assets/esm-CDs8xBh4.js","assets/dist-D2gYFmI-.js","assets/dist-Yzcjpcxu.js","assets/dist-BPrs3-e4.js","assets/index.es-AIZPgdsk.js","assets/alchemy-provider-2577f5a5-DjsbVo6i.js","assets/alchemy-provider-2577f5a5-DKRyyyZz.js","assets/alchemy-websocket-provider-ee041890-b1wLSxTj.js"])))=>i.map(i=>d[i]);
 var __create = Object.create;
 var __defProp$1 = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -16953,7 +16953,7 @@ async function call$2(client, args) {
 	} catch (err) {
 		const data$1 = getRevertErrorData(err);
 		const { offchainLookup, offchainLookupSignature } = await __vitePreload(async () => {
-			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-B00xEEUX.js");
+			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-uVVpUJXC.js");
 			return {
 				offchainLookup: offchainLookup$1,
 				offchainLookupSignature: offchainLookupSignature$1
@@ -17454,7 +17454,7 @@ function publicKeyToAddress(publicKey) {
 async function recoverPublicKey({ hash: hash$3, signature }) {
 	const hashHex = isHex(hash$3) ? hash$3 : toHex$2(hash$3);
 	const { secp256k1: secp256k1$1 } = await __vitePreload(async () => {
-		const { secp256k1: secp256k1$2 } = await import("./secp256k1-BqUQRqtD.js");
+		const { secp256k1: secp256k1$2 } = await import("./secp256k1-CVQ5gU9f.js");
 		return { secp256k1: secp256k1$2 };
 	}, __vite__mapDeps([0,1]));
 	return `0x${(() => {
@@ -23304,7 +23304,7 @@ function safe(parameters = {}) {
 			if (!provider_) {
 				const { default: SDK } = await (() => {
 					try {
-						return __vitePreload(() => import("./esm-OyKP_XKB.js"), __vite__mapDeps([2,3]));
+						return __vitePreload(() => import("./esm-CDs8xBh4.js"), __vite__mapDeps([2,3]));
 					} catch {
 						throw new Error("dependency \"@safe-global/safe-apps-sdk\" not found");
 					}
@@ -23315,7 +23315,7 @@ function safe(parameters = {}) {
 				provider_ = new (await ((async () => {
 					const Provider$1 = await (() => {
 						try {
-							return __vitePreload(() => import("./dist-C_Pa1o8q.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
+							return __vitePreload(() => import("./dist-Yzcjpcxu.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
 						} catch {
 							throw new Error("dependency \"@safe-global/safe-apps-provider\" not found");
 						}
@@ -23480,7 +23480,7 @@ function walletConnect(parameters) {
 				if (!optionalChains.length) return;
 				const { EthereumProvider: EthereumProvider$1 } = await (() => {
 					try {
-						return __vitePreload(() => import("./dist-DFGkmJjO.js"), __vite__mapDeps([5,6,1]));
+						return __vitePreload(() => import("./dist-BPrs3-e4.js"), __vite__mapDeps([5,6,1]));
 					} catch {
 						throw new Error("dependency \"@walletconnect/ethereum-provider\" not found");
 					}
@@ -84251,14 +84251,14 @@ var AlchemyConfig = class {
 	}
 	getProvider() {
 		if (!this._baseAlchemyProvider) this._baseAlchemyProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-CZW12XNQ.js"), __vite__mapDeps([7,8]));
+			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-DjsbVo6i.js"), __vite__mapDeps([7,8]));
 			return new AlchemyProvider$1(this);
 		}))();
 		return this._baseAlchemyProvider;
 	}
 	getWebSocketProvider() {
 		if (!this._baseAlchemyWssProvider) this._baseAlchemyWssProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-Cvczz1YM.js"), __vite__mapDeps([9,8]));
+			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-b1wLSxTj.js"), __vite__mapDeps([9,8]));
 			return new AlchemyWebSocketProvider(this);
 		}))();
 		return this._baseAlchemyWssProvider;
@@ -87012,9 +87012,6 @@ const reduceBigIntDec = (bigInt, reduceDecimals) => {
 const floorNumber = (num, decimals = 0) => {
 	return Math.floor(num * 10 ** decimals) / 10 ** decimals;
 };
-const roundNumber = (num, decimals = 0) => {
-	return Math.round(num * 10 ** decimals) / 10 ** decimals;
-};
 const bigIntFromString = (str) => {
 	str = String(str);
 	if (str.includes("e")) str = convertExponentToStr(str);
@@ -87046,14 +87043,14 @@ const absBigInt = (bigInt) => {
 const floorBigInt = (bigInt, floorDecimals = 0) => {
 	return bigIntFromString(floorNumber(Number(stringFromBigInt(bigInt)), floorDecimals));
 };
-const roundBigInt = (bigInt, roundDecimals = 0) => {
-	return bigIntFromString(roundNumber(Number(stringFromBigInt(bigInt)), roundDecimals));
-};
 const getBigIntWithSlippage = (bigInt, slippage = SLIPPAGE) => {
 	return multiplyBigInts(bigInt, bigIntFromString(1) + slippage);
 };
 const minBigInt = (...values) => {
 	return values.reduce((a$6, b$10) => a$6 < b$10 ? a$6 : b$10);
+};
+const maxBigInt = (...values) => {
+	return values.reduce((a$6, b$10) => a$6 > b$10 ? a$6 : b$10);
 };
 var convertExponentToStr = (expStr) => {
 	let str = String(expStr);
@@ -88092,7 +88089,7 @@ const formatDollarStr = (bigInt, displayDecimals = Decimals.STABLE, isSigned = f
 	const positiveSign = isSigned ? SentimentSigns.PLUS : "";
 	const sign$1 = bigInt < 0n ? SentimentSigns.MINUS : bigInt > 0n ? positiveSign : "";
 	bigInt = absBigInt(bigInt);
-	bigInt = roundBigInt(bigInt, displayDecimals);
+	bigInt = floorBigInt(bigInt, displayDecimals);
 	let result = stringFromBigInt(bigInt);
 	result = padDecimals(result, displayDecimals);
 	result = `${sign$1}$${separateThousands(result)}`;
@@ -110253,10 +110250,11 @@ var LtvChart = ({ options: options$2 = void 0 }) => {
 	const isMobile$1 = useIsMobile_default(1200);
 	if (!assetPrice) return null;
 	if (!account?.debt) return null;
+	const data = getChartData(account, options$2, assetPrice);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 		className: "LtvChart box",
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Me, {
-			data: getChartData(account, options$2),
+			data,
 			enableGridX: false,
 			enableGridY: false,
 			margin: {
@@ -110296,19 +110294,7 @@ var LtvChart = ({ options: options$2 = void 0 }) => {
 				format: formatAssetPrice,
 				tickRotation: isMobile$1 ? -30 : 0
 			},
-			markers: [{
-				axis: "y",
-				legend: formatDollarStr(assetPrice, 0),
-				value: Number(stringFromBigInt(assetPrice)),
-				lineStyle: {
-					stroke: "#454061",
-					strokeDasharray: "6 6"
-				},
-				textStyle: {
-					fontSize: 12,
-					fill: Colors.DGRAY
-				}
-			}],
+			markers: getMarkers(data, assetPrice),
 			tooltip: _Tooltip,
 			pointSymbol: _Point,
 			colors: [
@@ -110356,7 +110342,7 @@ var _Tooltip = ({ point: point$5 }) => {
 			className: "LtvChart__tooltip-line",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "LtV:" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 				style: { color: point$5.seriesColor },
-				children: point$5.data.xFormatted
+				children: floorNumber(point$5.data.x, 3)
 			})]
 		})]
 	});
@@ -110369,13 +110355,13 @@ var _Point = ({ datum, color: color$2 }) => {
 		fill: color$2
 	});
 };
-var formatAssetPrice = (value) => formatDollarStr(bigIntFromString(value));
-var getChartData = (account, options$2) => {
+var formatAssetPrice = (value) => formatDollarStr(bigIntFromString(value), 0);
+var getChartData = (account, options$2, curAssetPrice) => {
 	if (!account || !options$2) return [];
+	const delta = bigIntFromString(1e3);
+	const step = bigIntFromString(5);
+	const [minPrice, maxPrice] = [curAssetPrice - delta, curAssetPrice + delta];
 	const { ltv: curLtv, ltvCoeffs } = account;
-	const delta = bigIntFromString(1);
-	const [minLtv, maxLtv] = [bigIntFromString(.9), floorBigInt(curLtv + delta, 2)];
-	const step = bigIntFromString(.01);
 	const data = [
 		{
 			id: "red",
@@ -110390,13 +110376,15 @@ var getChartData = (account, options$2) => {
 			data: []
 		}
 	];
-	for (let ltv = minLtv; ltv <= maxLtv; ltv += step) {
-		const assetPrice = calcAssetPrice(account, ltv, options$2);
+	for (let price = minPrice; price <= maxPrice; price += step) {
+		const ltv = calcLtv(account, price, options$2);
 		const point$5 = {
-			x: roundNumber(stringFromBigInt(ltv), 2),
-			y: floorNumber(stringFromBigInt(assetPrice))
+			x: stringFromBigInt(ltv),
+			y: stringFromBigInt(price),
+			ltv,
+			price
 		};
-		if (ltv === floorBigInt(curLtv, 2)) point$5.isCurrent = true;
+		if (floorBigInt(ltv, 2) === floorBigInt(curLtv, 2) && floorBigInt(price, 2) === floorBigInt(curAssetPrice, 2)) point$5.isCurrent = true;
 		if (ltv <= ltvCoeffs.red) {
 			data[0].data.push(point$5);
 			if (ltv === ltvCoeffs.red) data[1].data.push(point$5);
@@ -110407,20 +110395,49 @@ var getChartData = (account, options$2) => {
 	}
 	return data;
 };
-var calcAssetPrice = (account, ltv, options$2) => {
+var calcLtv = (account, assetPrice, options$2) => {
 	const { balance, debt } = account;
-	const calls = options$2.filter((opt) => opt.isCall);
-	const puts = options$2.filter((opt) => !opt.isCall);
-	const [amountSumCalls, amountSumPuts] = [sumObjectValues(calls, "amount"), sumObjectValues(puts, "amount")];
-	const ASSumCalls = calls.reduce((sum$2, opt) => {
-		return sum$2 + multiplyBigInts(opt.amount, opt.strike);
+	const payoffSum = options$2.reduce((sum$2, opt) => {
+		const { strike, amount, isCall } = opt;
+		return sum$2 + maxBigInt(multiplyBigInts(isCall ? assetPrice - strike : strike - assetPrice, amount), 0n);
 	}, 0n);
-	const ASSumPuts = puts.reduce((sum$2, opt) => {
-		return sum$2 + multiplyBigInts(opt.amount, opt.strike);
-	}, 0n);
-	const LD = multiplyBigInts(ltv, debt);
-	if (balance + amountSumCalls - amountSumPuts <= 0n) return 0n;
-	return divBigInts(LD + ASSumCalls - ASSumPuts, balance + amountSumCalls - amountSumPuts);
+	return divBigInts(multiplyBigInts(balance, assetPrice) + payoffSum, debt);
+};
+var getMarkers = (chartData, assetPrice) => {
+	const markers = [{
+		axis: "y",
+		legend: formatDollarStr(assetPrice, 0),
+		value: Number(stringFromBigInt(assetPrice)),
+		lineStyle: {
+			stroke: "#454061",
+			strokeDasharray: "6 6"
+		},
+		textStyle: {
+			fontSize: 12,
+			fill: Colors.DGRAY
+		}
+	}];
+	const { data: redPoints } = chartData.find((data) => data.id === "red");
+	const redBreakpoint = getLast(redPoints);
+	if (redBreakpoint) {
+		const liqPriceMarker = {
+			axis: "y",
+			legend: `Liq.Price: ${formatAssetPrice(redBreakpoint.y)}`,
+			value: redBreakpoint.y,
+			lineStyle: {
+				stroke: Colors.RED,
+				opacity: .5,
+				strokeDasharray: "6 6"
+			},
+			textStyle: {
+				fontSize: 12,
+				fill: Colors.RED,
+				opacity: .7
+			}
+		};
+		markers.push(liqPriceMarker);
+	}
+	return markers;
 };
 var LtvChart_default = LtvChart;
 var import_classnames$9 = /* @__PURE__ */ __toESM(require_classnames(), 1);
