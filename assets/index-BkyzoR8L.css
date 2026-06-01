@@ -1418,14 +1418,28 @@
 .ProtectionModal__review-terms-title {
   margin-bottom: 15px;
 }
-.ProtectionModal__graph {
+.ProtectionModal__chart {
+  position: relative;
+  height: 350px;
   grid-column: 1/2;
   grid-row: 2/3;
-  height: 350px;
   background-color: #130B3A;
   border: 1px solid rgba(172, 169, 187, 0.08);
   border-radius: 20px;
-  padding: 10px;
+  padding: 0;
+}
+.ProtectionModal__chart .LtvChart {
+  height: 100%;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+}
+.ProtectionModal__chart .Muted {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 .ProtectionModal__body {
   grid-column: 2/3;
@@ -1505,9 +1519,6 @@
   .ProtectionModal__review {
     max-width: none;
   }
-  .ProtectionModal__graph {
-    height: 150px;
-  }
 }
 @media (max-width: 500px) {
   .ProtectionModal {
@@ -1516,9 +1527,12 @@
   .ProtectionModal__buy {
     row-gap: 15px;
   }
-  .ProtectionModal__graph {
-    height: 115px;
+  .ProtectionModal__chart {
+    height: 285px;
     margin-bottom: 5px;
+  }
+  .ProtectionModal__chart .LtvChart {
+    display: block;
   }
   .ProtectionModal__body {
     row-gap: 15px;
@@ -1527,6 +1541,37 @@
     display: flex;
     flex-direction: column;
     row-gap: 15px;
+  }
+}.LtvChart {
+  height: 435px;
+  grid-column: 1/13;
+  color: #9A94B8;
+  background-color: #1D1446;
+  overflow: hidden;
+  padding: 0;
+}
+.LtvChart__point._current {
+  width: 15px;
+  height: 15px;
+}
+.LtvChart__tooltip {
+  width: max-content;
+  color: #ffffff;
+  background-color: #130B3A;
+  border-radius: 8px;
+  padding: 7px 10px;
+}
+.LtvChart__tooltip-line {
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+}
+.LtvChart__tooltip-line span:first-child {
+  color: #9A94B8;
+}
+@media (max-width: 480px) {
+  .LtvChart {
+    display: none;
   }
 }.ClaimModal .Metrics ._info-value {
   display: flex;
@@ -2153,37 +2198,6 @@
 @media (max-width: 400px) {
   .Protections__no-protections {
     width: 100%;
-  }
-}.Chart {
-  height: 435px;
-  grid-column: 1/13;
-  color: #9A94B8;
-  background-color: #1D1446;
-  overflow: hidden;
-  padding: 0;
-}
-.Chart__point._current {
-  width: 15px;
-  height: 15px;
-}
-.Chart__tooltip {
-  width: max-content;
-  color: #ffffff;
-  background-color: #130B3A;
-  border-radius: 8px;
-  padding: 7px 10px;
-}
-.Chart__tooltip-line {
-  display: flex;
-  align-items: center;
-  column-gap: 5px;
-}
-.Chart__tooltip-line span:first-child {
-  color: #9A94B8;
-}
-@media (max-width: 480px) {
-  .Chart {
-    display: none;
   }
 }.Header {
   position: relative;
