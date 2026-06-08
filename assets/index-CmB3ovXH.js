@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-CVQ5gU9f.js","assets/secp256k1-BeAd_o9W.js","assets/esm-CDs8xBh4.js","assets/dist-D2gYFmI-.js","assets/dist-Yzcjpcxu.js","assets/dist-BPrs3-e4.js","assets/index.es-AIZPgdsk.js","assets/alchemy-provider-2577f5a5-DjsbVo6i.js","assets/alchemy-provider-2577f5a5-DKRyyyZz.js","assets/alchemy-websocket-provider-ee041890-b1wLSxTj.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-pXbt07ls.js","assets/secp256k1-DvPaOXni.js","assets/esm-B3E_TSfI.js","assets/dist-CHKf8KaV.js","assets/dist-DzSNj1Ci.js","assets/dist-DNfUHeQ5.js","assets/index.es-Bfhb0MRH.js","assets/alchemy-provider-2577f5a5-CEAFmGFj.js","assets/alchemy-provider-2577f5a5-BxoLsw5G.js","assets/alchemy-websocket-provider-ee041890-DycBBaBr.js"])))=>i.map(i=>d[i]);
 var __create = Object.create;
 var __defProp$1 = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -16953,7 +16953,7 @@ async function call$2(client, args) {
 	} catch (err) {
 		const data$1 = getRevertErrorData(err);
 		const { offchainLookup, offchainLookupSignature } = await __vitePreload(async () => {
-			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-uVVpUJXC.js");
+			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-WWrmQ595.js");
 			return {
 				offchainLookup: offchainLookup$1,
 				offchainLookupSignature: offchainLookupSignature$1
@@ -17454,7 +17454,7 @@ function publicKeyToAddress(publicKey) {
 async function recoverPublicKey({ hash: hash$3, signature }) {
 	const hashHex = isHex(hash$3) ? hash$3 : toHex$2(hash$3);
 	const { secp256k1: secp256k1$1 } = await __vitePreload(async () => {
-		const { secp256k1: secp256k1$2 } = await import("./secp256k1-CVQ5gU9f.js");
+		const { secp256k1: secp256k1$2 } = await import("./secp256k1-pXbt07ls.js");
 		return { secp256k1: secp256k1$2 };
 	}, __vite__mapDeps([0,1]));
 	return `0x${(() => {
@@ -23304,7 +23304,7 @@ function safe(parameters = {}) {
 			if (!provider_) {
 				const { default: SDK } = await (() => {
 					try {
-						return __vitePreload(() => import("./esm-CDs8xBh4.js"), __vite__mapDeps([2,3]));
+						return __vitePreload(() => import("./esm-B3E_TSfI.js"), __vite__mapDeps([2,3]));
 					} catch {
 						throw new Error("dependency \"@safe-global/safe-apps-sdk\" not found");
 					}
@@ -23315,7 +23315,7 @@ function safe(parameters = {}) {
 				provider_ = new (await ((async () => {
 					const Provider$1 = await (() => {
 						try {
-							return __vitePreload(() => import("./dist-Yzcjpcxu.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
+							return __vitePreload(() => import("./dist-DzSNj1Ci.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
 						} catch {
 							throw new Error("dependency \"@safe-global/safe-apps-provider\" not found");
 						}
@@ -23480,7 +23480,7 @@ function walletConnect(parameters) {
 				if (!optionalChains.length) return;
 				const { EthereumProvider: EthereumProvider$1 } = await (() => {
 					try {
-						return __vitePreload(() => import("./dist-BPrs3-e4.js"), __vite__mapDeps([5,6,1]));
+						return __vitePreload(() => import("./dist-DNfUHeQ5.js"), __vite__mapDeps([5,6,1]));
 					} catch {
 						throw new Error("dependency \"@walletconnect/ethereum-provider\" not found");
 					}
@@ -84251,14 +84251,14 @@ var AlchemyConfig = class {
 	}
 	getProvider() {
 		if (!this._baseAlchemyProvider) this._baseAlchemyProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-DjsbVo6i.js"), __vite__mapDeps([7,8]));
+			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-CEAFmGFj.js"), __vite__mapDeps([7,8]));
 			return new AlchemyProvider$1(this);
 		}))();
 		return this._baseAlchemyProvider;
 	}
 	getWebSocketProvider() {
 		if (!this._baseAlchemyWssProvider) this._baseAlchemyWssProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-b1wLSxTj.js"), __vite__mapDeps([9,8]));
+			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-DycBBaBr.js"), __vite__mapDeps([9,8]));
 			return new AlchemyWebSocketProvider(this);
 		}))();
 		return this._baseAlchemyWssProvider;
@@ -110245,12 +110245,14 @@ var ye = (0, import_react.forwardRef)((function(e$12, o$7) {
 }));
 var LtvChart = ({ options: options$2 = void 0 }) => {
 	const account = useAccount_default();
-	options$2 = options$2 ?? useHegicOptions_default();
+	const curOptions = useHegicOptions_default();
 	const assetPrice = useTokenPrice("ETH");
 	const isMobile$1 = useIsMobile_default(1200);
 	if (!assetPrice) return null;
 	if (!account?.debt) return null;
-	const data = getChartData(account, options$2, assetPrice);
+	const curLine = getLineData(0, account, curOptions, assetPrice);
+	const newLine = getLineData(1, account, options$2, assetPrice, curLine);
+	const data = [...curLine, ...newLine];
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 		className: "LtvChart box",
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Me, {
@@ -110294,7 +110296,7 @@ var LtvChart = ({ options: options$2 = void 0 }) => {
 				format: formatAssetPrice,
 				tickRotation: isMobile$1 ? -30 : 0
 			},
-			markers: getMarkers(data, assetPrice),
+			markers: getMarkers(data, assetPrice, Boolean(newLine.length)),
 			tooltip: _Tooltip,
 			pointSymbol: _Point,
 			colors: [
@@ -110356,7 +110358,7 @@ var _Point = ({ datum, color: color$2 }) => {
 	});
 };
 var formatAssetPrice = (value) => formatDollarStr(bigIntFromString(value), 0);
-var getChartData = (account, options$2, curAssetPrice) => {
+var getLineData = (idNumber, account, options$2, curAssetPrice, curLineData = void 0) => {
 	if (!account || !options$2) return [];
 	const delta = bigIntFromString(1e3);
 	const step = bigIntFromString(5);
@@ -110364,18 +110366,25 @@ var getChartData = (account, options$2, curAssetPrice) => {
 	const { ltv: curLtv, ltvCoeffs } = account;
 	const data = [
 		{
-			id: "red",
+			id: `red_${idNumber}`,
 			data: []
 		},
 		{
-			id: "yellow",
+			id: `yellow_${idNumber}`,
 			data: []
 		},
 		{
-			id: "green",
+			id: `green_${idNumber}`,
 			data: []
 		}
 	];
+	const curLineDataMatrix = {};
+	if (curLineData) curLineData.forEach((part) => {
+		const { data: data$1 } = part;
+		data$1.forEach((point$5) => {
+			curLineDataMatrix[point$5.y] = point$5.x;
+		});
+	});
 	for (let price = minPrice; price <= maxPrice; price += step) {
 		const ltv = calcLtv(account, price, options$2);
 		const point$5 = {
@@ -110384,15 +110393,14 @@ var getChartData = (account, options$2, curAssetPrice) => {
 			ltv,
 			price
 		};
+		if (curLineDataMatrix[point$5.y] === point$5.x) continue;
 		if (floorBigInt(ltv, 2) === floorBigInt(curLtv, 2) && floorBigInt(price, 2) === floorBigInt(curAssetPrice, 2)) point$5.isCurrent = true;
-		if (ltv <= ltvCoeffs.red) {
-			data[0].data.push(point$5);
-			if (ltv === ltvCoeffs.red) data[1].data.push(point$5);
-		} else if (ltv <= ltvCoeffs.yellow) {
-			data[1].data.push(point$5);
-			if (ltv === ltvCoeffs.yellow) data[2].data.push(point$5);
-		} else data[2].data.push(point$5);
+		if (ltv <= ltvCoeffs.red) data[0].data.push(point$5);
+		else if (ltv <= ltvCoeffs.yellow) data[1].data.push(point$5);
+		else data[2].data.push(point$5);
 	}
+	if (data[0].data.length) data[1].data = [getLast(data[0].data), ...data[1].data];
+	if (data[1].data.length) data[2].data = [getLast(data[1].data), ...data[2].data];
 	return data;
 };
 var calcLtv = (account, assetPrice, options$2) => {
@@ -110403,7 +110411,7 @@ var calcLtv = (account, assetPrice, options$2) => {
 	}, 0n);
 	return divBigInts(multiplyBigInts(balance, assetPrice) + payoffSum, debt);
 };
-var getMarkers = (chartData, assetPrice) => {
+var getMarkers = (chartData, assetPrice, hasMultipleLines = false) => {
 	const markers = [{
 		axis: "y",
 		legend: formatDollarStr(assetPrice, 0),
@@ -110417,26 +110425,31 @@ var getMarkers = (chartData, assetPrice) => {
 			fill: Colors.DGRAY
 		}
 	}];
-	const { data: redPoints } = chartData.find((data) => data.id === "red");
-	const redBreakpoint = getLast(redPoints);
-	if (redBreakpoint) {
-		const liqPriceMarker = {
-			axis: "y",
-			legend: `Liq.Price: ${formatAssetPrice(redBreakpoint.y)}`,
-			value: redBreakpoint.y,
-			lineStyle: {
-				stroke: Colors.RED,
-				opacity: .5,
-				strokeDasharray: "6 6"
-			},
-			textStyle: {
-				fontSize: 12,
-				fill: Colors.RED,
-				opacity: .7
-			}
-		};
-		markers.push(liqPriceMarker);
-	}
+	chartData.filter((data) => data.id.startsWith("red")).forEach((redZoneData) => {
+		const { data: redPoints, id: id$2 } = redZoneData;
+		const redBreakpoint = getLast(redPoints);
+		const isCurrent = id$2.endsWith("0");
+		const label = isCurrent ? `${hasMultipleLines ? "Cur. " : ""}Liq.Price` : "Est. Liq.Price";
+		if (redBreakpoint) {
+			const liqPriceMarker = {
+				axis: "y",
+				legend: `${label}: ${formatAssetPrice(redBreakpoint.y)}`,
+				legendPosition: isCurrent ? "top-right" : "bottom-right",
+				value: redBreakpoint.y,
+				lineStyle: {
+					stroke: Colors.RED,
+					opacity: .5,
+					strokeDasharray: "6 6"
+				},
+				textStyle: {
+					fontSize: 12,
+					fill: Colors.RED,
+					opacity: .7
+				}
+			};
+			markers.push(liqPriceMarker);
+		}
+	});
 	return markers;
 };
 var LtvChart_default = LtvChart;
