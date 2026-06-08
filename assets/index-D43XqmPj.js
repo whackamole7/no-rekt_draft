@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-pXbt07ls.js","assets/secp256k1-DvPaOXni.js","assets/esm-B3E_TSfI.js","assets/dist-CHKf8KaV.js","assets/dist-DzSNj1Ci.js","assets/dist-DNfUHeQ5.js","assets/index.es-Bfhb0MRH.js","assets/alchemy-provider-2577f5a5-CEAFmGFj.js","assets/alchemy-provider-2577f5a5-BxoLsw5G.js","assets/alchemy-websocket-provider-ee041890-DycBBaBr.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-BuZoOSI9.js","assets/secp256k1-MCQ-lhJv.js","assets/esm-C3viOAbI.js","assets/dist-C1_YNKAs.js","assets/dist-aBv2FCng.js","assets/dist-CabGr1Jm.js","assets/index.es-CYUUHA9p.js","assets/alchemy-provider-2577f5a5-B1pwR1dS.js","assets/alchemy-provider-2577f5a5-CXBwcNKg.js","assets/alchemy-websocket-provider-ee041890-D31Kq7k6.js"])))=>i.map(i=>d[i]);
 var __create = Object.create;
 var __defProp$1 = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -16953,7 +16953,7 @@ async function call$2(client, args) {
 	} catch (err) {
 		const data$1 = getRevertErrorData(err);
 		const { offchainLookup, offchainLookupSignature } = await __vitePreload(async () => {
-			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-WWrmQ595.js");
+			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-DvBS32L-.js");
 			return {
 				offchainLookup: offchainLookup$1,
 				offchainLookupSignature: offchainLookupSignature$1
@@ -17454,7 +17454,7 @@ function publicKeyToAddress(publicKey) {
 async function recoverPublicKey({ hash: hash$3, signature }) {
 	const hashHex = isHex(hash$3) ? hash$3 : toHex$2(hash$3);
 	const { secp256k1: secp256k1$1 } = await __vitePreload(async () => {
-		const { secp256k1: secp256k1$2 } = await import("./secp256k1-pXbt07ls.js");
+		const { secp256k1: secp256k1$2 } = await import("./secp256k1-BuZoOSI9.js");
 		return { secp256k1: secp256k1$2 };
 	}, __vite__mapDeps([0,1]));
 	return `0x${(() => {
@@ -23304,7 +23304,7 @@ function safe(parameters = {}) {
 			if (!provider_) {
 				const { default: SDK } = await (() => {
 					try {
-						return __vitePreload(() => import("./esm-B3E_TSfI.js"), __vite__mapDeps([2,3]));
+						return __vitePreload(() => import("./esm-C3viOAbI.js"), __vite__mapDeps([2,3]));
 					} catch {
 						throw new Error("dependency \"@safe-global/safe-apps-sdk\" not found");
 					}
@@ -23315,7 +23315,7 @@ function safe(parameters = {}) {
 				provider_ = new (await ((async () => {
 					const Provider$1 = await (() => {
 						try {
-							return __vitePreload(() => import("./dist-DzSNj1Ci.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
+							return __vitePreload(() => import("./dist-aBv2FCng.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
 						} catch {
 							throw new Error("dependency \"@safe-global/safe-apps-provider\" not found");
 						}
@@ -23480,7 +23480,7 @@ function walletConnect(parameters) {
 				if (!optionalChains.length) return;
 				const { EthereumProvider: EthereumProvider$1 } = await (() => {
 					try {
-						return __vitePreload(() => import("./dist-DNfUHeQ5.js"), __vite__mapDeps([5,6,1]));
+						return __vitePreload(() => import("./dist-CabGr1Jm.js"), __vite__mapDeps([5,6,1]));
 					} catch {
 						throw new Error("dependency \"@walletconnect/ethereum-provider\" not found");
 					}
@@ -84251,14 +84251,14 @@ var AlchemyConfig = class {
 	}
 	getProvider() {
 		if (!this._baseAlchemyProvider) this._baseAlchemyProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-CEAFmGFj.js"), __vite__mapDeps([7,8]));
+			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-B1pwR1dS.js"), __vite__mapDeps([7,8]));
 			return new AlchemyProvider$1(this);
 		}))();
 		return this._baseAlchemyProvider;
 	}
 	getWebSocketProvider() {
 		if (!this._baseAlchemyWssProvider) this._baseAlchemyWssProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-DycBBaBr.js"), __vite__mapDeps([9,8]));
+			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-D31Kq7k6.js"), __vite__mapDeps([9,8]));
 			return new AlchemyWebSocketProvider(this);
 		}))();
 		return this._baseAlchemyWssProvider;
@@ -88334,13 +88334,13 @@ var TokenIcon = ({ symbol, className }) => {
 	});
 };
 var TokenIcon_default = TokenIcon;
-var Muted$1 = ({ children }) => {
+var Muted = ({ children }) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 		className: "Muted",
 		children: children ?? "–"
 	});
 };
-var Muted_default = Muted$1;
+var Muted_default = Muted;
 var import_classnames$26 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var TokenAmount = ({ value, symbol = "USDC", showsUsd = false, type = "inline" }) => {
 	const { isLoading, hasError } = getIsLoadingAndError(value);
@@ -91156,16 +91156,16 @@ var LiqPriceChange = ({ estBalance = void 0, estDebt = void 0, estOption = void 
 	const options$2 = useHegicOptions_default();
 	const { isLoading, hasError } = getIsLoadingAndErrorForMultiple(account, options$2);
 	if (isLoading) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Spinner_default, {});
-	if (hasError) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted, { children: "Error" });
+	if (hasError) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, { children: "Error" });
 	const { balance, debt } = account;
 	const estOptions = estOption ? [...options$2, estOption] : void 0;
 	const liqPrice = Calculator_default.calcLiqPrice(balance, debt, options$2);
-	const estLiqPrice = isEveryUndefined(estBalance, estDebt, estOption) ? null : Calculator_default.calcLiqPrice(estBalance ?? balance, estDebt ?? debt, estOptions ?? options$2);
+	const estLiqPrice = isEveryUndefined(estBalance, estDebt, estOptions) ? null : Calculator_default.calcLiqPrice(estBalance ?? balance, estDebt ?? debt, estOptions ?? options$2);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 		className: "LiqPriceChange",
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ValueChange_default, {
 			curValue: formatDollarStr(liqPrice, 0),
-			estValue: estLiqPrice ? estLiqPrice === MaxUint256 ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(EternitySvg_default, {}) : formatDollarStr(estLiqPrice, 0) : null
+			estValue: estLiqPrice ? estLiqPrice === MaxUint256 ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, {}) : formatDollarStr(estLiqPrice, 0) : null
 		})
 	});
 };
@@ -110248,11 +110248,13 @@ var LtvChart = ({ options: options$2 = void 0 }) => {
 	const curOptions = useHegicOptions_default();
 	const assetPrice = useTokenPrice("ETH");
 	const isMobile$1 = useIsMobile_default(1200);
-	if (!assetPrice) return null;
-	if (!account?.debt) return null;
+	if (!assetPrice || !curOptions || !account?.debt) return null;
 	const curLine = getLineData(0, account, curOptions, assetPrice);
-	const newLine = getLineData(1, account, options$2, assetPrice, curLine);
-	const data = [...curLine, ...newLine];
+	const estLine = getLineData(1, account, options$2, assetPrice, curLine);
+	const data = [...curLine, ...estLine];
+	const { balance, debt } = account;
+	const curLiqPrice = Calculator_default.calcLiqPrice(balance, debt, curOptions);
+	const estLiqPrice = options$2 ? Calculator_default.calcLiqPrice(balance, debt, options$2) : void 0;
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 		className: "LtvChart box",
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Me, {
@@ -110296,7 +110298,7 @@ var LtvChart = ({ options: options$2 = void 0 }) => {
 				format: formatAssetPrice,
 				tickRotation: isMobile$1 ? -30 : 0
 			},
-			markers: getMarkers(data, assetPrice, Boolean(newLine.length)),
+			markers: getMarkers(data, assetPrice, curLiqPrice, estLiqPrice),
 			tooltip: _Tooltip,
 			pointSymbol: _Point,
 			colors: [
@@ -110411,7 +110413,7 @@ var calcLtv = (account, assetPrice, options$2) => {
 	}, 0n);
 	return divBigInts(multiplyBigInts(balance, assetPrice) + payoffSum, debt);
 };
-var getMarkers = (chartData, assetPrice, hasMultipleLines = false) => {
+var getMarkers = (chartData, assetPrice, curLiqPrice, estLiqPrice) => {
 	const markers = [{
 		axis: "y",
 		legend: formatDollarStr(assetPrice, 0),
@@ -110429,11 +110431,11 @@ var getMarkers = (chartData, assetPrice, hasMultipleLines = false) => {
 		const { data: redPoints, id: id$2 } = redZoneData;
 		const redBreakpoint = getLast(redPoints);
 		const isCurrent = id$2.endsWith("0");
-		const label = isCurrent ? `${hasMultipleLines ? "Cur. " : ""}Liq.Price` : "Est. Liq.Price";
+		const label = isCurrent ? `${!isUndefined(estLiqPrice) ? "Cur. " : ""}Liq.Price` : "Est. Liq.Price";
 		if (redBreakpoint) {
 			const liqPriceMarker = {
 				axis: "y",
-				legend: `${label}: ${formatAssetPrice(redBreakpoint.y)}`,
+				legend: `${label}: ${formatDollarStr(isCurrent ? curLiqPrice : estLiqPrice, 0)}`,
 				legendPosition: isCurrent ? "top-right" : "bottom-right",
 				value: redBreakpoint.y,
 				lineStyle: {
@@ -110534,7 +110536,7 @@ var BuyStep = ({ protectAmount, setProtectAmount, period, setPeriod, cost, setCo
 	const isWallet = paymentMethod === PaymentMethods.WALLET;
 	const [isApproved, setIsApproved] = (0, import_react.useState)(void 0);
 	const [estLtv, setEstLtv] = (0, import_react.useState)(null);
-	const [estOption, setEstOption] = (0, import_react.useState)();
+	const [estOption, setEstOption] = (0, import_react.useState)(null);
 	const Approver = useApprover_default(OneClickOptions?.address, "USDC", setIsApproved);
 	(0, import_react.useEffect)(() => {
 		if (!protectAmount || !period) {
@@ -110621,7 +110623,8 @@ var BuyStep = ({ protectAmount, setProtectAmount, period, setPeriod, cost, setCo
 						cost,
 						paymentMethod,
 						estLtv,
-						setEstLtv
+						setEstLtv,
+						estOption
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TxModal_default.Button, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
 						type: isWallet && isApproved === false ? "green" : "primary",
@@ -110850,7 +110853,7 @@ var OptionInputs = ({ protectAmount, setProtectAmount, period, setPeriod, cost, 
 		]
 	});
 };
-var ModalMetrics = ({ cost, paymentMethod, estLtv, setEstLtv }) => {
+var ModalMetrics = ({ cost, paymentMethod, estLtv, setEstLtv, estOption }) => {
 	const account = useAccount_default();
 	const contracts$1 = useContracts_default();
 	const usdcPool = useUsdcPool_default();
@@ -110897,7 +110900,7 @@ var ModalMetrics = ({ cost, paymentMethod, estLtv, setEstLtv }) => {
 				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceChange_default.Title, {})
 			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 				className: "Metrics__row-value",
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceChange_default, {})
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceChange_default, { estOption })
 			})]
 		}),
 		isCollateral && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
