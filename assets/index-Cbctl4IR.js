@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-BAbXRK8A.js","assets/secp256k1-DzUY09jO.js","assets/esm-BUrRgNlr.js","assets/dist-CiD1cTYI.js","assets/dist-Jy4RtwPH.js","assets/dist-C3YBBUZz.js","assets/index.es-Cl4wdvCB.js","assets/alchemy-provider-2577f5a5-CjgUflSN.js","assets/alchemy-provider-2577f5a5-Bvcrqh9j.js","assets/alchemy-websocket-provider-ee041890-DE2AuWys.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-0v3VD7zK.js","assets/secp256k1-CAcp7pC4.js","assets/esm-Mj5pDoUt.js","assets/dist-DYc12sgK.js","assets/dist-CYblmYVP.js","assets/dist-Bao4svFg.js","assets/index.es-BVe4lHWG.js","assets/alchemy-provider-2577f5a5-CkaTLAaz.js","assets/alchemy-provider-2577f5a5-C6Lke4sq.js","assets/alchemy-websocket-provider-ee041890-BA8_tbOI.js"])))=>i.map(i=>d[i]);
 var __create = Object.create;
 var __defProp$1 = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -16953,7 +16953,7 @@ async function call$2(client, args) {
 	} catch (err) {
 		const data$1 = getRevertErrorData(err);
 		const { offchainLookup, offchainLookupSignature } = await __vitePreload(async () => {
-			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-Cjrt1p_P.js");
+			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-D9ValwU2.js");
 			return {
 				offchainLookup: offchainLookup$1,
 				offchainLookupSignature: offchainLookupSignature$1
@@ -17454,7 +17454,7 @@ function publicKeyToAddress(publicKey) {
 async function recoverPublicKey({ hash: hash$3, signature }) {
 	const hashHex = isHex(hash$3) ? hash$3 : toHex$2(hash$3);
 	const { secp256k1: secp256k1$1 } = await __vitePreload(async () => {
-		const { secp256k1: secp256k1$2 } = await import("./secp256k1-BAbXRK8A.js");
+		const { secp256k1: secp256k1$2 } = await import("./secp256k1-0v3VD7zK.js");
 		return { secp256k1: secp256k1$2 };
 	}, __vite__mapDeps([0,1]));
 	return `0x${(() => {
@@ -23304,7 +23304,7 @@ function safe(parameters = {}) {
 			if (!provider_) {
 				const { default: SDK } = await (() => {
 					try {
-						return __vitePreload(() => import("./esm-BUrRgNlr.js"), __vite__mapDeps([2,3]));
+						return __vitePreload(() => import("./esm-Mj5pDoUt.js"), __vite__mapDeps([2,3]));
 					} catch {
 						throw new Error("dependency \"@safe-global/safe-apps-sdk\" not found");
 					}
@@ -23315,7 +23315,7 @@ function safe(parameters = {}) {
 				provider_ = new (await ((async () => {
 					const Provider$1 = await (() => {
 						try {
-							return __vitePreload(() => import("./dist-Jy4RtwPH.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
+							return __vitePreload(() => import("./dist-CYblmYVP.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
 						} catch {
 							throw new Error("dependency \"@safe-global/safe-apps-provider\" not found");
 						}
@@ -23480,7 +23480,7 @@ function walletConnect(parameters) {
 				if (!optionalChains.length) return;
 				const { EthereumProvider: EthereumProvider$1 } = await (() => {
 					try {
-						return __vitePreload(() => import("./dist-C3YBBUZz.js"), __vite__mapDeps([5,6,1]));
+						return __vitePreload(() => import("./dist-Bao4svFg.js"), __vite__mapDeps([5,6,1]));
 					} catch {
 						throw new Error("dependency \"@walletconnect/ethereum-provider\" not found");
 					}
@@ -69060,7 +69060,7 @@ var BrowserProvider = class BrowserProvider extends JsonRpcApiPollingProvider {
 	}
 };
 var LendingMarginAccountManager_default = {
-	address: "0xa7f09467F78E6a75Dcd52aac4ecdAF2Fe4d94f76",
+	address: "0xE20d03360eC847ed89249D079bD75088b8679078",
 	abi: [
 		{
 			"inputs": [{
@@ -69356,7 +69356,7 @@ var LendingMarginAccountManager_default = {
 	]
 };
 var MarginAccount_default = {
-	address: "0x069cdfF47380bFcFa40D84f70834779DAaE96726",
+	address: "0x579Fbca16993B6D887E30D4E02bCb01302dC048C",
 	abi: [
 		{
 			"inputs": [{
@@ -70565,7 +70565,7 @@ var MarginAccount_default = {
 	]
 };
 var MarginAccountManager_default = {
-	address: "0x7FBcAAd6DE35F10121707509050035ff9Ec8dAfd",
+	address: "0x0fa1e3a19F18d15cd2ae7Ef404970eeb2F462af1",
 	abi: [
 		{
 			"anonymous": false,
@@ -70917,7 +70917,7 @@ var MarginAccountManager_default = {
 	]
 };
 var MarginTrading_default = {
-	address: "0xadc949f8b8dfB89e4b2Fa2Cb0d46F11E395C2cf7",
+	address: "0x5e20fF52e7A644380b0c0420750a56BA7F8eab91",
 	abi: [
 		{
 			"inputs": [
@@ -71432,6 +71432,21 @@ var MarginTrading_default = {
 				"name": "marginAccountID",
 				"type": "uint256"
 			}],
+			"name": "calculateMarginAccountValueForDebt",
+			"outputs": [{
+				"internalType": "uint256",
+				"name": "marginAccountValue",
+				"type": "uint256"
+			}],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "uint256",
+				"name": "marginAccountID",
+				"type": "uint256"
+			}],
 			"name": "calculateMarginAccountValueUSDC",
 			"outputs": [{
 				"internalType": "uint256",
@@ -71471,6 +71486,21 @@ var MarginTrading_default = {
 				"type": "uint256"
 			}],
 			"name": "getMarginAccountRatio",
+			"outputs": [{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "uint256",
+				"name": "marginAccountID",
+				"type": "uint256"
+			}],
+			"name": "getMarginAccountRatioForDebt",
 			"outputs": [{
 				"internalType": "uint256",
 				"name": "",
@@ -71962,7 +71992,7 @@ var MarginTrading_default = {
 	]
 };
 var ModularSwapRouter_default = {
-	address: "0xd64A048d0C5982B464cfA2Bc0decEf2A59D3aBb0",
+	address: "0x9B8854d99Eb691852705d8B9c8A53a6991F9Ea97",
 	abi: [
 		{
 			"inputs": [{
@@ -72822,7 +72852,7 @@ var ModularSwapRouter_default = {
 	]
 };
 var OneClickNoRekt_default = {
-	address: "0x262B8C8bdc290633b2f861eAFaC83eaBD1AD8850",
+	address: "0x65386216D7321eE78b2E0ffC0F2491aF0e941939",
 	abi: [
 		{
 			"inputs": [
@@ -73240,7 +73270,7 @@ var OneClickNoRekt_default = {
 	]
 };
 var OneClickOptions_default = {
-	address: "0xbAc8beadE8D0c5Fdd5bC3a27EB07140Fc3cfbd32",
+	address: "0xD9452b8D0d89d1F4a227DaF48Cf4517fd8445cc8",
 	abi: [
 		{
 			"inputs": [
@@ -73292,6 +73322,11 @@ var OneClickOptions_default = {
 				{
 					"internalType": "address",
 					"name": "_usdc",
+					"type": "address"
+				},
+				{
+					"internalType": "contract IWrapper",
+					"name": "_wrapper",
 					"type": "address"
 				}
 			],
@@ -74008,13 +74043,24 @@ var OneClickOptions_default = {
 			"type": "function"
 		},
 		{
+			"inputs": [],
+			"name": "wrapper",
+			"outputs": [{
+				"internalType": "contract IWrapper",
+				"name": "",
+				"type": "address"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
 			"stateMutability": "payable",
 			"type": "receive"
 		}
 	]
 };
 var OneClickProxy_default = {
-	address: "0x4A07F03A2Ed4fb4025fffe6D24BdF6A719581103",
+	address: "0x8338843115dAc76B1313d9c57Bf0bC79810E53fc",
 	abi: [
 		{
 			"inputs": [{
@@ -74134,6 +74180,17 @@ var OneClickProxy_default = {
 			"type": "function"
 		},
 		{
+			"inputs": [],
+			"name": "NO_YELLOW_ROLE",
+			"outputs": [{
+				"internalType": "bytes32",
+				"name": "",
+				"type": "bytes32"
+			}],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
 			"inputs": [
 				{
 					"internalType": "address",
@@ -74234,34 +74291,6 @@ var OneClickProxy_default = {
 				},
 				{
 					"internalType": "address",
-					"name": "positionToken",
-					"type": "address"
-				},
-				{
-					"internalType": "int256",
-					"name": "positionSize",
-					"type": "int256"
-				},
-				{
-					"internalType": "int256",
-					"name": "collateralAmount",
-					"type": "int256"
-				}
-			],
-			"name": "changePosition",
-			"outputs": [],
-			"stateMutability": "nonpayable",
-			"type": "function"
-		},
-		{
-			"inputs": [
-				{
-					"internalType": "uint256",
-					"name": "marginAccountID",
-					"type": "uint256"
-				},
-				{
-					"internalType": "address",
 					"name": "token",
 					"type": "address"
 				},
@@ -74291,58 +74320,6 @@ var OneClickProxy_default = {
 				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
-			}],
-			"stateMutability": "view",
-			"type": "function"
-		},
-		{
-			"inputs": [{
-				"internalType": "uint256",
-				"name": "marginAccountID",
-				"type": "uint256"
-			}, {
-				"internalType": "address",
-				"name": "positionToken",
-				"type": "address"
-			}],
-			"name": "getPosition",
-			"outputs": [
-				{
-					"internalType": "int256",
-					"name": "",
-					"type": "int256"
-				},
-				{
-					"internalType": "int256",
-					"name": "",
-					"type": "int256"
-				},
-				{
-					"internalType": "uint256",
-					"name": "",
-					"type": "uint256"
-				},
-				{
-					"internalType": "bool",
-					"name": "",
-					"type": "bool"
-				},
-				{
-					"internalType": "bool",
-					"name": "",
-					"type": "bool"
-				}
-			],
-			"stateMutability": "view",
-			"type": "function"
-		},
-		{
-			"inputs": [],
-			"name": "getPositionTokens",
-			"outputs": [{
-				"internalType": "address[]",
-				"name": "",
-				"type": "address[]"
 			}],
 			"stateMutability": "view",
 			"type": "function"
@@ -74440,25 +74417,10 @@ var OneClickProxy_default = {
 			"type": "function"
 		},
 		{
-			"inputs": [{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}],
-			"name": "positionTokens",
-			"outputs": [{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}],
-			"stateMutability": "view",
-			"type": "function"
-		},
-		{
 			"inputs": [],
-			"name": "positionsStorage",
+			"name": "optionDataStorage",
 			"outputs": [{
-				"internalType": "contract IPositionsStorage",
+				"internalType": "contract IOptionDataStorage",
 				"name": "",
 				"type": "address"
 			}],
@@ -74582,22 +74544,11 @@ var OneClickProxy_default = {
 		},
 		{
 			"inputs": [{
-				"internalType": "address[]",
-				"name": "_positionTokens",
-				"type": "address[]"
-			}],
-			"name": "setPositionTokens",
-			"outputs": [],
-			"stateMutability": "nonpayable",
-			"type": "function"
-		},
-		{
-			"inputs": [{
-				"internalType": "contract IPositionsStorage",
-				"name": "newPositionsStorage",
+				"internalType": "contract IOptionDataStorage",
+				"name": "newOptionDataStorage",
 				"type": "address"
 			}],
-			"name": "setPositionsStorage",
+			"name": "setOptionDataStorage",
 			"outputs": [],
 			"stateMutability": "nonpayable",
 			"type": "function"
@@ -74767,7 +74718,7 @@ var OneClickProxy_default = {
 	]
 };
 var OneClickTrading_default = {
-	address: "0xCcCBD5e6D925b219B7D70020E25Ab204c9d86496",
+	address: "0x71506E9945D52f5da90485BB834fcA36c3a82c2b",
 	abi: [
 		{
 			"inputs": [
@@ -74784,16 +74735,6 @@ var OneClickTrading_default = {
 				{
 					"internalType": "contract IMarginAccount",
 					"name": "_marginAccount",
-					"type": "address"
-				},
-				{
-					"internalType": "contract IFacadeInput",
-					"name": "_facadeInput",
-					"type": "address"
-				},
-				{
-					"internalType": "contract IFacadeOutput",
-					"name": "_facadeOutput",
 					"type": "address"
 				},
 				{
@@ -74945,28 +74886,6 @@ var OneClickTrading_default = {
 			"name": "borrowWithdraw",
 			"outputs": [],
 			"stateMutability": "nonpayable",
-			"type": "function"
-		},
-		{
-			"inputs": [],
-			"name": "facadeInput",
-			"outputs": [{
-				"internalType": "contract IFacadeInput",
-				"name": "",
-				"type": "address"
-			}],
-			"stateMutability": "view",
-			"type": "function"
-		},
-		{
-			"inputs": [],
-			"name": "facadeOutput",
-			"outputs": [{
-				"internalType": "contract IFacadeOutput",
-				"name": "",
-				"type": "address"
-			}],
-			"stateMutability": "view",
 			"type": "function"
 		},
 		{
@@ -75207,7 +75126,7 @@ var OneClickTrading_default = {
 	]
 };
 var USDC_LiquidityPool_default = {
-	address: "0xA4113Ac6Cc41141B819f34d81F6ccdabcA07AecF",
+	address: "0x57D106B9Ea9FeD37F0AB2748BBEf4CB811e19689",
 	abi: [
 		{
 			"inputs": [
@@ -75741,29 +75660,14 @@ var USDC_LiquidityPool_default = {
 			"type": "function"
 		},
 		{
-			"inputs": [{
+			"inputs": [],
+			"name": "currentPoolBalance",
+			"outputs": [{
 				"internalType": "uint256",
-				"name": "amount",
+				"name": "",
 				"type": "uint256"
 			}],
-			"name": "burn",
-			"outputs": [],
-			"stateMutability": "nonpayable",
-			"type": "function"
-		},
-		{
-			"inputs": [{
-				"internalType": "address",
-				"name": "account",
-				"type": "address"
-			}, {
-				"internalType": "uint256",
-				"name": "amount",
-				"type": "uint256"
-			}],
-			"name": "burnFrom",
-			"outputs": [],
-			"stateMutability": "nonpayable",
+			"stateMutability": "view",
 			"type": "function"
 		},
 		{
@@ -76071,6 +75975,21 @@ var USDC_LiquidityPool_default = {
 				"type": "uint256"
 			}],
 			"name": "repay",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [{
+				"internalType": "uint256",
+				"name": "marginAccountID",
+				"type": "uint256"
+			}, {
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			}],
+			"name": "repayForLiquidation",
 			"outputs": [],
 			"stateMutability": "nonpayable",
 			"type": "function"
@@ -77466,6 +77385,8 @@ const getSwrConfig = (refreshInterval = 20 * SECOND) => {
 };
 var useContractJsons = () => {
 	return (0, import_react.useMemo)(() => ({
+		HegicOperationalTreasury: HegicOperationalTreasury_default,
+		HegicPositionManager: HegicPositionManager_default,
 		LendingMarginAccountManager: LendingMarginAccountManager_default,
 		MarginAccount: MarginAccount_default,
 		MarginAccountManager: MarginAccountManager_default,
@@ -77475,9 +77396,7 @@ var useContractJsons = () => {
 		OneClickOptions: OneClickOptions_default,
 		OneClickProxy: OneClickProxy_default,
 		OneClickTrading: OneClickTrading_default,
-		UsdcPool: USDC_LiquidityPool_default,
-		HegicOperationalTreasury: HegicOperationalTreasury_default,
-		HegicPositionManager: HegicPositionManager_default
+		UsdcPool: USDC_LiquidityPool_default
 	}), []);
 };
 var useContracts = () => {
@@ -84251,14 +84170,14 @@ var AlchemyConfig = class {
 	}
 	getProvider() {
 		if (!this._baseAlchemyProvider) this._baseAlchemyProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-CjgUflSN.js"), __vite__mapDeps([7,8]));
+			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-CkaTLAaz.js"), __vite__mapDeps([7,8]));
 			return new AlchemyProvider$1(this);
 		}))();
 		return this._baseAlchemyProvider;
 	}
 	getWebSocketProvider() {
 		if (!this._baseAlchemyWssProvider) this._baseAlchemyWssProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-DE2AuWys.js"), __vite__mapDeps([9,8]));
+			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-BA8_tbOI.js"), __vite__mapDeps([9,8]));
 			return new AlchemyWebSocketProvider(this);
 		}))();
 		return this._baseAlchemyWssProvider;
