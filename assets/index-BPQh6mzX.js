@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-B7MOJ4G9.js","assets/secp256k1-DixscjM7.js","assets/esm-BLgX2Igc.js","assets/dist-BVMBHqw6.js","assets/dist-DwNpks2E.js","assets/dist-DrblZnpa.js","assets/index.es-BISgJV6A.js","assets/alchemy-provider-2577f5a5-BCLvJZC3.js","assets/alchemy-provider-2577f5a5-B1XoY8Q4.js","assets/alchemy-websocket-provider-ee041890-BYu_-arM.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-DZ_8R5YB.js","assets/secp256k1-CFzN9htZ.js","assets/esm-BO9bHf2j.js","assets/dist-Bl5eYIcn.js","assets/dist-Cjjb-6-K.js","assets/dist-B0QuWvyh.js","assets/index.es-DekoW58C.js","assets/alchemy-provider-2577f5a5-sLmlhVRC.js","assets/alchemy-provider-2577f5a5-WTAxDlEt.js","assets/alchemy-websocket-provider-ee041890-Diouuzqk.js"])))=>i.map(i=>d[i]);
 var __create = Object.create;
 var __defProp$1 = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -16953,7 +16953,7 @@ async function call$2(client, args) {
 	} catch (err) {
 		const data$1 = getRevertErrorData(err);
 		const { offchainLookup, offchainLookupSignature } = await __vitePreload(async () => {
-			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-oXfjxY6E.js");
+			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-BfDlhEyS.js");
 			return {
 				offchainLookup: offchainLookup$1,
 				offchainLookupSignature: offchainLookupSignature$1
@@ -17454,7 +17454,7 @@ function publicKeyToAddress(publicKey) {
 async function recoverPublicKey({ hash: hash$3, signature }) {
 	const hashHex = isHex(hash$3) ? hash$3 : toHex$2(hash$3);
 	const { secp256k1: secp256k1$1 } = await __vitePreload(async () => {
-		const { secp256k1: secp256k1$2 } = await import("./secp256k1-B7MOJ4G9.js");
+		const { secp256k1: secp256k1$2 } = await import("./secp256k1-DZ_8R5YB.js");
 		return { secp256k1: secp256k1$2 };
 	}, __vite__mapDeps([0,1]));
 	return `0x${(() => {
@@ -23304,7 +23304,7 @@ function safe(parameters = {}) {
 			if (!provider_) {
 				const { default: SDK } = await (() => {
 					try {
-						return __vitePreload(() => import("./esm-BLgX2Igc.js"), __vite__mapDeps([2,3]));
+						return __vitePreload(() => import("./esm-BO9bHf2j.js"), __vite__mapDeps([2,3]));
 					} catch {
 						throw new Error("dependency \"@safe-global/safe-apps-sdk\" not found");
 					}
@@ -23315,7 +23315,7 @@ function safe(parameters = {}) {
 				provider_ = new (await ((async () => {
 					const Provider$1 = await (() => {
 						try {
-							return __vitePreload(() => import("./dist-DwNpks2E.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
+							return __vitePreload(() => import("./dist-Cjjb-6-K.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
 						} catch {
 							throw new Error("dependency \"@safe-global/safe-apps-provider\" not found");
 						}
@@ -23480,7 +23480,7 @@ function walletConnect(parameters) {
 				if (!optionalChains.length) return;
 				const { EthereumProvider: EthereumProvider$1 } = await (() => {
 					try {
-						return __vitePreload(() => import("./dist-DrblZnpa.js"), __vite__mapDeps([5,6,1]));
+						return __vitePreload(() => import("./dist-B0QuWvyh.js"), __vite__mapDeps([5,6,1]));
 					} catch {
 						throw new Error("dependency \"@walletconnect/ethereum-provider\" not found");
 					}
@@ -84170,14 +84170,14 @@ var AlchemyConfig = class {
 	}
 	getProvider() {
 		if (!this._baseAlchemyProvider) this._baseAlchemyProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-BCLvJZC3.js"), __vite__mapDeps([7,8]));
+			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-sLmlhVRC.js"), __vite__mapDeps([7,8]));
 			return new AlchemyProvider$1(this);
 		}))();
 		return this._baseAlchemyProvider;
 	}
 	getWebSocketProvider() {
 		if (!this._baseAlchemyWssProvider) this._baseAlchemyWssProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-BYu_-arM.js"), __vite__mapDeps([9,8]));
+			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-Diouuzqk.js"), __vite__mapDeps([9,8]));
 			return new AlchemyWebSocketProvider(this);
 		}))();
 		return this._baseAlchemyWssProvider;
@@ -95003,25 +95003,24 @@ function intervalToDuration(interval, options$2) {
 }
 var { Strategy_abi, PriceCalculator_abi } = HegicConstants_default;
 var useHegicStrike = (period) => {
-	const contracts$1 = useContracts_default();
 	const assetPrice = useTokenPrice("ETH");
-	const { data: strike, error: strikeError } = useSWR(contracts$1 && [
+	const { data: strike, error: strikeError } = useSWR([
 		assetPrice,
 		period,
 		"useHegicStrike"
 	], async () => {
 		if (!period) return;
-		return await queryStrike(contracts$1, assetPrice, period);
+		return await queryStrike(assetPrice, period);
 	}, getSwrConfig());
 	if (strikeError) console.log("useHegicStrike error!\n", strikeError);
 	return strike;
 };
-var queryStrike = async (contracts$1, assetPrice, period) => {
+var queryStrike = async (assetPrice, period) => {
 	return {
 		price: calcStrikePrice(HegicUtils_default.getStrategyScale(period), assetPrice),
 		period,
 		liquidity: await queryLiquidity(period),
-		queryPremium: async (amount) => queryPremium(contracts$1, period, amount)
+		queryPremium: async (amount) => queryPremium(period, amount)
 	};
 };
 var queryLiquidity = async (period) => {
@@ -95029,13 +95028,13 @@ var queryLiquidity = async (period) => {
 	const periodS = period / MS_IN_SECOND;
 	return bring1eTokenToDefault(await Strategy.getAvailableContracts(periodS, []).catch(() => 0n), "ETH");
 };
-var queryPremium = async (contracts$1, period, amount) => {
+var queryPremium = async (period, amount) => {
 	const strategy = HegicUtils_default.getStrategy(period);
 	const PriceCalculator = new Contract(HegicUtils_default.getPriceCalculator(strategy), PriceCalculator_abi, getAlchemyProvider());
 	const { TOKEN } = HegicConstants_default;
 	const amount1eToken = get1eToken(amount, "ETH");
 	const periodS = period / MS_IN_SECOND;
-	return await swapToUsdc(contracts$1, bring1eTokenToDefault(await PriceCalculator.calculatePremium(periodS, amount1eToken, 0), TOKEN), TOKEN);
+	return bring1eTokenToDefault(await PriceCalculator.calculatePremium(periodS, amount1eToken, 0), TOKEN);
 };
 var calcStrikePrice = (strikeScale, assetPrice) => {
 	return floorBigInt(multiplyBigIntByNumber(assetPrice, strikeScale / 100));
