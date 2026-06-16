@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-FFKPOGYM.js","assets/secp256k1-BWkobrfy.js","assets/esm-BMICHrWX.js","assets/dist-CJlKK-Ro.js","assets/dist-Bt97roPs.js","assets/dist-CXhARtax.js","assets/index.es-BA--B--T.js","assets/alchemy-provider-2577f5a5-C8Zf-Gq5.js","assets/alchemy-provider-2577f5a5-OcJ95pla.js","assets/alchemy-websocket-provider-ee041890-BcaoHPY-.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-ER55YqBw.js","assets/secp256k1-COGF8hrJ.js","assets/esm-rIa7tonN.js","assets/dist-BCLzdgCh.js","assets/dist-diRkBeY5.js","assets/dist-pl0-xBsi.js","assets/index.es-R-Kff0lW.js","assets/alchemy-provider-2577f5a5-CeUj9Iqf.js","assets/alchemy-provider-2577f5a5-CtS8op84.js","assets/alchemy-websocket-provider-ee041890-Bh_N4vTr.js"])))=>i.map(i=>d[i]);
 var __create = Object.create;
 var __defProp$1 = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -16953,7 +16953,7 @@ async function call$2(client, args) {
 	} catch (err) {
 		const data$1 = getRevertErrorData(err);
 		const { offchainLookup, offchainLookupSignature } = await __vitePreload(async () => {
-			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-B8G8HsGE.js");
+			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-CchogbO1.js");
 			return {
 				offchainLookup: offchainLookup$1,
 				offchainLookupSignature: offchainLookupSignature$1
@@ -17454,7 +17454,7 @@ function publicKeyToAddress(publicKey) {
 async function recoverPublicKey({ hash: hash$3, signature }) {
 	const hashHex = isHex(hash$3) ? hash$3 : toHex$2(hash$3);
 	const { secp256k1: secp256k1$1 } = await __vitePreload(async () => {
-		const { secp256k1: secp256k1$2 } = await import("./secp256k1-FFKPOGYM.js");
+		const { secp256k1: secp256k1$2 } = await import("./secp256k1-ER55YqBw.js");
 		return { secp256k1: secp256k1$2 };
 	}, __vite__mapDeps([0,1]));
 	return `0x${(() => {
@@ -23304,7 +23304,7 @@ function safe(parameters = {}) {
 			if (!provider_) {
 				const { default: SDK } = await (() => {
 					try {
-						return __vitePreload(() => import("./esm-BMICHrWX.js"), __vite__mapDeps([2,3]));
+						return __vitePreload(() => import("./esm-rIa7tonN.js"), __vite__mapDeps([2,3]));
 					} catch {
 						throw new Error("dependency \"@safe-global/safe-apps-sdk\" not found");
 					}
@@ -23315,7 +23315,7 @@ function safe(parameters = {}) {
 				provider_ = new (await ((async () => {
 					const Provider$1 = await (() => {
 						try {
-							return __vitePreload(() => import("./dist-Bt97roPs.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
+							return __vitePreload(() => import("./dist-diRkBeY5.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
 						} catch {
 							throw new Error("dependency \"@safe-global/safe-apps-provider\" not found");
 						}
@@ -23480,7 +23480,7 @@ function walletConnect(parameters) {
 				if (!optionalChains.length) return;
 				const { EthereumProvider: EthereumProvider$1 } = await (() => {
 					try {
-						return __vitePreload(() => import("./dist-CXhARtax.js"), __vite__mapDeps([5,6,1]));
+						return __vitePreload(() => import("./dist-pl0-xBsi.js"), __vite__mapDeps([5,6,1]));
 					} catch {
 						throw new Error("dependency \"@walletconnect/ethereum-provider\" not found");
 					}
@@ -84170,14 +84170,14 @@ var AlchemyConfig = class {
 	}
 	getProvider() {
 		if (!this._baseAlchemyProvider) this._baseAlchemyProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-C8Zf-Gq5.js"), __vite__mapDeps([7,8]));
+			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-CeUj9Iqf.js"), __vite__mapDeps([7,8]));
 			return new AlchemyProvider$1(this);
 		}))();
 		return this._baseAlchemyProvider;
 	}
 	getWebSocketProvider() {
 		if (!this._baseAlchemyWssProvider) this._baseAlchemyWssProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-BcaoHPY-.js"), __vite__mapDeps([9,8]));
+			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-Bh_N4vTr.js"), __vite__mapDeps([9,8]));
 			return new AlchemyWebSocketProvider(this);
 		}))();
 		return this._baseAlchemyWssProvider;
@@ -87018,7 +87018,7 @@ var Account = {
 	queryAccountValue: queryAccountValue$1,
 	queryDebt: queryDebt$1,
 	queryEquity: queryEquity$1,
-	queryBalance: queryBalance$2,
+	queryBalance: queryBalance$3,
 	queryLtv: queryLtv$1,
 	queryLtvCoeffs: queryLtvCoeffs$1,
 	queryPrincipal: queryPrincipal$1
@@ -87035,7 +87035,7 @@ async function queryEquity$1(accountId, contracts$1) {
 	const [accountValue, debt] = await Promise.all([queryAccountValue$1(accountId, contracts$1), queryDebt$1(accountId, contracts$1)]);
 	return Calculator_default.calcEquity(accountValue, debt);
 }
-async function queryBalance$2(accountId, contracts$1) {
+async function queryBalance$3(accountId, contracts$1) {
 	const { MarginAccount } = contracts$1.view;
 	const { ETH } = Tokens;
 	return await MarginAccount.getErc20ByContract(accountId, ETH.address).then((balance1eToken) => bring1eTokenToDefault(balance1eToken, ETH));
@@ -87058,7 +87058,7 @@ async function queryPrincipal$1(accountId, contracts$1) {
 	return bring1eTokenToDefault(await UsdcPool.portfolioIdToDebt(accountId), "USDC");
 }
 var Account_default = Account;
-var { queryBalance: queryBalance$1, queryEquity } = Account_default;
+var { queryBalance: queryBalance$2, queryEquity } = Account_default;
 var useAccounts = () => {
 	const accountsSetup = useAccountsSetup();
 	if (accountsSetup === null) return null;
@@ -87075,7 +87075,7 @@ var useAccountsSetup = () => {
 	const contracts$1 = useContracts_default();
 	const { data: accounts, error: accountsError, mutate: mutate$1 } = useSWR(isConnected$1 && contracts$1 && [userAddress, "useAccounts"], async () => {
 		const accountQueries = (!isUndefined(godEyeAccountId) ? [godEyeAccountId] : await queryIds(userAddress, contracts$1)).map(async (id$2) => {
-			const [balance, equity] = await Promise.all([queryBalance$1(id$2, contracts$1), queryEquity(id$2, contracts$1)]);
+			const [balance, equity] = await Promise.all([queryBalance$2(id$2, contracts$1), queryEquity(id$2, contracts$1)]);
 			return {
 				id: id$2,
 				balance,
@@ -88558,6 +88558,33 @@ const useBalanceETH = () => {
 	return data?.value;
 };
 var useBalance_default = useBalance$1;
+var useUsdcPool = () => {
+	const contracts$1 = useContracts_default();
+	const { data: poolData, error: poolError } = useSWR(contracts$1 && ["useUsdcPool"], async () => {
+		const [balance, rate] = await Promise.all([queryBalance$1(contracts$1), queryRate(contracts$1)]);
+		return {
+			balance,
+			rate
+		};
+	}, getSwrConfig(1 * MINUTE));
+	if (poolError) console.log("useUsdcPool error!\n", poolError);
+	return poolData;
+};
+var queryBalance$1 = async (contracts$1) => {
+	const { UsdcPool } = contracts$1.view;
+	const { USDC } = Tokens;
+	return bring1eTokenToDefault(await readContract(WAGMI_CONFIG, {
+		address: USDC.address,
+		abi: ERC20_abi_default,
+		functionName: "balanceOf",
+		args: [UsdcPool.address]
+	}), USDC);
+};
+var queryRate = async (contracts$1) => {
+	const { UsdcPool } = contracts$1.view;
+	return bringToDefaultDec(await UsdcPool.interestRate(), 4);
+};
+var useUsdcPool_default = useUsdcPool;
 var { queryBalance, queryAccountValue, queryDebt, queryLtv, queryLtvCoeffs, queryPrincipal } = Account_default;
 var { calcEquity, calcAvailableToBorrow } = Calculator_default;
 var useAccount = () => {
@@ -88573,7 +88600,12 @@ const useAccountMutate = () => {
 var useAccountSetup = () => {
 	const accountId = useAccountId_default();
 	const contracts$1 = useContracts_default();
-	const { data: account, error: accountError, mutate: mutate$1 } = useSWR(accountId && contracts$1 && [accountId, "useAccount"], async () => {
+	const usdcPool = useUsdcPool_default();
+	const { data: account, error: accountError, mutate: mutate$1 } = useSWR(accountId && contracts$1 && [
+		accountId,
+		usdcPool,
+		"useAccount"
+	], async () => {
 		const [balance, value, debt, principal, ltv, ltvCoeffs] = await Promise.all([
 			queryBalance(accountId, contracts$1),
 			queryAccountValue(accountId, contracts$1),
@@ -88582,6 +88614,8 @@ var useAccountSetup = () => {
 			queryLtv(accountId, contracts$1),
 			queryLtvCoeffs(contracts$1)
 		]);
+		const equity = calcEquity(value, debt);
+		const _availableToBorrow = calcAvailableToBorrow(value, debt);
 		return {
 			id: accountId,
 			balance,
@@ -88590,8 +88624,8 @@ var useAccountSetup = () => {
 			principal,
 			ltv,
 			ltvCoeffs,
-			equity: calcEquity(value, debt),
-			availableToBorrow: calcAvailableToBorrow(value, debt)
+			equity,
+			availableToBorrow: isSufficient(usdcPool?.balance) ? minBigInt(_availableToBorrow, usdcPool.balance) : _availableToBorrow
 		};
 	}, getSwrConfig(5 * MINUTE));
 	const accountSetup = (0, import_react.useMemo)(() => ({
@@ -91325,19 +91359,6 @@ var WithdrawModal = ({ isOpen, setIsOpen }) => {
 	});
 };
 var WithdrawModal_default = WithdrawModal;
-var useUsdcPool = () => {
-	const contracts$1 = useContracts_default();
-	const { data: poolData, error: poolError } = useSWR(contracts$1 && ["useUsdcPool"], async () => {
-		return { rate: await queryRate(contracts$1) };
-	}, getSwrConfig(1 * MINUTE));
-	if (poolError) console.log("useUsdcPool error!\n", poolError);
-	return poolData;
-};
-var queryRate = async (contracts$1) => {
-	const { UsdcPool } = contracts$1.view;
-	return bringToDefaultDec(await UsdcPool.interestRate(), 4);
-};
-var useUsdcPool_default = useUsdcPool;
 var BellSvg = ({ color: color$2 = "yellow" }) => {
 	const colorHex = Colors[color$2.toUpperCase()];
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
