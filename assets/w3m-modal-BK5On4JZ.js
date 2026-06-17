@@ -1,11 +1,11 @@
-import "./_esm-BjmaMLRE.js";
-import "./secp256k1-CpvtyYsV.js";
-import "./index.es-DTV0lYvx.js";
-import { A as FetchUtil, C as SnackController, E as AssetController, G as ContractUtil, I as subscribeKey, J as ConstantsUtil, K as NumberUtil, L as proxy, N as ConstantsUtil$2, O as withErrorBoundary, R as subscribe, S as BlockchainApiController, T as AssetUtil, W as ParseUtil, a as ProviderController, c as ConnectionController, d as getActiveNetworkTokenAddress, f as getNativeTokenAddress, g as ModalController, h as ThemeController, i as SwapApiUtil, j as CoreHelperUtil, k as OptionsController, m as ConnectorController, n as ChainController, o as AdapterController, p as getPreferredAccountType, s as BalanceUtil, t as ApiController, v as EventsController, w as W3mFrameRpcConstants, y as RouterController } from "./ApiController-CfGdzxFS.js";
-import "./ccip-SLgbRhgO.js";
-import { S as i$1, _ as b, a as elementStyles, d as vars, f as MathUtil, i as UiHelperUtil, o as initializeTheming, p as i, r as customElement, s as resetStyles, t as HelpersUtil$1, u as css, y as w } from "./HelpersUtil-BA3NL0Eu.js";
-import { c as n, n as e, o, s as r, t as networkSvgMd } from "./wui-list-item-CLVJ4WtL.js";
-import { n as SIWXUtil, t as AlertController } from "./AlertController-DRR2rBpx.js";
+import "./_esm-DtkobPlF.js";
+import "./secp256k1-BfMRTfw-.js";
+import "./index.es-CC0_cdZI.js";
+import { A as FetchUtil, C as SnackController, E as AssetController, G as ContractUtil, I as subscribeKey, J as ConstantsUtil, K as NumberUtil, L as proxy, N as ConstantsUtil$2, O as withErrorBoundary, R as subscribe, S as BlockchainApiController, T as AssetUtil, W as ParseUtil, a as ProviderController, c as ConnectionController, d as getActiveNetworkTokenAddress, f as getNativeTokenAddress, g as ModalController, h as ThemeController, i as SwapApiUtil, j as CoreHelperUtil, k as OptionsController, m as ConnectorController, n as ChainController, o as AdapterController, p as getPreferredAccountType, s as BalanceUtil, t as ApiController, v as EventsController, w as W3mFrameRpcConstants, y as RouterController } from "./ApiController-8wW6yH9L.js";
+import "./ccip-rehVq1EW.js";
+import { S as i$1, _ as b, a as elementStyles, d as vars, f as MathUtil, i as UiHelperUtil, o as initializeTheming, p as i, r as customElement, s as resetStyles, t as HelpersUtil$1, u as css, y as w } from "./HelpersUtil-C-VE7I8L.js";
+import { c as n, n as e, o, s as r, t as networkSvgMd } from "./wui-list-item-B77xkAET.js";
+import { n as SIWXUtil, t as AlertController } from "./AlertController-DiAkt0Iv.js";
 const SwapCalculationUtil = {
 	getGasPriceInEther(gas, gasPrice) {
 		const totalGasCostInWei = gasPrice * gas;
