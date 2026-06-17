@@ -271,15 +271,6 @@
       opacity: 0;
     }
   }
-  .tip {
-    display: flex;
-    align-items: center;
-    column-gap: 4px;
-  }
-  .tip::after {
-    content: url("data:image/svg+xml,%3csvg%20width='16'%20height='16'%20viewBox='0%200%2016%2016'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3ccircle%20cx='8'%20cy='8'%20r='7'%20fill='%231D1446'/%3e%3cpath%20fill-rule='evenodd'%20clip-rule='evenodd'%20d='M6.31309%206.30533C6.12606%206.30533%205.97459%206.14733%206.00357%205.96067C6.18467%204.82667%207.03815%204%208.51924%204C10.001%204%2011%204.90667%2011%206.14333C11%207.03933%2010.5621%207.66867%209.82119%208.12533C9.09679%208.56467%208.89%208.87067%208.89%209.46533V9.48533C8.89%209.57374%208.85531%209.65852%208.79356%209.72104C8.73181%209.78355%208.64805%209.81867%208.56072%209.81867H8.05364C7.96688%209.81867%207.88362%209.78401%207.82196%209.72222C7.76031%209.66042%207.72523%209.57649%207.72436%209.48867L7.72239%209.35533C7.69407%208.54133%208.03652%208.02133%208.80571%207.54733C9.48401%207.126%209.7257%206.79067%209.7257%206.19533C9.7257%205.54267%209.22652%205.06333%208.45733%205.06333C7.79285%205.06333%207.33121%205.416%207.18106%205.998C7.13759%206.16733%206.99798%206.30533%206.82544%206.30533H6.31309ZM8.30257%2012C8.71219%2012%209.02369%2011.684%209.02369%2011.2733C9.02369%2010.8613%208.71219%2010.5453%208.30257%2010.5453C7.90349%2010.5453%207.58673%2010.8613%207.58673%2011.2727C7.58673%2011.684%207.90349%2012%208.30257%2012Z'%20fill='%239A94B8'/%3e%3c/svg%3e");
-    display: block;
-  }
 }.Dashboard {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -1477,6 +1468,10 @@
   border-radius: 5px;
   padding: 6px;
 }
+.ProtectionModal__type .Tip__button {
+  z-index: 2;
+  cursor: pointer;
+}
 .ProtectionModal__option-inputs {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -1572,6 +1567,36 @@
 @media (max-width: 480px) {
   .LtvChart {
     display: none;
+  }
+}.Tip {
+  display: flex;
+  align-items: center;
+  column-gap: 4px;
+}
+.Tip__button {
+  cursor: default;
+}div.react-tooltip {
+  z-index: 800;
+  max-width: 330px;
+  font-size: 15px;
+  line-height: 120%;
+  background-color: #1D1446;
+  border-radius: 10px;
+  white-space: wrap;
+  padding: 9px 12px;
+}
+div.react-tooltip__show {
+  opacity: 1;
+}
+div.react-tooltip-content-wrapper {
+  padding: 0;
+}
+div.react-tooltip-arrow {
+  display: none;
+}
+@media (max-width: 330px) {
+  div.react-tooltip {
+    max-width: 320px;
   }
 }.ClaimModal .Metrics ._info-value {
   display: flex;
@@ -2529,23 +2554,6 @@
   .Logo {
     font-size: 18px;
   }
-}div.react-tooltip {
-  z-index: 999;
-  max-width: 330px;
-  font-size: 14px;
-  line-height: 120%;
-  background-color: #1D1446;
-  border-radius: 10px;
-  padding: 9px 12px;
-}
-div.react-tooltip__show {
-  opacity: 1;
-}
-div.react-tooltip-content-wrapper {
-  padding: 0;
-}
-div.react-tooltip-arrow {
-  display: none;
 }.Footer {
   display: flex;
   align-items: center;
