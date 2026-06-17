@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-DxWFXoUm.js","assets/secp256k1-nXPgIJNP.js","assets/esm-BRKBQ6Tu.js","assets/dist-Cobg3nTZ.js","assets/dist-C8uywoGY.js","assets/dist-Dctf3szE.js","assets/index.es-gaDZTRD1.js","assets/alchemy-provider-2577f5a5-7uZ8aIu1.js","assets/alchemy-provider-2577f5a5-DvSUnVBs.js","assets/alchemy-websocket-provider-ee041890-BaGoGvOp.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-CTodQZG0.js","assets/secp256k1-DMoa3Hal.js","assets/esm-B-nUbAGC.js","assets/dist-BCTmdA2q.js","assets/dist-CtJePWaF.js","assets/dist-BpB5i7kY.js","assets/index.es-BLN7uj8S.js","assets/alchemy-provider-2577f5a5-DxtJcfmP.js","assets/alchemy-provider-2577f5a5-DCMb7Rc9.js","assets/alchemy-websocket-provider-ee041890-BoR5PDzi.js"])))=>i.map(i=>d[i]);
 var __create = Object.create;
 var __defProp$1 = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -16953,7 +16953,7 @@ async function call$2(client, args) {
 	} catch (err) {
 		const data$1 = getRevertErrorData(err);
 		const { offchainLookup, offchainLookupSignature } = await __vitePreload(async () => {
-			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-C7alnvid.js");
+			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-C1YSFxmn.js");
 			return {
 				offchainLookup: offchainLookup$1,
 				offchainLookupSignature: offchainLookupSignature$1
@@ -17454,7 +17454,7 @@ function publicKeyToAddress(publicKey) {
 async function recoverPublicKey({ hash: hash$3, signature }) {
 	const hashHex = isHex(hash$3) ? hash$3 : toHex$2(hash$3);
 	const { secp256k1: secp256k1$1 } = await __vitePreload(async () => {
-		const { secp256k1: secp256k1$2 } = await import("./secp256k1-DxWFXoUm.js");
+		const { secp256k1: secp256k1$2 } = await import("./secp256k1-CTodQZG0.js");
 		return { secp256k1: secp256k1$2 };
 	}, __vite__mapDeps([0,1]));
 	return `0x${(() => {
@@ -23304,7 +23304,7 @@ function safe(parameters = {}) {
 			if (!provider_) {
 				const { default: SDK } = await (() => {
 					try {
-						return __vitePreload(() => import("./esm-BRKBQ6Tu.js"), __vite__mapDeps([2,3]));
+						return __vitePreload(() => import("./esm-B-nUbAGC.js"), __vite__mapDeps([2,3]));
 					} catch {
 						throw new Error("dependency \"@safe-global/safe-apps-sdk\" not found");
 					}
@@ -23315,7 +23315,7 @@ function safe(parameters = {}) {
 				provider_ = new (await ((async () => {
 					const Provider$1 = await (() => {
 						try {
-							return __vitePreload(() => import("./dist-C8uywoGY.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
+							return __vitePreload(() => import("./dist-CtJePWaF.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
 						} catch {
 							throw new Error("dependency \"@safe-global/safe-apps-provider\" not found");
 						}
@@ -23480,7 +23480,7 @@ function walletConnect(parameters) {
 				if (!optionalChains.length) return;
 				const { EthereumProvider: EthereumProvider$1 } = await (() => {
 					try {
-						return __vitePreload(() => import("./dist-Dctf3szE.js"), __vite__mapDeps([5,6,1]));
+						return __vitePreload(() => import("./dist-BpB5i7kY.js"), __vite__mapDeps([5,6,1]));
 					} catch {
 						throw new Error("dependency \"@walletconnect/ethereum-provider\" not found");
 					}
@@ -84170,14 +84170,14 @@ var AlchemyConfig = class {
 	}
 	getProvider() {
 		if (!this._baseAlchemyProvider) this._baseAlchemyProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-7uZ8aIu1.js"), __vite__mapDeps([7,8]));
+			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-DxtJcfmP.js"), __vite__mapDeps([7,8]));
 			return new AlchemyProvider$1(this);
 		}))();
 		return this._baseAlchemyProvider;
 	}
 	getWebSocketProvider() {
 		if (!this._baseAlchemyWssProvider) this._baseAlchemyWssProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-BaGoGvOp.js"), __vite__mapDeps([9,8]));
+			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-BoR5PDzi.js"), __vite__mapDeps([9,8]));
 			return new AlchemyWebSocketProvider(this);
 		}))();
 		return this._baseAlchemyWssProvider;
@@ -113029,7 +113029,7 @@ var TypeRadio = ({ type, setType }) => {
 var OptionInputs = ({ protectAmount, setProtectAmount, period, setPeriod, cost, setCost }) => {
 	const account = useAccount_default();
 	const [minPeriodDays, maxPeriodDays] = [HegicConstants_default.EXPIRY_PERIODS_DAYS[0], getLast(HegicConstants_default.EXPIRY_PERIODS_DAYS)];
-	const [periodDays, setPeriodDays] = (0, import_react.useState)(null);
+	const [periodDays, setPeriodDays] = (0, import_react.useState)(minPeriodDays);
 	const slippage = useSlippage();
 	const strike = useHegicStrike_default(period);
 	const updateCost = async () => {
@@ -113037,8 +113037,7 @@ var OptionInputs = ({ protectAmount, setProtectAmount, period, setPeriod, cost, 
 		setCost(getBigIntWithSlippage(await strike.queryPremium(protectAmount), slippage));
 	};
 	useDebounce(() => {
-		if (periodDays) setPeriod(msInDays(periodDays));
-		else setPeriod(null);
+		setPeriod(msInDays(periodDays));
 	}, 200, [periodDays]);
 	useDebounce(() => {
 		if (protectAmount && strike) updateCost();
@@ -113089,12 +113088,12 @@ var OptionInputs = ({ protectAmount, setProtectAmount, period, setPeriod, cost, 
 					className: "ProtectionModal__period-head",
 					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: "Period" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 						className: "_result",
-						children: [periodDays ?? 0, " Days"]
+						children: [periodDays, " Days"]
 					})]
 				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 					className: "ProtectionModal__period-slider",
 					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Slider_default, {
-						value: periodDays ?? 0,
+						value: periodDays,
 						setValue: setPeriodDays,
 						min: minPeriodDays,
 						max: maxPeriodDays,
