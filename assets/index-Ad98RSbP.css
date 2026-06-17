@@ -2302,6 +2302,9 @@
   opacity: 0;
   transition: opacity 0.2s ease;
 }
+.Header._desktop .Header__nav-link[disabled] span {
+  color: rgb(119.2741573034, 111.2112359551, 159.5887640449);
+}
 @media (hover: hover) and (pointer: fine) {
   .Header._desktop .Header__nav-link:hover, .Header._desktop .Header__nav-link:focus-visible {
     color: #9A94B8;
@@ -2526,6 +2529,23 @@
   .Logo {
     font-size: 18px;
   }
+}div.react-tooltip {
+  z-index: 999;
+  max-width: 330px;
+  font-size: 14px;
+  line-height: 120%;
+  background-color: #1D1446;
+  border-radius: 10px;
+  padding: 9px 12px;
+}
+div.react-tooltip__show {
+  opacity: 1;
+}
+div.react-tooltip-content-wrapper {
+  padding: 0;
+}
+div.react-tooltip-arrow {
+  display: none;
 }.Footer {
   display: flex;
   align-items: center;
