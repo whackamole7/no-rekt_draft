@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-D4nOPP0N.js","assets/secp256k1-B77GdUF9.js","assets/esm-D_EgxDag.js","assets/dist-DPO9Ng_3.js","assets/dist-xxXFILpr.js","assets/dist-DdFuovOm.js","assets/index.es-dmDNgYA0.js","assets/alchemy-provider-2577f5a5-E2zbfYRx.js","assets/alchemy-provider-2577f5a5-COHaVMLD.js","assets/alchemy-websocket-provider-ee041890-CSMPo8jR.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-B0cMgOeH.js","assets/secp256k1-DxByjebL.js","assets/esm-BtQK6TTK.js","assets/dist-Nmd5c4Ey.js","assets/dist-CVxJ0u5n.js","assets/dist-Hjlv4oeM.js","assets/index.es-uC4EDF5H.js","assets/alchemy-provider-2577f5a5-CS10-dPP.js","assets/alchemy-provider-2577f5a5-TkjCqSgo.js","assets/alchemy-websocket-provider-ee041890-C-wdxw9D.js"])))=>i.map(i=>d[i]);
 var __create = Object.create;
 var __defProp$1 = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -16953,7 +16953,7 @@ async function call$2(client, args) {
 	} catch (err) {
 		const data$1 = getRevertErrorData(err);
 		const { offchainLookup, offchainLookupSignature } = await __vitePreload(async () => {
-			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-DbGfhvJR.js");
+			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-DDlnGny3.js");
 			return {
 				offchainLookup: offchainLookup$1,
 				offchainLookupSignature: offchainLookupSignature$1
@@ -17454,7 +17454,7 @@ function publicKeyToAddress(publicKey) {
 async function recoverPublicKey({ hash: hash$3, signature }) {
 	const hashHex = isHex(hash$3) ? hash$3 : toHex$2(hash$3);
 	const { secp256k1: secp256k1$1 } = await __vitePreload(async () => {
-		const { secp256k1: secp256k1$2 } = await import("./secp256k1-D4nOPP0N.js");
+		const { secp256k1: secp256k1$2 } = await import("./secp256k1-B0cMgOeH.js");
 		return { secp256k1: secp256k1$2 };
 	}, __vite__mapDeps([0,1]));
 	return `0x${(() => {
@@ -23304,7 +23304,7 @@ function safe(parameters = {}) {
 			if (!provider_) {
 				const { default: SDK } = await (() => {
 					try {
-						return __vitePreload(() => import("./esm-D_EgxDag.js"), __vite__mapDeps([2,3]));
+						return __vitePreload(() => import("./esm-BtQK6TTK.js"), __vite__mapDeps([2,3]));
 					} catch {
 						throw new Error("dependency \"@safe-global/safe-apps-sdk\" not found");
 					}
@@ -23315,7 +23315,7 @@ function safe(parameters = {}) {
 				provider_ = new (await ((async () => {
 					const Provider$1 = await (() => {
 						try {
-							return __vitePreload(() => import("./dist-xxXFILpr.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
+							return __vitePreload(() => import("./dist-CVxJ0u5n.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
 						} catch {
 							throw new Error("dependency \"@safe-global/safe-apps-provider\" not found");
 						}
@@ -23480,7 +23480,7 @@ function walletConnect(parameters) {
 				if (!optionalChains.length) return;
 				const { EthereumProvider: EthereumProvider$1 } = await (() => {
 					try {
-						return __vitePreload(() => import("./dist-DdFuovOm.js"), __vite__mapDeps([5,6,1]));
+						return __vitePreload(() => import("./dist-Hjlv4oeM.js"), __vite__mapDeps([5,6,1]));
 					} catch {
 						throw new Error("dependency \"@walletconnect/ethereum-provider\" not found");
 					}
@@ -84170,14 +84170,14 @@ var AlchemyConfig = class {
 	}
 	getProvider() {
 		if (!this._baseAlchemyProvider) this._baseAlchemyProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-E2zbfYRx.js"), __vite__mapDeps([7,8]));
+			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-CS10-dPP.js"), __vite__mapDeps([7,8]));
 			return new AlchemyProvider$1(this);
 		}))();
 		return this._baseAlchemyProvider;
 	}
 	getWebSocketProvider() {
 		if (!this._baseAlchemyWssProvider) this._baseAlchemyWssProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-CSMPo8jR.js"), __vite__mapDeps([9,8]));
+			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-C-wdxw9D.js"), __vite__mapDeps([9,8]));
 			return new AlchemyWebSocketProvider(this);
 		}))();
 		return this._baseAlchemyWssProvider;
@@ -110189,14 +110189,14 @@ var ye = (0, import_react.forwardRef)((function(e$12, o$7) {
 		}
 	});
 }));
-var LtvChart = ({ options: options$2 = void 0 }) => {
+var LtvChart = ({ options: options$2 = void 0, isReverted = false }) => {
 	const account = useAccount_default();
 	const curOptions = useHegicOptions_default();
 	const assetPrice = useTokenPrice("ETH");
 	const isMobile$1 = useIsMobile_default(1200);
 	if (!assetPrice || !curOptions || !account?.debt) return null;
-	const curLine = getLineData(0, account, curOptions, assetPrice);
-	const estLine = getLineData(1, account, options$2, assetPrice, curLine);
+	const curLine = getLineData(isReverted, 0, account, curOptions, assetPrice);
+	const estLine = getLineData(isReverted, 1, account, options$2, assetPrice, curLine);
 	const data = [...curLine, ...estLine];
 	const { balance, debt } = account;
 	const curLiqPrice = Calculator_default.calcLiqPrice(balance, debt, curOptions);
@@ -110234,14 +110234,15 @@ var LtvChart = ({ options: options$2 = void 0 }) => {
 				legend: "LTV",
 				legendOffset: 42,
 				tickSize: 0,
-				tickPadding: 12
+				tickPadding: 12,
+				format: isReverted ? formatAssetPrice : void 0
 			},
 			axisLeft: {
 				legend: "Asset price",
 				legendOffset: isMobile$1 ? -75 : -80,
 				tickSize: 12,
 				tickPadding: 10,
-				format: formatAssetPrice,
+				format: isReverted ? void 0 : formatAssetPrice,
 				tickRotation: isMobile$1 ? -30 : 0
 			},
 			markers: getMarkers(data, assetPrice, curLiqPrice, estLiqPrice),
@@ -110306,7 +110307,7 @@ var _Point = ({ datum, color: color$2 }) => {
 	});
 };
 var formatAssetPrice = (value) => formatDollarStr(bigIntFromString(value), 0);
-var getLineData = (idNumber, account, options$2, curAssetPrice, curLineData = void 0) => {
+var getLineData = (isReverted, idNumber, account, options$2, curAssetPrice, curLineData = void 0) => {
 	if (!account || !options$2) return [];
 	const delta = bigIntFromString(1e3);
 	const step = bigIntFromString(5);
@@ -110336,8 +110337,8 @@ var getLineData = (idNumber, account, options$2, curAssetPrice, curLineData = vo
 	for (let price = minPrice; price <= maxPrice; price += step) {
 		const ltv = calcLtv(account, price, options$2);
 		const point$5 = {
-			x: stringFromBigInt(ltv),
-			y: stringFromBigInt(price),
+			[isReverted ? "y" : "x"]: stringFromBigInt(ltv),
+			[isReverted ? "x" : "y"]: stringFromBigInt(price),
 			ltv,
 			price
 		};
@@ -110547,7 +110548,17 @@ var BuyStep = ({ protectAmount, setProtectAmount, period, setPeriod, cost, setCo
 		className: "ProtectionModal__buy",
 		children: [
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { children: "Buy Protection" }),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Chart, { estOption }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				style: {
+					display: "flex",
+					flexDirection: "column",
+					gap: 30
+				},
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Chart, { estOption }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Chart, {
+					estOption,
+					isReverted: true
+				})]
+			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 				className: "ProtectionModal__body",
 				children: [
@@ -110676,12 +110687,15 @@ var ReviewStep = ({ period, cost, isSubmitting, handleClick, goBack }) => {
 		]
 	});
 };
-var Chart = ({ estOption }) => {
+var Chart = ({ estOption, isReverted }) => {
 	const options$2 = useHegicOptions_default();
 	const { isLoading } = getIsLoadingAndErrorForMultiple(options$2, estOption);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 		className: "ProtectionModal__chart",
-		children: estOption ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LtvChart_default, { options: [...options$2, estOption] }) : isLoading ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Spinner_default, {}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, { children: "Enter data" })
+		children: estOption ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LtvChart_default, {
+			options: [...options$2, estOption],
+			isReverted
+		}) : isLoading ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Spinner_default, {}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, { children: "Enter data" })
 	});
 };
 var TypeRadio = ({ type, setType }) => {
