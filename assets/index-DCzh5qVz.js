@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-C-MeyGRh.js","assets/secp256k1-BHLaEaGk.js","assets/esm-BdOU3nbh.js","assets/dist-Bre_4K7G.js","assets/dist-CkOX9SL6.js","assets/dist-t5cEhUbb.js","assets/index.es-D1Lfwvjq.js","assets/alchemy-provider-2577f5a5-D3rRjNMH.js","assets/alchemy-provider-2577f5a5-BSQbQKAw.js","assets/alchemy-websocket-provider-ee041890-CaVTY7tV.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-z_sK2x_c.js","assets/secp256k1-CdMsr5wt.js","assets/esm-CfcxZDKA.js","assets/dist-Dx-RmS4J.js","assets/dist-CfimEszf.js","assets/dist-B25VqW3h.js","assets/index.es-BpaHwvi2.js","assets/alchemy-provider-2577f5a5-Bkliv1tL.js","assets/alchemy-provider-2577f5a5-C_oFA6WN.js","assets/alchemy-websocket-provider-ee041890-BlTJJfFP.js"])))=>i.map(i=>d[i]);
 var __create = Object.create;
 var __defProp$1 = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -16953,7 +16953,7 @@ async function call$2(client, args) {
 	} catch (err) {
 		const data$1 = getRevertErrorData(err);
 		const { offchainLookup, offchainLookupSignature } = await __vitePreload(async () => {
-			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-Bh49a_3X.js");
+			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-DZdO5LWL.js");
 			return {
 				offchainLookup: offchainLookup$1,
 				offchainLookupSignature: offchainLookupSignature$1
@@ -17454,7 +17454,7 @@ function publicKeyToAddress(publicKey) {
 async function recoverPublicKey({ hash: hash$3, signature }) {
 	const hashHex = isHex(hash$3) ? hash$3 : toHex$2(hash$3);
 	const { secp256k1: secp256k1$1 } = await __vitePreload(async () => {
-		const { secp256k1: secp256k1$2 } = await import("./secp256k1-C-MeyGRh.js");
+		const { secp256k1: secp256k1$2 } = await import("./secp256k1-z_sK2x_c.js");
 		return { secp256k1: secp256k1$2 };
 	}, __vite__mapDeps([0,1]));
 	return `0x${(() => {
@@ -23304,7 +23304,7 @@ function safe(parameters = {}) {
 			if (!provider_) {
 				const { default: SDK } = await (() => {
 					try {
-						return __vitePreload(() => import("./esm-BdOU3nbh.js"), __vite__mapDeps([2,3]));
+						return __vitePreload(() => import("./esm-CfcxZDKA.js"), __vite__mapDeps([2,3]));
 					} catch {
 						throw new Error("dependency \"@safe-global/safe-apps-sdk\" not found");
 					}
@@ -23315,7 +23315,7 @@ function safe(parameters = {}) {
 				provider_ = new (await ((async () => {
 					const Provider$1 = await (() => {
 						try {
-							return __vitePreload(() => import("./dist-CkOX9SL6.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
+							return __vitePreload(() => import("./dist-CfimEszf.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
 						} catch {
 							throw new Error("dependency \"@safe-global/safe-apps-provider\" not found");
 						}
@@ -23480,7 +23480,7 @@ function walletConnect(parameters) {
 				if (!optionalChains.length) return;
 				const { EthereumProvider: EthereumProvider$1 } = await (() => {
 					try {
-						return __vitePreload(() => import("./dist-t5cEhUbb.js"), __vite__mapDeps([5,6,1]));
+						return __vitePreload(() => import("./dist-B25VqW3h.js"), __vite__mapDeps([5,6,1]));
 					} catch {
 						throw new Error("dependency \"@walletconnect/ethereum-provider\" not found");
 					}
@@ -84170,14 +84170,14 @@ var AlchemyConfig = class {
 	}
 	getProvider() {
 		if (!this._baseAlchemyProvider) this._baseAlchemyProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-D3rRjNMH.js"), __vite__mapDeps([7,8]));
+			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-Bkliv1tL.js"), __vite__mapDeps([7,8]));
 			return new AlchemyProvider$1(this);
 		}))();
 		return this._baseAlchemyProvider;
 	}
 	getWebSocketProvider() {
 		if (!this._baseAlchemyWssProvider) this._baseAlchemyWssProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-CaVTY7tV.js"), __vite__mapDeps([9,8]));
+			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-BlTJJfFP.js"), __vite__mapDeps([9,8]));
 			return new AlchemyWebSocketProvider(this);
 		}))();
 		return this._baseAlchemyWssProvider;
@@ -91272,9 +91272,10 @@ var WithdrawModal = ({ isOpen, setIsOpen }) => {
 	}, [withdrawAmount]);
 	const getError = () => {
 		if (!withdrawAmount) return "Enter Amount";
-		const { isLoading } = getIsLoadingAndError(estLtv);
+		const { isLoading } = getIsLoadingAndErrorForMultiple(estLtv, account);
 		if (isLoading) return ButtonLabels.LOADING;
-		if (Ltv_default.getZone(account, estLtv) === Ltv_default.Zones.RED) return ErrorMsg.LOW_LTV;
+		const estLtvZone = Ltv_default.getZone(account, estLtv);
+		if (estLtvZone === Ltv_default.Zones.RED || estLtvZone === Ltv_default.Zones.YELLOW) return ErrorMsg.LOW_LTV;
 		if (isSubmitting) return ButtonLabels.SUBMITTING;
 	};
 	const getBtnText = () => {
@@ -91560,7 +91561,7 @@ var BorrowModal = ({ isOpen, setIsOpen }) => {
 			borrowAmount,
 			setBorrowAmount,
 			goForth: () => setStep(1)
-		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TermsStep, {
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ReviewStep$1, {
 			borrowAmount,
 			goBack: () => setStep(0),
 			isSubmitting,
@@ -91650,7 +91651,7 @@ var InputStep = ({ borrowAmount, setBorrowAmount, goForth }) => {
 		}) })
 	] });
 };
-var TermsStep = ({ borrowAmount, goBack, isSubmitting, handleClick }) => {
+var ReviewStep$1 = ({ borrowAmount, goBack, isSubmitting, handleClick }) => {
 	const usdcPool = useUsdcPool_default();
 	const [isAgreed, setIsAgreed] = (0, import_react.useState)(false);
 	const getError = () => {
@@ -91689,7 +91690,7 @@ var TermsStep = ({ borrowAmount, goBack, isSubmitting, handleClick }) => {
 		})] }),
 		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Notification_default, {
 			className: "BorrowModal__terms-notification",
-			children: "Please note: loans issued without insurance may be subject to liquidation."
+			children: "This loan is unprotected and may be liquidated. After borrowing, click “Buy Protection” on the Dashboard to add protection"
 		}),
 		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Checkbox_default, {
 			isChecked: isAgreed,
@@ -118499,7 +118500,7 @@ var Protections = () => {
 	const account = useAccount_default();
 	const options$2 = useHegicOptions_default();
 	const { isLoading, hasError } = getIsLoadingAndError(options$2);
-	if (!account?.debt) return null;
+	if (!account?.debt && !options$2?.length) return null;
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 		className: (0, import_classnames$2.default)("Protections", "box _sm", !options$2?.length && "_no-protections"),
 		children: [

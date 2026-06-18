@@ -931,7 +931,6 @@
   margin: 20px 0;
 }.Notification {
   display: flex;
-  align-items: center;
   column-gap: 10px;
   border-radius: 10px;
   padding: 12px;
