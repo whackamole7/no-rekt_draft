@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-DuoQBSTK.js","assets/secp256k1-Bvtl_v-5.js","assets/esm-B2XSRycx.js","assets/dist-C9Awjgox.js","assets/dist-DQ7kLL6v.js","assets/dist-C8jHkYCY.js","assets/index.es-kYL3O6cV.js","assets/alchemy-provider-2577f5a5-6EZxGTLk.js","assets/alchemy-provider-2577f5a5-DW9155P8.js","assets/alchemy-websocket-provider-ee041890-DwQTQxRs.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-B67CynoS.js","assets/secp256k1-Bq9C4LkT.js","assets/esm-DDiHEwFx.js","assets/dist-DK3-Ov5q.js","assets/dist-CD-OsKTE.js","assets/dist-BAjM9iMq.js","assets/index.es-DuiyclNA.js","assets/alchemy-provider-2577f5a5-CRlSrw1g.js","assets/alchemy-provider-2577f5a5-1_fxD7G1.js","assets/alchemy-websocket-provider-ee041890-C6wCgDQO.js"])))=>i.map(i=>d[i]);
 var __create = Object.create;
 var __defProp$1 = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -16953,7 +16953,7 @@ async function call$2(client, args) {
 	} catch (err) {
 		const data$1 = getRevertErrorData(err);
 		const { offchainLookup, offchainLookupSignature } = await __vitePreload(async () => {
-			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-BD2TDUlL.js");
+			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-CQZjFnYx.js");
 			return {
 				offchainLookup: offchainLookup$1,
 				offchainLookupSignature: offchainLookupSignature$1
@@ -17454,7 +17454,7 @@ function publicKeyToAddress(publicKey) {
 async function recoverPublicKey({ hash: hash$3, signature }) {
 	const hashHex = isHex(hash$3) ? hash$3 : toHex$2(hash$3);
 	const { secp256k1: secp256k1$1 } = await __vitePreload(async () => {
-		const { secp256k1: secp256k1$2 } = await import("./secp256k1-DuoQBSTK.js");
+		const { secp256k1: secp256k1$2 } = await import("./secp256k1-B67CynoS.js");
 		return { secp256k1: secp256k1$2 };
 	}, __vite__mapDeps([0,1]));
 	return `0x${(() => {
@@ -23304,7 +23304,7 @@ function safe(parameters = {}) {
 			if (!provider_) {
 				const { default: SDK } = await (() => {
 					try {
-						return __vitePreload(() => import("./esm-B2XSRycx.js"), __vite__mapDeps([2,3]));
+						return __vitePreload(() => import("./esm-DDiHEwFx.js"), __vite__mapDeps([2,3]));
 					} catch {
 						throw new Error("dependency \"@safe-global/safe-apps-sdk\" not found");
 					}
@@ -23315,7 +23315,7 @@ function safe(parameters = {}) {
 				provider_ = new (await ((async () => {
 					const Provider$1 = await (() => {
 						try {
-							return __vitePreload(() => import("./dist-DQ7kLL6v.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
+							return __vitePreload(() => import("./dist-CD-OsKTE.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
 						} catch {
 							throw new Error("dependency \"@safe-global/safe-apps-provider\" not found");
 						}
@@ -23480,7 +23480,7 @@ function walletConnect(parameters) {
 				if (!optionalChains.length) return;
 				const { EthereumProvider: EthereumProvider$1 } = await (() => {
 					try {
-						return __vitePreload(() => import("./dist-C8jHkYCY.js"), __vite__mapDeps([5,6,1]));
+						return __vitePreload(() => import("./dist-BAjM9iMq.js"), __vite__mapDeps([5,6,1]));
 					} catch {
 						throw new Error("dependency \"@walletconnect/ethereum-provider\" not found");
 					}
@@ -84170,14 +84170,14 @@ var AlchemyConfig = class {
 	}
 	getProvider() {
 		if (!this._baseAlchemyProvider) this._baseAlchemyProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-6EZxGTLk.js"), __vite__mapDeps([7,8]));
+			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-CRlSrw1g.js"), __vite__mapDeps([7,8]));
 			return new AlchemyProvider$1(this);
 		}))();
 		return this._baseAlchemyProvider;
 	}
 	getWebSocketProvider() {
 		if (!this._baseAlchemyWssProvider) this._baseAlchemyWssProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-DwQTQxRs.js"), __vite__mapDeps([9,8]));
+			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-C6wCgDQO.js"), __vite__mapDeps([9,8]));
 			return new AlchemyWebSocketProvider(this);
 		}))();
 		return this._baseAlchemyWssProvider;
@@ -110189,30 +110189,29 @@ var ye = (0, import_react.forwardRef)((function(e$13, o$8) {
 		}
 	});
 }));
+var formatAssetPriceStr = (str) => formatDollarStr(bigIntFromString(str), 0);
 var LtvChart = ({ options: options$2 = void 0, isSmall = false }) => {
 	const account = useAccount_default();
 	const curOptions = useHegicOptions_default();
 	const assetPrice = useTokenPrice("ETH");
 	const isMobile$1 = useIsMobile_default(1200);
 	if (!assetPrice || !curOptions || !account?.debt) return null;
-	const curLine = getLineData$1(0, account, curOptions, assetPrice);
-	const estLine = getLineData$1(1, account, options$2, assetPrice, curLine);
-	const data = [...curLine, ...estLine];
+	const data = getLineData(assetPrice);
 	const { balance, debt } = account;
-	const curLiqPrice = Calculator_default.calcLiqPrice(balance, debt, curOptions);
-	const estLiqPrice = options$2 ? Calculator_default.calcLiqPrice(balance, debt, options$2) : void 0;
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 		className: "LtvChart box",
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Me, {
 			data,
 			enableGridX: false,
 			enableGridY: false,
-			margin: {
-				top: 35,
-				right: isSmall || isMobile$1 ? 30 : 45,
-				bottom: isSmall || isMobile$1 ? 68 : 75,
-				left: isSmall || isMobile$1 ? 95 : 105
-			},
+			pointSize: 0,
+			lineWidth: 0,
+			curve: "linear",
+			animate: false,
+			enableTouchCrosshair: true,
+			useMesh: true,
+			markers: getMarkers(assetPrice, Calculator_default.calcLiqPrice(balance, debt, curOptions), options$2 ? Calculator_default.calcLiqPrice(balance, debt, options$2) : void 0),
+			tooltip: _Tooltip,
 			xScale: {
 				min: "auto",
 				max: "auto",
@@ -110220,252 +110219,29 @@ var LtvChart = ({ options: options$2 = void 0, isSmall = false }) => {
 				round: false
 			},
 			yScale: {
-				min: "auto",
+				min: 0,
 				max: "auto",
 				type: "linear",
 				round: false
 			},
-			curve: "linear",
-			animate: false,
-			motionConfig: { tension: 300 },
-			enableTouchCrosshair: true,
-			useMesh: true,
 			axisBottom: {
-				legend: "LTV",
-				legendOffset: 42,
 				tickSize: 0,
-				tickPadding: 12,
-				tickRotation: isSmall || isMobile$1 ? -60 : 0
+				tickValues: 0
 			},
 			axisLeft: {
 				legend: "Asset price",
 				legendOffset: -80,
 				tickSize: 12,
 				tickPadding: 10,
-				format: formatAssetPrice$1
+				format: formatAssetPriceStr
 			},
-			markers: getMarkers$1(data, assetPrice, curLiqPrice, estLiqPrice),
-			tooltip: _Tooltip$1,
-			pointSymbol: _Point$1,
-			colors: [
-				Colors.RED,
-				Colors.YELLOW,
-				Colors.GREEN
-			],
-			theme: {
-				axis: {
-					ticks: {
-						line: { stroke: Colors.BORDER_COLOR },
-						text: {
-							fontSize: 12,
-							fill: Colors.LGRAY
-						}
-					},
-					legend: { text: {
-						fill: Colors.LGRAY,
-						opacity: .4
-					} },
-					domain: { line: {
-						stroke: Colors.BORDER_COLOR,
-						strokeWidth: 1
-					} }
-				},
-				crosshair: { line: { stroke: Colors.LGRAY } },
-				tooltip: {
-					basic: { color: Colors.WHITE },
-					container: {
-						backgroundColor: Colors.VIOLET_2,
-						borderRadius: 5
-					}
-				}
-			}
-		})
-	});
-};
-var _Tooltip$1 = ({ point: point$5 }) => {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: "LtvChart__tooltip",
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "LtvChart__tooltip-line",
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Price:" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: formatAssetPrice$1(point$5.data.y) })]
-		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "LtvChart__tooltip-line",
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "LtV:" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-				style: { color: point$5.seriesColor },
-				children: floorNumber(point$5.data.x, 3)
-			})]
-		})]
-	});
-};
-var _Point$1 = ({ datum, color: color$2 }) => {
-	const { isCurrent } = datum;
-	if (!isCurrent) return null;
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
-		r: 7.5,
-		fill: color$2
-	});
-};
-var formatAssetPrice$1 = (value) => formatDollarStr(bigIntFromString(value), 0);
-var getLineData$1 = (idNumber, account, options$2, curAssetPrice, curLineData = void 0) => {
-	if (!account || !options$2) return [];
-	const delta = bigIntFromString(1e3);
-	const step = bigIntFromString(5);
-	const [minPrice, maxPrice] = [curAssetPrice - delta, curAssetPrice + delta];
-	const { ltv: curLtv, ltvCoeffs } = account;
-	const data = [
-		{
-			id: `red_${idNumber}`,
-			data: []
-		},
-		{
-			id: `yellow_${idNumber}`,
-			data: []
-		},
-		{
-			id: `green_${idNumber}`,
-			data: []
-		}
-	];
-	const curLineDataMatrix = {};
-	if (curLineData) curLineData.forEach((part) => {
-		const { data: data$1 } = part;
-		data$1.forEach((point$5) => {
-			curLineDataMatrix[point$5.y] = point$5.x;
-		});
-	});
-	for (let price = minPrice; price <= maxPrice; price += step) {
-		const ltv = calcLtv$1(account, price, options$2);
-		const point$5 = {
-			x: stringFromBigInt(ltv),
-			y: stringFromBigInt(price),
-			ltv,
-			price
-		};
-		if (curLineDataMatrix[point$5.y] === point$5.x) continue;
-		if (floorBigInt(ltv, 2) === floorBigInt(curLtv, 2) && floorBigInt(price, 2) === floorBigInt(curAssetPrice, 2)) point$5.isCurrent = true;
-		if (ltv <= ltvCoeffs.red) data[0].data.push(point$5);
-		else if (ltv <= ltvCoeffs.yellow) data[1].data.push(point$5);
-		else data[2].data.push(point$5);
-	}
-	if (data[0].data.length) data[1].data = [getLast(data[0].data), ...data[1].data];
-	if (data[1].data.length) data[2].data = [getLast(data[1].data), ...data[2].data];
-	return data;
-};
-var calcLtv$1 = (account, assetPrice, options$2) => {
-	const { balance, debt } = account;
-	const payoffSum = options$2.reduce((sum$2, opt) => {
-		const { strike, amount, isCall } = opt;
-		return sum$2 + maxBigInt(multiplyBigInts(isCall ? assetPrice - strike : strike - assetPrice, amount), 0n);
-	}, 0n);
-	return divBigInts(multiplyBigInts(balance, assetPrice) + payoffSum, debt);
-};
-var getMarkers$1 = (chartData, assetPrice, curLiqPrice, estLiqPrice) => {
-	const hasEstLine = !isUndefined(estLiqPrice);
-	const markers = [{
-		axis: "y",
-		legend: formatDollarStr(assetPrice, 0),
-		legendPosition: "top-left",
-		value: Number(stringFromBigInt(assetPrice)),
-		lineStyle: {
-			stroke: "#454061",
-			strokeDasharray: "6 6"
-		},
-		textStyle: {
-			fontSize: 12,
-			fill: Colors.DGRAY
-		}
-	}];
-	chartData.filter((data) => data.id.startsWith("red")).forEach((redZoneData) => {
-		const { data: redPoints, id: id$2 } = redZoneData;
-		const redBreakpoint = getLast(redPoints);
-		const isCurrent = id$2.endsWith("0");
-		const label = isCurrent ? `${hasEstLine ? "Cur. " : ""}Liq.Price` : "Est. Liq.Price";
-		if (redBreakpoint) {
-			const liqPriceMarker = {
-				axis: "y",
-				legend: `${label}: ${formatDollarStr(isCurrent ? curLiqPrice : estLiqPrice, 0)}`,
-				legendPosition: isCurrent ? "top-right" : "bottom-right",
-				value: redBreakpoint.y,
-				lineStyle: {
-					stroke: Colors.RED,
-					opacity: .5,
-					strokeDasharray: "6 6"
-				},
-				textStyle: {
-					fontSize: 12,
-					fill: Colors.RED,
-					opacity: .7
-				}
-			};
-			markers.push(liqPriceMarker);
-		}
-	});
-	return markers;
-};
-var LtvChart_default = LtvChart;
-var LtvChartReverted = ({ options: options$2 = void 0, isSmall = false }) => {
-	const account = useAccount_default();
-	const curOptions = useHegicOptions_default();
-	const assetPrice = useTokenPrice("ETH");
-	const isMobile$1 = useIsMobile_default(1200);
-	if (!assetPrice || !curOptions || !account?.debt) return null;
-	const curLine = getLineData(0, account, curOptions, assetPrice);
-	const estLine = getLineData(1, account, options$2, assetPrice, curLine);
-	const data = [...curLine, ...estLine];
-	const { balance, debt } = account;
-	const curLiqPrice = Calculator_default.calcLiqPrice(balance, debt, curOptions);
-	const estLiqPrice = options$2 ? Calculator_default.calcLiqPrice(balance, debt, options$2) : void 0;
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: "LtvChart box",
-		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Me, {
-			data,
-			enableGridX: false,
-			enableGridY: false,
+			crosshairType: "top-left",
 			margin: {
-				top: 35,
+				top: 30,
 				right: isSmall || isMobile$1 ? 30 : 45,
-				bottom: isSmall || isMobile$1 ? 82 : 75,
-				left: isSmall || isMobile$1 ? 80 : 85
+				bottom: 35,
+				left: isSmall || isMobile$1 ? 100 : 105
 			},
-			xScale: {
-				min: "auto",
-				max: "auto",
-				type: "linear",
-				round: false
-			},
-			yScale: {
-				min: "auto",
-				max: "auto",
-				type: "linear",
-				round: false
-			},
-			curve: "linear",
-			animate: false,
-			motionConfig: { tension: 300 },
-			enableTouchCrosshair: true,
-			useMesh: true,
-			axisBottom: {
-				legend: "Asset price",
-				legendOffset: isSmall || isMobile$1 ? 60 : 45,
-				tickSize: 0,
-				tickPadding: 12,
-				format: formatAssetPrice,
-				tickRotation: isSmall || isMobile$1 ? -40 : 0
-			},
-			axisLeft: {
-				legend: "LTV",
-				legendOffset: -60,
-				tickSize: 12,
-				tickPadding: 10
-			},
-			markers: getMarkers(data, assetPrice, curLiqPrice, estLiqPrice),
-			tooltip: _Tooltip,
-			pointSymbol: _Point,
-			colors: [
-				Colors.RED,
-				Colors.YELLOW,
-				Colors.GREEN
-			],
 			theme: {
 				axis: {
 					ticks: {
@@ -110497,88 +110273,35 @@ var LtvChartReverted = ({ options: options$2 = void 0, isSmall = false }) => {
 	});
 };
 var _Tooltip = ({ point: point$5 }) => {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 		className: "LtvChart__tooltip",
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 			className: "LtvChart__tooltip-line",
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Price:" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: formatAssetPrice(point$5.data.x) })]
-		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "LtvChart__tooltip-line",
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "LtV:" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-				style: { color: point$5.seriesColor },
-				children: floorNumber(point$5.data.y, 3)
-			})]
-		})]
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Price:" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: formatAssetPriceStr(point$5.data.y) })]
+		})
 	});
 };
-var _Point = ({ datum, color: color$2 }) => {
-	const { isCurrent } = datum;
-	if (!isCurrent) return null;
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
-		r: 7.5,
-		fill: color$2
-	});
-};
-var formatAssetPrice = (value) => formatDollarStr(bigIntFromString(value), 0);
-var getLineData = (idNumber, account, options$2, curAssetPrice, curLineData = void 0) => {
-	if (!account || !options$2) return [];
-	const delta = bigIntFromString(1e3);
+var getLineData = (curAssetPrice) => {
 	const step = bigIntFromString(5);
-	const [minPrice, maxPrice] = [curAssetPrice - delta, curAssetPrice + delta];
-	const { ltv: curLtv, ltvCoeffs } = account;
-	const data = [
-		{
-			id: `red_${idNumber}`,
-			data: []
-		},
-		{
-			id: `yellow_${idNumber}`,
-			data: []
-		},
-		{
-			id: `green_${idNumber}`,
-			data: []
-		}
-	];
-	const curLineDataMatrix = {};
-	if (curLineData) curLineData.forEach((part) => {
-		const { data: data$1 } = part;
-		data$1.forEach((point$5) => {
-			curLineDataMatrix[point$5.y] = point$5.x;
-		});
-	});
+	const [minPrice, maxPrice] = [0n, curAssetPrice];
+	const data = [];
 	for (let price = minPrice; price <= maxPrice; price += step) {
-		const ltv = calcLtv(account, price, options$2);
 		const point$5 = {
-			x: stringFromBigInt(price),
-			y: stringFromBigInt(ltv),
-			ltv,
-			price
+			x: 0,
+			y: stringFromBigInt(price)
 		};
-		if (curLineDataMatrix[point$5.y] === point$5.x) continue;
-		if (floorBigInt(ltv, 2) === floorBigInt(curLtv, 2) && floorBigInt(price, 2) === floorBigInt(curAssetPrice, 2)) point$5.isCurrent = true;
-		if (ltv <= ltvCoeffs.red) data[0].data.push(point$5);
-		else if (ltv <= ltvCoeffs.yellow) data[1].data.push(point$5);
-		else data[2].data.push(point$5);
+		data.push(point$5);
 	}
-	if (data[0].data.length) data[1].data = [getLast(data[0].data), ...data[1].data];
-	if (data[1].data.length) data[2].data = [getLast(data[1].data), ...data[2].data];
-	return data;
+	return [{
+		id: "main",
+		data
+	}];
 };
-var calcLtv = (account, assetPrice, options$2) => {
-	const { balance, debt } = account;
-	const payoffSum = options$2.reduce((sum$2, opt) => {
-		const { strike, amount, isCall } = opt;
-		return sum$2 + maxBigInt(multiplyBigInts(isCall ? assetPrice - strike : strike - assetPrice, amount), 0n);
-	}, 0n);
-	return divBigInts(multiplyBigInts(balance, assetPrice) + payoffSum, debt);
-};
-var getMarkers = (chartData, assetPrice, curLiqPrice, estLiqPrice) => {
-	const hasEstLine = !isUndefined(estLiqPrice);
+var getMarkers = (assetPrice, curLiqPrice, estLiqPrice) => {
 	const markers = [{
-		axis: "x",
+		axis: "y",
 		legend: formatDollarStr(assetPrice, 0),
-		legendPosition: "bottom-right",
+		legendPosition: "top-left",
 		value: Number(stringFromBigInt(assetPrice)),
 		lineStyle: {
 			stroke: "#454061",
@@ -110589,34 +110312,30 @@ var getMarkers = (chartData, assetPrice, curLiqPrice, estLiqPrice) => {
 			fill: Colors.DGRAY
 		}
 	}];
-	chartData.filter((data) => data.id.startsWith("red")).forEach((redZoneData) => {
-		const { data: redPoints, id: id$2 } = redZoneData;
-		const redBreakpoint = getLast(redPoints);
-		const isCurrent = id$2.endsWith("0");
-		const label = isCurrent ? `${hasEstLine ? "Cur. " : ""}Liq.Price` : "Est. Liq.Price";
-		if (redBreakpoint) {
-			const liqPriceMarker = {
-				axis: "x",
-				legend: `${label}: ${formatDollarStr(isCurrent ? curLiqPrice : estLiqPrice, 0)}`,
-				legendPosition: hasEstLine ? isCurrent ? "top-right" : "top" : "top-left",
-				value: redBreakpoint.x,
-				lineStyle: {
-					stroke: Colors.RED,
-					opacity: .5,
-					strokeDasharray: "6 6"
-				},
-				textStyle: {
-					fontSize: 12,
-					fill: Colors.RED,
-					opacity: .7
-				}
-			};
-			markers.push(liqPriceMarker);
-		}
+	const hasEstLiqPrice = !isUndefined(estLiqPrice);
+	[curLiqPrice, estLiqPrice].filter(isSufficient).forEach((liqPrice, i$13) => {
+		const isCurrent = i$13 === 0;
+		const liqPriceMarker = {
+			axis: "y",
+			legend: `${isCurrent ? `${hasEstLiqPrice ? "Cur. " : ""}Liq.Price` : "Est. Liq.Price"}: ${formatDollarStr(liqPrice, 0)}`,
+			legendPosition: isCurrent ? "top-right" : "bottom-right",
+			value: Number(stringFromBigInt(liqPrice)),
+			lineStyle: {
+				stroke: Colors.RED,
+				opacity: hasEstLiqPrice && isCurrent ? .5 : .7,
+				strokeDasharray: "6 6"
+			},
+			textStyle: {
+				fontSize: 12,
+				fill: Colors.RED,
+				opacity: hasEstLiqPrice && isCurrent ? .7 : 1
+			}
+		};
+		markers.push(liqPriceMarker);
 	});
 	return markers;
 };
-var LtvChartReverted_default = LtvChartReverted;
+var LtvChart_default = LtvChart;
 var hint_default = "data:image/svg+xml,%3csvg%20width='16'%20height='16'%20viewBox='0%200%2016%2016'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3ccircle%20cx='8'%20cy='8'%20r='7'%20fill='%231D1446'/%3e%3cpath%20fill-rule='evenodd'%20clip-rule='evenodd'%20d='M6.31309%206.30533C6.12606%206.30533%205.97459%206.14733%206.00357%205.96067C6.18467%204.82667%207.03815%204%208.51924%204C10.001%204%2011%204.90667%2011%206.14333C11%207.03933%2010.5621%207.66867%209.82119%208.12533C9.09679%208.56467%208.89%208.87067%208.89%209.46533V9.48533C8.89%209.57374%208.85531%209.65852%208.79356%209.72104C8.73181%209.78355%208.64805%209.81867%208.56072%209.81867H8.05364C7.96688%209.81867%207.88362%209.78401%207.82196%209.72222C7.76031%209.66042%207.72523%209.57649%207.72436%209.48867L7.72239%209.35533C7.69407%208.54133%208.03652%208.02133%208.80571%207.54733C9.48401%207.126%209.7257%206.79067%209.7257%206.19533C9.7257%205.54267%209.22652%205.06333%208.45733%205.06333C7.79285%205.06333%207.33121%205.416%207.18106%205.998C7.13759%206.16733%206.99798%206.30533%206.82544%206.30533H6.31309ZM8.30257%2012C8.71219%2012%209.02369%2011.684%209.02369%2011.2733C9.02369%2010.8613%208.71219%2010.5453%208.30257%2010.5453C7.90349%2010.5453%207.58673%2010.8613%207.58673%2011.2727C7.58673%2011.684%207.90349%2012%208.30257%2012Z'%20fill='%239A94B8'/%3e%3c/svg%3e";
 var Tip = ({ tooltipId, tooltipContent = void 0, children }) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
@@ -112973,25 +112692,12 @@ var ReviewStep = ({ period, cost, isSubmitting, handleClick, goBack }) => {
 var Chart = ({ estOption }) => {
 	const options$2 = useHegicOptions_default();
 	const { isLoading } = getIsLoadingAndErrorForMultiple(options$2, estOption);
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		style: {
-			display: "flex",
-			flexDirection: "column",
-			gap: 15
-		},
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-			className: "ProtectionModal__chart",
-			children: estOption ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LtvChart_default, {
-				options: [...options$2, estOption],
-				isSmall: true
-			}) : isLoading ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Spinner_default, {}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, { children: "Enter data" })
-		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-			className: "ProtectionModal__chart",
-			children: estOption ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LtvChartReverted_default, {
-				options: [...options$2, estOption],
-				isSmall: true
-			}) : isLoading ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Spinner_default, {}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, { children: "Enter data" })
-		})]
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: "ProtectionModal__chart",
+		children: estOption ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LtvChart_default, {
+			options: [...options$2, estOption],
+			isSmall: true
+		}) : isLoading ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Spinner_default, {}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, { children: "Enter data" })
 	});
 };
 var TypeRadio = ({ type, setType }) => {
@@ -114525,9 +114231,9 @@ var jsx = function jsx$4(type, props) {
 	for (var i$13 = 2; i$13 < argsLength; i$13++) createElementArgArray[i$13] = args[i$13];
 	return import_react.createElement.apply(null, createElementArgArray);
 };
-(function(_jsx$72) {
+(function(_jsx$71) {
 	var JSX;
-	(function(_JSX) {})(JSX || (JSX = _jsx$72.JSX || (_jsx$72.JSX = {})));
+	(function(_JSX) {})(JSX || (JSX = _jsx$71.JSX || (_jsx$71.JSX = {})));
 })(jsx || (jsx = {}));
 function css$2() {
 	for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) args[_key] = arguments[_key];
