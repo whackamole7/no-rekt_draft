@@ -1,5 +1,5 @@
-import { t as secp256k1 } from "./secp256k1-Bq9C4LkT.js";
-import { X as require_events, Xt as keccak_256, cn as __commonJSMin, dn as __reExport, fn as __toCommonJS, ln as __esmMin, pn as __toESM, un as __export } from "./index-BLcWjCbz.js";
+import { t as secp256k1 } from "./secp256k1-CPJHVI_H.js";
+import { X as require_events, Xt as keccak_256, cn as __commonJSMin, dn as __reExport, fn as __toCommonJS, ln as __esmMin, pn as __toESM, un as __export } from "./index-C9Qwf6f9.js";
 function isBytes(a$1) {
 	return a$1 instanceof Uint8Array || ArrayBuffer.isView(a$1) && a$1.constructor.name === "Uint8Array";
 }
