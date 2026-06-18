@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-z_sK2x_c.js","assets/secp256k1-CdMsr5wt.js","assets/esm-CfcxZDKA.js","assets/dist-Dx-RmS4J.js","assets/dist-CfimEszf.js","assets/dist-B25VqW3h.js","assets/index.es-BpaHwvi2.js","assets/alchemy-provider-2577f5a5-Bkliv1tL.js","assets/alchemy-provider-2577f5a5-C_oFA6WN.js","assets/alchemy-websocket-provider-ee041890-BlTJJfFP.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-DuoQBSTK.js","assets/secp256k1-Bvtl_v-5.js","assets/esm-B2XSRycx.js","assets/dist-C9Awjgox.js","assets/dist-DQ7kLL6v.js","assets/dist-C8jHkYCY.js","assets/index.es-kYL3O6cV.js","assets/alchemy-provider-2577f5a5-6EZxGTLk.js","assets/alchemy-provider-2577f5a5-DW9155P8.js","assets/alchemy-websocket-provider-ee041890-DwQTQxRs.js"])))=>i.map(i=>d[i]);
 var __create = Object.create;
 var __defProp$1 = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -16953,7 +16953,7 @@ async function call$2(client, args) {
 	} catch (err) {
 		const data$1 = getRevertErrorData(err);
 		const { offchainLookup, offchainLookupSignature } = await __vitePreload(async () => {
-			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-DZdO5LWL.js");
+			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-BD2TDUlL.js");
 			return {
 				offchainLookup: offchainLookup$1,
 				offchainLookupSignature: offchainLookupSignature$1
@@ -17454,7 +17454,7 @@ function publicKeyToAddress(publicKey) {
 async function recoverPublicKey({ hash: hash$3, signature }) {
 	const hashHex = isHex(hash$3) ? hash$3 : toHex$2(hash$3);
 	const { secp256k1: secp256k1$1 } = await __vitePreload(async () => {
-		const { secp256k1: secp256k1$2 } = await import("./secp256k1-z_sK2x_c.js");
+		const { secp256k1: secp256k1$2 } = await import("./secp256k1-DuoQBSTK.js");
 		return { secp256k1: secp256k1$2 };
 	}, __vite__mapDeps([0,1]));
 	return `0x${(() => {
@@ -23304,7 +23304,7 @@ function safe(parameters = {}) {
 			if (!provider_) {
 				const { default: SDK } = await (() => {
 					try {
-						return __vitePreload(() => import("./esm-CfcxZDKA.js"), __vite__mapDeps([2,3]));
+						return __vitePreload(() => import("./esm-B2XSRycx.js"), __vite__mapDeps([2,3]));
 					} catch {
 						throw new Error("dependency \"@safe-global/safe-apps-sdk\" not found");
 					}
@@ -23315,7 +23315,7 @@ function safe(parameters = {}) {
 				provider_ = new (await ((async () => {
 					const Provider$1 = await (() => {
 						try {
-							return __vitePreload(() => import("./dist-CfimEszf.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
+							return __vitePreload(() => import("./dist-DQ7kLL6v.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
 						} catch {
 							throw new Error("dependency \"@safe-global/safe-apps-provider\" not found");
 						}
@@ -23480,7 +23480,7 @@ function walletConnect(parameters) {
 				if (!optionalChains.length) return;
 				const { EthereumProvider: EthereumProvider$1 } = await (() => {
 					try {
-						return __vitePreload(() => import("./dist-B25VqW3h.js"), __vite__mapDeps([5,6,1]));
+						return __vitePreload(() => import("./dist-C8jHkYCY.js"), __vite__mapDeps([5,6,1]));
 					} catch {
 						throw new Error("dependency \"@walletconnect/ethereum-provider\" not found");
 					}
@@ -53938,8 +53938,8 @@ setupDevTools();
 const isSufficient = (value) => {
 	return !isUndefined(value) && value !== null;
 };
-const isEveryUndefined = (...values) => {
-	return values.every(isUndefined);
+const isEveryInsufficient = (...values) => {
+	return values.every((val) => !isSufficient(val));
 };
 const getEnvVariable = (variableName) => {
 	return {
@@ -84170,14 +84170,14 @@ var AlchemyConfig = class {
 	}
 	getProvider() {
 		if (!this._baseAlchemyProvider) this._baseAlchemyProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-Bkliv1tL.js"), __vite__mapDeps([7,8]));
+			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-6EZxGTLk.js"), __vite__mapDeps([7,8]));
 			return new AlchemyProvider$1(this);
 		}))();
 		return this._baseAlchemyProvider;
 	}
 	getWebSocketProvider() {
 		if (!this._baseAlchemyWssProvider) this._baseAlchemyWssProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-BlTJJfFP.js"), __vite__mapDeps([9,8]));
+			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-DwQTQxRs.js"), __vite__mapDeps([9,8]));
 			return new AlchemyWebSocketProvider(this);
 		}))();
 		return this._baseAlchemyWssProvider;
@@ -87001,7 +87001,7 @@ function calcEquity$1(accountValue, debt) {
 	return accountValue - debt;
 }
 function calcAvailableToBorrow$1(accountValue, debt) {
-	return multiplyBigIntByNumber(accountValue, BORROW_COEF) - debt;
+	return maxBigInt(multiplyBigIntByNumber(accountValue, BORROW_COEF) - debt, 0n);
 }
 function calcProtectionLevel(options$2, accountBalance) {
 	return minBigInt(divBigInts(sumObjectValues(options$2, "amount"), accountBalance), bigIntFromString(1));
@@ -91108,16 +91108,15 @@ var useIsMobile = (breakpoint = 768) => {
 	return width < breakpoint;
 };
 var useIsMobile_default = useIsMobile;
-var LiqPriceChange = ({ estBalance = void 0, estDebt = void 0, estOption = void 0 }) => {
+var LiqPriceChange = ({ estBalance = void 0, estDebt = void 0, estOptions = void 0 }) => {
 	const account = useAccount_default();
 	const options$2 = useHegicOptions_default();
 	const { isLoading, hasError } = getIsLoadingAndErrorForMultiple(account, options$2);
 	if (isLoading) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Spinner_default, {});
 	if (hasError) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, { children: "Error" });
 	const { balance, debt } = account;
-	const estOptions = estOption ? [...options$2, estOption] : void 0;
 	const liqPrice = Calculator_default.calcLiqPrice(balance, debt, options$2);
-	const estLiqPrice = isEveryUndefined(estBalance, estDebt, estOptions) ? null : Calculator_default.calcLiqPrice(estBalance ?? balance, estDebt ?? debt, estOptions ?? options$2);
+	const estLiqPrice = isEveryInsufficient(estBalance, estDebt, estOptions) ? null : Calculator_default.calcLiqPrice(estBalance ?? balance, estDebt ?? debt, estOptions ?? options$2);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 		className: "LiqPriceChange",
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ValueChange_default, {
@@ -113121,9 +113120,18 @@ var ModalMetrics = ({ cost, paymentMethod, estLtv, setEstLtv, estOption }) => {
 	const account = useAccount_default();
 	const contracts$1 = useContracts_default();
 	const usdcPool = useUsdcPool_default();
+	const options$2 = useHegicOptions_default();
 	const slippage = useSlippage();
 	const [estCollateral, setEstCollateral] = (0, import_react.useState)(null);
+	const [estOptions, setEstOptions] = (0, import_react.useState)(null);
 	const isCollateral = paymentMethod === PaymentMethods.COLLATERAL;
+	(0, import_react.useEffect)(() => {
+		if (!options$2 || !estOption) {
+			setEstOptions(null);
+			return;
+		}
+		setEstOptions([...options$2, estOption]);
+	}, [estOption, options$2]);
 	const updateEstCollateral = async () => {
 		setEstCollateral(void 0);
 		const collateralPaid = await swapUsdcToEth(contracts$1, cost, slippage);
@@ -113167,7 +113175,7 @@ var ModalMetrics = ({ cost, paymentMethod, estLtv, setEstLtv, estOption }) => {
 				})
 			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 				className: "Metrics__row-value",
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceChange_default, { estOption })
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceChange_default, { estOptions })
 			})]
 		}),
 		isCollateral && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
@@ -113222,8 +113230,10 @@ var ModalMetrics = ({ cost, paymentMethod, estLtv, setEstLtv, estOption }) => {
 var ProtectionModal_default = ProtectionModal;
 var ClaimModal = ({ isOpen, setIsOpen, position: position$1, setPosition }) => {
 	const account = useAccount_default();
+	const options$2 = useHegicOptions_default();
 	const [estLtv, setEstLtv] = (0, import_react.useState)(null);
 	const [estDebt, setEstDebt] = (0, import_react.useState)(null);
+	const [estOptions, setEstOptions] = (0, import_react.useState)(null);
 	const [isSubmitting, setIsSubmitting] = (0, import_react.useState)(false);
 	const [txResult, setTxResult] = (0, import_react.useState)(void 0);
 	const { claim } = useProtocolActions_default();
@@ -113246,6 +113256,13 @@ var ClaimModal = ({ isOpen, setIsOpen, position: position$1, setPosition }) => {
 		updateEstDebt();
 		updateEstLtv();
 	}, [position$1]);
+	(0, import_react.useEffect)(() => {
+		if (!options$2 || !position$1) {
+			setEstOptions(null);
+			return;
+		}
+		setEstOptions(options$2.filter((opt) => opt.id !== position$1.id));
+	}, [position$1, options$2]);
 	const getError = () => {
 		if (isSubmitting) return ButtonLabels.SUBMITTING;
 	};
@@ -113312,7 +113329,7 @@ var ClaimModal = ({ isOpen, setIsOpen, position: position$1, setPosition }) => {
 							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceChange_default.Title, {})
 						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 							className: "Metrics__row-value",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceChange_default, {})
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceChange_default, { estOptions })
 						})]
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
@@ -118900,7 +118917,7 @@ var Nav = ({ toggleIsBurgerOpen = void 0 }) => {
 				"data-tooltip-id": "Header_nav-tooltip",
 				"data-tooltip-content": "Coming soon 🔥",
 				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: link.name })
-			});
+			}, link.to);
 			return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(NavLink, {
 				to: link.to,
 				onMouseUp: () => {

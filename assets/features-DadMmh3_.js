@@ -1,7 +1,7 @@
-import "./_esm-BLY7zWY5.js";
-import "./secp256k1-CdMsr5wt.js";
-import { B as SafeLocalStorageKeys, J as ConstantsUtil, S as BlockchainApiController, n as ChainController, q as NetworkUtil, t as ApiController, u as getActiveCaipNetwork, z as SafeLocalStorage } from "./ApiController-DV5-_vNl.js";
-import "./ccip-Bt5iUFjW.js";
+import "./_esm-DDGzPmRW.js";
+import "./secp256k1-Bvtl_v-5.js";
+import { B as SafeLocalStorageKeys, J as ConstantsUtil, S as BlockchainApiController, n as ChainController, q as NetworkUtil, t as ApiController, u as getActiveCaipNetwork, z as SafeLocalStorage } from "./ApiController-CsZw7qhb.js";
+import "./ccip-QIVu0pe8.js";
 var ReownAuthenticationMessenger = class {
 	constructor(params) {
 		this.getNonce = params.getNonce;
