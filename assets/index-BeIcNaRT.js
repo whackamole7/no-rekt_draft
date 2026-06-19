@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-Bm-7CF4B.js","assets/secp256k1-CUfkP0GF.js","assets/esm-CJil19Ww.js","assets/dist-BBNThRfv.js","assets/dist-ZtHqC6aE.js","assets/dist-D0BoBryK.js","assets/index.es-DF6ibWXG.js","assets/alchemy-provider-2577f5a5-CodqbTDR.js","assets/alchemy-provider-2577f5a5-BjlsoQf1.js","assets/alchemy-websocket-provider-ee041890-D2OP_0X1.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-B4hDQXNx.js","assets/secp256k1-DdAb2aRm.js","assets/esm-C-F1YuUG.js","assets/dist-D0-tHwi3.js","assets/dist-BuIfp8Pp.js","assets/dist-iF5Z1pPg.js","assets/index.es-DiLh3ONC.js","assets/alchemy-provider-2577f5a5-BtTpqIcx.js","assets/alchemy-provider-2577f5a5-B80zcfkP.js","assets/alchemy-websocket-provider-ee041890-ByoR1TjT.js"])))=>i.map(i=>d[i]);
 var __create = Object.create;
 var __defProp$1 = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -16953,7 +16953,7 @@ async function call$2(client, args) {
 	} catch (err) {
 		const data$1 = getRevertErrorData(err);
 		const { offchainLookup, offchainLookupSignature } = await __vitePreload(async () => {
-			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-DUujeHbL.js");
+			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-CXHkUPPu.js");
 			return {
 				offchainLookup: offchainLookup$1,
 				offchainLookupSignature: offchainLookupSignature$1
@@ -17454,7 +17454,7 @@ function publicKeyToAddress(publicKey) {
 async function recoverPublicKey({ hash: hash$3, signature }) {
 	const hashHex = isHex(hash$3) ? hash$3 : toHex$2(hash$3);
 	const { secp256k1: secp256k1$1 } = await __vitePreload(async () => {
-		const { secp256k1: secp256k1$2 } = await import("./secp256k1-Bm-7CF4B.js");
+		const { secp256k1: secp256k1$2 } = await import("./secp256k1-B4hDQXNx.js");
 		return { secp256k1: secp256k1$2 };
 	}, __vite__mapDeps([0,1]));
 	return `0x${(() => {
@@ -23304,7 +23304,7 @@ function safe(parameters = {}) {
 			if (!provider_) {
 				const { default: SDK } = await (() => {
 					try {
-						return __vitePreload(() => import("./esm-CJil19Ww.js"), __vite__mapDeps([2,3]));
+						return __vitePreload(() => import("./esm-C-F1YuUG.js"), __vite__mapDeps([2,3]));
 					} catch {
 						throw new Error("dependency \"@safe-global/safe-apps-sdk\" not found");
 					}
@@ -23315,7 +23315,7 @@ function safe(parameters = {}) {
 				provider_ = new (await ((async () => {
 					const Provider$1 = await (() => {
 						try {
-							return __vitePreload(() => import("./dist-ZtHqC6aE.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
+							return __vitePreload(() => import("./dist-BuIfp8Pp.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
 						} catch {
 							throw new Error("dependency \"@safe-global/safe-apps-provider\" not found");
 						}
@@ -23480,7 +23480,7 @@ function walletConnect(parameters) {
 				if (!optionalChains.length) return;
 				const { EthereumProvider: EthereumProvider$1 } = await (() => {
 					try {
-						return __vitePreload(() => import("./dist-D0BoBryK.js"), __vite__mapDeps([5,6,1]));
+						return __vitePreload(() => import("./dist-iF5Z1pPg.js"), __vite__mapDeps([5,6,1]));
 					} catch {
 						throw new Error("dependency \"@walletconnect/ethereum-provider\" not found");
 					}
@@ -69060,7 +69060,7 @@ var BrowserProvider = class BrowserProvider extends JsonRpcApiPollingProvider {
 	}
 };
 var LendingMarginAccountManager_default = {
-	address: "0xE20d03360eC847ed89249D079bD75088b8679078",
+	address: "0x7DBCfb2bF2d8412248817997C5278Da4f3A2c33B",
 	abi: [
 		{
 			"inputs": [{
@@ -69356,7 +69356,7 @@ var LendingMarginAccountManager_default = {
 	]
 };
 var MarginAccount_default = {
-	address: "0x579Fbca16993B6D887E30D4E02bCb01302dC048C",
+	address: "0x393A475a11ca04f29a185Cd31562110A9fa15fD8",
 	abi: [
 		{
 			"inputs": [{
@@ -70565,7 +70565,7 @@ var MarginAccount_default = {
 	]
 };
 var MarginAccountManager_default = {
-	address: "0x0fa1e3a19F18d15cd2ae7Ef404970eeb2F462af1",
+	address: "0xFc2a3cb30E2d60211bA337303061048065230530",
 	abi: [
 		{
 			"anonymous": false,
@@ -70917,7 +70917,7 @@ var MarginAccountManager_default = {
 	]
 };
 var MarginTrading_default = {
-	address: "0x5e20fF52e7A644380b0c0420750a56BA7F8eab91",
+	address: "0xABE5F3FB2B39a73F1661CEaF4FBE95a539EF86FD",
 	abi: [
 		{
 			"inputs": [
@@ -71992,7 +71992,7 @@ var MarginTrading_default = {
 	]
 };
 var ModularSwapRouter_default = {
-	address: "0x9B8854d99Eb691852705d8B9c8A53a6991F9Ea97",
+	address: "0x8FC42af5Ab8C707561621fD42B6A87adE337C024",
 	abi: [
 		{
 			"inputs": [{
@@ -72852,7 +72852,7 @@ var ModularSwapRouter_default = {
 	]
 };
 var OneClickNoRekt_default = {
-	address: "0x65386216D7321eE78b2E0ffC0F2491aF0e941939",
+	address: "0x7256d27e3a4C84474C5b88A119F61E75eD0738F4",
 	abi: [
 		{
 			"inputs": [
@@ -73270,7 +73270,7 @@ var OneClickNoRekt_default = {
 	]
 };
 var OneClickOptions_default = {
-	address: "0xD9452b8D0d89d1F4a227DaF48Cf4517fd8445cc8",
+	address: "0x600fE3Bd88d64757143a040036C92aeaB8E2c0AA",
 	abi: [
 		{
 			"inputs": [
@@ -74060,7 +74060,7 @@ var OneClickOptions_default = {
 	]
 };
 var OneClickProxy_default = {
-	address: "0x8338843115dAc76B1313d9c57Bf0bC79810E53fc",
+	address: "0xA114fbC486e77cC05235A616749F21bd13E49059",
 	abi: [
 		{
 			"inputs": [{
@@ -74718,7 +74718,7 @@ var OneClickProxy_default = {
 	]
 };
 var OneClickTrading_default = {
-	address: "0x71506E9945D52f5da90485BB834fcA36c3a82c2b",
+	address: "0x735b2674A360B89719A12a7A962FC2E7458601D4",
 	abi: [
 		{
 			"inputs": [
@@ -75126,7 +75126,7 @@ var OneClickTrading_default = {
 	]
 };
 var USDC_LiquidityPool_default = {
-	address: "0x57D106B9Ea9FeD37F0AB2748BBEf4CB811e19689",
+	address: "0x7DC86Ed3AE69cEB124494A5B5c10D0F335BD8bbE",
 	abi: [
 		{
 			"inputs": [
@@ -84170,14 +84170,14 @@ var AlchemyConfig = class {
 	}
 	getProvider() {
 		if (!this._baseAlchemyProvider) this._baseAlchemyProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-CodqbTDR.js"), __vite__mapDeps([7,8]));
+			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-BtTpqIcx.js"), __vite__mapDeps([7,8]));
 			return new AlchemyProvider$1(this);
 		}))();
 		return this._baseAlchemyProvider;
 	}
 	getWebSocketProvider() {
 		if (!this._baseAlchemyWssProvider) this._baseAlchemyWssProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-D2OP_0X1.js"), __vite__mapDeps([9,8]));
+			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-ByoR1TjT.js"), __vite__mapDeps([9,8]));
 			return new AlchemyWebSocketProvider(this);
 		}))();
 		return this._baseAlchemyWssProvider;
