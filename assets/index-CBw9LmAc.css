@@ -1418,7 +1418,7 @@
   border-radius: 20px;
   padding: 0;
 }
-.ProtectionModal__chart .LtvChart {
+.ProtectionModal__chart .LiqPriceChart {
   height: 100%;
   background-color: transparent;
   border: none;
@@ -1525,7 +1525,7 @@
     height: 285px;
     margin-bottom: 5px;
   }
-  .ProtectionModal__chart .LtvChart {
+  .ProtectionModal__chart .LiqPriceChart {
     display: block;
   }
   .ProtectionModal__body {
@@ -1536,7 +1536,7 @@
     flex-direction: column;
     row-gap: 15px;
   }
-}.LtvChart {
+}.LiqPriceChart {
   height: 435px;
   grid-column: 1/13;
   color: #9A94B8;
@@ -1544,27 +1544,27 @@
   overflow: hidden;
   padding: 0;
 }
-.LtvChart__point._current {
+.LiqPriceChart__point._current {
   width: 15px;
   height: 15px;
 }
-.LtvChart__tooltip {
+.LiqPriceChart__tooltip {
   width: max-content;
   color: #ffffff;
   background-color: #130B3A;
   border-radius: 8px;
   padding: 7px 10px;
 }
-.LtvChart__tooltip-line {
+.LiqPriceChart__tooltip-line {
   display: flex;
   align-items: center;
   column-gap: 5px;
 }
-.LtvChart__tooltip-line span:first-child {
+.LiqPriceChart__tooltip-line span:first-child {
   color: #9A94B8;
 }
 @media (max-width: 480px) {
-  .LtvChart {
+  .LiqPriceChart {
     display: none;
   }
 }.Tip {

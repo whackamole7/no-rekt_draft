@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-nh-Vbt29.js","assets/secp256k1-CPJHVI_H.js","assets/esm-STDNMzZQ.js","assets/dist-ByiFDb7F.js","assets/dist-tTDBghdr.js","assets/dist-Csjt0qaT.js","assets/index.es-DTeNVc0W.js","assets/alchemy-provider-2577f5a5-CxcMSwJq.js","assets/alchemy-provider-2577f5a5-Dj8Pb4IP.js","assets/alchemy-websocket-provider-ee041890-BNfCppN8.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-B3NRhQTR.js","assets/secp256k1-mqwHASlo.js","assets/esm-Bz2qoomU.js","assets/dist-luQvUy9h.js","assets/dist-BxXXMNIm.js","assets/dist-7HyqWbDY.js","assets/index.es-CXiD19Jw.js","assets/alchemy-provider-2577f5a5-B7nxGGbR.js","assets/alchemy-provider-2577f5a5-CO9DABO5.js","assets/alchemy-websocket-provider-ee041890-BQwkqKcd.js"])))=>i.map(i=>d[i]);
 var __create = Object.create;
 var __defProp$1 = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -16953,7 +16953,7 @@ async function call$2(client, args) {
 	} catch (err) {
 		const data$1 = getRevertErrorData(err);
 		const { offchainLookup, offchainLookupSignature } = await __vitePreload(async () => {
-			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-BQWQUXAW.js");
+			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-DXs3HfZ7.js");
 			return {
 				offchainLookup: offchainLookup$1,
 				offchainLookupSignature: offchainLookupSignature$1
@@ -17454,7 +17454,7 @@ function publicKeyToAddress(publicKey) {
 async function recoverPublicKey({ hash: hash$3, signature }) {
 	const hashHex = isHex(hash$3) ? hash$3 : toHex$2(hash$3);
 	const { secp256k1: secp256k1$1 } = await __vitePreload(async () => {
-		const { secp256k1: secp256k1$2 } = await import("./secp256k1-nh-Vbt29.js");
+		const { secp256k1: secp256k1$2 } = await import("./secp256k1-B3NRhQTR.js");
 		return { secp256k1: secp256k1$2 };
 	}, __vite__mapDeps([0,1]));
 	return `0x${(() => {
@@ -23304,7 +23304,7 @@ function safe(parameters = {}) {
 			if (!provider_) {
 				const { default: SDK } = await (() => {
 					try {
-						return __vitePreload(() => import("./esm-STDNMzZQ.js"), __vite__mapDeps([2,3]));
+						return __vitePreload(() => import("./esm-Bz2qoomU.js"), __vite__mapDeps([2,3]));
 					} catch {
 						throw new Error("dependency \"@safe-global/safe-apps-sdk\" not found");
 					}
@@ -23315,7 +23315,7 @@ function safe(parameters = {}) {
 				provider_ = new (await ((async () => {
 					const Provider$1 = await (() => {
 						try {
-							return __vitePreload(() => import("./dist-tTDBghdr.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
+							return __vitePreload(() => import("./dist-BxXXMNIm.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
 						} catch {
 							throw new Error("dependency \"@safe-global/safe-apps-provider\" not found");
 						}
@@ -23480,7 +23480,7 @@ function walletConnect(parameters) {
 				if (!optionalChains.length) return;
 				const { EthereumProvider: EthereumProvider$1 } = await (() => {
 					try {
-						return __vitePreload(() => import("./dist-Csjt0qaT.js"), __vite__mapDeps([5,6,1]));
+						return __vitePreload(() => import("./dist-7HyqWbDY.js"), __vite__mapDeps([5,6,1]));
 					} catch {
 						throw new Error("dependency \"@walletconnect/ethereum-provider\" not found");
 					}
@@ -84170,14 +84170,14 @@ var AlchemyConfig = class {
 	}
 	getProvider() {
 		if (!this._baseAlchemyProvider) this._baseAlchemyProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-CxcMSwJq.js"), __vite__mapDeps([7,8]));
+			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-B7nxGGbR.js"), __vite__mapDeps([7,8]));
 			return new AlchemyProvider$1(this);
 		}))();
 		return this._baseAlchemyProvider;
 	}
 	getWebSocketProvider() {
 		if (!this._baseAlchemyWssProvider) this._baseAlchemyWssProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-BNfCppN8.js"), __vite__mapDeps([9,8]));
+			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-BQwkqKcd.js"), __vite__mapDeps([9,8]));
 			return new AlchemyWebSocketProvider(this);
 		}))();
 		return this._baseAlchemyWssProvider;
@@ -110190,7 +110190,7 @@ var ye = (0, import_react.forwardRef)((function(e$13, o$8) {
 	});
 }));
 var formatAssetPriceStr = (str) => formatDollarStr(bigIntFromString(str), 0);
-var LtvChart = ({ options: options$2 = void 0, isSmall = false }) => {
+var LiqPriceChart = ({ options: options$2 = void 0, isSmall = false }) => {
 	const account = useAccount_default();
 	const curOptions = useHegicOptions_default();
 	const assetPrice = useTokenPrice("ETH");
@@ -110199,7 +110199,7 @@ var LtvChart = ({ options: options$2 = void 0, isSmall = false }) => {
 	const data = getLineData(assetPrice);
 	const { balance, debt } = account;
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: "LtvChart box",
+		className: "LiqPriceChart box",
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Me, {
 			data,
 			enableGridX: false,
@@ -110274,9 +110274,9 @@ var LtvChart = ({ options: options$2 = void 0, isSmall = false }) => {
 };
 var _Tooltip = ({ point: point$5 }) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: "LtvChart__tooltip",
+		className: "LiqPriceChart__tooltip",
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "LtvChart__tooltip-line",
+			className: "LiqPriceChart__tooltip-line",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Price:" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: formatAssetPriceStr(point$5.data.y) })]
 		})
 	});
@@ -110335,7 +110335,7 @@ var getMarkers = (assetPrice, curLiqPrice, estLiqPrice) => {
 	});
 	return markers;
 };
-var LtvChart_default = LtvChart;
+var LiqPriceChart_default = LiqPriceChart;
 var hint_default = "data:image/svg+xml,%3csvg%20width='16'%20height='16'%20viewBox='0%200%2016%2016'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3ccircle%20cx='8'%20cy='8'%20r='7'%20fill='%231D1446'/%3e%3cpath%20fill-rule='evenodd'%20clip-rule='evenodd'%20d='M6.31309%206.30533C6.12606%206.30533%205.97459%206.14733%206.00357%205.96067C6.18467%204.82667%207.03815%204%208.51924%204C10.001%204%2011%204.90667%2011%206.14333C11%207.03933%2010.5621%207.66867%209.82119%208.12533C9.09679%208.56467%208.89%208.87067%208.89%209.46533V9.48533C8.89%209.57374%208.85531%209.65852%208.79356%209.72104C8.73181%209.78355%208.64805%209.81867%208.56072%209.81867H8.05364C7.96688%209.81867%207.88362%209.78401%207.82196%209.72222C7.76031%209.66042%207.72523%209.57649%207.72436%209.48867L7.72239%209.35533C7.69407%208.54133%208.03652%208.02133%208.80571%207.54733C9.48401%207.126%209.7257%206.79067%209.7257%206.19533C9.7257%205.54267%209.22652%205.06333%208.45733%205.06333C7.79285%205.06333%207.33121%205.416%207.18106%205.998C7.13759%206.16733%206.99798%206.30533%206.82544%206.30533H6.31309ZM8.30257%2012C8.71219%2012%209.02369%2011.684%209.02369%2011.2733C9.02369%2010.8613%208.71219%2010.5453%208.30257%2010.5453C7.90349%2010.5453%207.58673%2010.8613%207.58673%2011.2727C7.58673%2011.684%207.90349%2012%208.30257%2012Z'%20fill='%239A94B8'/%3e%3c/svg%3e";
 var Tip = ({ tooltipId, tooltipContent = void 0, children }) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
@@ -112694,7 +112694,7 @@ var Chart = ({ estOption }) => {
 	const { isLoading } = getIsLoadingAndErrorForMultiple(options$2, estOption);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 		className: "ProtectionModal__chart",
-		children: estOption ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LtvChart_default, {
+		children: estOption ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceChart_default, {
 			options: [...options$2, estOption],
 			isSmall: true
 		}) : isLoading ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Spinner_default, {}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, { children: "Enter data" })
@@ -118426,7 +118426,7 @@ var Content = () => {
 		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProtectionPanel_default, {}),
 		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Supply_default, {}),
 		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Borrow_default, {}),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(LtvChart_default, {}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceChart_default, {}),
 		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Protections_default, {})
 	] });
 };
