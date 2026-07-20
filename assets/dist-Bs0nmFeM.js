@@ -1,90 +1,8 @@
-import { A as safeJsonParse, B as base32, C as require_cjs$2, D as Qo$2, E as Qe$2, F as require_cjs, I as Ge$3, L as Re$1, M as i, N as r, O as sn, P as IEvents, R as Ue$2, S as fromHex, T as Po$2, _ as concat, a as isJsonRpcRequest, b as esm_default, c as formatJsonRpcError, d as getBigIntRpcId, f as payloadId, g as fromString, h as toString, i as isJsonRpcError, j as safeJsonStringify, k as h, l as formatJsonRpcRequest, m as C$2, n as f$2, o as isJsonRpcResponse, p as require_blakejs, r as o, s as isJsonRpcResult, t as f, u as formatJsonRpcResult, v as decode, w as require_cjs$1, x as recoverAddress, y as encode, z as ee$2 } from "./index.es-DiLh3ONC.js";
-import { X as require_events, Y as detect, pn as __toESM } from "./index-BeIcNaRT.js";
-import { C as SnackController, I as subscribeKey, J as ConstantsUtil, L as proxy, O as withErrorBoundary, W as ParseUtil, c as ConnectionController, g as ModalController, j as CoreHelperUtil, k as OptionsController, m as ConnectorController, n as ChainController, p as getPreferredAccountType, u as getActiveCaipNetwork, v as EventsController, w as W3mFrameRpcConstants, y as RouterController } from "./ApiController-D18hdJRi.js";
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/core-DHDEZ4AK.js","assets/index-BVdWMRvZ.js","assets/index-BW7cINCs.css","assets/HelpersUtil-CgfQGPcg.js","assets/ApiController-ZuyTESP0.js","assets/ccip-DKNgjOWF.js","assets/index.es-CHqPSYXH.js","assets/secp256k1-Cgx2kDCD.js","assets/AlertController-Bu2WVLmQ.js","assets/_esm-BSlj7ZEs.js","assets/CaipNetworkUtil-DgiwAsqp.js"])))=>i.map(i=>d[i]);
+import "./secp256k1-Cgx2kDCD.js";
+import { A as safeJsonParse, B as base32, C as require_cjs$2, D as Qo$2, E as Qe$2, F as require_cjs, I as Ge$3, L as Re$1, M as i, N as r, O as sn, P as IEvents, R as Ue$2, S as fromHex, T as Po$2, _ as concat, a as isJsonRpcRequest, b as esm_default, c as formatJsonRpcError, d as getBigIntRpcId, f as payloadId, g as fromString, h as toString, i as isJsonRpcError, j as safeJsonStringify, k as h, l as formatJsonRpcRequest, m as C$3, n as f$3, o as isJsonRpcResponse, p as require_blakejs, r as o, s as isJsonRpcResult, t as f$1, u as formatJsonRpcResult, v as decode, w as require_cjs$1, x as recoverAddress, y as encode, z as ee$2 } from "./index.es-CHqPSYXH.js";
+import { X as require_events, Y as detect, pn as __toESM, tt as __vitePreload } from "./index-BVdWMRvZ.js";
 require_events();
-var a = Object.defineProperty, u = (e, s, r$1) => s in e ? a(e, s, {
-	enumerable: !0,
-	configurable: !0,
-	writable: !0,
-	value: r$1
-}) : e[s] = r$1, c$1 = (e, s, r$1) => u(e, typeof s != "symbol" ? s + "" : s, r$1);
-var h$1 = class extends IEvents {
-	constructor(s) {
-		super(), this.opts = s, c$1(this, "protocol", "wc"), c$1(this, "version", 2);
-	}
-};
-var p$1 = Object.defineProperty, b$2 = (e, s, r$1) => s in e ? p$1(e, s, {
-	enumerable: !0,
-	configurable: !0,
-	writable: !0,
-	value: r$1
-}) : e[s] = r$1, v$2 = (e, s, r$1) => b$2(e, typeof s != "symbol" ? s + "" : s, r$1);
-var I = class extends IEvents {
-	constructor(s, r$1) {
-		super(), this.core = s, this.logger = r$1, v$2(this, "records", /* @__PURE__ */ new Map());
-	}
-};
-var y$1 = class {
-	constructor(s, r$1) {
-		this.logger = s, this.core = r$1;
-	}
-};
-var m$1 = class extends IEvents {
-	constructor(s, r$1) {
-		super(), this.relayer = s, this.logger = r$1;
-	}
-};
-var d$1 = class extends IEvents {
-	constructor(s) {
-		super();
-	}
-};
-var f$1 = class {
-	constructor(s, r$1, t, q$1) {
-		this.core = s, this.logger = r$1, this.name = t;
-	}
-};
-var P = class extends IEvents {
-	constructor(s, r$1) {
-		super(), this.relayer = s, this.logger = r$1;
-	}
-};
-var S$1 = class extends IEvents {
-	constructor(s, r$1) {
-		super(), this.core = s, this.logger = r$1;
-	}
-};
-var M$1 = class {
-	constructor(s, r$1, t) {
-		this.core = s, this.logger = r$1, this.store = t;
-	}
-};
-var O$1 = class {
-	constructor(s, r$1) {
-		this.projectId = s, this.logger = r$1;
-	}
-};
-var R = class {
-	constructor(s, r$1, t) {
-		this.core = s, this.logger = r$1, this.telemetryEnabled = t;
-	}
-};
-var T$1 = Object.defineProperty, k = (e, s, r$1) => s in e ? T$1(e, s, {
-	enumerable: !0,
-	configurable: !0,
-	writable: !0,
-	value: r$1
-}) : e[s] = r$1, i$1 = (e, s, r$1) => k(e, typeof s != "symbol" ? s + "" : s, r$1);
-var J$1 = class {
-	constructor(s) {
-		this.opts = s, i$1(this, "protocol", "wc"), i$1(this, "version", 2);
-	}
-};
-var V = class {
-	constructor(s) {
-		this.client = s;
-	}
-};
 var import_cjs$3 = require_cjs();
 var import_cjs$4 = require_cjs$1();
 var import_cjs$5 = require_cjs$2();
@@ -96,6 +14,14 @@ function Je(t) {
 		namespace: e,
 		reference: n$1
 	};
+}
+function ti(t, e = []) {
+	const n$1 = [];
+	return Object.keys(t).forEach((r$1) => {
+		if (e.length && !e.includes(r$1)) return;
+		const o$1 = t[r$1];
+		n$1.push(...o$1.accounts);
+	}), n$1;
 }
 function Se$2(t, e) {
 	return t.includes(":") ? [t] : e.chains || [];
@@ -109,7 +35,7 @@ var ri$1 = Object.defineProperty, oi$1 = Object.defineProperties, si$1 = Object.
 	for (var n$1 in e || (e = {})) ii$1.call(e, n$1) && en$1(t, n$1, e[n$1]);
 	if (ar$1) for (var n$1 of ar$1(e)) ci$1.call(e, n$1) && en$1(t, n$1, e[n$1]);
 	return t;
-}, fi$1 = (t, e) => oi$1(t, si$1(e)), lr$1 = (t, e, n$1) => en$1(t, typeof e != "symbol" ? e + "" : e, n$1), et$2 = {
+}, fi$1 = (t, e) => oi$1(t, si$1(e)), lr$1 = (t, e, n$1) => en$1(t, typeof e != "symbol" ? e + "" : e, n$1), et$3 = {
 	reactNative: "react-native",
 	node: "node",
 	browser: "browser",
@@ -131,7 +57,7 @@ function Wt$1() {
 	return !rn() && !!(0, import_cjs$4.getNavigator)() && !!(0, import_cjs$4.getDocument)();
 }
 function Vt$2() {
-	return It$1() ? et$2.reactNative : rn() ? et$2.node : Wt$1() ? et$2.browser : et$2.unknown;
+	return It$1() ? et$3.reactNative : rn() ? et$3.node : Wt$1() ? et$3.browser : et$3.unknown;
 }
 function hi() {
 	var t;
@@ -170,7 +96,7 @@ function br() {
 	};
 }
 function yr$1() {
-	if (Vt$2() === et$2.reactNative && typeof global < "u" && typeof (global == null ? void 0 : global.Platform) < "u") {
+	if (Vt$2() === et$3.reactNative && typeof global < "u" && typeof (global == null ? void 0 : global.Platform) < "u") {
 		const { OS: n$1, Version: r$1 } = global.Platform;
 		return [n$1, r$1].join("-");
 	}
@@ -186,7 +112,7 @@ function yr$1() {
 function mr$1() {
 	var t;
 	const e = Vt$2();
-	return e === et$2.browser ? [e, ((t = (0, import_cjs$4.getLocation)()) == null ? void 0 : t.host) || "unknown"].join(":") : e;
+	return e === et$3.browser ? [e, ((t = (0, import_cjs$4.getLocation)()) == null ? void 0 : t.host) || "unknown"].join(":") : e;
 }
 function wr(t, e, n$1) {
 	const r$1 = yr$1(), o$1 = mr$1();
@@ -197,13 +123,13 @@ function wr(t, e, n$1) {
 		o$1
 	].join("/");
 }
-function bi({ protocol: t, version: e, relayUrl: n$1, sdkVersion: r$1, auth: o$1, projectId: s, useOnCloseEvent: i$2, bundleId: c$2, packageName: f$4 }) {
+function bi({ protocol: t, version: e, relayUrl: n$1, sdkVersion: r$1, auth: o$1, projectId: s, useOnCloseEvent: i$2, bundleId: c$2, packageName: f$5 }) {
 	const u$1 = n$1.split("?"), l$1 = {
 		auth: o$1,
 		ua: wr(t, e, r$1),
 		projectId: s,
 		useOnCloseEvent: i$2 || void 0,
-		packageName: f$4 || void 0,
+		packageName: f$5 || void 0,
 		bundleId: c$2 || void 0
 	}, d$3 = gr$1(u$1[1] || "", l$1);
 	return u$1[0] + "?" + d$3;
@@ -227,12 +153,12 @@ function Ai(t = import_cjs$3.FIVE_MINUTES, e) {
 		reject: (c$2) => {
 			s && o$1 && (clearTimeout(s), o$1(c$2));
 		},
-		done: () => new Promise((c$2, f$4) => {
+		done: () => new Promise((c$2, f$5) => {
 			if (i$2) return c$2(i$2);
 			s = setTimeout(() => {
 				const u$1 = new Error(e);
-				i$2 = Promise.reject(u$1), f$4(u$1);
-			}, n$1), r$1 = c$2, o$1 = f$4;
+				i$2 = Promise.reject(u$1), f$5(u$1);
+			}, n$1), r$1 = c$2, o$1 = f$5;
 		})
 	};
 }
@@ -293,13 +219,13 @@ async function Ti({ id: t, topic: e, wcDeepLink: n$1 }) {
 		const s = (typeof n$1 == "string" ? JSON.parse(n$1) : n$1)?.href;
 		if (typeof s != "string") return;
 		const i$2 = Br$1(s, t, e), c$2 = Vt$2();
-		if (c$2 === et$2.browser) {
+		if (c$2 === et$3.browser) {
 			if (!((r$1 = (0, import_cjs$4.getDocument)()) != null && r$1.hasFocus())) {
 				console.warn("Document does not have focus, skipping deeplink.");
 				return;
 			}
 			Ir$1(i$2);
-		} else c$2 === et$2.reactNative && typeof (global == null ? void 0 : global.Linking) < "u" && await global.Linking.openURL(i$2);
+		} else c$2 === et$3.reactNative && typeof (global == null ? void 0 : global.Linking) < "u" && await global.Linking.openURL(i$2);
 	} catch (o$1) {
 		console.error(o$1);
 	}
@@ -480,8 +406,8 @@ function Re$3(t) {
 	for (let o$1 = 0, s = 0; o$1 < n$1; o$1++, s += 2) {
 		const i$2 = Lr$1(t.charCodeAt(s)), c$2 = Lr$1(t.charCodeAt(s + 1));
 		if (i$2 === void 0 || c$2 === void 0) {
-			const f$4 = t[s] + t[s + 1];
-			throw new Error("hex string expected, got non-hex character \"" + f$4 + "\" at index " + s);
+			const f$5 = t[s] + t[s + 1];
+			throw new Error("hex string expected, got non-hex character \"" + f$5 + "\" at index " + s);
 		}
 		r$1[o$1] = i$2 * 16 + c$2;
 	}
@@ -534,13 +460,13 @@ function ic(t, e = 24) {
 	for (let r$1 = 24 - e; r$1 < 24; r$1++) {
 		for (let i$2 = 0; i$2 < 10; i$2++) n$1[i$2] = t[i$2] ^ t[i$2 + 10] ^ t[i$2 + 20] ^ t[i$2 + 30] ^ t[i$2 + 40];
 		for (let i$2 = 0; i$2 < 10; i$2 += 2) {
-			const c$2 = (i$2 + 8) % 10, f$4 = (i$2 + 2) % 10, u$1 = n$1[f$4], a$1 = n$1[f$4 + 1], l$1 = Mr$1(u$1, a$1, 1) ^ n$1[c$2], d$3 = Kr$1(u$1, a$1, 1) ^ n$1[c$2 + 1];
+			const c$2 = (i$2 + 8) % 10, f$5 = (i$2 + 2) % 10, u$1 = n$1[f$5], a$1 = n$1[f$5 + 1], l$1 = Mr$1(u$1, a$1, 1) ^ n$1[c$2], d$3 = Kr$1(u$1, a$1, 1) ^ n$1[c$2 + 1];
 			for (let h$2 = 0; h$2 < 50; h$2 += 10) t[i$2 + h$2] ^= l$1, t[i$2 + h$2 + 1] ^= d$3;
 		}
 		let o$1 = t[2], s = t[3];
 		for (let i$2 = 0; i$2 < 24; i$2++) {
-			const c$2 = Hr$1[i$2], f$4 = Mr$1(o$1, s, c$2), u$1 = Kr$1(o$1, s, c$2), a$1 = Pr$1[i$2];
-			o$1 = t[a$1], s = t[a$1 + 1], t[a$1] = f$4, t[a$1 + 1] = u$1;
+			const c$2 = Hr$1[i$2], f$5 = Mr$1(o$1, s, c$2), u$1 = Kr$1(o$1, s, c$2), a$1 = Pr$1[i$2];
+			o$1 = t[a$1], s = t[a$1 + 1], t[a$1] = f$5, t[a$1 + 1] = u$1;
 		}
 		for (let i$2 = 0; i$2 < 50; i$2 += 10) {
 			for (let c$2 = 0; c$2 < 10; c$2++) n$1[c$2] = t[i$2 + c$2];
@@ -612,8 +538,8 @@ var Jn$1 = class Jn$1 extends $e$2 {
 var cc = (t, e, n$1) => ge$2(() => new Jn$1(e, t, n$1)), fc = cc(1, 136, 256 / 8);
 function ac(t, e, n$1, r$1) {
 	if (typeof t.setBigUint64 == "function") return t.setBigUint64(e, n$1, r$1);
-	const o$1 = BigInt(32), s = BigInt(4294967295), i$2 = Number(n$1 >> o$1 & s), c$2 = Number(n$1 & s), f$4 = r$1 ? 4 : 0, u$1 = r$1 ? 0 : 4;
-	t.setUint32(e + f$4, i$2, r$1), t.setUint32(e + u$1, c$2, r$1);
+	const o$1 = BigInt(32), s = BigInt(4294967295), i$2 = Number(n$1 >> o$1 & s), c$2 = Number(n$1 & s), f$5 = r$1 ? 4 : 0, u$1 = r$1 ? 0 : 4;
+	t.setUint32(e + f$5, i$2, r$1), t.setUint32(e + u$1, c$2, r$1);
 }
 function uc(t, e, n$1) {
 	return t & e ^ ~t & n$1;
@@ -631,8 +557,8 @@ var qr$1 = class extends $e$2 {
 		for (let i$2 = 0; i$2 < s;) {
 			const c$2 = Math.min(o$1 - this.pos, s - i$2);
 			if (c$2 === o$1) {
-				const f$4 = ln$1(e);
-				for (; o$1 <= s - i$2; i$2 += o$1) this.process(f$4, i$2);
+				const f$5 = ln$1(e);
+				for (; o$1 <= s - i$2; i$2 += o$1) this.process(f$5, i$2);
 				continue;
 			}
 			r$1.set(e.subarray(i$2, i$2 + c$2), this.pos), this.pos += c$2, i$2 += c$2, this.pos === o$1 && (this.process(n$1, 0), this.pos = 0);
@@ -646,9 +572,9 @@ var qr$1 = class extends $e$2 {
 		n$1[i$2++] = 128, lt$2(this.buffer.subarray(i$2)), this.padOffset > o$1 - i$2 && (this.process(r$1, 0), i$2 = 0);
 		for (let l$1 = i$2; l$1 < o$1; l$1++) n$1[l$1] = 0;
 		ac(r$1, o$1 - 8, BigInt(this.length * 8), s), this.process(r$1, 0);
-		const c$2 = ln$1(e), f$4 = this.outputLen;
-		if (f$4 % 4) throw new Error("_sha2: outputLen should be aligned to 32bit");
-		const u$1 = f$4 / 4, a$1 = this.get();
+		const c$2 = ln$1(e), f$5 = this.outputLen;
+		if (f$5 % 4) throw new Error("_sha2: outputLen should be aligned to 32bit");
+		const u$1 = f$5 / 4, a$1 = this.get();
 		if (u$1 > a$1.length) throw new Error("_sha2: outputLen bigger than state");
 		for (let l$1 = 0; l$1 < u$1; l$1++) c$2.setUint32(4 * l$1, a$1[l$1], s);
 	}
@@ -676,7 +602,7 @@ var Rt$3 = Uint32Array.from([
 	2600822924,
 	528734635,
 	1541459225
-]), X$1 = Uint32Array.from([
+]), X$2 = Uint32Array.from([
 	3418070365,
 	3238371032,
 	1654270250,
@@ -693,7 +619,7 @@ var Rt$3 = Uint32Array.from([
 	1694076839,
 	1203062813,
 	3204075428
-]), J$3 = Uint32Array.from([
+]), J$4 = Uint32Array.from([
 	1779033703,
 	4089235720,
 	3144134277,
@@ -781,7 +707,7 @@ var hc = class extends qr$1 {
 		super(64, e, 8, !1), this.A = Rt$3[0] | 0, this.B = Rt$3[1] | 0, this.C = Rt$3[2] | 0, this.D = Rt$3[3] | 0, this.E = Rt$3[4] | 0, this.F = Rt$3[5] | 0, this.G = Rt$3[6] | 0, this.H = Rt$3[7] | 0;
 	}
 	get() {
-		const { A: e, B: n$1, C: r$1, D: o$1, E: s, F: i$2, G: c$2, H: f$4 } = this;
+		const { A: e, B: n$1, C: r$1, D: o$1, E: s, F: i$2, G: c$2, H: f$5 } = this;
 		return [
 			e,
 			n$1,
@@ -790,11 +716,11 @@ var hc = class extends qr$1 {
 			s,
 			i$2,
 			c$2,
-			f$4
+			f$5
 		];
 	}
-	set(e, n$1, r$1, o$1, s, i$2, c$2, f$4) {
-		this.A = e | 0, this.B = n$1 | 0, this.C = r$1 | 0, this.D = o$1 | 0, this.E = s | 0, this.F = i$2 | 0, this.G = c$2 | 0, this.H = f$4 | 0;
+	set(e, n$1, r$1, o$1, s, i$2, c$2, f$5) {
+		this.A = e | 0, this.B = n$1 | 0, this.C = r$1 | 0, this.D = o$1 | 0, this.E = s | 0, this.F = i$2 | 0, this.G = c$2 | 0, this.H = f$5 | 0;
 	}
 	process(e, n$1) {
 		for (let l$1 = 0; l$1 < 16; l$1++, n$1 += 4) $t$2[l$1] = e.getUint32(n$1, !1);
@@ -802,12 +728,12 @@ var hc = class extends qr$1 {
 			const d$3 = $t$2[l$1 - 15], h$2 = $t$2[l$1 - 2], y$2 = bt$1(d$3, 7) ^ bt$1(d$3, 18) ^ d$3 >>> 3;
 			$t$2[l$1] = (bt$1(h$2, 17) ^ bt$1(h$2, 19) ^ h$2 >>> 10) + $t$2[l$1 - 7] + y$2 + $t$2[l$1 - 16] | 0;
 		}
-		let { A: r$1, B: o$1, C: s, D: i$2, E: c$2, F: f$4, G: u$1, H: a$1 } = this;
+		let { A: r$1, B: o$1, C: s, D: i$2, E: c$2, F: f$5, G: u$1, H: a$1 } = this;
 		for (let l$1 = 0; l$1 < 64; l$1++) {
-			const d$3 = bt$1(c$2, 6) ^ bt$1(c$2, 11) ^ bt$1(c$2, 25), h$2 = a$1 + d$3 + uc(c$2, f$4, u$1) + dc[l$1] + $t$2[l$1] | 0, m$2 = (bt$1(r$1, 2) ^ bt$1(r$1, 13) ^ bt$1(r$1, 22)) + lc(r$1, o$1, s) | 0;
-			a$1 = u$1, u$1 = f$4, f$4 = c$2, c$2 = i$2 + h$2 | 0, i$2 = s, s = o$1, o$1 = r$1, r$1 = h$2 + m$2 | 0;
+			const d$3 = bt$1(c$2, 6) ^ bt$1(c$2, 11) ^ bt$1(c$2, 25), h$2 = a$1 + d$3 + uc(c$2, f$5, u$1) + dc[l$1] + $t$2[l$1] | 0, m$2 = (bt$1(r$1, 2) ^ bt$1(r$1, 13) ^ bt$1(r$1, 22)) + lc(r$1, o$1, s) | 0;
+			a$1 = u$1, u$1 = f$5, f$5 = c$2, c$2 = i$2 + h$2 | 0, i$2 = s, s = o$1, o$1 = r$1, r$1 = h$2 + m$2 | 0;
 		}
-		r$1 = r$1 + this.A | 0, o$1 = o$1 + this.B | 0, s = s + this.C | 0, i$2 = i$2 + this.D | 0, c$2 = c$2 + this.E | 0, f$4 = f$4 + this.F | 0, u$1 = u$1 + this.G | 0, a$1 = a$1 + this.H | 0, this.set(r$1, o$1, s, i$2, c$2, f$4, u$1, a$1);
+		r$1 = r$1 + this.A | 0, o$1 = o$1 + this.B | 0, s = s + this.C | 0, i$2 = i$2 + this.D | 0, c$2 = c$2 + this.E | 0, f$5 = f$5 + this.F | 0, u$1 = u$1 + this.G | 0, a$1 = a$1 + this.H | 0, this.set(r$1, o$1, s, i$2, c$2, f$5, u$1, a$1);
 	}
 	roundClean() {
 		lt$2($t$2);
@@ -900,10 +826,10 @@ var Fr$1 = _r$1([
 ].map((t) => BigInt(t))), pc = Fr$1[0], gc = Fr$1[1], Tt$2 = new Uint32Array(80), Ct$2 = new Uint32Array(80);
 var dn$1 = class extends qr$1 {
 	constructor(e = 64) {
-		super(128, e, 16, !1), this.Ah = J$3[0] | 0, this.Al = J$3[1] | 0, this.Bh = J$3[2] | 0, this.Bl = J$3[3] | 0, this.Ch = J$3[4] | 0, this.Cl = J$3[5] | 0, this.Dh = J$3[6] | 0, this.Dl = J$3[7] | 0, this.Eh = J$3[8] | 0, this.El = J$3[9] | 0, this.Fh = J$3[10] | 0, this.Fl = J$3[11] | 0, this.Gh = J$3[12] | 0, this.Gl = J$3[13] | 0, this.Hh = J$3[14] | 0, this.Hl = J$3[15] | 0;
+		super(128, e, 16, !1), this.Ah = J$4[0] | 0, this.Al = J$4[1] | 0, this.Bh = J$4[2] | 0, this.Bl = J$4[3] | 0, this.Ch = J$4[4] | 0, this.Cl = J$4[5] | 0, this.Dh = J$4[6] | 0, this.Dl = J$4[7] | 0, this.Eh = J$4[8] | 0, this.El = J$4[9] | 0, this.Fh = J$4[10] | 0, this.Fl = J$4[11] | 0, this.Gh = J$4[12] | 0, this.Gl = J$4[13] | 0, this.Hh = J$4[14] | 0, this.Hl = J$4[15] | 0;
 	}
 	get() {
-		const { Ah: e, Al: n$1, Bh: r$1, Bl: o$1, Ch: s, Cl: i$2, Dh: c$2, Dl: f$4, Eh: u$1, El: a$1, Fh: l$1, Fl: d$3, Gh: h$2, Gl: y$2, Hh: m$2, Hl: w$1 } = this;
+		const { Ah: e, Al: n$1, Bh: r$1, Bl: o$1, Ch: s, Cl: i$2, Dh: c$2, Dl: f$5, Eh: u$1, El: a$1, Fh: l$1, Fl: d$3, Gh: h$2, Gl: y$2, Hh: m$2, Hl: w$2 } = this;
 		return [
 			e,
 			n$1,
@@ -912,7 +838,7 @@ var dn$1 = class extends qr$1 {
 			s,
 			i$2,
 			c$2,
-			f$4,
+			f$5,
 			u$1,
 			a$1,
 			l$1,
@@ -920,26 +846,26 @@ var dn$1 = class extends qr$1 {
 			h$2,
 			y$2,
 			m$2,
-			w$1
+			w$2
 		];
 	}
-	set(e, n$1, r$1, o$1, s, i$2, c$2, f$4, u$1, a$1, l$1, d$3, h$2, y$2, m$2, w$1) {
-		this.Ah = e | 0, this.Al = n$1 | 0, this.Bh = r$1 | 0, this.Bl = o$1 | 0, this.Ch = s | 0, this.Cl = i$2 | 0, this.Dh = c$2 | 0, this.Dl = f$4 | 0, this.Eh = u$1 | 0, this.El = a$1 | 0, this.Fh = l$1 | 0, this.Fl = d$3 | 0, this.Gh = h$2 | 0, this.Gl = y$2 | 0, this.Hh = m$2 | 0, this.Hl = w$1 | 0;
+	set(e, n$1, r$1, o$1, s, i$2, c$2, f$5, u$1, a$1, l$1, d$3, h$2, y$2, m$2, w$2) {
+		this.Ah = e | 0, this.Al = n$1 | 0, this.Bh = r$1 | 0, this.Bl = o$1 | 0, this.Ch = s | 0, this.Cl = i$2 | 0, this.Dh = c$2 | 0, this.Dl = f$5 | 0, this.Eh = u$1 | 0, this.El = a$1 | 0, this.Fh = l$1 | 0, this.Fl = d$3 | 0, this.Gh = h$2 | 0, this.Gl = y$2 | 0, this.Hh = m$2 | 0, this.Hl = w$2 | 0;
 	}
 	process(e, n$1) {
-		for (let R$2 = 0; R$2 < 16; R$2++, n$1 += 4) Tt$2[R$2] = e.getUint32(n$1), Ct$2[R$2] = e.getUint32(n$1 += 4);
-		for (let R$2 = 16; R$2 < 80; R$2++) {
-			const Z = Tt$2[R$2 - 15] | 0, H$1 = Ct$2[R$2 - 15] | 0, j$3 = St$3(Z, H$1, 1) ^ St$3(Z, H$1, 8) ^ Rr$1(Z, H$1, 7), L$1 = Ot$2(Z, H$1, 1) ^ Ot$2(Z, H$1, 8) ^ $r$1(Z, H$1, 7), k$1 = Tt$2[R$2 - 2] | 0, O$2 = Ct$2[R$2 - 2] | 0, T$2 = St$3(k$1, O$2, 19) ^ de$1(k$1, O$2, 61) ^ Rr$1(k$1, O$2, 6), _$1 = Zi(L$1, Ot$2(k$1, O$2, 19) ^ he$2(k$1, O$2, 61) ^ $r$1(k$1, O$2, 6), Ct$2[R$2 - 7], Ct$2[R$2 - 16]);
-			Tt$2[R$2] = Gi$1(_$1, j$3, T$2, Tt$2[R$2 - 7], Tt$2[R$2 - 16]) | 0, Ct$2[R$2] = _$1 | 0;
+		for (let R$3 = 0; R$3 < 16; R$3++, n$1 += 4) Tt$2[R$3] = e.getUint32(n$1), Ct$2[R$3] = e.getUint32(n$1 += 4);
+		for (let R$3 = 16; R$3 < 80; R$3++) {
+			const Z$1 = Tt$2[R$3 - 15] | 0, H$2 = Ct$2[R$3 - 15] | 0, j$4 = St$3(Z$1, H$2, 1) ^ St$3(Z$1, H$2, 8) ^ Rr$1(Z$1, H$2, 7), L$2 = Ot$2(Z$1, H$2, 1) ^ Ot$2(Z$1, H$2, 8) ^ $r$1(Z$1, H$2, 7), k$1 = Tt$2[R$3 - 2] | 0, O$2 = Ct$2[R$3 - 2] | 0, T$3 = St$3(k$1, O$2, 19) ^ de$1(k$1, O$2, 61) ^ Rr$1(k$1, O$2, 6), _$2 = Zi(L$2, Ot$2(k$1, O$2, 19) ^ he$2(k$1, O$2, 61) ^ $r$1(k$1, O$2, 6), Ct$2[R$3 - 7], Ct$2[R$3 - 16]);
+			Tt$2[R$3] = Gi$1(_$2, j$4, T$3, Tt$2[R$3 - 7], Tt$2[R$3 - 16]) | 0, Ct$2[R$3] = _$2 | 0;
 		}
-		let { Ah: r$1, Al: o$1, Bh: s, Bl: i$2, Ch: c$2, Cl: f$4, Dh: u$1, Dl: a$1, Eh: l$1, El: d$3, Fh: h$2, Fl: y$2, Gh: m$2, Gl: w$1, Hh: U$2, Hl: F$1 } = this;
-		for (let R$2 = 0; R$2 < 80; R$2++) {
-			const Z = St$3(l$1, d$3, 14) ^ St$3(l$1, d$3, 18) ^ de$1(l$1, d$3, 41), H$1 = Ot$2(l$1, d$3, 14) ^ Ot$2(l$1, d$3, 18) ^ he$2(l$1, d$3, 41), j$3 = l$1 & h$2 ^ ~l$1 & m$2, L$1 = d$3 & y$2 ^ ~d$3 & w$1, k$1 = zi$1(F$1, H$1, L$1, gc[R$2], Ct$2[R$2]), O$2 = Yi$1(k$1, U$2, Z, j$3, pc[R$2], Tt$2[R$2]), T$2 = k$1 | 0, C$3 = St$3(r$1, o$1, 28) ^ de$1(r$1, o$1, 34) ^ de$1(r$1, o$1, 39), _$1 = Ot$2(r$1, o$1, 28) ^ he$2(r$1, o$1, 34) ^ he$2(r$1, o$1, 39), p$2 = r$1 & s ^ r$1 & c$2 ^ s & c$2, b$3 = o$1 & i$2 ^ o$1 & f$4 ^ i$2 & f$4;
-			U$2 = m$2 | 0, F$1 = w$1 | 0, m$2 = h$2 | 0, w$1 = y$2 | 0, h$2 = l$1 | 0, y$2 = d$3 | 0, {h: l$1, l: d$3} = dt$2(u$1 | 0, a$1 | 0, O$2 | 0, T$2 | 0), u$1 = c$2 | 0, a$1 = f$4 | 0, c$2 = s | 0, f$4 = i$2 | 0, s = r$1 | 0, i$2 = o$1 | 0;
-			const g$1 = fn$1(T$2, _$1, b$3);
-			r$1 = an$1(g$1, O$2, C$3, p$2), o$1 = g$1 | 0;
+		let { Ah: r$1, Al: o$1, Bh: s, Bl: i$2, Ch: c$2, Cl: f$5, Dh: u$1, Dl: a$1, Eh: l$1, El: d$3, Fh: h$2, Fl: y$2, Gh: m$2, Gl: w$2, Hh: U$3, Hl: F$2 } = this;
+		for (let R$3 = 0; R$3 < 80; R$3++) {
+			const Z$1 = St$3(l$1, d$3, 14) ^ St$3(l$1, d$3, 18) ^ de$1(l$1, d$3, 41), H$2 = Ot$2(l$1, d$3, 14) ^ Ot$2(l$1, d$3, 18) ^ he$2(l$1, d$3, 41), j$4 = l$1 & h$2 ^ ~l$1 & m$2, L$2 = d$3 & y$2 ^ ~d$3 & w$2, k$1 = zi$1(F$2, H$2, L$2, gc[R$3], Ct$2[R$3]), O$2 = Yi$1(k$1, U$3, Z$1, j$4, pc[R$3], Tt$2[R$3]), T$3 = k$1 | 0, C$4 = St$3(r$1, o$1, 28) ^ de$1(r$1, o$1, 34) ^ de$1(r$1, o$1, 39), _$2 = Ot$2(r$1, o$1, 28) ^ he$2(r$1, o$1, 34) ^ he$2(r$1, o$1, 39), p$3 = r$1 & s ^ r$1 & c$2 ^ s & c$2, b$4 = o$1 & i$2 ^ o$1 & f$5 ^ i$2 & f$5;
+			U$3 = m$2 | 0, F$2 = w$2 | 0, m$2 = h$2 | 0, w$2 = y$2 | 0, h$2 = l$1 | 0, y$2 = d$3 | 0, {h: l$1, l: d$3} = dt$2(u$1 | 0, a$1 | 0, O$2 | 0, T$3 | 0), u$1 = c$2 | 0, a$1 = f$5 | 0, c$2 = s | 0, f$5 = i$2 | 0, s = r$1 | 0, i$2 = o$1 | 0;
+			const g$1 = fn$1(T$3, _$2, b$4);
+			r$1 = an$1(g$1, O$2, C$4, p$3), o$1 = g$1 | 0;
 		}
-		({h: r$1, l: o$1} = dt$2(this.Ah | 0, this.Al | 0, r$1 | 0, o$1 | 0)), {h: s, l: i$2} = dt$2(this.Bh | 0, this.Bl | 0, s | 0, i$2 | 0), {h: c$2, l: f$4} = dt$2(this.Ch | 0, this.Cl | 0, c$2 | 0, f$4 | 0), {h: u$1, l: a$1} = dt$2(this.Dh | 0, this.Dl | 0, u$1 | 0, a$1 | 0), {h: l$1, l: d$3} = dt$2(this.Eh | 0, this.El | 0, l$1 | 0, d$3 | 0), {h: h$2, l: y$2} = dt$2(this.Fh | 0, this.Fl | 0, h$2 | 0, y$2 | 0), {h: m$2, l: w$1} = dt$2(this.Gh | 0, this.Gl | 0, m$2 | 0, w$1 | 0), {h: U$2, l: F$1} = dt$2(this.Hh | 0, this.Hl | 0, U$2 | 0, F$1 | 0), this.set(r$1, o$1, s, i$2, c$2, f$4, u$1, a$1, l$1, d$3, h$2, y$2, m$2, w$1, U$2, F$1);
+		({h: r$1, l: o$1} = dt$2(this.Ah | 0, this.Al | 0, r$1 | 0, o$1 | 0)), {h: s, l: i$2} = dt$2(this.Bh | 0, this.Bl | 0, s | 0, i$2 | 0), {h: c$2, l: f$5} = dt$2(this.Ch | 0, this.Cl | 0, c$2 | 0, f$5 | 0), {h: u$1, l: a$1} = dt$2(this.Dh | 0, this.Dl | 0, u$1 | 0, a$1 | 0), {h: l$1, l: d$3} = dt$2(this.Eh | 0, this.El | 0, l$1 | 0, d$3 | 0), {h: h$2, l: y$2} = dt$2(this.Fh | 0, this.Fl | 0, h$2 | 0, y$2 | 0), {h: m$2, l: w$2} = dt$2(this.Gh | 0, this.Gl | 0, m$2 | 0, w$2 | 0), {h: U$3, l: F$2} = dt$2(this.Hh | 0, this.Hl | 0, U$3 | 0, F$2 | 0), this.set(r$1, o$1, s, i$2, c$2, f$5, u$1, a$1, l$1, d$3, h$2, y$2, m$2, w$2, U$3, F$2);
 	}
 	roundClean() {
 		lt$2(Tt$2, Ct$2);
@@ -950,10 +876,10 @@ var dn$1 = class extends qr$1 {
 };
 var bc = class extends dn$1 {
 	constructor() {
-		super(48), this.Ah = X$1[0] | 0, this.Al = X$1[1] | 0, this.Bh = X$1[2] | 0, this.Bl = X$1[3] | 0, this.Ch = X$1[4] | 0, this.Cl = X$1[5] | 0, this.Dh = X$1[6] | 0, this.Dl = X$1[7] | 0, this.Eh = X$1[8] | 0, this.El = X$1[9] | 0, this.Fh = X$1[10] | 0, this.Fl = X$1[11] | 0, this.Gh = X$1[12] | 0, this.Gl = X$1[13] | 0, this.Hh = X$1[14] | 0, this.Hl = X$1[15] | 0;
+		super(48), this.Ah = X$2[0] | 0, this.Al = X$2[1] | 0, this.Bh = X$2[2] | 0, this.Bl = X$2[3] | 0, this.Ch = X$2[4] | 0, this.Cl = X$2[5] | 0, this.Dh = X$2[6] | 0, this.Dl = X$2[7] | 0, this.Eh = X$2[8] | 0, this.El = X$2[9] | 0, this.Fh = X$2[10] | 0, this.Fl = X$2[11] | 0, this.Gh = X$2[12] | 0, this.Gl = X$2[13] | 0, this.Hh = X$2[14] | 0, this.Hl = X$2[15] | 0;
 	}
 };
-var Q$1 = Uint32Array.from([
+var Q$2 = Uint32Array.from([
 	573645204,
 	4230739756,
 	2673172387,
@@ -973,7 +899,7 @@ var Q$1 = Uint32Array.from([
 ]);
 var yc = class extends dn$1 {
 	constructor() {
-		super(32), this.Ah = Q$1[0] | 0, this.Al = Q$1[1] | 0, this.Bh = Q$1[2] | 0, this.Bl = Q$1[3] | 0, this.Ch = Q$1[4] | 0, this.Cl = Q$1[5] | 0, this.Dh = Q$1[6] | 0, this.Dl = Q$1[7] | 0, this.Eh = Q$1[8] | 0, this.El = Q$1[9] | 0, this.Fh = Q$1[10] | 0, this.Fl = Q$1[11] | 0, this.Gh = Q$1[12] | 0, this.Gl = Q$1[13] | 0, this.Hh = Q$1[14] | 0, this.Hl = Q$1[15] | 0;
+		super(32), this.Ah = Q$2[0] | 0, this.Al = Q$2[1] | 0, this.Bh = Q$2[2] | 0, this.Bl = Q$2[3] | 0, this.Ch = Q$2[4] | 0, this.Cl = Q$2[5] | 0, this.Dh = Q$2[6] | 0, this.Dl = Q$2[7] | 0, this.Eh = Q$2[8] | 0, this.El = Q$2[9] | 0, this.Fh = Q$2[10] | 0, this.Fl = Q$2[11] | 0, this.Gh = Q$2[12] | 0, this.Gl = Q$2[13] | 0, this.Hh = Q$2[14] | 0, this.Hl = Q$2[15] | 0;
 	}
 };
 var Te$2 = ge$2(() => new hc()), mc = ge$2(() => new dn$1()), wc = ge$2(() => new bc()), vc = ge$2(() => new yc()), xc = Uint8Array.from([
@@ -1233,7 +1159,7 @@ var Te$2 = ge$2(() => new hc()), mc = ge$2(() => new dn$1()), wc = ge$2(() => ne
 	14,
 	1,
 	9
-]), z$2 = Uint32Array.from([
+]), z$3 = Uint32Array.from([
 	4089235720,
 	1779033703,
 	2227873595,
@@ -1250,13 +1176,13 @@ var Te$2 = ge$2(() => new hc()), mc = ge$2(() => new dn$1()), wc = ge$2(() => ne
 	528734635,
 	327033209,
 	1541459225
-]), S$2 = new Uint32Array(32);
+]), S$3 = new Uint32Array(32);
 function jt$2(t, e, n$1, r$1, o$1, s) {
 	const i$2 = o$1[s], c$2 = o$1[s + 1];
-	let f$4 = S$2[2 * t], u$1 = S$2[2 * t + 1], a$1 = S$2[2 * e], l$1 = S$2[2 * e + 1], d$3 = S$2[2 * n$1], h$2 = S$2[2 * n$1 + 1], y$2 = S$2[2 * r$1], m$2 = S$2[2 * r$1 + 1], w$1 = fn$1(f$4, a$1, i$2);
-	u$1 = an$1(w$1, u$1, l$1, c$2), f$4 = w$1 | 0, {Dh: m$2, Dl: y$2} = {
+	let f$5 = S$3[2 * t], u$1 = S$3[2 * t + 1], a$1 = S$3[2 * e], l$1 = S$3[2 * e + 1], d$3 = S$3[2 * n$1], h$2 = S$3[2 * n$1 + 1], y$2 = S$3[2 * r$1], m$2 = S$3[2 * r$1 + 1], w$2 = fn$1(f$5, a$1, i$2);
+	u$1 = an$1(w$2, u$1, l$1, c$2), f$5 = w$2 | 0, {Dh: m$2, Dl: y$2} = {
 		Dh: m$2 ^ u$1,
-		Dl: y$2 ^ f$4
+		Dl: y$2 ^ f$5
 	}, {Dh: m$2, Dl: y$2} = {
 		Dh: Di$1(m$2, y$2),
 		Dl: Vi$1(m$2)
@@ -1266,14 +1192,14 @@ function jt$2(t, e, n$1, r$1, o$1, s) {
 	}, {Bh: l$1, Bl: a$1} = {
 		Bh: St$3(l$1, a$1, 24),
 		Bl: Ot$2(l$1, a$1, 24)
-	}, S$2[2 * t] = f$4, S$2[2 * t + 1] = u$1, S$2[2 * e] = a$1, S$2[2 * e + 1] = l$1, S$2[2 * n$1] = d$3, S$2[2 * n$1 + 1] = h$2, S$2[2 * r$1] = y$2, S$2[2 * r$1 + 1] = m$2;
+	}, S$3[2 * t] = f$5, S$3[2 * t + 1] = u$1, S$3[2 * e] = a$1, S$3[2 * e + 1] = l$1, S$3[2 * n$1] = d$3, S$3[2 * n$1 + 1] = h$2, S$3[2 * r$1] = y$2, S$3[2 * r$1 + 1] = m$2;
 }
 function Lt$2(t, e, n$1, r$1, o$1, s) {
 	const i$2 = o$1[s], c$2 = o$1[s + 1];
-	let f$4 = S$2[2 * t], u$1 = S$2[2 * t + 1], a$1 = S$2[2 * e], l$1 = S$2[2 * e + 1], d$3 = S$2[2 * n$1], h$2 = S$2[2 * n$1 + 1], y$2 = S$2[2 * r$1], m$2 = S$2[2 * r$1 + 1], w$1 = fn$1(f$4, a$1, i$2);
-	u$1 = an$1(w$1, u$1, l$1, c$2), f$4 = w$1 | 0, {Dh: m$2, Dl: y$2} = {
+	let f$5 = S$3[2 * t], u$1 = S$3[2 * t + 1], a$1 = S$3[2 * e], l$1 = S$3[2 * e + 1], d$3 = S$3[2 * n$1], h$2 = S$3[2 * n$1 + 1], y$2 = S$3[2 * r$1], m$2 = S$3[2 * r$1 + 1], w$2 = fn$1(f$5, a$1, i$2);
+	u$1 = an$1(w$2, u$1, l$1, c$2), f$5 = w$2 | 0, {Dh: m$2, Dl: y$2} = {
 		Dh: m$2 ^ u$1,
-		Dl: y$2 ^ f$4
+		Dl: y$2 ^ f$5
 	}, {Dh: m$2, Dl: y$2} = {
 		Dh: St$3(m$2, y$2, 16),
 		Dl: Ot$2(m$2, y$2, 16)
@@ -1283,7 +1209,7 @@ function Lt$2(t, e, n$1, r$1, o$1, s) {
 	}, {Bh: l$1, Bl: a$1} = {
 		Bh: de$1(l$1, a$1, 63),
 		Bl: he$2(l$1, a$1, 63)
-	}, S$2[2 * t] = f$4, S$2[2 * t + 1] = u$1, S$2[2 * e] = a$1, S$2[2 * e + 1] = l$1, S$2[2 * n$1] = d$3, S$2[2 * n$1 + 1] = h$2, S$2[2 * r$1] = y$2, S$2[2 * r$1 + 1] = m$2;
+	}, S$3[2 * t] = f$5, S$3[2 * t + 1] = u$1, S$3[2 * e] = a$1, S$3[2 * e + 1] = l$1, S$3[2 * n$1] = d$3, S$3[2 * n$1 + 1] = h$2, S$3[2 * r$1] = y$2, S$3[2 * r$1 + 1] = m$2;
 }
 function Ec(t, e = {}, n$1, r$1, o$1) {
 	if (mt$2(n$1), t < 0 || t > n$1) throw new Error("outputLen bigger than keyLen");
@@ -1299,17 +1225,17 @@ var Bc = class extends $e$2 {
 	update(e) {
 		Nt$3(this), e = pt$2(e), ht$1(e);
 		const { blockLen: n$1, buffer: r$1, buffer32: o$1 } = this, s = e.length, i$2 = e.byteOffset, c$2 = e.buffer;
-		for (let f$4 = 0; f$4 < s;) {
+		for (let f$5 = 0; f$5 < s;) {
 			this.pos === n$1 && (Ut$2(o$1), this.compress(o$1, 0, !1), Ut$2(o$1), this.pos = 0);
-			const u$1 = Math.min(n$1 - this.pos, s - f$4), a$1 = i$2 + f$4;
-			if (u$1 === n$1 && !(a$1 % 4) && f$4 + u$1 < s) {
-				const l$1 = new Uint32Array(c$2, a$1, Math.floor((s - f$4) / 4));
+			const u$1 = Math.min(n$1 - this.pos, s - f$5), a$1 = i$2 + f$5;
+			if (u$1 === n$1 && !(a$1 % 4) && f$5 + u$1 < s) {
+				const l$1 = new Uint32Array(c$2, a$1, Math.floor((s - f$5) / 4));
 				Ut$2(l$1);
-				for (let d$3 = 0; f$4 + n$1 < s; d$3 += o$1.length, f$4 += n$1) this.length += n$1, this.compress(l$1, d$3, !1);
+				for (let d$3 = 0; f$5 + n$1 < s; d$3 += o$1.length, f$5 += n$1) this.length += n$1, this.compress(l$1, d$3, !1);
 				Ut$2(l$1);
 				continue;
 			}
-			r$1.set(e.subarray(f$4, f$4 + u$1), this.pos), this.pos += u$1, this.length += u$1, f$4 += u$1;
+			r$1.set(e.subarray(f$5, f$5 + u$1), this.pos), this.pos += u$1, this.length += u$1, f$5 += u$1;
 		}
 		return this;
 	}
@@ -1337,7 +1263,7 @@ var Bc = class extends $e$2 {
 var Ic = class extends Bc {
 	constructor(e = {}) {
 		const n$1 = e.dkLen === void 0 ? 64 : e.dkLen;
-		super(128, n$1), this.v0l = z$2[0] | 0, this.v0h = z$2[1] | 0, this.v1l = z$2[2] | 0, this.v1h = z$2[3] | 0, this.v2l = z$2[4] | 0, this.v2h = z$2[5] | 0, this.v3l = z$2[6] | 0, this.v3h = z$2[7] | 0, this.v4l = z$2[8] | 0, this.v4h = z$2[9] | 0, this.v5l = z$2[10] | 0, this.v5h = z$2[11] | 0, this.v6l = z$2[12] | 0, this.v6h = z$2[13] | 0, this.v7l = z$2[14] | 0, this.v7h = z$2[15] | 0, Ec(n$1, e, 64, 16, 16);
+		super(128, n$1), this.v0l = z$3[0] | 0, this.v0h = z$3[1] | 0, this.v1l = z$3[2] | 0, this.v1h = z$3[3] | 0, this.v2l = z$3[4] | 0, this.v2h = z$3[5] | 0, this.v3l = z$3[6] | 0, this.v3h = z$3[7] | 0, this.v4l = z$3[8] | 0, this.v4h = z$3[9] | 0, this.v5l = z$3[10] | 0, this.v5h = z$3[11] | 0, this.v6l = z$3[12] | 0, this.v6h = z$3[13] | 0, this.v7l = z$3[14] | 0, this.v7h = z$3[15] | 0, Ec(n$1, e, 64, 16, 16);
 		let { key: r$1, personalization: o$1, salt: s } = e, i$2 = 0;
 		if (r$1 !== void 0 && (r$1 = pt$2(r$1), i$2 = r$1.length), this.v0l ^= this.outputLen | i$2 << 8 | 16842752, s !== void 0) {
 			s = pt$2(s);
@@ -1355,7 +1281,7 @@ var Ic = class extends Bc {
 		}
 	}
 	get() {
-		let { v0l: e, v0h: n$1, v1l: r$1, v1h: o$1, v2l: s, v2h: i$2, v3l: c$2, v3h: f$4, v4l: u$1, v4h: a$1, v5l: l$1, v5h: d$3, v6l: h$2, v6h: y$2, v7l: m$2, v7h: w$1 } = this;
+		let { v0l: e, v0h: n$1, v1l: r$1, v1h: o$1, v2l: s, v2h: i$2, v3l: c$2, v3h: f$5, v4l: u$1, v4h: a$1, v5l: l$1, v5h: d$3, v6l: h$2, v6h: y$2, v7l: m$2, v7h: w$2 } = this;
 		return [
 			e,
 			n$1,
@@ -1364,7 +1290,7 @@ var Ic = class extends Bc {
 			s,
 			i$2,
 			c$2,
-			f$4,
+			f$5,
 			u$1,
 			a$1,
 			l$1,
@@ -1372,20 +1298,20 @@ var Ic = class extends Bc {
 			h$2,
 			y$2,
 			m$2,
-			w$1
+			w$2
 		];
 	}
-	set(e, n$1, r$1, o$1, s, i$2, c$2, f$4, u$1, a$1, l$1, d$3, h$2, y$2, m$2, w$1) {
-		this.v0l = e | 0, this.v0h = n$1 | 0, this.v1l = r$1 | 0, this.v1h = o$1 | 0, this.v2l = s | 0, this.v2h = i$2 | 0, this.v3l = c$2 | 0, this.v3h = f$4 | 0, this.v4l = u$1 | 0, this.v4h = a$1 | 0, this.v5l = l$1 | 0, this.v5h = d$3 | 0, this.v6l = h$2 | 0, this.v6h = y$2 | 0, this.v7l = m$2 | 0, this.v7h = w$1 | 0;
+	set(e, n$1, r$1, o$1, s, i$2, c$2, f$5, u$1, a$1, l$1, d$3, h$2, y$2, m$2, w$2) {
+		this.v0l = e | 0, this.v0h = n$1 | 0, this.v1l = r$1 | 0, this.v1h = o$1 | 0, this.v2l = s | 0, this.v2h = i$2 | 0, this.v3l = c$2 | 0, this.v3h = f$5 | 0, this.v4l = u$1 | 0, this.v4h = a$1 | 0, this.v5l = l$1 | 0, this.v5h = d$3 | 0, this.v6l = h$2 | 0, this.v6h = y$2 | 0, this.v7l = m$2 | 0, this.v7h = w$2 | 0;
 	}
 	compress(e, n$1, r$1) {
-		this.get().forEach((f$4, u$1) => S$2[u$1] = f$4), S$2.set(z$2, 16);
+		this.get().forEach((f$5, u$1) => S$3[u$1] = f$5), S$3.set(z$3, 16);
 		let { h: o$1, l: s } = Ur$1(BigInt(this.length));
-		S$2[24] = z$2[8] ^ s, S$2[25] = z$2[9] ^ o$1, r$1 && (S$2[28] = ~S$2[28], S$2[29] = ~S$2[29]);
+		S$3[24] = z$3[8] ^ s, S$3[25] = z$3[9] ^ o$1, r$1 && (S$3[28] = ~S$3[28], S$3[29] = ~S$3[29]);
 		let i$2 = 0;
 		const c$2 = xc;
-		for (let f$4 = 0; f$4 < 12; f$4++) jt$2(0, 4, 8, 12, e, n$1 + 2 * c$2[i$2++]), Lt$2(0, 4, 8, 12, e, n$1 + 2 * c$2[i$2++]), jt$2(1, 5, 9, 13, e, n$1 + 2 * c$2[i$2++]), Lt$2(1, 5, 9, 13, e, n$1 + 2 * c$2[i$2++]), jt$2(2, 6, 10, 14, e, n$1 + 2 * c$2[i$2++]), Lt$2(2, 6, 10, 14, e, n$1 + 2 * c$2[i$2++]), jt$2(3, 7, 11, 15, e, n$1 + 2 * c$2[i$2++]), Lt$2(3, 7, 11, 15, e, n$1 + 2 * c$2[i$2++]), jt$2(0, 5, 10, 15, e, n$1 + 2 * c$2[i$2++]), Lt$2(0, 5, 10, 15, e, n$1 + 2 * c$2[i$2++]), jt$2(1, 6, 11, 12, e, n$1 + 2 * c$2[i$2++]), Lt$2(1, 6, 11, 12, e, n$1 + 2 * c$2[i$2++]), jt$2(2, 7, 8, 13, e, n$1 + 2 * c$2[i$2++]), Lt$2(2, 7, 8, 13, e, n$1 + 2 * c$2[i$2++]), jt$2(3, 4, 9, 14, e, n$1 + 2 * c$2[i$2++]), Lt$2(3, 4, 9, 14, e, n$1 + 2 * c$2[i$2++]);
-		this.v0l ^= S$2[0] ^ S$2[16], this.v0h ^= S$2[1] ^ S$2[17], this.v1l ^= S$2[2] ^ S$2[18], this.v1h ^= S$2[3] ^ S$2[19], this.v2l ^= S$2[4] ^ S$2[20], this.v2h ^= S$2[5] ^ S$2[21], this.v3l ^= S$2[6] ^ S$2[22], this.v3h ^= S$2[7] ^ S$2[23], this.v4l ^= S$2[8] ^ S$2[24], this.v4h ^= S$2[9] ^ S$2[25], this.v5l ^= S$2[10] ^ S$2[26], this.v5h ^= S$2[11] ^ S$2[27], this.v6l ^= S$2[12] ^ S$2[28], this.v6h ^= S$2[13] ^ S$2[29], this.v7l ^= S$2[14] ^ S$2[30], this.v7h ^= S$2[15] ^ S$2[31], lt$2(S$2);
+		for (let f$5 = 0; f$5 < 12; f$5++) jt$2(0, 4, 8, 12, e, n$1 + 2 * c$2[i$2++]), Lt$2(0, 4, 8, 12, e, n$1 + 2 * c$2[i$2++]), jt$2(1, 5, 9, 13, e, n$1 + 2 * c$2[i$2++]), Lt$2(1, 5, 9, 13, e, n$1 + 2 * c$2[i$2++]), jt$2(2, 6, 10, 14, e, n$1 + 2 * c$2[i$2++]), Lt$2(2, 6, 10, 14, e, n$1 + 2 * c$2[i$2++]), jt$2(3, 7, 11, 15, e, n$1 + 2 * c$2[i$2++]), Lt$2(3, 7, 11, 15, e, n$1 + 2 * c$2[i$2++]), jt$2(0, 5, 10, 15, e, n$1 + 2 * c$2[i$2++]), Lt$2(0, 5, 10, 15, e, n$1 + 2 * c$2[i$2++]), jt$2(1, 6, 11, 12, e, n$1 + 2 * c$2[i$2++]), Lt$2(1, 6, 11, 12, e, n$1 + 2 * c$2[i$2++]), jt$2(2, 7, 8, 13, e, n$1 + 2 * c$2[i$2++]), Lt$2(2, 7, 8, 13, e, n$1 + 2 * c$2[i$2++]), jt$2(3, 4, 9, 14, e, n$1 + 2 * c$2[i$2++]), Lt$2(3, 4, 9, 14, e, n$1 + 2 * c$2[i$2++]);
+		this.v0l ^= S$3[0] ^ S$3[16], this.v0h ^= S$3[1] ^ S$3[17], this.v1l ^= S$3[2] ^ S$3[18], this.v1h ^= S$3[3] ^ S$3[19], this.v2l ^= S$3[4] ^ S$3[20], this.v2h ^= S$3[5] ^ S$3[21], this.v3l ^= S$3[6] ^ S$3[22], this.v3h ^= S$3[7] ^ S$3[23], this.v4l ^= S$3[8] ^ S$3[24], this.v4h ^= S$3[9] ^ S$3[25], this.v5l ^= S$3[10] ^ S$3[26], this.v5h ^= S$3[11] ^ S$3[27], this.v6l ^= S$3[12] ^ S$3[28], this.v6h ^= S$3[13] ^ S$3[29], this.v7l ^= S$3[14] ^ S$3[30], this.v7h ^= S$3[15] ^ S$3[31], lt$2(S$3);
 	}
 	destroy() {
 		this.destroyed = !0, lt$2(this.buffer32), this.set(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
@@ -1415,7 +1341,7 @@ async function zr$1(t, e, n$1, r$1, o$1, s) {
 	const i$2 = Je(r$1);
 	if (!i$2.namespace || !i$2.reference) throw new Error(`isValidEip1271Signature failed: chainId must be in CAIP-2 format, received: ${r$1}`);
 	try {
-		const c$2 = "0x1626ba7e", f$4 = "0000000000000000000000000000000000000000000000000000000000000040", u$1 = n$1.substring(2), a$1 = (u$1.length / 2).toString(16).padStart(64, "0"), d$3 = c$2 + (e.startsWith("0x") ? e : hn$1(e)).substring(2) + f$4 + a$1 + u$1, { result: y$2 } = await (await fetch(`${s || Sc}/?chainId=${r$1}&projectId=${o$1}`, {
+		const c$2 = "0x1626ba7e", f$5 = "0000000000000000000000000000000000000000000000000000000000000040", u$1 = n$1.substring(2), a$1 = (u$1.length / 2).toString(16).padStart(64, "0"), d$3 = c$2 + (e.startsWith("0x") ? e : hn$1(e)).substring(2) + f$5 + a$1 + u$1, { result: y$2 } = await (await fetch(`${s || Sc}/?chainId=${r$1}&projectId=${o$1}`, {
 			headers: { "Content-Type": "application/json" },
 			method: "POST",
 			body: JSON.stringify({
@@ -1533,11 +1459,11 @@ var ro = (t, e) => {
 	const r$1 = `${t.domain} wants you to sign in with your ${Dc(n$1)} account:`, o$1 = bn(e);
 	if (!t.aud && !t.uri) throw new Error("Either `aud` or `uri` is required to construct the message");
 	let s = t.statement || void 0;
-	const i$2 = `URI: ${t.aud || t.uri}`, c$2 = `Version: ${t.version}`, f$4 = `Chain ID: ${to$1(e)}`, u$1 = `Nonce: ${t.nonce}`, a$1 = `Issued At: ${t.iat}`, l$1 = t.exp ? `Expiration Time: ${t.exp}` : void 0, d$3 = t.nbf ? `Not Before: ${t.nbf}` : void 0, h$2 = t.requestId ? `Request ID: ${t.requestId}` : void 0, y$2 = t.resources ? `Resources:${t.resources.map((w$1) => `
-- ${w$1}`).join("")}` : void 0, m$2 = je$1(t.resources);
+	const i$2 = `URI: ${t.aud || t.uri}`, c$2 = `Version: ${t.version}`, f$5 = `Chain ID: ${to$1(e)}`, u$1 = `Nonce: ${t.nonce}`, a$1 = `Issued At: ${t.iat}`, l$1 = t.exp ? `Expiration Time: ${t.exp}` : void 0, d$3 = t.nbf ? `Not Before: ${t.nbf}` : void 0, h$2 = t.requestId ? `Request ID: ${t.requestId}` : void 0, y$2 = t.resources ? `Resources:${t.resources.map((w$2) => `
+- ${w$2}`).join("")}` : void 0, m$2 = je$1(t.resources);
 	if (m$2) {
-		const w$1 = kt$2(m$2);
-		s = wn$1(s, w$1);
+		const w$2 = kt$2(m$2);
+		s = wn$1(s, w$2);
 	}
 	return [
 		r$1,
@@ -1547,14 +1473,14 @@ var ro = (t, e) => {
 		"",
 		i$2,
 		c$2,
-		f$4,
+		f$5,
 		u$1,
 		a$1,
 		l$1,
 		d$3,
 		h$2,
 		y$2
-	].filter((w$1) => w$1 != null).join(`
+	].filter((w$2) => w$2 != null).join(`
 `);
 };
 function co$1(t) {
@@ -1612,9 +1538,9 @@ function lo$1(t, e) {
 	const n$1 = Object.keys(t.att).concat(Object.keys(e.att)).sort((o$1, s) => o$1.localeCompare(s)), r$1 = { att: {} };
 	return n$1.forEach((o$1) => {
 		var s, i$2;
-		Object.keys(((s = t.att) == null ? void 0 : s[o$1]) || {}).concat(Object.keys(((i$2 = e.att) == null ? void 0 : i$2[o$1]) || {})).sort((c$2, f$4) => c$2.localeCompare(f$4)).forEach((c$2) => {
-			var f$4, u$1;
-			r$1.att[o$1] = Jr$1(gn$1({}, r$1.att[o$1]), { [c$2]: ((f$4 = t.att[o$1]) == null ? void 0 : f$4[c$2]) || ((u$1 = e.att[o$1]) == null ? void 0 : u$1[c$2]) });
+		Object.keys(((s = t.att) == null ? void 0 : s[o$1]) || {}).concat(Object.keys(((i$2 = e.att) == null ? void 0 : i$2[o$1]) || {})).sort((c$2, f$5) => c$2.localeCompare(f$5)).forEach((c$2) => {
+			var f$5, u$1;
+			r$1.att[o$1] = Jr$1(gn$1({}, r$1.att[o$1]), { [c$2]: ((f$5 = t.att[o$1]) == null ? void 0 : f$5[c$2]) || ((u$1 = e.att[o$1]) == null ? void 0 : u$1[c$2]) });
 		});
 	}), r$1;
 }
@@ -1625,13 +1551,13 @@ function wn$1(t = "", e) {
 	const r$1 = [];
 	let o$1 = 0;
 	Object.keys(e.att).forEach((c$2) => {
-		const f$4 = Object.keys(e.att[c$2]).map((l$1) => ({
+		const f$5 = Object.keys(e.att[c$2]).map((l$1) => ({
 			ability: l$1.split("/")[0],
 			action: l$1.split("/")[1]
 		}));
-		f$4.sort((l$1, d$3) => l$1.action.localeCompare(d$3.action));
+		f$5.sort((l$1, d$3) => l$1.action.localeCompare(d$3.action));
 		const u$1 = {};
-		f$4.forEach((l$1) => {
+		f$5.forEach((l$1) => {
 			u$1[l$1.ability] || (u$1[l$1.ability] = []), u$1[l$1.ability].push(l$1.action);
 		});
 		const a$1 = Object.keys(u$1).map((l$1) => (o$1++, `(${o$1}) '${l$1}': '${u$1[l$1].join("', '")}' for '${c$2}'.`));
@@ -1731,11 +1657,11 @@ var nf = (t, e) => {
 				ot$1(l$1);
 			}
 		};
-		let f$4 = !1;
+		let f$5 = !1;
 		return {
 			encrypt(a$1, l$1) {
-				if (f$4) throw new Error("cannot encrypt() twice with same key + nonce");
-				return f$4 = !0, ot$1(a$1), c$2(i$2.encrypt.length, l$1), i$2.encrypt(a$1, l$1);
+				if (f$5) throw new Error("cannot encrypt() twice with same key + nonce");
+				return f$5 = !0, ot$1(a$1), c$2(i$2.encrypt.length, l$1), i$2.encrypt(a$1, l$1);
 			},
 			decrypt(a$1, l$1) {
 				if (ot$1(a$1), s && a$1.length < s) throw new Error("invalid ciphertext length: smaller than tagLength=" + s);
@@ -1753,8 +1679,8 @@ function bo$1(t, e, n$1 = !0) {
 }
 function yo$1(t, e, n$1, r$1) {
 	if (typeof t.setBigUint64 == "function") return t.setBigUint64(e, n$1, r$1);
-	const o$1 = BigInt(32), s = BigInt(4294967295), i$2 = Number(n$1 >> o$1 & s), c$2 = Number(n$1 & s), f$4 = r$1 ? 4 : 0, u$1 = r$1 ? 0 : 4;
-	t.setUint32(e + f$4, i$2, r$1), t.setUint32(e + u$1, c$2, r$1);
+	const o$1 = BigInt(32), s = BigInt(4294967295), i$2 = Number(n$1 >> o$1 & s), c$2 = Number(n$1 & s), f$5 = r$1 ? 4 : 0, u$1 = r$1 ? 0 : 4;
+	t.setUint32(e + f$5, i$2, r$1), t.setUint32(e + u$1, c$2, r$1);
 }
 function rf(t, e, n$1) {
 	vn(n$1);
@@ -1768,7 +1694,7 @@ function Bn$1(t) {
 	return Uint8Array.from(t);
 }
 var mo$1 = (t) => Uint8Array.from(t.split("").map((e) => e.charCodeAt(0))), sf = mo$1("expand 16-byte k"), cf = mo$1("expand 32-byte k"), ff = Pt$3(sf), af = Pt$3(cf);
-function K$3(t, e) {
+function K$4(t, e) {
 	return t << e | t >>> 32 - e;
 }
 function In$1(t) {
@@ -1776,18 +1702,18 @@ function In$1(t) {
 }
 var Le$2 = 64, uf = 16, wo$1 = 2 ** 32 - 1, vo$1 = new Uint32Array();
 function lf(t, e, n$1, r$1, o$1, s, i$2, c$2) {
-	const f$4 = o$1.length, u$1 = new Uint8Array(Le$2), a$1 = Pt$3(u$1), l$1 = In$1(o$1) && In$1(s), d$3 = l$1 ? Pt$3(o$1) : vo$1, h$2 = l$1 ? Pt$3(s) : vo$1;
-	for (let y$2 = 0; y$2 < f$4; i$2++) {
+	const f$5 = o$1.length, u$1 = new Uint8Array(Le$2), a$1 = Pt$3(u$1), l$1 = In$1(o$1) && In$1(s), d$3 = l$1 ? Pt$3(o$1) : vo$1, h$2 = l$1 ? Pt$3(s) : vo$1;
+	for (let y$2 = 0; y$2 < f$5; i$2++) {
 		if (t(e, n$1, r$1, a$1, i$2, c$2), i$2 >= wo$1) throw new Error("arx: counter overflow");
-		const m$2 = Math.min(Le$2, f$4 - y$2);
+		const m$2 = Math.min(Le$2, f$5 - y$2);
 		if (l$1 && m$2 === Le$2) {
-			const w$1 = y$2 / 4;
+			const w$2 = y$2 / 4;
 			if (y$2 % 4 !== 0) throw new Error("arx: invalid block position");
-			for (let U$2 = 0, F$1; U$2 < uf; U$2++) F$1 = w$1 + U$2, h$2[F$1] = d$3[F$1] ^ a$1[U$2];
+			for (let U$3 = 0, F$2; U$3 < uf; U$3++) F$2 = w$2 + U$3, h$2[F$2] = d$3[F$2] ^ a$1[U$3];
 			y$2 += Le$2;
 			continue;
 		}
-		for (let w$1 = 0, U$2; w$1 < m$2; w$1++) U$2 = y$2 + w$1, s[U$2] = o$1[U$2] ^ u$1[w$1];
+		for (let w$2 = 0, U$3; w$2 < m$2; w$2++) U$3 = y$2 + w$2, s[U$3] = o$1[U$3] ^ u$1[w$2];
 		y$2 += m$2;
 	}
 }
@@ -1799,62 +1725,62 @@ function df(t, e) {
 		rounds: 20
 	}, e);
 	if (typeof t != "function") throw new Error("core must be a function");
-	return xn$1(o$1), xn$1(i$2), vn(s), vn(n$1), (c$2, f$4, u$1, a$1, l$1 = 0) => {
-		ot$1(c$2), ot$1(f$4), ot$1(u$1);
+	return xn$1(o$1), xn$1(i$2), vn(s), vn(n$1), (c$2, f$5, u$1, a$1, l$1 = 0) => {
+		ot$1(c$2), ot$1(f$5), ot$1(u$1);
 		const d$3 = u$1.length;
 		if (a$1 === void 0 && (a$1 = new Uint8Array(d$3)), ot$1(a$1), xn$1(l$1), l$1 < 0 || l$1 >= wo$1) throw new Error("arx: counter overflow");
 		if (a$1.length < d$3) throw new Error(`arx: output (${a$1.length}) is shorter than data (${d$3})`);
 		const h$2 = [];
-		let y$2 = c$2.length, m$2, w$1;
-		if (y$2 === 32) h$2.push(m$2 = Bn$1(c$2)), w$1 = af;
-		else if (y$2 === 16 && n$1) m$2 = new Uint8Array(32), m$2.set(c$2), m$2.set(c$2, 16), w$1 = ff, h$2.push(m$2);
+		let y$2 = c$2.length, m$2, w$2;
+		if (y$2 === 32) h$2.push(m$2 = Bn$1(c$2)), w$2 = af;
+		else if (y$2 === 16 && n$1) m$2 = new Uint8Array(32), m$2.set(c$2), m$2.set(c$2, 16), w$2 = ff, h$2.push(m$2);
 		else throw new Error(`arx: invalid 32-byte key, got length=${y$2}`);
-		In$1(f$4) || h$2.push(f$4 = Bn$1(f$4));
-		const U$2 = Pt$3(m$2);
+		In$1(f$5) || h$2.push(f$5 = Bn$1(f$5));
+		const U$3 = Pt$3(m$2);
 		if (r$1) {
-			if (f$4.length !== 24) throw new Error("arx: extended nonce must be 24 bytes");
-			r$1(w$1, U$2, Pt$3(f$4.subarray(0, 16)), U$2), f$4 = f$4.subarray(16);
+			if (f$5.length !== 24) throw new Error("arx: extended nonce must be 24 bytes");
+			r$1(w$2, U$3, Pt$3(f$5.subarray(0, 16)), U$3), f$5 = f$5.subarray(16);
 		}
-		const F$1 = 16 - o$1;
-		if (F$1 !== f$4.length) throw new Error(`arx: nonce must be ${F$1} or 16 bytes`);
-		if (F$1 !== 12) {
-			const Z = new Uint8Array(12);
-			Z.set(f$4, s ? 0 : 12 - f$4.length), f$4 = Z, h$2.push(f$4);
+		const F$2 = 16 - o$1;
+		if (F$2 !== f$5.length) throw new Error(`arx: nonce must be ${F$2} or 16 bytes`);
+		if (F$2 !== 12) {
+			const Z$1 = new Uint8Array(12);
+			Z$1.set(f$5, s ? 0 : 12 - f$5.length), f$5 = Z$1, h$2.push(f$5);
 		}
-		const R$2 = Pt$3(f$4);
-		return lf(t, w$1, U$2, R$2, u$1, a$1, l$1, i$2), Qt$2(...h$2), a$1;
+		const R$3 = Pt$3(f$5);
+		return lf(t, w$2, U$3, R$3, u$1, a$1, l$1, i$2), Qt$2(...h$2), a$1;
 	};
 }
-var W$2 = (t, e) => t[e++] & 255 | (t[e++] & 255) << 8;
+var W$3 = (t, e) => t[e++] & 255 | (t[e++] & 255) << 8;
 var hf = class {
 	constructor(e) {
 		this.blockLen = 16, this.outputLen = 16, this.buffer = new Uint8Array(16), this.r = new Uint16Array(10), this.h = new Uint16Array(10), this.pad = new Uint16Array(8), this.pos = 0, this.finished = !1, e = En$1(e), ot$1(e, 32);
-		const n$1 = W$2(e, 0), r$1 = W$2(e, 2), o$1 = W$2(e, 4), s = W$2(e, 6), i$2 = W$2(e, 8), c$2 = W$2(e, 10), f$4 = W$2(e, 12), u$1 = W$2(e, 14);
-		this.r[0] = n$1 & 8191, this.r[1] = (n$1 >>> 13 | r$1 << 3) & 8191, this.r[2] = (r$1 >>> 10 | o$1 << 6) & 7939, this.r[3] = (o$1 >>> 7 | s << 9) & 8191, this.r[4] = (s >>> 4 | i$2 << 12) & 255, this.r[5] = i$2 >>> 1 & 8190, this.r[6] = (i$2 >>> 14 | c$2 << 2) & 8191, this.r[7] = (c$2 >>> 11 | f$4 << 5) & 8065, this.r[8] = (f$4 >>> 8 | u$1 << 8) & 8191, this.r[9] = u$1 >>> 5 & 127;
-		for (let a$1 = 0; a$1 < 8; a$1++) this.pad[a$1] = W$2(e, 16 + 2 * a$1);
+		const n$1 = W$3(e, 0), r$1 = W$3(e, 2), o$1 = W$3(e, 4), s = W$3(e, 6), i$2 = W$3(e, 8), c$2 = W$3(e, 10), f$5 = W$3(e, 12), u$1 = W$3(e, 14);
+		this.r[0] = n$1 & 8191, this.r[1] = (n$1 >>> 13 | r$1 << 3) & 8191, this.r[2] = (r$1 >>> 10 | o$1 << 6) & 7939, this.r[3] = (o$1 >>> 7 | s << 9) & 8191, this.r[4] = (s >>> 4 | i$2 << 12) & 255, this.r[5] = i$2 >>> 1 & 8190, this.r[6] = (i$2 >>> 14 | c$2 << 2) & 8191, this.r[7] = (c$2 >>> 11 | f$5 << 5) & 8065, this.r[8] = (f$5 >>> 8 | u$1 << 8) & 8191, this.r[9] = u$1 >>> 5 & 127;
+		for (let a$1 = 0; a$1 < 8; a$1++) this.pad[a$1] = W$3(e, 16 + 2 * a$1);
 	}
 	process(e, n$1, r$1 = !1) {
-		const o$1 = r$1 ? 0 : 2048, { h: s, r: i$2 } = this, c$2 = i$2[0], f$4 = i$2[1], u$1 = i$2[2], a$1 = i$2[3], l$1 = i$2[4], d$3 = i$2[5], h$2 = i$2[6], y$2 = i$2[7], m$2 = i$2[8], w$1 = i$2[9], U$2 = W$2(e, n$1 + 0), F$1 = W$2(e, n$1 + 2), R$2 = W$2(e, n$1 + 4), Z = W$2(e, n$1 + 6), H$1 = W$2(e, n$1 + 8), j$3 = W$2(e, n$1 + 10), L$1 = W$2(e, n$1 + 12), k$1 = W$2(e, n$1 + 14);
-		let O$2 = s[0] + (U$2 & 8191), T$2 = s[1] + ((U$2 >>> 13 | F$1 << 3) & 8191), C$3 = s[2] + ((F$1 >>> 10 | R$2 << 6) & 8191), _$1 = s[3] + ((R$2 >>> 7 | Z << 9) & 8191), p$2 = s[4] + ((Z >>> 4 | H$1 << 12) & 8191), b$3 = s[5] + (H$1 >>> 1 & 8191), g$1 = s[6] + ((H$1 >>> 14 | j$3 << 2) & 8191), x$2 = s[7] + ((j$3 >>> 11 | L$1 << 5) & 8191), E$2 = s[8] + ((L$1 >>> 8 | k$1 << 8) & 8191), I$1 = s[9] + (k$1 >>> 5 | o$1), v$3 = 0, B$1 = v$3 + O$2 * c$2 + T$2 * (5 * w$1) + C$3 * (5 * m$2) + _$1 * (5 * y$2) + p$2 * (5 * h$2);
-		v$3 = B$1 >>> 13, B$1 &= 8191, B$1 += b$3 * (5 * d$3) + g$1 * (5 * l$1) + x$2 * (5 * a$1) + E$2 * (5 * u$1) + I$1 * (5 * f$4), v$3 += B$1 >>> 13, B$1 &= 8191;
-		let A$2 = v$3 + O$2 * f$4 + T$2 * c$2 + C$3 * (5 * w$1) + _$1 * (5 * m$2) + p$2 * (5 * y$2);
-		v$3 = A$2 >>> 13, A$2 &= 8191, A$2 += b$3 * (5 * h$2) + g$1 * (5 * d$3) + x$2 * (5 * l$1) + E$2 * (5 * a$1) + I$1 * (5 * u$1), v$3 += A$2 >>> 13, A$2 &= 8191;
-		let N$3 = v$3 + O$2 * u$1 + T$2 * f$4 + C$3 * c$2 + _$1 * (5 * w$1) + p$2 * (5 * m$2);
-		v$3 = N$3 >>> 13, N$3 &= 8191, N$3 += b$3 * (5 * y$2) + g$1 * (5 * h$2) + x$2 * (5 * d$3) + E$2 * (5 * l$1) + I$1 * (5 * a$1), v$3 += N$3 >>> 13, N$3 &= 8191;
-		let D = v$3 + O$2 * a$1 + T$2 * u$1 + C$3 * f$4 + _$1 * c$2 + p$2 * (5 * w$1);
-		v$3 = D >>> 13, D &= 8191, D += b$3 * (5 * m$2) + g$1 * (5 * y$2) + x$2 * (5 * h$2) + E$2 * (5 * d$3) + I$1 * (5 * l$1), v$3 += D >>> 13, D &= 8191;
-		let P$2 = v$3 + O$2 * l$1 + T$2 * a$1 + C$3 * u$1 + _$1 * f$4 + p$2 * c$2;
-		v$3 = P$2 >>> 13, P$2 &= 8191, P$2 += b$3 * (5 * w$1) + g$1 * (5 * m$2) + x$2 * (5 * y$2) + E$2 * (5 * h$2) + I$1 * (5 * d$3), v$3 += P$2 >>> 13, P$2 &= 8191;
-		let $$2 = v$3 + O$2 * d$3 + T$2 * l$1 + C$3 * a$1 + _$1 * u$1 + p$2 * f$4;
-		v$3 = $$2 >>> 13, $$2 &= 8191, $$2 += b$3 * c$2 + g$1 * (5 * w$1) + x$2 * (5 * m$2) + E$2 * (5 * y$2) + I$1 * (5 * h$2), v$3 += $$2 >>> 13, $$2 &= 8191;
-		let V$2 = v$3 + O$2 * h$2 + T$2 * d$3 + C$3 * l$1 + _$1 * a$1 + p$2 * u$1;
-		v$3 = V$2 >>> 13, V$2 &= 8191, V$2 += b$3 * f$4 + g$1 * c$2 + x$2 * (5 * w$1) + E$2 * (5 * m$2) + I$1 * (5 * y$2), v$3 += V$2 >>> 13, V$2 &= 8191;
-		let q$1 = v$3 + O$2 * y$2 + T$2 * h$2 + C$3 * d$3 + _$1 * l$1 + p$2 * a$1;
-		v$3 = q$1 >>> 13, q$1 &= 8191, q$1 += b$3 * u$1 + g$1 * f$4 + x$2 * c$2 + E$2 * (5 * w$1) + I$1 * (5 * m$2), v$3 += q$1 >>> 13, q$1 &= 8191;
-		let G$2 = v$3 + O$2 * m$2 + T$2 * y$2 + C$3 * h$2 + _$1 * d$3 + p$2 * l$1;
-		v$3 = G$2 >>> 13, G$2 &= 8191, G$2 += b$3 * a$1 + g$1 * u$1 + x$2 * f$4 + E$2 * c$2 + I$1 * (5 * w$1), v$3 += G$2 >>> 13, G$2 &= 8191;
-		let M$3 = v$3 + O$2 * w$1 + T$2 * m$2 + C$3 * y$2 + _$1 * h$2 + p$2 * d$3;
-		v$3 = M$3 >>> 13, M$3 &= 8191, M$3 += b$3 * l$1 + g$1 * a$1 + x$2 * u$1 + E$2 * f$4 + I$1 * c$2, v$3 += M$3 >>> 13, M$3 &= 8191, v$3 = (v$3 << 2) + v$3 | 0, v$3 = v$3 + B$1 | 0, B$1 = v$3 & 8191, v$3 = v$3 >>> 13, A$2 += v$3, s[0] = B$1, s[1] = A$2, s[2] = N$3, s[3] = D, s[4] = P$2, s[5] = $$2, s[6] = V$2, s[7] = q$1, s[8] = G$2, s[9] = M$3;
+		const o$1 = r$1 ? 0 : 2048, { h: s, r: i$2 } = this, c$2 = i$2[0], f$5 = i$2[1], u$1 = i$2[2], a$1 = i$2[3], l$1 = i$2[4], d$3 = i$2[5], h$2 = i$2[6], y$2 = i$2[7], m$2 = i$2[8], w$2 = i$2[9], U$3 = W$3(e, n$1 + 0), F$2 = W$3(e, n$1 + 2), R$3 = W$3(e, n$1 + 4), Z$1 = W$3(e, n$1 + 6), H$2 = W$3(e, n$1 + 8), j$4 = W$3(e, n$1 + 10), L$2 = W$3(e, n$1 + 12), k$1 = W$3(e, n$1 + 14);
+		let O$2 = s[0] + (U$3 & 8191), T$3 = s[1] + ((U$3 >>> 13 | F$2 << 3) & 8191), C$4 = s[2] + ((F$2 >>> 10 | R$3 << 6) & 8191), _$2 = s[3] + ((R$3 >>> 7 | Z$1 << 9) & 8191), p$3 = s[4] + ((Z$1 >>> 4 | H$2 << 12) & 8191), b$4 = s[5] + (H$2 >>> 1 & 8191), g$1 = s[6] + ((H$2 >>> 14 | j$4 << 2) & 8191), x$2 = s[7] + ((j$4 >>> 11 | L$2 << 5) & 8191), E$3 = s[8] + ((L$2 >>> 8 | k$1 << 8) & 8191), I$2 = s[9] + (k$1 >>> 5 | o$1), v$4 = 0, B$2 = v$4 + O$2 * c$2 + T$3 * (5 * w$2) + C$4 * (5 * m$2) + _$2 * (5 * y$2) + p$3 * (5 * h$2);
+		v$4 = B$2 >>> 13, B$2 &= 8191, B$2 += b$4 * (5 * d$3) + g$1 * (5 * l$1) + x$2 * (5 * a$1) + E$3 * (5 * u$1) + I$2 * (5 * f$5), v$4 += B$2 >>> 13, B$2 &= 8191;
+		let A$3 = v$4 + O$2 * f$5 + T$3 * c$2 + C$4 * (5 * w$2) + _$2 * (5 * m$2) + p$3 * (5 * y$2);
+		v$4 = A$3 >>> 13, A$3 &= 8191, A$3 += b$4 * (5 * h$2) + g$1 * (5 * d$3) + x$2 * (5 * l$1) + E$3 * (5 * a$1) + I$2 * (5 * u$1), v$4 += A$3 >>> 13, A$3 &= 8191;
+		let N$3 = v$4 + O$2 * u$1 + T$3 * f$5 + C$4 * c$2 + _$2 * (5 * w$2) + p$3 * (5 * m$2);
+		v$4 = N$3 >>> 13, N$3 &= 8191, N$3 += b$4 * (5 * y$2) + g$1 * (5 * h$2) + x$2 * (5 * d$3) + E$3 * (5 * l$1) + I$2 * (5 * a$1), v$4 += N$3 >>> 13, N$3 &= 8191;
+		let D$1 = v$4 + O$2 * a$1 + T$3 * u$1 + C$4 * f$5 + _$2 * c$2 + p$3 * (5 * w$2);
+		v$4 = D$1 >>> 13, D$1 &= 8191, D$1 += b$4 * (5 * m$2) + g$1 * (5 * y$2) + x$2 * (5 * h$2) + E$3 * (5 * d$3) + I$2 * (5 * l$1), v$4 += D$1 >>> 13, D$1 &= 8191;
+		let P$3 = v$4 + O$2 * l$1 + T$3 * a$1 + C$4 * u$1 + _$2 * f$5 + p$3 * c$2;
+		v$4 = P$3 >>> 13, P$3 &= 8191, P$3 += b$4 * (5 * w$2) + g$1 * (5 * m$2) + x$2 * (5 * y$2) + E$3 * (5 * h$2) + I$2 * (5 * d$3), v$4 += P$3 >>> 13, P$3 &= 8191;
+		let $$2 = v$4 + O$2 * d$3 + T$3 * l$1 + C$4 * a$1 + _$2 * u$1 + p$3 * f$5;
+		v$4 = $$2 >>> 13, $$2 &= 8191, $$2 += b$4 * c$2 + g$1 * (5 * w$2) + x$2 * (5 * m$2) + E$3 * (5 * y$2) + I$2 * (5 * h$2), v$4 += $$2 >>> 13, $$2 &= 8191;
+		let V$3 = v$4 + O$2 * h$2 + T$3 * d$3 + C$4 * l$1 + _$2 * a$1 + p$3 * u$1;
+		v$4 = V$3 >>> 13, V$3 &= 8191, V$3 += b$4 * f$5 + g$1 * c$2 + x$2 * (5 * w$2) + E$3 * (5 * m$2) + I$2 * (5 * y$2), v$4 += V$3 >>> 13, V$3 &= 8191;
+		let q$2 = v$4 + O$2 * y$2 + T$3 * h$2 + C$4 * d$3 + _$2 * l$1 + p$3 * a$1;
+		v$4 = q$2 >>> 13, q$2 &= 8191, q$2 += b$4 * u$1 + g$1 * f$5 + x$2 * c$2 + E$3 * (5 * w$2) + I$2 * (5 * m$2), v$4 += q$2 >>> 13, q$2 &= 8191;
+		let G$3 = v$4 + O$2 * m$2 + T$3 * y$2 + C$4 * h$2 + _$2 * d$3 + p$3 * l$1;
+		v$4 = G$3 >>> 13, G$3 &= 8191, G$3 += b$4 * a$1 + g$1 * u$1 + x$2 * f$5 + E$3 * c$2 + I$2 * (5 * w$2), v$4 += G$3 >>> 13, G$3 &= 8191;
+		let M$4 = v$4 + O$2 * w$2 + T$3 * m$2 + C$4 * y$2 + _$2 * h$2 + p$3 * d$3;
+		v$4 = M$4 >>> 13, M$4 &= 8191, M$4 += b$4 * l$1 + g$1 * a$1 + x$2 * u$1 + E$3 * f$5 + I$2 * c$2, v$4 += M$4 >>> 13, M$4 &= 8191, v$4 = (v$4 << 2) + v$4 | 0, v$4 = v$4 + B$2 | 0, B$2 = v$4 & 8191, v$4 = v$4 >>> 13, A$3 += v$4, s[0] = B$2, s[1] = A$3, s[2] = N$3, s[3] = D$1, s[4] = P$3, s[5] = $$2, s[6] = V$3, s[7] = q$2, s[8] = G$3, s[9] = M$4;
 	}
 	finalize() {
 		const { h: e, pad: n$1 } = this, r$1 = new Uint16Array(10);
@@ -1916,10 +1842,10 @@ function pf(t) {
 }
 var gf = pf((t) => new hf(t));
 function bf(t, e, n$1, r$1, o$1, s = 20) {
-	let i$2 = t[0], c$2 = t[1], f$4 = t[2], u$1 = t[3], a$1 = e[0], l$1 = e[1], d$3 = e[2], h$2 = e[3], y$2 = e[4], m$2 = e[5], w$1 = e[6], U$2 = e[7], F$1 = o$1, R$2 = n$1[0], Z = n$1[1], H$1 = n$1[2], j$3 = i$2, L$1 = c$2, k$1 = f$4, O$2 = u$1, T$2 = a$1, C$3 = l$1, _$1 = d$3, p$2 = h$2, b$3 = y$2, g$1 = m$2, x$2 = w$1, E$2 = U$2, I$1 = F$1, v$3 = R$2, B$1 = Z, A$2 = H$1;
-	for (let D = 0; D < s; D += 2) j$3 = j$3 + T$2 | 0, I$1 = K$3(I$1 ^ j$3, 16), b$3 = b$3 + I$1 | 0, T$2 = K$3(T$2 ^ b$3, 12), j$3 = j$3 + T$2 | 0, I$1 = K$3(I$1 ^ j$3, 8), b$3 = b$3 + I$1 | 0, T$2 = K$3(T$2 ^ b$3, 7), L$1 = L$1 + C$3 | 0, v$3 = K$3(v$3 ^ L$1, 16), g$1 = g$1 + v$3 | 0, C$3 = K$3(C$3 ^ g$1, 12), L$1 = L$1 + C$3 | 0, v$3 = K$3(v$3 ^ L$1, 8), g$1 = g$1 + v$3 | 0, C$3 = K$3(C$3 ^ g$1, 7), k$1 = k$1 + _$1 | 0, B$1 = K$3(B$1 ^ k$1, 16), x$2 = x$2 + B$1 | 0, _$1 = K$3(_$1 ^ x$2, 12), k$1 = k$1 + _$1 | 0, B$1 = K$3(B$1 ^ k$1, 8), x$2 = x$2 + B$1 | 0, _$1 = K$3(_$1 ^ x$2, 7), O$2 = O$2 + p$2 | 0, A$2 = K$3(A$2 ^ O$2, 16), E$2 = E$2 + A$2 | 0, p$2 = K$3(p$2 ^ E$2, 12), O$2 = O$2 + p$2 | 0, A$2 = K$3(A$2 ^ O$2, 8), E$2 = E$2 + A$2 | 0, p$2 = K$3(p$2 ^ E$2, 7), j$3 = j$3 + C$3 | 0, A$2 = K$3(A$2 ^ j$3, 16), x$2 = x$2 + A$2 | 0, C$3 = K$3(C$3 ^ x$2, 12), j$3 = j$3 + C$3 | 0, A$2 = K$3(A$2 ^ j$3, 8), x$2 = x$2 + A$2 | 0, C$3 = K$3(C$3 ^ x$2, 7), L$1 = L$1 + _$1 | 0, I$1 = K$3(I$1 ^ L$1, 16), E$2 = E$2 + I$1 | 0, _$1 = K$3(_$1 ^ E$2, 12), L$1 = L$1 + _$1 | 0, I$1 = K$3(I$1 ^ L$1, 8), E$2 = E$2 + I$1 | 0, _$1 = K$3(_$1 ^ E$2, 7), k$1 = k$1 + p$2 | 0, v$3 = K$3(v$3 ^ k$1, 16), b$3 = b$3 + v$3 | 0, p$2 = K$3(p$2 ^ b$3, 12), k$1 = k$1 + p$2 | 0, v$3 = K$3(v$3 ^ k$1, 8), b$3 = b$3 + v$3 | 0, p$2 = K$3(p$2 ^ b$3, 7), O$2 = O$2 + T$2 | 0, B$1 = K$3(B$1 ^ O$2, 16), g$1 = g$1 + B$1 | 0, T$2 = K$3(T$2 ^ g$1, 12), O$2 = O$2 + T$2 | 0, B$1 = K$3(B$1 ^ O$2, 8), g$1 = g$1 + B$1 | 0, T$2 = K$3(T$2 ^ g$1, 7);
+	let i$2 = t[0], c$2 = t[1], f$5 = t[2], u$1 = t[3], a$1 = e[0], l$1 = e[1], d$3 = e[2], h$2 = e[3], y$2 = e[4], m$2 = e[5], w$2 = e[6], U$3 = e[7], F$2 = o$1, R$3 = n$1[0], Z$1 = n$1[1], H$2 = n$1[2], j$4 = i$2, L$2 = c$2, k$1 = f$5, O$2 = u$1, T$3 = a$1, C$4 = l$1, _$2 = d$3, p$3 = h$2, b$4 = y$2, g$1 = m$2, x$2 = w$2, E$3 = U$3, I$2 = F$2, v$4 = R$3, B$2 = Z$1, A$3 = H$2;
+	for (let D$1 = 0; D$1 < s; D$1 += 2) j$4 = j$4 + T$3 | 0, I$2 = K$4(I$2 ^ j$4, 16), b$4 = b$4 + I$2 | 0, T$3 = K$4(T$3 ^ b$4, 12), j$4 = j$4 + T$3 | 0, I$2 = K$4(I$2 ^ j$4, 8), b$4 = b$4 + I$2 | 0, T$3 = K$4(T$3 ^ b$4, 7), L$2 = L$2 + C$4 | 0, v$4 = K$4(v$4 ^ L$2, 16), g$1 = g$1 + v$4 | 0, C$4 = K$4(C$4 ^ g$1, 12), L$2 = L$2 + C$4 | 0, v$4 = K$4(v$4 ^ L$2, 8), g$1 = g$1 + v$4 | 0, C$4 = K$4(C$4 ^ g$1, 7), k$1 = k$1 + _$2 | 0, B$2 = K$4(B$2 ^ k$1, 16), x$2 = x$2 + B$2 | 0, _$2 = K$4(_$2 ^ x$2, 12), k$1 = k$1 + _$2 | 0, B$2 = K$4(B$2 ^ k$1, 8), x$2 = x$2 + B$2 | 0, _$2 = K$4(_$2 ^ x$2, 7), O$2 = O$2 + p$3 | 0, A$3 = K$4(A$3 ^ O$2, 16), E$3 = E$3 + A$3 | 0, p$3 = K$4(p$3 ^ E$3, 12), O$2 = O$2 + p$3 | 0, A$3 = K$4(A$3 ^ O$2, 8), E$3 = E$3 + A$3 | 0, p$3 = K$4(p$3 ^ E$3, 7), j$4 = j$4 + C$4 | 0, A$3 = K$4(A$3 ^ j$4, 16), x$2 = x$2 + A$3 | 0, C$4 = K$4(C$4 ^ x$2, 12), j$4 = j$4 + C$4 | 0, A$3 = K$4(A$3 ^ j$4, 8), x$2 = x$2 + A$3 | 0, C$4 = K$4(C$4 ^ x$2, 7), L$2 = L$2 + _$2 | 0, I$2 = K$4(I$2 ^ L$2, 16), E$3 = E$3 + I$2 | 0, _$2 = K$4(_$2 ^ E$3, 12), L$2 = L$2 + _$2 | 0, I$2 = K$4(I$2 ^ L$2, 8), E$3 = E$3 + I$2 | 0, _$2 = K$4(_$2 ^ E$3, 7), k$1 = k$1 + p$3 | 0, v$4 = K$4(v$4 ^ k$1, 16), b$4 = b$4 + v$4 | 0, p$3 = K$4(p$3 ^ b$4, 12), k$1 = k$1 + p$3 | 0, v$4 = K$4(v$4 ^ k$1, 8), b$4 = b$4 + v$4 | 0, p$3 = K$4(p$3 ^ b$4, 7), O$2 = O$2 + T$3 | 0, B$2 = K$4(B$2 ^ O$2, 16), g$1 = g$1 + B$2 | 0, T$3 = K$4(T$3 ^ g$1, 12), O$2 = O$2 + T$3 | 0, B$2 = K$4(B$2 ^ O$2, 8), g$1 = g$1 + B$2 | 0, T$3 = K$4(T$3 ^ g$1, 7);
 	let N$3 = 0;
-	r$1[N$3++] = i$2 + j$3 | 0, r$1[N$3++] = c$2 + L$1 | 0, r$1[N$3++] = f$4 + k$1 | 0, r$1[N$3++] = u$1 + O$2 | 0, r$1[N$3++] = a$1 + T$2 | 0, r$1[N$3++] = l$1 + C$3 | 0, r$1[N$3++] = d$3 + _$1 | 0, r$1[N$3++] = h$2 + p$2 | 0, r$1[N$3++] = y$2 + b$3 | 0, r$1[N$3++] = m$2 + g$1 | 0, r$1[N$3++] = w$1 + x$2 | 0, r$1[N$3++] = U$2 + E$2 | 0, r$1[N$3++] = F$1 + I$1 | 0, r$1[N$3++] = R$2 + v$3 | 0, r$1[N$3++] = Z + B$1 | 0, r$1[N$3++] = H$1 + A$2 | 0;
+	r$1[N$3++] = i$2 + j$4 | 0, r$1[N$3++] = c$2 + L$2 | 0, r$1[N$3++] = f$5 + k$1 | 0, r$1[N$3++] = u$1 + O$2 | 0, r$1[N$3++] = a$1 + T$3 | 0, r$1[N$3++] = l$1 + C$4 | 0, r$1[N$3++] = d$3 + _$2 | 0, r$1[N$3++] = h$2 + p$3 | 0, r$1[N$3++] = y$2 + b$4 | 0, r$1[N$3++] = m$2 + g$1 | 0, r$1[N$3++] = w$2 + x$2 | 0, r$1[N$3++] = U$3 + E$3 | 0, r$1[N$3++] = F$2 + I$2 | 0, r$1[N$3++] = R$3 + v$4 | 0, r$1[N$3++] = Z$1 + B$2 | 0, r$1[N$3++] = H$2 + A$3 | 0;
 }
 var yf = df(bf, {
 	counterRight: !1,
@@ -1935,22 +1861,22 @@ function Eo$1(t, e, n$1, r$1, o$1) {
 	o$1 && xo$1(i$2, o$1), xo$1(i$2, r$1);
 	const c$2 = rf(r$1.length, o$1 ? o$1.length : 0, !0);
 	i$2.update(c$2);
-	const f$4 = i$2.digest();
-	return Qt$2(s, c$2), f$4;
+	const f$5 = i$2.digest();
+	return Qt$2(s, c$2), f$5;
 }
 var vf = (t) => (e, n$1, r$1) => ({
 	encrypt(s, i$2) {
 		const c$2 = s.length;
 		i$2 = bo$1(c$2 + 16, i$2, !1), i$2.set(s);
-		const f$4 = i$2.subarray(0, -16);
-		t(e, n$1, f$4, f$4, 1);
-		const u$1 = Eo$1(t, e, n$1, f$4, r$1);
+		const f$5 = i$2.subarray(0, -16);
+		t(e, n$1, f$5, f$5, 1);
+		const u$1 = Eo$1(t, e, n$1, f$5, r$1);
 		return i$2.set(u$1, c$2), Qt$2(u$1), i$2;
 	},
 	decrypt(s, i$2) {
 		i$2 = bo$1(s.length - 16, i$2, !1);
-		const c$2 = s.subarray(0, -16), f$4 = s.subarray(-16), u$1 = Eo$1(t, e, n$1, c$2, r$1);
-		if (!ef(f$4, u$1)) throw new Error("invalid tag");
+		const c$2 = s.subarray(0, -16), f$5 = s.subarray(-16), u$1 = Eo$1(t, e, n$1, c$2, r$1);
+		if (!ef(f$5, u$1)) throw new Error("invalid tag");
 		return i$2.set(s.subarray(0, -16)), t(e, n$1, i$2, i$2, 1), Qt$2(u$1), i$2;
 	}
 }), Bo$1 = nf({
@@ -2005,9 +1931,9 @@ function Ef(t, e, n$1, r$1 = 32) {
 	if (r$1 > 255 * o$1) throw new Error("Length should be <= 255*HashLen");
 	const s = Math.ceil(r$1 / o$1);
 	n$1 === void 0 && (n$1 = Ao$1);
-	const i$2 = new Uint8Array(s * o$1), c$2 = ke$1.create(t, e), f$4 = c$2._cloneInto(), u$1 = new Uint8Array(c$2.outputLen);
-	for (let a$1 = 0; a$1 < s; a$1++) An$1[0] = a$1 + 1, f$4.update(a$1 === 0 ? Ao$1 : u$1).update(n$1).update(An$1).digestInto(u$1), i$2.set(u$1, o$1 * a$1), c$2._cloneInto(f$4);
-	return c$2.destroy(), f$4.destroy(), lt$2(u$1, An$1), i$2.slice(0, r$1);
+	const i$2 = new Uint8Array(s * o$1), c$2 = ke$1.create(t, e), f$5 = c$2._cloneInto(), u$1 = new Uint8Array(c$2.outputLen);
+	for (let a$1 = 0; a$1 < s; a$1++) An$1[0] = a$1 + 1, f$5.update(a$1 === 0 ? Ao$1 : u$1).update(n$1).update(An$1).digestInto(u$1), i$2.set(u$1, o$1 * a$1), c$2._cloneInto(f$5);
+	return c$2.destroy(), f$5.destroy(), lt$2(u$1, An$1), i$2.slice(0, r$1);
 }
 var Bf = (t, e, n$1, r$1, o$1) => Ef(t, xf(t, e, n$1), r$1, o$1), Pe$2 = Te$2, Sn$1 = BigInt(0), On$1 = BigInt(1);
 function He$2(t, e = "") {
@@ -2020,8 +1946,8 @@ function He$2(t, e = "") {
 function Kt$2(t, e, n$1 = "") {
 	const r$1 = Ue$4(t), o$1 = t?.length, s = e !== void 0;
 	if (!r$1 || s && o$1 !== e) {
-		const i$2 = n$1 && `"${n$1}" `, c$2 = s ? ` of length ${e}` : "", f$4 = r$1 ? `length=${o$1}` : `type=${typeof t}`;
-		throw new Error(i$2 + "expected Uint8Array" + c$2 + ", got " + f$4);
+		const i$2 = n$1 && `"${n$1}" `, c$2 = s ? ` of length ${e}` : "", f$5 = r$1 ? `length=${o$1}` : `type=${typeof t}`;
+		throw new Error(i$2 + "expected Uint8Array" + c$2 + ", got " + f$5);
 	}
 	return t;
 }
@@ -2045,7 +1971,7 @@ function Nn$1(t, e) {
 function Un$1(t, e) {
 	return Nn$1(t, e).reverse();
 }
-function tt$2(t, e, n$1) {
+function tt$3(t, e, n$1) {
 	let r$1;
 	if (typeof e == "string") try {
 		r$1 = Re$3(e);
@@ -2077,7 +2003,7 @@ function Af(t, e, n$1) {
 	if (typeof n$1 != "function") throw new Error("hmacFn must be a function");
 	const r$1 = (h$2) => new Uint8Array(h$2), o$1 = (h$2) => Uint8Array.of(h$2);
 	let s = r$1(t), i$2 = r$1(t), c$2 = 0;
-	const f$4 = () => {
+	const f$5 = () => {
 		s.fill(1), i$2.fill(0), c$2 = 0;
 	}, u$1 = (...h$2) => n$1(i$2, s, ...h$2), a$1 = (h$2 = r$1(0)) => {
 		i$2 = u$1(o$1(0), h$2), s = u$1(), h$2.length !== 0 && (i$2 = u$1(o$1(1), h$2), s = u$1());
@@ -2093,10 +2019,10 @@ function Af(t, e, n$1) {
 		return _t$2(...y$2);
 	};
 	return (h$2, y$2) => {
-		f$4(), a$1(h$2);
+		f$5(), a$1(h$2);
 		let m$2;
 		for (; !(m$2 = y$2(l$1()));) a$1();
-		return f$4(), m$2;
+		return f$5(), m$2;
 	};
 }
 function Ke$3(t, e, n$1 = {}) {
@@ -2104,8 +2030,8 @@ function Ke$3(t, e, n$1 = {}) {
 	function r$1(o$1, s, i$2) {
 		const c$2 = t[o$1];
 		if (i$2 && c$2 === void 0) return;
-		const f$4 = typeof c$2;
-		if (f$4 !== s || c$2 === null) throw new Error(`param "${o$1}" is invalid: expected ${s}, got ${f$4}`);
+		const f$5 = typeof c$2;
+		if (f$5 !== s || c$2 === null) throw new Error(`param "${o$1}" is invalid: expected ${s}, got ${f$5}`);
 	}
 	Object.entries(e).forEach(([o$1, s]) => r$1(o$1, s, !1)), Object.entries(n$1).forEach(([o$1, s]) => r$1(o$1, s, !0));
 }
@@ -2118,32 +2044,32 @@ function No$1(t) {
 		return e.set(n$1, s), s;
 	};
 }
-var st$2 = BigInt(0), nt$1 = BigInt(1), qt$2 = BigInt(2), Uo$1 = BigInt(3), _o$1 = BigInt(4), Ro$1 = BigInt(5), Sf = BigInt(7), $o$1 = BigInt(8), Of = BigInt(9), To$1 = BigInt(16);
+var st$3 = BigInt(0), nt$2 = BigInt(1), qt$2 = BigInt(2), Uo$1 = BigInt(3), _o$1 = BigInt(4), Ro$1 = BigInt(5), Sf = BigInt(7), $o$1 = BigInt(8), Of = BigInt(9), To$1 = BigInt(16);
 function ct$2(t, e) {
 	const n$1 = t % e;
-	return n$1 >= st$2 ? n$1 : e + n$1;
+	return n$1 >= st$3 ? n$1 : e + n$1;
 }
 function gt$2(t, e, n$1) {
 	let r$1 = t;
-	for (; e-- > st$2;) r$1 *= r$1, r$1 %= n$1;
+	for (; e-- > st$3;) r$1 *= r$1, r$1 %= n$1;
 	return r$1;
 }
 function Co$1(t, e) {
-	if (t === st$2) throw new Error("invert: expected non-zero number");
-	if (e <= st$2) throw new Error("invert: expected positive modulus, got " + e);
-	let n$1 = ct$2(t, e), r$1 = e, o$1 = st$2, s = nt$1;
-	for (; n$1 !== st$2;) {
-		const c$2 = r$1 / n$1, f$4 = r$1 % n$1, u$1 = o$1 - s * c$2;
-		r$1 = n$1, n$1 = f$4, o$1 = s, s = u$1;
+	if (t === st$3) throw new Error("invert: expected non-zero number");
+	if (e <= st$3) throw new Error("invert: expected positive modulus, got " + e);
+	let n$1 = ct$2(t, e), r$1 = e, o$1 = st$3, s = nt$2;
+	for (; n$1 !== st$3;) {
+		const c$2 = r$1 / n$1, f$5 = r$1 % n$1, u$1 = o$1 - s * c$2;
+		r$1 = n$1, n$1 = f$5, o$1 = s, s = u$1;
 	}
-	if (r$1 !== nt$1) throw new Error("invert: does not exist");
+	if (r$1 !== nt$2) throw new Error("invert: does not exist");
 	return ct$2(o$1, e);
 }
 function $n$1(t, e, n$1) {
 	if (!t.eql(t.sqr(e), n$1)) throw new Error("Cannot find square root");
 }
 function jo$1(t, e) {
-	const n$1 = (t.ORDER + nt$1) / _o$1, r$1 = t.pow(e, n$1);
+	const n$1 = (t.ORDER + nt$2) / _o$1, r$1 = t.pow(e, n$1);
 	return $n$1(t, r$1, e), r$1;
 }
 function Nf(t, e) {
@@ -2152,34 +2078,34 @@ function Nf(t, e) {
 }
 function Uf(t) {
 	const e = Ht$2(t), n$1 = Lo$1(t), r$1 = n$1(e, e.neg(e.ONE)), o$1 = n$1(e, r$1), s = n$1(e, e.neg(r$1)), i$2 = (t + Sf) / To$1;
-	return (c$2, f$4) => {
-		let u$1 = c$2.pow(f$4, i$2), a$1 = c$2.mul(u$1, r$1);
-		const l$1 = c$2.mul(u$1, o$1), d$3 = c$2.mul(u$1, s), h$2 = c$2.eql(c$2.sqr(a$1), f$4), y$2 = c$2.eql(c$2.sqr(l$1), f$4);
+	return (c$2, f$5) => {
+		let u$1 = c$2.pow(f$5, i$2), a$1 = c$2.mul(u$1, r$1);
+		const l$1 = c$2.mul(u$1, o$1), d$3 = c$2.mul(u$1, s), h$2 = c$2.eql(c$2.sqr(a$1), f$5), y$2 = c$2.eql(c$2.sqr(l$1), f$5);
 		u$1 = c$2.cmov(u$1, a$1, h$2), a$1 = c$2.cmov(d$3, l$1, y$2);
-		const m$2 = c$2.eql(c$2.sqr(a$1), f$4), w$1 = c$2.cmov(u$1, a$1, m$2);
-		return $n$1(c$2, w$1, f$4), w$1;
+		const m$2 = c$2.eql(c$2.sqr(a$1), f$5), w$2 = c$2.cmov(u$1, a$1, m$2);
+		return $n$1(c$2, w$2, f$5), w$2;
 	};
 }
 function Lo$1(t) {
 	if (t < Uo$1) throw new Error("sqrt is not defined for small field");
-	let e = t - nt$1, n$1 = 0;
-	for (; e % qt$2 === st$2;) e /= qt$2, n$1++;
+	let e = t - nt$2, n$1 = 0;
+	for (; e % qt$2 === st$3;) e /= qt$2, n$1++;
 	let r$1 = qt$2;
 	const o$1 = Ht$2(t);
 	for (; Po$1(o$1, r$1) === 1;) if (r$1++ > 1e3) throw new Error("Cannot find square root: probably non-prime P");
 	if (n$1 === 1) return jo$1;
 	let s = o$1.pow(r$1, e);
-	const i$2 = (e + nt$1) / qt$2;
-	return function(f$4, u$1) {
-		if (f$4.is0(u$1)) return u$1;
-		if (Po$1(f$4, u$1) !== 1) throw new Error("Cannot find square root");
-		let a$1 = n$1, l$1 = f$4.mul(f$4.ONE, s), d$3 = f$4.pow(u$1, e), h$2 = f$4.pow(u$1, i$2);
-		for (; !f$4.eql(d$3, f$4.ONE);) {
-			if (f$4.is0(d$3)) return f$4.ZERO;
-			let y$2 = 1, m$2 = f$4.sqr(d$3);
-			for (; !f$4.eql(m$2, f$4.ONE);) if (y$2++, m$2 = f$4.sqr(m$2), y$2 === a$1) throw new Error("Cannot find square root");
-			const w$1 = nt$1 << BigInt(a$1 - y$2 - 1), U$2 = f$4.pow(l$1, w$1);
-			a$1 = y$2, l$1 = f$4.sqr(U$2), d$3 = f$4.mul(d$3, l$1), h$2 = f$4.mul(h$2, U$2);
+	const i$2 = (e + nt$2) / qt$2;
+	return function(f$5, u$1) {
+		if (f$5.is0(u$1)) return u$1;
+		if (Po$1(f$5, u$1) !== 1) throw new Error("Cannot find square root");
+		let a$1 = n$1, l$1 = f$5.mul(f$5.ONE, s), d$3 = f$5.pow(u$1, e), h$2 = f$5.pow(u$1, i$2);
+		for (; !f$5.eql(d$3, f$5.ONE);) {
+			if (f$5.is0(d$3)) return f$5.ZERO;
+			let y$2 = 1, m$2 = f$5.sqr(d$3);
+			for (; !f$5.eql(m$2, f$5.ONE);) if (y$2++, m$2 = f$5.sqr(m$2), y$2 === a$1) throw new Error("Cannot find square root");
+			const w$2 = nt$2 << BigInt(a$1 - y$2 - 1), U$3 = f$5.pow(l$1, w$2);
+			a$1 = y$2, l$1 = f$5.sqr(U$3), d$3 = f$5.mul(d$3, l$1), h$2 = f$5.mul(h$2, U$3);
 		}
 		return h$2;
 	};
@@ -2215,19 +2141,19 @@ function $f(t) {
 	})), t;
 }
 function Tf(t, e, n$1) {
-	if (n$1 < st$2) throw new Error("invalid exponent, negatives unsupported");
-	if (n$1 === st$2) return t.ONE;
-	if (n$1 === nt$1) return e;
+	if (n$1 < st$3) throw new Error("invalid exponent, negatives unsupported");
+	if (n$1 === st$3) return t.ONE;
+	if (n$1 === nt$2) return e;
 	let r$1 = t.ONE, o$1 = e;
-	for (; n$1 > st$2;) n$1 & nt$1 && (r$1 = t.mul(r$1, o$1)), o$1 = t.sqr(o$1), n$1 >>= nt$1;
+	for (; n$1 > st$3;) n$1 & nt$2 && (r$1 = t.mul(r$1, o$1)), o$1 = t.sqr(o$1), n$1 >>= nt$2;
 	return r$1;
 }
 function ko$1(t, e, n$1 = !1) {
-	const r$1 = new Array(e.length).fill(n$1 ? t.ZERO : void 0), o$1 = e.reduce((i$2, c$2, f$4) => t.is0(c$2) ? i$2 : (r$1[f$4] = i$2, t.mul(i$2, c$2)), t.ONE), s = t.inv(o$1);
-	return e.reduceRight((i$2, c$2, f$4) => t.is0(c$2) ? i$2 : (r$1[f$4] = t.mul(i$2, r$1[f$4]), t.mul(i$2, c$2)), s), r$1;
+	const r$1 = new Array(e.length).fill(n$1 ? t.ZERO : void 0), o$1 = e.reduce((i$2, c$2, f$5) => t.is0(c$2) ? i$2 : (r$1[f$5] = i$2, t.mul(i$2, c$2)), t.ONE), s = t.inv(o$1);
+	return e.reduceRight((i$2, c$2, f$5) => t.is0(c$2) ? i$2 : (r$1[f$5] = t.mul(i$2, r$1[f$5]), t.mul(i$2, c$2)), s), r$1;
 }
 function Po$1(t, e) {
-	const n$1 = (t.ORDER - nt$1) / qt$2, r$1 = t.pow(e, n$1), o$1 = t.eql(r$1, t.ONE), s = t.eql(r$1, t.ZERO), i$2 = t.eql(r$1, t.neg(t.ONE));
+	const n$1 = (t.ORDER - nt$2) / qt$2, r$1 = t.pow(e, n$1), o$1 = t.eql(r$1, t.ONE), s = t.eql(r$1, t.ZERO), i$2 = t.eql(r$1, t.neg(t.ONE));
 	if (!o$1 && !s && !i$2) throw new Error("invalid Legendre symbol result");
 	return o$1 ? 1 : s ? 0 : -1;
 }
@@ -2240,33 +2166,33 @@ function Ho$1(t, e) {
 	};
 }
 function Ht$2(t, e, n$1 = !1, r$1 = {}) {
-	if (t <= st$2) throw new Error("invalid field: expected ORDER > 0, got " + t);
+	if (t <= st$3) throw new Error("invalid field: expected ORDER > 0, got " + t);
 	let o$1, s, i$2 = !1, c$2;
 	if (typeof e == "object" && e != null) {
 		if (r$1.sqrt || n$1) throw new Error("cannot specify opts in two arguments");
 		const d$3 = e;
 		d$3.BITS && (o$1 = d$3.BITS), d$3.sqrt && (s = d$3.sqrt), typeof d$3.isLE == "boolean" && (n$1 = d$3.isLE), typeof d$3.modFromBytes == "boolean" && (i$2 = d$3.modFromBytes), c$2 = d$3.allowedLengths;
 	} else typeof e == "number" && (o$1 = e), r$1.sqrt && (s = r$1.sqrt);
-	const { nBitLength: f$4, nByteLength: u$1 } = Ho$1(t, o$1);
+	const { nBitLength: f$5, nByteLength: u$1 } = Ho$1(t, o$1);
 	if (u$1 > 2048) throw new Error("invalid field: expected ORDER of <= 2048 bytes");
 	let a$1;
 	const l$1 = Object.freeze({
 		ORDER: t,
 		isLE: n$1,
-		BITS: f$4,
+		BITS: f$5,
 		BYTES: u$1,
-		MASK: me$2(f$4),
-		ZERO: st$2,
-		ONE: nt$1,
+		MASK: me$2(f$5),
+		ZERO: st$3,
+		ONE: nt$2,
 		allowedLengths: c$2,
 		create: (d$3) => ct$2(d$3, t),
 		isValid: (d$3) => {
 			if (typeof d$3 != "bigint") throw new Error("invalid field element: expected bigint, got " + typeof d$3);
-			return st$2 <= d$3 && d$3 < t;
+			return st$3 <= d$3 && d$3 < t;
 		},
-		is0: (d$3) => d$3 === st$2,
+		is0: (d$3) => d$3 === st$3,
 		isValidNot0: (d$3) => !l$1.is0(d$3) && l$1.isValid(d$3),
-		isOdd: (d$3) => (d$3 & nt$1) === nt$1,
+		isOdd: (d$3) => (d$3 & nt$2) === nt$2,
 		neg: (d$3) => ct$2(-d$3, t),
 		eql: (d$3, h$2) => d$3 === h$2,
 		sqr: (d$3) => ct$2(d$3 * d$3, t),
@@ -2310,7 +2236,7 @@ function Vo$1(t) {
 function Cf(t, e, n$1 = !1) {
 	const r$1 = t.length, o$1 = Do$1(e), s = Vo$1(e);
 	if (r$1 < 16 || r$1 < s || r$1 > 1024) throw new Error("expected " + s + "-1024 bytes of input, got " + r$1);
-	const c$2 = ct$2(n$1 ? Me$3(t) : Ve$2(t), e - nt$1) + nt$1;
+	const c$2 = ct$2(n$1 ? Me$3(t) : Ve$2(t), e - nt$2) + nt$2;
 	return n$1 ? Un$1(c$2, o$1) : Nn$1(c$2, o$1);
 }
 var te$1 = BigInt(0), Ft$2 = BigInt(1);
@@ -2338,11 +2264,11 @@ function Cn$1(t, e) {
 }
 function Ko$1(t, e, n$1) {
 	const { windowSize: r$1, mask: o$1, maxNumber: s, shiftBy: i$2 } = n$1;
-	let c$2 = Number(t & o$1), f$4 = t >> i$2;
-	c$2 > r$1 && (c$2 -= s, f$4 += Ft$2);
+	let c$2 = Number(t & o$1), f$5 = t >> i$2;
+	c$2 > r$1 && (c$2 -= s, f$5 += Ft$2);
 	const u$1 = e * r$1, a$1 = u$1 + Math.abs(c$2) - 1, l$1 = c$2 === 0, d$3 = c$2 < 0, h$2 = e % 2 !== 0;
 	return {
-		nextN: f$4,
+		nextN: f$5,
 		offset: a$1,
 		isZero: l$1,
 		isNeg: d$3,
@@ -2381,7 +2307,7 @@ var kf = class {
 	precomputeWindow(e, n$1) {
 		const { windows: r$1, windowSize: o$1 } = Cn$1(n$1, this.bits), s = [];
 		let i$2 = e, c$2 = i$2;
-		for (let f$4 = 0; f$4 < r$1; f$4++) {
+		for (let f$5 = 0; f$5 < r$1; f$5++) {
 			c$2 = i$2, s.push(c$2);
 			for (let u$1 = 1; u$1 < o$1; u$1++) c$2 = c$2.add(i$2), s.push(c$2);
 			i$2 = c$2.double();
@@ -2393,8 +2319,8 @@ var kf = class {
 		let o$1 = this.ZERO, s = this.BASE;
 		const i$2 = Cn$1(e, this.bits);
 		for (let c$2 = 0; c$2 < i$2.windows; c$2++) {
-			const { nextN: f$4, offset: u$1, isZero: a$1, isNeg: l$1, isNegF: d$3, offsetF: h$2 } = Ko$1(r$1, c$2, i$2);
-			r$1 = f$4, a$1 ? s = s.add(qe$2(d$3, n$1[h$2])) : o$1 = o$1.add(qe$2(l$1, n$1[u$1]));
+			const { nextN: f$5, offset: u$1, isZero: a$1, isNeg: l$1, isNegF: d$3, offsetF: h$2 } = Ko$1(r$1, c$2, i$2);
+			r$1 = f$5, a$1 ? s = s.add(qe$2(d$3, n$1[h$2])) : o$1 = o$1.add(qe$2(l$1, n$1[u$1]));
 		}
 		return Fo$1(r$1), {
 			p: o$1,
@@ -2404,9 +2330,9 @@ var kf = class {
 	wNAFUnsafe(e, n$1, r$1, o$1 = this.ZERO) {
 		const s = Cn$1(e, this.bits);
 		for (let i$2 = 0; i$2 < s.windows && r$1 !== te$1; i$2++) {
-			const { nextN: c$2, offset: f$4, isZero: u$1, isNeg: a$1 } = Ko$1(r$1, i$2, s);
+			const { nextN: c$2, offset: f$5, isZero: u$1, isNeg: a$1 } = Ko$1(r$1, i$2, s);
 			if (r$1 = c$2, !u$1) {
-				const l$1 = n$1[f$4];
+				const l$1 = n$1[f$5];
 				o$1 = o$1.add(a$1 ? l$1.negate() : l$1);
 			}
 		}
@@ -2444,19 +2370,19 @@ function Hf(t, e, n$1, r$1) {
 	const o$1 = n$1.length, s = r$1.length;
 	if (o$1 !== s) throw new Error("arrays of points and scalars must have equal length");
 	const i$2 = t.ZERO, c$2 = Oo$1(BigInt(o$1));
-	let f$4 = 1;
-	c$2 > 12 ? f$4 = c$2 - 3 : c$2 > 4 ? f$4 = c$2 - 2 : c$2 > 0 && (f$4 = 2);
-	const u$1 = me$2(f$4), a$1 = new Array(Number(u$1) + 1).fill(i$2), l$1 = Math.floor((e.BITS - 1) / f$4) * f$4;
+	let f$5 = 1;
+	c$2 > 12 ? f$5 = c$2 - 3 : c$2 > 4 ? f$5 = c$2 - 2 : c$2 > 0 && (f$5 = 2);
+	const u$1 = me$2(f$5), a$1 = new Array(Number(u$1) + 1).fill(i$2), l$1 = Math.floor((e.BITS - 1) / f$5) * f$5;
 	let d$3 = i$2;
-	for (let h$2 = l$1; h$2 >= 0; h$2 -= f$4) {
+	for (let h$2 = l$1; h$2 >= 0; h$2 -= f$5) {
 		a$1.fill(i$2);
 		for (let m$2 = 0; m$2 < s; m$2++) {
-			const w$1 = r$1[m$2], U$2 = Number(w$1 >> BigInt(h$2) & u$1);
-			a$1[U$2] = a$1[U$2].add(n$1[m$2]);
+			const w$2 = r$1[m$2], U$3 = Number(w$2 >> BigInt(h$2) & u$1);
+			a$1[U$3] = a$1[U$3].add(n$1[m$2]);
 		}
 		let y$2 = i$2;
-		for (let m$2 = a$1.length - 1, w$1 = i$2; m$2 > 0; m$2--) w$1 = w$1.add(a$1[m$2]), y$2 = y$2.add(w$1);
-		if (d$3 = d$3.add(y$2), h$2 !== 0) for (let m$2 = 0; m$2 < f$4; m$2++) d$3 = d$3.double();
+		for (let m$2 = a$1.length - 1, w$2 = i$2; m$2 > 0; m$2--) w$2 = w$2.add(a$1[m$2]), y$2 = y$2.add(w$2);
+		if (d$3 = d$3.add(y$2), h$2 !== 0) for (let m$2 = 0; m$2 < f$5; m$2++) d$3 = d$3.double();
 	}
 	return d$3;
 }
@@ -2468,13 +2394,13 @@ function Zo$1(t, e, n$1) {
 }
 function Df(t, e, n$1 = {}, r$1) {
 	if (r$1 === void 0 && (r$1 = t === "edwards"), !e || typeof e != "object") throw new Error(`expected valid ${t} CURVE object`);
-	for (const f$4 of [
+	for (const f$5 of [
 		"p",
 		"n",
 		"h"
 	]) {
-		const u$1 = e[f$4];
-		if (!(typeof u$1 == "bigint" && u$1 > te$1)) throw new Error(`CURVE.${f$4} must be positive bigint`);
+		const u$1 = e[f$5];
+		if (!(typeof u$1 == "bigint" && u$1 > te$1)) throw new Error(`CURVE.${f$5} must be positive bigint`);
 	}
 	const o$1 = Zo$1(e.p, n$1.Fp, r$1), s = Zo$1(e.n, n$1.Fn, r$1), c$2 = [
 		"Gx",
@@ -2482,7 +2408,7 @@ function Df(t, e, n$1 = {}, r$1) {
 		"a",
 		t === "weierstrass" ? "b" : "d"
 	];
-	for (const f$4 of c$2) if (!o$1.isValid(e[f$4])) throw new Error(`CURVE.${f$4} must be valid field element of CURVE.Fp`);
+	for (const f$5 of c$2) if (!o$1.isValid(e[f$5])) throw new Error(`CURVE.${f$5} must be valid field element of CURVE.Fp`);
 	return e = Object.freeze(Object.assign({}, e)), {
 		CURVE: e,
 		Fp: o$1,
@@ -2500,69 +2426,69 @@ function Vf(t) {
 function Mf(t) {
 	const { P: n$1, type: r$1, adjustScalarBytes: o$1, powPminus2: s, randomBytes: i$2 } = Vf(t), c$2 = r$1 === "x25519";
 	if (!c$2 && r$1 !== "x448") throw new Error("invalid type");
-	const f$4 = i$2 || Mt$2, u$1 = c$2 ? 255 : 448, a$1 = c$2 ? 32 : 56, l$1 = BigInt(c$2 ? 9 : 5), d$3 = BigInt(c$2 ? 121665 : 39081), h$2 = c$2 ? Fe$2 ** BigInt(254) : Fe$2 ** BigInt(447), m$2 = h$2 + (c$2 ? BigInt(8) * Fe$2 ** BigInt(251) - ee$3 : BigInt(4) * Fe$2 ** BigInt(445) - ee$3) + ee$3, w$1 = (p$2) => ct$2(p$2, n$1), U$2 = F$1(l$1);
-	function F$1(p$2) {
-		return Un$1(w$1(p$2), a$1);
+	const f$5 = i$2 || Mt$2, u$1 = c$2 ? 255 : 448, a$1 = c$2 ? 32 : 56, l$1 = BigInt(c$2 ? 9 : 5), d$3 = BigInt(c$2 ? 121665 : 39081), h$2 = c$2 ? Fe$2 ** BigInt(254) : Fe$2 ** BigInt(447), m$2 = h$2 + (c$2 ? BigInt(8) * Fe$2 ** BigInt(251) - ee$3 : BigInt(4) * Fe$2 ** BigInt(445) - ee$3) + ee$3, w$2 = (p$3) => ct$2(p$3, n$1), U$3 = F$2(l$1);
+	function F$2(p$3) {
+		return Un$1(w$2(p$3), a$1);
 	}
-	function R$2(p$2) {
-		const b$3 = tt$2("u coordinate", p$2, a$1);
-		return c$2 && (b$3[31] &= 127), w$1(Me$3(b$3));
+	function R$3(p$3) {
+		const b$4 = tt$3("u coordinate", p$3, a$1);
+		return c$2 && (b$4[31] &= 127), w$2(Me$3(b$4));
 	}
-	function Z(p$2) {
-		return Me$3(o$1(tt$2("scalar", p$2, a$1)));
+	function Z$1(p$3) {
+		return Me$3(o$1(tt$3("scalar", p$3, a$1)));
 	}
-	function H$1(p$2, b$3) {
-		const g$1 = k$1(R$2(b$3), Z(p$2));
+	function H$2(p$3, b$4) {
+		const g$1 = k$1(R$3(b$4), Z$1(p$3));
 		if (g$1 === we$2) throw new Error("invalid private or public key received");
-		return F$1(g$1);
+		return F$2(g$1);
 	}
-	function j$3(p$2) {
-		return H$1(p$2, U$2);
+	function j$4(p$3) {
+		return H$2(p$3, U$3);
 	}
-	function L$1(p$2, b$3, g$1) {
-		const x$2 = w$1(p$2 * (b$3 - g$1));
-		return b$3 = w$1(b$3 - x$2), g$1 = w$1(g$1 + x$2), {
-			x_2: b$3,
+	function L$2(p$3, b$4, g$1) {
+		const x$2 = w$2(p$3 * (b$4 - g$1));
+		return b$4 = w$2(b$4 - x$2), g$1 = w$2(g$1 + x$2), {
+			x_2: b$4,
 			x_3: g$1
 		};
 	}
-	function k$1(p$2, b$3) {
-		Rn$1("u", p$2, we$2, n$1), Rn$1("scalar", b$3, h$2, m$2);
-		const g$1 = b$3, x$2 = p$2;
-		let E$2 = ee$3, I$1 = we$2, v$3 = p$2, B$1 = ee$3, A$2 = we$2;
-		for (let D = BigInt(u$1 - 1); D >= we$2; D--) {
-			const P$2 = g$1 >> D & ee$3;
-			A$2 ^= P$2, {x_2: E$2, x_3: v$3} = L$1(A$2, E$2, v$3), {x_2: I$1, x_3: B$1} = L$1(A$2, I$1, B$1), A$2 = P$2;
-			const $$2 = E$2 + I$1, V$2 = w$1($$2 * $$2), q$1 = E$2 - I$1, G$2 = w$1(q$1 * q$1), M$3 = V$2 - G$2, Y$1 = v$3 + B$1, ce$2 = w$1((v$3 - B$1) * $$2), fe$2 = w$1(Y$1 * q$1), Qn$1 = ce$2 + fe$2, tr$1 = ce$2 - fe$2;
-			v$3 = w$1(Qn$1 * Qn$1), B$1 = w$1(x$2 * w$1(tr$1 * tr$1)), E$2 = w$1(V$2 * G$2), I$1 = w$1(M$3 * (V$2 + w$1(d$3 * M$3)));
+	function k$1(p$3, b$4) {
+		Rn$1("u", p$3, we$2, n$1), Rn$1("scalar", b$4, h$2, m$2);
+		const g$1 = b$4, x$2 = p$3;
+		let E$3 = ee$3, I$2 = we$2, v$4 = p$3, B$2 = ee$3, A$3 = we$2;
+		for (let D$1 = BigInt(u$1 - 1); D$1 >= we$2; D$1--) {
+			const P$3 = g$1 >> D$1 & ee$3;
+			A$3 ^= P$3, {x_2: E$3, x_3: v$4} = L$2(A$3, E$3, v$4), {x_2: I$2, x_3: B$2} = L$2(A$3, I$2, B$2), A$3 = P$3;
+			const $$2 = E$3 + I$2, V$3 = w$2($$2 * $$2), q$2 = E$3 - I$2, G$3 = w$2(q$2 * q$2), M$4 = V$3 - G$3, Y$2 = v$4 + B$2, ce$2 = w$2((v$4 - B$2) * $$2), fe$2 = w$2(Y$2 * q$2), Qn$1 = ce$2 + fe$2, tr$1 = ce$2 - fe$2;
+			v$4 = w$2(Qn$1 * Qn$1), B$2 = w$2(x$2 * w$2(tr$1 * tr$1)), E$3 = w$2(V$3 * G$3), I$2 = w$2(M$4 * (V$3 + w$2(d$3 * M$4)));
 		}
-		({x_2: E$2, x_3: v$3} = L$1(A$2, E$2, v$3)), {x_2: I$1, x_3: B$1} = L$1(A$2, I$1, B$1);
-		const N$3 = s(I$1);
-		return w$1(E$2 * N$3);
+		({x_2: E$3, x_3: v$4} = L$2(A$3, E$3, v$4)), {x_2: I$2, x_3: B$2} = L$2(A$3, I$2, B$2);
+		const N$3 = s(I$2);
+		return w$2(E$3 * N$3);
 	}
 	const O$2 = {
 		secretKey: a$1,
 		publicKey: a$1,
 		seed: a$1
-	}, T$2 = (p$2 = f$4(a$1)) => (ht$1(p$2, O$2.seed), p$2);
-	function C$3(p$2) {
-		const b$3 = T$2(p$2);
+	}, T$3 = (p$3 = f$5(a$1)) => (ht$1(p$3, O$2.seed), p$3);
+	function C$4(p$3) {
+		const b$4 = T$3(p$3);
 		return {
-			secretKey: b$3,
-			publicKey: j$3(b$3)
+			secretKey: b$4,
+			publicKey: j$4(b$4)
 		};
 	}
 	return {
-		keygen: C$3,
-		getSharedSecret: (p$2, b$3) => H$1(p$2, b$3),
-		getPublicKey: (p$2) => j$3(p$2),
-		scalarMult: H$1,
-		scalarMultBase: j$3,
+		keygen: C$4,
+		getSharedSecret: (p$3, b$4) => H$2(p$3, b$4),
+		getPublicKey: (p$3) => j$4(p$3),
+		scalarMult: H$2,
+		scalarMultBase: j$4,
 		utils: {
-			randomSecretKey: T$2,
-			randomPrivateKey: T$2
+			randomSecretKey: T$3,
+			randomPrivateKey: T$3
 		},
-		GuBytes: U$2.slice(),
+		GuBytes: U$3.slice(),
 		lengths: O$2
 	};
 }
@@ -2598,8 +2524,8 @@ var Wf = Ht$2(Gf.p, { isLE: !0 }), kn$1 = (() => {
 	});
 })(), Yo$1 = (t, e) => (t + (t >= 0 ? e : -e) / Wo$1) / e;
 function Xf(t, e, n$1) {
-	const [[r$1, o$1], [s, i$2]] = e, c$2 = Yo$1(i$2 * t, n$1), f$4 = Yo$1(-o$1 * t, n$1);
-	let u$1 = t - c$2 * r$1 - f$4 * s, a$1 = -c$2 * o$1 - f$4 * i$2;
+	const [[r$1, o$1], [s, i$2]] = e, c$2 = Yo$1(i$2 * t, n$1), f$5 = Yo$1(-o$1 * t, n$1);
+	let u$1 = t - c$2 * r$1 - f$5 * s, a$1 = -c$2 * o$1 - f$5 * i$2;
 	const l$1 = u$1 < Et$3, d$3 = a$1 < Et$3;
 	l$1 && (u$1 = -u$1), d$3 && (a$1 = -a$1);
 	const h$2 = me$2(Math.ceil(Oo$1(n$1) / 2)) + ne$1;
@@ -2650,14 +2576,14 @@ var xt$2 = {
 			let i$2 = 0;
 			if (!s) i$2 = o$1;
 			else {
-				const f$4 = o$1 & 127;
-				if (!f$4) throw new n$1("tlv.decode(long): indefinite length not supported");
-				if (f$4 > 4) throw new n$1("tlv.decode(long): byte length is too big");
-				const u$1 = e.subarray(r$1, r$1 + f$4);
-				if (u$1.length !== f$4) throw new n$1("tlv.decode: length bytes not complete");
+				const f$5 = o$1 & 127;
+				if (!f$5) throw new n$1("tlv.decode(long): indefinite length not supported");
+				if (f$5 > 4) throw new n$1("tlv.decode(long): byte length is too big");
+				const u$1 = e.subarray(r$1, r$1 + f$5);
+				if (u$1.length !== f$5) throw new n$1("tlv.decode: length bytes not complete");
 				if (u$1[0] === 0) throw new n$1("tlv.decode(long): zero leftmost byte");
 				for (const a$1 of u$1) i$2 = i$2 << 8 | a$1;
-				if (r$1 += f$4, i$2 < 128) throw new n$1("tlv.decode(long): not minimal encoding");
+				if (r$1 += f$5, i$2 < 128) throw new n$1("tlv.decode(long): not minimal encoding");
 			}
 			const c$2 = e.subarray(r$1, r$1 + i$2);
 			if (c$2.length !== i$2) throw new n$1("tlv.decode: wrong value length");
@@ -2683,9 +2609,9 @@ var xt$2 = {
 		}
 	},
 	toSig(t) {
-		const { Err: e, _int: n$1, _tlv: r$1 } = xt$2, o$1 = tt$2("signature", t), { v: s, l: i$2 } = r$1.decode(48, o$1);
+		const { Err: e, _int: n$1, _tlv: r$1 } = xt$2, o$1 = tt$3("signature", t), { v: s, l: i$2 } = r$1.decode(48, o$1);
 		if (i$2.length) throw new e("invalid signature: left bytes after parsing");
-		const { v: c$2, l: f$4 } = r$1.decode(2, s), { v: u$1, l: a$1 } = r$1.decode(2, f$4);
+		const { v: c$2, l: f$5 } = r$1.decode(2, s), { v: u$1, l: a$1 } = r$1.decode(2, f$5);
 		if (a$1.length) throw new e("invalid signature: left bytes after parsing");
 		return {
 			r: n$1.decode(c$2),
@@ -2702,7 +2628,7 @@ function re$2(t, e) {
 	let r$1;
 	if (typeof e == "bigint") r$1 = e;
 	else {
-		let o$1 = tt$2("private key", e);
+		let o$1 = tt$3("private key", e);
 		try {
 			r$1 = t.fromBytes(o$1);
 		} catch {
@@ -2725,122 +2651,122 @@ function ta$1(t, e = {}) {
 		endo: "object",
 		wrapPrivateKey: "boolean"
 	});
-	const { endo: f$4 } = e;
-	if (f$4 && (!r$1.is0(s.a) || typeof f$4.beta != "bigint" || !Array.isArray(f$4.basises))) throw new Error("invalid endo: expected \"beta\": bigint and \"basises\": array");
+	const { endo: f$5 } = e;
+	if (f$5 && (!r$1.is0(s.a) || typeof f$5.beta != "bigint" || !Array.isArray(f$5.basises))) throw new Error("invalid endo: expected \"beta\": bigint and \"basises\": array");
 	const u$1 = Jo$1(r$1, o$1);
 	function a$1() {
 		if (!r$1.isOdd) throw new Error("compression is not supported: Field does not have .isOdd()");
 	}
-	function l$1(_$1, p$2, b$3) {
-		const { x: g$1, y: x$2 } = p$2.toAffine(), E$2 = r$1.toBytes(g$1);
-		if (He$2(b$3, "isCompressed"), b$3) {
+	function l$1(_$2, p$3, b$4) {
+		const { x: g$1, y: x$2 } = p$3.toAffine(), E$3 = r$1.toBytes(g$1);
+		if (He$2(b$4, "isCompressed"), b$4) {
 			a$1();
-			return _t$2(Xo$1(!r$1.isOdd(x$2)), E$2);
-		} else return _t$2(Uint8Array.of(4), E$2, r$1.toBytes(x$2));
+			return _t$2(Xo$1(!r$1.isOdd(x$2)), E$3);
+		} else return _t$2(Uint8Array.of(4), E$3, r$1.toBytes(x$2));
 	}
-	function d$3(_$1) {
-		Kt$2(_$1, void 0, "Point");
-		const { publicKey: p$2, publicKeyUncompressed: b$3 } = u$1, g$1 = _$1.length, x$2 = _$1[0], E$2 = _$1.subarray(1);
-		if (g$1 === p$2 && (x$2 === 2 || x$2 === 3)) {
-			const I$1 = r$1.fromBytes(E$2);
-			if (!r$1.isValid(I$1)) throw new Error("bad point: is not on curve, wrong x");
-			const v$3 = m$2(I$1);
-			let B$1;
+	function d$3(_$2) {
+		Kt$2(_$2, void 0, "Point");
+		const { publicKey: p$3, publicKeyUncompressed: b$4 } = u$1, g$1 = _$2.length, x$2 = _$2[0], E$3 = _$2.subarray(1);
+		if (g$1 === p$3 && (x$2 === 2 || x$2 === 3)) {
+			const I$2 = r$1.fromBytes(E$3);
+			if (!r$1.isValid(I$2)) throw new Error("bad point: is not on curve, wrong x");
+			const v$4 = m$2(I$2);
+			let B$2;
 			try {
-				B$1 = r$1.sqrt(v$3);
-			} catch (D) {
-				const P$2 = D instanceof Error ? ": " + D.message : "";
-				throw new Error("bad point: is not on curve, sqrt error" + P$2);
+				B$2 = r$1.sqrt(v$4);
+			} catch (D$1) {
+				const P$3 = D$1 instanceof Error ? ": " + D$1.message : "";
+				throw new Error("bad point: is not on curve, sqrt error" + P$3);
 			}
 			a$1();
-			const A$2 = r$1.isOdd(B$1);
-			return (x$2 & 1) === 1 !== A$2 && (B$1 = r$1.neg(B$1)), {
-				x: I$1,
-				y: B$1
+			const A$3 = r$1.isOdd(B$2);
+			return (x$2 & 1) === 1 !== A$3 && (B$2 = r$1.neg(B$2)), {
+				x: I$2,
+				y: B$2
 			};
-		} else if (g$1 === b$3 && x$2 === 4) {
-			const I$1 = r$1.BYTES, v$3 = r$1.fromBytes(E$2.subarray(0, I$1)), B$1 = r$1.fromBytes(E$2.subarray(I$1, I$1 * 2));
-			if (!w$1(v$3, B$1)) throw new Error("bad point: is not on curve");
+		} else if (g$1 === b$4 && x$2 === 4) {
+			const I$2 = r$1.BYTES, v$4 = r$1.fromBytes(E$3.subarray(0, I$2)), B$2 = r$1.fromBytes(E$3.subarray(I$2, I$2 * 2));
+			if (!w$2(v$4, B$2)) throw new Error("bad point: is not on curve");
 			return {
-				x: v$3,
-				y: B$1
+				x: v$4,
+				y: B$2
 			};
-		} else throw new Error(`bad point: got length ${g$1}, expected compressed=${p$2} or uncompressed=${b$3}`);
+		} else throw new Error(`bad point: got length ${g$1}, expected compressed=${p$3} or uncompressed=${b$4}`);
 	}
 	const h$2 = e.toBytes || l$1, y$2 = e.fromBytes || d$3;
-	function m$2(_$1) {
-		const p$2 = r$1.sqr(_$1), b$3 = r$1.mul(p$2, _$1);
-		return r$1.add(r$1.add(b$3, r$1.mul(_$1, s.a)), s.b);
+	function m$2(_$2) {
+		const p$3 = r$1.sqr(_$2), b$4 = r$1.mul(p$3, _$2);
+		return r$1.add(r$1.add(b$4, r$1.mul(_$2, s.a)), s.b);
 	}
-	function w$1(_$1, p$2) {
-		const b$3 = r$1.sqr(p$2), g$1 = m$2(_$1);
-		return r$1.eql(b$3, g$1);
+	function w$2(_$2, p$3) {
+		const b$4 = r$1.sqr(p$3), g$1 = m$2(_$2);
+		return r$1.eql(b$4, g$1);
 	}
-	if (!w$1(s.Gx, s.Gy)) throw new Error("bad curve params: generator point");
-	const U$2 = r$1.mul(r$1.pow(s.a, Ze$2), Qf), F$1 = r$1.mul(r$1.sqr(s.b), BigInt(27));
-	if (r$1.is0(r$1.add(U$2, F$1))) throw new Error("bad curve params: a or b");
-	function R$2(_$1, p$2, b$3 = !1) {
-		if (!r$1.isValid(p$2) || b$3 && r$1.is0(p$2)) throw new Error(`bad point coordinate ${_$1}`);
-		return p$2;
+	if (!w$2(s.Gx, s.Gy)) throw new Error("bad curve params: generator point");
+	const U$3 = r$1.mul(r$1.pow(s.a, Ze$2), Qf), F$2 = r$1.mul(r$1.sqr(s.b), BigInt(27));
+	if (r$1.is0(r$1.add(U$3, F$2))) throw new Error("bad curve params: a or b");
+	function R$3(_$2, p$3, b$4 = !1) {
+		if (!r$1.isValid(p$3) || b$4 && r$1.is0(p$3)) throw new Error(`bad point coordinate ${_$2}`);
+		return p$3;
 	}
-	function Z(_$1) {
-		if (!(_$1 instanceof O$2)) throw new Error("ProjectivePoint expected");
+	function Z$1(_$2) {
+		if (!(_$2 instanceof O$2)) throw new Error("ProjectivePoint expected");
 	}
-	function H$1(_$1) {
-		if (!f$4 || !f$4.basises) throw new Error("no endo");
-		return Xf(_$1, f$4.basises, o$1.ORDER);
+	function H$2(_$2) {
+		if (!f$5 || !f$5.basises) throw new Error("no endo");
+		return Xf(_$2, f$5.basises, o$1.ORDER);
 	}
-	const j$3 = No$1((_$1, p$2) => {
-		const { X: b$3, Y: g$1, Z: x$2 } = _$1;
+	const j$4 = No$1((_$2, p$3) => {
+		const { X: b$4, Y: g$1, Z: x$2 } = _$2;
 		if (r$1.eql(x$2, r$1.ONE)) return {
-			x: b$3,
+			x: b$4,
 			y: g$1
 		};
-		const E$2 = _$1.is0();
-		p$2 ??= E$2 ? r$1.ONE : r$1.inv(x$2);
-		const I$1 = r$1.mul(b$3, p$2), v$3 = r$1.mul(g$1, p$2), B$1 = r$1.mul(x$2, p$2);
-		if (E$2) return {
+		const E$3 = _$2.is0();
+		p$3 ??= E$3 ? r$1.ONE : r$1.inv(x$2);
+		const I$2 = r$1.mul(b$4, p$3), v$4 = r$1.mul(g$1, p$3), B$2 = r$1.mul(x$2, p$3);
+		if (E$3) return {
 			x: r$1.ZERO,
 			y: r$1.ZERO
 		};
-		if (!r$1.eql(B$1, r$1.ONE)) throw new Error("invZ was invalid");
+		if (!r$1.eql(B$2, r$1.ONE)) throw new Error("invZ was invalid");
 		return {
-			x: I$1,
-			y: v$3
+			x: I$2,
+			y: v$4
 		};
-	}), L$1 = No$1((_$1) => {
-		if (_$1.is0()) {
-			if (e.allowInfinityPoint && !r$1.is0(_$1.Y)) return;
+	}), L$2 = No$1((_$2) => {
+		if (_$2.is0()) {
+			if (e.allowInfinityPoint && !r$1.is0(_$2.Y)) return;
 			throw new Error("bad point: ZERO");
 		}
-		const { x: p$2, y: b$3 } = _$1.toAffine();
-		if (!r$1.isValid(p$2) || !r$1.isValid(b$3)) throw new Error("bad point: x or y not field elements");
-		if (!w$1(p$2, b$3)) throw new Error("bad point: equation left != right");
-		if (!_$1.isTorsionFree()) throw new Error("bad point: not in prime-order subgroup");
+		const { x: p$3, y: b$4 } = _$2.toAffine();
+		if (!r$1.isValid(p$3) || !r$1.isValid(b$4)) throw new Error("bad point: x or y not field elements");
+		if (!w$2(p$3, b$4)) throw new Error("bad point: equation left != right");
+		if (!_$2.isTorsionFree()) throw new Error("bad point: not in prime-order subgroup");
 		return !0;
 	});
-	function k$1(_$1, p$2, b$3, g$1, x$2) {
-		return b$3 = new O$2(r$1.mul(b$3.X, _$1), b$3.Y, b$3.Z), p$2 = qe$2(g$1, p$2), b$3 = qe$2(x$2, b$3), p$2.add(b$3);
+	function k$1(_$2, p$3, b$4, g$1, x$2) {
+		return b$4 = new O$2(r$1.mul(b$4.X, _$2), b$4.Y, b$4.Z), p$3 = qe$2(g$1, p$3), b$4 = qe$2(x$2, b$4), p$3.add(b$4);
 	}
 	class O$2 {
-		constructor(p$2, b$3, g$1) {
-			this.X = R$2("x", p$2), this.Y = R$2("y", b$3, !0), this.Z = R$2("z", g$1), Object.freeze(this);
+		constructor(p$3, b$4, g$1) {
+			this.X = R$3("x", p$3), this.Y = R$3("y", b$4, !0), this.Z = R$3("z", g$1), Object.freeze(this);
 		}
 		static CURVE() {
 			return s;
 		}
-		static fromAffine(p$2) {
-			const { x: b$3, y: g$1 } = p$2 || {};
-			if (!p$2 || !r$1.isValid(b$3) || !r$1.isValid(g$1)) throw new Error("invalid affine point");
-			if (p$2 instanceof O$2) throw new Error("projective point not allowed");
-			return r$1.is0(b$3) && r$1.is0(g$1) ? O$2.ZERO : new O$2(b$3, g$1, r$1.ONE);
+		static fromAffine(p$3) {
+			const { x: b$4, y: g$1 } = p$3 || {};
+			if (!p$3 || !r$1.isValid(b$4) || !r$1.isValid(g$1)) throw new Error("invalid affine point");
+			if (p$3 instanceof O$2) throw new Error("projective point not allowed");
+			return r$1.is0(b$4) && r$1.is0(g$1) ? O$2.ZERO : new O$2(b$4, g$1, r$1.ONE);
 		}
-		static fromBytes(p$2) {
-			const b$3 = O$2.fromAffine(y$2(Kt$2(p$2, void 0, "point")));
-			return b$3.assertValidity(), b$3;
+		static fromBytes(p$3) {
+			const b$4 = O$2.fromAffine(y$2(Kt$2(p$3, void 0, "point")));
+			return b$4.assertValidity(), b$4;
 		}
-		static fromHex(p$2) {
-			return O$2.fromBytes(tt$2("pointHex", p$2));
+		static fromHex(p$3) {
+			return O$2.fromBytes(tt$3("pointHex", p$3));
 		}
 		get x() {
 			return this.toAffine().x;
@@ -2848,94 +2774,94 @@ function ta$1(t, e = {}) {
 		get y() {
 			return this.toAffine().y;
 		}
-		precompute(p$2 = 8, b$3 = !0) {
-			return C$3.createCache(this, p$2), b$3 || this.multiply(Ze$2), this;
+		precompute(p$3 = 8, b$4 = !0) {
+			return C$4.createCache(this, p$3), b$4 || this.multiply(Ze$2), this;
 		}
 		assertValidity() {
-			L$1(this);
+			L$2(this);
 		}
 		hasEvenY() {
-			const { y: p$2 } = this.toAffine();
+			const { y: p$3 } = this.toAffine();
 			if (!r$1.isOdd) throw new Error("Field doesn't support isOdd");
-			return !r$1.isOdd(p$2);
+			return !r$1.isOdd(p$3);
 		}
-		equals(p$2) {
-			Z(p$2);
-			const { X: b$3, Y: g$1, Z: x$2 } = this, { X: E$2, Y: I$1, Z: v$3 } = p$2, B$1 = r$1.eql(r$1.mul(b$3, v$3), r$1.mul(E$2, x$2)), A$2 = r$1.eql(r$1.mul(g$1, v$3), r$1.mul(I$1, x$2));
-			return B$1 && A$2;
+		equals(p$3) {
+			Z$1(p$3);
+			const { X: b$4, Y: g$1, Z: x$2 } = this, { X: E$3, Y: I$2, Z: v$4 } = p$3, B$2 = r$1.eql(r$1.mul(b$4, v$4), r$1.mul(E$3, x$2)), A$3 = r$1.eql(r$1.mul(g$1, v$4), r$1.mul(I$2, x$2));
+			return B$2 && A$3;
 		}
 		negate() {
 			return new O$2(this.X, r$1.neg(this.Y), this.Z);
 		}
 		double() {
-			const { a: p$2, b: b$3 } = s, g$1 = r$1.mul(b$3, Ze$2), { X: x$2, Y: E$2, Z: I$1 } = this;
-			let v$3 = r$1.ZERO, B$1 = r$1.ZERO, A$2 = r$1.ZERO, N$3 = r$1.mul(x$2, x$2), D = r$1.mul(E$2, E$2), P$2 = r$1.mul(I$1, I$1), $$2 = r$1.mul(x$2, E$2);
-			return $$2 = r$1.add($$2, $$2), A$2 = r$1.mul(x$2, I$1), A$2 = r$1.add(A$2, A$2), v$3 = r$1.mul(p$2, A$2), B$1 = r$1.mul(g$1, P$2), B$1 = r$1.add(v$3, B$1), v$3 = r$1.sub(D, B$1), B$1 = r$1.add(D, B$1), B$1 = r$1.mul(v$3, B$1), v$3 = r$1.mul($$2, v$3), A$2 = r$1.mul(g$1, A$2), P$2 = r$1.mul(p$2, P$2), $$2 = r$1.sub(N$3, P$2), $$2 = r$1.mul(p$2, $$2), $$2 = r$1.add($$2, A$2), A$2 = r$1.add(N$3, N$3), N$3 = r$1.add(A$2, N$3), N$3 = r$1.add(N$3, P$2), N$3 = r$1.mul(N$3, $$2), B$1 = r$1.add(B$1, N$3), P$2 = r$1.mul(E$2, I$1), P$2 = r$1.add(P$2, P$2), N$3 = r$1.mul(P$2, $$2), v$3 = r$1.sub(v$3, N$3), A$2 = r$1.mul(P$2, D), A$2 = r$1.add(A$2, A$2), A$2 = r$1.add(A$2, A$2), new O$2(v$3, B$1, A$2);
+			const { a: p$3, b: b$4 } = s, g$1 = r$1.mul(b$4, Ze$2), { X: x$2, Y: E$3, Z: I$2 } = this;
+			let v$4 = r$1.ZERO, B$2 = r$1.ZERO, A$3 = r$1.ZERO, N$3 = r$1.mul(x$2, x$2), D$1 = r$1.mul(E$3, E$3), P$3 = r$1.mul(I$2, I$2), $$2 = r$1.mul(x$2, E$3);
+			return $$2 = r$1.add($$2, $$2), A$3 = r$1.mul(x$2, I$2), A$3 = r$1.add(A$3, A$3), v$4 = r$1.mul(p$3, A$3), B$2 = r$1.mul(g$1, P$3), B$2 = r$1.add(v$4, B$2), v$4 = r$1.sub(D$1, B$2), B$2 = r$1.add(D$1, B$2), B$2 = r$1.mul(v$4, B$2), v$4 = r$1.mul($$2, v$4), A$3 = r$1.mul(g$1, A$3), P$3 = r$1.mul(p$3, P$3), $$2 = r$1.sub(N$3, P$3), $$2 = r$1.mul(p$3, $$2), $$2 = r$1.add($$2, A$3), A$3 = r$1.add(N$3, N$3), N$3 = r$1.add(A$3, N$3), N$3 = r$1.add(N$3, P$3), N$3 = r$1.mul(N$3, $$2), B$2 = r$1.add(B$2, N$3), P$3 = r$1.mul(E$3, I$2), P$3 = r$1.add(P$3, P$3), N$3 = r$1.mul(P$3, $$2), v$4 = r$1.sub(v$4, N$3), A$3 = r$1.mul(P$3, D$1), A$3 = r$1.add(A$3, A$3), A$3 = r$1.add(A$3, A$3), new O$2(v$4, B$2, A$3);
 		}
-		add(p$2) {
-			Z(p$2);
-			const { X: b$3, Y: g$1, Z: x$2 } = this, { X: E$2, Y: I$1, Z: v$3 } = p$2;
-			let B$1 = r$1.ZERO, A$2 = r$1.ZERO, N$3 = r$1.ZERO;
-			const D = s.a, P$2 = r$1.mul(s.b, Ze$2);
-			let $$2 = r$1.mul(b$3, E$2), V$2 = r$1.mul(g$1, I$1), q$1 = r$1.mul(x$2, v$3), G$2 = r$1.add(b$3, g$1), M$3 = r$1.add(E$2, I$1);
-			G$2 = r$1.mul(G$2, M$3), M$3 = r$1.add($$2, V$2), G$2 = r$1.sub(G$2, M$3), M$3 = r$1.add(b$3, x$2);
-			let Y$1 = r$1.add(E$2, v$3);
-			return M$3 = r$1.mul(M$3, Y$1), Y$1 = r$1.add($$2, q$1), M$3 = r$1.sub(M$3, Y$1), Y$1 = r$1.add(g$1, x$2), B$1 = r$1.add(I$1, v$3), Y$1 = r$1.mul(Y$1, B$1), B$1 = r$1.add(V$2, q$1), Y$1 = r$1.sub(Y$1, B$1), N$3 = r$1.mul(D, M$3), B$1 = r$1.mul(P$2, q$1), N$3 = r$1.add(B$1, N$3), B$1 = r$1.sub(V$2, N$3), N$3 = r$1.add(V$2, N$3), A$2 = r$1.mul(B$1, N$3), V$2 = r$1.add($$2, $$2), V$2 = r$1.add(V$2, $$2), q$1 = r$1.mul(D, q$1), M$3 = r$1.mul(P$2, M$3), V$2 = r$1.add(V$2, q$1), q$1 = r$1.sub($$2, q$1), q$1 = r$1.mul(D, q$1), M$3 = r$1.add(M$3, q$1), $$2 = r$1.mul(V$2, M$3), A$2 = r$1.add(A$2, $$2), $$2 = r$1.mul(Y$1, M$3), B$1 = r$1.mul(G$2, B$1), B$1 = r$1.sub(B$1, $$2), $$2 = r$1.mul(G$2, V$2), N$3 = r$1.mul(Y$1, N$3), N$3 = r$1.add(N$3, $$2), new O$2(B$1, A$2, N$3);
+		add(p$3) {
+			Z$1(p$3);
+			const { X: b$4, Y: g$1, Z: x$2 } = this, { X: E$3, Y: I$2, Z: v$4 } = p$3;
+			let B$2 = r$1.ZERO, A$3 = r$1.ZERO, N$3 = r$1.ZERO;
+			const D$1 = s.a, P$3 = r$1.mul(s.b, Ze$2);
+			let $$2 = r$1.mul(b$4, E$3), V$3 = r$1.mul(g$1, I$2), q$2 = r$1.mul(x$2, v$4), G$3 = r$1.add(b$4, g$1), M$4 = r$1.add(E$3, I$2);
+			G$3 = r$1.mul(G$3, M$4), M$4 = r$1.add($$2, V$3), G$3 = r$1.sub(G$3, M$4), M$4 = r$1.add(b$4, x$2);
+			let Y$2 = r$1.add(E$3, v$4);
+			return M$4 = r$1.mul(M$4, Y$2), Y$2 = r$1.add($$2, q$2), M$4 = r$1.sub(M$4, Y$2), Y$2 = r$1.add(g$1, x$2), B$2 = r$1.add(I$2, v$4), Y$2 = r$1.mul(Y$2, B$2), B$2 = r$1.add(V$3, q$2), Y$2 = r$1.sub(Y$2, B$2), N$3 = r$1.mul(D$1, M$4), B$2 = r$1.mul(P$3, q$2), N$3 = r$1.add(B$2, N$3), B$2 = r$1.sub(V$3, N$3), N$3 = r$1.add(V$3, N$3), A$3 = r$1.mul(B$2, N$3), V$3 = r$1.add($$2, $$2), V$3 = r$1.add(V$3, $$2), q$2 = r$1.mul(D$1, q$2), M$4 = r$1.mul(P$3, M$4), V$3 = r$1.add(V$3, q$2), q$2 = r$1.sub($$2, q$2), q$2 = r$1.mul(D$1, q$2), M$4 = r$1.add(M$4, q$2), $$2 = r$1.mul(V$3, M$4), A$3 = r$1.add(A$3, $$2), $$2 = r$1.mul(Y$2, M$4), B$2 = r$1.mul(G$3, B$2), B$2 = r$1.sub(B$2, $$2), $$2 = r$1.mul(G$3, V$3), N$3 = r$1.mul(Y$2, N$3), N$3 = r$1.add(N$3, $$2), new O$2(B$2, A$3, N$3);
 		}
-		subtract(p$2) {
-			return this.add(p$2.negate());
+		subtract(p$3) {
+			return this.add(p$3.negate());
 		}
 		is0() {
 			return this.equals(O$2.ZERO);
 		}
-		multiply(p$2) {
-			const { endo: b$3 } = e;
-			if (!o$1.isValidNot0(p$2)) throw new Error("invalid scalar: out of range");
+		multiply(p$3) {
+			const { endo: b$4 } = e;
+			if (!o$1.isValidNot0(p$3)) throw new Error("invalid scalar: out of range");
 			let g$1, x$2;
-			const E$2 = (I$1) => C$3.cached(this, I$1, (v$3) => Tn$1(O$2, v$3));
-			if (b$3) {
-				const { k1neg: I$1, k1: v$3, k2neg: B$1, k2: A$2 } = H$1(p$2), { p: N$3, f: D } = E$2(v$3), { p: P$2, f: $$2 } = E$2(A$2);
-				x$2 = D.add($$2), g$1 = k$1(b$3.beta, N$3, P$2, I$1, B$1);
+			const E$3 = (I$2) => C$4.cached(this, I$2, (v$4) => Tn$1(O$2, v$4));
+			if (b$4) {
+				const { k1neg: I$2, k1: v$4, k2neg: B$2, k2: A$3 } = H$2(p$3), { p: N$3, f: D$1 } = E$3(v$4), { p: P$3, f: $$2 } = E$3(A$3);
+				x$2 = D$1.add($$2), g$1 = k$1(b$4.beta, N$3, P$3, I$2, B$2);
 			} else {
-				const { p: I$1, f: v$3 } = E$2(p$2);
-				g$1 = I$1, x$2 = v$3;
+				const { p: I$2, f: v$4 } = E$3(p$3);
+				g$1 = I$2, x$2 = v$4;
 			}
 			return Tn$1(O$2, [g$1, x$2])[0];
 		}
-		multiplyUnsafe(p$2) {
-			const { endo: b$3 } = e, g$1 = this;
-			if (!o$1.isValid(p$2)) throw new Error("invalid scalar: out of range");
-			if (p$2 === Et$3 || g$1.is0()) return O$2.ZERO;
-			if (p$2 === ne$1) return g$1;
-			if (C$3.hasCache(this)) return this.multiply(p$2);
-			if (b$3) {
-				const { k1neg: x$2, k1: E$2, k2neg: I$1, k2: v$3 } = H$1(p$2), { p1: B$1, p2: A$2 } = Pf(O$2, g$1, E$2, v$3);
-				return k$1(b$3.beta, B$1, A$2, x$2, I$1);
-			} else return C$3.unsafe(g$1, p$2);
+		multiplyUnsafe(p$3) {
+			const { endo: b$4 } = e, g$1 = this;
+			if (!o$1.isValid(p$3)) throw new Error("invalid scalar: out of range");
+			if (p$3 === Et$3 || g$1.is0()) return O$2.ZERO;
+			if (p$3 === ne$1) return g$1;
+			if (C$4.hasCache(this)) return this.multiply(p$3);
+			if (b$4) {
+				const { k1neg: x$2, k1: E$3, k2neg: I$2, k2: v$4 } = H$2(p$3), { p1: B$2, p2: A$3 } = Pf(O$2, g$1, E$3, v$4);
+				return k$1(b$4.beta, B$2, A$3, x$2, I$2);
+			} else return C$4.unsafe(g$1, p$3);
 		}
-		multiplyAndAddUnsafe(p$2, b$3, g$1) {
-			const x$2 = this.multiplyUnsafe(b$3).add(p$2.multiplyUnsafe(g$1));
+		multiplyAndAddUnsafe(p$3, b$4, g$1) {
+			const x$2 = this.multiplyUnsafe(b$4).add(p$3.multiplyUnsafe(g$1));
 			return x$2.is0() ? void 0 : x$2;
 		}
-		toAffine(p$2) {
-			return j$3(this, p$2);
+		toAffine(p$3) {
+			return j$4(this, p$3);
 		}
 		isTorsionFree() {
-			const { isTorsionFree: p$2 } = e;
-			return i$2 === ne$1 ? !0 : p$2 ? p$2(O$2, this) : C$3.unsafe(this, c$2).is0();
+			const { isTorsionFree: p$3 } = e;
+			return i$2 === ne$1 ? !0 : p$3 ? p$3(O$2, this) : C$4.unsafe(this, c$2).is0();
 		}
 		clearCofactor() {
-			const { clearCofactor: p$2 } = e;
-			return i$2 === ne$1 ? this : p$2 ? p$2(O$2, this) : this.multiplyUnsafe(i$2);
+			const { clearCofactor: p$3 } = e;
+			return i$2 === ne$1 ? this : p$3 ? p$3(O$2, this) : this.multiplyUnsafe(i$2);
 		}
 		isSmallOrder() {
 			return this.multiplyUnsafe(i$2).is0();
 		}
-		toBytes(p$2 = !0) {
-			return He$2(p$2, "isCompressed"), this.assertValidity(), h$2(O$2, this, p$2);
+		toBytes(p$3 = !0) {
+			return He$2(p$3, "isCompressed"), this.assertValidity(), h$2(O$2, this, p$3);
 		}
-		toHex(p$2 = !0) {
-			return Jt$2(this.toBytes(p$2));
+		toHex(p$3 = !0) {
+			return Jt$2(this.toBytes(p$3));
 		}
 		toString() {
 			return `<Point ${this.is0() ? "ZERO" : this.toHex()}>`;
@@ -2949,24 +2875,24 @@ function ta$1(t, e = {}) {
 		get pz() {
 			return this.Z;
 		}
-		toRawBytes(p$2 = !0) {
-			return this.toBytes(p$2);
+		toRawBytes(p$3 = !0) {
+			return this.toBytes(p$3);
 		}
-		_setWindowSize(p$2) {
-			this.precompute(p$2);
+		_setWindowSize(p$3) {
+			this.precompute(p$3);
 		}
-		static normalizeZ(p$2) {
-			return Tn$1(O$2, p$2);
+		static normalizeZ(p$3) {
+			return Tn$1(O$2, p$3);
 		}
-		static msm(p$2, b$3) {
-			return Hf(O$2, o$1, p$2, b$3);
+		static msm(p$3, b$4) {
+			return Hf(O$2, o$1, p$3, b$4);
 		}
-		static fromPrivateKey(p$2) {
-			return O$2.BASE.multiply(re$2(o$1, p$2));
+		static fromPrivateKey(p$3) {
+			return O$2.BASE.multiply(re$2(o$1, p$3));
 		}
 	}
 	O$2.BASE = new O$2(s.Gx, s.Gy, r$1.ONE), O$2.ZERO = new O$2(r$1.ZERO, r$1.ONE, r$1.ZERO), O$2.Fp = r$1, O$2.Fn = o$1;
-	const T$2 = o$1.BITS, C$3 = new kf(O$2, e.endo ? Math.ceil(T$2 / 2) : T$2);
+	const T$3 = o$1.BITS, C$4 = new kf(O$2, e.endo ? Math.ceil(T$3 / 2) : T$3);
 	return O$2.BASE.precompute(8), O$2;
 }
 function Xo$1(t) {
@@ -2991,10 +2917,10 @@ function ea$1(t, e = {}) {
 		}
 	}
 	function i$2(h$2, y$2) {
-		const { publicKey: m$2, publicKeyUncompressed: w$1 } = o$1;
+		const { publicKey: m$2, publicKeyUncompressed: w$2 } = o$1;
 		try {
-			const U$2 = h$2.length;
-			return y$2 === !0 && U$2 !== m$2 || y$2 === !1 && U$2 !== w$1 ? !1 : !!t.fromBytes(h$2);
+			const U$3 = h$2.length;
+			return y$2 === !0 && U$3 !== m$2 || y$2 === !1 && U$3 !== w$2 ? !1 : !!t.fromBytes(h$2);
 		} catch {
 			return !1;
 		}
@@ -3002,32 +2928,32 @@ function ea$1(t, e = {}) {
 	function c$2(h$2 = r$1(o$1.seed)) {
 		return Cf(Kt$2(h$2, o$1.seed, "seed"), n$1.ORDER);
 	}
-	function f$4(h$2, y$2 = !0) {
+	function f$5(h$2, y$2 = !0) {
 		return t.BASE.multiply(re$2(n$1, h$2)).toBytes(y$2);
 	}
 	function u$1(h$2) {
 		const y$2 = c$2(h$2);
 		return {
 			secretKey: y$2,
-			publicKey: f$4(y$2)
+			publicKey: f$5(y$2)
 		};
 	}
 	function a$1(h$2) {
 		if (typeof h$2 == "bigint") return !1;
 		if (h$2 instanceof t) return !0;
-		const { secretKey: y$2, publicKey: m$2, publicKeyUncompressed: w$1 } = o$1;
+		const { secretKey: y$2, publicKey: m$2, publicKeyUncompressed: w$2 } = o$1;
 		if (n$1.allowedLengths || y$2 === m$2) return;
-		const U$2 = tt$2("key", h$2).length;
-		return U$2 === m$2 || U$2 === w$1;
+		const U$3 = tt$3("key", h$2).length;
+		return U$3 === m$2 || U$3 === w$2;
 	}
 	function l$1(h$2, y$2, m$2 = !0) {
 		if (a$1(h$2) === !0) throw new Error("first arg must be private key");
 		if (a$1(y$2) === !1) throw new Error("second arg must be public key");
-		const w$1 = re$2(n$1, h$2);
-		return t.fromHex(y$2).multiply(w$1).toBytes(m$2);
+		const w$2 = re$2(n$1, h$2);
+		return t.fromHex(y$2).multiply(w$2).toBytes(m$2);
 	}
 	return Object.freeze({
-		getPublicKey: f$4,
+		getPublicKey: f$5,
 		getSharedSecret: l$1,
 		keygen: u$1,
 		Point: t,
@@ -3053,84 +2979,84 @@ function na(t, e, n$1 = {}) {
 		bits2int: "function",
 		bits2int_modN: "function"
 	});
-	const r$1 = n$1.randomBytes || Mt$2, o$1 = n$1.hmac || ((b$3, ...g$1) => ke$1(e, b$3, _t$2(...g$1))), { Fp: s, Fn: i$2 } = t, { ORDER: c$2, BITS: f$4 } = i$2, { keygen: u$1, getPublicKey: a$1, getSharedSecret: l$1, utils: d$3, lengths: h$2 } = ea$1(t, n$1), y$2 = {
+	const r$1 = n$1.randomBytes || Mt$2, o$1 = n$1.hmac || ((b$4, ...g$1) => ke$1(e, b$4, _t$2(...g$1))), { Fp: s, Fn: i$2 } = t, { ORDER: c$2, BITS: f$5 } = i$2, { keygen: u$1, getPublicKey: a$1, getSharedSecret: l$1, utils: d$3, lengths: h$2 } = ea$1(t, n$1), y$2 = {
 		prehash: !1,
 		lowS: typeof n$1.lowS == "boolean" ? n$1.lowS : !1,
 		format: void 0,
 		extraEntropy: !1
 	}, m$2 = "compact";
-	function w$1(b$3) {
-		return b$3 > c$2 >> ne$1;
+	function w$2(b$4) {
+		return b$4 > c$2 >> ne$1;
 	}
-	function U$2(b$3, g$1) {
-		if (!i$2.isValidNot0(g$1)) throw new Error(`invalid signature ${b$3}: out of range 1..Point.Fn.ORDER`);
+	function U$3(b$4, g$1) {
+		if (!i$2.isValidNot0(g$1)) throw new Error(`invalid signature ${b$4}: out of range 1..Point.Fn.ORDER`);
 		return g$1;
 	}
-	function F$1(b$3, g$1) {
+	function F$2(b$4, g$1) {
 		Pn$1(g$1);
 		const x$2 = h$2.signature;
-		return Kt$2(b$3, g$1 === "compact" ? x$2 : g$1 === "recovered" ? x$2 + 1 : void 0, `${g$1} signature`);
+		return Kt$2(b$4, g$1 === "compact" ? x$2 : g$1 === "recovered" ? x$2 + 1 : void 0, `${g$1} signature`);
 	}
-	class R$2 {
-		constructor(g$1, x$2, E$2) {
-			this.r = U$2("r", g$1), this.s = U$2("s", x$2), E$2 != null && (this.recovery = E$2), Object.freeze(this);
+	class R$3 {
+		constructor(g$1, x$2, E$3) {
+			this.r = U$3("r", g$1), this.s = U$3("s", x$2), E$3 != null && (this.recovery = E$3), Object.freeze(this);
 		}
 		static fromBytes(g$1, x$2 = m$2) {
-			F$1(g$1, x$2);
-			let E$2;
+			F$2(g$1, x$2);
+			let E$3;
 			if (x$2 === "der") {
-				const { r: A$2, s: N$3 } = xt$2.toSig(Kt$2(g$1));
-				return new R$2(A$2, N$3);
+				const { r: A$3, s: N$3 } = xt$2.toSig(Kt$2(g$1));
+				return new R$3(A$3, N$3);
 			}
-			x$2 === "recovered" && (E$2 = g$1[0], x$2 = "compact", g$1 = g$1.subarray(1));
-			const I$1 = i$2.BYTES, v$3 = g$1.subarray(0, I$1), B$1 = g$1.subarray(I$1, I$1 * 2);
-			return new R$2(i$2.fromBytes(v$3), i$2.fromBytes(B$1), E$2);
+			x$2 === "recovered" && (E$3 = g$1[0], x$2 = "compact", g$1 = g$1.subarray(1));
+			const I$2 = i$2.BYTES, v$4 = g$1.subarray(0, I$2), B$2 = g$1.subarray(I$2, I$2 * 2);
+			return new R$3(i$2.fromBytes(v$4), i$2.fromBytes(B$2), E$3);
 		}
 		static fromHex(g$1, x$2) {
 			return this.fromBytes(Re$3(g$1), x$2);
 		}
 		addRecoveryBit(g$1) {
-			return new R$2(this.r, this.s, g$1);
+			return new R$3(this.r, this.s, g$1);
 		}
 		recoverPublicKey(g$1) {
-			const x$2 = s.ORDER, { r: E$2, s: I$1, recovery: v$3 } = this;
-			if (v$3 == null || ![
+			const x$2 = s.ORDER, { r: E$3, s: I$2, recovery: v$4 } = this;
+			if (v$4 == null || ![
 				0,
 				1,
 				2,
 				3
-			].includes(v$3)) throw new Error("recovery id invalid");
-			if (c$2 * Wo$1 < x$2 && v$3 > 1) throw new Error("recovery id is ambiguous for h>1 curve");
-			const A$2 = v$3 === 2 || v$3 === 3 ? E$2 + c$2 : E$2;
-			if (!s.isValid(A$2)) throw new Error("recovery id 2 or 3 invalid");
-			const N$3 = s.toBytes(A$2), D = t.fromBytes(_t$2(Xo$1((v$3 & 1) === 0), N$3)), P$2 = i$2.inv(A$2), $$2 = H$1(tt$2("msgHash", g$1)), V$2 = i$2.create(-$$2 * P$2), q$1 = i$2.create(I$1 * P$2), G$2 = t.BASE.multiplyUnsafe(V$2).add(D.multiplyUnsafe(q$1));
-			if (G$2.is0()) throw new Error("point at infinify");
-			return G$2.assertValidity(), G$2;
+			].includes(v$4)) throw new Error("recovery id invalid");
+			if (c$2 * Wo$1 < x$2 && v$4 > 1) throw new Error("recovery id is ambiguous for h>1 curve");
+			const A$3 = v$4 === 2 || v$4 === 3 ? E$3 + c$2 : E$3;
+			if (!s.isValid(A$3)) throw new Error("recovery id 2 or 3 invalid");
+			const N$3 = s.toBytes(A$3), D$1 = t.fromBytes(_t$2(Xo$1((v$4 & 1) === 0), N$3)), P$3 = i$2.inv(A$3), $$2 = H$2(tt$3("msgHash", g$1)), V$3 = i$2.create(-$$2 * P$3), q$2 = i$2.create(I$2 * P$3), G$3 = t.BASE.multiplyUnsafe(V$3).add(D$1.multiplyUnsafe(q$2));
+			if (G$3.is0()) throw new Error("point at infinify");
+			return G$3.assertValidity(), G$3;
 		}
 		hasHighS() {
-			return w$1(this.s);
+			return w$2(this.s);
 		}
 		toBytes(g$1 = m$2) {
 			if (Pn$1(g$1), g$1 === "der") return Re$3(xt$2.hexFromSig(this));
-			const x$2 = i$2.toBytes(this.r), E$2 = i$2.toBytes(this.s);
+			const x$2 = i$2.toBytes(this.r), E$3 = i$2.toBytes(this.s);
 			if (g$1 === "recovered") {
 				if (this.recovery == null) throw new Error("recovery bit must be present");
-				return _t$2(Uint8Array.of(this.recovery), x$2, E$2);
+				return _t$2(Uint8Array.of(this.recovery), x$2, E$3);
 			}
-			return _t$2(x$2, E$2);
+			return _t$2(x$2, E$3);
 		}
 		toHex(g$1) {
 			return Jt$2(this.toBytes(g$1));
 		}
 		assertValidity() {}
 		static fromCompact(g$1) {
-			return R$2.fromBytes(tt$2("sig", g$1), "compact");
+			return R$3.fromBytes(tt$3("sig", g$1), "compact");
 		}
 		static fromDER(g$1) {
-			return R$2.fromBytes(tt$2("sig", g$1), "der");
+			return R$3.fromBytes(tt$3("sig", g$1), "der");
 		}
 		normalizeS() {
-			return this.hasHighS() ? new R$2(this.r, i$2.neg(this.s), this.recovery) : this;
+			return this.hasHighS() ? new R$3(this.r, i$2.neg(this.s), this.recovery) : this;
 		}
 		toDERRawBytes() {
 			return this.toBytes("der");
@@ -3145,85 +3071,85 @@ function na(t, e, n$1 = {}) {
 			return Jt$2(this.toBytes("compact"));
 		}
 	}
-	const Z = n$1.bits2int || function(g$1) {
+	const Z$1 = n$1.bits2int || function(g$1) {
 		if (g$1.length > 8192) throw new Error("input is too large");
-		const x$2 = Ve$2(g$1), E$2 = g$1.length * 8 - f$4;
-		return E$2 > 0 ? x$2 >> BigInt(E$2) : x$2;
-	}, H$1 = n$1.bits2int_modN || function(g$1) {
-		return i$2.create(Z(g$1));
-	}, j$3 = me$2(f$4);
-	function L$1(b$3) {
-		return Rn$1("num < 2^" + f$4, b$3, Et$3, j$3), i$2.toBytes(b$3);
+		const x$2 = Ve$2(g$1), E$3 = g$1.length * 8 - f$5;
+		return E$3 > 0 ? x$2 >> BigInt(E$3) : x$2;
+	}, H$2 = n$1.bits2int_modN || function(g$1) {
+		return i$2.create(Z$1(g$1));
+	}, j$4 = me$2(f$5);
+	function L$2(b$4) {
+		return Rn$1("num < 2^" + f$5, b$4, Et$3, j$4), i$2.toBytes(b$4);
 	}
-	function k$1(b$3, g$1) {
-		return Kt$2(b$3, void 0, "message"), g$1 ? Kt$2(e(b$3), void 0, "prehashed message") : b$3;
+	function k$1(b$4, g$1) {
+		return Kt$2(b$4, void 0, "message"), g$1 ? Kt$2(e(b$4), void 0, "prehashed message") : b$4;
 	}
-	function O$2(b$3, g$1, x$2) {
-		if (["recovered", "canonical"].some((V$2) => V$2 in x$2)) throw new Error("sign() legacy options not supported");
-		const { lowS: E$2, prehash: I$1, extraEntropy: v$3 } = Hn$1(x$2, y$2);
-		b$3 = k$1(b$3, I$1);
-		const B$1 = H$1(b$3), A$2 = re$2(i$2, g$1), N$3 = [L$1(A$2), L$1(B$1)];
-		if (v$3 != null && v$3 !== !1) {
-			const V$2 = v$3 === !0 ? r$1(h$2.secretKey) : v$3;
-			N$3.push(tt$2("extraEntropy", V$2));
+	function O$2(b$4, g$1, x$2) {
+		if (["recovered", "canonical"].some((V$3) => V$3 in x$2)) throw new Error("sign() legacy options not supported");
+		const { lowS: E$3, prehash: I$2, extraEntropy: v$4 } = Hn$1(x$2, y$2);
+		b$4 = k$1(b$4, I$2);
+		const B$2 = H$2(b$4), A$3 = re$2(i$2, g$1), N$3 = [L$2(A$3), L$2(B$2)];
+		if (v$4 != null && v$4 !== !1) {
+			const V$3 = v$4 === !0 ? r$1(h$2.secretKey) : v$4;
+			N$3.push(tt$3("extraEntropy", V$3));
 		}
-		const D = _t$2(...N$3), P$2 = B$1;
-		function $$2(V$2) {
-			const q$1 = Z(V$2);
-			if (!i$2.isValidNot0(q$1)) return;
-			const G$2 = i$2.inv(q$1), M$3 = t.BASE.multiply(q$1).toAffine(), Y$1 = i$2.create(M$3.x);
-			if (Y$1 === Et$3) return;
-			const Yt$2 = i$2.create(G$2 * i$2.create(P$2 + Y$1 * A$2));
+		const D$1 = _t$2(...N$3), P$3 = B$2;
+		function $$2(V$3) {
+			const q$2 = Z$1(V$3);
+			if (!i$2.isValidNot0(q$2)) return;
+			const G$3 = i$2.inv(q$2), M$4 = t.BASE.multiply(q$2).toAffine(), Y$2 = i$2.create(M$4.x);
+			if (Y$2 === Et$3) return;
+			const Yt$2 = i$2.create(G$3 * i$2.create(P$3 + Y$2 * A$3));
 			if (Yt$2 === Et$3) return;
-			let ce$2 = (M$3.x === Y$1 ? 0 : 2) | Number(M$3.y & ne$1), fe$2 = Yt$2;
-			return E$2 && w$1(Yt$2) && (fe$2 = i$2.neg(Yt$2), ce$2 ^= 1), new R$2(Y$1, fe$2, ce$2);
+			let ce$2 = (M$4.x === Y$2 ? 0 : 2) | Number(M$4.y & ne$1), fe$2 = Yt$2;
+			return E$3 && w$2(Yt$2) && (fe$2 = i$2.neg(Yt$2), ce$2 ^= 1), new R$3(Y$2, fe$2, ce$2);
 		}
 		return {
-			seed: D,
+			seed: D$1,
 			k2sig: $$2
 		};
 	}
-	function T$2(b$3, g$1, x$2 = {}) {
-		b$3 = tt$2("message", b$3);
-		const { seed: E$2, k2sig: I$1 } = O$2(b$3, g$1, x$2);
-		return Af(e.outputLen, i$2.BYTES, o$1)(E$2, I$1);
+	function T$3(b$4, g$1, x$2 = {}) {
+		b$4 = tt$3("message", b$4);
+		const { seed: E$3, k2sig: I$2 } = O$2(b$4, g$1, x$2);
+		return Af(e.outputLen, i$2.BYTES, o$1)(E$3, I$2);
 	}
-	function C$3(b$3) {
+	function C$4(b$4) {
 		let g$1;
-		const x$2 = typeof b$3 == "string" || Ue$4(b$3), E$2 = !x$2 && b$3 !== null && typeof b$3 == "object" && typeof b$3.r == "bigint" && typeof b$3.s == "bigint";
-		if (!x$2 && !E$2) throw new Error("invalid signature, expected Uint8Array, hex string or Signature instance");
-		if (E$2) g$1 = new R$2(b$3.r, b$3.s);
+		const x$2 = typeof b$4 == "string" || Ue$4(b$4), E$3 = !x$2 && b$4 !== null && typeof b$4 == "object" && typeof b$4.r == "bigint" && typeof b$4.s == "bigint";
+		if (!x$2 && !E$3) throw new Error("invalid signature, expected Uint8Array, hex string or Signature instance");
+		if (E$3) g$1 = new R$3(b$4.r, b$4.s);
 		else if (x$2) {
 			try {
-				g$1 = R$2.fromBytes(tt$2("sig", b$3), "der");
-			} catch (I$1) {
-				if (!(I$1 instanceof xt$2.Err)) throw I$1;
+				g$1 = R$3.fromBytes(tt$3("sig", b$4), "der");
+			} catch (I$2) {
+				if (!(I$2 instanceof xt$2.Err)) throw I$2;
 			}
 			if (!g$1) try {
-				g$1 = R$2.fromBytes(tt$2("sig", b$3), "compact");
+				g$1 = R$3.fromBytes(tt$3("sig", b$4), "compact");
 			} catch {
 				return !1;
 			}
 		}
 		return g$1 || !1;
 	}
-	function _$1(b$3, g$1, x$2, E$2 = {}) {
-		const { lowS: I$1, prehash: v$3, format: B$1 } = Hn$1(E$2, y$2);
-		if (x$2 = tt$2("publicKey", x$2), g$1 = k$1(tt$2("message", g$1), v$3), "strict" in E$2) throw new Error("options.strict was renamed to lowS");
-		const A$2 = B$1 === void 0 ? C$3(b$3) : R$2.fromBytes(tt$2("sig", b$3), B$1);
-		if (A$2 === !1) return !1;
+	function _$2(b$4, g$1, x$2, E$3 = {}) {
+		const { lowS: I$2, prehash: v$4, format: B$2 } = Hn$1(E$3, y$2);
+		if (x$2 = tt$3("publicKey", x$2), g$1 = k$1(tt$3("message", g$1), v$4), "strict" in E$3) throw new Error("options.strict was renamed to lowS");
+		const A$3 = B$2 === void 0 ? C$4(b$4) : R$3.fromBytes(tt$3("sig", b$4), B$2);
+		if (A$3 === !1) return !1;
 		try {
 			const N$3 = t.fromBytes(x$2);
-			if (I$1 && A$2.hasHighS()) return !1;
-			const { r: D, s: P$2 } = A$2, $$2 = H$1(g$1), V$2 = i$2.inv(P$2), q$1 = i$2.create($$2 * V$2), G$2 = i$2.create(D * V$2), M$3 = t.BASE.multiplyUnsafe(q$1).add(N$3.multiplyUnsafe(G$2));
-			return M$3.is0() ? !1 : i$2.create(M$3.x) === D;
+			if (I$2 && A$3.hasHighS()) return !1;
+			const { r: D$1, s: P$3 } = A$3, $$2 = H$2(g$1), V$3 = i$2.inv(P$3), q$2 = i$2.create($$2 * V$3), G$3 = i$2.create(D$1 * V$3), M$4 = t.BASE.multiplyUnsafe(q$2).add(N$3.multiplyUnsafe(G$3));
+			return M$4.is0() ? !1 : i$2.create(M$4.x) === D$1;
 		} catch {
 			return !1;
 		}
 	}
-	function p$2(b$3, g$1, x$2 = {}) {
-		const { prehash: E$2 } = Hn$1(x$2, y$2);
-		return g$1 = k$1(g$1, E$2), R$2.fromBytes(b$3, "recovered").recoverPublicKey(g$1).toBytes();
+	function p$3(b$4, g$1, x$2 = {}) {
+		const { prehash: E$3 } = Hn$1(x$2, y$2);
+		return g$1 = k$1(g$1, E$3), R$3.fromBytes(b$4, "recovered").recoverPublicKey(g$1).toBytes();
 	}
 	return Object.freeze({
 		keygen: u$1,
@@ -3232,10 +3158,10 @@ function na(t, e, n$1 = {}) {
 		utils: d$3,
 		lengths: h$2,
 		Point: t,
-		sign: T$2,
-		verify: _$1,
-		recoverPublicKey: p$2,
-		Signature: R$2,
+		sign: T$3,
+		verify: _$2,
+		recoverPublicKey: p$3,
+		Signature: R$3,
 		hash: e
 	});
 }
@@ -3373,7 +3299,7 @@ function qn$1(t) {
 function Zt$1(t) {
 	return Number(toString(t, Vn$1));
 }
-function rs(t) {
+function rs$1(t) {
 	return t.replace(/\+/g, "-").replace(/\//g, "_").replace(/=/g, "");
 }
 function os(t) {
@@ -3389,7 +3315,7 @@ function ma(t) {
 		iv: r$1,
 		senderPublicKey: n$1
 	});
-	return t.encoding === "base64url" ? rs(i$2) : i$2;
+	return t.encoding === "base64url" ? rs$1(i$2) : i$2;
 }
 function wa(t) {
 	const e = fromString(t.symKey, rt$1), { sealed: n$1, iv: r$1 } = ze$1({
@@ -3405,7 +3331,7 @@ function va(t, e) {
 		sealed: fromString(t, se$2),
 		iv: r$1
 	});
-	return e === "base64url" ? rs(s) : s;
+	return e === "base64url" ? rs$1(s) : s;
 }
 function xa(t, e) {
 	const { sealed: n$1 } = ze$1({
@@ -3434,7 +3360,7 @@ function Fn$1(t) {
 function ze$1(t) {
 	const n$1 = fromString((t.encoding || "base64pad") === "base64url" ? os(t.encoded) : t.encoded, oe$1), r$1 = n$1.slice(da, ns$1), o$1 = ns$1;
 	if (Zt$1(r$1) === 1) {
-		const f$4 = o$1 + Kn$1, u$1 = f$4 + xe$1, a$1 = n$1.slice(o$1, f$4), l$1 = n$1.slice(f$4, u$1);
+		const f$5 = o$1 + Kn$1, u$1 = f$5 + xe$1, a$1 = n$1.slice(o$1, f$5), l$1 = n$1.slice(f$5, u$1);
 		return {
 			type: r$1,
 			sealed: n$1.slice(u$1),
@@ -3502,7 +3428,7 @@ function Sa(t) {
 	return t?.relay || { protocol: "irn" };
 }
 function Oa(t) {
-	const e = C$2[t];
+	const e = C$3[t];
 	if (typeof e > "u") throw new Error(`Relay Protocol not supported: ${t}`);
 	return e;
 }
@@ -3531,14 +3457,14 @@ function Ca(t) {
 		u$1 != null && u$1.includes("wc:") && (t = u$1);
 	}
 	t = t.includes("wc://") ? t.replace("wc://", "") : t, t = t.includes("wc:") ? t.replace("wc:", "") : t;
-	const e = t.indexOf(":"), n$1 = t.indexOf("?") !== -1 ? t.indexOf("?") : void 0, r$1 = t.substring(0, e), o$1 = t.substring(e + 1, n$1).split("@"), s = typeof n$1 < "u" ? t.substring(n$1) : "", i$2 = new URLSearchParams(s), c$2 = Object.fromEntries(i$2.entries()), f$4 = typeof c$2.methods == "string" ? c$2.methods.split(",") : void 0;
+	const e = t.indexOf(":"), n$1 = t.indexOf("?") !== -1 ? t.indexOf("?") : void 0, r$1 = t.substring(0, e), o$1 = t.substring(e + 1, n$1).split("@"), s = typeof n$1 < "u" ? t.substring(n$1) : "", i$2 = new URLSearchParams(s), c$2 = Object.fromEntries(i$2.entries()), f$5 = typeof c$2.methods == "string" ? c$2.methods.split(",") : void 0;
 	return {
 		protocol: r$1,
 		topic: ls(o$1[0]),
 		version: parseInt(o$1[1], 10),
 		symKey: c$2.symKey,
 		relay: us$1(c$2),
-		methods: f$4,
+		methods: f$5,
 		expiryTimestamp: c$2.expiryTimestamp ? parseInt(c$2.expiryTimestamp, 10) : void 0
 	};
 }
@@ -3619,10 +3545,10 @@ function Ee$1(t) {
 	const o$1 = {};
 	if (!Ye(t)) return o$1;
 	for (const [s, i$2] of Object.entries(t)) {
-		const c$2 = Gn(s) ? [s] : i$2.chains, f$4 = i$2.methods || [], u$1 = i$2.events || [], a$1 = ms(s);
+		const c$2 = Gn(s) ? [s] : i$2.chains, f$5 = i$2.methods || [], u$1 = i$2.events || [], a$1 = ms(s);
 		o$1[a$1] = Ka(Ma({}, o$1[a$1]), {
 			chains: ut(c$2, (e = o$1[a$1]) == null ? void 0 : e.chains),
-			methods: ut(f$4, (n$1 = o$1[a$1]) == null ? void 0 : n$1.methods),
+			methods: ut(f$5, (n$1 = o$1[a$1]) == null ? void 0 : n$1.methods),
 			events: ut(u$1, (r$1 = o$1[a$1]) == null ? void 0 : r$1.events)
 		});
 	}
@@ -3649,11 +3575,11 @@ function za(t, e) {
 }
 function Ya(t, e) {
 	var n$1, r$1, o$1, s, i$2, c$2;
-	const f$4 = Ee$1(t), u$1 = Ee$1(e), a$1 = {}, l$1 = Object.keys(f$4).concat(Object.keys(u$1));
+	const f$5 = Ee$1(t), u$1 = Ee$1(e), a$1 = {}, l$1 = Object.keys(f$5).concat(Object.keys(u$1));
 	for (const d$3 of l$1) a$1[d$3] = {
-		chains: ut((n$1 = f$4[d$3]) == null ? void 0 : n$1.chains, (r$1 = u$1[d$3]) == null ? void 0 : r$1.chains),
-		methods: ut((o$1 = f$4[d$3]) == null ? void 0 : o$1.methods, (s = u$1[d$3]) == null ? void 0 : s.methods),
-		events: ut((i$2 = f$4[d$3]) == null ? void 0 : i$2.events, (c$2 = u$1[d$3]) == null ? void 0 : c$2.events)
+		chains: ut((n$1 = f$5[d$3]) == null ? void 0 : n$1.chains, (r$1 = u$1[d$3]) == null ? void 0 : r$1.chains),
+		methods: ut((o$1 = f$5[d$3]) == null ? void 0 : o$1.methods, (s = u$1[d$3]) == null ? void 0 : s.methods),
+		events: ut((i$2 = f$5[d$3]) == null ? void 0 : i$2.events, (c$2 = u$1[d$3]) == null ? void 0 : c$2.events)
 	};
 	return a$1;
 }
@@ -3813,8 +3739,8 @@ function Wa(t, e) {
 	const { requiredNamespaces: n$1 } = e, r$1 = Object.keys(t.namespaces), o$1 = Object.keys(n$1);
 	let s = !0;
 	return At$2(o$1, r$1) ? (r$1.forEach((i$2) => {
-		const { accounts: c$2, methods: f$4, events: u$1 } = t.namespaces[i$2], a$1 = Gt$2(c$2), l$1 = n$1[i$2];
-		(!At$2(Se$2(i$2, l$1), a$1) || !At$2(l$1.methods, f$4) || !At$2(l$1.events, u$1)) && (s = !1);
+		const { accounts: c$2, methods: f$5, events: u$1 } = t.namespaces[i$2], a$1 = Gt$2(c$2), l$1 = n$1[i$2];
+		(!At$2(Se$2(i$2, l$1), a$1) || !At$2(l$1.methods, f$5) || !At$2(l$1.events, u$1)) && (s = !1);
 	}), s) : !1;
 }
 function Ie$2(t) {
@@ -3959,7 +3885,7 @@ function lu(t, e, n$1) {
 }
 function _s(t, e, n$1) {
 	let r$1 = null;
-	const o$1 = du(t), s = hu(e), i$2 = Object.keys(o$1), c$2 = Object.keys(s), f$4 = Rs(Object.keys(t)), u$1 = Rs(Object.keys(e)), a$1 = f$4.filter((l$1) => !u$1.includes(l$1));
+	const o$1 = du(t), s = hu(e), i$2 = Object.keys(o$1), c$2 = Object.keys(s), f$5 = Rs(Object.keys(t)), u$1 = Rs(Object.keys(e)), a$1 = f$5.filter((l$1) => !u$1.includes(l$1));
 	return a$1.length && (r$1 = Bt$1("NON_CONFORMING_NAMESPACES", `${n$1} namespaces keys don't satisfy requiredNamespaces.
       Required: ${a$1.toString()}
       Received: ${Object.keys(e).toString()}`)), At$2(i$2, c$2) || (r$1 = Bt$1("NON_CONFORMING_NAMESPACES", `${n$1} namespaces chains don't satisfy required namespaces.
@@ -4009,13 +3935,13 @@ function gu() {
 	const t = Vt$2();
 	return new Promise((e) => {
 		switch (t) {
-			case et$2.browser:
+			case et$3.browser:
 				e($s$1());
 				break;
-			case et$2.reactNative:
+			case et$3.reactNative:
 				e(Ts$1());
 				break;
-			case et$2.node:
+			case et$3.node:
 				e(Cs$1());
 				break;
 			default: e(!0);
@@ -4034,13 +3960,13 @@ function Cs$1() {
 }
 function bu(t) {
 	switch (Vt$2()) {
-		case et$2.browser:
+		case et$3.browser:
 			js$1(t);
 			break;
-		case et$2.reactNative:
+		case et$3.reactNative:
 			Ls$1(t);
 			break;
-		case et$2.node: break;
+		case et$3.node: break;
 	}
 }
 function js$1(t) {
@@ -4074,7 +4000,7 @@ function Ps$1({ publicKey: t, signature: e, payload: n$1 }) {
 	var r$1;
 	const o$1 = Xn$1(n$1.method), s = 128 | parseInt(((r$1 = n$1.version) == null ? void 0 : r$1.toString()) || "4"), i$2 = vu(n$1.address), c$2 = n$1.era === "00" ? new Uint8Array([0]) : Xn$1(n$1.era);
 	if (c$2.length !== 1 && c$2.length !== 2) throw new Error("Invalid era length");
-	const f$4 = parseInt(n$1.nonce, 16), u$1 = new Uint8Array([f$4 & 255, f$4 >> 8 & 255]), l$1 = Eu(BigInt(`0x${wu(n$1.tip)}`)), d$3 = new Uint8Array([
+	const f$5 = parseInt(n$1.nonce, 16), u$1 = new Uint8Array([f$5 & 255, f$5 >> 8 & 255]), l$1 = Eu(BigInt(`0x${wu(n$1.tip)}`)), d$3 = new Uint8Array([
 		0,
 		...t,
 		i$2,
@@ -4149,12 +4075,95 @@ function Iu({ logger: t, name: e }) {
 	} }).logger : t;
 	return n$1.level = typeof t == "string" ? t : t.level, n$1;
 }
-var import_events$2 = /* @__PURE__ */ __toESM(require_events(), 1);
+var a = Object.defineProperty, u = (e, s, r$1) => s in e ? a(e, s, {
+	enumerable: !0,
+	configurable: !0,
+	writable: !0,
+	value: r$1
+}) : e[s] = r$1, c$1 = (e, s, r$1) => u(e, typeof s != "symbol" ? s + "" : s, r$1);
+var h$1 = class extends IEvents {
+	constructor(s) {
+		super(), this.opts = s, c$1(this, "protocol", "wc"), c$1(this, "version", 2);
+	}
+};
+var p$2 = Object.defineProperty, b$3 = (e, s, r$1) => s in e ? p$2(e, s, {
+	enumerable: !0,
+	configurable: !0,
+	writable: !0,
+	value: r$1
+}) : e[s] = r$1, v$3 = (e, s, r$1) => b$3(e, typeof s != "symbol" ? s + "" : s, r$1);
+var I$1 = class extends IEvents {
+	constructor(s, r$1) {
+		super(), this.core = s, this.logger = r$1, v$3(this, "records", /* @__PURE__ */ new Map());
+	}
+};
+var y$1 = class {
+	constructor(s, r$1) {
+		this.logger = s, this.core = r$1;
+	}
+};
+var m$1 = class extends IEvents {
+	constructor(s, r$1) {
+		super(), this.relayer = s, this.logger = r$1;
+	}
+};
+var d$1 = class extends IEvents {
+	constructor(s) {
+		super();
+	}
+};
+var f$2 = class {
+	constructor(s, r$1, t, q$2) {
+		this.core = s, this.logger = r$1, this.name = t;
+	}
+};
+var P$1 = class extends IEvents {
+	constructor(s, r$1) {
+		super(), this.relayer = s, this.logger = r$1;
+	}
+};
+var S$2 = class extends IEvents {
+	constructor(s, r$1) {
+		super(), this.core = s, this.logger = r$1;
+	}
+};
+var M$2 = class {
+	constructor(s, r$1, t) {
+		this.core = s, this.logger = r$1, this.store = t;
+	}
+};
+var O$1 = class {
+	constructor(s, r$1) {
+		this.projectId = s, this.logger = r$1;
+	}
+};
+var R$1 = class {
+	constructor(s, r$1, t) {
+		this.core = s, this.logger = r$1, this.telemetryEnabled = t;
+	}
+};
+var T$2 = Object.defineProperty, k = (e, s, r$1) => s in e ? T$2(e, s, {
+	enumerable: !0,
+	configurable: !0,
+	writable: !0,
+	value: r$1
+}) : e[s] = r$1, i$1 = (e, s, r$1) => k(e, typeof s != "symbol" ? s + "" : s, r$1);
+var J$2 = class {
+	constructor(s) {
+		this.opts = s, i$1(this, "protocol", "wc"), i$1(this, "version", 2);
+	}
+};
+var V$1 = class {
+	constructor(s) {
+		this.client = s;
+	}
+};
+var import_events$3 = /* @__PURE__ */ __toESM(require_events(), 1);
 var import_cjs$1 = require_cjs();
-var import_cjs$2 = require_cjs$1(), ge$1 = "core", W$1 = `wc@2:${ge$1}:`, Et$2 = {
+var import_cjs$2 = require_cjs$1(), ge$1 = "core", W$2 = `wc@2:${ge$1}:`, Et$2 = {
 	name: ge$1,
 	logger: "error"
-}, It$3 = { database: ":memory:" }, Tt$1 = "crypto", Me$2 = "client_ed25519_seed", Ct$1 = import_cjs$1.ONE_DAY, Pt$2 = "keychain", Ot$1 = "messages", At$1 = import_cjs$1.SIX_HOURS, xt$1 = "publisher", $t$1 = "error", zt$2 = "relayer", C$1 = {
+}, It$3 = { database: ":memory:" }, Tt$1 = "crypto", Me$2 = "client_ed25519_seed", Ct$1 = import_cjs$1.ONE_DAY, Pt$2 = "keychain", Ot$1 = "messages", At$1 = import_cjs$1.SIX_HOURS, xt$1 = "publisher", $t$1 = "error", zt$2 = "relayer", C$2 = {
 	message: "relayer_message",
 	message_ack: "relayer_message_ack",
 	connect: "relayer_connect",
@@ -4163,18 +4172,18 @@ var import_cjs$2 = require_cjs$1(), ge$1 = "core", W$1 = `wc@2:${ge$1}:`, Et$2 =
 	connection_stalled: "relayer_connection_stalled",
 	transport_closed: "relayer_transport_closed",
 	publish: "relayer_publish"
-}, M$2 = {
+}, M$3 = {
 	payload: "payload",
 	connect: "connect",
 	disconnect: "disconnect",
 	error: "error"
-}, Pe$1 = "2.23.2", ee$1 = {
+}, Pe$1 = "2.23.3", ee$1 = {
 	link_mode: "link_mode",
 	relay: "relay"
 }, ye$1 = {
 	inbound: "inbound",
 	outbound: "outbound"
-}, Ut$1 = "WALLETCONNECT_CLIENT_ID", j$2 = {
+}, Ut$1 = "WALLETCONNECT_CLIENT_ID", j$3 = {
 	created: "subscription_created",
 	deleted: "subscription_deleted",
 	expired: "subscription_expired",
@@ -4229,19 +4238,19 @@ var oe$2 = {
 	expire: "pairing_expire",
 	delete: "pairing_delete",
 	ping: "pairing_ping"
-}, V$1 = {
+}, V$2 = {
 	created: "history_created",
 	updated: "history_updated",
 	deleted: "history_deleted",
 	sync: "history_sync"
-}, Vt$1 = "history", Gt$1 = "expirer", q = {
+}, Vt$1 = "history", Gt$1 = "expirer", q$1 = {
 	created: "expirer_created",
 	deleted: "expirer_deleted",
 	expired: "expirer_expired",
 	sync: "expirer_sync"
 };
 import_cjs$1.ONE_DAY;
-var Ht$1 = "verify-api", ir = "https://verify.walletconnect.com", Yt$1 = "https://verify.walletconnect.org", Jt$1 = `${Yt$1}/v3`, Xt$1 = [ir, Yt$1], Zt$2 = "echo", Qt$1 = "https://echo.walletconnect.com", Y = {
+var Ht$1 = "verify-api", ir = "https://verify.walletconnect.com", Yt$1 = "https://verify.walletconnect.org", Jt$1 = `${Yt$1}/v3`, Xt$1 = [ir, Yt$1], Zt$2 = "echo", Qt$1 = "https://echo.walletconnect.com", Y$1 = {
 	pairing_started: "pairing_started",
 	pairing_uri_validation_success: "pairing_uri_validation_success",
 	pairing_uri_not_expired: "pairing_uri_not_expired",
@@ -4253,7 +4262,7 @@ var Ht$1 = "verify-api", ir = "https://verify.walletconnect.com", Yt$1 = "https:
 	emit_inactive_pairing: "emit_inactive_pairing",
 	emit_session_proposal: "emit_session_proposal",
 	subscribing_to_pairing_topic: "subscribing_to_pairing_topic"
-}, X = {
+}, X$1 = {
 	no_wss_connection: "no_wss_connection",
 	no_internet_connection: "no_internet_connection",
 	malformed_pairing_uri: "malformed_pairing_uri",
@@ -4311,7 +4320,7 @@ var Ht$1 = "verify-api", ir = "https://verify.walletconnect.com", Yt$1 = "https:
 	subscribe_authenticated_session_topic_failure: "subscribe_authenticated_session_topic_failure",
 	authenticated_session_approve_publish_failure: "authenticated_session_approve_publish_failure",
 	authenticated_session_pending_request_not_found: "authenticated_session_pending_request_not_found"
-}, ei = .1, ti = "event-client", si = "https://pulse.walletconnect.org/batch";
+}, ei = .1, ti$1 = "event-client", si = "https://pulse.walletconnect.org/batch";
 function cr(r$1, e) {
 	if (r$1.length >= 255) throw new TypeError("Alphabet too long");
 	for (var t = new Uint8Array(256), i$2 = 0; i$2 < t.length; i$2++) t[i$2] = 255;
@@ -4324,14 +4333,14 @@ function cr(r$1, e) {
 	function g$1(u$1) {
 		if (u$1 instanceof Uint8Array || (ArrayBuffer.isView(u$1) ? u$1 = new Uint8Array(u$1.buffer, u$1.byteOffset, u$1.byteLength) : Array.isArray(u$1) && (u$1 = Uint8Array.from(u$1))), !(u$1 instanceof Uint8Array)) throw new TypeError("Expected Uint8Array");
 		if (u$1.length === 0) return "";
-		for (var m$2 = 0, D = 0, w$1 = 0, E$2 = u$1.length; w$1 !== E$2 && u$1[w$1] === 0;) w$1++, m$2++;
-		for (var L$1 = (E$2 - w$1) * l$1 + 1 >>> 0, I$1 = new Uint8Array(L$1); w$1 !== E$2;) {
-			for (var k$1 = u$1[w$1], T$2 = 0, S$3 = L$1 - 1; (k$1 !== 0 || T$2 < D) && S$3 !== -1; S$3--, T$2++) k$1 += 256 * I$1[S$3] >>> 0, I$1[S$3] = k$1 % a$1 >>> 0, k$1 = k$1 / a$1 >>> 0;
+		for (var m$2 = 0, D$1 = 0, w$2 = 0, E$3 = u$1.length; w$2 !== E$3 && u$1[w$2] === 0;) w$2++, m$2++;
+		for (var L$2 = (E$3 - w$2) * l$1 + 1 >>> 0, I$2 = new Uint8Array(L$2); w$2 !== E$3;) {
+			for (var k$1 = u$1[w$2], T$3 = 0, S$4 = L$2 - 1; (k$1 !== 0 || T$3 < D$1) && S$4 !== -1; S$4--, T$3++) k$1 += 256 * I$2[S$4] >>> 0, I$2[S$4] = k$1 % a$1 >>> 0, k$1 = k$1 / a$1 >>> 0;
 			if (k$1 !== 0) throw new Error("Non-zero carry");
-			D = T$2, w$1++;
+			D$1 = T$3, w$2++;
 		}
-		for (var O$2 = L$1 - D; O$2 !== L$1 && I$1[O$2] === 0;) O$2++;
-		for (var te$2 = c$2.repeat(m$2); O$2 < L$1; ++O$2) te$2 += r$1.charAt(I$1[O$2]);
+		for (var O$2 = L$2 - D$1; O$2 !== L$2 && I$2[O$2] === 0;) O$2++;
+		for (var te$2 = c$2.repeat(m$2); O$2 < L$2; ++O$2) te$2 += r$1.charAt(I$2[O$2]);
 		return te$2;
 	}
 	function y$2(u$1) {
@@ -4339,22 +4348,22 @@ function cr(r$1, e) {
 		if (u$1.length === 0) return new Uint8Array();
 		var m$2 = 0;
 		if (u$1[m$2] !== " ") {
-			for (var D = 0, w$1 = 0; u$1[m$2] === c$2;) D++, m$2++;
-			for (var E$2 = (u$1.length - m$2) * h$2 + 1 >>> 0, L$1 = new Uint8Array(E$2); u$1[m$2];) {
-				var I$1 = t[u$1.charCodeAt(m$2)];
-				if (I$1 === 255) return;
-				for (var k$1 = 0, T$2 = E$2 - 1; (I$1 !== 0 || k$1 < w$1) && T$2 !== -1; T$2--, k$1++) I$1 += a$1 * L$1[T$2] >>> 0, L$1[T$2] = I$1 % 256 >>> 0, I$1 = I$1 / 256 >>> 0;
-				if (I$1 !== 0) throw new Error("Non-zero carry");
-				w$1 = k$1, m$2++;
+			for (var D$1 = 0, w$2 = 0; u$1[m$2] === c$2;) D$1++, m$2++;
+			for (var E$3 = (u$1.length - m$2) * h$2 + 1 >>> 0, L$2 = new Uint8Array(E$3); u$1[m$2];) {
+				var I$2 = t[u$1.charCodeAt(m$2)];
+				if (I$2 === 255) return;
+				for (var k$1 = 0, T$3 = E$3 - 1; (I$2 !== 0 || k$1 < w$2) && T$3 !== -1; T$3--, k$1++) I$2 += a$1 * L$2[T$3] >>> 0, L$2[T$3] = I$2 % 256 >>> 0, I$2 = I$2 / 256 >>> 0;
+				if (I$2 !== 0) throw new Error("Non-zero carry");
+				w$2 = k$1, m$2++;
 			}
 			if (u$1[m$2] !== " ") {
-				for (var S$3 = E$2 - w$1; S$3 !== E$2 && L$1[S$3] === 0;) S$3++;
-				for (var O$2 = new Uint8Array(D + (E$2 - S$3)), te$2 = D; S$3 !== E$2;) O$2[te$2++] = L$1[S$3++];
+				for (var S$4 = E$3 - w$2; S$4 !== E$3 && L$2[S$4] === 0;) S$4++;
+				for (var O$2 = new Uint8Array(D$1 + (E$3 - S$4)), te$2 = D$1; S$4 !== E$3;) O$2[te$2++] = L$2[S$4++];
 				return O$2;
 			}
 		}
 	}
-	function _$1(u$1) {
+	function _$2(u$1) {
 		var m$2 = y$2(u$1);
 		if (m$2) return m$2;
 		throw new Error(`Non-${e} character`);
@@ -4362,7 +4371,7 @@ function cr(r$1, e) {
 	return {
 		encode: g$1,
 		decodeUnsafe: y$2,
-		decode: _$1
+		decode: _$2
 	};
 }
 var lr = cr;
@@ -4783,17 +4792,17 @@ var Nn = Object.defineProperty, $n = (r$1, e, t) => e in r$1 ? Nn(r$1, e, {
 	configurable: !0,
 	writable: !0,
 	value: t
-}) : r$1[e] = t, J$2 = (r$1, e, t) => $n(r$1, typeof e != "symbol" ? e + "" : e, t);
+}) : r$1[e] = t, J$3 = (r$1, e, t) => $n(r$1, typeof e != "symbol" ? e + "" : e, t);
 var _i$1 = class {
 	constructor(e, t) {
-		this.core = e, this.logger = t, J$2(this, "keychain", /* @__PURE__ */ new Map()), J$2(this, "name", Pt$2), J$2(this, "version", "0.3"), J$2(this, "initialized", !1), J$2(this, "storagePrefix", W$1), J$2(this, "init", async () => {
+		this.core = e, this.logger = t, J$3(this, "keychain", /* @__PURE__ */ new Map()), J$3(this, "name", Pt$2), J$3(this, "version", "0.3"), J$3(this, "initialized", !1), J$3(this, "storagePrefix", W$2), J$3(this, "init", async () => {
 			if (!this.initialized) {
 				const i$2 = await this.getKeyChain();
 				typeof i$2 < "u" && (this.keychain = i$2), this.initialized = !0;
 			}
-		}), J$2(this, "has", (i$2) => (this.isInitialized(), this.keychain.has(i$2))), J$2(this, "set", async (i$2, s) => {
+		}), J$3(this, "has", (i$2) => (this.isInitialized(), this.keychain.has(i$2))), J$3(this, "set", async (i$2, s) => {
 			this.isInitialized(), this.keychain.set(i$2, s), await this.persist();
-		}), J$2(this, "get", (i$2) => {
+		}), J$3(this, "get", (i$2) => {
 			this.isInitialized();
 			const s = this.keychain.get(i$2);
 			if (typeof s > "u") {
@@ -4801,7 +4810,7 @@ var _i$1 = class {
 				throw new Error(n$1);
 			}
 			return s;
-		}), J$2(this, "del", async (i$2) => {
+		}), J$3(this, "del", async (i$2) => {
 			this.isInitialized(), this.keychain.delete(i$2), await this.persist();
 		}), this.core = e, this.logger = Re$1(t, this.name);
 	}
@@ -4833,42 +4842,42 @@ var zn = Object.defineProperty, Ln = (r$1, e, t) => e in r$1 ? zn(r$1, e, {
 	configurable: !0,
 	writable: !0,
 	value: t
-}) : r$1[e] = t, R$1 = (r$1, e, t) => Ln(r$1, typeof e != "symbol" ? e + "" : e, t);
+}) : r$1[e] = t, R$2 = (r$1, e, t) => Ln(r$1, typeof e != "symbol" ? e + "" : e, t);
 var wi = class {
 	constructor(e, t, i$2) {
-		this.core = e, this.logger = t, R$1(this, "name", Tt$1), R$1(this, "keychain"), R$1(this, "randomSessionIdentifier", pa()), R$1(this, "initialized", !1), R$1(this, "clientId"), R$1(this, "init", async () => {
+		this.core = e, this.logger = t, R$2(this, "name", Tt$1), R$2(this, "keychain"), R$2(this, "randomSessionIdentifier", pa()), R$2(this, "initialized", !1), R$2(this, "clientId"), R$2(this, "init", async () => {
 			this.initialized || (await this.keychain.init(), this.initialized = !0);
-		}), R$1(this, "hasKeys", (s) => (this.isInitialized(), this.keychain.has(s))), R$1(this, "getClientId", async () => {
+		}), R$2(this, "hasKeys", (s) => (this.isInitialized(), this.keychain.has(s))), R$2(this, "getClientId", async () => {
 			if (this.isInitialized(), this.clientId) return this.clientId;
 			const o$1 = Qe$2(Po$2(await this.getClientSeed()).publicKey);
 			return this.clientId = o$1, o$1;
-		}), R$1(this, "generateKeyPair", () => {
+		}), R$2(this, "generateKeyPair", () => {
 			this.isInitialized();
 			const s = ha();
 			return this.setPrivateKey(s.publicKey, s.privateKey);
-		}), R$1(this, "signJWT", async (s) => {
+		}), R$2(this, "signJWT", async (s) => {
 			this.isInitialized();
 			const o$1 = Po$2(await this.getClientSeed()), a$1 = this.randomSessionIdentifier;
 			return await Qo$2(a$1, s, Ct$1, o$1);
-		}), R$1(this, "generateSharedKey", (s, n$1, o$1) => {
+		}), R$2(this, "generateSharedKey", (s, n$1, o$1) => {
 			this.isInitialized();
 			const c$2 = ga(this.getPrivateKey(s), n$1);
 			return this.setSymKey(c$2, o$1);
-		}), R$1(this, "setSymKey", async (s, n$1) => {
+		}), R$2(this, "setSymKey", async (s, n$1) => {
 			this.isInitialized();
 			const o$1 = n$1 || ba(s);
 			return await this.keychain.set(o$1, s), o$1;
-		}), R$1(this, "deleteKeyPair", async (s) => {
+		}), R$2(this, "deleteKeyPair", async (s) => {
 			this.isInitialized(), await this.keychain.del(s);
-		}), R$1(this, "deleteSymKey", async (s) => {
+		}), R$2(this, "deleteSymKey", async (s) => {
 			this.isInitialized(), await this.keychain.del(s);
-		}), R$1(this, "encode", async (s, n$1, o$1) => {
+		}), R$2(this, "encode", async (s, n$1, o$1) => {
 			this.isInitialized();
 			const a$1 = ss$1(o$1), c$2 = safeJsonStringify(n$1);
 			if (Ia(a$1)) return va(c$2, o$1?.encoding);
 			if (Ba(a$1)) {
-				const y$2 = a$1.senderPublicKey, _$1 = a$1.receiverPublicKey;
-				s = await this.generateSharedKey(y$2, _$1);
+				const y$2 = a$1.senderPublicKey, _$2 = a$1.receiverPublicKey;
+				s = await this.generateSharedKey(y$2, _$2);
 			}
 			const h$2 = this.getSymKey(s), { type: l$1, senderPublicKey: g$1 } = a$1;
 			return ma({
@@ -4878,7 +4887,7 @@ var wi = class {
 				senderPublicKey: g$1,
 				encoding: o$1?.encoding
 			});
-		}), R$1(this, "decode", async (s, n$1, o$1) => {
+		}), R$2(this, "decode", async (s, n$1, o$1) => {
 			this.isInitialized();
 			const a$1 = Ea(n$1, o$1);
 			if (Ia(a$1)) return safeJsonParse(xa(n$1, o$1?.encoding));
@@ -4895,12 +4904,12 @@ var wi = class {
 			} catch (c$2) {
 				this.logger.error(`Failed to decode message from topic: '${s}', clientId: '${await this.getClientId()}'`), this.logger.error(c$2);
 			}
-		}), R$1(this, "getPayloadType", (s, n$1 = oe$1) => {
+		}), R$2(this, "getPayloadType", (s, n$1 = oe$1) => {
 			return Zt$1(ze$1({
 				encoded: s,
 				encoding: n$1
 			}).type);
-		}), R$1(this, "getPayloadSenderPublicKey", (s, n$1 = oe$1) => {
+		}), R$2(this, "getPayloadSenderPublicKey", (s, n$1 = oe$1) => {
 			const o$1 = ze$1({
 				encoded: s,
 				encoding: n$1
@@ -4945,10 +4954,10 @@ var kn = Object.defineProperty, jn = Object.defineProperties, Un = Object.getOwn
 	for (var t in e || (e = {})) Fn.call(e, t) && We$1(r$1, t, e[t]);
 	if (Ei) for (var t of Ei(e)) Mn.call(e, t) && We$1(r$1, t, e[t]);
 	return r$1;
-}, Bn = (r$1, e) => jn(r$1, Un(e)), K$2 = (r$1, e, t) => We$1(r$1, typeof e != "symbol" ? e + "" : e, t);
+}, Bn = (r$1, e) => jn(r$1, Un(e)), K$3 = (r$1, e, t) => We$1(r$1, typeof e != "symbol" ? e + "" : e, t);
 var Ii = class extends y$1 {
 	constructor(e, t) {
-		super(e, t), this.logger = e, this.core = t, K$2(this, "messages", /* @__PURE__ */ new Map()), K$2(this, "messagesWithoutClientAck", /* @__PURE__ */ new Map()), K$2(this, "name", Ot$1), K$2(this, "version", "0.3"), K$2(this, "initialized", !1), K$2(this, "storagePrefix", W$1), K$2(this, "init", async () => {
+		super(e, t), this.logger = e, this.core = t, K$3(this, "messages", /* @__PURE__ */ new Map()), K$3(this, "messagesWithoutClientAck", /* @__PURE__ */ new Map()), K$3(this, "name", Ot$1), K$3(this, "version", "0.3"), K$3(this, "initialized", !1), K$3(this, "storagePrefix", W$2), K$3(this, "init", async () => {
 			if (!this.initialized) {
 				this.logger.trace("Initialized");
 				try {
@@ -4966,7 +4975,7 @@ var Ii = class extends y$1 {
 					this.initialized = !0;
 				}
 			}
-		}), K$2(this, "set", async (i$2, s, n$1) => {
+		}), K$3(this, "set", async (i$2, s, n$1) => {
 			this.isInitialized();
 			const o$1 = ya(s);
 			let a$1 = this.messages.get(i$2);
@@ -4976,11 +4985,11 @@ var Ii = class extends y$1 {
 				this.messagesWithoutClientAck.set(i$2, Bn(Kn({}, c$2), { [o$1]: s }));
 			}
 			return await this.persist(), o$1;
-		}), K$2(this, "get", (i$2) => {
+		}), K$3(this, "get", (i$2) => {
 			this.isInitialized();
 			let s = this.messages.get(i$2);
 			return typeof s > "u" && (s = {}), s;
-		}), K$2(this, "getWithoutAck", (i$2) => {
+		}), K$3(this, "getWithoutAck", (i$2) => {
 			this.isInitialized();
 			const s = {};
 			for (const n$1 of i$2) {
@@ -4988,16 +4997,16 @@ var Ii = class extends y$1 {
 				s[n$1] = Object.values(o$1);
 			}
 			return s;
-		}), K$2(this, "has", (i$2, s) => {
+		}), K$3(this, "has", (i$2, s) => {
 			this.isInitialized();
 			return typeof this.get(i$2)[ya(s)] < "u";
-		}), K$2(this, "ack", async (i$2, s) => {
+		}), K$3(this, "ack", async (i$2, s) => {
 			this.isInitialized();
 			const n$1 = this.messagesWithoutClientAck.get(i$2);
 			if (typeof n$1 > "u") return;
 			const o$1 = ya(s);
 			delete n$1[o$1], Object.keys(n$1).length === 0 ? this.messagesWithoutClientAck.delete(i$2) : this.messagesWithoutClientAck.set(i$2, n$1), await this.persist();
-		}), K$2(this, "del", async (i$2) => {
+		}), K$3(this, "del", async (i$2) => {
 			this.isInitialized(), this.messages.delete(i$2), this.messagesWithoutClientAck.delete(i$2), await this.persist();
 		}), this.logger = Re$1(e, this.name), this.core = t;
 	}
@@ -5043,10 +5052,10 @@ var Vn = Object.defineProperty, qn = Object.defineProperties, Gn$1 = Object.getO
 	for (var t in e || (e = {})) Wn.call(e, t) && He$1(r$1, t, e[t]);
 	if (Ti$1) for (var t of Ti$1(e)) Hn.call(e, t) && He$1(r$1, t, e[t]);
 	return r$1;
-}, Ci$1 = (r$1, e) => qn(r$1, Gn$1(e)), G$1 = (r$1, e, t) => He$1(r$1, typeof e != "symbol" ? e + "" : e, t);
+}, Ci$1 = (r$1, e) => qn(r$1, Gn$1(e)), G$2 = (r$1, e, t) => He$1(r$1, typeof e != "symbol" ? e + "" : e, t);
 var Yn = class extends m$1 {
 	constructor(e, t) {
-		super(e, t), this.relayer = e, this.logger = t, G$1(this, "events", new import_events$2.EventEmitter()), G$1(this, "name", xt$1), G$1(this, "queue", /* @__PURE__ */ new Map()), G$1(this, "publishTimeout", (0, import_cjs$1.toMiliseconds)(import_cjs$1.ONE_MINUTE)), G$1(this, "initialPublishTimeout", (0, import_cjs$1.toMiliseconds)(import_cjs$1.ONE_SECOND * 15)), G$1(this, "needsTransportRestart", !1), G$1(this, "publish", async (i$2, s, n$1) => {
+		super(e, t), this.relayer = e, this.logger = t, G$2(this, "events", new import_events$3.EventEmitter()), G$2(this, "name", xt$1), G$2(this, "queue", /* @__PURE__ */ new Map()), G$2(this, "publishTimeout", (0, import_cjs$1.toMiliseconds)(import_cjs$1.ONE_MINUTE)), G$2(this, "initialPublishTimeout", (0, import_cjs$1.toMiliseconds)(import_cjs$1.ONE_SECOND * 15)), G$2(this, "needsTransportRestart", !1), G$2(this, "publish", async (i$2, s, n$1) => {
 			var o$1, a$1, c$2, h$2, l$1;
 			this.logger.debug("Publishing Payload"), this.logger.trace({
 				type: "method",
@@ -5057,7 +5066,7 @@ var Yn = class extends m$1 {
 					opts: n$1
 				}
 			});
-			const g$1 = n$1?.ttl || At$1, y$2 = n$1?.prompt || !1, _$1 = n$1?.tag || 0, u$1 = n$1?.id || getBigIntRpcId().toString(), m$2 = Oa(Sa().protocol), D = {
+			const g$1 = n$1?.ttl || At$1, y$2 = n$1?.prompt || !1, _$2 = n$1?.tag || 0, u$1 = n$1?.id || getBigIntRpcId().toString(), m$2 = Oa(Sa().protocol), D$1 = {
 				id: u$1,
 				method: n$1?.publishMethod || m$2.publish,
 				params: ce$1({
@@ -5065,31 +5074,31 @@ var Yn = class extends m$1 {
 					message: s,
 					ttl: g$1,
 					prompt: y$2,
-					tag: _$1,
+					tag: _$2,
 					attestation: n$1?.attestation
 				}, n$1?.tvf)
-			}, w$1 = `Failed to publish payload, please try again. id:${u$1} tag:${_$1}`;
+			}, w$2 = `Failed to publish payload, please try again. id:${u$1} tag:${_$2}`;
 			try {
-				Dt$1((o$1 = D.params) == null ? void 0 : o$1.prompt) && ((a$1 = D.params) == null || delete a$1.prompt), Dt$1((c$2 = D.params) == null ? void 0 : c$2.tag) && ((h$2 = D.params) == null || delete h$2.tag);
-				const E$2 = new Promise(async (L$1) => {
-					const I$1 = ({ id: T$2 }) => {
-						var S$3;
-						((S$3 = D.id) == null ? void 0 : S$3.toString()) === T$2.toString() && (this.removeRequestFromQueue(T$2), this.relayer.events.removeListener(C$1.publish, I$1), L$1());
+				Dt$1((o$1 = D$1.params) == null ? void 0 : o$1.prompt) && ((a$1 = D$1.params) == null || delete a$1.prompt), Dt$1((c$2 = D$1.params) == null ? void 0 : c$2.tag) && ((h$2 = D$1.params) == null || delete h$2.tag);
+				const E$3 = new Promise(async (L$2) => {
+					const I$2 = ({ id: T$3 }) => {
+						var S$4;
+						((S$4 = D$1.id) == null ? void 0 : S$4.toString()) === T$3.toString() && (this.removeRequestFromQueue(T$3), this.relayer.events.removeListener(C$2.publish, I$2), L$2());
 					};
-					this.relayer.events.on(C$1.publish, I$1);
-					const k$1 = Si(new Promise((T$2, S$3) => {
-						this.rpcPublish(D, n$1).then(T$2).catch((O$2) => {
-							this.logger.warn(O$2, O$2?.message), S$3(O$2);
+					this.relayer.events.on(C$2.publish, I$2);
+					const k$1 = Si(new Promise((T$3, S$4) => {
+						this.rpcPublish(D$1, n$1).then(T$3).catch((O$2) => {
+							this.logger.warn(O$2, O$2?.message), S$4(O$2);
 						});
-					}), this.initialPublishTimeout, `Failed initial publish, retrying.... id:${u$1} tag:${_$1}`);
+					}), this.initialPublishTimeout, `Failed initial publish, retrying.... id:${u$1} tag:${_$2}`);
 					try {
-						await k$1, this.events.removeListener(C$1.publish, I$1);
-					} catch (T$2) {
+						await k$1, this.events.removeListener(C$2.publish, I$2);
+					} catch (T$3) {
 						this.queue.set(u$1, {
-							request: D,
+							request: D$1,
 							opts: n$1,
 							attempt: 1
-						}), this.logger.warn(T$2, T$2?.message);
+						}), this.logger.warn(T$3, T$3?.message);
 					}
 				});
 				this.logger.trace({
@@ -5101,73 +5110,73 @@ var Yn = class extends m$1 {
 						message: s,
 						opts: n$1
 					}
-				}), await Si(E$2, this.publishTimeout, w$1);
-			} catch (E$2) {
-				if (this.logger.debug("Failed to Publish Payload"), this.logger.error(E$2), (l$1 = n$1?.internal) != null && l$1.throwOnFailedPublish) throw E$2;
+				}), await Si(E$3, this.publishTimeout, w$2);
+			} catch (E$3) {
+				if (this.logger.debug("Failed to Publish Payload"), this.logger.error(E$3), (l$1 = n$1?.internal) != null && l$1.throwOnFailedPublish) throw E$3;
 			} finally {
 				this.queue.delete(u$1);
 			}
-		}), G$1(this, "publishCustom", async (i$2) => {
+		}), G$2(this, "publishCustom", async (i$2) => {
 			var s, n$1, o$1, a$1, c$2;
 			this.logger.debug("Publishing custom payload"), this.logger.trace({
 				type: "method",
 				method: "publishCustom",
 				params: i$2
 			});
-			const { payload: h$2, opts: l$1 = {} } = i$2, { attestation: g$1, tvf: y$2, publishMethod: _$1, prompt: u$1, tag: m$2, ttl: D = import_cjs$1.FIVE_MINUTES } = l$1, w$1 = l$1.id || getBigIntRpcId().toString(), E$2 = Oa(Sa().protocol), L$1 = _$1 || E$2.publish, I$1 = {
-				id: w$1,
-				method: L$1,
+			const { payload: h$2, opts: l$1 = {} } = i$2, { attestation: g$1, tvf: y$2, publishMethod: _$2, prompt: u$1, tag: m$2, ttl: D$1 = import_cjs$1.FIVE_MINUTES } = l$1, w$2 = l$1.id || getBigIntRpcId().toString(), E$3 = Oa(Sa().protocol), L$2 = _$2 || E$3.publish, I$2 = {
+				id: w$2,
+				method: L$2,
 				params: ce$1(Ci$1(ce$1({}, h$2), {
-					ttl: D,
+					ttl: D$1,
 					prompt: u$1,
 					tag: m$2,
 					attestation: g$1
 				}), y$2)
-			}, k$1 = `Failed to publish custom payload, please try again. id:${w$1} tag:${m$2}`;
+			}, k$1 = `Failed to publish custom payload, please try again. id:${w$2} tag:${m$2}`;
 			try {
-				Dt$1((s = I$1.params) == null ? void 0 : s.prompt) && ((n$1 = I$1.params) == null || delete n$1.prompt), Dt$1((o$1 = I$1.params) == null ? void 0 : o$1.tag) && ((a$1 = I$1.params) == null || delete a$1.tag);
-				const T$2 = new Promise(async (S$3) => {
-					const O$2 = ({ id: Z }) => {
+				Dt$1((s = I$2.params) == null ? void 0 : s.prompt) && ((n$1 = I$2.params) == null || delete n$1.prompt), Dt$1((o$1 = I$2.params) == null ? void 0 : o$1.tag) && ((a$1 = I$2.params) == null || delete a$1.tag);
+				const T$3 = new Promise(async (S$4) => {
+					const O$2 = ({ id: Z$1 }) => {
 						var we$3;
-						((we$3 = I$1.id) == null ? void 0 : we$3.toString()) === Z.toString() && (this.removeRequestFromQueue(Z), this.relayer.events.removeListener(C$1.publish, O$2), S$3());
+						((we$3 = I$2.id) == null ? void 0 : we$3.toString()) === Z$1.toString() && (this.removeRequestFromQueue(Z$1), this.relayer.events.removeListener(C$2.publish, O$2), S$4());
 					};
-					this.relayer.events.on(C$1.publish, O$2);
-					const te$2 = Si(new Promise((Z, we$3) => {
-						this.rpcPublish(I$1, l$1).then(Z).catch((Ee$2) => {
+					this.relayer.events.on(C$2.publish, O$2);
+					const te$2 = Si(new Promise((Z$1, we$3) => {
+						this.rpcPublish(I$2, l$1).then(Z$1).catch((Ee$2) => {
 							this.logger.warn(Ee$2, Ee$2?.message), we$3(Ee$2);
 						});
-					}), this.initialPublishTimeout, `Failed initial custom payload publish, retrying.... method:${L$1} id:${w$1} tag:${m$2}`);
+					}), this.initialPublishTimeout, `Failed initial custom payload publish, retrying.... method:${L$2} id:${w$2} tag:${m$2}`);
 					try {
-						await te$2, this.events.removeListener(C$1.publish, O$2);
-					} catch (Z) {
-						this.queue.set(w$1, {
-							request: I$1,
+						await te$2, this.events.removeListener(C$2.publish, O$2);
+					} catch (Z$1) {
+						this.queue.set(w$2, {
+							request: I$2,
 							opts: l$1,
 							attempt: 1
-						}), this.logger.warn(Z, Z?.message);
+						}), this.logger.warn(Z$1, Z$1?.message);
 					}
 				});
 				this.logger.trace({
 					type: "method",
 					method: "publish",
 					params: {
-						id: w$1,
+						id: w$2,
 						payload: h$2,
 						opts: l$1
 					}
-				}), await Si(T$2, this.publishTimeout, k$1);
-			} catch (T$2) {
-				if (this.logger.debug("Failed to Publish Payload"), this.logger.error(T$2), (c$2 = l$1?.internal) != null && c$2.throwOnFailedPublish) throw T$2;
+				}), await Si(T$3, this.publishTimeout, k$1);
+			} catch (T$3) {
+				if (this.logger.debug("Failed to Publish Payload"), this.logger.error(T$3), (c$2 = l$1?.internal) != null && c$2.throwOnFailedPublish) throw T$3;
 			} finally {
-				this.queue.delete(w$1);
+				this.queue.delete(w$2);
 			}
-		}), G$1(this, "on", (i$2, s) => {
+		}), G$2(this, "on", (i$2, s) => {
 			this.events.on(i$2, s);
-		}), G$1(this, "once", (i$2, s) => {
+		}), G$2(this, "once", (i$2, s) => {
 			this.events.once(i$2, s);
-		}), G$1(this, "off", (i$2, s) => {
+		}), G$2(this, "off", (i$2, s) => {
 			this.events.off(i$2, s);
-		}), G$1(this, "removeListener", (i$2, s) => {
+		}), G$2(this, "removeListener", (i$2, s) => {
 			this.events.removeListener(i$2, s);
 		}), this.relayer = e, this.logger = Re$1(t, this.name), this.registerEventListeners();
 	}
@@ -5181,7 +5190,7 @@ var Yn = class extends m$1 {
 			request: e
 		});
 		const i$2 = await this.relayer.request(e);
-		return this.relayer.events.emit(C$1.publish, ce$1(ce$1({}, e), t)), this.logger.debug("Successfully Published Payload"), i$2;
+		return this.relayer.events.emit(C$2.publish, ce$1(ce$1({}, e), t)), this.logger.debug("Successfully Published Payload"), i$2;
 	}
 	removeRequestFromQueue(e) {
 		this.queue.delete(e);
@@ -5196,11 +5205,11 @@ var Yn = class extends m$1 {
 	registerEventListeners() {
 		this.relayer.core.heartbeat.on(r.pulse, () => {
 			if (this.needsTransportRestart) {
-				this.needsTransportRestart = !1, this.relayer.events.emit(C$1.connection_stalled);
+				this.needsTransportRestart = !1, this.relayer.events.emit(C$2.connection_stalled);
 				return;
 			}
 			this.checkQueue();
-		}), this.relayer.on(C$1.message_ack, (e) => {
+		}), this.relayer.on(C$2.message_ack, (e) => {
 			this.removeRequestFromQueue(e.id.toString());
 		});
 	}
@@ -5247,12 +5256,12 @@ var Qn = Object.defineProperty, eo = Object.defineProperties, to = Object.getOwn
 	for (var t in e || (e = {})) io.call(e, t) && Ye$2(r$1, t, e[t]);
 	if (Pi$1) for (var t of Pi$1(e)) so.call(e, t) && Ye$2(r$1, t, e[t]);
 	return r$1;
-}, Je$2 = (r$1, e) => eo(r$1, to(e)), f$3 = (r$1, e, t) => Ye$2(r$1, typeof e != "symbol" ? e + "" : e, t);
-var Si$1 = class extends P {
+}, Je$2 = (r$1, e) => eo(r$1, to(e)), f$4 = (r$1, e, t) => Ye$2(r$1, typeof e != "symbol" ? e + "" : e, t);
+var Si$1 = class extends P$1 {
 	constructor(e, t) {
-		super(e, t), this.relayer = e, this.logger = t, f$3(this, "subscriptions", /* @__PURE__ */ new Map()), f$3(this, "topicMap", new Zn()), f$3(this, "events", new import_events$2.EventEmitter()), f$3(this, "name", Ft$1), f$3(this, "version", "0.3"), f$3(this, "pending", /* @__PURE__ */ new Map()), f$3(this, "cached", []), f$3(this, "initialized", !1), f$3(this, "storagePrefix", W$1), f$3(this, "subscribeTimeout", (0, import_cjs$1.toMiliseconds)(import_cjs$1.ONE_MINUTE)), f$3(this, "initialSubscribeTimeout", (0, import_cjs$1.toMiliseconds)(import_cjs$1.ONE_SECOND * 15)), f$3(this, "clientId"), f$3(this, "batchSubscribeTopicsLimit", 500), f$3(this, "init", async () => {
+		super(e, t), this.relayer = e, this.logger = t, f$4(this, "subscriptions", /* @__PURE__ */ new Map()), f$4(this, "topicMap", new Zn()), f$4(this, "events", new import_events$3.EventEmitter()), f$4(this, "name", Ft$1), f$4(this, "version", "0.3"), f$4(this, "pending", /* @__PURE__ */ new Map()), f$4(this, "cached", []), f$4(this, "initialized", !1), f$4(this, "storagePrefix", W$2), f$4(this, "subscribeTimeout", (0, import_cjs$1.toMiliseconds)(import_cjs$1.ONE_MINUTE)), f$4(this, "initialSubscribeTimeout", (0, import_cjs$1.toMiliseconds)(import_cjs$1.ONE_SECOND * 15)), f$4(this, "clientId"), f$4(this, "batchSubscribeTopicsLimit", 500), f$4(this, "init", async () => {
 			this.initialized || (this.logger.trace("Initialized"), this.registerEventListeners(), await this.restore()), this.initialized = !0;
-		}), f$3(this, "subscribe", async (i$2, s) => {
+		}), f$4(this, "subscribe", async (i$2, s) => {
 			var n$1;
 			this.isInitialized(), this.logger.debug("Subscribing Topic"), this.logger.trace({
 				type: "method",
@@ -5281,44 +5290,44 @@ var Si$1 = class extends P {
 			} catch (o$1) {
 				throw this.logger.debug("Failed to Subscribe Topic"), this.logger.error(o$1), o$1;
 			}
-		}), f$3(this, "unsubscribe", async (i$2, s) => {
+		}), f$4(this, "unsubscribe", async (i$2, s) => {
 			this.isInitialized(), typeof s?.id < "u" ? await this.unsubscribeById(i$2, s.id, s) : await this.unsubscribeByTopic(i$2, s);
-		}), f$3(this, "isSubscribed", (i$2) => new Promise((s) => {
+		}), f$4(this, "isSubscribed", (i$2) => new Promise((s) => {
 			s(this.topicMap.topics.includes(i$2));
-		})), f$3(this, "isKnownTopic", (i$2) => new Promise((s) => {
+		})), f$4(this, "isKnownTopic", (i$2) => new Promise((s) => {
 			s(this.topicMap.topics.includes(i$2) || this.pending.has(i$2) || this.cached.some((n$1) => n$1.topic === i$2));
-		})), f$3(this, "on", (i$2, s) => {
+		})), f$4(this, "on", (i$2, s) => {
 			this.events.on(i$2, s);
-		}), f$3(this, "once", (i$2, s) => {
+		}), f$4(this, "once", (i$2, s) => {
 			this.events.once(i$2, s);
-		}), f$3(this, "off", (i$2, s) => {
+		}), f$4(this, "off", (i$2, s) => {
 			this.events.off(i$2, s);
-		}), f$3(this, "removeListener", (i$2, s) => {
+		}), f$4(this, "removeListener", (i$2, s) => {
 			this.events.removeListener(i$2, s);
-		}), f$3(this, "start", async () => {
+		}), f$4(this, "start", async () => {
 			await this.onConnect();
-		}), f$3(this, "stop", async () => {
+		}), f$4(this, "stop", async () => {
 			await this.onDisconnect();
-		}), f$3(this, "restart", async () => {
+		}), f$4(this, "restart", async () => {
 			await this.restore(), await this.onRestart();
-		}), f$3(this, "checkPending", async () => {
+		}), f$4(this, "checkPending", async () => {
 			if (this.pending.size === 0 && (!this.initialized || !this.relayer.connected)) return;
 			const i$2 = [];
 			this.pending.forEach((s) => {
 				i$2.push(s);
 			}), await this.batchSubscribe(i$2);
-		}), f$3(this, "registerEventListeners", () => {
+		}), f$4(this, "registerEventListeners", () => {
 			this.relayer.core.heartbeat.on(r.pulse, async () => {
 				await this.checkPending();
-			}), this.events.on(j$2.created, async (i$2) => {
-				const s = j$2.created;
+			}), this.events.on(j$3.created, async (i$2) => {
+				const s = j$3.created;
 				this.logger.info(`Emitting ${s}`), this.logger.debug({
 					type: "event",
 					event: s,
 					data: i$2
 				}), await this.persist();
-			}), this.events.on(j$2.deleted, async (i$2) => {
-				const s = j$2.deleted;
+			}), this.events.on(j$3.deleted, async (i$2) => {
+				const s = j$3.deleted;
 				this.logger.info(`Emitting ${s}`), this.logger.debug({
 					type: "event",
 					event: s,
@@ -5420,23 +5429,23 @@ var Si$1 = class extends P {
 				(this.relayer.connected || this.relayer.connecting) && this.relayer.request(a$1).catch((g$1) => this.logger.warn(g$1));
 			}, (0, import_cjs$1.toMiliseconds)(import_cjs$1.ONE_SECOND)), o$1;
 			const l$1 = await Si(new Promise(async (g$1) => {
-				const y$2 = (_$1) => {
-					_$1.topic === e && (this.events.removeListener(j$2.created, y$2), g$1(_$1.id));
+				const y$2 = (_$2) => {
+					_$2.topic === e && (this.events.removeListener(j$3.created, y$2), g$1(_$2.id));
 				};
-				this.events.on(j$2.created, y$2);
+				this.events.on(j$3.created, y$2);
 				try {
-					const _$1 = await Si(new Promise((u$1, m$2) => {
-						this.relayer.request(a$1).catch((D) => {
-							this.logger.warn(D, D?.message), m$2(D);
+					const _$2 = await Si(new Promise((u$1, m$2) => {
+						this.relayer.request(a$1).catch((D$1) => {
+							this.logger.warn(D$1, D$1?.message), m$2(D$1);
 						}).then(u$1);
 					}), this.initialSubscribeTimeout, `Subscribing to ${e} failed, please try again`);
-					this.events.removeListener(j$2.created, y$2), g$1(_$1);
+					this.events.removeListener(j$3.created, y$2), g$1(_$2);
 				} catch {}
 			}), this.subscribeTimeout, `Subscribing to ${e} failed, please try again`);
 			if (!l$1 && c$2) throw new Error(`Subscribing to ${e} failed, please try again`);
 			return l$1 ? o$1 : null;
 		} catch (h$2) {
-			if (this.logger.debug("Outgoing Relay Subscribe Payload stalled"), this.relayer.events.emit(C$1.connection_stalled), c$2) throw h$2;
+			if (this.logger.debug("Outgoing Relay Subscribe Payload stalled"), this.relayer.events.emit(C$2.connection_stalled), c$2) throw h$2;
 		}
 		return null;
 	}
@@ -5456,7 +5465,7 @@ var Si$1 = class extends P {
 				this.relayer.request(i$2).catch((n$1) => this.logger.warn(n$1)).then(s);
 			}), this.subscribeTimeout, "rpcBatchSubscribe failed, please try again");
 		} catch {
-			this.relayer.events.emit(C$1.connection_stalled);
+			this.relayer.events.emit(C$2.connection_stalled);
 		}
 	}
 	async rpcBatchFetchMessages(e) {
@@ -5478,7 +5487,7 @@ var Si$1 = class extends P {
 				}).then(n$1);
 			}), this.subscribeTimeout, "rpcBatchFetchMessages failed, please try again");
 		} catch {
-			this.relayer.events.emit(C$1.connection_stalled);
+			this.relayer.events.emit(C$2.connection_stalled);
 		}
 		return s;
 	}
@@ -5522,7 +5531,7 @@ var Si$1 = class extends P {
 		}), this.addSubscription(e, t);
 	}
 	addSubscription(e, t) {
-		this.subscriptions.set(e, fe$1({}, t)), this.topicMap.set(t.topic, e), this.events.emit(j$2.created, t);
+		this.subscriptions.set(e, fe$1({}, t)), this.topicMap.set(t.topic, e), this.events.emit(j$3.created, t);
 	}
 	getSubscription(e) {
 		this.logger.debug("Getting subscription"), this.logger.trace({
@@ -5545,10 +5554,10 @@ var Si$1 = class extends P {
 			reason: t
 		});
 		const i$2 = this.getSubscription(e);
-		this.subscriptions.delete(e), this.topicMap.delete(i$2.topic, e), this.events.emit(j$2.deleted, Je$2(fe$1({}, i$2), { reason: t }));
+		this.subscriptions.delete(e), this.topicMap.delete(i$2.topic, e), this.events.emit(j$3.deleted, Je$2(fe$1({}, i$2), { reason: t }));
 	}
 	async persist() {
-		await this.setRelayerSubscriptions(this.values), this.events.emit(j$2.sync);
+		await this.setRelayerSubscriptions(this.values), this.events.emit(j$3.sync);
 	}
 	async onRestart() {
 		if (this.cached.length) {
@@ -5558,7 +5567,7 @@ var Si$1 = class extends P {
 				await this.batchSubscribe(s);
 			}
 		}
-		this.events.emit(j$2.resubscribed);
+		this.events.emit(j$3.resubscribed);
 	}
 	async restore() {
 		try {
@@ -5620,11 +5629,11 @@ var ro$1 = Object.defineProperty, Oi$1 = Object.getOwnPropertySymbols, no$1 = Ob
 	for (var t in e || (e = {})) no$1.call(e, t) && Xe$1(r$1, t, e[t]);
 	if (Oi$1) for (var t of Oi$1(e)) oo.call(e, t) && Xe$1(r$1, t, e[t]);
 	return r$1;
-}, p = (r$1, e, t) => Xe$1(r$1, typeof e != "symbol" ? e + "" : e, t);
+}, p$1 = (r$1, e, t) => Xe$1(r$1, typeof e != "symbol" ? e + "" : e, t);
 var Ai$1 = class extends d$1 {
 	constructor(e) {
 		var t;
-		super(e), p(this, "protocol", "wc"), p(this, "version", 2), p(this, "core"), p(this, "logger"), p(this, "events", new import_events$2.EventEmitter()), p(this, "provider"), p(this, "messages"), p(this, "subscriber"), p(this, "publisher"), p(this, "name", zt$2), p(this, "transportExplicitlyClosed", !1), p(this, "initialized", !1), p(this, "connectionAttemptInProgress", !1), p(this, "relayUrl"), p(this, "projectId"), p(this, "packageName"), p(this, "bundleId"), p(this, "hasExperiencedNetworkDisruption", !1), p(this, "pingTimeout"), p(this, "heartBeatTimeout", (0, import_cjs$1.toMiliseconds)(import_cjs$1.THIRTY_SECONDS + import_cjs$1.FIVE_SECONDS)), p(this, "reconnectTimeout"), p(this, "connectPromise"), p(this, "reconnectInProgress", !1), p(this, "requestsInFlight", []), p(this, "connectTimeout", (0, import_cjs$1.toMiliseconds)(import_cjs$1.ONE_SECOND * 15)), p(this, "request", async (i$2) => {
+		super(e), p$1(this, "protocol", "wc"), p$1(this, "version", 2), p$1(this, "core"), p$1(this, "logger"), p$1(this, "events", new import_events$3.EventEmitter()), p$1(this, "provider"), p$1(this, "messages"), p$1(this, "subscriber"), p$1(this, "publisher"), p$1(this, "name", zt$2), p$1(this, "transportExplicitlyClosed", !1), p$1(this, "initialized", !1), p$1(this, "connectionAttemptInProgress", !1), p$1(this, "relayUrl"), p$1(this, "projectId"), p$1(this, "packageName"), p$1(this, "bundleId"), p$1(this, "hasExperiencedNetworkDisruption", !1), p$1(this, "pingTimeout"), p$1(this, "heartBeatTimeout", (0, import_cjs$1.toMiliseconds)(import_cjs$1.THIRTY_SECONDS + import_cjs$1.FIVE_SECONDS)), p$1(this, "reconnectTimeout"), p$1(this, "connectPromise"), p$1(this, "reconnectInProgress", !1), p$1(this, "requestsInFlight", []), p$1(this, "connectTimeout", (0, import_cjs$1.toMiliseconds)(import_cjs$1.ONE_SECOND * 15)), p$1(this, "request", async (i$2) => {
 			var s, n$1;
 			this.logger.debug("Publishing Request Payload");
 			const o$1 = i$2.id || getBigIntRpcId().toString();
@@ -5642,7 +5651,7 @@ var Ai$1 = class extends d$1 {
 			} catch (a$1) {
 				throw this.logger.debug(`Failed to Publish Request: ${o$1}`), a$1;
 			}
-		}), p(this, "resetPingTimeout", () => {
+		}), p$1(this, "resetPingTimeout", () => {
 			rn() && (clearTimeout(this.pingTimeout), this.pingTimeout = setTimeout(() => {
 				var i$2, s, n$1, o$1;
 				try {
@@ -5651,16 +5660,16 @@ var Ai$1 = class extends d$1 {
 					this.logger.warn(a$1, a$1?.message);
 				}
 			}, this.heartBeatTimeout));
-		}), p(this, "onPayloadHandler", (i$2) => {
+		}), p$1(this, "onPayloadHandler", (i$2) => {
 			this.onProviderPayload(i$2), this.resetPingTimeout();
-		}), p(this, "onConnectHandler", () => {
-			this.logger.warn({}, "Relayer connected 🛜"), this.startPingTimeout(), this.events.emit(C$1.connect);
-		}), p(this, "onDisconnectHandler", () => {
+		}), p$1(this, "onConnectHandler", () => {
+			this.logger.warn({}, "Relayer connected 🛜"), this.startPingTimeout(), this.events.emit(C$2.connect);
+		}), p$1(this, "onDisconnectHandler", () => {
 			this.logger.warn({}, "Relayer disconnected 🛑"), this.requestsInFlight = [], this.onProviderDisconnect();
-		}), p(this, "onProviderErrorHandler", (i$2) => {
-			this.logger.fatal(`Fatal socket error: ${i$2.message}`), this.events.emit(C$1.error, i$2), this.logger.fatal("Fatal socket error received, closing transport"), this.transportClose();
-		}), p(this, "registerProviderListeners", () => {
-			this.provider.on(M$2.payload, this.onPayloadHandler), this.provider.on(M$2.connect, this.onConnectHandler), this.provider.on(M$2.disconnect, this.onDisconnectHandler), this.provider.on(M$2.error, this.onProviderErrorHandler);
+		}), p$1(this, "onProviderErrorHandler", (i$2) => {
+			this.logger.fatal(`Fatal socket error: ${i$2.message}`), this.events.emit(C$2.error, i$2), this.logger.fatal("Fatal socket error received, closing transport"), this.transportExplicitlyClosed = !0, clearTimeout(this.reconnectTimeout), this.reconnectTimeout = void 0, this.reconnectInProgress = !1, this.transportClose().catch((s) => this.logger.warn(s));
+		}), p$1(this, "registerProviderListeners", () => {
+			this.provider.on(M$3.payload, this.onPayloadHandler), this.provider.on(M$3.connect, this.onConnectHandler), this.provider.on(M$3.disconnect, this.onDisconnectHandler), this.provider.on(M$3.error, this.onProviderErrorHandler);
 		}), this.core = e.core, this.logger = Iu({
 			logger: (t = e.logger) != null ? t : $t$1,
 			name: this.name
@@ -5697,10 +5706,10 @@ var Ai$1 = class extends d$1 {
 		const o$1 = typeof ((i$2 = t?.internal) == null ? void 0 : i$2.throwOnFailedPublish) > "u" ? !0 : (s = t?.internal) == null ? void 0 : s.throwOnFailedPublish;
 		let a$1 = ((n$1 = this.subscriber.topicMap.get(e)) == null ? void 0 : n$1[0]) || "", c$2;
 		const h$2 = (l$1) => {
-			l$1.topic === e && (this.subscriber.off(j$2.created, h$2), c$2());
+			l$1.topic === e && (this.subscriber.off(j$3.created, h$2), c$2());
 		};
 		return await Promise.all([new Promise((l$1) => {
-			c$2 = l$1, this.subscriber.on(j$2.created, h$2);
+			c$2 = l$1, this.subscriber.on(j$3.created, h$2);
 		}), new Promise(async (l$1, g$1) => {
 			a$1 = await this.subscriber.subscribe(e, Ri$1({ internal: { throwOnFailedPublish: o$1 } }, t)).catch((y$2) => {
 				o$1 && g$1(y$2);
@@ -5726,7 +5735,7 @@ var Ai$1 = class extends d$1 {
 		this.provider.disconnect && (this.hasExperiencedNetworkDisruption || this.connected) ? await Si(this.provider.disconnect(), 2e3, "provider.disconnect()").catch(() => this.onProviderDisconnect()) : this.onProviderDisconnect();
 	}
 	async transportClose() {
-		this.transportExplicitlyClosed = !0, await this.transportDisconnect();
+		this.transportExplicitlyClosed = !0, clearTimeout(this.reconnectTimeout), this.reconnectTimeout = void 0, this.reconnectInProgress = !1, await this.transportDisconnect();
 	}
 	async transportOpen(e) {
 		if (!this.subscriber.hasAnyTopics) {
@@ -5770,7 +5779,7 @@ var Ai$1 = class extends d$1 {
 			};
 			await this.core.pairing.pairings.set(i$2, n$1);
 		}
-		this.events.emit(C$1.message, e), await this.recordMessageEvent(e, ye$1.inbound);
+		this.events.emit(C$2.message, e), await this.recordMessageEvent(e, ye$1.inbound);
 	}
 	async connect(e) {
 		await this.confirmOnlineStateOrThrow(), e && e !== this.relayUrl && (this.relayUrl = e, await this.transportDisconnect()), this.connectionAttemptInProgress = !0, this.transportExplicitlyClosed = !1;
@@ -5782,18 +5791,18 @@ var Ai$1 = class extends d$1 {
 					const n$1 = () => {
 						s(/* @__PURE__ */ new Error("Connection interrupted while trying to connect"));
 					};
-					this.provider.once(M$2.disconnect, n$1), await Si(new Promise((o$1, a$1) => {
+					this.provider.once(M$3.disconnect, n$1), await Si(new Promise((o$1, a$1) => {
 						this.provider.connect().then(o$1).catch(a$1);
 					}), this.connectTimeout, `Socket stalled when trying to connect to ${this.relayUrl}`).catch((o$1) => {
 						s(o$1);
 					}).finally(() => {
-						this.provider.off(M$2.disconnect, n$1), clearTimeout(this.reconnectTimeout);
+						this.provider.off(M$3.disconnect, n$1), clearTimeout(this.reconnectTimeout);
 					}), await new Promise(async (o$1, a$1) => {
 						const c$2 = () => {
 							s(/* @__PURE__ */ new Error("Connection interrupted while trying to subscribe"));
 						};
-						this.provider.once(M$2.disconnect, c$2), await this.subscriber.start().then(o$1).catch(a$1).finally(() => {
-							this.provider.off(M$2.disconnect, c$2);
+						this.provider.once(M$3.disconnect, c$2), await this.subscriber.start().then(o$1).catch(a$1).finally(() => {
+							this.provider.off(M$3.disconnect, c$2);
 						});
 					}), this.hasExperiencedNetworkDisruption = !1, i$2();
 				});
@@ -5824,7 +5833,7 @@ var Ai$1 = class extends d$1 {
 	async createProvider() {
 		this.provider.connection && this.unregisterProviderListeners();
 		const e = await this.core.crypto.signJWT(this.relayUrl);
-		this.provider = new o(new f$2(bi({
+		this.provider = new o(new f$3(bi({
 			sdkVersion: Pe$1,
 			protocol: this.protocol,
 			version: this.version,
@@ -5865,17 +5874,17 @@ var Ai$1 = class extends d$1 {
 				type: "event",
 				event: t.id
 			}, a$1)), this.events.emit(t.id, a$1), await this.acknowledgePayload(e), await this.onMessageEvent(a$1);
-		} else isJsonRpcResponse(e) && this.events.emit(C$1.message_ack, e);
+		} else isJsonRpcResponse(e) && this.events.emit(C$2.message_ack, e);
 	}
 	async onMessageEvent(e) {
-		await this.shouldIgnoreMessageEvent(e) || (await this.recordMessageEvent(e, ye$1.inbound), this.events.emit(C$1.message, e));
+		await this.shouldIgnoreMessageEvent(e) || (await this.recordMessageEvent(e, ye$1.inbound), this.events.emit(C$2.message, e));
 	}
 	async acknowledgePayload(e) {
 		const t = formatJsonRpcResult(e.id, !0);
 		await this.provider.connection.send(t);
 	}
 	unregisterProviderListeners() {
-		this.provider.off(M$2.payload, this.onPayloadHandler), this.provider.off(M$2.connect, this.onConnectHandler), this.provider.off(M$2.disconnect, this.onDisconnectHandler), this.provider.off(M$2.error, this.onProviderErrorHandler), clearTimeout(this.pingTimeout);
+		this.provider.off(M$3.payload, this.onPayloadHandler), this.provider.off(M$3.connect, this.onConnectHandler), this.provider.off(M$3.disconnect, this.onDisconnectHandler), this.provider.off(M$3.error, this.onProviderErrorHandler), clearTimeout(this.pingTimeout);
 	}
 	async registerEventListeners() {
 		let e = await gu();
@@ -5890,7 +5899,7 @@ var Ai$1 = class extends d$1 {
 		});
 	}
 	async onProviderDisconnect() {
-		clearTimeout(this.pingTimeout), this.events.emit(C$1.disconnect), this.connectionAttemptInProgress = !1, !this.reconnectInProgress && (this.reconnectInProgress = !0, await this.subscriber.stop(), this.subscriber.hasAnyTopics && (this.transportExplicitlyClosed || (this.reconnectTimeout = setTimeout(async () => {
+		clearTimeout(this.pingTimeout), this.events.emit(C$2.disconnect), this.connectionAttemptInProgress = !1, !this.reconnectInProgress && (this.reconnectInProgress = !0, await this.subscriber.stop(), this.subscriber.hasAnyTopics && (this.transportExplicitlyClosed || (this.reconnectTimeout = setTimeout(async () => {
 			await this.transportOpen().catch((e) => this.logger.error(e, e?.message)), this.reconnectTimeout = void 0, this.reconnectInProgress = !1;
 		}, (0, import_cjs$1.toMiliseconds)(.1)))));
 	}
@@ -5971,7 +5980,7 @@ function ve$2(r$1, e, t, i$2) {
 				if (r$1.size !== e.size) return !1;
 				const c$2 = Array.from(r$1.values()), h$2 = Array.from(e.values());
 				for (let l$1 = 0; l$1 < c$2.length; l$1++) {
-					const g$1 = c$2[l$1], y$2 = h$2.findIndex((_$1) => De$1(g$1, _$1, void 0, r$1, e, t, i$2));
+					const g$1 = c$2[l$1], y$2 = h$2.findIndex((_$2) => De$1(g$1, _$2, void 0, r$1, e, t, i$2));
 					if (y$2 === -1) return !1;
 					h$2.splice(y$2, 1);
 				}
@@ -6000,10 +6009,10 @@ function ve$2(r$1, e, t, i$2) {
 				const h$2 = [...Object.keys(r$1), ...xi$1(r$1)], l$1 = [...Object.keys(e), ...xi$1(e)];
 				if (h$2.length !== l$1.length) return !1;
 				for (let g$1 = 0; g$1 < h$2.length; g$1++) {
-					const y$2 = h$2[g$1], _$1 = r$1[y$2];
+					const y$2 = h$2[g$1], _$2 = r$1[y$2];
 					if (!Object.hasOwn(e, y$2)) return !1;
 					const u$1 = e[y$2];
-					if (!De$1(_$1, u$1, y$2, r$1, e, t, i$2)) return !1;
+					if (!De$1(_$2, u$1, y$2, r$1, e, t, i$2)) return !1;
 				}
 				return !0;
 			}
@@ -6025,25 +6034,25 @@ var Lo = Object.defineProperty, Li$1 = Object.getOwnPropertySymbols, ko = Object
 	for (var t in e || (e = {})) ko.call(e, t) && Qe$1(r$1, t, e[t]);
 	if (Li$1) for (var t of Li$1(e)) jo.call(e, t) && Qe$1(r$1, t, e[t]);
 	return r$1;
-}, U$1 = (r$1, e, t) => Qe$1(r$1, typeof e != "symbol" ? e + "" : e, t);
-var ji = class extends f$1 {
-	constructor(e, t, i$2, s = W$1, n$1 = void 0) {
-		super(e, t, i$2, s), this.core = e, this.logger = t, this.name = i$2, U$1(this, "map", /* @__PURE__ */ new Map()), U$1(this, "version", "0.3"), U$1(this, "cached", []), U$1(this, "initialized", !1), U$1(this, "getKey"), U$1(this, "storagePrefix", W$1), U$1(this, "recentlyDeleted", []), U$1(this, "recentlyDeletedLimit", 200), U$1(this, "init", async () => {
+}, U$2 = (r$1, e, t) => Qe$1(r$1, typeof e != "symbol" ? e + "" : e, t);
+var ji = class extends f$2 {
+	constructor(e, t, i$2, s = W$2, n$1 = void 0) {
+		super(e, t, i$2, s), this.core = e, this.logger = t, this.name = i$2, U$2(this, "map", /* @__PURE__ */ new Map()), U$2(this, "version", "0.3"), U$2(this, "cached", []), U$2(this, "initialized", !1), U$2(this, "getKey"), U$2(this, "storagePrefix", W$2), U$2(this, "recentlyDeleted", []), U$2(this, "recentlyDeletedLimit", 200), U$2(this, "init", async () => {
 			this.initialized || (this.logger.trace("Initialized"), await this.restore(), this.cached.forEach((o$1) => {
 				this.getKey && o$1 !== null && !Dt$1(o$1) ? this.map.set(this.getKey(o$1), o$1) : Ja(o$1) ? this.map.set(o$1.id, o$1) : Qa(o$1) && this.map.set(o$1.topic, o$1);
 			}), this.cached = [], this.initialized = !0);
-		}), U$1(this, "set", async (o$1, a$1) => {
+		}), U$2(this, "set", async (o$1, a$1) => {
 			this.isInitialized(), this.map.has(o$1) ? await this.update(o$1, a$1) : (this.logger.debug("Setting value"), this.logger.trace({
 				type: "method",
 				method: "set",
 				key: o$1,
 				value: a$1
 			}), this.map.set(o$1, a$1), await this.persist());
-		}), U$1(this, "get", (o$1) => (this.isInitialized(), this.logger.debug("Getting value"), this.logger.trace({
+		}), U$2(this, "get", (o$1) => (this.isInitialized(), this.logger.debug("Getting value"), this.logger.trace({
 			type: "method",
 			method: "get",
 			key: o$1
-		}), this.getData(o$1))), U$1(this, "getAll", (o$1) => (this.isInitialized(), o$1 ? this.values.filter((a$1) => Object.keys(o$1).every((c$2) => zo(a$1[c$2], o$1[c$2]))) : this.values)), U$1(this, "update", async (o$1, a$1) => {
+		}), this.getData(o$1))), U$2(this, "getAll", (o$1) => (this.isInitialized(), o$1 ? this.values.filter((a$1) => Object.keys(o$1).every((c$2) => zo(a$1[c$2], o$1[c$2]))) : this.values)), U$2(this, "update", async (o$1, a$1) => {
 			this.isInitialized(), this.logger.debug("Updating value"), this.logger.trace({
 				type: "method",
 				method: "update",
@@ -6052,7 +6061,7 @@ var ji = class extends f$1 {
 			});
 			const c$2 = ki$1(ki$1({}, this.getData(o$1)), a$1);
 			this.map.set(o$1, c$2), await this.persist();
-		}), U$1(this, "delete", async (o$1, a$1) => {
+		}), U$2(this, "delete", async (o$1, a$1) => {
 			this.isInitialized(), this.map.has(o$1) && (this.logger.debug("Deleting value"), this.logger.trace({
 				type: "method",
 				method: "delete",
@@ -6132,7 +6141,7 @@ var Uo = Object.defineProperty, Fo = (r$1, e, t) => e in r$1 ? Uo(r$1, e, {
 }) : r$1[e] = t, d$2 = (r$1, e, t) => Fo(r$1, typeof e != "symbol" ? e + "" : e, t);
 var Ui$1 = class {
 	constructor(e, t) {
-		this.core = e, this.logger = t, d$2(this, "name", Kt$1), d$2(this, "version", "0.3"), d$2(this, "events", new import_events$2.default()), d$2(this, "pairings"), d$2(this, "initialized", !1), d$2(this, "storagePrefix", W$1), d$2(this, "ignoredPayloadTypes", [1]), d$2(this, "registeredMethods", []), d$2(this, "init", async () => {
+		this.core = e, this.logger = t, d$2(this, "name", Kt$1), d$2(this, "version", "0.3"), d$2(this, "events", new import_events$3.default()), d$2(this, "pairings"), d$2(this, "initialized", !1), d$2(this, "storagePrefix", W$2), d$2(this, "ignoredPayloadTypes", [1]), d$2(this, "registeredMethods", []), d$2(this, "init", async () => {
 			this.initialized || (await this.pairings.init(), await this.cleanup(), this.registerRelayerEvents(), this.registerExpirerEvents(), this.initialized = !0, this.logger.trace("Initialized"));
 		}), d$2(this, "register", ({ methods: i$2 }) => {
 			this.isInitialized(), this.registeredMethods = [...new Set([...this.registeredMethods, ...i$2])];
@@ -6164,15 +6173,15 @@ var Ui$1 = class {
 			this.isInitialized();
 			const s = this.core.eventClient.createEvent({ properties: {
 				topic: i$2?.uri,
-				trace: [Y.pairing_started]
+				trace: [Y$1.pairing_started]
 			} });
 			this.isValidPair(i$2, s);
 			const { topic: n$1, symKey: o$1, relay: a$1, expiryTimestamp: c$2, methods: h$2 } = Ca(i$2.uri);
-			s.props.properties.topic = n$1, s.addTrace(Y.pairing_uri_validation_success), s.addTrace(Y.pairing_uri_not_expired);
+			s.props.properties.topic = n$1, s.addTrace(Y$1.pairing_uri_validation_success), s.addTrace(Y$1.pairing_uri_not_expired);
 			let l$1;
 			if (this.pairings.keys.includes(n$1)) {
-				if (l$1 = this.pairings.get(n$1), s.addTrace(Y.existing_pairing), l$1.active) throw s.setError(X.active_pairing_already_exists), /* @__PURE__ */ new Error(`Pairing already exists: ${n$1}. Please try again with a new connection URI.`);
-				s.addTrace(Y.pairing_not_expired);
+				if (l$1 = this.pairings.get(n$1), s.addTrace(Y$1.existing_pairing), l$1.active) throw s.setError(X$1.active_pairing_already_exists), /* @__PURE__ */ new Error(`Pairing already exists: ${n$1}. Please try again with a new connection URI.`);
+				s.addTrace(Y$1.pairing_not_expired);
 			}
 			const g$1 = c$2 || _i(import_cjs$1.FIVE_MINUTES), y$2 = {
 				topic: n$1,
@@ -6181,18 +6190,18 @@ var Ui$1 = class {
 				active: !1,
 				methods: h$2
 			};
-			this.core.expirer.set(n$1, g$1), await this.pairings.set(n$1, y$2), s.addTrace(Y.store_new_pairing), i$2.activatePairing && await this.activate({ topic: n$1 }), this.events.emit(ae$1.create, y$2), s.addTrace(Y.emit_inactive_pairing), this.core.crypto.keychain.has(n$1) || await this.core.crypto.setSymKey(o$1, n$1), s.addTrace(Y.subscribing_pairing_topic);
+			this.core.expirer.set(n$1, g$1), await this.pairings.set(n$1, y$2), s.addTrace(Y$1.store_new_pairing), i$2.activatePairing && await this.activate({ topic: n$1 }), this.events.emit(ae$1.create, y$2), s.addTrace(Y$1.emit_inactive_pairing), this.core.crypto.keychain.has(n$1) || await this.core.crypto.setSymKey(o$1, n$1), s.addTrace(Y$1.subscribing_pairing_topic);
 			try {
 				await this.core.relayer.confirmOnlineStateOrThrow();
 			} catch {
-				s.setError(X.no_internet_connection);
+				s.setError(X$1.no_internet_connection);
 			}
 			try {
 				await this.core.relayer.subscribe(n$1, { relay: a$1 });
-			} catch (_$1) {
-				throw s.setError(X.subscribe_pairing_topic_failure), _$1;
+			} catch (_$2) {
+				throw s.setError(X$1.subscribe_pairing_topic_failure), _$2;
 			}
-			return s.addTrace(Y.subscribe_pairing_topic_success), y$2;
+			return s.addTrace(Y$1.subscribe_pairing_topic_success), y$2;
 		}), d$2(this, "activate", async ({ topic: i$2 }) => {
 			this.isInitialized();
 			const s = _i(import_cjs$1.FIVE_MINUTES);
@@ -6300,23 +6309,23 @@ var Ui$1 = class {
 			var n$1;
 			if (!ou(i$2)) {
 				const { message: a$1 } = Bt$1("MISSING_OR_INVALID", `pair() params: ${i$2}`);
-				throw s.setError(X.malformed_pairing_uri), new Error(a$1);
+				throw s.setError(X$1.malformed_pairing_uri), new Error(a$1);
 			}
 			if (!Xa(i$2.uri)) {
 				const { message: a$1 } = Bt$1("MISSING_OR_INVALID", `pair() uri: ${i$2.uri}`);
-				throw s.setError(X.malformed_pairing_uri), new Error(a$1);
+				throw s.setError(X$1.malformed_pairing_uri), new Error(a$1);
 			}
 			const o$1 = Ca(i$2?.uri);
 			if (!((n$1 = o$1?.relay) != null && n$1.protocol)) {
 				const { message: a$1 } = Bt$1("MISSING_OR_INVALID", "pair() uri#relay-protocol");
-				throw s.setError(X.malformed_pairing_uri), new Error(a$1);
+				throw s.setError(X$1.malformed_pairing_uri), new Error(a$1);
 			}
 			if (!(o$1 != null && o$1.symKey)) {
 				const { message: a$1 } = Bt$1("MISSING_OR_INVALID", "pair() uri#symKey");
-				throw s.setError(X.malformed_pairing_uri), new Error(a$1);
+				throw s.setError(X$1.malformed_pairing_uri), new Error(a$1);
 			}
 			if (o$1 != null && o$1.expiryTimestamp && (0, import_cjs$1.toMiliseconds)(o$1?.expiryTimestamp) < Date.now()) {
-				s.setError(X.pairing_expired);
+				s.setError(X$1.pairing_expired);
 				const { message: a$1 } = Bt$1("EXPIRED", "pair() URI has expired. Please try again with a new connection URI.");
 				throw new Error(a$1);
 			}
@@ -6360,7 +6369,7 @@ var Ui$1 = class {
 		}
 	}
 	registerRelayerEvents() {
-		this.core.relayer.on(C$1.message, async (e) => {
+		this.core.relayer.on(C$2.message, async (e) => {
 			const { topic: t, message: i$2, transportType: s } = e;
 			if (this.pairings.keys.includes(t) && s !== ee$1.link_mode && !this.ignoredPayloadTypes.includes(this.core.crypto.getPayloadType(i$2))) try {
 				const n$1 = await this.core.crypto.decode(t, i$2);
@@ -6377,7 +6386,7 @@ var Ui$1 = class {
 		});
 	}
 	registerExpirerEvents() {
-		this.core.expirer.on(q.expired, async (e) => {
+		this.core.expirer.on(q$1.expired, async (e) => {
 			const { topic: t } = Ui(e.target);
 			t && this.pairings.keys.includes(t) && (await this.deletePairing(t, !0), this.events.emit(ae$1.expire, { topic: t }));
 		});
@@ -6389,9 +6398,9 @@ var Mo = Object.defineProperty, Ko = (r$1, e, t) => e in r$1 ? Mo(r$1, e, {
 	writable: !0,
 	value: t
 }) : r$1[e] = t, N$2 = (r$1, e, t) => Ko(r$1, typeof e != "symbol" ? e + "" : e, t);
-var Fi = class extends I {
+var Fi = class extends I$1 {
 	constructor(e, t) {
-		super(e, t), this.core = e, this.logger = t, N$2(this, "records", /* @__PURE__ */ new Map()), N$2(this, "events", new import_events$2.EventEmitter()), N$2(this, "name", Vt$1), N$2(this, "version", "0.3"), N$2(this, "cached", []), N$2(this, "initialized", !1), N$2(this, "storagePrefix", W$1), N$2(this, "init", async () => {
+		super(e, t), this.core = e, this.logger = t, N$2(this, "records", /* @__PURE__ */ new Map()), N$2(this, "events", new import_events$3.EventEmitter()), N$2(this, "name", Vt$1), N$2(this, "version", "0.3"), N$2(this, "cached", []), N$2(this, "initialized", !1), N$2(this, "storagePrefix", W$2), N$2(this, "init", async () => {
 			this.initialized || (this.logger.trace("Initialized"), await this.restore(), this.cached.forEach((i$2) => this.records.set(i$2.id, i$2)), this.cached = [], this.registerEventListeners(), this.initialized = !0);
 		}), N$2(this, "set", (i$2, s, n$1) => {
 			if (this.isInitialized(), this.logger.debug("Setting JSON-RPC request history record"), this.logger.trace({
@@ -6411,7 +6420,7 @@ var Fi = class extends I {
 				chainId: n$1,
 				expiry: _i(import_cjs$1.THIRTY_DAYS)
 			};
-			this.records.set(o$1.id, o$1), this.persist(), this.events.emit(V$1.created, o$1);
+			this.records.set(o$1.id, o$1), this.persist(), this.events.emit(V$2.created, o$1);
 		}), N$2(this, "resolve", async (i$2) => {
 			if (this.isInitialized(), this.logger.debug("Updating JSON-RPC response history record"), this.logger.trace({
 				type: "method",
@@ -6419,7 +6428,7 @@ var Fi = class extends I {
 				response: i$2
 			}), !this.records.has(i$2.id)) return;
 			const s = await this.getRecord(i$2.id);
-			typeof s.response > "u" && (s.response = isJsonRpcError(i$2) ? { error: i$2.error } : { result: i$2.result }, this.records.set(s.id, s), this.persist(), this.events.emit(V$1.updated, s));
+			typeof s.response > "u" && (s.response = isJsonRpcError(i$2) ? { error: i$2.error } : { result: i$2.result }, this.records.set(s.id, s), this.persist(), this.events.emit(V$2.updated, s));
 		}), N$2(this, "get", async (i$2, s) => (this.isInitialized(), this.logger.debug("Getting record"), this.logger.trace({
 			type: "method",
 			method: "get",
@@ -6433,7 +6442,7 @@ var Fi = class extends I {
 			}), this.values.forEach((n$1) => {
 				if (n$1.topic === i$2) {
 					if (typeof s < "u" && n$1.id !== s) return;
-					this.records.delete(n$1.id), this.events.emit(V$1.deleted, n$1);
+					this.records.delete(n$1.id), this.events.emit(V$2.deleted, n$1);
 				}
 			}), this.persist();
 		}), N$2(this, "exists", async (i$2, s) => (this.isInitialized(), this.records.has(s) ? (await this.getRecord(s)).topic === i$2 : !1)), N$2(this, "on", (i$2, s) => {
@@ -6489,7 +6498,7 @@ var Fi = class extends I {
 		return t;
 	}
 	async persist() {
-		await this.setJsonRpcRecords(this.values), this.events.emit(V$1.sync);
+		await this.setJsonRpcRecords(this.values), this.events.emit(V$2.sync);
 	}
 	async restore() {
 		try {
@@ -6509,22 +6518,22 @@ var Fi = class extends I {
 		}
 	}
 	registerEventListeners() {
-		this.events.on(V$1.created, (e) => {
-			const t = V$1.created;
+		this.events.on(V$2.created, (e) => {
+			const t = V$2.created;
 			this.logger.info(`Emitting ${t}`), this.logger.debug({
 				type: "event",
 				event: t,
 				record: e
 			});
-		}), this.events.on(V$1.updated, (e) => {
-			const t = V$1.updated;
+		}), this.events.on(V$2.updated, (e) => {
+			const t = V$2.updated;
 			this.logger.info(`Emitting ${t}`), this.logger.debug({
 				type: "event",
 				event: t,
 				record: e
 			});
-		}), this.events.on(V$1.deleted, (e) => {
-			const t = V$1.deleted;
+		}), this.events.on(V$2.deleted, (e) => {
+			const t = V$2.deleted;
 			this.logger.info(`Emitting ${t}`), this.logger.debug({
 				type: "event",
 				event: t,
@@ -6539,7 +6548,7 @@ var Fi = class extends I {
 			this.isInitialized();
 			let e = !1;
 			this.records.forEach((t) => {
-				(0, import_cjs$1.toMiliseconds)(t.expiry || 0) - Date.now() <= 0 && (this.logger.info(`Deleting expired history log: ${t.id}`), this.records.delete(t.id), this.events.emit(V$1.deleted, t, !1), e = !0);
+				(0, import_cjs$1.toMiliseconds)(t.expiry || 0) - Date.now() <= 0 && (this.logger.info(`Deleting expired history log: ${t.id}`), this.records.delete(t.id), this.events.emit(V$2.deleted, t, !1), e = !0);
 			}), e && this.persist();
 		} catch (e) {
 			this.logger.warn(e);
@@ -6557,47 +6566,47 @@ var Bo = Object.defineProperty, Vo = (r$1, e, t) => e in r$1 ? Bo(r$1, e, {
 	configurable: !0,
 	writable: !0,
 	value: t
-}) : r$1[e] = t, z$1 = (r$1, e, t) => Vo(r$1, typeof e != "symbol" ? e + "" : e, t);
-var Mi = class extends S$1 {
+}) : r$1[e] = t, z$2 = (r$1, e, t) => Vo(r$1, typeof e != "symbol" ? e + "" : e, t);
+var Mi = class extends S$2 {
 	constructor(e, t) {
-		super(e, t), this.core = e, this.logger = t, z$1(this, "expirations", /* @__PURE__ */ new Map()), z$1(this, "events", new import_events$2.EventEmitter()), z$1(this, "name", Gt$1), z$1(this, "version", "0.3"), z$1(this, "cached", []), z$1(this, "initialized", !1), z$1(this, "storagePrefix", W$1), z$1(this, "init", async () => {
+		super(e, t), this.core = e, this.logger = t, z$2(this, "expirations", /* @__PURE__ */ new Map()), z$2(this, "events", new import_events$3.EventEmitter()), z$2(this, "name", Gt$1), z$2(this, "version", "0.3"), z$2(this, "cached", []), z$2(this, "initialized", !1), z$2(this, "storagePrefix", W$2), z$2(this, "init", async () => {
 			this.initialized || (this.logger.trace("Initialized"), await this.restore(), this.cached.forEach((i$2) => this.expirations.set(i$2.target, i$2)), this.cached = [], this.registerEventListeners(), this.initialized = !0);
-		}), z$1(this, "has", (i$2) => {
+		}), z$2(this, "has", (i$2) => {
 			try {
 				const s = this.formatTarget(i$2);
 				return typeof this.getExpiration(s) < "u";
 			} catch {
 				return !1;
 			}
-		}), z$1(this, "set", (i$2, s) => {
+		}), z$2(this, "set", (i$2, s) => {
 			this.isInitialized();
 			const n$1 = this.formatTarget(i$2), o$1 = {
 				target: n$1,
 				expiry: s
 			};
-			this.expirations.set(n$1, o$1), this.checkExpiry(n$1, o$1), this.events.emit(q.created, {
+			this.expirations.set(n$1, o$1), this.checkExpiry(n$1, o$1), this.events.emit(q$1.created, {
 				target: n$1,
 				expiration: o$1
 			});
-		}), z$1(this, "get", (i$2) => {
+		}), z$2(this, "get", (i$2) => {
 			this.isInitialized();
 			const s = this.formatTarget(i$2);
 			return this.getExpiration(s);
-		}), z$1(this, "del", (i$2) => {
+		}), z$2(this, "del", (i$2) => {
 			if (this.isInitialized(), this.has(i$2)) {
 				const s = this.formatTarget(i$2), n$1 = this.getExpiration(s);
-				this.expirations.delete(s), this.events.emit(q.deleted, {
+				this.expirations.delete(s), this.events.emit(q$1.deleted, {
 					target: s,
 					expiration: n$1
 				});
 			}
-		}), z$1(this, "on", (i$2, s) => {
+		}), z$2(this, "on", (i$2, s) => {
 			this.events.on(i$2, s);
-		}), z$1(this, "once", (i$2, s) => {
+		}), z$2(this, "once", (i$2, s) => {
 			this.events.once(i$2, s);
-		}), z$1(this, "off", (i$2, s) => {
+		}), z$2(this, "off", (i$2, s) => {
 			this.events.off(i$2, s);
-		}), z$1(this, "removeListener", (i$2, s) => {
+		}), z$2(this, "removeListener", (i$2, s) => {
 			this.events.removeListener(i$2, s);
 		}), this.logger = Re$1(t, this.name);
 	}
@@ -6629,7 +6638,7 @@ var Mi = class extends S$1 {
 		return await this.core.storage.getItem(this.storageKey);
 	}
 	async persist() {
-		await this.setExpirations(this.values), this.events.emit(q.sync);
+		await this.setExpirations(this.values), this.events.emit(q$1.sync);
 	}
 	async restore() {
 		try {
@@ -6661,7 +6670,7 @@ var Mi = class extends S$1 {
 		(0, import_cjs$1.toMiliseconds)(i$2) - Date.now() <= 0 && this.expire(e, t);
 	}
 	expire(e, t) {
-		this.expirations.delete(e), this.events.emit(q.expired, {
+		this.expirations.delete(e), this.events.emit(q$1.expired, {
 			target: e,
 			expiration: t
 		});
@@ -6670,22 +6679,22 @@ var Mi = class extends S$1 {
 		this.core.relayer.connected && this.expirations.forEach((e, t) => this.checkExpiry(t, e));
 	}
 	registerEventListeners() {
-		this.core.heartbeat.on(r.pulse, () => this.checkExpirations()), this.events.on(q.created, (e) => {
-			const t = q.created;
+		this.core.heartbeat.on(r.pulse, () => this.checkExpirations()), this.events.on(q$1.created, (e) => {
+			const t = q$1.created;
 			this.logger.info(`Emitting ${t}`), this.logger.debug({
 				type: "event",
 				event: t,
 				data: e
 			}), this.persist();
-		}), this.events.on(q.expired, (e) => {
-			const t = q.expired;
+		}), this.events.on(q$1.expired, (e) => {
+			const t = q$1.expired;
 			this.logger.info(`Emitting ${t}`), this.logger.debug({
 				type: "event",
 				event: t,
 				data: e
 			}), this.persist();
-		}), this.events.on(q.deleted, (e) => {
-			const t = q.deleted;
+		}), this.events.on(q$1.deleted, (e) => {
+			const t = q$1.deleted;
 			this.logger.info(`Emitting ${t}`), this.logger.debug({
 				type: "event",
 				event: t,
@@ -6705,42 +6714,42 @@ var qo = Object.defineProperty, Go = (r$1, e, t) => e in r$1 ? qo(r$1, e, {
 	configurable: !0,
 	writable: !0,
 	value: t
-}) : r$1[e] = t, P$1 = (r$1, e, t) => Go(r$1, typeof e != "symbol" ? e + "" : e, t);
-var Ki = class extends M$1 {
+}) : r$1[e] = t, P$2 = (r$1, e, t) => Go(r$1, typeof e != "symbol" ? e + "" : e, t);
+var Ki = class extends M$2 {
 	constructor(e, t, i$2) {
-		super(e, t, i$2), this.core = e, this.logger = t, this.store = i$2, P$1(this, "name", Ht$1), P$1(this, "abortController"), P$1(this, "isDevEnv"), P$1(this, "verifyUrlV3", Jt$1), P$1(this, "storagePrefix", W$1), P$1(this, "version", 2), P$1(this, "publicKey"), P$1(this, "fetchPromise"), P$1(this, "init", async () => {
+		super(e, t, i$2), this.core = e, this.logger = t, this.store = i$2, P$2(this, "name", Ht$1), P$2(this, "abortController"), P$2(this, "isDevEnv"), P$2(this, "verifyUrlV3", Jt$1), P$2(this, "storagePrefix", W$2), P$2(this, "version", 2), P$2(this, "publicKey"), P$2(this, "fetchPromise"), P$2(this, "init", async () => {
 			var s;
 			this.isDevEnv || (this.publicKey = await this.store.getItem(this.storeKey), this.publicKey && (0, import_cjs$1.toMiliseconds)((s = this.publicKey) == null ? void 0 : s.expiresAt) < Date.now() && (this.logger.debug("verify v2 public key expired"), await this.removePublicKey()));
-		}), P$1(this, "register", async (s) => {
+		}), P$2(this, "register", async (s) => {
 			if (!Wt$1() || this.isDevEnv) return;
 			const n$1 = window.location.origin, { id: o$1, decryptedId: a$1 } = s, c$2 = `${this.verifyUrlV3}/attestation?projectId=${this.core.projectId}&origin=${n$1}&id=${o$1}&decryptedId=${a$1}`;
 			try {
-				const h$2 = (0, import_cjs$2.getDocument)(), l$1 = this.startAbortTimer(import_cjs$1.ONE_SECOND * 5), g$1 = await new Promise((y$2, _$1) => {
+				const h$2 = (0, import_cjs$2.getDocument)(), l$1 = this.startAbortTimer(import_cjs$1.ONE_SECOND * 5), g$1 = await new Promise((y$2, _$2) => {
 					const u$1 = () => {
-						window.removeEventListener("message", D), h$2.body.removeChild(m$2), _$1("attestation aborted");
+						window.removeEventListener("message", D$1), h$2.body.removeChild(m$2), _$2("attestation aborted");
 					};
 					this.abortController.signal.addEventListener("abort", u$1);
 					const m$2 = h$2.createElement("iframe");
 					m$2.src = c$2, m$2.style.display = "none", m$2.addEventListener("error", u$1, { signal: this.abortController.signal });
-					const D = (w$1) => {
-						if (w$1.data && typeof w$1.data == "string") try {
-							const E$2 = JSON.parse(w$1.data);
-							if (E$2.type === "verify_attestation") {
-								if (sn(E$2.attestation).payload.id !== o$1) return;
-								clearInterval(l$1), h$2.body.removeChild(m$2), this.abortController.signal.removeEventListener("abort", u$1), window.removeEventListener("message", D), y$2(E$2.attestation === null ? "" : E$2.attestation);
+					const D$1 = (w$2) => {
+						if (w$2.data && typeof w$2.data == "string") try {
+							const E$3 = JSON.parse(w$2.data);
+							if (E$3.type === "verify_attestation") {
+								if (sn(E$3.attestation).payload.id !== o$1) return;
+								clearInterval(l$1), h$2.body.removeChild(m$2), this.abortController.signal.removeEventListener("abort", u$1), window.removeEventListener("message", D$1), y$2(E$3.attestation === null ? "" : E$3.attestation);
 							}
-						} catch (E$2) {
-							this.logger.warn(E$2);
+						} catch (E$3) {
+							this.logger.warn(E$3);
 						}
 					};
-					h$2.body.appendChild(m$2), window.addEventListener("message", D, { signal: this.abortController.signal });
+					h$2.body.appendChild(m$2), window.addEventListener("message", D$1, { signal: this.abortController.signal });
 				});
 				return this.logger.debug(g$1, "jwt attestation"), g$1;
 			} catch (h$2) {
 				this.logger.warn(h$2);
 			}
 			return "";
-		}), P$1(this, "resolve", async (s) => {
+		}), P$2(this, "resolve", async (s) => {
 			if (this.isDevEnv) return "";
 			const { attestationId: n$1, hash: o$1, encryptedId: a$1 } = s;
 			if (n$1 === "") {
@@ -6761,14 +6770,14 @@ var Ki = class extends M$1 {
 			if (!o$1) return;
 			const c$2 = this.getVerifyUrl(s?.verifyUrl);
 			return this.fetchAttestation(o$1, c$2);
-		}), P$1(this, "fetchAttestation", async (s, n$1) => {
+		}), P$2(this, "fetchAttestation", async (s, n$1) => {
 			this.logger.debug(`resolving attestation: ${s} from url: ${n$1}`);
 			const o$1 = this.startAbortTimer(import_cjs$1.ONE_SECOND * 5), a$1 = await fetch(`${n$1}/attestation/${s}?v2Supported=true`, { signal: this.abortController.signal });
 			return clearTimeout(o$1), a$1.status === 200 ? await a$1.json() : void 0;
-		}), P$1(this, "getVerifyUrl", (s) => {
+		}), P$2(this, "getVerifyUrl", (s) => {
 			let n$1 = s || "https://verify.walletconnect.org";
 			return Xt$1.includes(n$1) || (this.logger.info(`verify url: ${n$1}, not included in trusted list, assigning default: https://verify.walletconnect.org`), n$1 = "https://verify.walletconnect.org"), n$1;
-		}), P$1(this, "fetchPublicKey", async () => {
+		}), P$2(this, "fetchPublicKey", async () => {
 			try {
 				this.logger.debug(`fetching public key from: ${this.verifyUrlV3}`);
 				const s = this.startAbortTimer(import_cjs$1.FIVE_SECONDS), n$1 = await fetch(`${this.verifyUrlV3}/public-key`, { signal: this.abortController.signal });
@@ -6776,11 +6785,11 @@ var Ki = class extends M$1 {
 			} catch (s) {
 				this.logger.warn(s);
 			}
-		}), P$1(this, "persistPublicKey", async (s) => {
+		}), P$2(this, "persistPublicKey", async (s) => {
 			this.logger.debug(s, "persisting public key to local storage"), await this.store.setItem(this.storeKey, s), this.publicKey = s;
-		}), P$1(this, "removePublicKey", async () => {
+		}), P$2(this, "removePublicKey", async () => {
 			this.logger.debug("removing verify v2 public key from storage"), await this.store.removeItem(this.storeKey), this.publicKey = void 0;
-		}), P$1(this, "isValidJwtAttestation", async (s) => {
+		}), P$2(this, "isValidJwtAttestation", async (s) => {
 			const n$1 = await this.getPublicKey();
 			try {
 				if (n$1) return this.validateAttestation(s, n$1);
@@ -6793,7 +6802,7 @@ var Ki = class extends M$1 {
 			} catch (a$1) {
 				this.logger.error(a$1), this.logger.warn("error validating attestation");
 			}
-		}), P$1(this, "getPublicKey", async () => this.publicKey ? this.publicKey : await this.fetchAndPersistPublicKey()), P$1(this, "fetchAndPersistPublicKey", async () => {
+		}), P$2(this, "getPublicKey", async () => this.publicKey ? this.publicKey : await this.fetchAndPersistPublicKey()), P$2(this, "fetchAndPersistPublicKey", async () => {
 			if (this.fetchPromise) return await this.fetchPromise, this.publicKey;
 			this.fetchPromise = new Promise(async (n$1) => {
 				const o$1 = await this.fetchPublicKey();
@@ -6801,7 +6810,7 @@ var Ki = class extends M$1 {
 			});
 			const s = await this.fetchPromise;
 			return this.fetchPromise = void 0, s;
-		}), P$1(this, "validateAttestation", (s, n$1) => {
+		}), P$2(this, "validateAttestation", (s, n$1) => {
 			const o$1 = Aa(s, n$1.publicKey), a$1 = {
 				hasExpired: (0, import_cjs$1.toMiliseconds)(o$1.exp) < Date.now(),
 				payload: o$1
@@ -6847,19 +6856,19 @@ var Vi = class extends O$1 {
 		}), this.logger = Re$1(t, this.context);
 	}
 };
-var Yo = Object.defineProperty, qi = Object.getOwnPropertySymbols, Jo = Object.prototype.hasOwnProperty, Xo = Object.prototype.propertyIsEnumerable, et$1 = (r$1, e, t) => e in r$1 ? Yo(r$1, e, {
+var Yo = Object.defineProperty, qi = Object.getOwnPropertySymbols, Jo = Object.prototype.hasOwnProperty, Xo = Object.prototype.propertyIsEnumerable, et$2 = (r$1, e, t) => e in r$1 ? Yo(r$1, e, {
 	enumerable: !0,
 	configurable: !0,
 	writable: !0,
 	value: t
 }) : r$1[e] = t, _e$1 = (r$1, e) => {
-	for (var t in e || (e = {})) Jo.call(e, t) && et$1(r$1, t, e[t]);
-	if (qi) for (var t of qi(e)) Xo.call(e, t) && et$1(r$1, t, e[t]);
+	for (var t in e || (e = {})) Jo.call(e, t) && et$2(r$1, t, e[t]);
+	if (qi) for (var t of qi(e)) Xo.call(e, t) && et$2(r$1, t, e[t]);
 	return r$1;
-}, A$1 = (r$1, e, t) => et$1(r$1, typeof e != "symbol" ? e + "" : e, t);
-var Gi = class extends R {
+}, A$2 = (r$1, e, t) => et$2(r$1, typeof e != "symbol" ? e + "" : e, t);
+var Gi = class extends R$1 {
 	constructor(e, t, i$2 = !0) {
-		super(e, t, i$2), this.core = e, this.logger = t, A$1(this, "context", ti), A$1(this, "storagePrefix", W$1), A$1(this, "storageVersion", ei), A$1(this, "events", /* @__PURE__ */ new Map()), A$1(this, "shouldPersist", !1), A$1(this, "init", async () => {
+		super(e, t, i$2), this.core = e, this.logger = t, A$2(this, "context", ti$1), A$2(this, "storagePrefix", W$2), A$2(this, "storageVersion", ei), A$2(this, "events", /* @__PURE__ */ new Map()), A$2(this, "shouldPersist", !1), A$2(this, "init", async () => {
 			if (!ki()) try {
 				const s = {
 					eventId: Li(),
@@ -6878,7 +6887,7 @@ var Gi = class extends R {
 			} catch (s) {
 				this.logger.warn(s);
 			}
-		}), A$1(this, "createEvent", (s) => {
+		}), A$2(this, "createEvent", (s) => {
 			const { event: n$1 = "ERROR", type: o$1 = "", properties: { topic: a$1, trace: c$2 } } = s, h$2 = Li(), l$1 = this.core.projectId || "", y$2 = _e$1({
 				eventId: h$2,
 				timestamp: Date.now(),
@@ -6894,32 +6903,32 @@ var Gi = class extends R {
 				domain: this.getAppDomain()
 			}, this.setMethods(h$2));
 			return this.telemetryEnabled && (this.events.set(h$2, y$2), this.shouldPersist = !0), y$2;
-		}), A$1(this, "getEvent", (s) => {
+		}), A$2(this, "getEvent", (s) => {
 			const { eventId: n$1, topic: o$1 } = s;
 			if (n$1) return this.events.get(n$1);
 			const a$1 = Array.from(this.events.values()).find((c$2) => c$2.props.properties.topic === o$1);
 			if (a$1) return _e$1(_e$1({}, a$1), this.setMethods(a$1.eventId));
-		}), A$1(this, "deleteEvent", (s) => {
+		}), A$2(this, "deleteEvent", (s) => {
 			const { eventId: n$1 } = s;
 			this.events.delete(n$1), this.shouldPersist = !0;
-		}), A$1(this, "setEventListeners", () => {
+		}), A$2(this, "setEventListeners", () => {
 			this.core.heartbeat.on(r.pulse, async () => {
 				this.shouldPersist && await this.persist(), this.events.forEach((s) => {
 					(0, import_cjs$1.fromMiliseconds)(Date.now()) - (0, import_cjs$1.fromMiliseconds)(s.timestamp) > 86400 && (this.events.delete(s.eventId), this.shouldPersist = !0);
 				});
 			});
-		}), A$1(this, "setMethods", (s) => ({
+		}), A$2(this, "setMethods", (s) => ({
 			addTrace: (n$1) => this.addTrace(s, n$1),
 			setError: (n$1) => this.setError(s, n$1)
-		})), A$1(this, "addTrace", (s, n$1) => {
+		})), A$2(this, "addTrace", (s, n$1) => {
 			const o$1 = this.events.get(s);
 			o$1 && (o$1.props.properties.trace.push(n$1), this.events.set(s, o$1), this.shouldPersist = !0);
-		}), A$1(this, "setError", (s, n$1) => {
+		}), A$2(this, "setError", (s, n$1) => {
 			const o$1 = this.events.get(s);
 			o$1 && (o$1.props.type = n$1, o$1.timestamp = Date.now(), this.events.set(s, o$1), this.shouldPersist = !0);
-		}), A$1(this, "persist", async () => {
+		}), A$2(this, "persist", async () => {
 			await this.core.storage.setItem(this.storageKey, Array.from(this.events.values())), this.shouldPersist = !1;
-		}), A$1(this, "restore", async () => {
+		}), A$2(this, "restore", async () => {
 			try {
 				const s = await this.core.storage.getItem(this.storageKey) || [];
 				if (!s.length) return;
@@ -6929,7 +6938,7 @@ var Gi = class extends R {
 			} catch (s) {
 				this.logger.warn(s);
 			}
-		}), A$1(this, "submit", async () => {
+		}), A$2(this, "submit", async () => {
 			if (!this.telemetryEnabled || this.events.size === 0) return;
 			const s = [];
 			for (const [n$1, o$1] of this.events) o$1.props.type && s.push(o$1);
@@ -6938,13 +6947,13 @@ var Gi = class extends R {
 			} catch (n$1) {
 				this.logger.warn(n$1);
 			}
-		}), A$1(this, "sendEvent", async (s) => {
+		}), A$2(this, "sendEvent", async (s) => {
 			const n$1 = this.getAppDomain() ? "" : "&sp=desktop";
 			return await fetch(`${si}?projectId=${this.core.projectId}&st=events_sdk&sv=js-${Pe$1}${n$1}`, {
 				method: "POST",
 				body: JSON.stringify(s)
 			});
-		}), A$1(this, "getAppDomain", () => br().url), this.logger = Re$1(t, this.context), this.telemetryEnabled = i$2, i$2 ? this.restore().then(async () => {
+		}), A$2(this, "getAppDomain", () => br().url), this.logger = Re$1(t, this.context), this.telemetryEnabled = i$2, i$2 ? this.restore().then(async () => {
 			await this.submit(), this.setEventListeners();
 		}) : this.persist();
 	}
@@ -6952,20 +6961,20 @@ var Gi = class extends R {
 		return this.storagePrefix + this.storageVersion + this.core.customStoragePrefix + "//" + this.context;
 	}
 };
-var Zo = Object.defineProperty, Wi = Object.getOwnPropertySymbols, Qo = Object.prototype.hasOwnProperty, ea = Object.prototype.propertyIsEnumerable, tt$1 = (r$1, e, t) => e in r$1 ? Zo(r$1, e, {
+var Zo = Object.defineProperty, Wi = Object.getOwnPropertySymbols, Qo = Object.prototype.hasOwnProperty, ea = Object.prototype.propertyIsEnumerable, tt$2 = (r$1, e, t) => e in r$1 ? Zo(r$1, e, {
 	enumerable: !0,
 	configurable: !0,
 	writable: !0,
 	value: t
 }) : r$1[e] = t, Hi$1 = (r$1, e) => {
-	for (var t in e || (e = {})) Qo.call(e, t) && tt$1(r$1, t, e[t]);
-	if (Wi) for (var t of Wi(e)) ea.call(e, t) && tt$1(r$1, t, e[t]);
+	for (var t in e || (e = {})) Qo.call(e, t) && tt$2(r$1, t, e[t]);
+	if (Wi) for (var t of Wi(e)) ea.call(e, t) && tt$2(r$1, t, e[t]);
 	return r$1;
-}, v$1 = (r$1, e, t) => tt$1(r$1, typeof e != "symbol" ? e + "" : e, t);
+}, v$2 = (r$1, e, t) => tt$2(r$1, typeof e != "symbol" ? e + "" : e, t);
 var ta = class Oe$1 extends h$1 {
 	constructor(e) {
 		var t;
-		super(e), v$1(this, "protocol", "wc"), v$1(this, "version", 2), v$1(this, "name", ge$1), v$1(this, "relayUrl"), v$1(this, "projectId"), v$1(this, "customStoragePrefix"), v$1(this, "events", new import_events$2.EventEmitter()), v$1(this, "logger"), v$1(this, "heartbeat"), v$1(this, "relayer"), v$1(this, "crypto"), v$1(this, "storage"), v$1(this, "history"), v$1(this, "expirer"), v$1(this, "pairing"), v$1(this, "verify"), v$1(this, "echoClient"), v$1(this, "linkModeSupportedApps"), v$1(this, "eventClient"), v$1(this, "initialized", !1), v$1(this, "logChunkController"), v$1(this, "on", (a$1, c$2) => this.events.on(a$1, c$2)), v$1(this, "once", (a$1, c$2) => this.events.once(a$1, c$2)), v$1(this, "off", (a$1, c$2) => this.events.off(a$1, c$2)), v$1(this, "removeListener", (a$1, c$2) => this.events.removeListener(a$1, c$2)), v$1(this, "dispatchEnvelope", ({ topic: a$1, message: c$2, sessionExists: h$2 }) => {
+		super(e), v$2(this, "protocol", "wc"), v$2(this, "version", 2), v$2(this, "name", ge$1), v$2(this, "relayUrl"), v$2(this, "projectId"), v$2(this, "customStoragePrefix"), v$2(this, "events", new import_events$3.EventEmitter()), v$2(this, "logger"), v$2(this, "heartbeat"), v$2(this, "relayer"), v$2(this, "crypto"), v$2(this, "storage"), v$2(this, "history"), v$2(this, "expirer"), v$2(this, "pairing"), v$2(this, "verify"), v$2(this, "echoClient"), v$2(this, "linkModeSupportedApps"), v$2(this, "eventClient"), v$2(this, "initialized", !1), v$2(this, "logChunkController"), v$2(this, "on", (a$1, c$2) => this.events.on(a$1, c$2)), v$2(this, "once", (a$1, c$2) => this.events.once(a$1, c$2)), v$2(this, "off", (a$1, c$2) => this.events.off(a$1, c$2)), v$2(this, "removeListener", (a$1, c$2) => this.events.removeListener(a$1, c$2)), v$2(this, "dispatchEnvelope", ({ topic: a$1, message: c$2, sessionExists: h$2 }) => {
 			if (!a$1 || !c$2) return;
 			const l$1 = {
 				topic: a$1,
@@ -7055,7 +7064,7 @@ var ta = class Oe$1 extends h$1 {
 		}
 	}
 };
-var import_events$1 = /* @__PURE__ */ __toESM(require_events(), 1);
+var import_events$2 = /* @__PURE__ */ __toESM(require_events(), 1);
 var import_cjs = require_cjs(), Me$1 = "client", Re = `wc@2:${Me$1}:`, Ie$1 = {
 	name: Me$1,
 	logger: "error",
@@ -7195,7 +7204,7 @@ var Ke$1 = "Proposal expired", ut$2 = "session", se$1 = import_cjs.SEVEN_DAYS, g
 }, Te$1 = {
 	min: import_cjs.FIVE_MINUTES,
 	max: import_cjs.SEVEN_DAYS
-}, K$1 = {
+}, K$2 = {
 	idle: "IDLE",
 	active: "ACTIVE"
 }, yt$1 = {
@@ -7225,23 +7234,23 @@ var Ke$1 = "Proposal expired", ut$2 = "session", se$1 = import_cjs.SEVEN_DAYS, g
 	"wc_authRequest",
 	"wc_sessionAuthenticate"
 ], vt$1 = "auth", St$1 = "authKeys", Et$1 = "pairingTopics", ft$2 = "requests", we$1 = `wc@1.5:${vt$1}:`, _e = `${we$1}:PUB_KEY`;
-var As = Object.defineProperty, xs = Object.defineProperties, Cs = Object.getOwnPropertyDescriptors, Rt$1 = Object.getOwnPropertySymbols, Vs = Object.prototype.hasOwnProperty, ks = Object.prototype.propertyIsEnumerable, Ue$1 = (S$3, o$1, e) => o$1 in S$3 ? As(S$3, o$1, {
+var As = Object.defineProperty, xs = Object.defineProperties, Cs = Object.getOwnPropertyDescriptors, Rt$1 = Object.getOwnPropertySymbols, Vs = Object.prototype.hasOwnProperty, ks = Object.prototype.propertyIsEnumerable, Ue$1 = (S$4, o$1, e) => o$1 in S$4 ? As(S$4, o$1, {
 	enumerable: !0,
 	configurable: !0,
 	writable: !0,
 	value: e
-}) : S$3[o$1] = e, E$1 = (S$3, o$1) => {
-	for (var e in o$1 || (o$1 = {})) Vs.call(o$1, e) && Ue$1(S$3, e, o$1[e]);
-	if (Rt$1) for (var e of Rt$1(o$1)) ks.call(o$1, e) && Ue$1(S$3, e, o$1[e]);
-	return S$3;
-}, b$1 = (S$3, o$1) => xs(S$3, Cs(o$1)), c = (S$3, o$1, e) => Ue$1(S$3, typeof o$1 != "symbol" ? o$1 + "" : o$1, e);
-var Ds = class extends V {
+}) : S$4[o$1] = e, E$2 = (S$4, o$1) => {
+	for (var e in o$1 || (o$1 = {})) Vs.call(o$1, e) && Ue$1(S$4, e, o$1[e]);
+	if (Rt$1) for (var e of Rt$1(o$1)) ks.call(o$1, e) && Ue$1(S$4, e, o$1[e]);
+	return S$4;
+}, b$2 = (S$4, o$1) => xs(S$4, Cs(o$1)), c = (S$4, o$1, e) => Ue$1(S$4, typeof o$1 != "symbol" ? o$1 + "" : o$1, e);
+var Ds = class extends V$1 {
 	constructor(o$1) {
-		super(o$1), c(this, "name", gt$1), c(this, "events", new import_events$1.default()), c(this, "initialized", !1), c(this, "requestQueue", {
-			state: K$1.idle,
+		super(o$1), c(this, "name", gt$1), c(this, "events", new import_events$2.default()), c(this, "initialized", !1), c(this, "requestQueue", {
+			state: K$2.idle,
 			queue: []
 		}), c(this, "sessionRequestQueue", {
-			state: K$1.idle,
+			state: K$2.idle,
 			queue: []
 		}), c(this, "emittedSessionRequests", new Hi({ limit: 500 })), c(this, "requestQueueDelay", import_cjs.ONE_SECOND), c(this, "expectedPairingMethodMap", /* @__PURE__ */ new Map()), c(this, "recentlyDeletedMap", /* @__PURE__ */ new Map()), c(this, "recentlyDeletedLimit", 200), c(this, "relayMessageCache", []), c(this, "pendingSessions", /* @__PURE__ */ new Map()), c(this, "init", async () => {
 			this.initialized || (await this.cleanup(), this.registerRelayerEvents(), this.registerExpirerEvents(), this.registerPairingEvents(), await this.registerLinkModeListeners(), this.client.core.pairing.register({ methods: Object.keys(N$1) }), this.initialized = !0, setTimeout(async () => {
@@ -7250,79 +7259,79 @@ var Ds = class extends V {
 		}), c(this, "connect", async (e) => {
 			var t;
 			this.isInitialized(), await this.confirmOnlineStateOrThrow();
-			const s = b$1(E$1({}, e), {
+			const s = b$2(E$2({}, e), {
 				requiredNamespaces: e.requiredNamespaces || {},
 				optionalNamespaces: e.optionalNamespaces || {}
 			});
 			await this.isValidConnect(s), s.optionalNamespaces = Ya(s.requiredNamespaces, s.optionalNamespaces), s.requiredNamespaces = {};
-			const { pairingTopic: i$2, requiredNamespaces: r$1, optionalNamespaces: n$1, sessionProperties: a$1, scopedProperties: l$1, relays: h$2, authentication: p$2, walletPay: y$2 } = s, d$3 = ((t = p$2?.[0]) == null ? void 0 : t.ttl) || N$1.wc_sessionPropose.req.ttl || import_cjs.FIVE_MINUTES;
+			const { pairingTopic: i$2, requiredNamespaces: r$1, optionalNamespaces: n$1, sessionProperties: a$1, scopedProperties: l$1, relays: h$2, authentication: p$3, walletPay: y$2 } = s, d$3 = ((t = p$3?.[0]) == null ? void 0 : t.ttl) || N$1.wc_sessionPropose.req.ttl || import_cjs.FIVE_MINUTES;
 			this.validateRequestExpiry(d$3);
-			let u$1 = i$2, w$1, g$1 = !1;
+			let u$1 = i$2, w$2, g$1 = !1;
 			try {
 				if (u$1) {
-					const R$2 = this.client.core.pairing.pairings.get(u$1);
-					this.client.logger.warn("connect() with existing pairing topic is deprecated and will be removed in the next major release."), g$1 = R$2.active;
+					const R$3 = this.client.core.pairing.pairings.get(u$1);
+					this.client.logger.warn("connect() with existing pairing topic is deprecated and will be removed in the next major release."), g$1 = R$3.active;
 				}
-			} catch (R$2) {
-				throw this.client.logger.error(`connect() -> pairing.get(${u$1}) failed`), R$2;
+			} catch (R$3) {
+				throw this.client.logger.error(`connect() -> pairing.get(${u$1}) failed`), R$3;
 			}
 			if (!u$1 || !g$1) {
-				const { topic: R$2, uri: q$1 } = await this.client.core.pairing.create({ internal: { skipSubscribe: !0 } });
-				u$1 = R$2, w$1 = q$1;
+				const { topic: R$3, uri: q$2 } = await this.client.core.pairing.create({ internal: { skipSubscribe: !0 } });
+				u$1 = R$3, w$2 = q$2;
 			}
 			if (!u$1) {
-				const { message: R$2 } = Bt$1("NO_MATCHING_KEY", `connect() pairing topic: ${u$1}`);
-				throw new Error(R$2);
+				const { message: R$3 } = Bt$1("NO_MATCHING_KEY", `connect() pairing topic: ${u$1}`);
+				throw new Error(R$3);
 			}
-			const f$4 = await this.client.core.crypto.generateKeyPair(), v$3 = _i(d$3), T$2 = E$1(b$1(E$1(E$1({
+			const f$5 = await this.client.core.crypto.generateKeyPair(), v$4 = _i(d$3), T$3 = E$2(b$2(E$2(E$2({
 				requiredNamespaces: r$1,
 				optionalNamespaces: n$1,
 				relays: h$2 ?? [{ protocol: "irn" }],
 				proposer: {
-					publicKey: f$4,
+					publicKey: f$5,
 					metadata: this.client.metadata
 				},
-				expiryTimestamp: v$3,
+				expiryTimestamp: v$4,
 				pairingTopic: u$1
-			}, a$1 && { sessionProperties: a$1 }), l$1 && { scopedProperties: l$1 }), { id: payloadId() }), (p$2 || y$2) && { requests: {
-				authentication: p$2?.map((R$2) => {
-					const { domain: q$1, chains: ve$3, nonce: ce$2, uri: Y$1, exp: ie$3, nbf: le$2, type: J$4, statement: pe$2, requestId: he$3, resources: C$3, signatureTypes: D } = R$2;
+			}, a$1 && { sessionProperties: a$1 }), l$1 && { scopedProperties: l$1 }), { id: payloadId() }), (p$3 || y$2) && { requests: {
+				authentication: p$3?.map((R$3) => {
+					const { domain: q$2, chains: ve$3, nonce: ce$2, uri: Y$2, exp: ie$3, nbf: le$2, type: J$5, statement: pe$2, requestId: he$3, resources: C$4, signatureTypes: D$1 } = R$3;
 					return {
-						domain: q$1,
+						domain: q$2,
 						chains: ve$3,
 						nonce: ce$2,
-						type: J$4 ?? "caip122",
-						aud: Y$1,
+						type: J$5 ?? "caip122",
+						aud: Y$2,
 						version: "1",
 						iat: (/* @__PURE__ */ new Date()).toISOString(),
 						exp: ie$3,
 						nbf: le$2,
 						statement: pe$2,
 						requestId: he$3,
-						resources: C$3,
-						signatureTypes: D
+						resources: C$4,
+						signatureTypes: D$1
 					};
 				}),
 				walletPay: y$2
-			} }), A$2 = $i("session_connect", T$2.id), { reject: V$2, resolve: x$2, done: U$2 } = Ai(d$3, Ke$1), z$3 = ({ id: R$2 }) => {
-				R$2 === T$2.id && (this.client.events.off("proposal_expire", z$3), this.pendingSessions.delete(T$2.id), this.events.emit(A$2, { error: {
+			} }), A$3 = $i("session_connect", T$3.id), { reject: V$3, resolve: x$2, done: U$3 } = Ai(d$3, Ke$1), z$4 = ({ id: R$3 }) => {
+				R$3 === T$3.id && (this.client.events.off("proposal_expire", z$4), this.pendingSessions.delete(T$3.id), this.events.emit(A$3, { error: {
 					message: "Proposal expired",
 					code: 0
 				} }));
 			};
-			return this.client.events.on("proposal_expire", z$3), this.events.once(A$2, ({ error: R$2, session: q$1 }) => {
-				this.client.events.off("proposal_expire", z$3), R$2 ? V$2(R$2) : q$1 && x$2(q$1);
-			}), await this.setProposal(T$2.id, T$2), await this.sendProposeSession({
-				proposal: T$2,
+			return this.client.events.on("proposal_expire", z$4), this.events.once(A$3, ({ error: R$3, session: q$2 }) => {
+				this.client.events.off("proposal_expire", z$4), R$3 ? V$3(R$3) : q$2 && x$2(q$2);
+			}), await this.setProposal(T$3.id, T$3), await this.sendProposeSession({
+				proposal: T$3,
 				publishOpts: {
 					internal: { throwOnFailedPublish: !0 },
-					tvf: { correlationId: T$2.id }
+					tvf: { correlationId: T$3.id }
 				}
-			}).catch((R$2) => {
-				throw this.deleteProposal(T$2.id), R$2;
+			}).catch((R$3) => {
+				throw this.deleteProposal(T$3.id), R$3;
 			}), {
-				uri: w$1,
-				approval: U$2
+				uri: w$2,
+				approval: U$3
 			};
 		}), c(this, "pair", async (e) => {
 			this.isInitialized(), await this.confirmOnlineStateOrThrow();
@@ -7339,87 +7348,87 @@ var Ds = class extends V {
 			} });
 			try {
 				this.isInitialized(), await this.confirmOnlineStateOrThrow();
-			} catch (q$1) {
-				throw r$1.setError(nr.no_internet_connection), q$1;
+			} catch (q$2) {
+				throw r$1.setError(nr.no_internet_connection), q$2;
 			}
 			try {
 				await this.isValidProposalId(e?.id);
-			} catch (q$1) {
-				throw this.client.logger.error(`approve() -> proposal.get(${e?.id}) failed`), r$1.setError(nr.proposal_not_found), q$1;
+			} catch (q$2) {
+				throw this.client.logger.error(`approve() -> proposal.get(${e?.id}) failed`), r$1.setError(nr.proposal_not_found), q$2;
 			}
 			try {
 				await this.isValidApprove(e);
-			} catch (q$1) {
-				throw this.client.logger.error("approve() -> isValidApprove() failed"), r$1.setError(nr.session_approve_namespace_validation_failure), q$1;
+			} catch (q$2) {
+				throw this.client.logger.error("approve() -> isValidApprove() failed"), r$1.setError(nr.session_approve_namespace_validation_failure), q$2;
 			}
-			const { id: n$1, relayProtocol: a$1, namespaces: l$1, sessionProperties: h$2, scopedProperties: p$2, sessionConfig: y$2, proposalRequestsResponses: d$3 } = e, u$1 = this.client.proposal.get(n$1);
+			const { id: n$1, relayProtocol: a$1, namespaces: l$1, sessionProperties: h$2, scopedProperties: p$3, sessionConfig: y$2, proposalRequestsResponses: d$3 } = e, u$1 = this.client.proposal.get(n$1);
 			this.client.core.eventClient.deleteEvent({ eventId: r$1.eventId });
-			const { pairingTopic: w$1, proposer: g$1, requiredNamespaces: f$4, optionalNamespaces: v$3 } = u$1;
-			let T$2 = (s = this.client.core.eventClient) == null ? void 0 : s.getEvent({ topic: w$1 });
-			T$2 || (T$2 = (i$2 = this.client.core.eventClient) == null ? void 0 : i$2.createEvent({
+			const { pairingTopic: w$2, proposer: g$1, requiredNamespaces: f$5, optionalNamespaces: v$4 } = u$1;
+			let T$3 = (s = this.client.core.eventClient) == null ? void 0 : s.getEvent({ topic: w$2 });
+			T$3 || (T$3 = (i$2 = this.client.core.eventClient) == null ? void 0 : i$2.createEvent({
 				type: rr.session_approve_started,
 				properties: {
-					topic: w$1,
+					topic: w$2,
 					trace: [rr.session_approve_started, rr.session_namespaces_validation_success]
 				}
 			}));
-			const A$2 = await this.client.core.crypto.generateKeyPair(), V$2 = g$1.publicKey, x$2 = await this.client.core.crypto.generateSharedKey(A$2, V$2), U$2 = b$1(E$1(E$1(E$1({
+			const A$3 = await this.client.core.crypto.generateKeyPair(), V$3 = g$1.publicKey, x$2 = await this.client.core.crypto.generateSharedKey(A$3, V$3), U$3 = b$2(E$2(E$2(E$2({
 				relay: { protocol: a$1 ?? "irn" },
 				namespaces: l$1,
 				controller: {
-					publicKey: A$2,
+					publicKey: A$3,
 					metadata: this.client.metadata
 				},
 				expiry: _i(se$1)
-			}, h$2 && { sessionProperties: h$2 }), p$2 && { scopedProperties: p$2 }), y$2 && { sessionConfig: y$2 }), { proposalRequestsResponses: d$3 }), z$3 = ee$1.relay;
-			T$2.addTrace(rr.subscribing_session_topic);
+			}, h$2 && { sessionProperties: h$2 }), p$3 && { scopedProperties: p$3 }), y$2 && { sessionConfig: y$2 }), { proposalRequestsResponses: d$3 }), z$4 = ee$1.relay;
+			T$3.addTrace(rr.subscribing_session_topic);
 			try {
 				await this.client.core.relayer.subscribe(x$2, {
-					transportType: z$3,
+					transportType: z$4,
 					internal: { skipSubscribe: !0 }
 				});
-			} catch (q$1) {
-				throw T$2.setError(nr.subscribe_session_topic_failure), q$1;
+			} catch (q$2) {
+				throw T$3.setError(nr.subscribe_session_topic_failure), q$2;
 			}
-			T$2.addTrace(rr.subscribe_session_topic_success);
-			const R$2 = b$1(E$1({}, U$2), {
+			T$3.addTrace(rr.subscribe_session_topic_success);
+			const R$3 = b$2(E$2({}, U$3), {
 				topic: x$2,
-				requiredNamespaces: f$4,
-				optionalNamespaces: v$3,
-				pairingTopic: w$1,
+				requiredNamespaces: f$5,
+				optionalNamespaces: v$4,
+				pairingTopic: w$2,
 				acknowledged: !1,
-				self: U$2.controller,
+				self: U$3.controller,
 				peer: {
 					publicKey: g$1.publicKey,
 					metadata: g$1.metadata
 				},
-				controller: A$2,
+				controller: A$3,
 				transportType: ee$1.relay,
 				authentication: d$3?.authentication,
 				walletPayResult: d$3?.walletPay
 			});
-			await this.client.session.set(x$2, R$2), T$2.addTrace(rr.store_session);
+			await this.client.session.set(x$2, R$3), T$3.addTrace(rr.store_session);
 			try {
 				await this.sendApproveSession({
 					sessionTopic: x$2,
 					proposal: u$1,
 					pairingProposalResponse: {
 						relay: { protocol: a$1 ?? "irn" },
-						responderPublicKey: A$2
+						responderPublicKey: A$3
 					},
-					sessionSettleRequest: U$2,
+					sessionSettleRequest: U$3,
 					publishOpts: {
 						internal: { throwOnFailedPublish: !0 },
-						tvf: E$1({ correlationId: n$1 }, this.getTVFApproveParams(R$2))
+						tvf: E$2({ correlationId: n$1 }, this.getTVFApproveParams(R$3))
 					}
-				}), T$2.addTrace(rr.session_approve_publish_success);
-			} catch (q$1) {
-				throw this.client.logger.error(q$1), this.client.session.delete(x$2, zt("USER_DISCONNECTED")), await this.client.core.relayer.unsubscribe(x$2), q$1;
+				}), T$3.addTrace(rr.session_approve_publish_success);
+			} catch (q$2) {
+				throw this.client.logger.error(q$2), this.client.session.delete(x$2, zt("USER_DISCONNECTED")), await this.client.core.relayer.unsubscribe(x$2), q$2;
 			}
-			return this.client.core.eventClient.deleteEvent({ eventId: T$2.eventId }), await this.client.core.pairing.updateMetadata({
-				topic: w$1,
+			return this.client.core.eventClient.deleteEvent({ eventId: T$3.eventId }), await this.client.core.pairing.updateMetadata({
+				topic: w$2,
 				metadata: g$1.metadata
-			}), await this.deleteProposal(n$1), await this.client.core.pairing.activate({ topic: w$1 }), await this.setExpiry(x$2, _i(se$1)), {
+			}), await this.deleteProposal(n$1), await this.client.core.pairing.activate({ topic: w$2 }), await this.setExpiry(x$2, _i(se$1)), {
 				topic: x$2,
 				acknowledged: () => Promise.resolve(this.client.session.get(x$2))
 			};
@@ -7447,12 +7456,12 @@ var Ds = class extends V {
 			this.isInitialized(), await this.confirmOnlineStateOrThrow();
 			try {
 				await this.isValidUpdate(e);
-			} catch (p$2) {
-				throw this.client.logger.error("update() -> isValidUpdate() failed"), p$2;
+			} catch (p$3) {
+				throw this.client.logger.error("update() -> isValidUpdate() failed"), p$3;
 			}
 			const { topic: t, namespaces: s } = e, { done: i$2, resolve: r$1, reject: n$1 } = Ai(import_cjs.FIVE_MINUTES, "Session update request expired without receiving any acknowledgement"), a$1 = payloadId(), l$1 = getBigIntRpcId().toString(), h$2 = this.client.session.get(t).namespaces;
-			return this.events.once($i("session_update", a$1), ({ error: p$2 }) => {
-				p$2 ? n$1(p$2) : r$1();
+			return this.events.once($i("session_update", a$1), ({ error: p$3 }) => {
+				p$3 ? n$1(p$3) : r$1();
 			}), await this.client.session.update(t, { namespaces: s }), await this.sendRequest({
 				topic: t,
 				method: "wc_sessionUpdate",
@@ -7460,8 +7469,8 @@ var Ds = class extends V {
 				throwOnFailedPublish: !0,
 				clientRpcId: a$1,
 				relayRpcId: l$1
-			}).catch((p$2) => {
-				this.client.logger.error(p$2), this.client.session.update(t, { namespaces: h$2 }), n$1(p$2);
+			}).catch((p$3) => {
+				this.client.logger.error(p$3), this.client.session.update(t, { namespaces: h$2 }), n$1(p$3);
 			}), { acknowledged: i$2 };
 		}), c(this, "extend", async (e) => {
 			this.isInitialized(), await this.confirmOnlineStateOrThrow();
@@ -7491,9 +7500,9 @@ var Ds = class extends V {
 			}
 			const { chainId: t, request: s, topic: i$2, expiry: r$1 = N$1.wc_sessionRequest.req.ttl } = e, n$1 = this.client.session.get(i$2);
 			n$1?.transportType === ee$1.relay && await this.confirmOnlineStateOrThrow();
-			const a$1 = payloadId(), l$1 = getBigIntRpcId().toString(), { done: h$2, resolve: p$2, reject: y$2 } = Ai(r$1, "Request expired. Please try again.");
-			this.events.once($i("session_request", a$1), ({ error: g$1, result: f$4 }) => {
-				g$1 ? y$2(g$1) : p$2(f$4);
+			const a$1 = payloadId(), l$1 = getBigIntRpcId().toString(), { done: h$2, resolve: p$3, reject: y$2 } = Ai(r$1, "Request expired. Please try again.");
+			this.events.once($i("session_request", a$1), ({ error: g$1, result: f$5 }) => {
+				g$1 ? y$2(g$1) : p$3(f$5);
 			});
 			const d$3 = "wc_sessionRequest", u$1 = this.getAppLinkIfEnabled(n$1.peer.metadata, n$1.transportType);
 			if (u$1) return await this.sendRequest({
@@ -7502,7 +7511,7 @@ var Ds = class extends V {
 				topic: i$2,
 				method: d$3,
 				params: {
-					request: b$1(E$1({}, s), { expiryTimestamp: _i(r$1) }),
+					request: b$2(E$2({}, s), { expiryTimestamp: _i(r$1) }),
 					chainId: t
 				},
 				expiry: r$1,
@@ -7514,8 +7523,8 @@ var Ds = class extends V {
 				chainId: t,
 				id: a$1
 			}), await h$2();
-			const w$1 = {
-				request: b$1(E$1({}, s), { expiryTimestamp: _i(r$1) }),
+			const w$2 = {
+				request: b$2(E$2({}, s), { expiryTimestamp: _i(r$1) }),
 				chainId: t
 			};
 			return await Promise.all([
@@ -7525,11 +7534,11 @@ var Ds = class extends V {
 						relayRpcId: l$1,
 						topic: i$2,
 						method: d$3,
-						params: w$1,
+						params: w$2,
 						expiry: r$1,
 						throwOnFailedPublish: !0,
-						tvf: this.getTVFParams(a$1, w$1)
-					}).catch((f$4) => y$2(f$4)), this.client.events.emit("session_request_sent", {
+						tvf: this.getTVFParams(a$1, w$2)
+					}).catch((f$5) => y$2(f$5)), this.client.events.emit("session_request_sent", {
 						topic: i$2,
 						request: s,
 						chainId: t,
@@ -7537,8 +7546,8 @@ var Ds = class extends V {
 					}), g$1();
 				}),
 				new Promise(async (g$1) => {
-					var f$4;
-					if (!((f$4 = n$1.sessionConfig) != null && f$4.disableDeepLink)) await Ti({
+					var f$5;
+					if (!((f$5 = n$1.sessionConfig) != null && f$5.disableDeepLink)) await Ti({
 						id: a$1,
 						topic: i$2,
 						wcDeepLink: await Ci(this.client.core.storage, $e$1)
@@ -7556,8 +7565,8 @@ var Ds = class extends V {
 			} });
 			try {
 				await this.isValidRespond(e);
-			} catch (p$2) {
-				throw i$2.addTrace(p$2?.message), i$2.setError(nr.session_request_response_validation_failure), p$2;
+			} catch (p$3) {
+				throw i$2.addTrace(p$3?.message), i$2.setError(nr.session_request_response_validation_failure), p$3;
 			}
 			i$2.addTrace(rr.session_request_response_validation_success);
 			const { topic: r$1, response: n$1 } = e, { id: a$1 } = n$1, l$1 = this.client.session.get(r$1);
@@ -7576,8 +7585,8 @@ var Ds = class extends V {
 					error: n$1.error,
 					appLink: h$2
 				}), this.cleanupAfterResponse(e);
-			} catch (p$2) {
-				throw i$2.addTrace(p$2?.message), i$2.setError(nr.session_request_response_publish_failure), p$2;
+			} catch (p$3) {
+				throw i$2.addTrace(p$3?.message), i$2.setError(nr.session_request_response_publish_failure), p$3;
 			}
 		}), c(this, "ping", async (e) => {
 			this.isInitialized(), await this.confirmOnlineStateOrThrow();
@@ -7636,30 +7645,30 @@ var Ds = class extends V {
 			this.isInitialized(), this.isValidAuthenticate(e);
 			const i$2 = t && this.client.core.linkModeSupportedApps.includes(t) && ((s = this.client.metadata.redirect) == null ? void 0 : s.linkMode), r$1 = i$2 ? ee$1.link_mode : ee$1.relay;
 			r$1 === ee$1.relay && await this.confirmOnlineStateOrThrow();
-			const { chains: n$1, statement: a$1 = "", uri: l$1, domain: h$2, nonce: p$2, type: y$2, exp: d$3, nbf: u$1, methods: w$1 = [], expiry: g$1 } = e, f$4 = [...e.resources || []], { topic: v$3, uri: T$2 } = await this.client.core.pairing.create({
+			const { chains: n$1, statement: a$1 = "", uri: l$1, domain: h$2, nonce: p$3, type: y$2, exp: d$3, nbf: u$1, methods: w$2 = [], expiry: g$1 } = e, f$5 = [...e.resources || []], { topic: v$4, uri: T$3 } = await this.client.core.pairing.create({
 				methods: ["wc_sessionAuthenticate"],
 				transportType: r$1
 			});
 			this.client.logger.info({
 				message: "Generated new pairing",
 				pairing: {
-					topic: v$3,
-					uri: T$2
+					topic: v$4,
+					uri: T$3
 				}
 			});
-			const A$2 = await this.client.core.crypto.generateKeyPair(), V$2 = ba(A$2);
+			const A$3 = await this.client.core.crypto.generateKeyPair(), V$3 = ba(A$3);
 			if (await Promise.all([this.client.auth.authKeys.set(_e, {
-				responseTopic: V$2,
-				publicKey: A$2
-			}), this.client.auth.pairingTopics.set(V$2, {
-				topic: V$2,
-				pairingTopic: v$3
-			})]), await this.client.core.relayer.subscribe(V$2, { transportType: r$1 }), this.client.logger.info(`sending request to new pairing topic: ${v$3}`), w$1.length > 0) {
-				const { namespace: C$3 } = Je(n$1[0]);
-				let D = Zc(C$3, "request", w$1);
-				je$1(f$4) && (D = Gc(D, f$4.pop())), f$4.push(D);
+				responseTopic: V$3,
+				publicKey: A$3
+			}), this.client.auth.pairingTopics.set(V$3, {
+				topic: V$3,
+				pairingTopic: v$4
+			})]), await this.client.core.relayer.subscribe(V$3, { transportType: r$1 }), this.client.logger.info(`sending request to new pairing topic: ${v$4}`), w$2.length > 0) {
+				const { namespace: C$4 } = Je(n$1[0]);
+				let D$1 = Zc(C$4, "request", w$2);
+				je$1(f$5) && (D$1 = Gc(D$1, f$5.pop())), f$5.push(D$1);
 			}
-			const x$2 = g$1 && g$1 > N$1.wc_sessionAuthenticate.req.ttl ? g$1 : N$1.wc_sessionAuthenticate.req.ttl, U$2 = {
+			const x$2 = g$1 && g$1 > N$1.wc_sessionAuthenticate.req.ttl ? g$1 : N$1.wc_sessionAuthenticate.req.ttl, U$3 = {
 				authPayload: {
 					type: y$2 ?? "caip122",
 					chains: n$1,
@@ -7667,45 +7676,45 @@ var Ds = class extends V {
 					aud: l$1,
 					domain: h$2,
 					version: "1",
-					nonce: p$2,
+					nonce: p$3,
 					iat: (/* @__PURE__ */ new Date()).toISOString(),
 					exp: d$3,
 					nbf: u$1,
-					resources: f$4
+					resources: f$5
 				},
 				requester: {
-					publicKey: A$2,
+					publicKey: A$3,
 					metadata: this.client.metadata
 				},
 				expiryTimestamp: _i(x$2)
-			}, R$2 = {
+			}, R$3 = {
 				requiredNamespaces: {},
 				optionalNamespaces: { eip155: {
 					chains: n$1,
-					methods: [...new Set(["personal_sign", ...w$1])],
+					methods: [...new Set(["personal_sign", ...w$2])],
 					events: ["chainChanged", "accountsChanged"]
 				} },
 				relays: [{ protocol: "irn" }],
-				pairingTopic: v$3,
+				pairingTopic: v$4,
 				proposer: {
-					publicKey: A$2,
+					publicKey: A$3,
 					metadata: this.client.metadata
 				},
 				expiryTimestamp: _i(N$1.wc_sessionPropose.req.ttl),
 				id: payloadId()
-			}, { done: q$1, resolve: ve$3, reject: ce$2 } = Ai(x$2, "Request expired"), Y$1 = payloadId(), ie$3 = $i("session_connect", R$2.id), le$2 = $i("session_request", Y$1), J$4 = async ({ error: C$3, session: D }) => {
-				this.events.off(le$2, pe$2), C$3 ? ce$2(C$3) : D && ve$3({ session: D });
-			}, pe$2 = async (C$3) => {
-				var D, je$2, Fe$3;
-				if (await this.deletePendingAuthRequest(Y$1, {
+			}, { done: q$2, resolve: ve$3, reject: ce$2 } = Ai(x$2, "Request expired"), Y$2 = payloadId(), ie$3 = $i("session_connect", R$3.id), le$2 = $i("session_request", Y$2), J$5 = async ({ error: C$4, session: D$1 }) => {
+				this.events.off(le$2, pe$2), C$4 ? ce$2(C$4) : D$1 && ve$3({ session: D$1 });
+			}, pe$2 = async (C$4) => {
+				var D$1, je$2, Fe$3;
+				if (await this.deletePendingAuthRequest(Y$2, {
 					message: "fulfilled",
 					code: 0
-				}), C$3.error) {
+				}), C$4.error) {
 					const ue$1 = zt("WC_METHOD_UNSUPPORTED", "wc_sessionAuthenticate");
-					return C$3.error.code === ue$1.code ? void 0 : (this.events.off(ie$3, J$4), ce$2(C$3.error.message));
+					return C$4.error.code === ue$1.code ? void 0 : (this.events.off(ie$3, J$5), ce$2(C$4.error.message));
 				}
-				await this.deleteProposal(R$2.id), this.events.off(ie$3, J$4);
-				const { cacaos: He$3, responder: X$2 } = C$3.result, Pe$3 = [], Qe$3 = [];
+				await this.deleteProposal(R$3.id), this.events.off(ie$3, J$5);
+				const { cacaos: He$3, responder: X$3 } = C$4.result, Pe$3 = [], Qe$3 = [];
 				for (const ue$1 of He$3) {
 					await Vc({
 						cacao: ue$1,
@@ -7718,67 +7727,67 @@ var Ds = class extends V {
 					}
 					for (const be$3 of ze$2) Qe$3.push(`${be$3}:${Tt$3}`);
 				}
-				const de$2 = await this.client.core.crypto.generateSharedKey(A$2, X$2.publicKey);
+				const de$2 = await this.client.core.crypto.generateSharedKey(A$3, X$3.publicKey);
 				let Se$3;
 				Pe$3.length > 0 && (Se$3 = {
 					topic: de$2,
 					acknowledged: !0,
 					self: {
-						publicKey: A$2,
+						publicKey: A$3,
 						metadata: this.client.metadata
 					},
-					peer: X$2,
-					controller: X$2.publicKey,
+					peer: X$3,
+					controller: X$3.publicKey,
 					expiry: _i(se$1),
 					requiredNamespaces: {},
 					optionalNamespaces: {},
 					relay: { protocol: "irn" },
-					pairingTopic: v$3,
+					pairingTopic: v$4,
 					namespaces: za([...new Set(Pe$3)], [...new Set(Qe$3)]),
 					transportType: r$1
-				}, await this.client.core.relayer.subscribe(de$2, { transportType: r$1 }), await this.client.session.set(de$2, Se$3), v$3 && await this.client.core.pairing.updateMetadata({
-					topic: v$3,
-					metadata: X$2.metadata
-				}), Se$3 = this.client.session.get(de$2)), (D = this.client.metadata.redirect) != null && D.linkMode && (je$2 = X$2.metadata.redirect) != null && je$2.linkMode && (Fe$3 = X$2.metadata.redirect) != null && Fe$3.universal && t && (this.client.core.addLinkModeSupportedApp(X$2.metadata.redirect.universal), this.client.session.update(de$2, { transportType: ee$1.link_mode })), ve$3({
+				}, await this.client.core.relayer.subscribe(de$2, { transportType: r$1 }), await this.client.session.set(de$2, Se$3), v$4 && await this.client.core.pairing.updateMetadata({
+					topic: v$4,
+					metadata: X$3.metadata
+				}), Se$3 = this.client.session.get(de$2)), (D$1 = this.client.metadata.redirect) != null && D$1.linkMode && (je$2 = X$3.metadata.redirect) != null && je$2.linkMode && (Fe$3 = X$3.metadata.redirect) != null && Fe$3.universal && t && (this.client.core.addLinkModeSupportedApp(X$3.metadata.redirect.universal), this.client.session.update(de$2, { transportType: ee$1.link_mode })), ve$3({
 					auths: He$3,
 					session: Se$3
 				});
 			};
-			this.events.once(ie$3, J$4), this.events.once(le$2, pe$2);
+			this.events.once(ie$3, J$5), this.events.once(le$2, pe$2);
 			let he$3;
 			try {
 				if (i$2) {
-					const C$3 = formatJsonRpcRequest("wc_sessionAuthenticate", U$2, Y$1);
-					this.client.core.history.set(v$3, C$3);
-					he$3 = La(t, v$3, await this.client.core.crypto.encode("", C$3, {
+					const C$4 = formatJsonRpcRequest("wc_sessionAuthenticate", U$3, Y$2);
+					this.client.core.history.set(v$4, C$4);
+					he$3 = La(t, v$4, await this.client.core.crypto.encode("", C$4, {
 						type: 2,
 						encoding: Ge$1
 					}));
 				} else await Promise.all([this.sendRequest({
-					topic: v$3,
+					topic: v$4,
 					method: "wc_sessionAuthenticate",
-					params: U$2,
+					params: U$3,
 					expiry: e.expiry,
 					throwOnFailedPublish: !0,
-					clientRpcId: Y$1
+					clientRpcId: Y$2
 				}), this.sendRequest({
-					topic: v$3,
+					topic: v$4,
 					method: "wc_sessionPropose",
-					params: R$2,
+					params: R$3,
 					expiry: N$1.wc_sessionPropose.req.ttl,
 					throwOnFailedPublish: !0,
-					clientRpcId: R$2.id
+					clientRpcId: R$3.id
 				})]);
-			} catch (C$3) {
-				throw this.events.off(ie$3, J$4), this.events.off(le$2, pe$2), C$3;
+			} catch (C$4) {
+				throw this.events.off(ie$3, J$5), this.events.off(le$2, pe$2), C$4;
 			}
-			return await this.setProposal(R$2.id, R$2), await this.setAuthRequest(Y$1, {
-				request: b$1(E$1({}, U$2), { verifyContext: {} }),
-				pairingTopic: v$3,
+			return await this.setProposal(R$3.id, R$3), await this.setAuthRequest(Y$2, {
+				request: b$2(E$2({}, U$3), { verifyContext: {} }),
+				pairingTopic: v$4,
 				transportType: r$1
 			}), {
-				uri: he$3 ?? T$2,
-				response: q$1
+				uri: he$3 ?? T$3,
+				response: q$2
 			};
 		}), c(this, "approveSessionAuthenticate", async (e) => {
 			const { id: t, auths: s } = e, i$2 = this.client.core.eventClient.createEvent({ properties: {
@@ -7794,7 +7803,7 @@ var Ds = class extends V {
 			if (!r$1) throw i$2.setError(ar.authenticated_session_pending_request_not_found), /* @__PURE__ */ new Error(`Could not find pending auth request with id ${t}`);
 			const n$1 = r$1.transportType || ee$1.relay;
 			n$1 === ee$1.relay && await this.confirmOnlineStateOrThrow();
-			const a$1 = r$1.requester.publicKey, l$1 = await this.client.core.crypto.generateKeyPair(), h$2 = ba(a$1), p$2 = {
+			const a$1 = r$1.requester.publicKey, l$1 = await this.client.core.crypto.generateKeyPair(), h$2 = ba(a$1), p$3 = {
 				type: 1,
 				receiverPublicKey: a$1,
 				senderPublicKey: l$1
@@ -7805,27 +7814,27 @@ var Ds = class extends V {
 					projectId: this.client.core.projectId
 				})) {
 					i$2.setError(ar.invalid_cacao);
-					const V$2 = zt("SESSION_SETTLEMENT_FAILED", "Signature verification failed");
+					const V$3 = zt("SESSION_SETTLEMENT_FAILED", "Signature verification failed");
 					throw await this.sendError({
 						id: t,
 						topic: h$2,
-						error: V$2,
-						encodeOpts: p$2
-					}), new Error(V$2.message);
+						error: V$3,
+						encodeOpts: p$3
+					}), new Error(V$3.message);
 				}
 				i$2.addTrace(or.cacaos_verified);
-				const { p: f$4 } = g$1, v$3 = je$1(f$4.resources), T$2 = [no(f$4.iss)], A$2 = bn(f$4.iss);
-				if (v$3) {
-					const V$2 = zc(v$3), x$2 = Yc(v$3);
-					y$2.push(...V$2), T$2.push(...x$2);
+				const { p: f$5 } = g$1, v$4 = je$1(f$5.resources), T$3 = [no(f$5.iss)], A$3 = bn(f$5.iss);
+				if (v$4) {
+					const V$3 = zc(v$4), x$2 = Yc(v$4);
+					y$2.push(...V$3), T$3.push(...x$2);
 				}
-				for (const V$2 of T$2) d$3.push(`${V$2}:${A$2}`);
+				for (const V$3 of T$3) d$3.push(`${V$3}:${A$3}`);
 			}
 			const u$1 = await this.client.core.crypto.generateSharedKey(l$1, a$1);
 			i$2.addTrace(or.create_authenticated_session_topic);
-			let w$1;
+			let w$2;
 			if (y$2?.length > 0) {
-				w$1 = {
+				w$2 = {
 					topic: u$1,
 					acknowledged: !0,
 					self: {
@@ -7851,7 +7860,7 @@ var Ds = class extends V {
 				} catch (g$1) {
 					throw i$2.setError(ar.subscribe_authenticated_session_topic_failure), g$1;
 				}
-				i$2.addTrace(or.subscribe_authenticated_session_topic_success), await this.client.session.set(u$1, w$1), i$2.addTrace(or.store_authenticated_session), await this.client.core.pairing.updateMetadata({
+				i$2.addTrace(or.subscribe_authenticated_session_topic_success), await this.client.session.set(u$1, w$2), i$2.addTrace(or.store_authenticated_session), await this.client.core.pairing.updateMetadata({
 					topic: r$1.pairingTopic,
 					metadata: r$1.requester.metadata
 				});
@@ -7868,7 +7877,7 @@ var Ds = class extends V {
 							metadata: this.client.metadata
 						}
 					},
-					encodeOpts: p$2,
+					encodeOpts: p$3,
 					throwOnFailedPublish: !0,
 					appLink: this.getAppLinkIfEnabled(r$1.requester.metadata, n$1)
 				});
@@ -7878,7 +7887,7 @@ var Ds = class extends V {
 			return await this.client.auth.requests.delete(t, {
 				message: "fulfilled",
 				code: 0
-			}), await this.client.core.pairing.activate({ topic: r$1.pairingTopic }), this.client.core.eventClient.deleteEvent({ eventId: i$2.eventId }), { session: w$1 };
+			}), await this.client.core.pairing.activate({ topic: r$1.pairingTopic }), this.client.core.eventClient.deleteEvent({ eventId: i$2.eventId }), { session: w$2 };
 		}), c(this, "rejectSessionAuthenticate", async (e) => {
 			this.isInitialized();
 			const { id: t, reason: s } = e, i$2 = this.getPendingAuthRequest(t);
@@ -7927,7 +7936,7 @@ var Ds = class extends V {
 		}), c(this, "deleteSession", async (e) => {
 			var t;
 			const { topic: s, expirerHasDeleted: i$2 = !1, emitEvent: r$1 = !0, id: n$1 = 0 } = e, { self: a$1 } = this.client.session.get(s);
-			await this.client.core.relayer.unsubscribe(s), await this.client.session.delete(s, zt("USER_DISCONNECTED")), this.addToRecentlyDeleted(s, "session"), this.client.core.crypto.keychain.has(a$1.publicKey) && await this.client.core.crypto.deleteKeyPair(a$1.publicKey), this.client.core.crypto.keychain.has(s) && await this.client.core.crypto.deleteSymKey(s), i$2 || this.client.core.expirer.del(s), this.client.core.storage.removeItem($e$1).catch((l$1) => this.client.logger.warn(l$1)), s === ((t = this.sessionRequestQueue.queue[0]) == null ? void 0 : t.topic) && (this.sessionRequestQueue.state = K$1.idle), await Promise.all(this.getPendingSessionRequests().filter((l$1) => l$1.topic === s).map((l$1) => this.deletePendingSessionRequest(l$1.id, zt("USER_DISCONNECTED")))), r$1 && this.client.events.emit("session_delete", {
+			await this.client.core.relayer.unsubscribe(s), await this.client.session.delete(s, zt("USER_DISCONNECTED")), this.addToRecentlyDeleted(s, "session"), this.client.core.crypto.keychain.has(a$1.publicKey) && await this.client.core.crypto.deleteKeyPair(a$1.publicKey), this.client.core.crypto.keychain.has(s) && await this.client.core.crypto.deleteSymKey(s), i$2 || this.client.core.expirer.del(s), this.client.core.storage.removeItem($e$1).catch((l$1) => this.client.logger.warn(l$1)), s === ((t = this.sessionRequestQueue.queue[0]) == null ? void 0 : t.topic) && (this.sessionRequestQueue.state = K$2.idle), await Promise.all(this.getPendingSessionRequests().filter((l$1) => l$1.topic === s).map((l$1) => this.deletePendingSessionRequest(l$1.id, zt("USER_DISCONNECTED")))), r$1 && this.client.events.emit("session_delete", {
 				id: n$1,
 				topic: s
 			});
@@ -7938,7 +7947,7 @@ var Ds = class extends V {
 			} catch {}
 			await Promise.all([this.client.proposal.delete(e, zt("USER_DISCONNECTED")), t ? Promise.resolve() : this.client.core.expirer.del(e)]), this.addToRecentlyDeleted(e, "proposal");
 		}), c(this, "deletePendingSessionRequest", async (e, t, s = !1) => {
-			await Promise.all([this.client.pendingRequest.delete(e, t), s ? Promise.resolve() : this.client.core.expirer.del(e)]), this.addToRecentlyDeleted(e, "request"), this.sessionRequestQueue.queue = this.sessionRequestQueue.queue.filter((i$2) => i$2.id !== e), s && (this.sessionRequestQueue.state = K$1.idle, this.client.events.emit("session_request_expire", { id: e }));
+			await Promise.all([this.client.pendingRequest.delete(e, t), s ? Promise.resolve() : this.client.core.expirer.del(e)]), this.addToRecentlyDeleted(e, "request"), this.sessionRequestQueue.queue = this.sessionRequestQueue.queue.filter((i$2) => i$2.id !== e), s && (this.sessionRequestQueue.state = K$2.idle, this.client.events.emit("session_request_expire", { id: e }));
 		}), c(this, "deletePendingAuthRequest", async (e, t, s = !1) => {
 			await Promise.all([this.client.auth.requests.delete(e, t), s ? Promise.resolve() : this.client.core.expirer.del(e)]);
 		}), c(this, "setExpiry", async (e, t) => {
@@ -7965,28 +7974,28 @@ var Ds = class extends V {
 				verifyContext: r$1
 			});
 		}), c(this, "sendRequest", async (e) => {
-			const { topic: t, method: s, params: i$2, expiry: r$1, relayRpcId: n$1, clientRpcId: a$1, throwOnFailedPublish: l$1, appLink: h$2, tvf: p$2, publishOpts: y$2 = {} } = e, d$3 = formatJsonRpcRequest(s, i$2, a$1);
+			const { topic: t, method: s, params: i$2, expiry: r$1, relayRpcId: n$1, clientRpcId: a$1, throwOnFailedPublish: l$1, appLink: h$2, tvf: p$3, publishOpts: y$2 = {} } = e, d$3 = formatJsonRpcRequest(s, i$2, a$1);
 			let u$1;
-			const w$1 = !!h$2;
+			const w$2 = !!h$2;
 			try {
-				const v$3 = w$1 ? Ge$1 : oe$1;
-				u$1 = await this.client.core.crypto.encode(t, d$3, { encoding: v$3 });
-			} catch (v$3) {
-				throw await this.cleanup(), this.client.logger.error(`sendRequest() -> core.crypto.encode() for topic ${t} failed`), v$3;
+				const v$4 = w$2 ? Ge$1 : oe$1;
+				u$1 = await this.client.core.crypto.encode(t, d$3, { encoding: v$4 });
+			} catch (v$4) {
+				throw await this.cleanup(), this.client.logger.error(`sendRequest() -> core.crypto.encode() for topic ${t} failed`), v$4;
 			}
 			let g$1;
 			if (wt$1.includes(s)) {
-				const v$3 = ya(JSON.stringify(d$3)), T$2 = ya(u$1);
+				const v$4 = ya(JSON.stringify(d$3)), T$3 = ya(u$1);
 				g$1 = await this.client.core.verify.register({
-					id: T$2,
-					decryptedId: v$3
+					id: T$3,
+					decryptedId: v$4
 				});
 			}
-			const f$4 = E$1(E$1({}, N$1[s].req), y$2);
-			if (f$4.attestation = g$1, r$1 && (f$4.ttl = r$1), n$1 && (f$4.id = n$1), this.client.core.history.set(t, d$3), w$1) {
-				const v$3 = La(h$2, t, u$1);
-				await global.Linking.openURL(v$3, this.client.name);
-			} else f$4.tvf = b$1(E$1({}, p$2), { correlationId: d$3.id }), l$1 ? (f$4.internal = b$1(E$1({}, f$4.internal), { throwOnFailedPublish: !0 }), await this.client.core.relayer.publish(t, u$1, f$4)) : this.client.core.relayer.publish(t, u$1, f$4).catch((v$3) => this.client.logger.error(v$3));
+			const f$5 = E$2(E$2({}, N$1[s].req), y$2);
+			if (f$5.attestation = g$1, r$1 && (f$5.ttl = r$1), n$1 && (f$5.id = n$1), this.client.core.history.set(t, d$3), w$2) {
+				const v$4 = La(h$2, t, u$1);
+				await global.Linking.openURL(v$4, this.client.name);
+			} else f$5.tvf = b$2(E$2({}, p$3), { correlationId: d$3.id }), l$1 ? (f$5.internal = b$2(E$2({}, f$5.internal), { throwOnFailedPublish: !0 }), await this.client.core.relayer.publish(t, u$1, f$5)) : this.client.core.relayer.publish(t, u$1, f$5).catch((v$4) => this.client.logger.error(v$4));
 			return d$3.id;
 		}), c(this, "sendProposeSession", async (e) => {
 			const { proposal: t, publishOpts: s } = e, i$2 = formatJsonRpcRequest("wc_sessionPropose", t, t.id);
@@ -8000,29 +8009,29 @@ var Ds = class extends V {
 					pairingTopic: t.pairingTopic,
 					sessionProposal: r$1
 				},
-				opts: b$1(E$1({}, s), {
+				opts: b$2(E$2({}, s), {
 					publishMethod: "wc_proposeSession",
 					attestation: l$1
 				})
 			});
 		}), c(this, "sendApproveSession", async (e) => {
-			const { sessionTopic: t, pairingProposalResponse: s, proposal: i$2, sessionSettleRequest: r$1, publishOpts: n$1 } = e, a$1 = formatJsonRpcResult(i$2.id, s), l$1 = await this.client.core.crypto.encode(i$2.pairingTopic, a$1, { encoding: oe$1 }), h$2 = formatJsonRpcRequest("wc_sessionSettle", r$1, n$1?.id), p$2 = await this.client.core.crypto.encode(t, h$2, { encoding: oe$1 });
+			const { sessionTopic: t, pairingProposalResponse: s, proposal: i$2, sessionSettleRequest: r$1, publishOpts: n$1 } = e, a$1 = formatJsonRpcResult(i$2.id, s), l$1 = await this.client.core.crypto.encode(i$2.pairingTopic, a$1, { encoding: oe$1 }), h$2 = formatJsonRpcRequest("wc_sessionSettle", r$1, n$1?.id), p$3 = await this.client.core.crypto.encode(t, h$2, { encoding: oe$1 });
 			this.client.core.history.set(t, h$2), await this.client.core.relayer.publishCustom({
 				payload: {
 					sessionTopic: t,
 					pairingTopic: i$2.pairingTopic,
 					sessionProposalResponse: l$1,
-					sessionSettlementRequest: p$2
+					sessionSettlementRequest: p$3
 				},
-				opts: b$1(E$1({}, n$1), { publishMethod: "wc_approveSession" })
+				opts: b$2(E$2({}, n$1), { publishMethod: "wc_approveSession" })
 			});
 		}), c(this, "sendResult", async (e) => {
 			const { id: t, topic: s, result: i$2, throwOnFailedPublish: r$1, encodeOpts: n$1, appLink: a$1 } = e, l$1 = formatJsonRpcResult(t, i$2);
 			let h$2;
-			const p$2 = a$1 && typeof (global == null ? void 0 : global.Linking) < "u";
+			const p$3 = a$1 && typeof (global == null ? void 0 : global.Linking) < "u";
 			try {
-				const u$1 = p$2 ? Ge$1 : oe$1;
-				h$2 = await this.client.core.crypto.encode(s, l$1, b$1(E$1({}, n$1 || {}), { encoding: u$1 }));
+				const u$1 = p$3 ? Ge$1 : oe$1;
+				h$2 = await this.client.core.crypto.encode(s, l$1, b$2(E$2({}, n$1 || {}), { encoding: u$1 }));
 			} catch (u$1) {
 				throw await this.cleanup(), this.client.logger.error(`sendResult() -> core.crypto.encode() for topic ${s} failed`), u$1;
 			}
@@ -8032,27 +8041,27 @@ var Ds = class extends V {
 				const u$1 = y$2.request;
 				try {
 					d$3 = this.getTVFParams(t, u$1.params, i$2);
-				} catch (w$1) {
-					this.client.logger.warn(`sendResult() -> getTVFParams() failed: ${w$1?.message}`);
+				} catch (w$2) {
+					this.client.logger.warn(`sendResult() -> getTVFParams() failed: ${w$2?.message}`);
 				}
 			} catch (u$1) {
 				throw this.client.logger.error(`sendResult() -> history.get(${s}, ${t}) failed`), u$1;
 			}
-			if (p$2) {
+			if (p$3) {
 				const u$1 = La(a$1, s, h$2);
 				await global.Linking.openURL(u$1, this.client.name);
 			} else {
-				const w$1 = N$1[y$2.request.method].res;
-				w$1.tvf = b$1(E$1({}, d$3), { correlationId: t }), r$1 ? (w$1.internal = b$1(E$1({}, w$1.internal), { throwOnFailedPublish: !0 }), await this.client.core.relayer.publish(s, h$2, w$1)) : this.client.core.relayer.publish(s, h$2, w$1).catch((g$1) => this.client.logger.error(g$1));
+				const w$2 = N$1[y$2.request.method].res;
+				w$2.tvf = b$2(E$2({}, d$3), { correlationId: t }), r$1 ? (w$2.internal = b$2(E$2({}, w$2.internal), { throwOnFailedPublish: !0 }), await this.client.core.relayer.publish(s, h$2, w$2)) : this.client.core.relayer.publish(s, h$2, w$2).catch((g$1) => this.client.logger.error(g$1));
 			}
 			await this.client.core.history.resolve(l$1);
 		}), c(this, "sendError", async (e) => {
 			const { id: t, topic: s, error: i$2, encodeOpts: r$1, rpcOpts: n$1, appLink: a$1 } = e, l$1 = formatJsonRpcError(t, i$2);
 			let h$2;
-			const p$2 = a$1 && typeof (global == null ? void 0 : global.Linking) < "u";
+			const p$3 = a$1 && typeof (global == null ? void 0 : global.Linking) < "u";
 			try {
-				const d$3 = p$2 ? Ge$1 : oe$1;
-				h$2 = await this.client.core.crypto.encode(s, l$1, b$1(E$1({}, r$1 || {}), { encoding: d$3 }));
+				const d$3 = p$3 ? Ge$1 : oe$1;
+				h$2 = await this.client.core.crypto.encode(s, l$1, b$2(E$2({}, r$1 || {}), { encoding: d$3 }));
 			} catch (d$3) {
 				throw await this.cleanup(), this.client.logger.error(`sendError() -> core.crypto.encode() for topic ${s} failed`), d$3;
 			}
@@ -8062,7 +8071,7 @@ var Ds = class extends V {
 			} catch (d$3) {
 				throw this.client.logger.error(`sendError() -> history.get(${s}, ${t}) failed`), d$3;
 			}
-			if (p$2) {
+			if (p$3) {
 				const d$3 = La(a$1, s, h$2);
 				await global.Linking.openURL(d$3, this.client.name);
 			} else {
@@ -8083,12 +8092,12 @@ var Ds = class extends V {
 		}), c(this, "onRelayEventRequest", async (e) => {
 			this.requestQueue.queue.push(e), await this.processRequestsQueue();
 		}), c(this, "processRequestsQueue", async () => {
-			if (this.requestQueue.state === K$1.active) {
+			if (this.requestQueue.state === K$2.active) {
 				this.client.logger.info("Request queue already active, skipping...");
 				return;
 			}
 			for (this.client.logger.info(`Request queue starting with ${this.requestQueue.queue.length} requests`); this.requestQueue.queue.length > 0;) {
-				this.requestQueue.state = K$1.active;
+				this.requestQueue.state = K$2.active;
 				const e = this.requestQueue.queue.shift();
 				if (e) try {
 					await this.processRequest(e);
@@ -8096,7 +8105,7 @@ var Ds = class extends V {
 					this.client.logger.warn(t);
 				}
 			}
-			this.requestQueue.state = K$1.idle;
+			this.requestQueue.state = K$2.idle;
 		}), c(this, "processRequest", async (e) => {
 			const { topic: t, payload: s, attestation: i$2, transportType: r$1, encryptedId: n$1 } = e, a$1 = s.method;
 			if (!this.shouldIgnorePairingRequest({
@@ -8153,24 +8162,24 @@ var Ds = class extends V {
 			const { topic: t, payload: s, attestation: i$2, encryptedId: r$1 } = e, { params: n$1, id: a$1 } = s;
 			try {
 				const l$1 = this.client.core.eventClient.getEvent({ topic: t });
-				this.client.events.listenerCount("session_proposal") === 0 && (console.warn("No listener for session_proposal event"), l$1?.setError(X.proposal_listener_not_found)), this.isValidConnect(E$1({}, s.params));
-				const p$2 = E$1({
+				this.client.events.listenerCount("session_proposal") === 0 && (console.warn("No listener for session_proposal event"), l$1?.setError(X$1.proposal_listener_not_found)), this.isValidConnect(E$2({}, s.params));
+				const p$3 = E$2({
 					id: a$1,
 					pairingTopic: t,
 					expiryTimestamp: n$1.expiryTimestamp || _i(N$1.wc_sessionPropose.req.ttl),
 					attestation: i$2,
 					encryptedId: r$1
 				}, n$1);
-				await this.setProposal(a$1, p$2);
+				await this.setProposal(a$1, p$3);
 				const y$2 = await this.getVerifyContext({
 					attestationId: i$2,
 					hash: ya(JSON.stringify(s)),
 					encryptedId: r$1,
-					metadata: p$2.proposer.metadata
+					metadata: p$3.proposer.metadata
 				});
-				l$1?.addTrace(Y.emit_session_proposal), this.client.events.emit("session_proposal", {
+				l$1?.addTrace(Y$1.emit_session_proposal), this.client.events.emit("session_proposal", {
 					id: a$1,
-					params: p$2,
+					params: p$3,
 					verifyContext: y$2
 				});
 			} catch (l$1) {
@@ -8215,11 +8224,11 @@ var Ds = class extends V {
 					proposalId: i$2,
 					publicKey: a$1
 				});
-				const p$2 = await this.client.core.relayer.subscribe(h$2, { transportType: s });
+				const p$3 = await this.client.core.relayer.subscribe(h$2, { transportType: s });
 				this.client.logger.trace({
 					type: "method",
 					method: "onSessionProposeResponse",
-					subscriptionId: p$2
+					subscriptionId: p$3
 				}), await this.client.core.pairing.activate({ topic: e });
 			} else if (isJsonRpcError(t)) {
 				await this.deleteProposal(i$2);
@@ -8231,17 +8240,17 @@ var Ds = class extends V {
 			const { id: s, params: i$2 } = t;
 			try {
 				this.isValidSessionSettleRequest(i$2);
-				const { relay: r$1, controller: n$1, expiry: a$1, namespaces: l$1, sessionProperties: h$2, scopedProperties: p$2, sessionConfig: y$2, proposalRequestsResponses: d$3 } = t.params, u$1 = [...this.pendingSessions.values()].find((f$4) => f$4.sessionTopic === e);
+				const { relay: r$1, controller: n$1, expiry: a$1, namespaces: l$1, sessionProperties: h$2, scopedProperties: p$3, sessionConfig: y$2, proposalRequestsResponses: d$3 } = t.params, u$1 = [...this.pendingSessions.values()].find((f$5) => f$5.sessionTopic === e);
 				if (!u$1) return this.client.logger.error(`Pending session not found for topic ${e}`);
-				const w$1 = this.client.proposal.get(u$1.proposalId), g$1 = b$1(E$1(E$1(E$1({
+				const w$2 = this.client.proposal.get(u$1.proposalId), g$1 = b$2(E$2(E$2(E$2({
 					topic: e,
 					relay: r$1,
 					expiry: a$1,
 					namespaces: l$1,
 					acknowledged: !0,
 					pairingTopic: u$1.pairingTopic,
-					requiredNamespaces: w$1.requiredNamespaces,
-					optionalNamespaces: w$1.optionalNamespaces,
+					requiredNamespaces: w$2.requiredNamespaces,
+					optionalNamespaces: w$2.optionalNamespaces,
 					controller: n$1.publicKey,
 					self: {
 						publicKey: u$1.publicKey,
@@ -8251,7 +8260,7 @@ var Ds = class extends V {
 						publicKey: n$1.publicKey,
 						metadata: n$1.metadata
 					}
-				}, h$2 && { sessionProperties: h$2 }), p$2 && { scopedProperties: p$2 }), y$2 && { sessionConfig: y$2 }), {
+				}, h$2 && { sessionProperties: h$2 }), p$3 && { scopedProperties: p$3 }), y$2 && { sessionConfig: y$2 }), {
 					transportType: ee$1.relay,
 					authentication: d$3?.authentication,
 					walletPayResult: d$3?.walletPay
@@ -8287,7 +8296,7 @@ var Ds = class extends V {
 					});
 					return;
 				}
-				this.isValidUpdate(E$1({ topic: e }, s));
+				this.isValidUpdate(E$2({ topic: e }, s));
 				try {
 					mu.set(r$1, i$2), await this.client.session.update(e, { namespaces: s.namespaces }), await this.sendResult({
 						id: i$2,
@@ -8378,25 +8387,25 @@ var Ds = class extends V {
 			}
 		}), c(this, "onSessionRequest", async (e) => {
 			var t, s, i$2;
-			const { topic: r$1, payload: n$1, attestation: a$1, encryptedId: l$1, transportType: h$2 } = e, { id: p$2, params: y$2 } = n$1;
+			const { topic: r$1, payload: n$1, attestation: a$1, encryptedId: l$1, transportType: h$2 } = e, { id: p$3, params: y$2 } = n$1;
 			try {
-				await this.isValidRequest(E$1({ topic: r$1 }, y$2));
-				const d$3 = this.client.session.get(r$1), w$1 = {
-					id: p$2,
+				await this.isValidRequest(E$2({ topic: r$1 }, y$2));
+				const d$3 = this.client.session.get(r$1), w$2 = {
+					id: p$3,
 					topic: r$1,
 					params: y$2,
 					verifyContext: await this.getVerifyContext({
 						attestationId: a$1,
-						hash: ya(JSON.stringify(formatJsonRpcRequest("wc_sessionRequest", y$2, p$2))),
+						hash: ya(JSON.stringify(formatJsonRpcRequest("wc_sessionRequest", y$2, p$3))),
 						encryptedId: l$1,
 						metadata: d$3.peer.metadata,
 						transportType: h$2
 					})
 				};
-				await this.setPendingSessionRequest(w$1), h$2 === ee$1.link_mode && (t = d$3.peer.metadata.redirect) != null && t.universal && this.client.core.addLinkModeSupportedApp((s = d$3.peer.metadata.redirect) == null ? void 0 : s.universal), (i$2 = this.client.signConfig) != null && i$2.disableRequestQueue ? this.emitSessionRequest(w$1) : (this.addSessionRequestToSessionRequestQueue(w$1), this.processSessionRequestQueue());
+				await this.setPendingSessionRequest(w$2), h$2 === ee$1.link_mode && (t = d$3.peer.metadata.redirect) != null && t.universal && this.client.core.addLinkModeSupportedApp((s = d$3.peer.metadata.redirect) == null ? void 0 : s.universal), (i$2 = this.client.signConfig) != null && i$2.disableRequestQueue ? this.emitSessionRequest(w$2) : (this.addSessionRequestToSessionRequestQueue(w$2), this.processSessionRequestQueue());
 			} catch (d$3) {
 				await this.sendError({
-					id: p$2,
+					id: p$3,
 					topic: r$1,
 					error: d$3
 				}), this.client.logger.error(d$3);
@@ -8413,7 +8422,7 @@ var Ds = class extends V {
 					this.client.logger.info(`Discarding out of sync request - ${s}`);
 					return;
 				}
-				this.isValidEmit(E$1({ topic: e }, i$2)), this.client.events.emit("session_event", {
+				this.isValidEmit(E$2({ topic: e }, i$2)), this.client.events.emit("session_event", {
 					id: s,
 					topic: e,
 					params: i$2
@@ -8437,7 +8446,7 @@ var Ds = class extends V {
 			var t;
 			const { topic: s, payload: i$2, attestation: r$1, encryptedId: n$1, transportType: a$1 } = e;
 			try {
-				const { requester: l$1, authPayload: h$2, expiryTimestamp: p$2 } = i$2.params, y$2 = await this.getVerifyContext({
+				const { requester: l$1, authPayload: h$2, expiryTimestamp: p$3 } = i$2.params, y$2 = await this.getVerifyContext({
 					attestationId: r$1,
 					hash: ya(JSON.stringify(i$2)),
 					encryptedId: n$1,
@@ -8449,7 +8458,7 @@ var Ds = class extends V {
 					id: i$2.id,
 					authPayload: h$2,
 					verifyContext: y$2,
-					expiryTimestamp: p$2
+					expiryTimestamp: p$3
 				};
 				await this.setAuthRequest(i$2.id, {
 					request: d$3,
@@ -8463,10 +8472,10 @@ var Ds = class extends V {
 				});
 			} catch (l$1) {
 				this.client.logger.error(l$1);
-				const h$2 = i$2.params.requester.publicKey, p$2 = await this.client.core.crypto.generateKeyPair(), y$2 = this.getAppLinkIfEnabled(i$2.params.requester.metadata, a$1), d$3 = {
+				const h$2 = i$2.params.requester.publicKey, p$3 = await this.client.core.crypto.generateKeyPair(), y$2 = this.getAppLinkIfEnabled(i$2.params.requester.metadata, a$1), d$3 = {
 					type: 1,
 					receiverPublicKey: h$2,
-					senderPublicKey: p$2
+					senderPublicKey: p$3
 				};
 				await this.sendError({
 					id: i$2.id,
@@ -8484,7 +8493,7 @@ var Ds = class extends V {
 				message: "fulfilled",
 				code: 0
 			}), setTimeout(() => {
-				this.sessionRequestQueue.state = K$1.idle, this.processSessionRequestQueue();
+				this.sessionRequestQueue.state = K$2.idle, this.processSessionRequestQueue();
 			}, (0, import_cjs.toMiliseconds)(this.requestQueueDelay));
 		}), c(this, "cleanupPendingSentRequestsForTopic", ({ topic: e, error: t }) => {
 			const s = this.client.core.history.pending;
@@ -8492,7 +8501,7 @@ var Ds = class extends V {
 				this.events.emit($i("session_request", i$2.request.id), { error: t });
 			});
 		}), c(this, "processSessionRequestQueue", () => {
-			if (this.sessionRequestQueue.state === K$1.active) {
+			if (this.sessionRequestQueue.state === K$2.active) {
 				this.client.logger.info("session request queue is already active.");
 				return;
 			}
@@ -8511,13 +8520,13 @@ var Ds = class extends V {
 				this.client.logger.warn({ id: e.id }, `Skipping emitting \`session_request\` event for duplicate request. id: ${e.id}`);
 				return;
 			}
-			this.sessionRequestQueue.state = K$1.active, this.emittedSessionRequests.add(e.id), this.client.events.emit("session_request", e);
+			this.sessionRequestQueue.state = K$2.active, this.emittedSessionRequests.add(e.id), this.client.events.emit("session_request", e);
 		}), c(this, "onPairingCreated", (e) => {
 			if (e.methods && this.expectedPairingMethodMap.set(e.topic, e.methods), e.active) return;
 			const t = this.client.proposal.getAll().find((s) => s.pairingTopic === e.topic);
 			t && this.onSessionProposeRequest({
 				topic: e.topic,
-				payload: formatJsonRpcRequest("wc_sessionPropose", b$1(E$1({}, t), {
+				payload: formatJsonRpcRequest("wc_sessionPropose", b$2(E$2({}, t), {
 					requiredNamespaces: t.requiredNamespaces,
 					optionalNamespaces: t.optionalNamespaces,
 					relays: t.relays,
@@ -8563,13 +8572,13 @@ var Ds = class extends V {
 			const h$2 = _s(a$1.requiredNamespaces, s, "approve()");
 			if (h$2) throw new Error(h$2.message);
 			if (!ft$1(i$2, !0)) {
-				const { message: p$2 } = Bt$1("MISSING_OR_INVALID", `approve() relayProtocol: ${i$2}`);
-				throw new Error(p$2);
+				const { message: p$3 } = Bt$1("MISSING_OR_INVALID", `approve() relayProtocol: ${i$2}`);
+				throw new Error(p$3);
 			}
 			if (r$1 && !Dt$1(r$1) && this.validateSessionProps(r$1, "sessionProperties"), n$1 && !Dt$1(n$1)) {
 				this.validateSessionProps(n$1, "scopedProperties");
-				const p$2 = new Set(Object.keys(s));
-				if (!Object.keys(n$1).every((y$2) => p$2.has(y$2.split(":")[0]))) throw new Error(`Scoped properties must be a subset of approved namespaces, received: ${JSON.stringify(n$1)}, approved namespaces: ${Array.from(p$2).join(", ")}`);
+				const p$3 = new Set(Object.keys(s));
+				if (!Object.keys(n$1).every((y$2) => p$3.has(y$2.split(":")[0]))) throw new Error(`Scoped properties must be a subset of approved namespaces, received: ${JSON.stringify(n$1)}, approved namespaces: ${Array.from(p$3).join(", ")}`);
 			}
 		}), c(this, "isValidReject", async (e) => {
 			if (!ou(e)) {
@@ -8750,8 +8759,8 @@ var Ds = class extends V {
 				throw new Error(s);
 			}
 		}), c(this, "isLinkModeEnabled", (e, t) => {
-			var s, i$2, r$1, n$1, a$1, l$1, h$2, p$2, y$2;
-			return !e || t !== ee$1.link_mode ? !1 : ((i$2 = (s = this.client.metadata) == null ? void 0 : s.redirect) == null ? void 0 : i$2.linkMode) === !0 && ((n$1 = (r$1 = this.client.metadata) == null ? void 0 : r$1.redirect) == null ? void 0 : n$1.universal) !== void 0 && ((l$1 = (a$1 = this.client.metadata) == null ? void 0 : a$1.redirect) == null ? void 0 : l$1.universal) !== "" && ((h$2 = e?.redirect) == null ? void 0 : h$2.universal) !== void 0 && ((p$2 = e?.redirect) == null ? void 0 : p$2.universal) !== "" && ((y$2 = e?.redirect) == null ? void 0 : y$2.linkMode) === !0 && this.client.core.linkModeSupportedApps.includes(e.redirect.universal) && typeof (global == null ? void 0 : global.Linking) < "u";
+			var s, i$2, r$1, n$1, a$1, l$1, h$2, p$3, y$2;
+			return !e || t !== ee$1.link_mode ? !1 : ((i$2 = (s = this.client.metadata) == null ? void 0 : s.redirect) == null ? void 0 : i$2.linkMode) === !0 && ((n$1 = (r$1 = this.client.metadata) == null ? void 0 : r$1.redirect) == null ? void 0 : n$1.universal) !== void 0 && ((l$1 = (a$1 = this.client.metadata) == null ? void 0 : a$1.redirect) == null ? void 0 : l$1.universal) !== "" && ((h$2 = e?.redirect) == null ? void 0 : h$2.universal) !== void 0 && ((p$3 = e?.redirect) == null ? void 0 : p$3.universal) !== "" && ((y$2 = e?.redirect) == null ? void 0 : y$2.linkMode) === !0 && this.client.core.linkModeSupportedApps.includes(e.redirect.universal) && typeof (global == null ? void 0 : global.Linking) < "u";
 		}), c(this, "getAppLinkIfEnabled", (e, t) => {
 			var s;
 			return this.isLinkModeEnabled(e, t) ? (s = e?.redirect) == null ? void 0 : s.universal : void 0;
@@ -8863,7 +8872,7 @@ var Ds = class extends V {
 		await this.client.core.relayer.confirmOnlineStateOrThrow();
 	}
 	registerRelayerEvents() {
-		this.client.core.relayer.on(C$1.message, (o$1) => {
+		this.client.core.relayer.on(C$2.message, (o$1) => {
 			this.onProviderMessageEvent(o$1);
 		});
 	}
@@ -8897,7 +8906,7 @@ var Ds = class extends V {
 		}
 	}
 	registerExpirerEvents() {
-		this.client.core.expirer.on(q.expired, async (o$1) => {
+		this.client.core.expirer.on(q$1.expired, async (o$1) => {
 			const { topic: e, id: t } = Ui(o$1.target);
 			if (t && this.client.pendingRequest.keys.includes(t)) return await this.deletePendingSessionRequest(t, Bt$1("EXPIRED"), !0);
 			if (t && this.client.auth.requests.keys.includes(t)) return await this.deletePendingAuthRequest(t, Bt$1("EXPIRED"), !0);
@@ -9008,12 +9017,12 @@ var Us$1 = class extends ji {
 		super(o$1, e, ft$2, we$1, (t) => t.id), this.core = o$1, this.logger = e;
 	}
 };
-var Gs = Object.defineProperty, js = (S$3, o$1, e) => o$1 in S$3 ? Gs(S$3, o$1, {
+var Gs = Object.defineProperty, js = (S$4, o$1, e) => o$1 in S$4 ? Gs(S$4, o$1, {
 	enumerable: !0,
 	configurable: !0,
 	writable: !0,
 	value: e
-}) : S$3[o$1] = e, Ge$2 = (S$3, o$1, e) => js(S$3, typeof o$1 != "symbol" ? o$1 + "" : o$1, e);
+}) : S$4[o$1] = e, Ge$2 = (S$4, o$1, e) => js(S$4, typeof o$1 != "symbol" ? o$1 + "" : o$1, e);
 var Fs = class {
 	constructor(o$1, e) {
 		this.core = o$1, this.logger = e, Ge$2(this, "authKeys"), Ge$2(this, "pairingTopics"), Ge$2(this, "requests"), this.authKeys = new $s(this.core, this.logger), this.pairingTopics = new Ks(this.core, this.logger), this.requests = new Us$1(this.core, this.logger);
@@ -9022,111 +9031,111 @@ var Fs = class {
 		await this.authKeys.init(), await this.pairingTopics.init(), await this.requests.init();
 	}
 };
-var Hs = Object.defineProperty, Qs = (S$3, o$1, e) => o$1 in S$3 ? Hs(S$3, o$1, {
+var Hs = Object.defineProperty, Qs = (S$4, o$1, e) => o$1 in S$4 ? Hs(S$4, o$1, {
 	enumerable: !0,
 	configurable: !0,
 	writable: !0,
 	value: e
-}) : S$3[o$1] = e, _ = (S$3, o$1, e) => Qs(S$3, typeof o$1 != "symbol" ? o$1 + "" : o$1, e);
-var Ys = class qe extends J$1 {
+}) : S$4[o$1] = e, _$1 = (S$4, o$1, e) => Qs(S$4, typeof o$1 != "symbol" ? o$1 + "" : o$1, e);
+var Ys = class qe extends J$2 {
 	constructor(o$1) {
-		super(o$1), _(this, "protocol", "wc"), _(this, "version", 2), _(this, "name", Ie$1.name), _(this, "metadata"), _(this, "core"), _(this, "logger"), _(this, "events", new import_events$1.EventEmitter()), _(this, "engine"), _(this, "session"), _(this, "proposal"), _(this, "pendingRequest"), _(this, "auth"), _(this, "signConfig"), _(this, "on", (t, s) => this.events.on(t, s)), _(this, "once", (t, s) => this.events.once(t, s)), _(this, "off", (t, s) => this.events.off(t, s)), _(this, "removeListener", (t, s) => this.events.removeListener(t, s)), _(this, "removeAllListeners", (t) => this.events.removeAllListeners(t)), _(this, "connect", async (t) => {
+		super(o$1), _$1(this, "protocol", "wc"), _$1(this, "version", 2), _$1(this, "name", Ie$1.name), _$1(this, "metadata"), _$1(this, "core"), _$1(this, "logger"), _$1(this, "events", new import_events$2.EventEmitter()), _$1(this, "engine"), _$1(this, "session"), _$1(this, "proposal"), _$1(this, "pendingRequest"), _$1(this, "auth"), _$1(this, "signConfig"), _$1(this, "on", (t, s) => this.events.on(t, s)), _$1(this, "once", (t, s) => this.events.once(t, s)), _$1(this, "off", (t, s) => this.events.off(t, s)), _$1(this, "removeListener", (t, s) => this.events.removeListener(t, s)), _$1(this, "removeAllListeners", (t) => this.events.removeAllListeners(t)), _$1(this, "connect", async (t) => {
 			try {
 				return await this.engine.connect(t);
 			} catch (s) {
 				throw this.logger.error(s.message), s;
 			}
-		}), _(this, "pair", async (t) => {
+		}), _$1(this, "pair", async (t) => {
 			try {
 				return await this.engine.pair(t);
 			} catch (s) {
 				throw this.logger.error(s.message), s;
 			}
-		}), _(this, "approve", async (t) => {
+		}), _$1(this, "approve", async (t) => {
 			try {
 				return await this.engine.approve(t);
 			} catch (s) {
 				throw this.logger.error(s.message), s;
 			}
-		}), _(this, "reject", async (t) => {
+		}), _$1(this, "reject", async (t) => {
 			try {
 				return await this.engine.reject(t);
 			} catch (s) {
 				throw this.logger.error(s.message), s;
 			}
-		}), _(this, "update", async (t) => {
+		}), _$1(this, "update", async (t) => {
 			try {
 				return await this.engine.update(t);
 			} catch (s) {
 				throw this.logger.error(s.message), s;
 			}
-		}), _(this, "extend", async (t) => {
+		}), _$1(this, "extend", async (t) => {
 			try {
 				return await this.engine.extend(t);
 			} catch (s) {
 				throw this.logger.error(s.message), s;
 			}
-		}), _(this, "request", async (t) => {
+		}), _$1(this, "request", async (t) => {
 			try {
 				return await this.engine.request(t);
 			} catch (s) {
 				throw this.logger.error(s.message), s;
 			}
-		}), _(this, "respond", async (t) => {
+		}), _$1(this, "respond", async (t) => {
 			try {
 				return await this.engine.respond(t);
 			} catch (s) {
 				throw this.logger.error(s.message), s;
 			}
-		}), _(this, "ping", async (t) => {
+		}), _$1(this, "ping", async (t) => {
 			try {
 				return await this.engine.ping(t);
 			} catch (s) {
 				throw this.logger.error(s.message), s;
 			}
-		}), _(this, "emit", async (t) => {
+		}), _$1(this, "emit", async (t) => {
 			try {
 				return await this.engine.emit(t);
 			} catch (s) {
 				throw this.logger.error(s.message), s;
 			}
-		}), _(this, "disconnect", async (t) => {
+		}), _$1(this, "disconnect", async (t) => {
 			try {
 				return await this.engine.disconnect(t);
 			} catch (s) {
 				throw this.logger.error(s.message), s;
 			}
-		}), _(this, "find", (t) => {
+		}), _$1(this, "find", (t) => {
 			try {
 				return this.engine.find(t);
 			} catch (s) {
 				throw this.logger.error(s.message), s;
 			}
-		}), _(this, "getPendingSessionRequests", () => {
+		}), _$1(this, "getPendingSessionRequests", () => {
 			try {
 				return this.engine.getPendingSessionRequests();
 			} catch (t) {
 				throw this.logger.error(t.message), t;
 			}
-		}), _(this, "authenticate", async (t, s) => {
+		}), _$1(this, "authenticate", async (t, s) => {
 			try {
 				return await this.engine.authenticate(t, s);
 			} catch (i$2) {
 				throw this.logger.error(i$2.message), i$2;
 			}
-		}), _(this, "formatAuthMessage", (t) => {
+		}), _$1(this, "formatAuthMessage", (t) => {
 			try {
 				return this.engine.formatAuthMessage(t);
 			} catch (s) {
 				throw this.logger.error(s.message), s;
 			}
-		}), _(this, "approveSessionAuthenticate", async (t) => {
+		}), _$1(this, "approveSessionAuthenticate", async (t) => {
 			try {
 				return await this.engine.approveSessionAuthenticate(t);
 			} catch (s) {
 				throw this.logger.error(s.message), s;
 			}
-		}), _(this, "rejectSessionAuthenticate", async (t) => {
+		}), _$1(this, "rejectSessionAuthenticate", async (t) => {
 			try {
 				return await this.engine.rejectSessionAuthenticate(t);
 			} catch (s) {
@@ -9157,21 +9166,21 @@ var Ys = class qe extends J$1 {
 		}
 	}
 };
-var import_events = /* @__PURE__ */ __toESM(require_events(), 1);
+var import_events$1 = /* @__PURE__ */ __toESM(require_events(), 1);
 function x(t) {
 	return t == null || typeof t != "object" && typeof t != "function";
 }
-function T(t) {
+function T$1(t) {
 	return Object.getOwnPropertySymbols(t).filter((e) => Object.prototype.propertyIsEnumerable.call(t, e));
 }
 function ee(t) {
 	return t == null ? t === void 0 ? "[object Undefined]" : "[object Null]" : Object.prototype.toString.call(t);
 }
-var He = "[object RegExp]", te = "[object String]", se = "[object Number]", ie = "[object Boolean]", ne = "[object Arguments]", Ue = "[object Symbol]", Be$1 = "[object Date]", Le = "[object Map]", Me = "[object Set]", ze = "[object Array]", Ge = "[object ArrayBuffer]", We = "[object Object]", Je$1 = "[object DataView]", Ke = "[object Uint8Array]", Ve = "[object Uint8ClampedArray]", Ye$1 = "[object Uint16Array]", Xe = "[object Uint32Array]", ke = "[object Int8Array]", Qe = "[object Int16Array]", Ze = "[object Int32Array]", Te = "[object Float32Array]", et = "[object Float64Array]";
-function F(t) {
+var He = "[object RegExp]", te = "[object String]", se = "[object Number]", ie = "[object Boolean]", ne = "[object Arguments]", Ue = "[object Symbol]", Be$1 = "[object Date]", Le = "[object Map]", Me = "[object Set]", ze = "[object Array]", Ge = "[object ArrayBuffer]", We = "[object Object]", Je$1 = "[object DataView]", Ke = "[object Uint8Array]", Ve = "[object Uint8ClampedArray]", Ye$1 = "[object Uint16Array]", Xe = "[object Uint32Array]", ke = "[object Int8Array]", Qe = "[object Int16Array]", Ze = "[object Int32Array]", Te = "[object Float32Array]", et$1 = "[object Float64Array]";
+function F$1(t) {
 	return ArrayBuffer.isView(t) && !(t instanceof DataView);
 }
-function tt(t, e) {
+function tt$1(t, e) {
 	return y(t, void 0, t, /* @__PURE__ */ new Map(), e);
 }
 function y(t, e, s, i$2 = /* @__PURE__ */ new Map(), r$1 = void 0) {
@@ -9203,7 +9212,7 @@ function y(t, e, s, i$2 = /* @__PURE__ */ new Map(), r$1 = void 0) {
 		return n$1;
 	}
 	if (typeof Buffer < "u" && Buffer.isBuffer(t)) return t.subarray();
-	if (F(t)) {
+	if (F$1(t)) {
 		const n$1 = new (Object.getPrototypeOf(t)).constructor(t.length);
 		i$2.set(t, n$1);
 		for (let c$2 = 0; c$2 < t.length; c$2++) n$1[c$2] = y(t[c$2], c$2, s, i$2, r$1);
@@ -9226,20 +9235,20 @@ function y(t, e, s, i$2 = /* @__PURE__ */ new Map(), r$1 = void 0) {
 		const n$1 = new t.constructor();
 		return i$2.set(t, n$1), n$1.message = t.message, n$1.name = t.name, n$1.stack = t.stack, n$1.cause = t.cause, m(n$1, t, s, i$2, r$1), n$1;
 	}
-	if (typeof t == "object" && st(t)) {
+	if (typeof t == "object" && st$1(t)) {
 		const n$1 = Object.create(Object.getPrototypeOf(t));
 		return i$2.set(t, n$1), m(n$1, t, s, i$2, r$1), n$1;
 	}
 	return t;
 }
 function m(t, e, s = t, i$2, r$1) {
-	const a$1 = [...Object.keys(e), ...T(e)];
+	const a$1 = [...Object.keys(e), ...T$1(e)];
 	for (let n$1 = 0; n$1 < a$1.length; n$1++) {
 		const c$2 = a$1[n$1], o$1 = Object.getOwnPropertyDescriptor(t, c$2);
 		(o$1 == null || o$1.writable) && (t[c$2] = y(e[c$2], c$2, s, i$2, r$1));
 	}
 }
-function st(t) {
+function st$1(t) {
 	switch (ee(t)) {
 		case ne:
 		case ze:
@@ -9248,7 +9257,7 @@ function st(t) {
 		case ie:
 		case Be$1:
 		case Te:
-		case et:
+		case et$1:
 		case ke:
 		case Qe:
 		case Ze:
@@ -9267,7 +9276,7 @@ function st(t) {
 	}
 }
 function it(t, e) {
-	return tt(t, (s, i$2, r$1, a$1) => {
+	return tt$1(t, (s, i$2, r$1, a$1) => {
 		const n$1 = e?.(s, i$2, r$1, a$1);
 		if (n$1 != null) return n$1;
 		if (typeof t == "object") switch (Object.prototype.toString.call(t)) {
@@ -9294,9 +9303,9 @@ function ae(t) {
 function ce(t) {
 	return typeof t == "object" && t !== null;
 }
-function nt() {}
+function nt$1() {}
 function rt(t) {
-	return F(t);
+	return F$1(t);
 }
 function at(t) {
 	if (typeof t != "object" || t == null) return !1;
@@ -9311,7 +9320,7 @@ function at(t) {
 }
 function ct(t) {
 	if (x(t)) return t;
-	if (Array.isArray(t) || F(t) || t instanceof ArrayBuffer || typeof SharedArrayBuffer < "u" && t instanceof SharedArrayBuffer) return t.slice(0);
+	if (Array.isArray(t) || F$1(t) || t instanceof ArrayBuffer || typeof SharedArrayBuffer < "u" && t instanceof SharedArrayBuffer) return t.slice(0);
 	const e = Object.getPrototypeOf(t), s = e.constructor;
 	if (t instanceof Date || t instanceof Map || t instanceof Set) return new s(t);
 	if (t instanceof RegExp) {
@@ -9349,33 +9358,33 @@ function $(t, e, s, i$2) {
 		e = e.slice();
 		for (let a$1 = 0; a$1 < e.length; a$1++) e[a$1] = e[a$1] ?? void 0;
 	}
-	const r$1 = [...Object.keys(e), ...T(e)];
+	const r$1 = [...Object.keys(e), ...T$1(e)];
 	for (let a$1 = 0; a$1 < r$1.length; a$1++) {
 		const n$1 = r$1[a$1];
 		let c$2 = e[n$1], o$1 = t[n$1];
 		if (ae(c$2) && (c$2 = { ...c$2 }), ae(o$1) && (o$1 = { ...o$1 }), typeof Buffer < "u" && Buffer.isBuffer(c$2) && (c$2 = re(c$2)), Array.isArray(c$2)) if (typeof o$1 == "object" && o$1 != null) {
 			const l$1 = [], h$2 = Reflect.ownKeys(o$1);
-			for (let f$4 = 0; f$4 < h$2.length; f$4++) {
-				const u$1 = h$2[f$4];
+			for (let f$5 = 0; f$5 < h$2.length; f$5++) {
+				const u$1 = h$2[f$5];
 				l$1[u$1] = o$1[u$1];
 			}
 			o$1 = l$1;
 		} else o$1 = [];
-		const p$2 = s(o$1, c$2, n$1, t, e, i$2);
-		p$2 != null ? t[n$1] = p$2 : Array.isArray(c$2) || ce(o$1) && ce(c$2) ? t[n$1] = $(o$1, c$2, s, i$2) : o$1 == null && at(c$2) ? t[n$1] = $({}, c$2, s, i$2) : o$1 == null && rt(c$2) ? t[n$1] = re(c$2) : (o$1 === void 0 || c$2 !== void 0) && (t[n$1] = c$2);
+		const p$3 = s(o$1, c$2, n$1, t, e, i$2);
+		p$3 != null ? t[n$1] = p$3 : Array.isArray(c$2) || ce(o$1) && ce(c$2) ? t[n$1] = $(o$1, c$2, s, i$2) : o$1 == null && at(c$2) ? t[n$1] = $({}, c$2, s, i$2) : o$1 == null && rt(c$2) ? t[n$1] = re(c$2) : (o$1 === void 0 || c$2 !== void 0) && (t[n$1] = c$2);
 	}
 	return t;
 }
 function ht(t, ...e) {
-	return ot(t, ...e, nt);
+	return ot(t, ...e, nt$1);
 }
-var oe = "error", pt = "wss://relay.walletconnect.org", lt = "wc", he = "universal_provider", A = `${lt}@2:${he}:`, pe = "https://rpc.walletconnect.org/v1/", le = "generic", ut$1 = `${pe}bundler`, v = "call_status", dt = 86400, H = { DEFAULT_CHAIN_CHANGED: "default_chain_changed" };
+var oe = "error", pt = "wss://relay.walletconnect.org", lt = "wc", he = "universal_provider", A$1 = `${lt}@2:${he}:`, pe = "https://rpc.walletconnect.org/v1/", le = "generic", ut$1 = `${pe}bundler`, v$1 = "call_status", dt = 86400, H$1 = { DEFAULT_CHAIN_CHANGED: "default_chain_changed" };
 var ft = Object.defineProperty, mt = Object.defineProperties, gt = Object.getOwnPropertyDescriptors, ue = Object.getOwnPropertySymbols, yt = Object.prototype.hasOwnProperty, vt = Object.prototype.propertyIsEnumerable, de = (t, e, s) => e in t ? ft(t, e, {
 	enumerable: !0,
 	configurable: !0,
 	writable: !0,
 	value: s
-}) : t[e] = s, E = (t, e) => {
+}) : t[e] = s, E$1 = (t, e) => {
 	for (var s in e || (e = {})) yt.call(e, s) && de(t, s, e[s]);
 	if (ue) for (var s of ue(e)) vt.call(e, s) && de(t, s, e[s]);
 	return t;
@@ -9406,7 +9415,7 @@ function ge(t) {
 		return ((i$2 = s?.chains) == null ? void 0 : i$2.length) && ((r$1 = s?.chains) == null ? void 0 : r$1.length) > 0;
 	}));
 }
-function C(t = {}, e = {}) {
+function C$1(t = {}, e = {}) {
 	return ht(ge(ye(t)), ge(ye(e)));
 }
 function ye(t) {
@@ -9414,12 +9423,12 @@ function ye(t) {
 	const n$1 = {};
 	if (!Ye(t)) return n$1;
 	for (const [c$2, o$1] of Object.entries(t)) {
-		const p$2 = Gn(c$2) ? [c$2] : o$1.chains, l$1 = o$1.methods || [], h$2 = o$1.events || [], f$4 = o$1.rpcMap || {}, u$1 = ms(c$2);
-		n$1[u$1] = wt(E(E({}, n$1[u$1]), o$1), {
-			chains: ut(p$2, (e = n$1[u$1]) == null ? void 0 : e.chains),
+		const p$3 = Gn(c$2) ? [c$2] : o$1.chains, l$1 = o$1.methods || [], h$2 = o$1.events || [], f$5 = o$1.rpcMap || {}, u$1 = ms(c$2);
+		n$1[u$1] = wt(E$1(E$1({}, n$1[u$1]), o$1), {
+			chains: ut(p$3, (e = n$1[u$1]) == null ? void 0 : e.chains),
 			methods: ut(l$1, (s = n$1[u$1]) == null ? void 0 : s.methods),
 			events: ut(h$2, (i$2 = n$1[u$1]) == null ? void 0 : i$2.events)
-		}), (Ye(f$4) || Ye(((r$1 = n$1[u$1]) == null ? void 0 : r$1.rpcMap) || {})) && (n$1[u$1].rpcMap = E(E({}, f$4), (a$1 = n$1[u$1]) == null ? void 0 : a$1.rpcMap));
+		}), (Ye(f$5) || Ye(((r$1 = n$1[u$1]) == null ? void 0 : r$1.rpcMap) || {})) && (n$1[u$1].rpcMap = E$1(E$1({}, f$5), (a$1 = n$1[u$1]) == null ? void 0 : a$1.rpcMap));
 	}
 	return n$1;
 }
@@ -9439,7 +9448,7 @@ function we(t) {
 	}
 	return e;
 }
-function U(t) {
+function U$1(t) {
 	return typeof t == "number" ? t : t.includes("0x") ? parseInt(t, 16) : (t = t.includes(":") ? t.split(":")[1] : t, isNaN(Number(t)) ? t : Number(t));
 }
 function Ot(t) {
@@ -9450,7 +9459,7 @@ function Ot(t) {
 		return !1;
 	}
 }
-var be = {}, w = (t) => be[t], B = (t, e) => {
+var be = {}, w$1 = (t) => be[t], B$1 = (t, e) => {
 	be[t] = e;
 };
 var It = Object.defineProperty, Pe = Object.getOwnPropertySymbols, St = Object.prototype.hasOwnProperty, $t = Object.prototype.propertyIsEnumerable, Oe = (t, e, s) => e in t ? It(t, e, {
@@ -9469,18 +9478,18 @@ var Se = "eip155", At = [
 	"paymasterService",
 	"sessionKeys",
 	"auxiliaryFunds"
-], Et = (t) => t && t.startsWith("0x") ? BigInt(t).toString(10) : t, L = (t) => t && t.startsWith("0x") ? t : `0x${BigInt(t).toString(16)}`, $e = (t) => Object.keys(t).filter((e) => At.includes(e)).reduce((e, s) => (e[s] = Ct(t[s]), e), {}), Ct = (t) => typeof t == "string" && Ot(t) ? JSON.parse(t) : t, jt = (t, e, s) => {
+], Et = (t) => t && t.startsWith("0x") ? BigInt(t).toString(10) : t, L$1 = (t) => t && t.startsWith("0x") ? t : `0x${BigInt(t).toString(16)}`, $e = (t) => Object.keys(t).filter((e) => At.includes(e)).reduce((e, s) => (e[s] = Ct(t[s]), e), {}), Ct = (t) => typeof t == "string" && Ot(t) ? JSON.parse(t) : t, jt = (t, e, s) => {
 	const { sessionProperties: i$2 = {}, scopedProperties: r$1 = {} } = t, a$1 = {};
 	if (!Ye(r$1) && !Ye(i$2)) return;
 	const n$1 = $e(i$2);
 	for (const c$2 of s) {
 		const o$1 = Et(c$2);
 		if (!o$1) continue;
-		a$1[L(o$1)] = n$1;
-		const p$2 = r$1?.[`${Se}:${o$1}`];
-		if (p$2) {
-			const l$1 = p$2?.[`${Se}:${o$1}:${e}`];
-			a$1[L(o$1)] = Ie(Ie({}, a$1[L(o$1)]), $e(l$1 || p$2));
+		a$1[L$1(o$1)] = n$1;
+		const p$3 = r$1?.[`${Se}:${o$1}`];
+		if (p$3) {
+			const l$1 = p$3?.[`${Se}:${o$1}:${e}`];
+			a$1[L$1(o$1)] = Ie(Ie({}, a$1[L$1(o$1)]), $e(l$1 || p$3));
 		}
 	}
 	for (const [c$2, o$1] of Object.entries(a$1)) Object.keys(o$1).length === 0 && delete a$1[c$2];
@@ -9492,8 +9501,8 @@ var Nt = Object.defineProperty, qt = (t, e, s) => e in t ? Nt(t, e, {
 	writable: !0,
 	value: s
 }) : t[e] = s, Dt = (t, e, s) => qt(t, typeof e != "symbol" ? e + "" : e, s);
-var M;
-var K = class K {
+var M$1;
+var K$1 = class K$1 {
 	constructor(e) {
 		Dt(this, "storage"), this.storage = e;
 	}
@@ -9507,7 +9516,7 @@ var K = class K {
 		return await this.storage.removeItem(e);
 	}
 	static getStorage(e) {
-		return M || (M = new K(e)), M;
+		return M$1 || (M$1 = new K$1(e)), M$1;
 	}
 };
 var Rt = Object.defineProperty, _t = Object.defineProperties, xt = Object.getOwnPropertyDescriptors, Ae = Object.getOwnPropertySymbols, Ft = Object.prototype.hasOwnProperty, Ht = Object.prototype.propertyIsEnumerable, Ee = (t, e, s) => e in t ? Rt(t, e, {
@@ -9523,9 +9532,9 @@ var Rt = Object.defineProperty, _t = Object.defineProperties, xt = Object.getOwn
 async function Lt(t, e) {
 	const s = Je(t.result.capabilities.caip345.caip2), i$2 = t.result.capabilities.caip345.transactionHashes, r$1 = await Promise.allSettled(i$2.map((h$2) => Mt(s.reference, h$2, e))), a$1 = r$1.filter((h$2) => h$2.status === "fulfilled").map((h$2) => h$2.value).filter((h$2) => h$2);
 	r$1.filter((h$2) => h$2.status === "rejected").forEach((h$2) => console.warn("Failed to fetch transaction receipt:", h$2.reason));
-	const n$1 = !a$1.length || a$1.some((h$2) => !h$2), c$2 = a$1.every((h$2) => h$2?.status === "0x1"), o$1 = a$1.every((h$2) => h$2?.status === "0x0"), p$2 = a$1.some((h$2) => h$2?.status === "0x0");
+	const n$1 = !a$1.length || a$1.some((h$2) => !h$2), c$2 = a$1.every((h$2) => h$2?.status === "0x1"), o$1 = a$1.every((h$2) => h$2?.status === "0x0"), p$3 = a$1.some((h$2) => h$2?.status === "0x0");
 	let l$1;
-	return n$1 ? l$1 = 100 : c$2 ? l$1 = 200 : o$1 ? l$1 = 500 : p$2 && (l$1 = 600), {
+	return n$1 ? l$1 = 100 : c$2 ? l$1 = 200 : o$1 ? l$1 = 500 : p$3 && (l$1 = 600), {
 		id: t.result.id,
 		version: t.request.version,
 		atomic: t.request.atomicRequired,
@@ -9539,42 +9548,42 @@ async function Mt(t, e, s) {
 	return await s(parseInt(t)).request(formatJsonRpcRequest("eth_getTransactionReceipt", [e]));
 }
 async function zt$1({ sendCalls: t, storage: e }) {
-	const s = await e.getItem(v);
-	await e.setItem(v, Bt(Ut({}, s), { [t.result.id]: {
+	const s = await e.getItem(v$1);
+	await e.setItem(v$1, Bt(Ut({}, s), { [t.result.id]: {
 		request: t.request,
 		result: t.result,
 		expiry: _i(dt)
 	} }));
 }
 async function Gt({ resultId: t, storage: e }) {
-	const s = await e.getItem(v);
+	const s = await e.getItem(v$1);
 	if (s) {
-		delete s[t], await e.setItem(v, s);
+		delete s[t], await e.setItem(v$1, s);
 		for (const i$2 in s) Ri(s[i$2].expiry) && delete s[i$2];
-		await e.setItem(v, s);
+		await e.setItem(v$1, s);
 	}
 }
 async function Wt({ resultId: t, storage: e }) {
-	const i$2 = (await e.getItem(v))?.[t];
+	const i$2 = (await e.getItem(v$1))?.[t];
 	if (i$2 && !Ri(i$2.expiry)) return i$2;
 	await Gt({
 		resultId: t,
 		storage: e
 	});
 }
-var Jt = Object.defineProperty, Kt = Object.defineProperties, Vt = Object.getOwnPropertyDescriptors, Ce = Object.getOwnPropertySymbols, Yt = Object.prototype.hasOwnProperty, Xt = Object.prototype.propertyIsEnumerable, z = (t, e, s) => e in t ? Jt(t, e, {
+var Jt = Object.defineProperty, Kt = Object.defineProperties, Vt = Object.getOwnPropertyDescriptors, Ce = Object.getOwnPropertySymbols, Yt = Object.prototype.hasOwnProperty, Xt = Object.prototype.propertyIsEnumerable, z$1 = (t, e, s) => e in t ? Jt(t, e, {
 	enumerable: !0,
 	configurable: !0,
 	writable: !0,
 	value: s
-}) : t[e] = s, G = (t, e) => {
-	for (var s in e || (e = {})) Yt.call(e, s) && z(t, s, e[s]);
-	if (Ce) for (var s of Ce(e)) Xt.call(e, s) && z(t, s, e[s]);
+}) : t[e] = s, G$1 = (t, e) => {
+	for (var s in e || (e = {})) Yt.call(e, s) && z$1(t, s, e[s]);
+	if (Ce) for (var s of Ce(e)) Xt.call(e, s) && z$1(t, s, e[s]);
 	return t;
-}, W = (t, e) => Kt(t, Vt(e)), g = (t, e, s) => z(t, typeof e != "symbol" ? e + "" : e, s);
+}, W$1 = (t, e) => Kt(t, Vt(e)), g = (t, e, s) => z$1(t, typeof e != "symbol" ? e + "" : e, s);
 var kt = class {
 	constructor(e) {
-		g(this, "name", "eip155"), g(this, "client"), g(this, "chainId"), g(this, "namespace"), g(this, "httpProviders"), g(this, "events"), g(this, "storage"), this.namespace = e.namespace, this.events = w("events"), this.client = w("client"), this.httpProviders = this.createHttpProviders(), this.chainId = parseInt(this.getDefaultChain()), this.storage = K.getStorage(this.client.core.storage);
+		g(this, "name", "eip155"), g(this, "client"), g(this, "chainId"), g(this, "namespace"), g(this, "httpProviders"), g(this, "events"), g(this, "storage"), this.namespace = e.namespace, this.events = w$1("events"), this.client = w$1("client"), this.httpProviders = this.createHttpProviders(), this.chainId = parseInt(this.getDefaultChain()), this.storage = K$1.getStorage(this.client.core.storage);
 	}
 	async request(e) {
 		switch (e.request.method) {
@@ -9594,7 +9603,7 @@ var kt = class {
 	setDefaultChain(e, s) {
 		this.httpProviders[e] || this.setHttpProvider(parseInt(e), s);
 		const i$2 = this.chainId;
-		this.chainId = parseInt(e), this.events.emit(H.DEFAULT_CHAIN_CHANGED, {
+		this.chainId = parseInt(e), this.events.emit(H$1.DEFAULT_CHAIN_CHANGED, {
 			currentCaipChainId: `${this.name}:${e}`,
 			previousCaipChainId: `${this.name}:${i$2}`
 		});
@@ -9612,7 +9621,7 @@ var kt = class {
 	createHttpProvider(e, s) {
 		const i$2 = s || fe(`${this.name}:${e}`, this.namespace, this.client.core.projectId);
 		if (!i$2) throw new Error(`No RPC url provided for chainId: ${e}`);
-		return new o(new f(i$2, w("disableProviderPing")));
+		return new o(new f$1(i$2, w$1("disableProviderPing")));
 	}
 	setHttpProvider(e, s) {
 		const i$2 = this.createHttpProvider(e, s);
@@ -9632,7 +9641,7 @@ var kt = class {
 	}
 	getHttpProvider(e) {
 		const s = e || this.chainId;
-		return this.httpProviders[s] || (this.httpProviders = W(G({}, this.httpProviders), { [s]: this.createHttpProvider(s) }), this.httpProviders[s]);
+		return this.httpProviders[s] || (this.httpProviders = W$1(G$1({}, this.httpProviders), { [s]: this.createHttpProvider(s) }), this.httpProviders[s]);
 	}
 	async handleSwitchChain(e) {
 		var s, i$2;
@@ -9658,39 +9667,39 @@ var kt = class {
 		var s, i$2, r$1, a$1, n$1;
 		const c$2 = (i$2 = (s = e.request) == null ? void 0 : s.params) == null ? void 0 : i$2[0], o$1 = ((a$1 = (r$1 = e.request) == null ? void 0 : r$1.params) == null ? void 0 : a$1[1]) || [];
 		if (!c$2) throw new Error("Missing address parameter in `wallet_getCapabilities` request");
-		const p$2 = this.client.session.get(e.topic), l$1 = ((n$1 = p$2?.sessionProperties) == null ? void 0 : n$1.capabilities) || {}, f$4 = `${c$2}${o$1.length > 0 ? o$1.join(",") : `0x${this.chainId.toString(16)}`}`, u$1 = l$1?.[f$4];
+		const p$3 = this.client.session.get(e.topic), l$1 = ((n$1 = p$3?.sessionProperties) == null ? void 0 : n$1.capabilities) || {}, f$5 = `${c$2}${o$1.length > 0 ? o$1.join(",") : `0x${this.chainId.toString(16)}`}`, u$1 = l$1?.[f$5];
 		if (u$1) return u$1;
-		let q$1;
+		let q$2;
 		try {
-			q$1 = jt(p$2, c$2, o$1);
-		} catch (D) {
-			console.warn("Failed to extract capabilities from session", D);
+			q$2 = jt(p$3, c$2, o$1);
+		} catch (D$1) {
+			console.warn("Failed to extract capabilities from session", D$1);
 		}
-		if (q$1) return q$1;
-		const V$2 = await this.client.request(e);
+		if (q$2) return q$2;
+		const V$3 = await this.client.request(e);
 		try {
-			await this.client.session.update(e.topic, { sessionProperties: W(G({}, p$2.sessionProperties || {}), { capabilities: W(G({}, l$1 || {}), { [f$4]: V$2 }) }) });
-		} catch (D) {
-			console.warn("Failed to update session with capabilities", D);
+			await this.client.session.update(e.topic, { sessionProperties: W$1(G$1({}, p$3.sessionProperties || {}), { capabilities: W$1(G$1({}, l$1 || {}), { [f$5]: V$3 }) }) });
+		} catch (D$1) {
+			console.warn("Failed to update session with capabilities", D$1);
 		}
-		return V$2;
+		return V$3;
 	}
 	async getCallStatus(e) {
 		var s, i$2, r$1;
 		const a$1 = this.client.session.get(e.topic), n$1 = (s = a$1.sessionProperties) == null ? void 0 : s.bundler_name;
 		if (n$1) {
-			const p$2 = this.getBundlerUrl(e.chainId, n$1);
+			const p$3 = this.getBundlerUrl(e.chainId, n$1);
 			try {
-				return await this.getUserOperationReceipt(p$2, e);
+				return await this.getUserOperationReceipt(p$3, e);
 			} catch (l$1) {
-				console.warn("Failed to fetch call status from bundler", l$1, p$2);
+				console.warn("Failed to fetch call status from bundler", l$1, p$3);
 			}
 		}
 		const c$2 = (i$2 = a$1.sessionProperties) == null ? void 0 : i$2.bundler_url;
 		if (c$2) try {
 			return await this.getUserOperationReceipt(c$2, e);
-		} catch (p$2) {
-			console.warn("Failed to fetch call status from custom bundler", p$2, c$2);
+		} catch (p$3) {
+			console.warn("Failed to fetch call status from custom bundler", p$3, c$2);
 		}
 		const o$1 = await Wt({
 			resultId: (r$1 = e.request.params) == null ? void 0 : r$1[0],
@@ -9698,8 +9707,8 @@ var kt = class {
 		});
 		if (o$1) try {
 			return await Lt(o$1, this.getHttpProvider.bind(this));
-		} catch (p$2) {
-			console.warn("Failed to fetch call status from stored send calls", p$2, o$1);
+		} catch (p$3) {
+			console.warn("Failed to fetch call status from stored send calls", p$3, o$1);
 		}
 		if (this.namespace.methods.includes(e.request.method)) return await this.client.request(e);
 		throw new Error("Fetching call status not approved by the wallet.");
@@ -9719,8 +9728,8 @@ var kt = class {
 	}
 	async sendCalls(e) {
 		var s, i$2, r$1;
-		const a$1 = await this.client.request(e), n$1 = (s = e.request.params) == null ? void 0 : s[0], c$2 = a$1?.id, o$1 = a$1?.capabilities || {}, p$2 = (i$2 = o$1?.caip345) == null ? void 0 : i$2.caip2, l$1 = (r$1 = o$1?.caip345) == null ? void 0 : r$1.transactionHashes;
-		return !c$2 || !p$2 || !(l$1 != null && l$1.length) || await zt$1({
+		const a$1 = await this.client.request(e), n$1 = (s = e.request.params) == null ? void 0 : s[0], c$2 = a$1?.id, o$1 = a$1?.capabilities || {}, p$3 = (i$2 = o$1?.caip345) == null ? void 0 : i$2.caip2, l$1 = (r$1 = o$1?.caip345) == null ? void 0 : r$1.transactionHashes;
+		return !c$2 || !p$3 || !(l$1 != null && l$1.length) || await zt$1({
 			sendCalls: {
 				request: n$1,
 				result: a$1
@@ -9734,10 +9743,10 @@ var Qt = Object.defineProperty, Zt = (t, e, s) => e in t ? Qt(t, e, {
 	configurable: !0,
 	writable: !0,
 	value: s
-}) : t[e] = s, b = (t, e, s) => Zt(t, typeof e != "symbol" ? e + "" : e, s);
+}) : t[e] = s, b$1 = (t, e, s) => Zt(t, typeof e != "symbol" ? e + "" : e, s);
 var Tt = class {
 	constructor(e) {
-		b(this, "name", le), b(this, "client"), b(this, "httpProviders"), b(this, "events"), b(this, "namespace"), b(this, "chainId"), this.namespace = e.namespace, this.events = w("events"), this.client = w("client"), this.chainId = this.getDefaultChain(), this.name = this.getNamespaceName(), this.httpProviders = this.createHttpProviders();
+		b$1(this, "name", le), b$1(this, "client"), b$1(this, "httpProviders"), b$1(this, "events"), b$1(this, "namespace"), b$1(this, "chainId"), this.namespace = e.namespace, this.events = w$1("events"), this.client = w$1("client"), this.chainId = this.getDefaultChain(), this.name = this.getNamespaceName(), this.httpProviders = this.createHttpProviders();
 	}
 	updateNamespace(e) {
 		this.namespace.chains = [...new Set((this.namespace.chains || []).concat(e.chains || []))], this.namespace.accounts = [...new Set((this.namespace.accounts || []).concat(e.accounts || []))], this.namespace.methods = [...new Set((this.namespace.methods || []).concat(e.methods || []))], this.namespace.events = [...new Set((this.namespace.events || []).concat(e.events || []))], this.httpProviders = this.createHttpProviders();
@@ -9751,7 +9760,7 @@ var Tt = class {
 	setDefaultChain(e, s) {
 		this.httpProviders[e] || this.setHttpProvider(e, s);
 		const i$2 = this.chainId;
-		this.chainId = e, this.events.emit(H.DEFAULT_CHAIN_CHANGED, {
+		this.chainId = e, this.events.emit(H$1.DEFAULT_CHAIN_CHANGED, {
 			currentCaipChainId: `${this.name}:${e}`,
 			previousCaipChainId: `${this.name}:${i$2}`
 		});
@@ -9793,22 +9802,22 @@ var Tt = class {
 	createHttpProvider(e, s) {
 		const i$2 = s || fe(e, this.namespace, this.client.core.projectId);
 		if (!i$2) throw new Error(`No RPC url provided for chainId: ${e}`);
-		return new o(new f(i$2, w("disableProviderPing")));
+		return new o(new f$1(i$2, w$1("disableProviderPing")));
 	}
 };
-var es = Object.defineProperty, ts = Object.defineProperties, ss = Object.getOwnPropertyDescriptors, je = Object.getOwnPropertySymbols, is = Object.prototype.hasOwnProperty, ns = Object.prototype.propertyIsEnumerable, J = (t, e, s) => e in t ? es(t, e, {
+var es = Object.defineProperty, ts = Object.defineProperties, ss = Object.getOwnPropertyDescriptors, je = Object.getOwnPropertySymbols, is = Object.prototype.hasOwnProperty, ns = Object.prototype.propertyIsEnumerable, J$1 = (t, e, s) => e in t ? es(t, e, {
 	enumerable: !0,
 	configurable: !0,
 	writable: !0,
 	value: s
-}) : t[e] = s, S = (t, e) => {
-	for (var s in e || (e = {})) is.call(e, s) && J(t, s, e[s]);
-	if (je) for (var s of je(e)) ns.call(e, s) && J(t, s, e[s]);
+}) : t[e] = s, S$1 = (t, e) => {
+	for (var s in e || (e = {})) is.call(e, s) && J$1(t, s, e[s]);
+	if (je) for (var s of je(e)) ns.call(e, s) && J$1(t, s, e[s]);
 	return t;
-}, j = (t, e) => ts(t, ss(e)), d = (t, e, s) => J(t, typeof e != "symbol" ? e + "" : e, s);
-var N = class N {
+}, j$1 = (t, e) => ts(t, ss(e)), d = (t, e, s) => J$1(t, typeof e != "symbol" ? e + "" : e, s);
+var rs = class N {
 	constructor(e) {
-		d(this, "client"), d(this, "namespaces"), d(this, "optionalNamespaces"), d(this, "sessionProperties"), d(this, "scopedProperties"), d(this, "events", new import_events.default()), d(this, "rpcProviders", {}), d(this, "session"), d(this, "providerOpts"), d(this, "logger"), d(this, "uri"), d(this, "disableProviderPing", !1), d(this, "connectParams");
+		d(this, "client"), d(this, "namespaces"), d(this, "optionalNamespaces"), d(this, "sessionProperties"), d(this, "scopedProperties"), d(this, "events", new import_events$1.default()), d(this, "rpcProviders", {}), d(this, "session"), d(this, "providerOpts"), d(this, "logger"), d(this, "uri"), d(this, "disableProviderPing", !1), d(this, "connectParams");
 		var s, i$2;
 		this.providerOpts = e, this.logger = Iu({
 			logger: (s = e.logger) != null ? s : oe,
@@ -9823,7 +9832,7 @@ var N = class N {
 		const [r$1, a$1] = this.validateChain(s);
 		if (!this.session) throw new Error("Please call connect() before request()");
 		return await this.getProvider(r$1).request({
-			request: S({}, e),
+			request: S$1({}, e),
 			chainId: `${r$1}:${a$1}`,
 			topic: this.session.topic,
 			expiry: i$2
@@ -9862,7 +9871,7 @@ var N = class N {
 		const a$1 = await r$1();
 		if (this.session = a$1.session, this.session) {
 			const n$1 = we(this.session.namespaces);
-			this.namespaces = C(this.namespaces, n$1), await this.persist("namespaces", this.namespaces), this.onConnect();
+			this.namespaces = C$1(this.namespaces, n$1), await this.persist("namespaces", this.namespaces), this.onConnect();
 		}
 		return a$1;
 	}
@@ -9896,7 +9905,7 @@ var N = class N {
 		const n$1 = await a$1();
 		this.session = n$1;
 		const c$2 = we(n$1.namespaces);
-		return this.namespaces = C(this.namespaces, c$2), await this.persist("namespaces", this.namespaces), await this.persist("optionalNamespaces", this.optionalNamespaces), this.onConnect(), this.session;
+		return this.namespaces = C$1(this.namespaces, c$2), await this.persist("namespaces", this.namespaces), await this.persist("optionalNamespaces", this.optionalNamespaces), this.onConnect(), this.session;
 	}
 	setDefaultChain(e, s) {
 		try {
@@ -9952,11 +9961,11 @@ var N = class N {
 		if (!this.client) throw new Error("Sign Client not initialized");
 		if (!this.session) throw new Error("Session not initialized. Please call connect() before enable()");
 		const e = [...new Set(Object.keys(this.session.namespaces).map((s) => ms(s)))];
-		B("client", this.client), B("events", this.events), B("disableProviderPing", this.disableProviderPing), e.forEach((s) => {
+		B$1("client", this.client), B$1("events", this.events), B$1("disableProviderPing", this.disableProviderPing), e.forEach((s) => {
 			if (!this.session) return;
 			const i$2 = Pt(s, this.session);
 			if (i$2?.length === 0) return;
-			const r$1 = me(i$2), n$1 = j(S({}, C(this.namespaces, this.optionalNamespaces)[s]), {
+			const r$1 = me(i$2), n$1 = j$1(S$1({}, C$1(this.namespaces, this.optionalNamespaces)[s]), {
 				accounts: i$2,
 				chains: r$1
 			});
@@ -9983,23 +9992,23 @@ var N = class N {
 				const n$1 = a$1.data;
 				n$1 && Be(n$1) && this.events.emit("accountsChanged", n$1.map(ve));
 			} else if (a$1.name === "chainChanged") {
-				const n$1 = i$2.chainId, c$2 = i$2.event.data, o$1 = ms(n$1), p$2 = U(n$1) !== U(c$2) ? `${o$1}:${U(c$2)}` : n$1;
-				this.onChainChanged({ currentCaipChainId: p$2 });
+				const n$1 = i$2.chainId, c$2 = i$2.event.data, o$1 = ms(n$1), p$3 = U$1(n$1) !== U$1(c$2) ? `${o$1}:${U$1(c$2)}` : n$1;
+				this.onChainChanged({ currentCaipChainId: p$3 });
 			} else this.events.emit(a$1.name, a$1.data);
 			this.events.emit("session_event", e);
 		}), this.client.on("session_update", ({ topic: e, params: s }) => {
 			var i$2, r$1;
 			if (e !== ((i$2 = this.session) == null ? void 0 : i$2.topic)) return;
 			const { namespaces: a$1 } = s;
-			this.session = j(S({}, (r$1 = this.client) == null ? void 0 : r$1.session.get(e)), { namespaces: a$1 }), this.onSessionUpdate(), this.events.emit("session_update", {
+			this.session = j$1(S$1({}, (r$1 = this.client) == null ? void 0 : r$1.session.get(e)), { namespaces: a$1 }), this.onSessionUpdate(), this.events.emit("session_update", {
 				topic: e,
 				params: s
 			});
 		}), this.client.on("session_delete", async (e) => {
 			var s;
-			e.topic === ((s = this.session) == null ? void 0 : s.topic) && (await this.cleanup(), this.events.emit("session_delete", e), this.events.emit("disconnect", j(S({}, zt("USER_DISCONNECTED")), { data: e.topic })));
-		}), this.on(H.DEFAULT_CHAIN_CHANGED, (e) => {
-			this.onChainChanged(j(S({}, e), { internal: !0 }));
+			e.topic === ((s = this.session) == null ? void 0 : s.topic) && (await this.cleanup(), this.events.emit("session_delete", e), this.events.emit("disconnect", j$1(S$1({}, zt("USER_DISCONNECTED")), { data: e.topic })));
+		}), this.on(H$1.DEFAULT_CHAIN_CHANGED, (e) => {
+			this.onChainChanged(j$1(S$1({}, e), { internal: !0 }));
 		});
 	}
 	getProvider(e) {
@@ -10013,7 +10022,7 @@ var N = class N {
 	}
 	setNamespaces(e) {
 		const { namespaces: s = {}, optionalNamespaces: i$2 = {}, sessionProperties: r$1, scopedProperties: a$1 } = e;
-		this.optionalNamespaces = C(s, i$2), this.sessionProperties = r$1, this.scopedProperties = a$1;
+		this.optionalNamespaces = C$1(s, i$2), this.sessionProperties = r$1, this.scopedProperties = a$1;
 	}
 	validateChain(e) {
 		const [s, i$2] = e?.split(":") || ["", ""];
@@ -10068,363 +10077,438 @@ var N = class N {
 	async persist(e, s) {
 		var i$2;
 		const r$1 = ((i$2 = this.session) == null ? void 0 : i$2.topic) || "";
-		await this.client.core.storage.setItem(`${A}/${e}${r$1}`, s);
+		await this.client.core.storage.setItem(`${A$1}/${e}${r$1}`, s);
 	}
 	async getFromStore(e) {
 		var s;
 		const i$2 = ((s = this.session) == null ? void 0 : s.topic) || "";
-		return await this.client.core.storage.getItem(`${A}/${e}${i$2}`);
+		return await this.client.core.storage.getItem(`${A$1}/${e}${i$2}`);
 	}
 	async deleteFromStore(e) {
 		var s;
 		const i$2 = ((s = this.session) == null ? void 0 : s.topic) || "";
-		await this.client.core.storage.removeItem(`${A}/${e}${i$2}`);
+		await this.client.core.storage.removeItem(`${A$1}/${e}${i$2}`);
 	}
 	async cleanupStorage() {
 		var e;
 		try {
 			if (((e = this.client) == null ? void 0 : e.session.length) > 0) return;
 			const s = await this.client.core.storage.getKeys();
-			for (const i$2 of s) i$2.startsWith(A) && await this.client.core.storage.removeItem(i$2);
+			for (const i$2 of s) i$2.startsWith(A$1) && await this.client.core.storage.removeItem(i$2);
 		} catch (s) {
 			this.logger.warn(s, "Failed to cleanup storage");
 		}
 	}
 };
-var addEmbeddedWalletSessionPromise = null;
-const SIWXUtil = {
-	getSIWX() {
-		return OptionsController.state.siwx;
-	},
-	async initializeIfEnabled(caipAddress = ChainController.getActiveCaipAddress()) {
-		const siwx = OptionsController.state.siwx;
-		if (!(siwx && caipAddress)) return;
-		const [namespace, chainId, address] = caipAddress.split(":");
-		if (!ChainController.checkIfSupportedNetwork(namespace, `${namespace}:${chainId}`)) return;
+var import_events = require_events();
+var q = `wc@2:ethereum_provider:`, U = "https://rpc.walletconnect.org/v1/", f = ["eth_sendTransaction", "personal_sign"], A = [
+	"eth_accounts",
+	"eth_requestAccounts",
+	"eth_sendRawTransaction",
+	"eth_sign",
+	"eth_signTransaction",
+	"eth_signTypedData",
+	"eth_signTypedData_v3",
+	"eth_signTypedData_v4",
+	"eth_sendTransaction",
+	"personal_sign",
+	"wallet_switchEthereumChain",
+	"wallet_addEthereumChain",
+	"wallet_getPermissions",
+	"wallet_requestPermissions",
+	"wallet_registerOnboarding",
+	"wallet_watchAsset",
+	"wallet_scanQRCode",
+	"wallet_sendCalls",
+	"wallet_getCapabilities",
+	"wallet_getCallsStatus",
+	"wallet_showCallsStatus"
+], C = ["chainChanged", "accountsChanged"], P = [
+	"chainChanged",
+	"accountsChanged",
+	"message",
+	"disconnect",
+	"connect"
+], D = async () => {
+	const { createAppKit: s } = await __vitePreload(async () => {
+		const { createAppKit: s$1 } = await import("./core-DHDEZ4AK.js");
+		return { createAppKit: s$1 };
+	}, __vite__mapDeps([0,1,2,3,4,5,6,7,8,9,10]));
+	return s;
+};
+var z = Object.defineProperty, L = Object.defineProperties, K = Object.getOwnPropertyDescriptors, M = Object.getOwnPropertySymbols, Q = Object.prototype.hasOwnProperty, V = Object.prototype.propertyIsEnumerable, _ = (s, t, e) => t in s ? z(s, t, {
+	enumerable: !0,
+	configurable: !0,
+	writable: !0,
+	value: e
+}) : s[t] = e, v = (s, t) => {
+	for (var e in t || (t = {})) Q.call(t, e) && _(s, e, t[e]);
+	if (M) for (var e of M(t)) V.call(t, e) && _(s, e, t[e]);
+	return s;
+}, w = (s, t) => L(s, K(t)), p = (s, t, e) => _(s, typeof t != "symbol" ? t + "" : t, e);
+function I(s) {
+	return Number(s[0].split(":")[1]);
+}
+function b(s) {
+	return `0x${s.toString(16)}`;
+}
+function F(s) {
+	const { chains: t, optionalChains: e, methods: n$1, optionalMethods: i$2, events: a$1, optionalEvents: r$1, rpcMap: u$1 } = s;
+	if (!Be(t)) throw new Error("Invalid chains");
+	const c$2 = {
+		chains: t,
+		methods: n$1 || f,
+		events: a$1 || C,
+		rpcMap: v({}, t.length ? { [I(t)]: u$1[I(t)] } : {})
+	}, l$1 = a$1?.filter((d$3) => !C.includes(d$3)), o$1 = n$1?.filter((d$3) => !f.includes(d$3));
+	if (!e && !r$1 && !i$2 && !(l$1 != null && l$1.length) && !(o$1 != null && o$1.length)) return { required: t.length ? c$2 : void 0 };
+	const m$2 = l$1?.length && o$1?.length || !e, h$2 = {
+		chains: [...new Set(m$2 ? c$2.chains.concat(e || []) : e)],
+		methods: [...new Set(c$2.methods.concat(i$2 != null && i$2.length ? i$2 : A))],
+		events: [...new Set(c$2.events.concat(r$1 != null && r$1.length ? r$1 : P))],
+		rpcMap: u$1
+	};
+	return {
+		required: t.length ? c$2 : void 0,
+		optional: e.length ? h$2 : void 0
+	};
+}
+var E = class E {
+	constructor() {
+		p(this, "events", new import_events.EventEmitter()), p(this, "namespace", "eip155"), p(this, "accounts", []), p(this, "signer"), p(this, "chainId", 1), p(this, "modal"), p(this, "rpc"), p(this, "STORAGE_KEY", q), p(this, "on", (t, e) => (this.events.on(t, e), this)), p(this, "once", (t, e) => (this.events.once(t, e), this)), p(this, "removeListener", (t, e) => (this.events.removeListener(t, e), this)), p(this, "off", (t, e) => (this.events.off(t, e), this)), p(this, "parseAccount", (t) => this.isCompatibleChainId(t) ? this.parseAccountId(t).address : t), this.signer = {}, this.rpc = {};
+	}
+	static async init(t) {
+		const e = new E();
+		return await e.initialize(t), e;
+	}
+	async request(t, e) {
+		return await this.signer.request(t, this.formatChainId(this.chainId), e);
+	}
+	sendAsync(t, e, n$1) {
+		this.signer.sendAsync(t, e, this.formatChainId(this.chainId), n$1);
+	}
+	get connected() {
+		return this.signer.client ? this.signer.client.core.relayer.connected : !1;
+	}
+	get connecting() {
+		return this.signer.client ? this.signer.client.core.relayer.connecting : !1;
+	}
+	async enable() {
+		return this.session || await this.connect(), await this.request({ method: "eth_requestAccounts" });
+	}
+	async connect(t) {
+		var e;
+		if (!this.signer.client) throw new Error("Provider not initialized. Call init() first");
+		this.loadConnectOpts(t);
+		const { required: n$1, optional: i$2 } = F(this.rpc);
 		try {
-			if (OptionsController.state.remoteFeatures?.emailCapture) {
-				const user = ChainController.getAccountData(namespace)?.user;
-				await ModalController.open({
-					view: "DataCapture",
-					data: { email: user?.email ?? void 0 }
+			const a$1 = await new Promise(async (u$1, c$2) => {
+				var l$1, o$1;
+				this.rpc.showQrModal && ((l$1 = this.modal) == null || l$1.open(), (o$1 = this.modal) == null || o$1.subscribeState((h$2) => {
+					!h$2.open && !this.signer.session && (this.signer.abortPairingAttempt(), c$2(/* @__PURE__ */ new Error("Connection request reset. Please try again.")));
+				}));
+				const m$2 = t != null && t.scopedProperties ? { [this.namespace]: t.scopedProperties } : void 0;
+				await this.signer.connect(w(v({ namespaces: v({}, n$1 && { [this.namespace]: n$1 }) }, i$2 && { optionalNamespaces: { [this.namespace]: i$2 } }), {
+					pairingTopic: t?.pairingTopic,
+					scopedProperties: m$2
+				})).then((h$2) => {
+					u$1(h$2);
+				}).catch((h$2) => {
+					var d$3;
+					(d$3 = this.modal) == null || d$3.showErrorMessage("Unable to connect"), c$2(new Error(h$2.message));
 				});
-				return;
-			}
-			if (addEmbeddedWalletSessionPromise) await addEmbeddedWalletSessionPromise;
-			if ((await siwx.getSessions(`${namespace}:${chainId}`, address)).length) return;
-			await ModalController.open({ view: "SIWXSignMessage" });
-		} catch (error) {
-			console.error("SIWXUtil:initializeIfEnabled", error);
-			EventsController.sendEvent({
-				type: "track",
-				event: "SIWX_AUTH_ERROR",
-				properties: this.getSIWXEventProperties(error)
 			});
-			await ConnectionController._getClient()?.disconnect().catch(console.error);
-			RouterController.reset("Connect");
-			SnackController.showError("A problem occurred while trying initialize authentication");
+			if (!a$1) return;
+			const r$1 = ti(a$1.namespaces, [this.namespace]);
+			this.setChainIds(this.rpc.chains.length ? this.rpc.chains : r$1), this.setAccounts(r$1), this.events.emit("connect", { chainId: b(this.chainId) });
+		} catch (a$1) {
+			throw this.signer.logger.error(a$1), a$1;
+		} finally {
+			(e = this.modal) == null || e.close();
 		}
-	},
-	async isAuthenticated(caipAddress = ChainController.getActiveCaipAddress()) {
-		if (!OptionsController.state.siwx) return true;
-		if (!caipAddress) return true;
-		const { chainNamespace, chainId, address } = ParseUtil.parseCaipAddress(caipAddress);
-		const caipNetworkId = `${chainNamespace}:${chainId}`;
-		return (await SIWXUtil.getSessions({
-			address,
-			caipNetworkId
-		})).length > 0;
-	},
-	async requestSignMessage() {
-		const siwx = OptionsController.state.siwx;
-		const address = CoreHelperUtil.getPlainAddress(ChainController.getActiveCaipAddress());
-		const network = getActiveCaipNetwork();
-		if (!siwx) throw new Error("SIWX is not enabled");
-		if (!address) throw new Error("No ActiveCaipAddress found");
-		if (!network) throw new Error("No ActiveCaipNetwork or client found");
+	}
+	async authenticate(t, e) {
+		var n$1;
+		if (!this.signer.client) throw new Error("Provider not initialized. Call init() first");
+		this.loadConnectOpts({ chains: t?.chains });
 		try {
-			const siwxMessage = await siwx.createMessage({
-				chainId: network.caipNetworkId,
-				accountAddress: address
-			});
-			const message = siwxMessage.toString();
-			let signature = "";
-			if (siwx.signMessage) signature = await siwx.signMessage({
-				message,
-				chainId: network.caipNetworkId,
-				accountAddress: address
-			});
-			else {
-				if (ConnectorController.getConnectorId(network.chainNamespace) === ConstantsUtil.CONNECTOR_ID.AUTH) RouterController.pushTransactionStack({});
-				signature = await ConnectionController.signMessage(message) || "";
+			const i$2 = await new Promise(async (r$1, u$1) => {
+				var c$2, l$1;
+				this.rpc.showQrModal && ((c$2 = this.modal) == null || c$2.open(), (l$1 = this.modal) == null || l$1.subscribeState((o$1) => {
+					!o$1.open && !this.signer.session && (this.signer.abortPairingAttempt(), u$1(/* @__PURE__ */ new Error("Connection request reset. Please try again.")));
+				})), await this.signer.authenticate(w(v({}, t), { chains: this.rpc.chains }), e).then((o$1) => {
+					r$1(o$1);
+				}).catch((o$1) => {
+					var m$2;
+					(m$2 = this.modal) == null || m$2.showErrorMessage("Unable to connect"), u$1(new Error(o$1.message));
+				});
+			}), a$1 = i$2.session;
+			if (a$1) {
+				const r$1 = ti(a$1.namespaces, [this.namespace]);
+				this.setChainIds(this.rpc.chains.length ? this.rpc.chains : r$1), this.setAccounts(r$1), this.events.emit("connect", { chainId: b(this.chainId) });
 			}
-			await siwx.addSession({
-				data: siwxMessage,
-				message,
-				signature
-			});
-			ChainController.setLastConnectedSIWECaipNetwork(network);
-			ModalController.close();
-			EventsController.sendEvent({
-				type: "track",
-				event: "SIWX_AUTH_SUCCESS",
-				properties: this.getSIWXEventProperties()
-			});
-		} catch (error) {
-			if (!ModalController.state.open || RouterController.state.view === "ApproveTransaction") await ModalController.open({ view: "SIWXSignMessage" });
-			SnackController.showError("Error signing message");
-			EventsController.sendEvent({
-				type: "track",
-				event: "SIWX_AUTH_ERROR",
-				properties: this.getSIWXEventProperties(error)
-			});
-			console.error("SWIXUtil:requestSignMessage", error);
+			return i$2;
+		} catch (i$2) {
+			throw this.signer.logger.error(i$2), i$2;
+		} finally {
+			(n$1 = this.modal) == null || n$1.close();
 		}
-	},
-	async cancelSignMessage() {
-		try {
-			const siwx = this.getSIWX();
-			if (siwx?.getRequired?.()) {
-				const lastNetwork = ChainController.getLastConnectedSIWECaipNetwork();
-				if (lastNetwork) {
-					const sessions = await siwx?.getSessions(lastNetwork?.caipNetworkId, CoreHelperUtil.getPlainAddress(ChainController.getActiveCaipAddress()) || "");
-					if (sessions && sessions.length > 0) await ChainController.switchActiveNetwork(lastNetwork);
-					else await ConnectionController.disconnect();
-				} else await ConnectionController.disconnect();
-			} else ModalController.close();
-			ModalController.close();
-			EventsController.sendEvent({
-				event: "CLICK_CANCEL_SIWX",
-				type: "track",
-				properties: this.getSIWXEventProperties()
-			});
-		} catch (error) {
-			console.error("SIWXUtil:cancelSignMessage", error);
-		}
-	},
-	async getAllSessions() {
-		const siwx = this.getSIWX();
-		const allRequestedCaipNetworks = ChainController.getAllRequestedCaipNetworks();
-		const sessions = [];
-		await Promise.all(allRequestedCaipNetworks.map(async (caipNetwork) => {
-			const session = await siwx?.getSessions(caipNetwork.caipNetworkId, CoreHelperUtil.getPlainAddress(ChainController.getActiveCaipAddress()) || "");
-			if (session) sessions.push(...session);
-		}));
-		return sessions;
-	},
-	async getSessions(args) {
-		const siwx = OptionsController.state.siwx;
-		let address = args?.address;
-		if (!address) {
-			const activeCaipAddress = ChainController.getActiveCaipAddress();
-			address = CoreHelperUtil.getPlainAddress(activeCaipAddress);
-		}
-		let network = args?.caipNetworkId;
-		if (!network) network = ChainController.getActiveCaipNetwork()?.caipNetworkId;
-		if (!(siwx && address && network)) return [];
-		return siwx.getSessions(network, address);
-	},
-	async isSIWXCloseDisabled() {
-		const siwx = this.getSIWX();
-		if (siwx) {
-			const isApproveSignScreen = RouterController.state.view === "ApproveTransaction";
-			const isSiwxSignMessage = RouterController.state.view === "SIWXSignMessage";
-			if (isApproveSignScreen || isSiwxSignMessage) return siwx.getRequired?.() && (await this.getSessions()).length === 0;
-		}
-		return false;
-	},
-	async authConnectorAuthenticate({ authConnector, chainId, socialUri, preferredAccountType, chainNamespace }) {
-		const siwx = SIWXUtil.getSIWX();
-		const network = getActiveCaipNetwork();
-		if (!siwx || !chainNamespace.includes(ConstantsUtil.CHAIN.EVM) || OptionsController.state.remoteFeatures?.emailCapture) {
-			const result$1 = await authConnector.connect({
-				chainId,
-				socialUri,
-				preferredAccountType
-			});
-			return {
-				address: result$1.address,
-				chainId: result$1.chainId,
-				accounts: result$1.accounts
-			};
-		}
-		const caipNetwork = `${chainNamespace}:${chainId}`;
-		const siwxMessage = await siwx.createMessage({
-			chainId: caipNetwork,
-			accountAddress: "<<AccountAddress>>"
+	}
+	async disconnect() {
+		this.session && await this.signer.disconnect(), this.reset();
+	}
+	get isWalletConnect() {
+		return !0;
+	}
+	get session() {
+		return this.signer.session;
+	}
+	registerEventListeners() {
+		this.signer.on("session_event", (t) => {
+			const { params: e } = t, { event: n$1 } = e;
+			n$1.name === "accountsChanged" ? (this.accounts = this.parseAccounts(n$1.data), this.events.emit("accountsChanged", this.accounts)) : n$1.name === "chainChanged" ? this.setChainId(this.formatChainId(n$1.data)) : this.events.emit(n$1.name, n$1.data), this.events.emit("session_event", t);
+		}), this.signer.on("accountsChanged", (t) => {
+			this.accounts = this.parseAccounts(t), this.events.emit("accountsChanged", this.accounts);
+		}), this.signer.on("chainChanged", (t) => {
+			this.chainId = parseInt(t), this.events.emit("chainChanged", b(this.chainId)), this.persist();
+		}), this.signer.on("session_update", (t) => {
+			this.events.emit("session_update", t);
+		}), this.signer.on("session_delete", (t) => {
+			this.reset(), this.events.emit("session_delete", t), this.events.emit("disconnect", w(v({}, zt("USER_DISCONNECTED")), {
+				data: t.topic,
+				name: "USER_DISCONNECTED"
+			}));
+		}), this.signer.on("display_uri", (t) => {
+			this.events.emit("display_uri", t);
 		});
-		const siwxMessageData = {
-			accountAddress: siwxMessage.accountAddress,
-			chainId: siwxMessage.chainId,
-			domain: siwxMessage.domain,
-			uri: siwxMessage.uri,
-			version: siwxMessage.version,
-			nonce: siwxMessage.nonce,
-			notBefore: siwxMessage.notBefore,
-			statement: siwxMessage.statement,
-			resources: siwxMessage.resources,
-			requestId: siwxMessage.requestId,
-			issuedAt: siwxMessage.issuedAt,
-			expirationTime: siwxMessage.expirationTime,
-			serializedMessage: siwxMessage.toString()
-		};
-		const result = await authConnector.connect({
-			chainId,
-			socialUri,
-			siwxMessage: siwxMessageData,
-			preferredAccountType
+	}
+	switchEthereumChain(t) {
+		this.request({
+			method: "wallet_switchEthereumChain",
+			params: [{ chainId: t.toString(16) }]
 		});
-		siwxMessageData.accountAddress = result.address;
-		siwxMessageData.serializedMessage = result.message || "";
-		if (result.signature && result.message) await SIWXUtil.addEmbeddedWalletSession(siwxMessageData, result.message, result.signature);
-		ChainController.setLastConnectedSIWECaipNetwork(network);
+	}
+	isCompatibleChainId(t) {
+		return typeof t == "string" ? t.startsWith(`${this.namespace}:`) : !1;
+	}
+	formatChainId(t) {
+		return `${this.namespace}:${t}`;
+	}
+	parseChainId(t) {
+		return Number(t.split(":")[1]);
+	}
+	setChainIds(t) {
+		const e = t.filter((n$1) => this.isCompatibleChainId(n$1)).map((n$1) => this.parseChainId(n$1));
+		e.length && (this.chainId = e[0], this.events.emit("chainChanged", b(this.chainId)), this.persist());
+	}
+	setChainId(t) {
+		if (this.isCompatibleChainId(t)) {
+			const e = this.parseChainId(t);
+			this.chainId = e, this.switchEthereumChain(e);
+		}
+	}
+	parseAccountId(t) {
+		const [e, n$1, i$2] = t.split(":");
 		return {
-			address: result.address,
-			chainId: result.chainId,
-			accounts: result.accounts
+			chainId: `${e}:${n$1}`,
+			address: i$2
 		};
-	},
-	async addEmbeddedWalletSession(siwxMessageData, message, signature) {
-		if (addEmbeddedWalletSessionPromise) return addEmbeddedWalletSessionPromise;
-		const siwx = SIWXUtil.getSIWX();
-		if (!siwx) return Promise.resolve();
-		addEmbeddedWalletSessionPromise = siwx.addSession({
-			data: siwxMessageData,
-			message,
-			signature
-		}).finally(() => {
-			addEmbeddedWalletSessionPromise = null;
-		});
-		return addEmbeddedWalletSessionPromise;
-	},
-	async universalProviderAuthenticate({ universalProvider, chains, methods }) {
-		const siwx = SIWXUtil.getSIWX();
-		const network = getActiveCaipNetwork();
-		const namespaces = new Set(chains.map((chain) => chain.split(":")[0]));
-		if (!siwx || namespaces.size !== 1 || !namespaces.has("eip155")) return false;
-		const siwxMessage = await siwx.createMessage({
-			chainId: getActiveCaipNetwork()?.caipNetworkId || "",
-			accountAddress: ""
-		});
-		const result = await universalProvider.authenticate({
-			nonce: siwxMessage.nonce,
-			domain: siwxMessage.domain,
-			uri: siwxMessage.uri,
-			exp: siwxMessage.expirationTime,
-			iat: siwxMessage.issuedAt,
-			nbf: siwxMessage.notBefore,
-			requestId: siwxMessage.requestId,
-			version: siwxMessage.version,
-			resources: siwxMessage.resources,
-			statement: siwxMessage.statement,
-			chainId: siwxMessage.chainId,
-			methods,
-			chains: [siwxMessage.chainId, ...chains.filter((chain) => chain !== siwxMessage.chainId)]
-		});
-		SnackController.showLoading("Authenticating...", { autoClose: false });
-		const walletInfo = {
-			...result.session.peer.metadata,
-			name: result.session.peer.metadata.name,
-			icon: result.session.peer.metadata.icons?.[0],
-			type: "WALLET_CONNECT"
+	}
+	setAccounts(t) {
+		this.accounts = t.filter((e) => this.parseChainId(this.parseAccountId(e).chainId) === this.chainId).map((e) => this.parseAccountId(e).address), this.events.emit("accountsChanged", this.accounts);
+	}
+	getRpcConfig(t) {
+		var e, n$1;
+		const i$2 = (e = t?.chains) != null ? e : [], a$1 = (n$1 = t?.optionalChains) != null ? n$1 : [], r$1 = i$2.concat(a$1);
+		if (!r$1.length) throw new Error("No chains specified in either `chains` or `optionalChains`");
+		const u$1 = i$2.length ? t?.methods || f : [], c$2 = i$2.length ? t?.events || C : [], l$1 = t?.optionalMethods || [], o$1 = t?.optionalEvents || [], m$2 = t?.rpcMap || this.buildRpcMap(r$1, t.projectId), h$2 = t?.qrModalOptions || void 0;
+		return {
+			chains: i$2?.map((d$3) => this.formatChainId(d$3)),
+			optionalChains: a$1.map((d$3) => this.formatChainId(d$3)),
+			methods: u$1,
+			events: c$2,
+			optionalMethods: l$1,
+			optionalEvents: o$1,
+			rpcMap: m$2,
+			showQrModal: !!(t != null && t.showQrModal),
+			qrModalOptions: h$2,
+			projectId: t.projectId,
+			metadata: t.metadata
 		};
-		ChainController.setAccountProp("connectedWalletInfo", walletInfo, Array.from(namespaces)[0]);
-		if (result?.auths?.length) {
-			const sessions = result.auths.map((cacao) => {
-				const message = universalProvider.client.formatAuthMessage({
-					request: cacao.p,
-					iss: cacao.p.iss
-				});
-				return {
-					data: {
-						...cacao.p,
-						accountAddress: cacao.p.iss.split(":").slice(-1).join(""),
-						chainId: cacao.p.iss.split(":").slice(2, 4).join(":"),
-						uri: cacao.p.aud ?? "",
-						version: cacao.p.version || siwxMessage.version,
-						expirationTime: cacao.p.exp,
-						issuedAt: cacao.p.iat,
-						notBefore: cacao.p.nbf
-					},
-					message,
-					signature: cacao.s.s,
-					cacao
-				};
-			});
+	}
+	buildRpcMap(t, e) {
+		const n$1 = {};
+		return t.forEach((i$2) => {
+			n$1[i$2] = this.getRpcUrl(i$2, e);
+		}), n$1;
+	}
+	async initialize(t) {
+		var e;
+		if (this.rpc = this.getRpcConfig(t), this.chainId = this.rpc.chains.length ? I(this.rpc.chains) : I(this.rpc.optionalChains), this.signer = await rs.init({
+			projectId: this.rpc.projectId,
+			metadata: this.rpc.metadata,
+			disableProviderPing: t.disableProviderPing,
+			relayUrl: t.relayUrl,
+			storage: t.storage,
+			storageOptions: t.storageOptions,
+			customStoragePrefix: t.customStoragePrefix,
+			telemetryEnabled: t.telemetryEnabled,
+			logger: t.logger
+		}), this.registerEventListeners(), await this.loadPersistedSession(), this.rpc.showQrModal) {
+			let n$1;
 			try {
-				await siwx.setSessions(sessions);
-				if (network) ChainController.setLastConnectedSIWECaipNetwork(network);
-				EventsController.sendEvent({
-					type: "track",
-					event: "SIWX_AUTH_SUCCESS",
-					properties: SIWXUtil.getSIWXEventProperties()
-				});
-			} catch (error) {
-				console.error("SIWX:universalProviderAuth - failed to set sessions", error);
-				EventsController.sendEvent({
-					type: "track",
-					event: "SIWX_AUTH_ERROR",
-					properties: SIWXUtil.getSIWXEventProperties(error)
-				});
-				await universalProvider.disconnect().catch(console.error);
-				throw error;
-			} finally {
-				SnackController.hide();
+				const i$2 = await D(), { convertWCMToAppKitOptions: a$1 } = await Promise.resolve().then(function() {
+					return nt;
+				}), r$1 = a$1(w(v({}, this.rpc.qrModalOptions), {
+					chains: [...new Set([...this.rpc.chains, ...this.rpc.optionalChains])],
+					metadata: this.rpc.metadata,
+					projectId: this.rpc.projectId
+				}));
+				if (!r$1.networks.length) throw new Error("No networks found for WalletConnect");
+				n$1 = i$2(w(v({}, r$1), {
+					universalProvider: this.signer,
+					manualWCControl: !0,
+					enableMobileFullScreen: ((e = this.rpc.qrModalOptions) == null ? void 0 : e.enableMobileFullScreen) === !0
+				}));
+			} catch (i$2) {
+				throw console.warn(i$2), /* @__PURE__ */ new Error("To use QR modal, please install @reown/appkit package");
+			}
+			if (n$1) try {
+				this.modal = n$1;
+			} catch (i$2) {
+				throw this.signer.logger.error(i$2), /* @__PURE__ */ new Error("Could not generate WalletConnectModal Instance");
 			}
 		}
-		return true;
-	},
-	getSIWXEventProperties(error) {
-		const namespace = ChainController.state.activeChain;
-		if (!namespace) throw new Error("SIWXUtil:getSIWXEventProperties - namespace is required");
-		return {
-			network: ChainController.state.activeCaipNetwork?.caipNetworkId || "",
-			isSmartAccount: getPreferredAccountType(namespace) === W3mFrameRpcConstants.ACCOUNT_TYPES.SMART_ACCOUNT,
-			message: error ? CoreHelperUtil.parseError(error) : void 0
-		};
-	},
-	async clearSessions() {
-		const siwx = this.getSIWX();
-		if (siwx) await siwx.setSessions([]);
+	}
+	loadConnectOpts(t) {
+		if (!t) return;
+		const { chains: e, optionalChains: n$1, rpcMap: i$2 } = t;
+		e && Be(e) && (this.rpc.chains = e.map((a$1) => this.formatChainId(a$1)), e.forEach((a$1) => {
+			this.rpc.rpcMap[a$1] = i$2?.[a$1] || this.getRpcUrl(a$1);
+		})), n$1 && Be(n$1) && (this.rpc.optionalChains = [], this.rpc.optionalChains = n$1?.map((a$1) => this.formatChainId(a$1)), n$1.forEach((a$1) => {
+			this.rpc.rpcMap[a$1] = i$2?.[a$1] || this.getRpcUrl(a$1);
+		}));
+	}
+	getRpcUrl(t, e) {
+		var n$1;
+		return ((n$1 = this.rpc.rpcMap) == null ? void 0 : n$1[t]) || `${U}?chainId=eip155:${t}&projectId=${e || this.rpc.projectId}`;
+	}
+	async loadPersistedSession() {
+		if (this.session) try {
+			const t = await this.signer.client.core.storage.getItem(`${this.STORAGE_KEY}/chainId`), e = this.session.namespaces[`${this.namespace}:${t}`] ? this.session.namespaces[`${this.namespace}:${t}`] : this.session.namespaces[this.namespace];
+			this.setChainIds(t ? [this.formatChainId(t)] : e?.accounts), this.setAccounts(e?.accounts);
+		} catch (t) {
+			this.signer.logger.error("Failed to load persisted session, clearing state..."), this.signer.logger.error(t), await this.disconnect().catch((e) => this.signer.logger.warn(e));
+		}
+	}
+	reset() {
+		this.chainId = 1, this.accounts = [];
+	}
+	persist() {
+		this.session && this.signer.client.core.storage.setItem(`${this.STORAGE_KEY}/chainId`, this.chainId);
+	}
+	parseAccounts(t) {
+		return typeof t == "string" || t instanceof String ? [this.parseAccount(t)] : t.map((e) => this.parseAccount(e));
 	}
 };
-var state = proxy({
-	message: "",
-	variant: "info",
-	open: false
-});
-const AlertController = withErrorBoundary({
-	state,
-	subscribeKey(key, callback) {
-		return subscribeKey(state, key, callback);
-	},
-	open(message, variant) {
-		const { debug } = OptionsController.state;
-		const { code, displayMessage, debugMessage } = message;
-		if (displayMessage && debug) {
-			state.message = displayMessage;
-			state.variant = variant;
-			state.open = true;
+var G = E;
+var Y = Object.defineProperty, H = Object.defineProperties, B = Object.getOwnPropertyDescriptors, S = Object.getOwnPropertySymbols, X = Object.prototype.hasOwnProperty, J = Object.prototype.propertyIsEnumerable, T = (s, t, e) => t in s ? Y(s, t, {
+	enumerable: !0,
+	configurable: !0,
+	writable: !0,
+	value: e
+}) : s[t] = e, R = (s, t) => {
+	for (var e in t || (t = {})) X.call(t, e) && T(s, e, t[e]);
+	if (S) for (var e of S(t)) J.call(t, e) && T(s, e, t[e]);
+	return s;
+}, Z = (s, t) => H(s, B(t));
+function tt(s) {
+	if (s) return {
+		"--w3m-font-family": s["--wcm-font-family"],
+		"--w3m-accent": s["--wcm-accent-color"],
+		"--w3m-color-mix": s["--wcm-background-color"],
+		"--w3m-z-index": s["--wcm-z-index"] ? Number(s["--wcm-z-index"]) : void 0,
+		"--w3m-qr-color": s["--wcm-accent-color"],
+		"--w3m-font-size-master": s["--wcm-text-medium-regular-size"],
+		"--w3m-border-radius-master": s["--wcm-container-border-radius"],
+		"--w3m-color-mix-strength": 0
+	};
+}
+var et = (s) => {
+	const [t, e] = s.split(":");
+	return W({
+		id: e,
+		caipNetworkId: s,
+		chainNamespace: t,
+		name: "",
+		nativeCurrency: {
+			name: "",
+			symbol: "",
+			decimals: 8
+		},
+		rpcUrls: { default: { http: ["https://rpc.walletconnect.org/v1"] } }
+	});
+};
+function st(s) {
+	var t, e, n$1, i$2, a$1, r$1, u$1;
+	const c$2 = (t = s.chains) == null ? void 0 : t.map(et).filter(Boolean);
+	if (c$2.length === 0) throw new Error("At least one chain must be specified");
+	const l$1 = c$2.find((m$2) => {
+		var h$2;
+		return m$2.id === ((h$2 = s.defaultChain) == null ? void 0 : h$2.id);
+	}), o$1 = {
+		projectId: s.projectId,
+		networks: c$2,
+		themeMode: s.themeMode,
+		themeVariables: tt(s.themeVariables),
+		chainImages: s.chainImages,
+		connectorImages: s.walletImages,
+		defaultNetwork: l$1,
+		metadata: Z(R({}, s.metadata), {
+			name: ((e = s.metadata) == null ? void 0 : e.name) || "WalletConnect",
+			description: ((n$1 = s.metadata) == null ? void 0 : n$1.description) || "Connect to WalletConnect-compatible wallets",
+			url: ((i$2 = s.metadata) == null ? void 0 : i$2.url) || "https://walletconnect.org",
+			icons: ((a$1 = s.metadata) == null ? void 0 : a$1.icons) || ["https://walletconnect.org/walletconnect-logo.png"]
+		}),
+		showWallets: !0,
+		featuredWalletIds: s.explorerRecommendedWalletIds === "NONE" ? [] : Array.isArray(s.explorerRecommendedWalletIds) ? s.explorerRecommendedWalletIds : [],
+		excludeWalletIds: s.explorerExcludedWalletIds === "ALL" ? [] : Array.isArray(s.explorerExcludedWalletIds) ? s.explorerExcludedWalletIds : [],
+		enableEIP6963: !1,
+		enableInjected: !1,
+		enableCoinbase: !0,
+		enableWalletConnect: !0,
+		features: {
+			email: !1,
+			socials: !1
 		}
-		if (debugMessage) {
-			if (!ConstantsUtil.IS_DEVELOPMENT) return;
-			const resolved = typeof debugMessage === "function" ? debugMessage() : debugMessage;
-			const meta = code ? { code } : void 0;
-			if (variant === "error") console.error(resolved, meta);
-			else if (variant === "warning") console.warn(resolved, meta);
-			else console.info(resolved, meta);
-		}
-	},
-	warn(title, description, code) {
-		state.open = true;
-		state.message = title;
-		state.variant = "warning";
-		if (description) console.warn(description, code);
-	},
-	close() {
-		state.open = false;
-		state.message = "";
-		state.variant = "info";
+	};
+	if ((r$1 = s.mobileWallets) != null && r$1.length || (u$1 = s.desktopWallets) != null && u$1.length) {
+		const m$2 = [...(s.mobileWallets || []).map((g$1) => ({
+			id: g$1.id,
+			name: g$1.name,
+			links: g$1.links
+		})), ...(s.desktopWallets || []).map((g$1) => ({
+			id: g$1.id,
+			name: g$1.name,
+			links: {
+				native: g$1.links.native,
+				universal: g$1.links.universal
+			}
+		}))], h$2 = [...o$1.featuredWalletIds || [], ...o$1.excludeWalletIds || []], d$3 = m$2.filter((g$1) => !h$2.includes(g$1.id));
+		d$3.length && (o$1.customWallets = d$3);
 	}
+	return o$1;
+}
+function W(s) {
+	return R({
+		formatters: void 0,
+		fees: void 0,
+		serializers: void 0
+	}, s);
+}
+var nt = Object.freeze({
+	__proto__: null,
+	convertWCMToAppKitOptions: st,
+	defineChain: W
 });
-export { SIWXUtil as n, N as r, AlertController as t };
+export { G as EthereumProvider, P as OPTIONAL_EVENTS, A as OPTIONAL_METHODS, C as REQUIRED_EVENTS, f as REQUIRED_METHODS, E as default };

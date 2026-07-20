@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-B4hDQXNx.js","assets/secp256k1-DdAb2aRm.js","assets/esm-C-F1YuUG.js","assets/dist-D0-tHwi3.js","assets/dist-BuIfp8Pp.js","assets/dist-iF5Z1pPg.js","assets/index.es-DiLh3ONC.js","assets/alchemy-provider-2577f5a5-BtTpqIcx.js","assets/alchemy-provider-2577f5a5-B80zcfkP.js","assets/alchemy-websocket-provider-ee041890-ByoR1TjT.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-CRbXpfRr.js","assets/secp256k1-Cgx2kDCD.js","assets/esm-7VjfeM4F.js","assets/dist-C6nfX0I4.js","assets/dist-Blil5Xq8.js","assets/dist-Bs0nmFeM.js","assets/index.es-CHqPSYXH.js","assets/alchemy-provider-2577f5a5-XYWmlHRa.js","assets/alchemy-provider-2577f5a5-CTIa7yq7.js","assets/alchemy-websocket-provider-ee041890-D7qtMHEX.js"])))=>i.map(i=>d[i]);
 var __create = Object.create;
 var __defProp$1 = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -1493,7 +1493,7 @@ var require_react_dom_client_production = /* @__PURE__ */ __commonJSMin(((export
 	function trackValueOnNode(node$1, valueField, currentValue) {
 		var descriptor = Object.getOwnPropertyDescriptor(node$1.constructor.prototype, valueField);
 		if (!node$1.hasOwnProperty(valueField) && "undefined" !== typeof descriptor && "function" === typeof descriptor.get && "function" === typeof descriptor.set) {
-			var get$2 = descriptor.get, set$1 = descriptor.set;
+			var get$2 = descriptor.get, set$2 = descriptor.set;
 			Object.defineProperty(node$1, valueField, {
 				configurable: !0,
 				get: function() {
@@ -1501,7 +1501,7 @@ var require_react_dom_client_production = /* @__PURE__ */ __commonJSMin(((export
 				},
 				set: function(value) {
 					currentValue = "" + value;
-					set$1.call(this, value);
+					set$2.call(this, value);
 				}
 			});
 			Object.defineProperty(node$1, valueField, { enumerable: descriptor.enumerable });
@@ -10075,12 +10075,12 @@ function replaceData(prevData, data, options$2) {
 	else if (options$2.structuralSharing !== false) return replaceEqualDeep(prevData, data);
 	return data;
 }
-function addToEnd(items, item, max$2 = 0) {
-	const newItems = [...items, item];
+function addToEnd(items$1, item, max$2 = 0) {
+	const newItems = [...items$1, item];
 	return max$2 && newItems.length > max$2 ? newItems.slice(1) : newItems;
 }
-function addToStart(items, item, max$2 = 0) {
-	const newItems = [item, ...items];
+function addToStart(items$1, item, max$2 = 0) {
+	const newItems = [item, ...items$1];
 	return max$2 && newItems.length > max$2 ? newItems.slice(0, -1) : newItems;
 }
 var skipToken = Symbol();
@@ -12638,8 +12638,8 @@ var InvalidDefinitionTypeError = class extends BaseError$3 {
 	}
 };
 var InvalidAddressError = class extends BaseError$3 {
-	constructor({ address: address$12 }) {
-		super(`Address "${address$12}" is invalid.`, {
+	constructor({ address: address$13 }) {
+		super(`Address "${address$13}" is invalid.`, {
 			metaMessages: ["- Address must be a hex value of 20 bytes (40 hex characters).", "- Address must match its checksum counterpart."],
 			name: "InvalidAddressError"
 		});
@@ -13179,14 +13179,14 @@ var LruMap = class extends Map {
 };
 var addressRegex = /^0x[a-fA-F0-9]{40}$/;
 const isAddressCache = /* @__PURE__ */ new LruMap(8192);
-function isAddress(address$12, options$2) {
+function isAddress(address$13, options$2) {
 	const { strict = true } = options$2 ?? {};
-	const cacheKey$2 = `${address$12}.${strict}`;
+	const cacheKey$2 = `${address$13}.${strict}`;
 	if (isAddressCache.has(cacheKey$2)) return isAddressCache.get(cacheKey$2);
 	const result = (() => {
-		if (!addressRegex.test(address$12)) return false;
-		if (address$12.toLowerCase() === address$12) return true;
-		if (strict) return checksumAddress(address$12) === address$12;
+		if (!addressRegex.test(address$13)) return false;
+		if (address$13.toLowerCase() === address$13) return true;
+		if (strict) return checksumAddress(address$13) === address$13;
 		return true;
 	})();
 	isAddressCache.set(cacheKey$2, result);
@@ -13197,18 +13197,18 @@ function checksumAddress(address_, chainId) {
 	if (checksumAddressCache.has(`${address_}.${chainId}`)) return checksumAddressCache.get(`${address_}.${chainId}`);
 	const hexAddress = chainId ? `${chainId}${address_.toLowerCase()}` : address_.substring(2).toLowerCase();
 	const hash$3 = keccak256$1(stringToBytes(hexAddress), "bytes");
-	const address$12 = (chainId ? hexAddress.substring(`${chainId}0x`.length) : hexAddress).split("");
+	const address$13 = (chainId ? hexAddress.substring(`${chainId}0x`.length) : hexAddress).split("");
 	for (let i$13 = 0; i$13 < 40; i$13 += 2) {
-		if (hash$3[i$13 >> 1] >> 4 >= 8 && address$12[i$13]) address$12[i$13] = address$12[i$13].toUpperCase();
-		if ((hash$3[i$13 >> 1] & 15) >= 8 && address$12[i$13 + 1]) address$12[i$13 + 1] = address$12[i$13 + 1].toUpperCase();
+		if (hash$3[i$13 >> 1] >> 4 >= 8 && address$13[i$13]) address$13[i$13] = address$13[i$13].toUpperCase();
+		if ((hash$3[i$13 >> 1] & 15) >= 8 && address$13[i$13 + 1]) address$13[i$13 + 1] = address$13[i$13 + 1].toUpperCase();
 	}
-	const result = `0x${address$12.join("")}`;
+	const result = `0x${address$13.join("")}`;
 	checksumAddressCache.set(`${address_}.${chainId}`, result);
 	return result;
 }
-function getAddress$1(address$12, chainId) {
-	if (!isAddress(address$12, { strict: false })) throw new InvalidAddressError({ address: address$12 });
-	return checksumAddress(address$12, chainId);
+function getAddress$1(address$13, chainId) {
+	if (!isAddress(address$13, { strict: false })) throw new InvalidAddressError({ address: address$13 });
+	return checksumAddress(address$13, chainId);
 }
 var NegativeOffsetError = class extends BaseError$3 {
 	constructor({ offset: offset$3 }) {
@@ -14526,14 +14526,14 @@ function resolveStructs(abiParameters = [], structs = {}, ancestors = /* @__PURE
 }
 function parseAbi(signatures) {
 	const structs = parseStructs(signatures);
-	const abi$12 = [];
+	const abi$13 = [];
 	const length$1 = signatures.length;
 	for (let i$13 = 0; i$13 < length$1; i$13++) {
 		const signature = signatures[i$13];
 		if (isStructSignature(signature)) continue;
-		abi$12.push(parseSignature(signature, structs));
+		abi$13.push(parseSignature(signature, structs));
 	}
-	return abi$12;
+	return abi$13;
 }
 function normalizeSignature(signature) {
 	let active = true;
@@ -14591,9 +14591,9 @@ function toSignatureHash(fn$2) {
 const toEventSelector = toSignatureHash;
 const toFunctionSelector = (fn$2) => slice$2(toSignatureHash(fn$2), 0, 4);
 function getAbiItem(parameters) {
-	const { abi: abi$12, args = [], name } = parameters;
+	const { abi: abi$13, args = [], name } = parameters;
 	const isSelector = isHex(name, { strict: false });
-	const abiItems = abi$12.filter((abiItem) => {
+	const abiItems = abi$13.filter((abiItem) => {
 		if (isSelector) {
 			if (abiItem.type === "function") return toFunctionSelector(abiItem) === name;
 			if (abiItem.type === "event") return toEventSelector(abiItem) === name;
@@ -14671,11 +14671,11 @@ function getAmbiguousTypes(sourceParameters, targetParameters, args) {
 }
 var docsPath$4 = "/docs/contract/decodeFunctionResult";
 function decodeFunctionResult(parameters) {
-	const { abi: abi$12, args, functionName, data } = parameters;
-	let abiItem = abi$12[0];
+	const { abi: abi$13, args, functionName, data } = parameters;
+	let abiItem = abi$13[0];
 	if (functionName) {
 		const item = getAbiItem({
-			abi: abi$12,
+			abi: abi$13,
 			args,
 			name: functionName
 		});
@@ -14690,11 +14690,11 @@ function decodeFunctionResult(parameters) {
 }
 var docsPath$3 = "/docs/contract/encodeFunctionData";
 function prepareEncodeFunctionData(parameters) {
-	const { abi: abi$12, args, functionName } = parameters;
-	let abiItem = abi$12[0];
+	const { abi: abi$13, args, functionName } = parameters;
+	let abiItem = abi$13[0];
 	if (functionName) {
 		const item = getAbiItem({
-			abi: abi$12,
+			abi: abi$13,
 			args,
 			name: functionName
 		});
@@ -14709,11 +14709,11 @@ function prepareEncodeFunctionData(parameters) {
 }
 function encodeFunctionData(parameters) {
 	const { args } = parameters;
-	const { abi: abi$12, functionName } = (() => {
+	const { abi: abi$13, functionName } = (() => {
 		if (parameters.abi.length === 1 && parameters.functionName?.startsWith("0x")) return parameters;
 		return prepareEncodeFunctionData(parameters);
 	})();
-	const abiItem = abi$12[0];
+	const abiItem = abi$13[0];
 	return concatHex([functionName, ("inputs" in abiItem && abiItem.inputs ? encodeAbiParameters(abiItem.inputs, args ?? []) : void 0) ?? "0x"]);
 }
 var ChainDoesNotSupportContract = class extends BaseError$3 {
@@ -14798,11 +14798,11 @@ const solidityPanic = {
 	type: "error"
 };
 function decodeErrorResult(parameters) {
-	const { abi: abi$12, data, cause } = parameters;
+	const { abi: abi$13, data, cause } = parameters;
 	const signature = slice$2(data, 0, 4);
 	if (signature === "0x") throw new AbiDecodingZeroDataError({ cause });
 	const abiItem = [
-		...abi$12 || [],
+		...abi$13 || [],
 		solidityError,
 		solidityPanic
 	].find((x$8) => x$8.type === "error" && signature === toFunctionSelector(formatAbiItem(x$8)));
@@ -14850,8 +14850,8 @@ function formatGwei(wei, unit$1 = "wei") {
 	return formatUnits$2(wei, gweiUnits[unit$1]);
 }
 var AccountStateConflictError = class extends BaseError$3 {
-	constructor({ address: address$12 }) {
-		super(`State for account "${address$12}" is set multiple times.`, { name: "AccountStateConflictError" });
+	constructor({ address: address$13 }) {
+		super(`State for account "${address$13}" is set multiple times.`, { name: "AccountStateConflictError" });
 	}
 };
 var StateAssignmentConflictError = class extends BaseError$3 {
@@ -14865,8 +14865,8 @@ function prettyStateMapping(stateMapping) {
 	}, "");
 }
 function prettyStateOverride(stateOverride) {
-	return stateOverride.reduce((pretty, { address: address$12, ...state }) => {
-		let val = `${pretty}    ${address$12}:\n`;
+	return stateOverride.reduce((pretty, { address: address$13, ...state }) => {
+		let val = `${pretty}    ${address$13}:\n`;
 		if (state.nonce) val += `      nonce: ${state.nonce}\n`;
 		if (state.balance) val += `      balance: ${state.balance}\n`;
 		if (state.code) val += `      code: ${state.code}\n`;
@@ -14994,7 +14994,7 @@ var WaitForTransactionReceiptTimeoutError = class extends BaseError$3 {
 		super(`Timed out while waiting for transaction with hash "${hash$3}" to be confirmed.`, { name: "WaitForTransactionReceiptTimeoutError" });
 	}
 };
-const getContractAddress = (address$12) => address$12;
+const getContractAddress = (address$13) => address$13;
 const getUrl = (url) => url;
 var CallExecutionError = class extends BaseError$3 {
 	constructor(cause, { account: account_, docsPath: docsPath$5, chain, data, gas, gasPrice, maxFeePerGas, maxPriorityFeePerGas, nonce, to: to$3, value, stateOverride }) {
@@ -15030,9 +15030,9 @@ var CallExecutionError = class extends BaseError$3 {
 	}
 };
 var ContractFunctionExecutionError = class extends BaseError$3 {
-	constructor(cause, { abi: abi$12, args, contractAddress, docsPath: docsPath$5, functionName, sender }) {
+	constructor(cause, { abi: abi$13, args, contractAddress, docsPath: docsPath$5, functionName, sender }) {
 		const abiItem = getAbiItem({
-			abi: abi$12,
+			abi: abi$13,
 			args,
 			name: functionName
 		});
@@ -15101,7 +15101,7 @@ var ContractFunctionExecutionError = class extends BaseError$3 {
 			writable: true,
 			value: void 0
 		});
-		this.abi = abi$12;
+		this.abi = abi$13;
 		this.args = args;
 		this.cause = cause;
 		this.contractAddress = contractAddress;
@@ -15110,14 +15110,14 @@ var ContractFunctionExecutionError = class extends BaseError$3 {
 	}
 };
 var ContractFunctionRevertedError = class extends BaseError$3 {
-	constructor({ abi: abi$12, data, functionName, message: message$1, cause: error }) {
+	constructor({ abi: abi$13, data, functionName, message: message$1, cause: error }) {
 		let cause;
 		let decodedData;
 		let metaMessages;
 		let reason;
 		if (data && data !== "0x") try {
 			decodedData = decodeErrorResult({
-				abi: abi$12,
+				abi: abi$13,
 				data,
 				cause: error
 			});
@@ -15241,9 +15241,9 @@ function isNullUniversalResolverError(err) {
 	return false;
 }
 function decodeFunctionData(parameters) {
-	const { abi: abi$12, data } = parameters;
+	const { abi: abi$13, data } = parameters;
 	const signature = slice$2(data, 0, 4);
-	const description = abi$12.find((x$8) => x$8.type === "function" && signature === toFunctionSelector(formatAbiItem(x$8)));
+	const description = abi$13.find((x$8) => x$8.type === "function" && signature === toFunctionSelector(formatAbiItem(x$8)));
 	if (!description) throw new AbiFunctionSignatureNotFoundError(signature, { docsPath: "/docs/contract/decodeFunctionData" });
 	return {
 		functionName: description.name,
@@ -15252,11 +15252,11 @@ function decodeFunctionData(parameters) {
 }
 var docsPath$2 = "/docs/contract/encodeErrorResult";
 function encodeErrorResult(parameters) {
-	const { abi: abi$12, errorName, args } = parameters;
-	let abiItem = abi$12[0];
+	const { abi: abi$13, errorName, args } = parameters;
+	let abiItem = abi$13[0];
 	if (errorName) {
 		const item = getAbiItem({
-			abi: abi$12,
+			abi: abi$13,
 			args,
 			name: errorName
 		});
@@ -15274,11 +15274,11 @@ function encodeErrorResult(parameters) {
 }
 var docsPath$1 = "/docs/contract/encodeFunctionResult";
 function encodeFunctionResult(parameters) {
-	const { abi: abi$12, functionName, result } = parameters;
-	let abiItem = abi$12[0];
+	const { abi: abi$13, functionName, result } = parameters;
+	let abiItem = abi$13[0];
 	if (functionName) {
 		const item = getAbiItem({
-			abi: abi$12,
+			abi: abi$13,
 			name: functionName
 		});
 		if (!item) throw new AbiFunctionNotFoundError(functionName, { docsPath: docsPath$1 });
@@ -15908,7 +15908,7 @@ var UnknownRpcError = class extends RpcError$1 {
 	}
 };
 var EXECUTION_REVERTED_ERROR_CODE = 3;
-function getContractError(err, { abi: abi$12, address: address$12, args, docsPath: docsPath$5, functionName, sender }) {
+function getContractError(err, { abi: abi$13, address: address$13, args, docsPath: docsPath$5, functionName, sender }) {
 	const error = err instanceof RawContractError ? err : err instanceof BaseError$3 ? err.walk((err$1) => "data" in err$1) || err.walk() : {};
 	const { code: code$1, data, details, message: message$1, shortMessage } = error;
 	return new ContractFunctionExecutionError((() => {
@@ -15917,7 +15917,7 @@ function getContractError(err, { abi: abi$12, address: address$12, args, docsPat
 			cause: err
 		});
 		if ([EXECUTION_REVERTED_ERROR_CODE, InternalRpcError.code].includes(code$1) && (data || details || message$1 || shortMessage) || code$1 === InvalidInputRpcError.code && details === "execution reverted" && data) return new ContractFunctionRevertedError({
-			abi: abi$12,
+			abi: abi$13,
 			data: typeof data === "object" ? data.data : data,
 			functionName,
 			message: error instanceof RpcRequestError ? details : shortMessage ?? message$1,
@@ -15925,9 +15925,9 @@ function getContractError(err, { abi: abi$12, address: address$12, args, docsPat
 		});
 		return err;
 	})(), {
-		abi: abi$12,
+		abi: abi$13,
 		args,
-		contractAddress: address$12,
+		contractAddress: address$13,
 		docsPath: docsPath$5,
 		functionName,
 		sender
@@ -16331,9 +16331,9 @@ const deploylessCallViaFactoryBytecode = "0x608060405234801561001057600080fd5b50
 const multicall3Bytecode = "0x608060405234801561001057600080fd5b506115b9806100206000396000f3fe6080604052600436106100f35760003560e01c80634d2301cc1161008a578063a8b0574e11610059578063a8b0574e14610325578063bce38bd714610350578063c3077fa914610380578063ee82ac5e146103b2576100f3565b80634d2301cc1461026257806372425d9d1461029f57806382ad56cb146102ca57806386d516e8146102fa576100f3565b80633408e470116100c65780633408e470146101af578063399542e9146101da5780633e64a6961461020c57806342cbb15c14610237576100f3565b80630f28c97d146100f8578063174dea7114610123578063252dba421461015357806327e86d6e14610184575b600080fd5b34801561010457600080fd5b5061010d6103ef565b60405161011a9190610c0a565b60405180910390f35b61013d60048036038101906101389190610c94565b6103f7565b60405161014a9190610e94565b60405180910390f35b61016d60048036038101906101689190610f0c565b610615565b60405161017b92919061101b565b60405180910390f35b34801561019057600080fd5b506101996107ab565b6040516101a69190611064565b60405180910390f35b3480156101bb57600080fd5b506101c46107b7565b6040516101d19190610c0a565b60405180910390f35b6101f460048036038101906101ef91906110ab565b6107bf565b6040516102039392919061110b565b60405180910390f35b34801561021857600080fd5b506102216107e1565b60405161022e9190610c0a565b60405180910390f35b34801561024357600080fd5b5061024c6107e9565b6040516102599190610c0a565b60405180910390f35b34801561026e57600080fd5b50610289600480360381019061028491906111a7565b6107f1565b6040516102969190610c0a565b60405180910390f35b3480156102ab57600080fd5b506102b4610812565b6040516102c19190610c0a565b60405180910390f35b6102e460048036038101906102df919061122a565b61081a565b6040516102f19190610e94565b60405180910390f35b34801561030657600080fd5b5061030f6109e4565b60405161031c9190610c0a565b60405180910390f35b34801561033157600080fd5b5061033a6109ec565b6040516103479190611286565b60405180910390f35b61036a600480360381019061036591906110ab565b6109f4565b6040516103779190610e94565b60405180910390f35b61039a60048036038101906103959190610f0c565b610ba6565b6040516103a99392919061110b565b60405180910390f35b3480156103be57600080fd5b506103d960048036038101906103d491906112cd565b610bca565b6040516103e69190611064565b60405180910390f35b600042905090565b60606000808484905090508067ffffffffffffffff81111561041c5761041b6112fa565b5b60405190808252806020026020018201604052801561045557816020015b610442610bd5565b81526020019060019003908161043a5790505b5092503660005b828110156105c957600085828151811061047957610478611329565b5b6020026020010151905087878381811061049657610495611329565b5b90506020028101906104a89190611367565b925060008360400135905080860195508360000160208101906104cb91906111a7565b73ffffffffffffffffffffffffffffffffffffffff16818580606001906104f2919061138f565b604051610500929190611431565b60006040518083038185875af1925050503d806000811461053d576040519150601f19603f3d011682016040523d82523d6000602084013e610542565b606091505b5083600001846020018290528215151515815250505081516020850135176105bc577f08c379a000000000000000000000000000000000000000000000000000000000600052602060045260176024527f4d756c746963616c6c333a2063616c6c206661696c656400000000000000000060445260846000fd5b826001019250505061045c565b5082341461060c576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401610603906114a7565b60405180910390fd5b50505092915050565b6000606043915060008484905090508067ffffffffffffffff81111561063e5761063d6112fa565b5b60405190808252806020026020018201604052801561067157816020015b606081526020019060019003908161065c5790505b5091503660005b828110156107a157600087878381811061069557610694611329565b5b90506020028101906106a791906114c7565b92508260000160208101906106bc91906111a7565b73ffffffffffffffffffffffffffffffffffffffff168380602001906106e2919061138f565b6040516106f0929190611431565b6000604051808303816000865af19150503d806000811461072d576040519150601f19603f3d011682016040523d82523d6000602084013e610732565b606091505b5086848151811061074657610745611329565b5b60200260200101819052819250505080610795576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040161078c9061153b565b60405180910390fd5b81600101915050610678565b5050509250929050565b60006001430340905090565b600046905090565b6000806060439250434091506107d68686866109f4565b905093509350939050565b600048905090565b600043905090565b60008173ffffffffffffffffffffffffffffffffffffffff16319050919050565b600044905090565b606060008383905090508067ffffffffffffffff81111561083e5761083d6112fa565b5b60405190808252806020026020018201604052801561087757816020015b610864610bd5565b81526020019060019003908161085c5790505b5091503660005b828110156109db57600084828151811061089b5761089a611329565b5b602002602001015190508686838181106108b8576108b7611329565b5b90506020028101906108ca919061155b565b92508260000160208101906108df91906111a7565b73ffffffffffffffffffffffffffffffffffffffff16838060400190610905919061138f565b604051610913929190611431565b6000604051808303816000865af19150503d8060008114610950576040519150601f19603f3d011682016040523d82523d6000602084013e610955565b606091505b5082600001836020018290528215151515815250505080516020840135176109cf577f08c379a000000000000000000000000000000000000000000000000000000000600052602060045260176024527f4d756c746963616c6c333a2063616c6c206661696c656400000000000000000060445260646000fd5b8160010191505061087e565b50505092915050565b600045905090565b600041905090565b606060008383905090508067ffffffffffffffff811115610a1857610a176112fa565b5b604051908082528060200260200182016040528015610a5157816020015b610a3e610bd5565b815260200190600190039081610a365790505b5091503660005b82811015610b9c576000848281518110610a7557610a74611329565b5b60200260200101519050868683818110610a9257610a91611329565b5b9050602002810190610aa491906114c7565b9250826000016020810190610ab991906111a7565b73ffffffffffffffffffffffffffffffffffffffff16838060200190610adf919061138f565b604051610aed929190611431565b6000604051808303816000865af19150503d8060008114610b2a576040519150601f19603f3d011682016040523d82523d6000602084013e610b2f565b606091505b508260000183602001829052821515151581525050508715610b90578060000151610b8f576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401610b869061153b565b60405180910390fd5b5b81600101915050610a58565b5050509392505050565b6000806060610bb7600186866107bf565b8093508194508295505050509250925092565b600081409050919050565b6040518060400160405280600015158152602001606081525090565b6000819050919050565b610c0481610bf1565b82525050565b6000602082019050610c1f6000830184610bfb565b92915050565b600080fd5b600080fd5b600080fd5b600080fd5b600080fd5b60008083601f840112610c5457610c53610c2f565b5b8235905067ffffffffffffffff811115610c7157610c70610c34565b5b602083019150836020820283011115610c8d57610c8c610c39565b5b9250929050565b60008060208385031215610cab57610caa610c25565b5b600083013567ffffffffffffffff811115610cc957610cc8610c2a565b5b610cd585828601610c3e565b92509250509250929050565b600081519050919050565b600082825260208201905092915050565b6000819050602082019050919050565b60008115159050919050565b610d2281610d0d565b82525050565b600081519050919050565b600082825260208201905092915050565b60005b83811015610d62578082015181840152602081019050610d47565b83811115610d71576000848401525b50505050565b6000601f19601f8301169050919050565b6000610d9382610d28565b610d9d8185610d33565b9350610dad818560208601610d44565b610db681610d77565b840191505092915050565b6000604083016000830151610dd96000860182610d19565b5060208301518482036020860152610df18282610d88565b9150508091505092915050565b6000610e0a8383610dc1565b905092915050565b6000602082019050919050565b6000610e2a82610ce1565b610e348185610cec565b935083602082028501610e4685610cfd565b8060005b85811015610e825784840389528151610e638582610dfe565b9450610e6e83610e12565b925060208a01995050600181019050610e4a565b50829750879550505050505092915050565b60006020820190508181036000830152610eae8184610e1f565b905092915050565b60008083601f840112610ecc57610ecb610c2f565b5b8235905067ffffffffffffffff811115610ee957610ee8610c34565b5b602083019150836020820283011115610f0557610f04610c39565b5b9250929050565b60008060208385031215610f2357610f22610c25565b5b600083013567ffffffffffffffff811115610f4157610f40610c2a565b5b610f4d85828601610eb6565b92509250509250929050565b600081519050919050565b600082825260208201905092915050565b6000819050602082019050919050565b6000610f918383610d88565b905092915050565b6000602082019050919050565b6000610fb182610f59565b610fbb8185610f64565b935083602082028501610fcd85610f75565b8060005b858110156110095784840389528151610fea8582610f85565b9450610ff583610f99565b925060208a01995050600181019050610fd1565b50829750879550505050505092915050565b60006040820190506110306000830185610bfb565b81810360208301526110428184610fa6565b90509392505050565b6000819050919050565b61105e8161104b565b82525050565b60006020820190506110796000830184611055565b92915050565b61108881610d0d565b811461109357600080fd5b50565b6000813590506110a58161107f565b92915050565b6000806000604084860312156110c4576110c3610c25565b5b60006110d286828701611096565b935050602084013567ffffffffffffffff8111156110f3576110f2610c2a565b5b6110ff86828701610eb6565b92509250509250925092565b60006060820190506111206000830186610bfb565b61112d6020830185611055565b818103604083015261113f8184610e1f565b9050949350505050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b600061117482611149565b9050919050565b61118481611169565b811461118f57600080fd5b50565b6000813590506111a18161117b565b92915050565b6000602082840312156111bd576111bc610c25565b5b60006111cb84828501611192565b91505092915050565b60008083601f8401126111ea576111e9610c2f565b5b8235905067ffffffffffffffff81111561120757611206610c34565b5b60208301915083602082028301111561122357611222610c39565b5b9250929050565b6000806020838503121561124157611240610c25565b5b600083013567ffffffffffffffff81111561125f5761125e610c2a565b5b61126b858286016111d4565b92509250509250929050565b61128081611169565b82525050565b600060208201905061129b6000830184611277565b92915050565b6112aa81610bf1565b81146112b557600080fd5b50565b6000813590506112c7816112a1565b92915050565b6000602082840312156112e3576112e2610c25565b5b60006112f1848285016112b8565b91505092915050565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052604160045260246000fd5b7f4e487b7100000000000000000000000000000000000000000000000000000000600052603260045260246000fd5b600080fd5b600080fd5b600080fd5b60008235600160800383360303811261138357611382611358565b5b80830191505092915050565b600080833560016020038436030381126113ac576113ab611358565b5b80840192508235915067ffffffffffffffff8211156113ce576113cd61135d565b5b6020830192506001820236038313156113ea576113e9611362565b5b509250929050565b600081905092915050565b82818337600083830152505050565b600061141883856113f2565b93506114258385846113fd565b82840190509392505050565b600061143e82848661140c565b91508190509392505050565b600082825260208201905092915050565b7f4d756c746963616c6c333a2076616c7565206d69736d61746368000000000000600082015250565b6000611491601a8361144a565b915061149c8261145b565b602082019050919050565b600060208201905081810360008301526114c081611484565b9050919050565b6000823560016040038336030381126114e3576114e2611358565b5b80830191505092915050565b7f4d756c746963616c6c333a2063616c6c206661696c6564000000000000000000600082015250565b600061152560178361144a565b9150611530826114ef565b602082019050919050565b6000602082019050818103600083015261155481611518565b9050919050565b60008235600160600383360303811261157757611576611358565b5b8083019150509291505056fea264697066735822122020c1bc9aacf8e4a6507193432a895a8e77094f45a1395583f07b24e860ef06cd64736f6c634300080c0033";
 var docsPath = "/docs/contract/encodeDeployData";
 function encodeDeployData(parameters) {
-	const { abi: abi$12, args, bytecode } = parameters;
+	const { abi: abi$13, args, bytecode } = parameters;
 	if (!args || args.length === 0) return bytecode;
-	const description = abi$12.find((x$8) => "type" in x$8 && x$8.type === "constructor");
+	const description = abi$13.find((x$8) => "type" in x$8 && x$8.type === "constructor");
 	if (!description) throw new AbiConstructorNotFoundError({ docsPath });
 	if (!("inputs" in description)) throw new AbiConstructorParamsNotFoundError({ docsPath });
 	if (!description.inputs || description.inputs.length === 0) throw new AbiConstructorParamsNotFoundError({ docsPath });
@@ -16736,10 +16736,10 @@ function serializeAccountStateOverride(parameters) {
 function serializeStateOverride(parameters) {
 	if (!parameters) return void 0;
 	const rpcStateOverride = {};
-	for (const { address: address$12, ...accountState } of parameters) {
-		if (!isAddress(address$12, { strict: false })) throw new InvalidAddressError({ address: address$12 });
-		if (rpcStateOverride[address$12]) throw new AccountStateConflictError({ address: address$12 });
-		rpcStateOverride[address$12] = serializeAccountStateOverride(accountState);
+	for (const { address: address$13, ...accountState } of parameters) {
+		if (!isAddress(address$13, { strict: false })) throw new InvalidAddressError({ address: address$13 });
+		if (rpcStateOverride[address$13]) throw new AccountStateConflictError({ address: address$13 });
+		rpcStateOverride[address$13] = serializeAccountStateOverride(accountState);
 	}
 	return rpcStateOverride;
 }
@@ -16953,7 +16953,7 @@ async function call$2(client, args) {
 	} catch (err) {
 		const data$1 = getRevertErrorData(err);
 		const { offchainLookup, offchainLookupSignature } = await __vitePreload(async () => {
-			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-CXHkUPPu.js");
+			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-01yuq-vi.js");
 			return {
 				offchainLookup: offchainLookup$1,
 				offchainLookupSignature: offchainLookupSignature$1
@@ -17063,9 +17063,9 @@ function getRevertErrorData(err) {
 	return typeof error?.data === "object" ? error.data?.data : error.data;
 }
 async function readContract$1(client, parameters) {
-	const { abi: abi$12, address: address$12, args, functionName, ...rest } = parameters;
+	const { abi: abi$13, address: address$13, args, functionName, ...rest } = parameters;
 	const calldata = encodeFunctionData({
-		abi: abi$12,
+		abi: abi$13,
 		args,
 		functionName
 	});
@@ -17073,18 +17073,18 @@ async function readContract$1(client, parameters) {
 		const { data } = await getAction$1(client, call$2, "call")({
 			...rest,
 			data: calldata,
-			to: address$12
+			to: address$13
 		});
 		return decodeFunctionResult({
-			abi: abi$12,
+			abi: abi$13,
 			args,
 			functionName,
 			data: data || "0x"
 		});
 	} catch (error) {
 		throw getContractError(error, {
-			abi: abi$12,
-			address: address$12,
+			abi: abi$13,
+			address: address$13,
 			args,
 			docsPath: "/docs/contract/readContract",
 			functionName
@@ -17129,15 +17129,15 @@ async function getEnsAddress$1(client, parameters) {
 		};
 		const res = await getAction$1(client, readContract$1, "readContract")(readContractParameters);
 		if (res[0] === "0x") return null;
-		const address$12 = decodeFunctionResult({
+		const address$13 = decodeFunctionResult({
 			abi: addressResolverAbi,
 			args,
 			functionName: "addr",
 			data: res[0]
 		});
-		if (address$12 === "0x") return null;
-		if (trim$2(address$12) === "0x00") return null;
-		return address$12;
+		if (address$13 === "0x") return null;
+		if (trim$2(address$13) === "0x00") return null;
+		return address$13;
 	} catch (err) {
 		if (strict) throw err;
 		if (isNullUniversalResolverError(err)) return null;
@@ -17416,7 +17416,7 @@ async function getEnsAvatar$1(client, { blockNumber, blockTag, assetGatewayUrls,
 	}
 }
 async function getEnsName$1(client, parameters) {
-	const { address: address$12, blockNumber, blockTag, coinType = 60n, gatewayUrls, strict } = parameters;
+	const { address: address$13, blockNumber, blockTag, coinType = 60n, gatewayUrls, strict } = parameters;
 	const { chain } = client;
 	const universalResolverAddress = (() => {
 		if (parameters.universalResolverAddress) return parameters.universalResolverAddress;
@@ -17432,7 +17432,7 @@ async function getEnsName$1(client, parameters) {
 			address: universalResolverAddress,
 			abi: universalResolverReverseAbi,
 			args: [
-				address$12,
+				address$13,
 				coinType,
 				gatewayUrls ?? ["x-batch-gateway:true"]
 			],
@@ -17454,7 +17454,7 @@ function publicKeyToAddress(publicKey) {
 async function recoverPublicKey({ hash: hash$3, signature }) {
 	const hashHex = isHex(hash$3) ? hash$3 : toHex$2(hash$3);
 	const { secp256k1: secp256k1$1 } = await __vitePreload(async () => {
-		const { secp256k1: secp256k1$2 } = await import("./secp256k1-B4hDQXNx.js");
+		const { secp256k1: secp256k1$2 } = await import("./secp256k1-CRbXpfRr.js");
 		return { secp256k1: secp256k1$2 };
 	}, __vite__mapDeps([0,1]));
 	return `0x${(() => {
@@ -17547,10 +17547,10 @@ function getSizeOfLength(length$1) {
 }
 function hashAuthorization(parameters) {
 	const { chainId, nonce, to: to$3 } = parameters;
-	const address$12 = parameters.contractAddress ?? parameters.address;
+	const address$13 = parameters.contractAddress ?? parameters.address;
 	const hash$3 = keccak256$1(concatHex(["0x05", toRlp([
 		chainId ? numberToHex(chainId) : "0x",
-		address$12,
+		address$13,
 		nonce ? numberToHex(nonce) : "0x"
 	])]));
 	if (to$3 === "bytes") return hexToBytes$1(hash$3);
@@ -17797,10 +17797,10 @@ async function internal_estimateFeesPerGas(client, args) {
 	}
 	return { gasPrice: request?.gasPrice ?? multiply(await getAction$1(client, getGasPrice, "getGasPrice")({})) };
 }
-async function getTransactionCount(client, { address: address$12, blockTag = "latest", blockNumber }) {
+async function getTransactionCount(client, { address: address$13, blockTag = "latest", blockNumber }) {
 	return hexToNumber$1(await client.request({
 		method: "eth_getTransactionCount",
-		params: [address$12, typeof blockNumber === "bigint" ? numberToHex(blockNumber) : blockTag]
+		params: [address$13, typeof blockNumber === "bigint" ? numberToHex(blockNumber) : blockTag]
 	}, { dedupe: Boolean(blockNumber) }));
 }
 function blobsToCommitments(parameters) {
@@ -18531,13 +18531,13 @@ async function estimateGas(client, args) {
 		});
 	}
 }
-async function getBalance$1(client, { address: address$12, blockNumber, blockTag = client.experimental_blockTag ?? "latest" }) {
+async function getBalance$1(client, { address: address$13, blockNumber, blockTag = client.experimental_blockTag ?? "latest" }) {
 	if (client.batch?.multicall && client.chain?.contracts?.multicall3) {
 		const multicall3Address = client.chain.contracts.multicall3.address;
 		const calldata = encodeFunctionData({
 			abi: multicall3Abi,
 			functionName: "getEthBalance",
-			args: [address$12]
+			args: [address$13]
 		});
 		const { data } = await getAction$1(client, call$2, "call")({
 			to: multicall3Address,
@@ -18548,14 +18548,14 @@ async function getBalance$1(client, { address: address$12, blockNumber, blockTag
 		return decodeFunctionResult({
 			abi: multicall3Abi,
 			functionName: "getEthBalance",
-			args: [address$12],
+			args: [address$13],
 			data: data || "0x"
 		});
 	}
 	const blockNumberHex = typeof blockNumber === "bigint" ? numberToHex(blockNumber) : void 0;
 	const balance = await client.request({
 		method: "eth_getBalance",
-		params: [address$12, blockNumberHex || blockTag]
+		params: [address$13, blockNumberHex || blockTag]
 	});
 	return BigInt(balance);
 }
@@ -18632,8 +18632,8 @@ function assertTransactionEIP7702(transaction) {
 	const { authorizationList } = transaction;
 	if (authorizationList) for (const authorization of authorizationList) {
 		const { chainId } = authorization;
-		const address$12 = authorization.address;
-		if (!isAddress(address$12)) throw new InvalidAddressError({ address: address$12 });
+		const address$13 = authorization.address;
+		if (!isAddress(address$13)) throw new InvalidAddressError({ address: address$13 });
 		if (chainId < 0) throw new InvalidChainIdError({ chainId });
 	}
 	assertTransactionEIP1559(transaction);
@@ -18685,10 +18685,10 @@ function serializeAccessList(accessList) {
 	if (!accessList || accessList.length === 0) return [];
 	const serializedAccessList = [];
 	for (let i$13 = 0; i$13 < accessList.length; i$13++) {
-		const { address: address$12, storageKeys } = accessList[i$13];
+		const { address: address$13, storageKeys } = accessList[i$13];
 		for (let j$10 = 0; j$10 < storageKeys.length; j$10++) if (storageKeys[j$10].length - 2 !== 64) throw new InvalidStorageKeySizeError({ storageKey: storageKeys[j$10] });
-		if (!isAddress(address$12, { strict: false })) throw new InvalidAddressError({ address: address$12 });
-		serializedAccessList.push([address$12, storageKeys]);
+		if (!isAddress(address$13, { strict: false })) throw new InvalidAddressError({ address: address$13 });
+		serializedAccessList.push([address$13, storageKeys]);
 	}
 	return serializedAccessList;
 }
@@ -19731,9 +19731,9 @@ async function sendTransaction(client, parameters) {
 	}
 }
 function deployContract(walletClient, parameters) {
-	const { abi: abi$12, args, bytecode, ...request } = parameters;
+	const { abi: abi$13, args, bytecode, ...request } = parameters;
 	const calldata = encodeDeployData({
-		abi: abi$12,
+		abi: abi$13,
 		args,
 		bytecode
 	});
@@ -19745,7 +19745,7 @@ function deployContract(walletClient, parameters) {
 }
 async function getAddresses(client) {
 	if (client.account?.type === "local") return [client.account.address];
-	return (await client.request({ method: "eth_accounts" }, { dedupe: true })).map((address$12) => checksumAddress(address$12));
+	return (await client.request({ method: "eth_accounts" }, { dedupe: true })).map((address$13) => checksumAddress(address$13));
 }
 const fallbackMagicIdentifier = "0x5792579257925792579257925792579257925792579257925792579257925792";
 const fallbackTransactionErrorMagicIdentifier = numberToHex(0, { size: 32 });
@@ -19940,7 +19940,7 @@ async function requestAddresses(client) {
 	return (await client.request({ method: "eth_requestAccounts" }, {
 		dedupe: true,
 		retryCount: 0
-	})).map((address$12) => getAddress$1(address$12));
+	})).map((address$13) => getAddress$1(address$13));
 }
 async function requestPermissions(client, permissions) {
 	return client.request({
@@ -20269,25 +20269,25 @@ async function writeContract$1(client, parameters) {
 }
 (function(writeContract$2) {
 	async function internal$2(client, actionFn, name, parameters) {
-		const { abi: abi$12, account: account_ = client.account, address: address$12, args, functionName, ...request } = parameters;
+		const { abi: abi$13, account: account_ = client.account, address: address$13, args, functionName, ...request } = parameters;
 		if (typeof account_ === "undefined") throw new AccountNotFoundError({ docsPath: "/docs/contract/writeContract" });
 		const account = account_ ? parseAccount(account_) : null;
 		const data = encodeFunctionData({
-			abi: abi$12,
+			abi: abi$13,
 			args,
 			functionName
 		});
 		try {
 			return await getAction$1(client, actionFn, name)({
 				data,
-				to: address$12,
+				to: address$13,
 				account,
 				...request
 			});
 		} catch (error) {
 			throw getContractError(error, {
-				abi: abi$12,
-				address: address$12,
+				abi: abi$13,
+				address: address$13,
 				args,
 				docsPath: "/docs/contract/writeContract",
 				functionName,
@@ -20414,8 +20414,8 @@ var ConnectorNotConnectedError = class extends BaseError$2 {
 	}
 };
 var ConnectorAccountNotFoundError = class extends BaseError$2 {
-	constructor({ address: address$12, connector }) {
-		super(`Account "${address$12}" not found for connector "${connector.name}".`);
+	constructor({ address: address$13, connector }) {
+		super(`Account "${address$13}" not found for connector "${connector.name}".`);
 		Object.defineProperty(this, "name", {
 			enumerable: true,
 			configurable: true,
@@ -20478,8 +20478,8 @@ async function connect$1(config$1, parameters) {
 			status: "connected"
 		}));
 		return {
-			accounts: rest.withCapabilities ? data.accounts.map((address$12) => typeof address$12 === "object" ? address$12 : {
-				address: address$12,
+			accounts: rest.withCapabilities ? data.accounts.map((address$13) => typeof address$13 === "object" ? address$13 : {
+				address: address$13,
 				capabilities: {}
 			}) : data.accounts,
 			chainId: data.chainId
@@ -20759,13 +20759,13 @@ async function disconnect$1(config$1, parameters = {}) {
 	}
 }
 async function getBalance(config$1, parameters) {
-	const { address: address$12, blockNumber, blockTag, chainId } = parameters;
+	const { address: address$13, blockNumber, blockTag, chainId } = parameters;
 	const client = config$1.getClient({ chainId });
 	const value = await getAction(client, getBalance$1, "getBalance")(blockNumber ? {
-		address: address$12,
+		address: address$13,
 		blockNumber
 	} : {
-		address: address$12,
+		address: address$13,
 		blockTag
 	});
 	const chain = config$1.chains.find((x$8) => x$8.id === chainId) ?? client.chain;
@@ -20819,12 +20819,12 @@ function getConnection(config$1) {
 	const uid$2 = config$1.state.current;
 	const connection = config$1.state.connections.get(uid$2);
 	const addresses = connection?.accounts;
-	const address$12 = addresses?.[0];
+	const address$13 = addresses?.[0];
 	const chain = config$1.chains.find((chain$1) => chain$1.id === connection?.chainId);
 	const status = config$1.state.status;
 	switch (status) {
 		case "connected": return {
-			address: address$12,
+			address: address$13,
 			addresses,
 			chain,
 			chainId: connection?.chainId,
@@ -20836,19 +20836,19 @@ function getConnection(config$1) {
 			status
 		};
 		case "reconnecting": return {
-			address: address$12,
+			address: address$13,
 			addresses,
 			chain,
 			chainId: connection?.chainId,
 			connector: connection?.connector,
-			isConnected: !!address$12,
+			isConnected: !!address$13,
 			isConnecting: false,
 			isDisconnected: false,
 			isReconnecting: true,
 			status
 		};
 		case "connecting": return {
-			address: address$12,
+			address: address$13,
 			addresses,
 			chain,
 			chainId: connection?.chainId,
@@ -21173,8 +21173,8 @@ function injected$1(parameters = {}) {
 				if (shimDisconnect) await config$1.storage?.removeItem(`${this.id}.disconnected`);
 				if (!parameters.target) await config$1.storage?.setItem("injected.connected", true);
 				return {
-					accounts: withCapabilities ? accounts.map((address$12) => ({
-						address: address$12,
+					accounts: withCapabilities ? accounts.map((address$13) => ({
+						address: address$13,
 						capabilities: {}
 					})) : accounts,
 					chainId: currentChainId
@@ -21478,7 +21478,7 @@ function createStore() {
 		}
 	};
 }
-var subscribeWithSelectorImpl = (fn$2) => (set$1, get$2, api) => {
+var subscribeWithSelectorImpl = (fn$2) => (set$2, get$2, api) => {
 	const origSubscribe = api.subscribe;
 	api.subscribe = (selector, optListener, options$2) => {
 		let listener = selector;
@@ -21496,7 +21496,7 @@ var subscribeWithSelectorImpl = (fn$2) => (set$1, get$2, api) => {
 		}
 		return origSubscribe(listener);
 	};
-	return fn$2(set$1, get$2, api);
+	return fn$2(set$2, get$2, api);
 };
 var subscribeWithSelector = subscribeWithSelectorImpl;
 function createJSONStorage(getStorage, options$2) {
@@ -21544,7 +21544,7 @@ var toThenable = (fn$2) => (input) => {
 		};
 	}
 };
-var persistImpl = (config$1, baseOptions) => (set$1, get$2, api) => {
+var persistImpl = (config$1, baseOptions) => (set$2, get$2, api) => {
 	let options$2 = {
 		storage: createJSONStorage(() => localStorage),
 		partialize: (state) => state,
@@ -21561,7 +21561,7 @@ var persistImpl = (config$1, baseOptions) => (set$1, get$2, api) => {
 	let storage = options$2.storage;
 	if (!storage) return config$1((...args) => {
 		console.warn(`[zustand persist middleware] Unable to update item '${options$2.name}', the given storage is currently unavailable.`);
-		set$1(...args);
+		set$2(...args);
 	}, get$2, api);
 	const setItem = () => {
 		const state = options$2.partialize({ ...get$2() });
@@ -21576,7 +21576,7 @@ var persistImpl = (config$1, baseOptions) => (set$1, get$2, api) => {
 		setItem();
 	};
 	const configResult = config$1((...args) => {
-		set$1(...args);
+		set$2(...args);
 		setItem();
 	}, get$2, api);
 	api.getInitialState = () => configResult;
@@ -21600,7 +21600,7 @@ var persistImpl = (config$1, baseOptions) => (set$1, get$2, api) => {
 			var _a2;
 			const [migrated, migratedState] = migrationResult;
 			stateFromStorage = options$2.merge(migratedState, (_a2 = get$2()) != null ? _a2 : configResult);
-			set$1(stateFromStorage, true);
+			set$2(stateFromStorage, true);
 			if (migrated) return setItem();
 		}).then(() => {
 			postRehydrationCallback?.(stateFromStorage, void 0);
@@ -22383,7 +22383,7 @@ function hasObjectPrototype(o$8) {
 	return Object.prototype.toString.call(o$8) === "[object Object]";
 }
 function filterQueryOptions(options$2) {
-	const { _defaulted, behavior, gcTime, initialData, initialDataUpdatedAt, maxPages, meta, networkMode, queryFn, queryHash, queryKey, queryKeyHashFn, retry, retryDelay, structuralSharing, getPreviousPageParam: getPreviousPageParam$1, getNextPageParam: getNextPageParam$1, initialPageParam, _optimisticResults, enabled, notifyOnChangeProps, placeholderData, refetchInterval, refetchIntervalInBackground, refetchOnMount, refetchOnReconnect, refetchOnWindowFocus, retryOnMount, select, staleTime, suspense, throwOnError, abi: abi$12, config: config$1, connector, query, watch, ...rest } = options$2;
+	const { _defaulted, behavior, gcTime, initialData, initialDataUpdatedAt, maxPages, meta, networkMode, queryFn, queryHash, queryKey, queryKeyHashFn, retry, retryDelay, structuralSharing, getPreviousPageParam: getPreviousPageParam$1, getNextPageParam: getNextPageParam$1, initialPageParam, _optimisticResults, enabled, notifyOnChangeProps, placeholderData, refetchInterval, refetchIntervalInBackground, refetchOnMount, refetchOnReconnect, refetchOnWindowFocus, retryOnMount, select, staleTime, suspense, throwOnError, abi: abi$13, config: config$1, connector, query, watch, ...rest } = options$2;
 	if (connector) return {
 		connectorUid: connector?.uid,
 		...rest
@@ -22635,7 +22635,7 @@ var require_use_sync_external_store_shim_production$1 = /* @__PURE__ */ __common
 	function is$3(x$8, y$9) {
 		return x$8 === y$9 && (0 !== x$8 || 1 / x$8 === 1 / y$9) || x$8 !== x$8 && y$9 !== y$9;
 	}
-	var objectIs$2 = "function" === typeof Object.is ? Object.is : is$3, useState$30 = React$9.useState, useEffect$43 = React$9.useEffect, useLayoutEffect$8 = React$9.useLayoutEffect, useDebugValue$3 = React$9.useDebugValue;
+	var objectIs$2 = "function" === typeof Object.is ? Object.is : is$3, useState$30 = React$9.useState, useEffect$44 = React$9.useEffect, useLayoutEffect$8 = React$9.useLayoutEffect, useDebugValue$3 = React$9.useDebugValue;
 	function useSyncExternalStore$2$6(subscribe$1, getSnapshot) {
 		var value = getSnapshot(), _useState = useState$30({ inst: {
 			value,
@@ -22650,7 +22650,7 @@ var require_use_sync_external_store_shim_production$1 = /* @__PURE__ */ __common
 			value,
 			getSnapshot
 		]);
-		useEffect$43(function() {
+		useEffect$44(function() {
 			checkIfSnapshotChanged$1(inst) && forceUpdate({ inst });
 			return subscribe$1(function() {
 				checkIfSnapshotChanged$1(inst) && forceUpdate({ inst });
@@ -22692,7 +22692,7 @@ var require_with_selector_production = /* @__PURE__ */ __commonJSMin(((exports) 
 	function is$2(x$8, y$9) {
 		return x$8 === y$9 && (0 !== x$8 || 1 / x$8 === 1 / y$9) || x$8 !== x$8 && y$9 !== y$9;
 	}
-	var objectIs$1 = "function" === typeof Object.is ? Object.is : is$2, useSyncExternalStore$6 = shim$1.useSyncExternalStore, useRef$23 = React$8.useRef, useEffect$42 = React$8.useEffect, useMemo$22 = React$8.useMemo, useDebugValue$2 = React$8.useDebugValue;
+	var objectIs$1 = "function" === typeof Object.is ? Object.is : is$2, useSyncExternalStore$6 = shim$1.useSyncExternalStore, useRef$23 = React$8.useRef, useEffect$43 = React$8.useEffect, useMemo$25 = React$8.useMemo, useDebugValue$2 = React$8.useDebugValue;
 	exports.useSyncExternalStoreWithSelector = function(subscribe$1, getSnapshot, getServerSnapshot, selector, isEqual$4) {
 		var instRef = useRef$23(null);
 		if (null === instRef.current) {
@@ -22702,7 +22702,7 @@ var require_with_selector_production = /* @__PURE__ */ __commonJSMin(((exports) 
 			};
 			instRef.current = inst;
 		} else inst = instRef.current;
-		instRef = useMemo$22(function() {
+		instRef = useMemo$25(function() {
 			function memoizedSelector(nextSnapshot) {
 				if (!hasMemo) {
 					hasMemo = !0;
@@ -22734,7 +22734,7 @@ var require_with_selector_production = /* @__PURE__ */ __commonJSMin(((exports) 
 			isEqual$4
 		]);
 		var value = useSyncExternalStore$6(subscribe$1, instRef[0], instRef[1]);
-		useEffect$42(function() {
+		useEffect$43(function() {
 			inst.hasValue = !0;
 			inst.value = value;
 		}, [value]);
@@ -22809,10 +22809,10 @@ function useConnectionEffect(parameters = {}) {
 	(0, import_react.useEffect)(() => {
 		return watchConnection(config$1, { onChange(data, prevData) {
 			if ((prevData.status === "reconnecting" || prevData.status === "connecting" && prevData.address === void 0) && data.status === "connected") {
-				const { address: address$12, addresses, chain, chainId, connector } = data;
+				const { address: address$13, addresses, chain, chainId, connector } = data;
 				const isReconnected = prevData.status === "reconnecting" || prevData.status === void 0;
 				onConnect?.({
-					address: address$12,
+					address: address$13,
 					addresses,
 					chain,
 					chainId,
@@ -22834,25 +22834,25 @@ function useConnections(parameters = {}) {
 function useConnectorClient(parameters = {}) {
 	const config$1 = useConfig(parameters);
 	const chainId = useChainId({ config: config$1 });
-	const { address: address$12, connector } = useConnection({ config: config$1 });
+	const { address: address$13, connector } = useConnection({ config: config$1 });
 	const options$2 = getConnectorClientQueryOptions(config$1, {
 		...parameters,
 		chainId: parameters.chainId ?? chainId,
 		connector: parameters.connector ?? connector,
 		query: parameters.query
 	});
-	const addressRef = (0, import_react.useRef)(address$12);
+	const addressRef = (0, import_react.useRef)(address$13);
 	const queryClient$1 = useQueryClient();
 	(0, import_react.useEffect)(() => {
 		const previousAddress = addressRef.current;
-		if (!address$12 && previousAddress) {
+		if (!address$13 && previousAddress) {
 			queryClient$1.removeQueries({ queryKey: options$2.queryKey });
 			addressRef.current = void 0;
-		} else if (address$12 !== previousAddress) {
+		} else if (address$13 !== previousAddress) {
 			queryClient$1.invalidateQueries({ queryKey: options$2.queryKey });
-			addressRef.current = address$12;
+			addressRef.current = address$13;
 		}
-	}, [address$12, queryClient$1]);
+	}, [address$13, queryClient$1]);
 	return useQuery$1(options$2);
 }
 function useDisconnect(parameters = {}) {
@@ -22902,25 +22902,25 @@ function useSwitchChain(parameters = {}) {
 function useWalletClient(parameters = {}) {
 	const config$1 = useConfig(parameters);
 	const chainId = useChainId({ config: config$1 });
-	const { address: address$12, connector } = useConnection({ config: config$1 });
+	const { address: address$13, connector } = useConnection({ config: config$1 });
 	const options$2 = getWalletClientQueryOptions(config$1, {
 		...parameters,
 		chainId: parameters.chainId ?? chainId,
 		connector: parameters.connector ?? connector,
 		query: parameters.query
 	});
-	const addressRef = (0, import_react.useRef)(address$12);
+	const addressRef = (0, import_react.useRef)(address$13);
 	const queryClient$1 = useQueryClient();
 	(0, import_react.useEffect)(() => {
 		const previousAddress = addressRef.current;
-		if (!address$12 && previousAddress) {
+		if (!address$13 && previousAddress) {
 			queryClient$1.removeQueries({ queryKey: options$2.queryKey });
 			addressRef.current = void 0;
-		} else if (address$12 !== previousAddress) {
+		} else if (address$13 !== previousAddress) {
 			queryClient$1.invalidateQueries({ queryKey: options$2.queryKey });
-			addressRef.current = address$12;
+			addressRef.current = address$13;
 		}
-	}, [address$12, queryClient$1]);
+	}, [address$13, queryClient$1]);
 	return useQuery$1(options$2);
 }
 const contracts = {
@@ -23133,8 +23133,8 @@ function coinbaseWallet(parameters = {}) {
 					return { id: currentChainId };
 				}))?.id ?? currentChainId;
 				return {
-					accounts: withCapabilities ? accounts.map((address$12) => ({
-						address: address$12,
+					accounts: withCapabilities ? accounts.map((address$13) => ({
+						address: address$13,
 						capabilities: {}
 					})) : accounts,
 					chainId: currentChainId
@@ -23278,8 +23278,8 @@ function safe(parameters = {}) {
 			}
 			if (shimDisconnect) await config$1.storage?.removeItem("safe.disconnected");
 			return {
-				accounts: withCapabilities ? accounts.map((address$12) => ({
-					address: address$12,
+				accounts: withCapabilities ? accounts.map((address$13) => ({
+					address: address$13,
 					capabilities: {}
 				})) : accounts,
 				chainId
@@ -23304,7 +23304,7 @@ function safe(parameters = {}) {
 			if (!provider_) {
 				const { default: SDK } = await (() => {
 					try {
-						return __vitePreload(() => import("./esm-C-F1YuUG.js"), __vite__mapDeps([2,3]));
+						return __vitePreload(() => import("./esm-7VjfeM4F.js"), __vite__mapDeps([2,3]));
 					} catch {
 						throw new Error("dependency \"@safe-global/safe-apps-sdk\" not found");
 					}
@@ -23315,7 +23315,7 @@ function safe(parameters = {}) {
 				provider_ = new (await ((async () => {
 					const Provider$1 = await (() => {
 						try {
-							return __vitePreload(() => import("./dist-BuIfp8Pp.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
+							return __vitePreload(() => import("./dist-Blil5Xq8.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
 						} catch {
 							throw new Error("dependency \"@safe-global/safe-apps-provider\" not found");
 						}
@@ -23430,8 +23430,8 @@ function walletConnect(parameters) {
 					provider.on("session_delete", sessionDelete);
 				}
 				return {
-					accounts: withCapabilities ? accounts.map((address$12) => ({
-						address: address$12,
+					accounts: withCapabilities ? accounts.map((address$13) => ({
+						address: address$13,
 						capabilities: {}
 					})) : accounts,
 					chainId: currentChainId
@@ -23480,7 +23480,7 @@ function walletConnect(parameters) {
 				if (!optionalChains.length) return;
 				const { EthereumProvider: EthereumProvider$1 } = await (() => {
 					try {
-						return __vitePreload(() => import("./dist-iF5Z1pPg.js"), __vite__mapDeps([5,6,1]));
+						return __vitePreload(() => import("./dist-Bs0nmFeM.js"), __vite__mapDeps([5,6,1]));
 					} catch {
 						throw new Error("dependency \"@walletconnect/ethereum-provider\" not found");
 					}
@@ -30448,7 +30448,7 @@ function getAnimation(key, value, target, transition$3, onComplete) {
 			}
 		}));
 	}
-	function set$1() {
+	function set$2() {
 		var _a$1, _b;
 		var finalTarget = resolveFinalValueInKeyframes(target);
 		value.set(finalTarget);
@@ -30457,7 +30457,7 @@ function getAnimation(key, value, target, transition$3, onComplete) {
 		(_b = valueTransition === null || valueTransition === void 0 ? void 0 : valueTransition.onComplete) === null || _b === void 0 || _b.call(valueTransition);
 		return { stop: function() {} };
 	}
-	return !isOriginAnimatable || !isTargetAnimatable || valueTransition.type === false ? set$1 : start$1;
+	return !isOriginAnimatable || !isTargetAnimatable || valueTransition.type === false ? set$2 : start$1;
 }
 function isZero(value) {
 	return value === 0 || typeof value === "string" && parseFloat(value) === 0 && value.indexOf(" ") === -1;
@@ -35338,7 +35338,7 @@ function init$2() {
 	let r$13 = read_compressed_payload$1(COMPRESSED$1$1);
 	const read_sorted_array = () => read_sorted$1(r$13);
 	const read_sorted_set = () => new Set(read_sorted_array());
-	const set_add_many = (set$1, v$6) => v$6.forEach((x$8) => set$1.add(x$8));
+	const set_add_many = (set$2, v$6) => v$6.forEach((x$8) => set$2.add(x$8));
 	MAPPED$1 = new Map(read_mapped$1(r$13));
 	IGNORED$1 = read_sorted_set();
 	CM$1 = read_sorted_array();
@@ -35349,10 +35349,10 @@ function init$2() {
 	let chunks = read_sorted_arrays$1(r$13);
 	let unrestricted = r$13();
 	const read_chunked = () => {
-		let set$1 = /* @__PURE__ */ new Set();
-		read_sorted_array().forEach((i$13) => set_add_many(set$1, chunks[i$13]));
-		set_add_many(set$1, read_sorted_array());
-		return set$1;
+		let set$2 = /* @__PURE__ */ new Set();
+		read_sorted_array().forEach((i$13) => set_add_many(set$2, chunks[i$13]));
+		set_add_many(set$2, read_sorted_array());
+		return set$2;
 	};
 	GROUPS$1 = read_array_while$1((i$13) => {
 		let N$5 = read_array_while$1(r$13).map((x$8) => x$8 + 96);
@@ -35551,8 +35551,8 @@ function check_whole$1(group, unique) {
 		let whole = WHOLE_MAP$1.get(cp);
 		if (whole === UNIQUE_PH$1) return;
 		if (whole) {
-			let set$1 = whole.M.get(cp);
-			maker = maker ? maker.filter((g$6) => set$1.has(g$6)) : Array_from$1(set$1);
+			let set$2 = whole.M.get(cp);
+			maker = maker ? maker.filter((g$6) => set$2.has(g$6)) : Array_from$1(set$2);
 			if (!maker.length) return;
 		} else shared.push(cp);
 	}
@@ -39429,10 +39429,10 @@ var Logos = {
 	Talisman
 };
 var truncateRegex = /^(0x[a-zA-Z0-9]{4})[a-zA-Z0-9]+([a-zA-Z0-9]{4})$/;
-var truncateEthAddress = (address$12, separator = "••••") => {
-	if (!address$12) return "";
-	const match$2 = address$12.match(truncateRegex);
-	if (!match$2) return address$12;
+var truncateEthAddress = (address$13, separator = "••••") => {
+	if (!address$13) return "";
+	const match$2 = address$13.match(truncateRegex);
+	if (!match$2) return address$13;
 	return `${match$2[1]}${separator}${match$2[2]}`;
 };
 var truncateENSAddress = (ensName, maxLength) => {
@@ -41897,19 +41897,19 @@ var useSIWE = ({ onSignIn, onSignOut } = {}) => {
 		signOut: () => Promise.reject()
 	};
 	const { session, nonce, status, signOut, signIn, resetStatus } = siweContextValue;
-	const { address: address$12, chainId } = session.data || {};
-	const currentStatus = address$12 ? StatusState.SUCCESS : session.isLoading || nonce.isLoading ? StatusState.LOADING : status;
+	const { address: address$13, chainId } = session.data || {};
+	const currentStatus = address$13 ? StatusState.SUCCESS : session.isLoading || nonce.isLoading ? StatusState.LOADING : status;
 	const isLoading = currentStatus === StatusState.LOADING;
 	const isSuccess = currentStatus === StatusState.SUCCESS;
 	const isRejected = currentStatus === StatusState.REJECTED;
 	const isError$1 = currentStatus === StatusState.ERROR;
-	const isReady = !address$12 || nonce.isFetching || isLoading || isSuccess;
+	const isReady = !address$13 || nonce.isFetching || isLoading || isSuccess;
 	const reset = () => resetStatus();
-	const isSignedIn = !!address$12;
+	const isSignedIn = !!address$13;
 	return {
 		isSignedIn,
 		data: isSignedIn ? {
-			address: address$12,
+			address: address$13,
 			chainId
 		} : void 0,
 		status: currentStatus,
@@ -49746,8 +49746,8 @@ var LoadingBalance = styled(motion.div)`
     animation: ${PlaceholderKeyframes$1} 1000ms linear infinite both;
   }
 `;
-function addressToNumber(address$12) {
-	return address$12.split("").map((l$10) => l$10.charCodeAt(0)).reduce((a$7, b$11) => a$7 + b$11) % 100 / 100;
+function addressToNumber(address$13) {
+	return address$13.split("").map((l$10) => l$10.charCodeAt(0)).reduce((a$7, b$11) => a$7 + b$11) % 100 / 100;
 }
 var EnsAvatar = styled(motion.div)`
   will-change: transform; // Needed for Safari
@@ -49805,7 +49805,7 @@ var ensFallbackConfig = createConfig({
 function useEnsFallbackConfig() {
 	return !useChainIsSupported(1) ? ensFallbackConfig : void 0;
 }
-var Avatar = ({ address: address$12, name, size: size$5 = 96, radius = 96 }) => {
+var Avatar = ({ address: address$13, name, size: size$5 = 96, radius = 96 }) => {
 	var _a, _b, _c;
 	const isMounted = useIsMounted$1();
 	const context = useContext$10();
@@ -49819,7 +49819,7 @@ var Avatar = ({ address: address$12, name, size: size$5 = 96, radius = 96 }) => 
 	});
 	const { data: ensName } = useEnsName({
 		chainId: 1,
-		address: (_a = address$12 !== null && address$12 !== void 0 ? address$12 : ensAddress) !== null && _a !== void 0 ? _a : void 0,
+		address: (_a = address$13 !== null && address$13 !== void 0 ? address$13 : ensAddress) !== null && _a !== void 0 ? _a : void 0,
 		config: ensFallbackConfig$1
 	});
 	const { data: ensAvatar } = useEnsAvatar({
@@ -49828,7 +49828,7 @@ var Avatar = ({ address: address$12, name, size: size$5 = 96, radius = 96 }) => 
 		config: ensFallbackConfig$1
 	});
 	const ens = {
-		address: ensAddress !== null && ensAddress !== void 0 ? ensAddress : address$12,
+		address: ensAddress !== null && ensAddress !== void 0 ? ensAddress : address$13,
 		name: ensName !== null && ensName !== void 0 ? ensName : name,
 		avatar: ensAvatar !== null && ensAvatar !== void 0 ? ensAvatar : void 0
 	};
@@ -49848,7 +49848,7 @@ var Avatar = ({ address: address$12, name, size: size$5 = 96, radius = 96 }) => 
 			overflow: "hidden"
 		},
 		children: (_c = context.options) === null || _c === void 0 ? void 0 : _c.customAvatar({
-			address: address$12 !== null && address$12 !== void 0 ? address$12 : ens === null || ens === void 0 ? void 0 : ens.address,
+			address: address$13 !== null && address$13 !== void 0 ? address$13 : ens === null || ens === void 0 ? void 0 : ens.address,
 			ensName: name !== null && name !== void 0 ? name : ens === null || ens === void 0 ? void 0 : ens.name,
 			ensImage: ens === null || ens === void 0 ? void 0 : ens.avatar,
 			size: size$5,
@@ -51909,15 +51909,15 @@ var Profile = ({ closeModal }) => {
 	const locales = useLocales();
 	const { reset } = useConnect();
 	const { disconnect: disconnect$2 } = useDisconnect();
-	const { address: address$12, isConnected: isConnected$1, connector, chain } = useConnection();
+	const { address: address$13, isConnected: isConnected$1, connector, chain } = useConnection();
 	const isFamilyConnector = isFamilyAccountsConnector(connector === null || connector === void 0 ? void 0 : connector.id);
 	const { data: connectorClient } = useConnectorClient({ connector });
 	const { data: ensName } = useEnsName({
 		chainId: 1,
-		address: address$12,
+		address: address$13,
 		config: useEnsFallbackConfig()
 	});
-	const { data: balance } = useBalance({ address: address$12 });
+	const { data: balance } = useBalance({ address: address$13 });
 	const [shouldDisconnect, setShouldDisconnect] = (0, import_react.useState)(false);
 	(0, import_react.useEffect)(() => {
 		if (!isConnected$1) context.setOpen(false);
@@ -51947,10 +51947,10 @@ var Profile = ({ closeModal }) => {
 				gap: 6
 			},
 			children: [
-				(0, import_jsx_runtime.jsx)(AvatarContainer, { children: (0, import_jsx_runtime.jsxs)(AvatarInner, { children: [(0, import_jsx_runtime.jsx)(ChainSelectorContainer, { children: (0, import_jsx_runtime.jsx)(ChainSelector, {}) }), (0, import_jsx_runtime.jsx)(Avatar, { address: address$12 })] }) }),
+				(0, import_jsx_runtime.jsx)(AvatarContainer, { children: (0, import_jsx_runtime.jsxs)(AvatarInner, { children: [(0, import_jsx_runtime.jsx)(ChainSelectorContainer, { children: (0, import_jsx_runtime.jsx)(ChainSelector, {}) }), (0, import_jsx_runtime.jsx)(Avatar, { address: address$13 })] }) }),
 				(0, import_jsx_runtime.jsx)(ModalH1, { children: (0, import_jsx_runtime.jsx)(CopyToClipboard, {
-					string: address$12,
-					children: ensName !== null && ensName !== void 0 ? ensName : truncateEthAddress(address$12, separator)
+					string: address$13,
+					children: ensName !== null && ensName !== void 0 ? ensName : truncateEthAddress(address$13, separator)
 				}) }),
 				((_c = context === null || context === void 0 ? void 0 : context.options) === null || _c === void 0 ? void 0 : _c.hideBalance) ? null : (0, import_jsx_runtime.jsx)(ModalBody, { children: (0, import_jsx_runtime.jsx)(BalanceContainer, { children: (0, import_jsx_runtime.jsxs)(AnimatePresence, {
 					exitBeforeEnter: true,
@@ -52365,7 +52365,7 @@ var SignInWithEthereum = () => {
 	(0, import_react.useEffect)(() => {
 		if (!isSignedIn) setStatus("signedOut");
 	}, [isSignedIn]);
-	const { address: address$12 } = useConnection();
+	const { address: address$13 } = useConnection();
 	const getFavicons = () => {
 		const favicons$1 = {
 			svg: null,
@@ -52453,7 +52453,7 @@ var SignInWithEthereum = () => {
 							},
 							transition,
 							children: (0, import_jsx_runtime.jsx)(LogoContainer, { children: (0, import_jsx_runtime.jsx)(Avatar, {
-								address: address$12,
+								address: address$13,
 								size: 64
 							}) })
 						}, "avatarImage"),
@@ -52623,9 +52623,9 @@ function useThemeFont(theme) {
 }
 var useConnectCallback = ({ onConnect, onDisconnect }) => {
 	useConnectionEffect({
-		onConnect: ({ address: address$12, connector, isReconnected }) => {
+		onConnect: ({ address: address$13, connector, isReconnected }) => {
 			if (!isReconnected) onConnect === null || onConnect === void 0 || onConnect({
-				address: address$12,
+				address: address$13,
 				connectorId: connector === null || connector === void 0 ? void 0 : connector.id
 			});
 		},
@@ -53069,13 +53069,13 @@ var PulseContainer = styled.div`
 var Balance = ({ hideIcon, hideSymbol }) => {
 	const isMounted = useIsMounted$1();
 	const [isInitial, setIsInitial] = (0, import_react.useState)(true);
-	const { address: address$12, chain } = useConnection();
+	const { address: address$13, chain } = useConnection();
 	useChains();
 	const isChainSupported = useChainIsSupported(chain === null || chain === void 0 ? void 0 : chain.id);
 	const queryClient$1 = useQueryClient();
 	const { data: blockNumber } = useBlockNumber({ watch: true });
 	const { data: balance, queryKey } = useBalance({
-		address: address$12,
+		address: address$13,
 		chainId: chain === null || chain === void 0 ? void 0 : chain.id
 	});
 	(0, import_react.useEffect)(() => {
@@ -53119,7 +53119,7 @@ var Balance = ({ hideIcon, hideSymbol }) => {
 					],
 					delay: .4
 				},
-				children: !address$12 || !isMounted || (balance === null || balance === void 0 ? void 0 : balance.formatted) === void 0 ? (0, import_jsx_runtime.jsxs)(Container$1, { children: [!hideIcon && (0, import_jsx_runtime.jsx)(Chain$1, { id: chain === null || chain === void 0 ? void 0 : chain.id }), (0, import_jsx_runtime.jsx)("span", {
+				children: !address$13 || !isMounted || (balance === null || balance === void 0 ? void 0 : balance.formatted) === void 0 ? (0, import_jsx_runtime.jsxs)(Container$1, { children: [!hideIcon && (0, import_jsx_runtime.jsx)(Chain$1, { id: chain === null || chain === void 0 ? void 0 : chain.id }), (0, import_jsx_runtime.jsx)("span", {
 					style: { minWidth: 32 },
 					children: (0, import_jsx_runtime.jsxs)(PulseContainer, { children: [
 						(0, import_jsx_runtime.jsx)("span", { style: { animationDelay: "0ms" } }),
@@ -53245,11 +53245,11 @@ var ConnectButtonRenderer = ({ children }) => {
 	const isMounted = useIsMounted$1();
 	const context = useContext$10();
 	const { open, setOpen } = useModal();
-	const { address: address$12, isConnected: isConnected$1, chain } = useConnection();
+	const { address: address$13, isConnected: isConnected$1, chain } = useConnection();
 	const isChainSupported = useChainIsSupported(chain === null || chain === void 0 ? void 0 : chain.id);
 	const { data: ensName } = useEnsName({
 		chainId: 1,
-		address: address$12,
+		address: address$13,
 		config: useEnsFallbackConfig()
 	});
 	function hide$3() {
@@ -53266,10 +53266,10 @@ var ConnectButtonRenderer = ({ children }) => {
 		hide: hide$3,
 		chain,
 		unsupported: !isChainSupported,
-		isConnected: !!address$12,
+		isConnected: !!address$13,
 		isConnecting: open,
-		address: address$12,
-		truncatedAddress: address$12 ? truncateEthAddress(address$12) : void 0,
+		address: address$13,
+		truncatedAddress: address$13 ? truncateEthAddress(address$13) : void 0,
 		ensName: ensName === null || ensName === void 0 ? void 0 : ensName.toString()
 	}) });
 };
@@ -53279,17 +53279,17 @@ function ConnectKitButtonInner({ label, showAvatar, separator }) {
 	const locales = useLocales({});
 	const context = useContext$10();
 	const { isSignedIn } = useSIWE();
-	const { address: address$12, chain } = useConnection();
+	const { address: address$13, chain } = useConnection();
 	const isChainSupported = useChainIsSupported(chain === null || chain === void 0 ? void 0 : chain.id);
 	const { data: ensName } = useEnsName({
 		chainId: 1,
-		address: address$12,
+		address: address$13,
 		config: useEnsFallbackConfig()
 	});
 	const defaultLabel = locales.connectWallet;
 	return (0, import_jsx_runtime.jsx)(AnimatePresence, {
 		initial: false,
-		children: address$12 ? (0, import_jsx_runtime.jsxs)(TextContainer, {
+		children: address$13 ? (0, import_jsx_runtime.jsxs)(TextContainer, {
 			initial: "initial",
 			animate: "animate",
 			exit: "exit",
@@ -53326,7 +53326,7 @@ function ConnectKitButtonInner({ label, showAvatar, separator }) {
 				})]
 			}), (0, import_jsx_runtime.jsx)(Avatar, {
 				size: 24,
-				address: address$12
+				address: address$13
 			})] }), (0, import_jsx_runtime.jsx)("div", {
 				style: {
 					position: "relative",
@@ -53347,7 +53347,7 @@ function ConnectKitButtonInner({ label, showAvatar, separator }) {
 						exit: "exit",
 						variants: textVariants,
 						style: { position: ensName ? "absolute" : "relative" },
-						children: [truncateEthAddress(address$12, separator), " "]
+						children: [truncateEthAddress(address$13, separator), " "]
 					}, "ckTruncatedAddress")
 				})
 			})]
@@ -53365,7 +53365,7 @@ function ConnectKitButton({ label, showBalance = false, showAvatar = true, theme
 	var _a;
 	const isMounted = useIsMounted$1();
 	const context = useContext$10();
-	const { isConnected: isConnected$1, address: address$12, chain } = useConnection();
+	const { isConnected: isConnected$1, address: address$13, chain } = useConnection();
 	const chainIsSupported = useChainIsSupported(chain === null || chain === void 0 ? void 0 : chain.id);
 	function show$1() {
 		context.setOpen(true);
@@ -53378,7 +53378,7 @@ function ConnectKitButton({ label, showBalance = false, showAvatar = true, theme
 	].includes((_a = theme !== null && theme !== void 0 ? theme : context.theme) !== null && _a !== void 0 ? _a : "") ? "...." : void 0;
 	if (!isMounted) return null;
 	const shouldShowBalance = showBalance && chainIsSupported;
-	const willShowBalance = address$12 && shouldShowBalance;
+	const willShowBalance = address$13 && shouldShowBalance;
 	return (0, import_jsx_runtime.jsx)(ResetContainer, {
 		"$useTheme": theme !== null && theme !== void 0 ? theme : context.theme,
 		"$useMode": mode$1 !== null && mode$1 !== void 0 ? mode$1 : context.mode,
@@ -53443,7 +53443,7 @@ function ConnectKitButton({ label, showBalance = false, showAvatar = true, theme
 				theme: theme !== null && theme !== void 0 ? theme : context.theme,
 				mode: mode$1 !== null && mode$1 !== void 0 ? mode$1 : context.mode,
 				customTheme: customTheme !== null && customTheme !== void 0 ? customTheme : context.customTheme,
-				style: shouldShowBalance && showBalance && address$12 && (theme === "retro" || context.theme === "retro") ? {
+				style: shouldShowBalance && showBalance && address$13 && (theme === "retro" || context.theme === "retro") ? {
 					boxShadow: "var(--ck-connectbutton-balance-connectbutton-box-shadow)",
 					borderRadius: "var(--ck-connectbutton-balance-connectbutton-border-radius)",
 					overflow: "hidden"
@@ -53682,7 +53682,7 @@ async function internalMutate(...args) {
 	async function mutateByKey(_k) {
 		const [key] = serialize$1(_k);
 		if (!key) return;
-		const [get$2, set$1] = createCacheHelper(cache$1, key);
+		const [get$2, set$2] = createCacheHelper(cache$1, key);
 		const [EVENT_REVALIDATORS, MUTATION, FETCH, PRELOAD] = SWRGlobalState.get(cache$1);
 		const startRevalidate = () => {
 			const revalidators = EVENT_REVALIDATORS[key];
@@ -53706,7 +53706,7 @@ async function internalMutate(...args) {
 		const committedData = isUndefined(currentData) ? displayedData : currentData;
 		if (hasOptimisticData) {
 			optimisticData = isFunction$4(optimisticData) ? optimisticData(committedData, displayedData) : optimisticData;
-			set$1({
+			set$2({
 				data: optimisticData,
 				_c: committedData
 			});
@@ -53727,19 +53727,19 @@ async function internalMutate(...args) {
 				return data;
 			} else if (isError$1 && hasOptimisticData && rollbackOnError(error)) {
 				populateCache = true;
-				set$1({
+				set$2({
 					data: committedData,
 					_c: UNDEFINED
 				});
 			}
 		}
 		if (populateCache) {
-			if (!isError$1) if (isFunction$4(populateCache)) set$1({
+			if (!isError$1) if (isFunction$4(populateCache)) set$2({
 				data: populateCache(data, committedData),
 				error: UNDEFINED,
 				_c: UNDEFINED
 			});
-			else set$1({
+			else set$2({
 				data,
 				error: UNDEFINED,
 				_c: UNDEFINED
@@ -53747,7 +53747,7 @@ async function internalMutate(...args) {
 		}
 		MUTATION[key][1] = getTimestamp();
 		Promise.resolve(startRevalidate()).then(() => {
-			set$1({ _c: UNDEFINED });
+			set$2({ _c: UNDEFINED });
 		});
 		if (isError$1) {
 			if (throwOnError) throw error;
@@ -53937,6 +53937,9 @@ var subscribeCallback = (key, callbacks, callback) => {
 setupDevTools();
 const isSufficient = (value) => {
 	return !isUndefined(value) && value !== null;
+};
+const isEverySufficient = (...values) => {
+	return values.every(isSufficient);
 };
 const isEveryInsufficient = (...values) => {
 	return values.every((val) => !isSufficient(val));
@@ -55341,13 +55344,13 @@ function sortKeys(obj) {
 	return sorted;
 }
 function dedupeLinkDescriptors(descriptors, preloads) {
-	let set$1 = /* @__PURE__ */ new Set();
+	let set$2 = /* @__PURE__ */ new Set();
 	let preloadsSet = new Set(preloads);
 	return descriptors.reduce((deduped, descriptor) => {
 		if (preloads && !isPageLinkDescriptor(descriptor) && descriptor.as === "script" && descriptor.href && preloadsSet.has(descriptor.href)) return deduped;
 		let key = JSON.stringify(sortKeys(descriptor));
-		if (!set$1.has(key)) {
-			set$1.add(key);
+		if (!set$2.has(key)) {
+			set$2.add(key);
 			deduped.push({
 				key,
 				link: descriptor
@@ -57509,13 +57512,13 @@ function throwError(name, error) {
 	wrapped.error = error;
 	throw wrapped;
 }
-function toObject(names$3, items, deep) {
-	if (names$3.indexOf(null) >= 0) return items.map((item, index$6) => {
+function toObject(names$3, items$1, deep) {
+	if (names$3.indexOf(null) >= 0) return items$1.map((item, index$6) => {
 		if (item instanceof Result) return toObject(getNames(item), item, deep);
 		return item;
 	});
 	return names$3.reduce((accum, name, index$6) => {
-		let item = items.getValue(name);
+		let item = items$1.getValue(name);
 		if (!(name in accum)) {
 			if (deep && item instanceof Result) item = toObject(getNames(item), item, deep);
 			accum[name] = item;
@@ -57527,23 +57530,23 @@ var Result = class Result extends Array {
 	#names;
 	constructor(...args) {
 		const guard = args[0];
-		let items = args[1];
+		let items$1 = args[1];
 		let names$3 = (args[2] || []).slice();
 		let wrap = true;
 		if (guard !== _guard$2) {
-			items = args;
+			items$1 = args;
 			names$3 = [];
 			wrap = false;
 		}
-		super(items.length);
-		items.forEach((item, index$6) => {
+		super(items$1.length);
+		items$1.forEach((item, index$6) => {
 			this[index$6] = item;
 		});
 		const nameCounts = names$3.reduce((accum, name) => {
 			if (typeof name === "string") accum.set(name, (accum.get(name) || 0) + 1);
 			return accum;
 		}, /* @__PURE__ */ new Map());
-		setNames(this, Object.freeze(items.map((item, index$6) => {
+		setNames(this, Object.freeze(items$1.map((item, index$6) => {
 			const name = names$3[index$6];
 			if (name != null && nameCounts.get(name) === 1) return name;
 			return null;
@@ -57638,8 +57641,8 @@ var Result = class Result extends Array {
 		if (value instanceof Error) throwError(`property ${JSON.stringify(name)}`, value.error);
 		return value;
 	}
-	static fromItems(items, keys$4) {
-		return new Result(_guard$2, items, keys$4);
+	static fromItems(items$1, keys$4) {
+		return new Result(_guard$2, items$1, keys$4);
 	}
 };
 function getValue$3(value) {
@@ -60154,9 +60157,9 @@ var SigningKey = class SigningKey {
 };
 var BN_0$6 = BigInt(0);
 var BN_36 = BigInt(36);
-function getChecksumAddress(address$12) {
-	address$12 = address$12.toLowerCase();
-	const chars = address$12.substring(2).split("");
+function getChecksumAddress(address$13) {
+	address$13 = address$13.toLowerCase();
+	const chars = address$13.substring(2).split("");
 	const expanded = new Uint8Array(40);
 	for (let i$13 = 0; i$13 < 40; i$13++) expanded[i$13] = chars[i$13].charCodeAt(0);
 	const hashed = getBytes(keccak256(expanded));
@@ -60170,10 +60173,10 @@ var ibanLookup = {};
 for (let i$13 = 0; i$13 < 10; i$13++) ibanLookup[String(i$13)] = String(i$13);
 for (let i$13 = 0; i$13 < 26; i$13++) ibanLookup[String.fromCharCode(65 + i$13)] = String(10 + i$13);
 var safeDigits = 15;
-function ibanChecksum(address$12) {
-	address$12 = address$12.toUpperCase();
-	address$12 = address$12.substring(4) + address$12.substring(0, 2) + "00";
-	let expanded = address$12.split("").map((c$11) => {
+function ibanChecksum(address$13) {
+	address$13 = address$13.toUpperCase();
+	address$13 = address$13.substring(4) + address$13.substring(0, 2) + "00";
+	let expanded = address$13.split("").map((c$11) => {
 		return ibanLookup[c$11];
 	}).join("");
 	while (expanded.length >= safeDigits) {
@@ -60198,21 +60201,21 @@ function fromBase36(value) {
 	for (let i$13 = 0; i$13 < value.length; i$13++) result = result * BN_36 + Base36[value[i$13]];
 	return result;
 }
-function getAddress(address$12) {
-	assertArgument(typeof address$12 === "string", "invalid address", "address", address$12);
-	if (address$12.match(/^(0x)?[0-9a-fA-F]{40}$/)) {
-		if (!address$12.startsWith("0x")) address$12 = "0x" + address$12;
-		const result = getChecksumAddress(address$12);
-		assertArgument(!address$12.match(/([A-F].*[a-f])|([a-f].*[A-F])/) || result === address$12, "bad address checksum", "address", address$12);
+function getAddress(address$13) {
+	assertArgument(typeof address$13 === "string", "invalid address", "address", address$13);
+	if (address$13.match(/^(0x)?[0-9a-fA-F]{40}$/)) {
+		if (!address$13.startsWith("0x")) address$13 = "0x" + address$13;
+		const result = getChecksumAddress(address$13);
+		assertArgument(!address$13.match(/([A-F].*[a-f])|([a-f].*[A-F])/) || result === address$13, "bad address checksum", "address", address$13);
 		return result;
 	}
-	if (address$12.match(/^XE[0-9]{2}[0-9A-Za-z]{30,31}$/)) {
-		assertArgument(address$12.substring(2, 4) === ibanChecksum(address$12), "bad icap checksum", "address", address$12);
-		let result = fromBase36(address$12.substring(4)).toString(16);
+	if (address$13.match(/^XE[0-9]{2}[0-9A-Za-z]{30,31}$/)) {
+		assertArgument(address$13.substring(2, 4) === ibanChecksum(address$13), "bad icap checksum", "address", address$13);
+		let result = fromBase36(address$13.substring(4)).toString(16);
 		while (result.length < 40) result = "0" + result;
 		return getChecksumAddress("0x" + result);
 	}
-	assertArgument(false, "invalid address", "address", address$12);
+	assertArgument(false, "invalid address", "address", address$13);
 }
 function getCreateAddress(tx) {
 	const from$2 = getAddress(tx.from);
@@ -60974,13 +60977,13 @@ function accessSetify(addr, storageKeys) {
 	};
 }
 function accessListify(value) {
-	if (Array.isArray(value)) return value.map((set$1, index$6) => {
-		if (Array.isArray(set$1)) {
-			assertArgument(set$1.length === 2, "invalid slot set", `value[${index$6}]`, set$1);
-			return accessSetify(set$1[0], set$1[1]);
+	if (Array.isArray(value)) return value.map((set$2, index$6) => {
+		if (Array.isArray(set$2)) {
+			assertArgument(set$2.length === 2, "invalid slot set", `value[${index$6}]`, set$2);
+			return accessSetify(set$2[0], set$2[1]);
 		}
-		assertArgument(set$1 != null && typeof set$1 === "object", "invalid address-slot set", "value", value);
-		return accessSetify(set$1.address, set$1.storageKeys);
+		assertArgument(set$2 != null && typeof set$2 === "object", "invalid address-slot set", "value", value);
+		return accessSetify(set$2.address, set$2.storageKeys);
 	});
 	assertArgument(value != null && typeof value === "object", "invalid access list", "value", value);
 	const result = Object.keys(value).map((addr) => {
@@ -61097,7 +61100,7 @@ function formatNumber(_value, name) {
 	return result;
 }
 function formatAccessList(value) {
-	return accessListify(value).map((set$1) => [set$1.address, set$1.storageKeys]);
+	return accessListify(value).map((set$2) => [set$2.address, set$2.storageKeys]);
 }
 function formatAuthorizationList(value) {
 	return value.map((a$7) => {
@@ -62253,7 +62256,7 @@ function init() {
 	let r$13 = read_compressed_payload(COMPRESSED$1);
 	const read_sorted_array = () => read_sorted(r$13);
 	const read_sorted_set = () => new Set(read_sorted_array());
-	const set_add_many = (set$1, v$6) => v$6.forEach((x$8) => set$1.add(x$8));
+	const set_add_many = (set$2, v$6) => v$6.forEach((x$8) => set$2.add(x$8));
 	MAPPED = new Map(read_mapped(r$13));
 	IGNORED = read_sorted_set();
 	CM = read_sorted_array();
@@ -62264,10 +62267,10 @@ function init() {
 	let chunks = read_sorted_arrays(r$13);
 	let unrestricted = r$13();
 	const read_chunked = () => {
-		let set$1 = /* @__PURE__ */ new Set();
-		read_sorted_array().forEach((i$13) => set_add_many(set$1, chunks[i$13]));
-		set_add_many(set$1, read_sorted_array());
-		return set$1;
+		let set$2 = /* @__PURE__ */ new Set();
+		read_sorted_array().forEach((i$13) => set_add_many(set$2, chunks[i$13]));
+		set_add_many(set$2, read_sorted_array());
+		return set$2;
 	};
 	GROUPS = read_array_while((i$13) => {
 		let N$5 = read_array_while(r$13).map((x$8) => x$8 + 96);
@@ -62466,8 +62469,8 @@ function check_whole(group, unique) {
 		let whole = WHOLE_MAP.get(cp);
 		if (whole === UNIQUE_PH) return;
 		if (whole) {
-			let set$1 = whole.M.get(cp);
-			maker = maker ? maker.filter((g$6) => set$1.has(g$6)) : Array_from(set$1);
+			let set$2 = whole.M.get(cp);
+			maker = maker ? maker.filter((g$6) => set$2.has(g$6)) : Array_from(set$2);
 			if (!maker.length) return;
 		} else shared.push(cp);
 	}
@@ -62781,8 +62784,8 @@ var TypedDataEncoder = class TypedDataEncoder {
 			found.delete(type);
 		}
 		checkCircular(this.primaryType, /* @__PURE__ */ new Set());
-		for (const [name, set$1] of subtypes) {
-			const st$2 = Array.from(set$1);
+		for (const [name, set$2] of subtypes) {
+			const st$2 = Array.from(set$2);
 			st$2.sort();
 			this.#fullTypes.set(name, encodeType(name, types$1[name]) + st$2.map((t$11) => encodeType(t$11, types$1[t$11])).join(""));
 		}
@@ -62954,9 +62957,9 @@ var TypedDataEncoder = class TypedDataEncoder {
 		};
 	}
 };
-function setify(items) {
+function setify(items$1) {
 	const result = /* @__PURE__ */ new Set();
-	items.forEach((k$8) => result.add(k$8));
+	items$1.forEach((k$8) => result.add(k$8));
 	return Object.freeze(result);
 }
 var KwVisibDeploy = setify("external public payable override".split(" "));
@@ -63156,9 +63159,9 @@ function lex(text) {
 	}
 	return new TokenString(tokens.map((t$11) => Object.freeze(t$11)));
 }
-function allowSingle(set$1, allowed) {
+function allowSingle(set$2, allowed) {
 	let included = [];
-	for (const key in allowed.keys()) if (set$1.has(key)) included.push(key);
+	for (const key in allowed.keys()) if (set$2.has(key)) included.push(key);
 	if (included.length > 1) throw new Error(`conflicting types: ${included.join(", ")}`);
 }
 function consumeName(type, tokens) {
@@ -64013,14 +64016,14 @@ var Interface = class Interface {
 	#functions;
 	#abiCoder;
 	constructor(fragments) {
-		let abi$12 = [];
-		if (typeof fragments === "string") abi$12 = JSON.parse(fragments);
-		else abi$12 = fragments;
+		let abi$13 = [];
+		if (typeof fragments === "string") abi$13 = JSON.parse(fragments);
+		else abi$13 = fragments;
 		this.#functions = /* @__PURE__ */ new Map();
 		this.#errors = /* @__PURE__ */ new Map();
 		this.#events = /* @__PURE__ */ new Map();
 		const frags = [];
-		for (const a$7 of abi$12) try {
+		for (const a$7 of abi$13) try {
 			frags.push(Fragment$1.from(a$7));
 		} catch (error) {
 			console.log(`[Warning] Invalid Fragment ${JSON.stringify(a$7)}:`, error.message);
@@ -64073,8 +64076,8 @@ var Interface = class Interface {
 		return this.fragments.map((f$3) => f$3.format(format$3));
 	}
 	formatJson() {
-		const abi$12 = this.fragments.map((f$3) => f$3.format("json"));
-		return JSON.stringify(abi$12.map((j$10) => JSON.parse(j$10)));
+		const abi$13 = this.fragments.map((f$3) => f$3.format("json"));
+		return JSON.stringify(abi$13.map((j$10) => JSON.parse(j$10)));
 	}
 	getAbiCoder() {
 		return AbiCoder.defaultAbiCoder();
@@ -64700,10 +64703,10 @@ var Log = class {
 		});
 	}
 	toJSON() {
-		const { address: address$12, blockHash, blockNumber, data, index: index$6, removed, topics, transactionHash, transactionIndex } = this;
+		const { address: address$13, blockHash, blockNumber, data, index: index$6, removed, topics, transactionHash, transactionIndex } = this;
 		return {
 			_type: "log",
-			address: address$12,
+			address: address$13,
 			blockHash,
 			blockNumber,
 			data,
@@ -65509,10 +65512,10 @@ async function getSubInfo(contract, event) {
 	topics = topics.map((t$11) => {
 		if (t$11 == null) return null;
 		if (Array.isArray(t$11)) {
-			const items = Array.from(new Set(t$11.map((t$12) => t$12.toLowerCase())).values());
-			if (items.length === 1) return items[0];
-			items.sort();
-			return items;
+			const items$1 = Array.from(new Set(t$11.map((t$12) => t$12.toLowerCase())).values());
+			if (items$1.length === 1) return items$1[0];
+			items$1.sort();
+			return items$1;
 		}
 		return t$11.toLowerCase();
 	});
@@ -65614,10 +65617,10 @@ var BaseContract = class BaseContract {
 	filters;
 	[internal];
 	fallback;
-	constructor(target, abi$12, runner, _deployTx) {
+	constructor(target, abi$13, runner, _deployTx) {
 		assertArgument(typeof target === "string" || isAddressable(target), "invalid value for Contract target", "target", target);
 		if (runner == null) runner = null;
-		const iface = Interface.from(abi$12);
+		const iface = Interface.from(abi$13);
 		defineProperties(this, {
 			target,
 			runner,
@@ -65741,10 +65744,10 @@ var BaseContract = class BaseContract {
 		if (fromBlock == null) fromBlock = 0;
 		if (toBlock == null) toBlock = "latest";
 		const { addr, addrPromise } = getInternal(this);
-		const address$12 = addr ? addr : await addrPromise;
+		const address$13 = addr ? addr : await addrPromise;
 		const { fragment, topics } = await getSubInfo(this, event);
 		const filter$1 = {
-			address: address$12,
+			address: address$13,
 			topics,
 			fromBlock,
 			toBlock
@@ -65841,17 +65844,17 @@ var BaseContract = class BaseContract {
 	async removeListener(event, listener) {
 		return await this.off(event, listener);
 	}
-	static buildClass(abi$12) {
+	static buildClass(abi$13) {
 		class CustomContract extends BaseContract {
-			constructor(address$12, runner = null) {
-				super(address$12, abi$12, runner);
+			constructor(address$13, runner = null) {
+				super(address$13, abi$13, runner);
 			}
 		}
 		return CustomContract;
 	}
-	static from(target, abi$12, runner) {
+	static from(target, abi$13, runner) {
 		if (runner == null) runner = null;
-		return new this(target, abi$12, runner);
+		return new this(target, abi$13, runner);
 	}
 };
 function _ContractBase() {
@@ -65875,7 +65878,7 @@ var MulticoinProviderPlugin = class {
 	supportsCoinType(coinType) {
 		return false;
 	}
-	async encodeAddress(coinType, address$12) {
+	async encodeAddress(coinType, address$13) {
 		throw new Error("unsupported coin");
 	}
 	async decodeAddress(coinType, data) {
@@ -65895,14 +65898,14 @@ var EnsResolver = class EnsResolver {
 	name;
 	#supports2544;
 	#resolver;
-	constructor(provider, address$12, name) {
+	constructor(provider, address$13, name) {
 		defineProperties(this, {
 			provider,
-			address: address$12,
+			address: address$13,
 			name
 		});
 		this.#supports2544 = null;
-		this.#resolver = new Contract(address$12, [
+		this.#resolver = new Contract(address$13, [
 			"function supportsInterface(bytes4) view returns (bool)",
 			"function resolve(bytes, bytes) view returns (bytes)",
 			"function addr(bytes32) view returns (address)",
@@ -65970,8 +65973,8 @@ var EnsResolver = class EnsResolver {
 		if (coinPlugin == null) return null;
 		const data = await this.#fetch("addr(bytes32,uint)", [coinType]);
 		if (data == null || data === "0x") return null;
-		const address$12 = await coinPlugin.decodeAddress(coinType, data);
-		if (address$12 != null) return address$12;
+		const address$13 = await coinPlugin.decodeAddress(coinType, data);
+		if (address$13 != null) return address$13;
 		assert(false, `invalid coin data`, "UNSUPPORTED_OPERATION", {
 			operation: `getAddress(${coinType})`,
 			info: {
@@ -66484,18 +66487,18 @@ var GasCostPlugin = class GasCostPlugin extends NetworkPlugin {
 		if (effectiveBlock == null) effectiveBlock = 0;
 		super(`org.ethers.network.plugins.GasCost#${effectiveBlock || 0}`);
 		const props = { effectiveBlock };
-		function set$1(name, nullish) {
+		function set$2(name, nullish) {
 			let value = (costs || {})[name];
 			if (value == null) value = nullish;
 			assertArgument(typeof value === "number", `invalud value for ${name}`, "costs", costs);
 			props[name] = value;
 		}
-		set$1("txBase", 21e3);
-		set$1("txCreate", 32e3);
-		set$1("txDataZero", 4);
-		set$1("txDataNonzero", 16);
-		set$1("txAccessListStorageKey", 1900);
-		set$1("txAccessListAddress", 2400);
+		set$2("txBase", 21e3);
+		set$2("txCreate", 32e3);
+		set$2("txDataZero", 4);
+		set$2("txDataNonzero", 16);
+		set$2("txAccessListStorageKey", 1900);
+		set$2("txAccessListAddress", 2400);
 		defineProperties(this, props);
 	}
 	clone() {
@@ -66505,10 +66508,10 @@ var GasCostPlugin = class GasCostPlugin extends NetworkPlugin {
 var EnsPlugin = class EnsPlugin extends NetworkPlugin {
 	address;
 	targetNetwork;
-	constructor(address$12, targetNetwork) {
+	constructor(address$13, targetNetwork) {
 		super("org.ethers.plugins.network.Ens");
 		defineProperties(this, {
-			address: address$12 || EnsAddress,
+			address: address$13 || EnsAddress,
 			targetNetwork: targetNetwork == null ? 1 : targetNetwork
 		});
 	}
@@ -66959,10 +66962,10 @@ var UnmanagedSubscriber = class {
 function copy$4(value) {
 	return JSON.parse(JSON.stringify(value));
 }
-function concisify(items) {
-	items = Array.from(new Set(items).values());
-	items.sort();
-	return items;
+function concisify(items$1) {
+	items$1 = Array.from(new Set(items$1).values());
+	items$1.sort();
+	return items$1;
 }
 async function getSubscription(_event, provider) {
 	if (_event == null) throw new Error("invalid event");
@@ -67200,8 +67203,8 @@ var AbstractProvider = class {
 		if (this.#lastBlockNumber >= 0) this.#lastBlockNumber = blockNumber;
 		return blockNumber;
 	}
-	_getAddress(address$12) {
-		return resolveAddress(address$12, this);
+	_getAddress(address$13) {
+		return resolveAddress(address$13, this);
 	}
 	_getBlockTag(blockTag) {
 		if (blockTag == null) return "latest";
@@ -67232,42 +67235,42 @@ var AbstractProvider = class {
 		});
 		const blockHash = "blockHash" in filter$1 ? filter$1.blockHash : void 0;
 		const resolve = (_address, fromBlock$1, toBlock$1) => {
-			let address$13 = void 0;
+			let address$14 = void 0;
 			switch (_address.length) {
 				case 0: break;
 				case 1:
-					address$13 = _address[0];
+					address$14 = _address[0];
 					break;
 				default:
 					_address.sort();
-					address$13 = _address;
+					address$14 = _address;
 			}
 			if (blockHash) {
 				if (fromBlock$1 != null || toBlock$1 != null) throw new Error("invalid filter");
 			}
 			const filter$2 = {};
-			if (address$13) filter$2.address = address$13;
+			if (address$14) filter$2.address = address$14;
 			if (topics.length) filter$2.topics = topics;
 			if (fromBlock$1) filter$2.fromBlock = fromBlock$1;
 			if (toBlock$1) filter$2.toBlock = toBlock$1;
 			if (blockHash) filter$2.blockHash = blockHash;
 			return filter$2;
 		};
-		let address$12 = [];
-		if (filter$1.address) if (Array.isArray(filter$1.address)) for (const addr of filter$1.address) address$12.push(this._getAddress(addr));
-		else address$12.push(this._getAddress(filter$1.address));
+		let address$13 = [];
+		if (filter$1.address) if (Array.isArray(filter$1.address)) for (const addr of filter$1.address) address$13.push(this._getAddress(addr));
+		else address$13.push(this._getAddress(filter$1.address));
 		let fromBlock = void 0;
 		if ("fromBlock" in filter$1) fromBlock = this._getBlockTag(filter$1.fromBlock);
 		let toBlock = void 0;
 		if ("toBlock" in filter$1) toBlock = this._getBlockTag(filter$1.toBlock);
-		if (address$12.filter((a$7) => typeof a$7 !== "string").length || fromBlock != null && typeof fromBlock !== "string" || toBlock != null && typeof toBlock !== "string") return Promise.all([
-			Promise.all(address$12),
+		if (address$13.filter((a$7) => typeof a$7 !== "string").length || fromBlock != null && typeof fromBlock !== "string" || toBlock != null && typeof toBlock !== "string") return Promise.all([
+			Promise.all(address$13),
 			fromBlock,
 			toBlock
 		]).then((result) => {
 			return resolve(result[0], result[1], result[2]);
 		});
-		return resolve(address$12, fromBlock, toBlock);
+		return resolve(address$13, fromBlock, toBlock);
 	}
 	_getTransactionRequest(_request) {
 		const request = copyRequest(_request);
@@ -67452,29 +67455,29 @@ var AbstractProvider = class {
 		return await this.#checkNetwork(this.#call(tx, blockTag, _tx.enableCcipRead ? 0 : -1));
 	}
 	async #getAccountValue(request, _address, _blockTag) {
-		let address$12 = this._getAddress(_address);
+		let address$13 = this._getAddress(_address);
 		let blockTag = this._getBlockTag(_blockTag);
-		if (typeof address$12 !== "string" || typeof blockTag !== "string") [address$12, blockTag] = await Promise.all([address$12, blockTag]);
+		if (typeof address$13 !== "string" || typeof blockTag !== "string") [address$13, blockTag] = await Promise.all([address$13, blockTag]);
 		return await this.#checkNetwork(this.#perform(Object.assign(request, {
-			address: address$12,
+			address: address$13,
 			blockTag
 		})));
 	}
-	async getBalance(address$12, blockTag) {
-		return getBigInt(await this.#getAccountValue({ method: "getBalance" }, address$12, blockTag), "%response");
+	async getBalance(address$13, blockTag) {
+		return getBigInt(await this.#getAccountValue({ method: "getBalance" }, address$13, blockTag), "%response");
 	}
-	async getTransactionCount(address$12, blockTag) {
-		return getNumber(await this.#getAccountValue({ method: "getTransactionCount" }, address$12, blockTag), "%response");
+	async getTransactionCount(address$13, blockTag) {
+		return getNumber(await this.#getAccountValue({ method: "getTransactionCount" }, address$13, blockTag), "%response");
 	}
-	async getCode(address$12, blockTag) {
-		return hexlify$1(await this.#getAccountValue({ method: "getCode" }, address$12, blockTag));
+	async getCode(address$13, blockTag) {
+		return hexlify$1(await this.#getAccountValue({ method: "getCode" }, address$13, blockTag));
 	}
-	async getStorage(address$12, _position, blockTag) {
+	async getStorage(address$13, _position, blockTag) {
 		const position$1 = getBigInt(_position, "position");
 		return hexlify$1(await this.#getAccountValue({
 			method: "getStorage",
 			position: position$1
-		}, address$12, blockTag));
+		}, address$13, blockTag));
 	}
 	async broadcastTransaction(signedTx) {
 		const { blockNumber, hash: hash$3, network } = await resolveProperties$2({
@@ -67580,14 +67583,14 @@ var AbstractProvider = class {
 		if (resolver) return await resolver.getAddress();
 		return null;
 	}
-	async lookupAddress(address$12) {
-		address$12 = getAddress(address$12);
-		const node$1 = namehash(address$12.substring(2).toLowerCase() + ".addr.reverse");
+	async lookupAddress(address$13) {
+		address$13 = getAddress(address$13);
+		const node$1 = namehash(address$13.substring(2).toLowerCase() + ".addr.reverse");
 		try {
 			const resolver = await new Contract(await EnsResolver.getEnsAddress(this), ["function resolver(bytes32) view returns (address)"], this).resolver(node$1);
 			if (resolver == null || resolver === "0x0000000000000000000000000000000000000000") return null;
 			const name = await new Contract(resolver, ["function name(bytes32) view returns (string)"], this).name(node$1);
-			if (await this.resolveName(name) !== address$12) return null;
+			if (await this.resolveName(name) !== address$13) return null;
 			return name;
 		} catch (error) {
 			if (isError(error, "BAD_DATA") && error.value === "0x") return null;
@@ -67950,9 +67953,9 @@ async function populate(signer, tx) {
 	if (pop$2.to != null) pop$2.to = resolveAddress(pop$2.to, signer);
 	if (pop$2.from != null) {
 		const from$2 = pop$2.from;
-		pop$2.from = Promise.all([signer.getAddress(), resolveAddress(from$2, signer)]).then(([address$12, from$3]) => {
-			assertArgument(address$12.toLowerCase() === from$3.toLowerCase(), "transaction from mismatch", "tx.from", from$3);
-			return address$12;
+		pop$2.from = Promise.all([signer.getAddress(), resolveAddress(from$2, signer)]).then(([address$13, from$3]) => {
+			assertArgument(address$13.toLowerCase() === from$3.toLowerCase(), "transaction from mismatch", "tx.from", from$3);
+			return address$13;
 		});
 	} else pop$2.from = signer.getAddress();
 	return await resolveProperties$2(pop$2);
@@ -68193,10 +68196,10 @@ var defaultOptions$1 = {
 };
 var JsonRpcSigner = class extends AbstractSigner {
 	address;
-	constructor(provider, address$12) {
+	constructor(provider, address$13) {
 		super(provider);
-		address$12 = getAddress(address$12);
-		defineProperties(this, { address: address$12 });
+		address$13 = getAddress(address$13);
+		defineProperties(this, { address: address$13 });
 	}
 	connect(provider) {
 		assert(false, "cannot reconnect JsonRpcSigner", "UNSUPPORTED_OPERATION", { operation: "signer.connect" });
@@ -68289,9 +68292,9 @@ var JsonRpcSigner = class extends AbstractSigner {
 	async signTypedData(domain, types$1, _value) {
 		const value = deepCopy$2(_value);
 		const populated = await TypedDataEncoder.resolveNames(domain, types$1, value, async (value$1) => {
-			const address$12 = await resolveAddress(value$1);
-			assertArgument(address$12 != null, "TypedData does not support null address", "value", value$1);
-			return address$12;
+			const address$13 = await resolveAddress(value$1);
+			assertArgument(address$13 != null, "TypedData does not support null address", "value", value$1);
+			return address$13;
 		});
 		return await this.provider.send("eth_signTypedData_v4", [this.address.toLowerCase(), JSON.stringify(TypedDataEncoder.getPayload(populated.domain, types$1, populated.value))]);
 	}
@@ -68729,20 +68732,20 @@ var JsonRpcApiProvider = class extends AbstractProvider {
 		this.#scheduleDrain();
 		return promise;
 	}
-	async getSigner(address$12) {
-		if (address$12 == null) address$12 = 0;
+	async getSigner(address$13) {
+		if (address$13 == null) address$13 = 0;
 		const accountsPromise = this.send("eth_accounts", []);
-		if (typeof address$12 === "number") {
+		if (typeof address$13 === "number") {
 			const accounts$1 = await accountsPromise;
-			if (address$12 >= accounts$1.length) throw new Error("no such account");
-			return new JsonRpcSigner(this, accounts$1[address$12]);
+			if (address$13 >= accounts$1.length) throw new Error("no such account");
+			return new JsonRpcSigner(this, accounts$1[address$13]);
 		}
 		const { accounts } = await resolveProperties$2({
 			network: this.getNetwork(),
 			accounts: accountsPromise
 		});
-		address$12 = getAddress(address$12);
-		for (const account of accounts) if (getAddress(account) === address$12) return new JsonRpcSigner(this, address$12);
+		address$13 = getAddress(address$13);
+		for (const account of accounts) if (getAddress(account) === address$13) return new JsonRpcSigner(this, address$13);
 		throw new Error("invalid account");
 	}
 	async listAccounts() {
@@ -68994,16 +68997,16 @@ var BrowserProvider = class BrowserProvider extends JsonRpcApiPollingProvider {
 		}
 		return super.getRpcError(payload, error);
 	}
-	async hasSigner(address$12) {
-		if (address$12 == null) address$12 = 0;
+	async hasSigner(address$13) {
+		if (address$13 == null) address$13 = 0;
 		const accounts = await this.send("eth_accounts", []);
-		if (typeof address$12 === "number") return accounts.length > address$12;
-		address$12 = address$12.toLowerCase();
-		return accounts.filter((a$7) => a$7.toLowerCase() === address$12).length !== 0;
+		if (typeof address$13 === "number") return accounts.length > address$13;
+		address$13 = address$13.toLowerCase();
+		return accounts.filter((a$7) => a$7.toLowerCase() === address$13).length !== 0;
 	}
-	async getSigner(address$12) {
-		if (address$12 == null) address$12 = 0;
-		if (!await this.hasSigner(address$12)) try {
+	async getSigner(address$13) {
+		if (address$13 == null) address$13 = 0;
+		if (!await this.hasSigner(address$13)) try {
 			await this.#request("eth_requestAccounts", []);
 		} catch (error) {
 			const payload = error.payload;
@@ -69012,7 +69015,7 @@ var BrowserProvider = class BrowserProvider extends JsonRpcApiPollingProvider {
 				error
 			});
 		}
-		return await super.getSigner(address$12);
+		return await super.getSigner(address$13);
 	}
 	static async discover(options$2) {
 		if (options$2 == null) options$2 = {};
@@ -69060,7 +69063,7 @@ var BrowserProvider = class BrowserProvider extends JsonRpcApiPollingProvider {
 	}
 };
 var LendingMarginAccountManager_default = {
-	address: "0x7DBCfb2bF2d8412248817997C5278Da4f3A2c33B",
+	address: "0x99fa896Ea2c4146cE125CA75AD5b579de0b776af",
 	abi: [
 		{
 			"inputs": [{
@@ -69356,7 +69359,7 @@ var LendingMarginAccountManager_default = {
 	]
 };
 var MarginAccount_default = {
-	address: "0x393A475a11ca04f29a185Cd31562110A9fa15fD8",
+	address: "0x97855B5E8F454a0953470Fe13E99E331c7193a72",
 	abi: [
 		{
 			"inputs": [{
@@ -70565,7 +70568,7 @@ var MarginAccount_default = {
 	]
 };
 var MarginAccountManager_default = {
-	address: "0xFc2a3cb30E2d60211bA337303061048065230530",
+	address: "0x512DecE525b1Fe2EE072983f7fF477AD87273B25",
 	abi: [
 		{
 			"anonymous": false,
@@ -70917,7 +70920,7 @@ var MarginAccountManager_default = {
 	]
 };
 var MarginTrading_default = {
-	address: "0xABE5F3FB2B39a73F1661CEaF4FBE95a539EF86FD",
+	address: "0xdebA477012d831a2eEB7922c2c9b45b632f4F4C7",
 	abi: [
 		{
 			"inputs": [
@@ -71992,7 +71995,7 @@ var MarginTrading_default = {
 	]
 };
 var ModularSwapRouter_default = {
-	address: "0x8FC42af5Ab8C707561621fD42B6A87adE337C024",
+	address: "0x8b97c7078292033E2DCC3991826F50e5933E59Fe",
 	abi: [
 		{
 			"inputs": [{
@@ -72852,7 +72855,7 @@ var ModularSwapRouter_default = {
 	]
 };
 var OneClickNoRekt_default = {
-	address: "0x7256d27e3a4C84474C5b88A119F61E75eD0738F4",
+	address: "0x662B6ea40b2aE771469Cb0718D0b6074A00a7d43",
 	abi: [
 		{
 			"inputs": [
@@ -73270,7 +73273,7 @@ var OneClickNoRekt_default = {
 	]
 };
 var OneClickOptions_default = {
-	address: "0x600fE3Bd88d64757143a040036C92aeaB8E2c0AA",
+	address: "0xFf1a569e4A4A2B821f6E5f71702d319B9e5064DD",
 	abi: [
 		{
 			"inputs": [
@@ -74060,7 +74063,7 @@ var OneClickOptions_default = {
 	]
 };
 var OneClickProxy_default = {
-	address: "0xA114fbC486e77cC05235A616749F21bd13E49059",
+	address: "0xFF97d777b8080A101Ac72196fEe280ed7318F846",
 	abi: [
 		{
 			"inputs": [{
@@ -74718,7 +74721,7 @@ var OneClickProxy_default = {
 	]
 };
 var OneClickTrading_default = {
-	address: "0x735b2674A360B89719A12a7A962FC2E7458601D4",
+	address: "0xaaCb1361c750d13a83EFD2796666CbEA8203c4a8",
 	abi: [
 		{
 			"inputs": [
@@ -75126,7 +75129,7 @@ var OneClickTrading_default = {
 	]
 };
 var USDC_LiquidityPool_default = {
-	address: "0x7DC86Ed3AE69cEB124494A5B5c10D0F335BD8bbE",
+	address: "0xFCCC86B1759CF6bD37F420C225F5e74EB6F664CE",
 	abi: [
 		{
 			"inputs": [
@@ -76229,6 +76232,73 @@ var USDC_LiquidityPool_default = {
 			"type": "function"
 		}
 	]
+};
+var HegicLimitView_default = {
+	address: "0x3D7e85e9F847DD9fae930a82115901cF53da605D",
+	abi: [{
+		"inputs": [{
+			"components": [
+				{
+					"internalType": "contract IHegicStrategy",
+					"name": "strategy",
+					"type": "address"
+				},
+				{
+					"internalType": "uint32",
+					"name": "period",
+					"type": "uint32"
+				},
+				{
+					"internalType": "uint256",
+					"name": "amount",
+					"type": "uint256"
+				},
+				{
+					"internalType": "bytes[]",
+					"name": "additional",
+					"type": "bytes[]"
+				}
+			],
+			"internalType": "struct LimitView.RequestItem[]",
+			"name": "request",
+			"type": "tuple[]"
+		}],
+		"name": "getPriceAndLimits",
+		"outputs": [{
+			"components": [
+				{
+					"internalType": "uint256",
+					"name": "locked",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "limit",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "available",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint128",
+					"name": "negativePNL",
+					"type": "uint128"
+				},
+				{
+					"internalType": "uint128",
+					"name": "positivePNL",
+					"type": "uint128"
+				}
+			],
+			"internalType": "struct LimitView.Limit[]",
+			"name": "",
+			"type": "tuple[]"
+		}],
+		"stateMutability": "view",
+		"type": "function"
+	}]
 };
 var HegicOperationalTreasury_default = {
 	address: "0xec096ea6eB9aa5ea689b0CF00882366E92377371",
@@ -77385,6 +77455,7 @@ const getSwrConfig = (refreshInterval = 20 * SECOND) => {
 };
 var useContractJsons = () => {
 	return (0, import_react.useMemo)(() => ({
+		HegicLimitView: HegicLimitView_default,
 		HegicOperationalTreasury: HegicOperationalTreasury_default,
 		HegicPositionManager: HegicPositionManager_default,
 		LendingMarginAccountManager: LendingMarginAccountManager_default,
@@ -77417,8 +77488,8 @@ var useViewContracts = () => {
 	return (0, import_react.useMemo)(() => {
 		const contracts$1 = {};
 		Object.keys(contractJsons).forEach((name) => {
-			const { address: address$12, abi: abi$12 } = contractJsons[name];
-			const contract = new Contract(address$12, abi$12, alchemyProvider);
+			const { address: address$13, abi: abi$13 } = contractJsons[name];
+			const contract = new Contract(address$13, abi$13, alchemyProvider);
 			contract.address = contract.target;
 			contracts$1[name] = contract;
 		});
@@ -77759,8 +77830,8 @@ function arrayify(value, options$2) {
 	if (isBytes(value)) return addSlice(new Uint8Array(value));
 	return logger$6.throwArgumentError("invalid arrayify value", "value", value);
 }
-function concat(items) {
-	const objects = items.map((item) => arrayify(item));
+function concat(items$1) {
+	const objects = items$1.map((item) => arrayify(item));
 	const length$1 = objects.reduce((accum, item) => accum + item.length, 0);
 	const result = new Uint8Array(length$1);
 	objects.reduce((offset$3, object$1) => {
@@ -77840,9 +77911,9 @@ function hexDataSlice(data, offset$3, endOffset) {
 	if (endOffset != null) return "0x" + data.substring(offset$3, 2 + 2 * endOffset);
 	return "0x" + data.substring(offset$3);
 }
-function hexConcat(items) {
+function hexConcat(items$1) {
 	let result = "0x";
-	items.forEach((item) => {
+	items$1.forEach((item) => {
 		result += hexlify(item).substring(2);
 	});
 	return result;
@@ -84170,14 +84241,14 @@ var AlchemyConfig = class {
 	}
 	getProvider() {
 		if (!this._baseAlchemyProvider) this._baseAlchemyProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-BtTpqIcx.js"), __vite__mapDeps([7,8]));
+			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-XYWmlHRa.js"), __vite__mapDeps([7,8]));
 			return new AlchemyProvider$1(this);
 		}))();
 		return this._baseAlchemyProvider;
 	}
 	getWebSocketProvider() {
 		if (!this._baseAlchemyWssProvider) this._baseAlchemyWssProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-ByoR1TjT.js"), __vite__mapDeps([9,8]));
+			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-D7qtMHEX.js"), __vite__mapDeps([9,8]));
 			return new AlchemyWebSocketProvider(this);
 		}))();
 		return this._baseAlchemyWssProvider;
@@ -84668,8 +84739,8 @@ function getFilter(config$1, filter$1) {
 			result[key] = provider._getBlockTag(resolvedFilter[key]);
 		});
 		result = provider.formatter.filter(yield resolveProperties(result));
-		if (Array.isArray(resolvedFilter.address)) result.address = yield Promise.all(resolvedFilter.address.map((address$12) => __awaiter$1(this, void 0, void 0, function* () {
-			return provider._getAddress(address$12);
+		if (Array.isArray(resolvedFilter.address)) result.address = yield Promise.all(resolvedFilter.address.map((address$13) => __awaiter$1(this, void 0, void 0, function* () {
+			return provider._getAddress(address$13);
 		})));
 		else if (resolvedFilter.address != null) result.address = yield provider._getAddress(resolvedFilter.address);
 		return result;
@@ -84694,9 +84765,9 @@ var CoreNamespace = class {
 			return (yield this.config.getProvider()).getBalance(addressOrName, blockTag);
 		});
 	}
-	isContractAddress(address$12) {
+	isContractAddress(address$13) {
 		return __awaiter$1(this, void 0, void 0, function* () {
-			return (yield (yield this.config.getProvider()).getCode(address$12)) !== "0x";
+			return (yield (yield this.config.getProvider()).getCode(address$13)) !== "0x";
 		});
 	}
 	getCode(addressOrName, blockTag) {
@@ -84806,13 +84877,13 @@ var CoreNamespace = class {
 	getTokenBalances(addressOrName, contractAddressesOrOptions) {
 		return __awaiter$1(this, void 0, void 0, function* () {
 			const provider = yield this.config.getProvider();
-			const address$12 = yield provider._getAddress(addressOrName);
+			const address$13 = yield provider._getAddress(addressOrName);
 			if (Array.isArray(contractAddressesOrOptions)) {
 				if (contractAddressesOrOptions.length > 1500) throw new Error("You cannot pass in more than 1500 contract addresses to getTokenBalances()");
 				if (contractAddressesOrOptions.length === 0) throw new Error("getTokenBalances() requires at least one contractAddress when using an array");
-				return provider._send("alchemy_getTokenBalances", [address$12, contractAddressesOrOptions], "getTokenBalances");
+				return provider._send("alchemy_getTokenBalances", [address$13, contractAddressesOrOptions], "getTokenBalances");
 			} else {
-				const params = [address$12, contractAddressesOrOptions === void 0 ? TokenBalanceType.ERC20 : contractAddressesOrOptions.type];
+				const params = [address$13, contractAddressesOrOptions === void 0 ? TokenBalanceType.ERC20 : contractAddressesOrOptions.type];
 				if ((contractAddressesOrOptions === null || contractAddressesOrOptions === void 0 ? void 0 : contractAddressesOrOptions.type) === TokenBalanceType.ERC20 && contractAddressesOrOptions.pageKey) params.push({ pageKey: contractAddressesOrOptions.pageKey });
 				return provider._send("alchemy_getTokenBalances", params, "getTokenBalances");
 			}
@@ -84841,9 +84912,9 @@ var CoreNamespace = class {
 			};
 		});
 	}
-	getTokenMetadata(address$12) {
+	getTokenMetadata(address$13) {
 		return __awaiter$1(this, void 0, void 0, function* () {
-			return (yield this.config.getProvider())._send("alchemy_getTokenMetadata", [address$12], "getTokenMetadata");
+			return (yield this.config.getProvider())._send("alchemy_getTokenMetadata", [address$13], "getTokenMetadata");
 		});
 	}
 	getAssetTransfers(params) {
@@ -84861,18 +84932,18 @@ var CoreNamespace = class {
 			return (yield this.config.getProvider()).resolveName(name);
 		});
 	}
-	lookupAddress(address$12) {
+	lookupAddress(address$13) {
 		return __awaiter$1(this, void 0, void 0, function* () {
-			return (yield this.config.getProvider()).lookupAddress(address$12);
+			return (yield this.config.getProvider()).lookupAddress(address$13);
 		});
 	}
 };
-function binarySearchFirstBlock(start$1, end, address$12, config$1) {
+function binarySearchFirstBlock(start$1, end, address$13, config$1) {
 	return __awaiter$1(this, void 0, void 0, function* () {
 		if (start$1 >= end) return end;
 		const mid = Math.floor((start$1 + end) / 2);
-		if ((yield (yield config$1.getProvider()).getCode(address$12, mid)) === ETH_NULL_VALUE) return binarySearchFirstBlock(mid + 1, end, address$12, config$1);
-		return binarySearchFirstBlock(start$1, mid, address$12, config$1);
+		if ((yield (yield config$1.getProvider()).getCode(address$13, mid)) === ETH_NULL_VALUE) return binarySearchFirstBlock(mid + 1, end, address$13, config$1);
+		return binarySearchFirstBlock(start$1, mid, address$13, config$1);
 	});
 }
 var DebugNamespace = class {
@@ -85776,9 +85847,9 @@ var NotifyNamespace = class {
 			if (addresses === void 0) return [];
 			const resolvedAddresses = [];
 			const provider = yield this.config.getProvider();
-			for (const address$12 of addresses) {
-				const rawAddress = yield provider.resolveName(address$12);
-				if (rawAddress === null) throw new Error(`Unable to resolve the ENS address: ${address$12}`);
+			for (const address$13 of addresses) {
+				const rawAddress = yield provider.resolveName(address$13);
+				if (rawAddress === null) throw new Error(`Unable to resolve the ENS address: ${address$13}`);
 				resolvedAddresses.push(rawAddress);
 			}
 			return resolvedAddresses;
@@ -85951,13 +86022,13 @@ function getHistoricalPriceBySymbol(config$1, symbol, startTime$1, endTime, inte
 		}));
 	});
 }
-function getHistoricalPriceByAddress(config$1, network, address$12, startTime$1, endTime, interval, srcMethod = "getHistoricalPriceByAddress") {
+function getHistoricalPriceByAddress(config$1, network, address$13, startTime$1, endTime, interval, srcMethod = "getHistoricalPriceByAddress") {
 	return __awaiter$1(this, void 0, void 0, function* () {
 		return nullsToUndefined(yield requestHttpWithBackoff(config$1, AlchemyApiType.PRICES, "tokens/historical", srcMethod, {}, {
 			method: "POST",
 			data: {
 				network,
-				address: address$12,
+				address: address$13,
 				startTime: startTime$1,
 				endTime,
 				interval
@@ -85978,8 +86049,8 @@ var PricesNamespace = class {
 	getHistoricalPriceBySymbol(symbol, startTime$1, endTime, interval) {
 		return getHistoricalPriceBySymbol(this.config, symbol, startTime$1, endTime, interval);
 	}
-	getHistoricalPriceByAddress(network, address$12, startTime$1, endTime, interval) {
-		return getHistoricalPriceByAddress(this.config, network, address$12, startTime$1, endTime, interval);
+	getHistoricalPriceByAddress(network, address$13, startTime$1, endTime, interval) {
+		return getHistoricalPriceByAddress(this.config, network, address$13, startTime$1, endTime, interval);
 	}
 };
 var GAS_OPTIMIZED_TX_FEE_MULTIPLES = [
@@ -86130,11 +86201,11 @@ var Event$1 = class {
 	get filter() {
 		const comps = this.tag.split(":");
 		if (comps[0] !== "filter") throw new Error("Not a transaction event");
-		const address$12 = comps[1];
+		const address$13 = comps[1];
 		const topics = deserializeTopics(comps[2]);
 		const filter$1 = {};
 		if (topics.length > 0) filter$1.topics = topics;
-		if (address$12 && address$12 !== "*") filter$1.address = address$12;
+		if (address$13 && address$13 !== "*") filter$1.address = address$13;
 		return filter$1;
 	}
 	pollable() {
@@ -86289,17 +86360,17 @@ var WebSocketNamespace = class {
 			if (!isAlchemyEvent(eventName)) return eventName;
 			if (eventName.method === AlchemySubscription.MINED_TRANSACTIONS && eventName.addresses) {
 				const processedAddresses = [];
-				for (const address$12 of eventName.addresses) {
-					if (address$12.to) address$12.to = yield this._resolveNameOrError(address$12.to);
-					if (address$12.from) address$12.from = yield this._resolveNameOrError(address$12.from);
-					processedAddresses.push(address$12);
+				for (const address$13 of eventName.addresses) {
+					if (address$13.to) address$13.to = yield this._resolveNameOrError(address$13.to);
+					if (address$13.from) address$13.from = yield this._resolveNameOrError(address$13.from);
+					processedAddresses.push(address$13);
 				}
 				eventName.addresses = processedAddresses;
 			} else if (eventName.method === AlchemySubscription.PENDING_TRANSACTIONS) {
 				if (eventName.fromAddress) if (typeof eventName.fromAddress === "string") eventName.fromAddress = yield this._resolveNameOrError(eventName.fromAddress);
-				else eventName.fromAddress = yield Promise.all(eventName.fromAddress.map((address$12) => this._resolveNameOrError(address$12)));
+				else eventName.fromAddress = yield Promise.all(eventName.fromAddress.map((address$13) => this._resolveNameOrError(address$13)));
 				if (eventName.toAddress) if (typeof eventName.toAddress === "string") eventName.toAddress = yield this._resolveNameOrError(eventName.toAddress);
-				else eventName.toAddress = yield Promise.all(eventName.toAddress.map((address$12) => this._resolveNameOrError(address$12)));
+				else eventName.toAddress = yield Promise.all(eventName.toAddress.map((address$13) => this._resolveNameOrError(address$13)));
 			}
 			return eventName;
 		});
@@ -86349,7 +86420,7 @@ var require_use_sync_external_store_shim_production = /* @__PURE__ */ __commonJS
 	function is$1(x$8, y$9) {
 		return x$8 === y$9 && (0 !== x$8 || 1 / x$8 === 1 / y$9) || x$8 !== x$8 && y$9 !== y$9;
 	}
-	var objectIs = "function" === typeof Object.is ? Object.is : is$1, useState$23 = React$4.useState, useEffect$24 = React$4.useEffect, useLayoutEffect$4 = React$4.useLayoutEffect, useDebugValue$1 = React$4.useDebugValue;
+	var objectIs = "function" === typeof Object.is ? Object.is : is$1, useState$23 = React$4.useState, useEffect$25 = React$4.useEffect, useLayoutEffect$4 = React$4.useLayoutEffect, useDebugValue$1 = React$4.useDebugValue;
 	function useSyncExternalStore$2(subscribe$1, getSnapshot) {
 		var value = getSnapshot(), _useState = useState$23({ inst: {
 			value,
@@ -86364,7 +86435,7 @@ var require_use_sync_external_store_shim_production = /* @__PURE__ */ __commonJS
 			value,
 			getSnapshot
 		]);
-		useEffect$24(function() {
+		useEffect$25(function() {
 			checkIfSnapshotChanged(inst) && forceUpdate({ inst });
 			return subscribe$1(function() {
 				checkIfSnapshotChanged(inst) && forceUpdate({ inst });
@@ -86720,9 +86791,9 @@ const _useGodEyeSetup = () => {
 	const [godEyeAddress, setGodEyeAddress] = (0, import_react.useState)(void 0);
 	const [godEyeAccountId, setGodEyeAccountId] = (0, import_react.useState)(void 0);
 	const loc = useLocation();
-	const enableGodEyeWallet = (address$12) => {
-		setGodEyeAddress(address$12);
-		console.log("God Eye Wallet enabled:", address$12);
+	const enableGodEyeWallet = (address$13) => {
+		setGodEyeAddress(address$13);
+		console.log("God Eye Wallet enabled:", address$13);
 	};
 	const enableGodEyeAccountId = (accountId) => {
 		setGodEyeAccountId(accountId);
@@ -86737,8 +86808,8 @@ const _useGodEyeSetup = () => {
 		const [cheatcode, cheatcodeValue] = getLast(loc.pathname.split("/")).split("=");
 		switch (cheatcode) {
 			case WALLET_CHEATCODE: {
-				const address$12 = cheatcodeValue;
-				if (isAddress(address$12)) enableGodEyeWallet(address$12);
+				const address$13 = cheatcodeValue;
+				if (isAddress(address$13)) enableGodEyeWallet(address$13);
 				else disableGodEye(`Invalid address: ${cheatcodeValue}`);
 				break;
 			}
@@ -86989,30 +87060,40 @@ var convertExponentToStr = (expStr) => {
 	return str;
 };
 const SLIPPAGE = bigIntFromString(.003);
-const BORROW_COEF = .9;
-const LIQ_COEF = 1.05;
+const STRIKE_COEF = 1.02;
+const STRIKE_MAX_CHANGE_COEF = .1;
 var Calculator = {
 	calcEquity: calcEquity$1,
 	calcAvailableToBorrow: calcAvailableToBorrow$1,
 	calcProtectionLevel,
-	calcLiqPrice
+	calcLiqPrice,
+	calcProtectionStrike
 };
 function calcEquity$1(accountValue, debt) {
 	return accountValue - debt;
 }
-function calcAvailableToBorrow$1(accountValue, debt) {
-	return maxBigInt(multiplyBigIntByNumber(accountValue, BORROW_COEF) - debt, 0n);
+function calcAvailableToBorrow$1(accountValue, debt, ltvCoeffs) {
+	return maxBigInt(divBigInts(accountValue - debt, ltvCoeffs.yellow + bigIntFromString(1e-6)), 0n);
 }
 function calcProtectionLevel(options$2, accountBalance) {
 	return minBigInt(divBigInts(sumObjectValues(options$2, "amount"), accountBalance), bigIntFromString(1));
 }
-function calcLiqPrice(balance, debt, options$2) {
+function calcLiqPrice(balance, debt, options$2, ltvCoeffs, prevLiqPrice = void 0) {
+	prevLiqPrice = prevLiqPrice ?? _calcLiqPrice(balance, debt, [], ltvCoeffs);
+	const liqPrice = _calcLiqPrice(balance, debt, options$2.filter((opt) => opt.strike > prevLiqPrice), ltvCoeffs);
+	if (liqPrice !== prevLiqPrice) return _calcLiqPrice(balance, debt, options$2, ltvCoeffs, liqPrice);
+	return liqPrice;
+}
+var _calcLiqPrice = (balance, debt, options$2, ltvCoeffs) => {
 	const optionsAmountSum = sumObjectValues(options$2, "amount");
 	const optionsASSum = options$2.reduce((sum$2, opt) => {
 		return sum$2 + multiplyBigInts(opt.strike, opt.amount);
 	}, 0n);
 	if (optionsAmountSum >= balance) return 0n;
-	return maxBigInt(divBigInts(multiplyBigIntByNumber(debt, LIQ_COEF) - optionsASSum, balance - optionsAmountSum), 0n);
+	return maxBigInt(divBigInts(multiplyBigInts(debt, ltvCoeffs.red) - optionsASSum, balance - optionsAmountSum), 0n);
+};
+function calcProtectionStrike(assetPrice, curLiqPrice) {
+	return maxBigInt(multiplyBigIntByNumber(curLiqPrice, STRIKE_COEF), multiplyBigIntByNumber(assetPrice, 1 - STRIKE_MAX_CHANGE_COEF));
 }
 var Calculator_default = Calculator;
 var Account = {
@@ -87133,7 +87214,7 @@ function useTimeoutFn(fn$2, ms) {
 	var isReady = (0, import_react.useCallback)(function() {
 		return ready.current;
 	}, []);
-	var set$1 = (0, import_react.useCallback)(function() {
+	var set$2 = (0, import_react.useCallback)(function() {
 		ready.current = false;
 		timeout.current && clearTimeout(timeout.current);
 		timeout.current = setTimeout(function() {
@@ -87149,13 +87230,13 @@ function useTimeoutFn(fn$2, ms) {
 		callback.current = fn$2;
 	}, [fn$2]);
 	(0, import_react.useEffect)(function() {
-		set$1();
+		set$2();
 		return clear;
 	}, [ms]);
 	return [
 		isReady,
 		clear,
-		set$1
+		set$2
 	];
 }
 function useDebounce(fn$2, ms, deps) {
@@ -87470,10 +87551,10 @@ var Field = ({ children, className }) => {
 };
 var Field_default = Field;
 var import_classnames$29 = /* @__PURE__ */ __toESM(require_classnames(), 1);
-var Radio = ({ id: id$2, items, value, setValue, className }) => {
+var Radio = ({ id: id$2, items: items$1, value, setValue, className }) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 		className: (0, import_classnames$29.default)("Radio", className),
-		children: items.map((item) => {
+		children: items$1.map((item) => {
 			const itemId = `${id$2}_${item.value}`;
 			return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 				className: "Radio__item",
@@ -87979,6 +88060,9 @@ const useTokenPrice = (tokenSymb) => {
 	tokenSymb = unwrapTokenSymbol(tokenSymb);
 	return useTokenPrices()?.[tokenSymb];
 };
+const useAssetPrice = () => {
+	return useTokenPrices()?.["ETH"];
+};
 const useConvertValueToUsd = (value, tokenSymb) => {
 	const tokenPrice = useTokenPrice(tokenSymb);
 	if (!tokenPrice) return;
@@ -88006,7 +88090,7 @@ const formatTokenAmount = (tokenAmount, tokenSymb, displayDecimals = void 0) => 
 	displayDecimals = displayDecimals ?? (isStable ? Decimals.STABLE : Decimals.BASE);
 	return (isStable ? formatStable : formatBase)(tokenAmount, displayDecimals);
 };
-const formatDollarStr = (bigInt, displayDecimals = Decimals.STABLE, isSigned = false) => {
+const formatDollarStr = (bigInt, displayDecimals = 0, isSigned = false) => {
 	const positiveSign = isSigned ? SentimentSigns.PLUS : "";
 	const sign$1 = bigInt < 0n ? SentimentSigns.MINUS : bigInt > 0n ? positiveSign : "";
 	bigInt = absBigInt(bigInt);
@@ -88021,6 +88105,9 @@ const bigIntFromInputString = (inputStr) => {
 };
 const inputStringFromBigInt = (bigInt) => {
 	return inputStringFromStr(stringFromBigInt(bigInt));
+};
+const strFromInputString = (inputStr, symb = ",") => {
+	return inputStr.split(symb).join("") || "0";
 };
 const inputStringFromStr = (str, symb, shouldRemoveDecimals) => {
 	return separateThousands(removeNonNumeric(str, shouldRemoveDecimals), symb);
@@ -88086,9 +88173,6 @@ var padDecimals = (str, minDecimals) => {
 	}
 	if (Number(str.split(".")[1]) === 0) return intPart;
 	return str;
-};
-var strFromInputString = (inputStr, symb = ",") => {
-	return inputStr.split(symb).join("") || "0";
 };
 var removeNonNumeric = (str, shouldRemoveDecimals) => {
 	let numericString = str.toString().replace(/^\./g, "").replace(/[^0-9.]/g, "").replace(/^0\d/, "");
@@ -88288,7 +88372,7 @@ var UsdValue = ({ tokenValue, tokenSymb }) => {
 	const usd = useConvertValueToUsd(tokenValue, tokenSymb);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 		className: "TokenAmount__usd",
-		children: isUndefined(usd) ? "$..." : formatDollarStr(usd)
+		children: isUndefined(usd) ? "$..." : formatDollarStr(usd, Decimals.STABLE)
 	});
 };
 var TokenAmount_default = TokenAmount;
@@ -88617,7 +88701,7 @@ var useAccountSetup = () => {
 			queryLtvCoeffs(contracts$1)
 		]);
 		const equity = calcEquity(value, debt);
-		const _availableToBorrow = calcAvailableToBorrow(value, debt);
+		const _availableToBorrow = calcAvailableToBorrow(value, debt, ltvCoeffs);
 		return {
 			id: accountId,
 			balance,
@@ -89118,7 +89202,8 @@ var HegicPriceCalculator_abi_default = [
 		"type": "function"
 	}
 ];
-var EXPIRY_PERIODS_DAYS = [
+var EXPIRY_PERIODS_DAYS$1 = [
+	1,
 	7,
 	10,
 	14,
@@ -89129,58 +89214,88 @@ var EXPIRY_PERIODS_DAYS = [
 	90
 ];
 var HegicConstants_default = {
-	EXPIRY_PERIODS: EXPIRY_PERIODS_DAYS.map(msInDays),
-	EXPIRY_PERIODS_DAYS,
+	EXPIRY_PERIODS: EXPIRY_PERIODS_DAYS$1.map(msInDays),
+	EXPIRY_PERIODS_DAYS: EXPIRY_PERIODS_DAYS$1,
 	TOKEN: "USDC.e",
 	Strategies: {
-		PUT_100_ETH_1: "0xaA0DfBFb8dA7f45BB41c0fB68B71FAEB959B22aa",
-		PUT_100_ETH_2: "0x2739A4C003080A5B3Ade22b92c3321EDa2Da3A9e",
-		PUT_100_ETH_3: "0xf711D0BC60F37cA28845BA623ccd9C635E5073A1",
-		PUT_100_ETH_4: "0x015FAA9aF7599e6cea597EBC7e7e04A149a3E992"
+		XXS: {
+			PUT_0_ETH: "0xf552e14CA47E1F16660B9401b0985CB994f50104",
+			PUT_1_ETH: "0x3f4b699d31206f7305cAda205C33BCa63d3316e2",
+			PUT_2_ETH: "0xAE868FEa30F1109e610B8FF263d7e161a4f4B4e7"
+		},
+		XS: {
+			PUT_0_ETH: "0x3C5a8eB9fa96D76a7958d8Af91Cd00e8C4de346E",
+			PUT_1_ETH: "0x21E41Da474E454D26AB3Feb1Da6EDa4614112F1B",
+			PUT_2_ETH: "0xB98b0F2F38EBaB1F437B15C93405f87838111de6"
+		},
+		S: {
+			PUT_0_ETH: "0x1cfe9b68301Cfd7EA52192aEa1814c46B0b2Fd0b",
+			PUT_1_ETH: "0x1ff0dbb91DBE415631E969d691bFB37D184CB9cA",
+			PUT_2_ETH: "0x2627fD00FdB502834abdA70547351ea52888eC8D"
+		},
+		M: {
+			PUT_0_ETH: "0x6dBC4D25181707b2bf2F72B07A7820DCEb0CC72d",
+			PUT_1_ETH: "0x01F716e6cA0936B5e7255B1156959dee4537C81a",
+			PUT_2_ETH: "0x8A598cC93aBC1A554DE38569857AA59875f50296"
+		},
+		L: {
+			PUT_0_ETH: "0x42E53E3cF4fB1264b97492bB5AEdE48f4B43cC5E",
+			PUT_1_ETH: "0x6e8E34a451cCfC456ea5d7A108CE40Ce7530E936",
+			PUT_2_ETH: "0xe87FC6Ee8c74B5fdA35dC6f2D792041eFa32Da89"
+		},
+		XL: {
+			PUT_0_ETH: "0x115dEae795f127f61DE3Ef5e28753e0b9E9a9dC0",
+			PUT_1_ETH: "0x4E3Cc28FC7A09E3A11C2a3E4495c9e9B1DEC866d",
+			PUT_2_ETH: "0xB91868948b3521F2923fD1D4f6456f6B3bC52E25"
+		},
+		XXL: {
+			PUT_0_ETH: "0xCd78C722dA55Fa1b5a728a934C065dB8716807aC",
+			PUT_1_ETH: "0x3b2f52938756A86bb957fD6cf845a49b58d2eaBa",
+			PUT_2_ETH: "0x31A0E415e2e37463ba9765911700b63f48fb8D9C"
+		}
 	},
-	PriceCalculators: { PUT_100_ETH: "0xB72FC913e45522cD721252476fEfB7F50a65E23A" },
+	STRIKE_RANGE_LIMIT_MULTIPLIERS: {
+		0: [0, .02],
+		1: [.02, .05],
+		2: [.05, .1]
+	},
 	POSITION_MANAGER: "0x5fe380d68fee022d8acd42dc4d36fbfb249a76d5",
 	Strategy_abi: HegicStrategy_abi_default,
 	PriceCalculator_abi: HegicPriceCalculator_abi_default
 };
-var { Strategies, PriceCalculators } = HegicConstants_default;
+var { EXPIRY_PERIODS_DAYS, Strategies, STRIKE_RANGE_LIMIT_MULTIPLIERS } = HegicConstants_default;
 var HegicUtils = {
 	getStrategy,
-	getStrategyScale,
-	getPriceCalculator
+	encodeStrike
 };
-function getStrategy(period) {
-	const { strategy } = getStrategyAndKey(period);
-	return strategy;
+function getStrategy(assetPrice, period, strikePrice) {
+	const strategies = _getStrategiesForPeriod(period);
+	for (const key in strategies) {
+		const [, strikeRangeId] = key.split("_");
+		const [minStrike, maxStrike] = _getMinMaxStrikes(strikeRangeId, assetPrice);
+		if (strikePrice >= minStrike && strikePrice < maxStrike) return strategies[key];
+	}
 }
-function getStrategyScale(period) {
-	const { key } = getStrategyAndKey(period);
-	if (!key) return;
-	const [, scale$2, ,] = key.split("_");
-	return Number(scale$2);
+function encodeStrike(strike) {
+	const strike1eHegic = bringFromDefaultDec(strike, Decimals.HEGIC);
+	return AbiCoder.defaultAbiCoder().encode(["uint256"], [strike1eHegic]);
 }
-function getPriceCalculator(strategy) {
-	const [dir, scale$2, asset, _$5] = Object.keys(Strategies).find((key) => Strategies[key] === strategy).split("_");
-	return PriceCalculators[[
-		dir,
-		scale$2,
-		asset
-	].join("_")];
-}
-var getStrategyAndKey = (period) => {
+var _getStrategiesForPeriod = (period) => {
 	const periodDays = daysFromMs(period, false);
-	if (periodDays < 7 || periodDays > 90) return {};
-	const keys$4 = Object.keys(Strategies);
-	let strategy, key;
-	if (periodDays < 14) key = keys$4[0];
-	else if (periodDays < 30) key = keys$4[1];
-	else if (periodDays < 60) key = keys$4[2];
-	else if (periodDays <= 90) key = keys$4[3];
-	strategy = Strategies[key];
-	return {
-		key,
-		strategy
-	};
+	const [minPeriodDays, maxPeriodDays] = [EXPIRY_PERIODS_DAYS[0], getLast(EXPIRY_PERIODS_DAYS)];
+	if (periodDays < minPeriodDays || periodDays > maxPeriodDays) return {};
+	if (periodDays <= 3) return Strategies.XXS;
+	else if (periodDays <= 6) return Strategies.XS;
+	else if (periodDays <= 10) return Strategies.S;
+	else if (periodDays <= 17) return Strategies.M;
+	else if (periodDays <= 30) return Strategies.L;
+	else if (periodDays <= 60) return Strategies.XL;
+	else if (periodDays <= 90) return Strategies.XXL;
+};
+var _getMinMaxStrikes = (strikeRangeId, assetPrice) => {
+	const [minChangeMultiplier, maxChangeMultiplier] = STRIKE_RANGE_LIMIT_MULTIPLIERS[strikeRangeId];
+	const [minChange, maxChange] = [multiplyBigIntByNumber(assetPrice, minChangeMultiplier), multiplyBigIntByNumber(assetPrice, maxChangeMultiplier)];
+	return [assetPrice - maxChange, assetPrice - minChange];
 };
 var HegicUtils_default = HegicUtils;
 var useProtocolActions = () => {
@@ -90071,9 +90186,9 @@ var require_ModalPortal = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 				if (_this.state.beforeClose) className = className + " " + classNames$3.beforeClose;
 				return typeof additional === "string" && additional ? className + " " + additional : className;
 			};
-			_this.attributesFromObject = function(prefix$4, items) {
-				return Object.keys(items).reduce(function(acc, name) {
-					acc[prefix$4 + "-" + name] = items[name];
+			_this.attributesFromObject = function(prefix$4, items$1) {
+				return Object.keys(items$1).reduce(function(acc, name) {
+					acc[prefix$4 + "-" + name] = items$1[name];
 					return acc;
 				}, {});
 			};
@@ -90542,11 +90657,10 @@ var import_lib = /* @__PURE__ */ __toESM((/* @__PURE__ */ __commonJSMin(((export
 var import_classnames$25 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 import_lib.default.setAppElement("#root");
 import_lib.default.defaultStyles = {};
-var TRANSITION_DURATION = 300;
 var Modal = ({ isOpen, setIsOpen, isObligatory = false, reset = () => {}, className, children }) => {
 	const [isScrollable, setIsScrollable] = (0, import_react.useState)(false);
 	(0, import_react.useEffect)(() => {
-		if (!isOpen && reset) setTimeout(reset, TRANSITION_DURATION);
+		if (!isOpen && reset) setTimeout(reset, 300);
 	}, [isOpen]);
 	const closeModal = () => {
 		if (isObligatory) return;
@@ -90557,7 +90671,7 @@ var Modal = ({ isOpen, setIsOpen, isObligatory = false, reset = () => {}, classN
 		isOpen,
 		shouldCloseOnOverlayClick: false,
 		onRequestClose: closeModal,
-		closeTimeoutMS: TRANSITION_DURATION,
+		closeTimeoutMS: 300,
 		parentSelector: () => document.querySelector("#ModalContainer"),
 		onAfterOpen: (data) => {
 			const { contentEl } = data;
@@ -90745,7 +90859,7 @@ var CreateAccountModal = ({ isOpen, setIsOpen }) => {
 				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 					className: "CreateAccountModal__info-title",
 					children: "What you can do with a lending account:"
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(List_default, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("li", { children: "Borrow USDC at up to 90% LTV using ETH as collateral" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("li", { children: "Avoid liquidation risk by using NoRekt protection" })] })]
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(List_default, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("li", { children: "Borrow USDC at up to 80% LTV using ETH as collateral" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("li", { children: "Avoid liquidation risk by using NoRekt protection" })] })]
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
 				className: "CreateAccountModal__button",
@@ -90758,19 +90872,26 @@ var CreateAccountModal = ({ isOpen, setIsOpen }) => {
 };
 var CreateAccountModal_default = CreateAccountModal;
 var import_classnames$22 = /* @__PURE__ */ __toESM(require_classnames(), 1);
-var Input = ({ setValue, valueStrState = void 0, initValue = null, maxData = void 0, placeholder = "0", isDisabled = false }) => {
+var Input = ({ setValue, valueStrState = void 0, debounce = 0, initValue = null, maxData = void 0, shouldFocus = true, isZeroSufficient = false, placeholder = "0", isDisabled = false }) => {
 	const [valueStr, setValueStr] = valueStrState ?? (0, import_react.useState)("");
 	const [isFocused, setIsFocused] = (0, import_react.useState)(false);
 	const inputRef = (0, import_react.useRef)(null);
 	const hasSetInitValue = (0, import_react.useRef)(null);
 	(0, import_react.useEffect)(() => {
+		if (shouldFocus) focusInput();
+	}, []);
+	(0, import_react.useEffect)(() => {
 		if (!initValue || hasSetInitValue.current) return;
 		setValueStr(inputStringFromBigInt(initValue));
 		hasSetInitValue.current = true;
 	}, [initValue]);
-	(0, import_react.useEffect)(() => {
+	useDebounce(() => {
+		if (isZeroSufficient && valueStr === "") {
+			setValue(null);
+			return;
+		}
 		setValue(bigIntFromInputString(valueStr));
-	}, [valueStr]);
+	}, debounce, [valueStr]);
 	const focusInput = () => {
 		inputRef.current?.focus();
 	};
@@ -90789,7 +90910,7 @@ var Input = ({ setValue, valueStrState = void 0, initValue = null, maxData = voi
 			isDisabled,
 			isFocused,
 			setIsFocused
-		}), !isUndefined(maxData) && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		}), !maxData?.isHidden && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 			className: "Input__max",
 			children: maxData.onlyTokenShown ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenIcon_default, {
 				className: "Input__max-icon",
@@ -91025,7 +91146,30 @@ var Metrics = ({ isBoxed = true, className, children }) => {
 	});
 };
 var Metrics_default = Metrics;
-var { Strategy_abi: Strategy_abi$1 } = HegicConstants_default;
+function getWindowDimensions() {
+	const { innerWidth: width, innerHeight: height } = window;
+	return {
+		width,
+		height
+	};
+}
+function useWindowDimensions() {
+	const [windowDimensions, setWindowDimensions] = (0, import_react.useState)(getWindowDimensions());
+	(0, import_react.useEffect)(() => {
+		function handleResize() {
+			setWindowDimensions(getWindowDimensions());
+		}
+		window.addEventListener("resize", handleResize);
+		return () => window.removeEventListener("resize", handleResize);
+	}, []);
+	return windowDimensions;
+}
+var useIsMobile = (breakpoint = 768) => {
+	const { width } = useWindowDimensions();
+	return width < breakpoint;
+};
+var useIsMobile_default = useIsMobile;
+var { Strategy_abi } = HegicConstants_default;
 var useHegicOptions = () => {
 	const optionsSetup = _useHegicOptions();
 	if (optionsSetup === null) return null;
@@ -91061,7 +91205,7 @@ var queryOption = async (contracts$1, id$2) => {
 	if (Date.now() > exp || state === 0) return null;
 	const transferTimestamp = await queryTransferTimestamp(contracts$1, id$2);
 	const periodDays = Math.round(daysFromMs(exp - transferTimestamp, false));
-	const Strategy = new Contract(strategy, Strategy_abi$1, getAlchemyProvider());
+	const Strategy = new Contract(strategy, Strategy_abi, getAlchemyProvider());
 	const { amount: amount1eToken, strike: strike1e8 } = await Strategy.strategyData(id$2);
 	return {
 		id: id$2,
@@ -91091,43 +91235,41 @@ var queryTransferEvent = async (contracts$1, optionId) => {
 	return events[0];
 };
 var useHegicOptions_default = useHegicOptions;
-function getWindowDimensions() {
-	const { innerWidth: width, innerHeight: height } = window;
-	return {
-		width,
-		height
-	};
-}
-function useWindowDimensions() {
-	const [windowDimensions, setWindowDimensions] = (0, import_react.useState)(getWindowDimensions());
-	(0, import_react.useEffect)(() => {
-		function handleResize() {
-			setWindowDimensions(getWindowDimensions());
-		}
-		window.addEventListener("resize", handleResize);
-		return () => window.removeEventListener("resize", handleResize);
-	}, []);
-	return windowDimensions;
-}
-var useIsMobile = (breakpoint = 768) => {
-	const { width } = useWindowDimensions();
-	return width < breakpoint;
-};
-var useIsMobile_default = useIsMobile;
-var LiqPriceChange = ({ estBalance = void 0, estDebt = void 0, estOptions = void 0 }) => {
+var useLiqPrice = (estBalance = void 0, estDebt = void 0, estOptions = void 0) => {
 	const account = useAccount_default();
-	const options$2 = useHegicOptions_default();
-	const { isLoading, hasError } = getIsLoadingAndErrorForMultiple(account, options$2);
+	const curOptions = useHegicOptions_default();
+	return (0, import_react.useMemo)(() => {
+		const { isLoading, hasError } = getIsLoadingAndErrorForMultiple(account, curOptions);
+		if (isLoading) return;
+		if (hasError) return null;
+		const balance = estBalance ?? account.balance;
+		const debt = estDebt ?? account.debt;
+		const options$2 = estOptions ?? curOptions;
+		return Calculator_default.calcLiqPrice(balance, debt, options$2, account.ltvCoeffs);
+	}, [
+		account,
+		curOptions,
+		estBalance,
+		estDebt,
+		estOptions
+	]);
+};
+const useCurLiqPrice = () => {
+	return useLiqPrice();
+};
+var useLiqPrice_default = useLiqPrice;
+var LiqPriceChange = ({ estBalance = void 0, estDebt = void 0, estOptions = void 0 }) => {
+	const liqPrice = useCurLiqPrice();
+	const _estLiqPrice = useLiqPrice_default(estBalance, estDebt, estOptions);
+	const estLiqPrice = isEveryInsufficient(estBalance, estDebt, estOptions) ? null : _estLiqPrice;
+	const { isLoading, hasError } = getIsLoadingAndError(liqPrice);
 	if (isLoading) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Spinner_default, {});
 	if (hasError) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, { children: "Error" });
-	const { balance, debt } = account;
-	const liqPrice = Calculator_default.calcLiqPrice(balance, debt, options$2);
-	const estLiqPrice = isEveryInsufficient(estBalance, estDebt, estOptions) ? null : Calculator_default.calcLiqPrice(estBalance ?? balance, estDebt ?? debt, estOptions ?? options$2);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 		className: "LiqPriceChange",
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ValueChange_default, {
-			curValue: formatDollarStr(liqPrice, 0),
-			estValue: isSufficient(estLiqPrice) ? formatDollarStr(estLiqPrice, 0) : null
+			curValue: formatDollarStr(liqPrice),
+			estValue: isSufficient(estLiqPrice) ? formatDollarStr(estLiqPrice) : null
 		})
 	});
 };
@@ -93247,7 +93389,7 @@ var Slider = ({ value, setValue, min: min$2, max: max$2, step, isDisabled = fals
 	});
 };
 var Slider_default = Slider;
-var InputMultiplied = ({ setValue, valueStrState, maxData }) => {
+var InputMultiplied = ({ setValue, valueStrState = void 0, maxData }) => {
 	const [valueStr, setValueStr] = valueStrState ?? (0, import_react.useState)("");
 	const [multiplier, setMultiplier] = (0, import_react.useState)(null);
 	useDebounce(() => {
@@ -93592,6 +93734,19 @@ var ModalMetrics$1 = ({ repayAmount, paymentMethod }) => {
 			className: "Metrics__row",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 				className: "Metrics__row-title",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceChange_default.Title, {})
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "Metrics__row-value",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceChange_default, {
+					estDebt,
+					estBalance: isCollateral ? estCollateral : void 0
+				})
+			})]
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "Metrics__row",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "Metrics__row-title",
 				children: "Debt Change"
 			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 				className: "Metrics__row-value",
@@ -93609,16 +93764,6 @@ var ModalMetrics$1 = ({ repayAmount, paymentMethod }) => {
 			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 				className: "Metrics__row-value",
 				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmount_default, { value: account?.principal })
-			})]
-		}),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "Metrics__row",
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "Metrics__row-title",
-				children: "Interest Paid"
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "Metrics__row-value",
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, {})
 			})]
 		}),
 		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
@@ -95035,43 +95180,64 @@ function intervalToDuration(interval, options$2) {
 	if (seconds$2) duration.seconds = seconds$2;
 	return duration;
 }
-var { Strategy_abi, PriceCalculator_abi } = HegicConstants_default;
-var useHegicStrike = (period) => {
-	const assetPrice = useTokenPrice("ETH");
-	const { data: strike, error: strikeError } = useSWR([
+var useProtectionAmount = (chosenLiqPrice) => {
+	const account = useAccount_default();
+	const options$2 = useHegicOptions_default();
+	const assetPrice = useAssetPrice();
+	const curLiqPrice = useCurLiqPrice();
+	return (0, import_react.useMemo)(() => {
+		if (!isEverySufficient(account, assetPrice, curLiqPrice, chosenLiqPrice, options$2)) return;
+		const { balance, debt, ltvCoeffs } = account;
+		const strike = Calculator_default.calcProtectionStrike(assetPrice, curLiqPrice);
+		const optionsAmountSum = sumObjectValues(options$2, "amount");
+		const optionsASSum = options$2.reduce((sum$2, opt) => {
+			return sum$2 + multiplyBigInts(opt.strike, opt.amount);
+		}, 0n);
+		return divBigInts(multiplyBigInts(debt, ltvCoeffs.red) - optionsASSum - multiplyBigInts(chosenLiqPrice, balance - optionsAmountSum), strike - chosenLiqPrice);
+	}, [
+		account,
 		assetPrice,
+		curLiqPrice,
+		chosenLiqPrice
+	]);
+};
+var useProtectionAmount_default = useProtectionAmount;
+var useHegicStrike = (period, chosenLiqPrice) => {
+	const contracts$1 = useContracts_default();
+	const assetPrice = useAssetPrice();
+	const curLiqPrice = useCurLiqPrice();
+	const amount = useProtectionAmount_default(chosenLiqPrice);
+	const { data: strike, error: strikeError } = useSWR(contracts$1 && assetPrice && curLiqPrice && period && chosenLiqPrice && [
+		assetPrice,
+		curLiqPrice,
+		chosenLiqPrice,
 		period,
 		"useHegicStrike"
 	], async () => {
-		if (!period) return;
-		return await queryStrike(assetPrice, period);
+		const { HegicLimitView } = contracts$1.view;
+		const strikePrice = Calculator_default.calcProtectionStrike(assetPrice, curLiqPrice);
+		const request = getLimitViewRequest(amount, period, strikePrice, HegicUtils_default.getStrategy(assetPrice, period, strikePrice));
+		const [priceAndLimits] = await HegicLimitView.getPriceAndLimits([request]);
+		return await queryStrike(priceAndLimits, period, strikePrice);
 	}, getSwrConfig(1 * MINUTE));
 	if (strikeError) console.log("useHegicStrike error!\n", strikeError);
 	return strike;
 };
-var queryStrike = async (assetPrice, period) => {
+var queryStrike = async (priceAndLimits, period, strikePrice) => {
 	return {
-		price: calcStrikePrice(HegicUtils_default.getStrategyScale(period), assetPrice),
 		period,
-		liquidity: await queryLiquidity(period),
-		queryPremium: async (amount) => queryPremium(period, amount)
+		price: strikePrice,
+		liquidity: priceAndLimits.available,
+		premium: bring1eTokenToDefault(priceAndLimits.positivePNL, HegicConstants_default.TOKEN)
 	};
 };
-var queryLiquidity = async (period) => {
-	const Strategy = new Contract(HegicUtils_default.getStrategy(period), Strategy_abi, getAlchemyProvider());
-	const periodS = period / MS_IN_SECOND;
-	return bring1eTokenToDefault(await Strategy.getAvailableContracts(periodS, []).catch(() => 0n), "ETH");
-};
-var queryPremium = async (period, amount) => {
-	const strategy = HegicUtils_default.getStrategy(period);
-	const PriceCalculator = new Contract(HegicUtils_default.getPriceCalculator(strategy), PriceCalculator_abi, getAlchemyProvider());
-	const { TOKEN } = HegicConstants_default;
-	const amount1eToken = get1eToken(amount, "ETH");
-	const periodS = period / MS_IN_SECOND;
-	return bring1eTokenToDefault(await PriceCalculator.calculatePremium(periodS, amount1eToken, 0), TOKEN);
-};
-var calcStrikePrice = (strikeScale, assetPrice) => {
-	return floorBigInt(multiplyBigIntByNumber(assetPrice, strikeScale / 100));
+var getLimitViewRequest = (amount, period, strikePrice, strategy) => {
+	return [
+		strategy,
+		period / MS_IN_SECOND,
+		get1eToken(amount, "ETH"),
+		[HegicUtils_default.encodeStrike(strikePrice)]
+	];
 };
 var useHegicStrike_default = useHegicStrike;
 var UTCDateMini = class extends Date {
@@ -95333,9 +95499,9 @@ function eachProp(obj, fn$2, ctx) {
 var toArray = (a$7) => is.und(a$7) ? [] : is.arr(a$7) ? a$7 : [a$7];
 function flush(queue, iterator$1) {
 	if (queue.size) {
-		const items = Array.from(queue);
+		const items$1 = Array.from(queue);
 		queue.clear();
-		each(items, iterator$1);
+		each(items$1, iterator$1);
 	}
 }
 var flushCalls = (queue, ...args) => flush(queue, (fn$2) => fn$2(...args));
@@ -97385,7 +97551,7 @@ function useTransition(data, props, deps) {
 	const propsFn = is.fun(props) && props;
 	const { reset, sort, trail = 0, expires = true, exitBeforeEnter = false, onDestroyed, ref: propsRef, config: propsConfig } = propsFn ? propsFn() : props;
 	const ref = (0, import_react.useMemo)(() => propsFn || arguments.length == 3 ? SpringRef() : void 0, []);
-	const items = toArray(data);
+	const items$1 = toArray(data);
 	const transitions = [];
 	const usedTransitions = (0, import_react.useRef)(null);
 	const prevTransitions = reset ? null : usedTransitions.current;
@@ -97405,7 +97571,7 @@ function useTransition(data, props, deps) {
 			});
 		};
 	});
-	const keys$4 = getKeys(items, propsFn ? propsFn() : props, prevTransitions);
+	const keys$4 = getKeys(items$1, propsFn ? propsFn() : props, prevTransitions);
 	const expired = reset && usedTransitions.current || [];
 	useIsomorphicLayoutEffect(() => each(expired, ({ ctrl, item, key }) => {
 		detachRefs(ctrl, ref);
@@ -97421,7 +97587,7 @@ function useTransition(data, props, deps) {
 			if (~i$13) transitions[i$13] = t$11;
 		}
 	});
-	each(items, (item, i$13) => {
+	each(items$1, (item, i$13) => {
 		if (!transitions[i$13]) {
 			transitions[i$13] = {
 				key: keys$4[i$13],
@@ -97441,7 +97607,7 @@ function useTransition(data, props, deps) {
 				i$13 = transitions.indexOf(t$11);
 				transitions[i$13] = {
 					...t$11,
-					item: items[keyIndex]
+					item: items$1[keyIndex]
 				};
 			} else if (leave) transitions.splice(++i$13, 0, t$11);
 		});
@@ -97574,10 +97740,10 @@ function useTransition(data, props, deps) {
 	return ref ? [renderTransitions, ref] : renderTransitions;
 }
 var nextKey = 1;
-function getKeys(items, { key, keys: keys$4 = key }, prevTransitions) {
+function getKeys(items$1, { key, keys: keys$4 = key }, prevTransitions) {
 	if (keys$4 === null) {
 		const reused = /* @__PURE__ */ new Set();
-		return items.map((item) => {
+		return items$1.map((item) => {
 			const t$11 = prevTransitions && prevTransitions.find((t2) => t2.item === item && t2.phase !== "leave" && !reused.has(t2));
 			if (t$11) {
 				reused.add(t$11);
@@ -97586,7 +97752,7 @@ function getKeys(items, { key, keys: keys$4 = key }, prevTransitions) {
 			return nextKey++;
 		});
 	}
-	return is.und(keys$4) ? items : is.fun(keys$4) ? items.map(keys$4) : toArray(keys$4);
+	return is.und(keys$4) ? items$1 : is.fun(keys$4) ? items$1.map(keys$4) : toArray(keys$4);
 }
 var Interpolation = class extends FrameValue {
 	constructor(source, args) {
@@ -99038,10 +99204,10 @@ var require__baseSet = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 }));
 var require_set = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	var baseSet$1 = require__baseSet();
-	function set(object$1, path$1, value) {
+	function set$1(object$1, path$1, value) {
 		return object$1 == null ? object$1 : baseSet$1(object$1, path$1, value);
 	}
-	module.exports = set;
+	module.exports = set$1;
 }));
 var import_merge = /* @__PURE__ */ __toESM(require_merge(), 1);
 var import_get$2 = /* @__PURE__ */ __toESM(require_get(), 1);
@@ -104743,9 +104909,9 @@ var require__mapToArray = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	module.exports = mapToArray$1;
 }));
 var require__setToArray = /* @__PURE__ */ __commonJSMin(((exports, module) => {
-	function setToArray$3(set$1) {
-		var index$6 = -1, result = Array(set$1.size);
-		set$1.forEach(function(value) {
+	function setToArray$3(set$2) {
+		var index$6 = -1, result = Array(set$2.size);
+		set$2.forEach(function(value) {
 			result[++index$6] = value;
 		});
 		return result;
@@ -105641,8 +105807,8 @@ var require__baseUniq = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 			isCommon = false;
 			includes = arrayIncludesWith;
 		} else if (length$1 >= LARGE_ARRAY_SIZE) {
-			var set$1 = iteratee ? null : createSet(array);
-			if (set$1) return setToArray(set$1);
+			var set$2 = iteratee ? null : createSet(array);
+			if (set$2) return setToArray(set$2);
 			isCommon = false;
 			includes = cacheHas;
 			seen$1 = new SetCache();
@@ -110195,19 +110361,23 @@ var ye = (0, import_react.forwardRef)((function(e$13, o$8) {
 		}
 	});
 }));
-var formatAssetPriceStr = (str) => formatDollarStr(bigIntFromString(str), 0);
-var LiqPriceChart = ({ options: options$2 = void 0, isSmall = false }) => {
-	const account = useAccount_default();
-	const curOptions = useHegicOptions_default();
-	const assetPrice = useTokenPrice("ETH");
+var formatAssetPriceStr = (str) => formatDollarStr(bigIntFromString(str));
+var LiqPriceChart = ({ estOptions = void 0, isSmall = false }) => {
+	const assetPrice = useAssetPrice();
+	const curLiqPrice = useCurLiqPrice();
+	const _estLiqPrice = useLiqPrice_default(void 0, void 0, estOptions);
+	const estLiqPrice = estOptions ? _estLiqPrice : isUndefined(estOptions) ? void 0 : null;
 	const isMobile$1 = useIsMobile_default(1200);
-	if (!assetPrice || !curOptions || !account?.debt) return null;
-	const data = getLineData(assetPrice);
-	const { balance, debt } = account;
+	const { isLoading, hasError } = getIsLoadingAndErrorForMultiple(assetPrice, curLiqPrice);
+	if (isLoading) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: "LiqPriceChart box",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SpinnerBig_default, {})
+	});
+	if (hasError) return null;
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 		className: "LiqPriceChart box",
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Me, {
-			data,
+			data: getLineData(assetPrice, isSmall),
 			enableGridX: false,
 			enableGridY: false,
 			pointSize: 0,
@@ -110216,7 +110386,7 @@ var LiqPriceChart = ({ options: options$2 = void 0, isSmall = false }) => {
 			animate: false,
 			enableTouchCrosshair: true,
 			useMesh: true,
-			markers: getMarkers(assetPrice, Calculator_default.calcLiqPrice(balance, debt, curOptions), options$2 ? Calculator_default.calcLiqPrice(balance, debt, options$2) : void 0),
+			markers: getMarkers(assetPrice, curLiqPrice, estLiqPrice, isSmall),
 			tooltip: _Tooltip,
 			xScale: {
 				min: "auto",
@@ -110287,9 +110457,9 @@ var _Tooltip = ({ point: point$5 }) => {
 		})
 	});
 };
-var getLineData = (curAssetPrice) => {
+var getLineData = (curAssetPrice, isChartSmall) => {
 	const step = bigIntFromString(5);
-	const [minPrice, maxPrice] = [0n, curAssetPrice];
+	const [minPrice, maxPrice] = [0n, curAssetPrice + bigIntFromString(isChartSmall ? 200 : 500)];
 	const data = [];
 	for (let price = minPrice; price <= maxPrice; price += step) {
 		const point$5 = {
@@ -110303,11 +110473,13 @@ var getLineData = (curAssetPrice) => {
 		data
 	}];
 };
-var getMarkers = (assetPrice, curLiqPrice, estLiqPrice) => {
+var getMarkers = (assetPrice, curLiqPrice, estLiqPrice, isChartSmall) => {
+	const hasEstLiqPrice = isSufficient(estLiqPrice);
+	const isEstLiqPriceExpected = hasEstLiqPrice || estLiqPrice === null;
 	const markers = [{
 		axis: "y",
-		legend: formatDollarStr(assetPrice, 0),
-		legendPosition: "top-left",
+		legend: (isChartSmall ? "" : "Cur.Price: ") + formatDollarStr(assetPrice),
+		legendPosition: isEstLiqPriceExpected ? "top-left" : "top-right",
 		value: Number(stringFromBigInt(assetPrice)),
 		lineStyle: {
 			stroke: "#454061",
@@ -110318,13 +110490,12 @@ var getMarkers = (assetPrice, curLiqPrice, estLiqPrice) => {
 			fill: Colors.DGRAY
 		}
 	}];
-	const hasEstLiqPrice = !isUndefined(estLiqPrice);
 	[curLiqPrice, estLiqPrice].filter(isSufficient).forEach((liqPrice, i$13) => {
 		const isCurrent = i$13 === 0;
 		const liqPriceMarker = {
 			axis: "y",
-			legend: `${isCurrent ? `${hasEstLiqPrice ? "Cur. " : ""}Liq.Price` : "Est. Liq.Price"}: ${formatDollarStr(liqPrice, 0)}`,
-			legendPosition: hasEstLiqPrice ? isCurrent ? "top-right" : "bottom-right" : "bottom-right",
+			legend: `${isCurrent ? `${isEstLiqPriceExpected ? "Cur. " : ""}Liq.Price` : "Est. Liq.Price"}: ${formatDollarStr(liqPrice)}`,
+			legendPosition: isEstLiqPriceExpected ? isCurrent ? "top-right" : "bottom-right" : "bottom-right",
 			value: Number(stringFromBigInt(liqPrice)),
 			lineStyle: {
 				stroke: Colors.RED,
@@ -112428,7 +112599,8 @@ var Types = {
 	AUTO_SHORT: "auto-short"
 };
 var ProtectionModal = ({ isOpen, setIsOpen }) => {
-	const [protectAmount, setProtectAmount] = (0, import_react.useState)(null);
+	const [chosenLiqPrice, setChosenLiqPrice] = (0, import_react.useState)(null);
+	const protectionAmount = useProtectionAmount_default(chosenLiqPrice);
 	const [period, setPeriod] = (0, import_react.useState)(null);
 	const [cost, setCost] = (0, import_react.useState)(null);
 	const [paymentMethod, setPaymentMethod] = (0, import_react.useState)(PaymentMethods.COLLATERAL);
@@ -112448,7 +112620,7 @@ var ProtectionModal = ({ isOpen, setIsOpen }) => {
 		text: "Something went wrong while activating protection"
 	};
 	const handleClick = async () => {
-		sendTx_default(buyProtection(protectAmount, period, cost, paymentMethod, slippage), `Activated protection for ${inputStringFromBigInt(protectAmount)} ETH.`, setIsSubmitting, ({ tx }) => {
+		sendTx_default(buyProtection(protectionAmount, period, cost, paymentMethod, slippage), `Activated protection to drop liq.price to ${formatDollarStr(chosenLiqPrice)}.`, setIsSubmitting, ({ tx }) => {
 			setTxResult({
 				...txSuccessData,
 				hash: tx.hash
@@ -112468,13 +112640,13 @@ var ProtectionModal = ({ isOpen, setIsOpen }) => {
 		setTxResult,
 		reset: () => {
 			setStep(0);
-			setProtectAmount(null);
+			setChosenLiqPrice(null);
 			setPeriod(null);
 			setCost(null);
 		},
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(BuyStep, {
-			protectAmount,
-			setProtectAmount,
+			chosenLiqPrice,
+			setChosenLiqPrice,
 			period,
 			setPeriod,
 			cost,
@@ -112493,10 +112665,12 @@ var ProtectionModal = ({ isOpen, setIsOpen }) => {
 		})][step]
 	});
 };
-var BuyStep = ({ protectAmount, setProtectAmount, period, setPeriod, cost, setCost, paymentMethod, setPaymentMethod, isSubmitting, setIsSubmitting, goForth }) => {
-	const account = useAccount_default();
+var BuyStep = ({ chosenLiqPrice, setChosenLiqPrice, period, setPeriod, cost, setCost, paymentMethod, setPaymentMethod, isSubmitting, setIsSubmitting, goForth }) => {
 	const contracts$1 = useContracts_default();
-	const assetPrice = useTokenPrice("ETH");
+	const account = useAccount_default();
+	const assetPrice = useAssetPrice();
+	const curLiqPrice = useCurLiqPrice();
+	const protectionAmount = useProtectionAmount_default(chosenLiqPrice);
 	const { OneClickOptions } = contracts$1?.view ?? {};
 	const [type, setType] = (0, import_react.useState)(Types.OPTION);
 	const isOption = type === Types.OPTION;
@@ -112504,33 +112678,36 @@ var BuyStep = ({ protectAmount, setProtectAmount, period, setPeriod, cost, setCo
 	const [isApproved, setIsApproved] = (0, import_react.useState)(void 0);
 	const [estLtv, setEstLtv] = (0, import_react.useState)(null);
 	const [estOption, setEstOption] = (0, import_react.useState)(null);
+	const strike = useHegicStrike_default(period, chosenLiqPrice);
 	const Approver = useApprover_default(OneClickOptions?.address, "USDC", setIsApproved);
 	(0, import_react.useEffect)(() => {
-		if (!protectAmount || !period) {
+		if (!isSufficient(curLiqPrice) || !protectionAmount || !period) {
 			setEstOption(null);
 			return;
 		}
 		setEstOption({
-			strike: assetPrice,
-			amount: protectAmount,
+			strike: Calculator_default.calcProtectionStrike(assetPrice, curLiqPrice),
+			amount: protectionAmount,
 			isCall: false
 		});
-	}, [protectAmount, period]);
+	}, [
+		curLiqPrice,
+		protectionAmount,
+		period
+	]);
 	(0, import_react.useEffect)(() => {
 		if (!isWallet) return;
 		if (cost) Approver.update(cost);
 		else setIsApproved(void 0);
 	}, [cost]);
 	(0, import_react.useEffect)(() => {
-		if (!protectAmount) setIsApproved(void 0);
-	}, [protectAmount]);
-	(0, import_react.useEffect)(() => {
 		if (isWallet && cost) Approver.update(cost);
 		else setIsApproved(void 0);
 	}, [paymentMethod]);
 	const getError = () => {
-		if (!protectAmount) return "Enter Amount";
+		if (!isSufficient(chosenLiqPrice)) return "Choose Liq.Price";
 		if (!period) return "Choose period";
+		if (cost === 0n) return "No liquidity";
 		const { isLoading, hasError } = getIsLoadingAndError(cost);
 		if (isLoading || !estLtv) return ButtonLabels.LOADING;
 		if (hasError) return ButtonLabels.ERROR;
@@ -112575,12 +112752,12 @@ var BuyStep = ({ protectAmount, setProtectAmount, period, setPeriod, cost, setCo
 						setType
 					}),
 					isOption && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(OptionInputs, {
-						protectAmount,
-						setProtectAmount,
+						chosenLiqPrice,
+						setChosenLiqPrice,
 						period,
 						setPeriod,
-						cost,
-						setCost
+						setCost,
+						strike
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaymentMethod_default, {
 						method: paymentMethod,
@@ -112605,7 +112782,6 @@ var BuyStep = ({ protectAmount, setProtectAmount, period, setPeriod, cost, setCo
 	});
 };
 var ReviewStep = ({ period, cost, isSubmitting, handleClick, goBack }) => {
-	const usdcPool = useUsdcPool_default();
 	const [isAgreed, setIsAgreed] = (0, import_react.useState)(false);
 	const expDate = format(Date.now() + period, "dd/MM/yyyy, HH:mm", { in: utc });
 	const getError = () => {
@@ -112650,16 +112826,6 @@ var ReviewStep = ({ period, cost, isSubmitting, handleClick, goBack }) => {
 					className: "Metrics__row",
 					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 						className: "Metrics__row-title",
-						children: "Borrow Rate"
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "Metrics__row-value",
-						children: formatPercent(usdcPool?.rate, 0)
-					})]
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "Metrics__row",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "Metrics__row-title",
 						children: "Protection Cost"
 					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 						className: "Metrics__row-value",
@@ -112667,17 +112833,6 @@ var ReviewStep = ({ period, cost, isSubmitting, handleClick, goBack }) => {
 					})]
 				})
 			] }),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "ProtectionModal__review-terms",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "ProtectionModal__review-terms-title",
-					children: "Protection terms"
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(List_default, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", { children: [
-					"Your position will be protected from liquidation until ",
-					expDate + " UTC",
-					" thanks to the purchased protection"
-				] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("li", { children: "After this date, if the price of $ETH drops, your loan may become subject to liquidation" })] })]
-			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Checkbox_default, {
 				isChecked: isAgreed,
 				setIsChecked: setIsAgreed,
@@ -112698,12 +112853,16 @@ var ReviewStep = ({ period, cost, isSubmitting, handleClick, goBack }) => {
 var Chart = ({ estOption }) => {
 	const options$2 = useHegicOptions_default();
 	const { isLoading } = getIsLoadingAndErrorForMultiple(options$2, estOption);
+	const [isModalOpening, setIsModalOpening] = (0, import_react.useState)(true);
+	(0, import_react.useEffect)(() => {
+		setTimeout(() => setIsModalOpening(false), 300);
+	}, []);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 		className: "ProtectionModal__chart",
-		children: estOption ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceChart_default, {
-			options: [...options$2, estOption],
+		children: isLoading || isModalOpening ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Spinner_default, {}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceChart_default, {
+			estOptions: estOption ? [...options$2, estOption] : null,
 			isSmall: true
-		}) : isLoading ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Spinner_default, {}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, { children: "Enter data" })
+		})
 	});
 };
 var TypeRadio = ({ type, setType }) => {
@@ -112744,95 +112903,94 @@ var TypeRadio = ({ type, setType }) => {
 		]
 	});
 };
-var OptionInputs = ({ protectAmount, setProtectAmount, period, setPeriod, cost, setCost }) => {
-	const account = useAccount_default();
+var OptionInputs = ({ chosenLiqPrice, setChosenLiqPrice, period, setPeriod, setCost, strike }) => {
 	const [minPeriodDays, maxPeriodDays] = [HegicConstants_default.EXPIRY_PERIODS_DAYS[0], getLast(HegicConstants_default.EXPIRY_PERIODS_DAYS)];
 	const [periodDays, setPeriodDays] = (0, import_react.useState)(minPeriodDays);
 	const slippage = useSlippage();
-	const strike = useHegicStrike_default(period);
 	const updateCost = async () => {
-		setCost(void 0);
-		setCost(getBigIntWithSlippage(await strike.queryPremium(protectAmount), slippage));
+		setCost(getBigIntWithSlippage(strike.premium, slippage));
 	};
 	useDebounce(() => {
 		setPeriod(msInDays(periodDays));
 	}, 200, [periodDays]);
-	useDebounce(() => {
-		if (protectAmount && strike) updateCost();
-		else setCost(null);
-	}, 600, [protectAmount]);
 	(0, import_react.useEffect)(() => {
-		if (protectAmount && strike) updateCost();
-	}, [strike, slippage]);
-	(0, import_react.useEffect)(() => {
-		if (protectAmount && strike) setCost(void 0);
-	}, [protectAmount, period]);
+		if (isSufficient(chosenLiqPrice) && strike) updateCost();
+		else if (strike === null || !chosenLiqPrice) setCost(null);
+		else if (isUndefined) setCost(void 0);
+	}, [
+		chosenLiqPrice,
+		strike,
+		slippage
+	]);
 	const getExpStr = () => {
 		if (!isSufficient(period)) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, {});
 		return format(Date.now() + period, "d MMM, HH:mm");
 	};
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 		className: "ProtectionModal__option-inputs",
-		children: [
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Field_default, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "Field__title",
-				children: "Amount to protect"
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "Field__content",
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Input_default, {
-					initValue: account?.balance,
-					setValue: setProtectAmount,
-					maxData: {
-						value: account?.balance,
-						token: "ETH",
-						title: "Collateral",
-						showsUsd: false
-					}
-				})
-			})] }),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Field_default, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "Field__title",
-				children: "Protection cost"
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "Field__content",
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmount_default, {
-					value: cost,
-					symbol: "USDC",
-					type: "boxed"
-				})
-			})] }),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: (0, import_classnames$9.default)("ProtectionModal__period", isSufficient(period) && "_active"),
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "ProtectionModal__period-head",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: "Period" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "_result",
-						children: [periodDays, " Days"]
-					})]
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceInput, { setChosenLiqPrice }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: (0, import_classnames$9.default)("ProtectionModal__period", isSufficient(period) && "_active"),
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "ProtectionModal__period-head",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: "Period" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "_result",
+					children: [periodDays, " Days"]
+				})]
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "ProtectionModal__period-slider",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Slider_default, {
+					value: periodDays,
+					setValue: setPeriodDays,
+					min: minPeriodDays,
+					max: maxPeriodDays,
+					step: 1
 				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "ProtectionModal__period-slider",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Slider_default, {
-						value: periodDays,
-						setValue: setPeriodDays,
-						min: minPeriodDays,
-						max: maxPeriodDays,
-						step: 1
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "ProtectionModal__period-exp",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: "Expiration Date" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "_result",
-							children: getExpStr()
-						})]
+					className: "ProtectionModal__period-exp",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: "Expiration Date" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "_result",
+						children: getExpStr()
 					})]
 				})]
-			})
-		]
+			})]
+		})]
+	});
+};
+var LiqPriceInput = ({ setChosenLiqPrice }) => {
+	const assetPrice = useAssetPrice();
+	const curLiqPrice = useCurLiqPrice();
+	const [chosenLiqPriceStr, setChosenLiqPriceStr] = (0, import_react.useState)("");
+	const [minLiqPrice, maxLiqPrice] = (0, import_react.useMemo)(() => [0n, floorBigInt(multiplyBigIntByNumber(curLiqPrice ?? assetPrice ?? 0n, 2 - STRIKE_COEF))], [curLiqPrice, assetPrice]);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "ProtectionModal__liq-price Field",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "ProtectionModal__liq-price-title Field__title",
+			children: "Liquidation Price"
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "ProtectionModal__liq-price-slider Field__content",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Slider_default, {
+				value: Number(strFromInputString(chosenLiqPriceStr)),
+				setValue: (val) => {
+					setChosenLiqPriceStr(inputStringFromStr(val));
+				},
+				min: Number(stringFromBigInt(minLiqPrice)),
+				max: Number(stringFromBigInt(maxLiqPrice)),
+				step: 10
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Input_default, {
+				valueStrState: [chosenLiqPriceStr, setChosenLiqPriceStr],
+				setValue: setChosenLiqPrice,
+				debounce: 200,
+				maxData: {
+					value: maxLiqPrice,
+					isHidden: true
+				},
+				isZeroSufficient: true
+			})]
+		})]
 	});
 };
 var ModalMetrics = ({ cost, paymentMethod, estLtv, setEstLtv, estOption }) => {
 	const account = useAccount_default();
 	const contracts$1 = useContracts_default();
-	const usdcPool = useUsdcPool_default();
 	const options$2 = useHegicOptions_default();
 	const slippage = useSlippage();
 	const [estCollateral, setEstCollateral] = (0, import_react.useState)(null);
@@ -112899,16 +113057,6 @@ var ModalMetrics = ({ cost, paymentMethod, estLtv, setEstLtv, estOption }) => {
 			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 				className: "Metrics__row-value",
 				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LtvChange_default, { estLtv })
-			})]
-		}),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "Metrics__row",
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "Metrics__row-title",
-				children: "Borrow Rate"
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "Metrics__row-value",
-				children: formatPercent(usdcPool?.rate, 0)
 			})]
 		}),
 		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
@@ -113042,7 +113190,10 @@ var ClaimModal = ({ isOpen, setIsOpen, position: position$1, setPosition }) => {
 							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceChange_default.Title, {})
 						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 							className: "Metrics__row-value",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceChange_default, { estOptions })
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceChange_default, {
+								estDebt,
+								estOptions
+							})
 						})]
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
@@ -114238,9 +114389,9 @@ var jsx = function jsx$4(type, props) {
 	for (var i$13 = 2; i$13 < argsLength; i$13++) createElementArgArray[i$13] = args[i$13];
 	return import_react.createElement.apply(null, createElementArgArray);
 };
-(function(_jsx$71) {
+(function(_jsx$72) {
 	var JSX;
-	(function(_JSX) {})(JSX || (JSX = _jsx$71.JSX || (_jsx$71.JSX = {})));
+	(function(_JSX) {})(JSX || (JSX = _jsx$72.JSX || (_jsx$72.JSX = {})));
 })(jsx || (jsx = {}));
 function css$2() {
 	for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) args[_key] = arguments[_key];
@@ -118038,7 +118189,7 @@ var LtvLevel = () => {
 	});
 };
 var Indicator = ({ account }) => {
-	const { debt, ltv } = account;
+	const { debt, ltv, ltvCoeffs } = account;
 	const ltvZone = Ltv_default.getZone(account, ltv);
 	const { RED: RED$1, YELLOW, GREEN: GREEN$1 } = Ltv_default.Zones;
 	const getPointerPosition = () => {
@@ -118056,11 +118207,11 @@ var Indicator = ({ account }) => {
 				top: 0
 			};
 			case GREEN$1:
-				if (ltv > bigIntFromString(2)) return {
+				if (ltv > ltvCoeffs.yellow + bigIntFromString(.9)) return {
 					right: "-6px",
 					bottom: 0
 				};
-				if (ltv <= bigIntFromString(1.15)) return {
+				if (ltv <= ltvCoeffs.yellow + bigIntFromString(.05)) return {
 					top: "-3px",
 					right: "47px"
 				};
@@ -118391,7 +118542,7 @@ var ProtectionCost = ({ position: position$1 }) => {
 };
 var ProtectionPayoff = ({ position: position$1 }) => {
 	const { profit } = position$1;
-	const profitStr = formatDollarStr(profit);
+	const profitStr = formatDollarStr(profit, Decimals.STABLE);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 		className: (0, import_classnames$2.default)(profit > 0n && "positive"),
 		children: profitStr
@@ -118438,6 +118589,78 @@ var Content = () => {
 	] });
 };
 var Dashboard_default = Dashboard;
+var items = [{
+	title: "Whitepaper",
+	descr: "The mechanics behind NoRekt.",
+	url: "#!"
+}, {
+	title: "Github",
+	descr: "Verify everything.",
+	url: "#!"
+}];
+var Docs = () => {
+	(0, import_react.useEffect)(() => {
+		animateFancyButtons();
+	}, []);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: "Docs",
+		children: items.map((item) => {
+			const { title, descr, url } = item;
+			return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
+				className: "Docs__item anim_fancy",
+				"data-anim-radius": 20,
+				href: url,
+				target: "_blank",
+				rel: "noreferrer",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+						className: "Docs__item-title",
+						children: title
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "Docs__item-descr",
+						children: descr
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "Docs__item-icon",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowLinkSvg, {})
+					})
+				]
+			}, url);
+		})
+	});
+};
+var ArrowLinkSvg = () => {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
+		xmlns: "http://www.w3.org/2000/svg",
+		width: "26",
+		height: "26",
+		viewBox: "0 0 26 26",
+		fill: "none",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("g", {
+			opacity: "0.7",
+			"clip-path": "url(#clip0_1367_14300)",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
+				opacity: "0.3",
+				width: "26",
+				height: "26",
+				rx: "8",
+				fill: Colors.LGRAY
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
+				d: "M8.46967 16.955C8.17678 17.2479 8.17678 17.7227 8.46967 18.0156C8.76256 18.3085 9.23744 18.3085 9.53033 18.0156L9 17.4853L8.46967 16.955ZM18.2353 9.00001C18.2353 8.5858 17.8995 8.25001 17.4853 8.25001L10.7353 8.25001C10.3211 8.25001 9.98528 8.5858 9.98528 9.00001C9.98528 9.41422 10.3211 9.75001 10.7353 9.75001H16.7353V15.75C16.7353 16.1642 17.0711 16.5 17.4853 16.5C17.8995 16.5 18.2353 16.1642 18.2353 15.75L18.2353 9.00001ZM9 17.4853L9.53033 18.0156L18.0156 9.53034L17.4853 9.00001L16.955 8.46968L8.46967 16.955L9 17.4853Z",
+				fill: "white"
+			})]
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("defs", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("clipPath", {
+			id: "clip0_1367_14300",
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", {
+				width: "26",
+				height: "26",
+				fill: "white"
+			})
+		}) })]
+	});
+};
+var Docs_default = Docs;
 var AppRoutes = () => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Routes, { children: [
 		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
@@ -118450,7 +118673,7 @@ var AppRoutes = () => {
 		}),
 		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
 			path: "/docs",
-			element: null
+			element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Docs_default, {})
 		}),
 		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
 			path: "*",
@@ -118569,8 +118792,7 @@ var NAV_LINKS = [
 	},
 	{
 		name: "Docs",
-		to: "/docs",
-		isDisabled: true
+		to: "/docs"
 	}
 ];
 var MOBILE_BREAKPOINT = 992;
@@ -118776,7 +118998,7 @@ var Footer = () => {
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
 					className: "Footer__social anim_fancy",
 					"data-anim-radius": "12",
-					href: "#!",
+					href: "https://x.com/NoRektFi",
 					target: "_blank",
 					rel: "noreferrer",
 					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
@@ -118787,7 +119009,7 @@ var Footer = () => {
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
 					className: "Footer__social anim_fancy",
 					"data-anim-radius": "12",
-					href: "#!",
+					href: "https://discord.gg/az6qKatBXz",
 					target: "_blank",
 					rel: "noreferrer",
 					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
@@ -118798,7 +119020,7 @@ var Footer = () => {
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
 					className: "Footer__social anim_fancy",
 					"data-anim-radius": "12",
-					href: "#!",
+					href: "https://github.com/SharwaFinance",
 					target: "_blank",
 					rel: "noreferrer",
 					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
