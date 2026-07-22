@@ -1,7 +1,7 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/core-Bc4-W7pr.js","assets/index-BoLkZ-kV.js","assets/index-BW7cINCs.css","assets/HelpersUtil-Dvlo0j9m.js","assets/ApiController-CJdt7xb4.js","assets/ccip-Cu0UjiiG.js","assets/index.es-Dt177d7w.js","assets/secp256k1-BWhUy-fv.js","assets/AlertController-CLpYU18L.js","assets/_esm-B-WV32tw.js","assets/CaipNetworkUtil-CixNGBAs.js"])))=>i.map(i=>d[i]);
-import "./secp256k1-BWhUy-fv.js";
-import { A as safeJsonParse, B as base32, C as require_cjs$2, D as Qo$2, E as Qe$2, F as require_cjs, I as Ge$3, L as Re$1, M as i, N as r, O as sn, P as IEvents, R as Ue$2, S as fromHex, T as Po$2, _ as concat, a as isJsonRpcRequest, b as esm_default, c as formatJsonRpcError, d as getBigIntRpcId, f as payloadId, g as fromString, h as toString, i as isJsonRpcError, j as safeJsonStringify, k as h, l as formatJsonRpcRequest, m as C$3, n as f$3, o as isJsonRpcResponse, p as require_blakejs, r as o, s as isJsonRpcResult, t as f$1, u as formatJsonRpcResult, v as decode, w as require_cjs$1, x as recoverAddress, y as encode, z as ee$2 } from "./index.es-Dt177d7w.js";
-import { X as require_events, Y as detect, pn as __toESM, tt as __vitePreload } from "./index-BoLkZ-kV.js";
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/core-CCRHAqPy.js","assets/index-C8lSdra8.js","assets/index-BW7cINCs.css","assets/HelpersUtil-BLeavEzv.js","assets/ApiController-DS4ArBVw.js","assets/ccip-2SMp6R5f.js","assets/index.es-DhMrcp1I.js","assets/secp256k1-CrSN2pxT.js","assets/AlertController-DzH4BM_H.js","assets/_esm-DQNRVWAZ.js","assets/CaipNetworkUtil-C6lkctKh.js"])))=>i.map(i=>d[i]);
+import "./secp256k1-CrSN2pxT.js";
+import { A as safeJsonParse, B as base32, C as require_cjs$2, D as Qo$2, E as Qe$2, F as require_cjs, I as Ge$3, L as Re$1, M as i, N as r, O as sn, P as IEvents, R as Ue$2, S as fromHex, T as Po$2, _ as concat, a as isJsonRpcRequest, b as esm_default, c as formatJsonRpcError, d as getBigIntRpcId, f as payloadId, g as fromString, h as toString, i as isJsonRpcError, j as safeJsonStringify, k as h, l as formatJsonRpcRequest, m as C$3, n as f$3, o as isJsonRpcResponse, p as require_blakejs, r as o, s as isJsonRpcResult, t as f$1, u as formatJsonRpcResult, v as decode, w as require_cjs$1, x as recoverAddress, y as encode, z as ee$2 } from "./index.es-DhMrcp1I.js";
+import { X as require_events, Y as detect, pn as __toESM, tt as __vitePreload } from "./index-C8lSdra8.js";
 require_events();
 var import_cjs$3 = require_cjs();
 var import_cjs$4 = require_cjs$1();
@@ -10131,7 +10131,7 @@ var q = `wc@2:ethereum_provider:`, U = "https://rpc.walletconnect.org/v1/", f = 
 	"connect"
 ], D = async () => {
 	const { createAppKit: s } = await __vitePreload(async () => {
-		const { createAppKit: s$1 } = await import("./core-Bc4-W7pr.js");
+		const { createAppKit: s$1 } = await import("./core-CCRHAqPy.js");
 		return { createAppKit: s$1 };
 	}, __vite__mapDeps([0,1,2,3,4,5,6,7,8,9,10]));
 	return s;
