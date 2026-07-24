@@ -1522,6 +1522,9 @@
 .ProtectionModal__period._active ._result {
   color: #ffffff;
 }
+.ProtectionModal .Notification {
+  background-color: #17144E;
+}
 @media (max-width: 1200px) {
   .ProtectionModal {
     width: 460px;
