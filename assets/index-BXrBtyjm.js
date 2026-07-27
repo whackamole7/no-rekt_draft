@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-BlSehGwr.js","assets/secp256k1-Ckb-1Keo.js","assets/esm-D2Emc-Nh.js","assets/dist-ZhcPuTSY.js","assets/dist-CGQMy77K.js","assets/dist-Bdp0nTOk.js","assets/index.es-Bkm34-6t.js","assets/alchemy-provider-2577f5a5-ssOErwza.js","assets/alchemy-provider-2577f5a5-CL9PCyjH.js","assets/alchemy-websocket-provider-ee041890-C3zznnNi.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-BKU48qcc.js","assets/secp256k1-D-gaSnzD.js","assets/esm-CEBLQWa8.js","assets/dist-DDWRpbKw.js","assets/dist-BMmqbsbs.js","assets/dist-DzW2YNxz.js","assets/index.es-RNIZ6jkv.js","assets/alchemy-provider-2577f5a5-DANd8cb-.js","assets/alchemy-provider-2577f5a5-D9Z3vgoy.js","assets/alchemy-websocket-provider-ee041890-DNt2Cfth.js"])))=>i.map(i=>d[i]);
 var __create = Object.create;
 var __defProp$1 = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -16953,7 +16953,7 @@ async function call$2(client, args) {
 	} catch (err) {
 		const data$1 = getRevertErrorData(err);
 		const { offchainLookup, offchainLookupSignature } = await __vitePreload(async () => {
-			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-CuScbF7G.js");
+			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-CDTTsNw2.js");
 			return {
 				offchainLookup: offchainLookup$1,
 				offchainLookupSignature: offchainLookupSignature$1
@@ -17454,7 +17454,7 @@ function publicKeyToAddress(publicKey) {
 async function recoverPublicKey({ hash: hash$3, signature }) {
 	const hashHex = isHex(hash$3) ? hash$3 : toHex$2(hash$3);
 	const { secp256k1: secp256k1$1 } = await __vitePreload(async () => {
-		const { secp256k1: secp256k1$2 } = await import("./secp256k1-BlSehGwr.js");
+		const { secp256k1: secp256k1$2 } = await import("./secp256k1-BKU48qcc.js");
 		return { secp256k1: secp256k1$2 };
 	}, __vite__mapDeps([0,1]));
 	return `0x${(() => {
@@ -23304,7 +23304,7 @@ function safe(parameters = {}) {
 			if (!provider_) {
 				const { default: SDK } = await (() => {
 					try {
-						return __vitePreload(() => import("./esm-D2Emc-Nh.js"), __vite__mapDeps([2,3]));
+						return __vitePreload(() => import("./esm-CEBLQWa8.js"), __vite__mapDeps([2,3]));
 					} catch {
 						throw new Error("dependency \"@safe-global/safe-apps-sdk\" not found");
 					}
@@ -23315,7 +23315,7 @@ function safe(parameters = {}) {
 				provider_ = new (await ((async () => {
 					const Provider$1 = await (() => {
 						try {
-							return __vitePreload(() => import("./dist-CGQMy77K.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
+							return __vitePreload(() => import("./dist-BMmqbsbs.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
 						} catch {
 							throw new Error("dependency \"@safe-global/safe-apps-provider\" not found");
 						}
@@ -23480,7 +23480,7 @@ function walletConnect(parameters) {
 				if (!optionalChains.length) return;
 				const { EthereumProvider: EthereumProvider$1 } = await (() => {
 					try {
-						return __vitePreload(() => import("./dist-Bdp0nTOk.js"), __vite__mapDeps([5,6,1]));
+						return __vitePreload(() => import("./dist-DzW2YNxz.js"), __vite__mapDeps([5,6,1]));
 					} catch {
 						throw new Error("dependency \"@walletconnect/ethereum-provider\" not found");
 					}
@@ -84241,14 +84241,14 @@ var AlchemyConfig = class {
 	}
 	getProvider() {
 		if (!this._baseAlchemyProvider) this._baseAlchemyProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-ssOErwza.js"), __vite__mapDeps([7,8]));
+			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-DANd8cb-.js"), __vite__mapDeps([7,8]));
 			return new AlchemyProvider$1(this);
 		}))();
 		return this._baseAlchemyProvider;
 	}
 	getWebSocketProvider() {
 		if (!this._baseAlchemyWssProvider) this._baseAlchemyWssProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-C3zznnNi.js"), __vite__mapDeps([9,8]));
+			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-DNt2Cfth.js"), __vite__mapDeps([9,8]));
 			return new AlchemyWebSocketProvider(this);
 		}))();
 		return this._baseAlchemyWssProvider;
@@ -112191,33 +112191,17 @@ var ProtectionModal = ({ isOpen, setIsOpen }) => {
 var BuyStep = ({ chosenLiqPrice, setChosenLiqPrice, period, setPeriod, cost, setCost, paymentMethod, setPaymentMethod, isSubmitting, setIsSubmitting, goForth }) => {
 	const contracts$1 = useContracts_default();
 	const account = useAccount_default();
-	const assetPrice = useAssetPrice();
-	const curLiqPrice = useCurLiqPrice();
-	const protectionAmount = useProtectionAmount_default(chosenLiqPrice);
+	useAssetPrice();
+	useCurLiqPrice();
+	useProtectionAmount_default(chosenLiqPrice);
 	const { OneClickOptions } = contracts$1?.view ?? {};
 	const [type, setType] = (0, import_react.useState)(Types.OPTION);
 	const isOption = type === Types.OPTION;
 	const isWallet = paymentMethod === PaymentMethods.WALLET;
 	const [isApproved, setIsApproved] = (0, import_react.useState)(void 0);
 	const [estLtv, setEstLtv] = (0, import_react.useState)(null);
-	const [estOption, setEstOption] = (0, import_react.useState)(null);
 	const strike = useHegicStrike_default(period, chosenLiqPrice);
 	const Approver = useApprover_default(OneClickOptions?.address, "USDC", setIsApproved);
-	(0, import_react.useEffect)(() => {
-		if (!isSufficient(curLiqPrice) || !protectionAmount || !period) {
-			setEstOption(null);
-			return;
-		}
-		setEstOption({
-			strike: Calculator_default.calcProtectionStrike(assetPrice, curLiqPrice),
-			amount: protectionAmount,
-			isCall: false
-		});
-	}, [
-		curLiqPrice,
-		protectionAmount,
-		period
-	]);
 	(0, import_react.useEffect)(() => {
 		if (!isWallet) return;
 		if (cost) Approver.update(cost);
@@ -112267,7 +112251,7 @@ var BuyStep = ({ chosenLiqPrice, setChosenLiqPrice, period, setPeriod, cost, set
 		className: "ProtectionModal__buy",
 		children: [
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { children: "Buy Protection" }),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Chart, { estOption }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Chart, { estOption: strike }),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 				className: "ProtectionModal__body",
 				children: [
@@ -112293,7 +112277,7 @@ var BuyStep = ({ chosenLiqPrice, setChosenLiqPrice, period, setPeriod, cost, set
 						paymentMethod,
 						estLtv,
 						setEstLtv,
-						estOption
+						estOption: strike
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TxModal_default.Button, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
 						type: isWallet && isApproved === false ? "green" : "primary",
@@ -112377,7 +112361,7 @@ var ReviewStep = ({ period, cost, isSubmitting, handleClick, goBack }) => {
 };
 var Chart = ({ estOption }) => {
 	const options$2 = useHegicOptions_default();
-	const { isLoading } = getIsLoadingAndErrorForMultiple(options$2, estOption);
+	const { isLoading } = getIsLoadingAndError(options$2);
 	const [isModalOpening, setIsModalOpening] = (0, import_react.useState)(true);
 	(0, import_react.useEffect)(() => {
 		setTimeout(() => setIsModalOpening(false), 300);
