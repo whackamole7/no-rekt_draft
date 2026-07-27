@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-DOiWRE5S.js","assets/secp256k1-Bta5sfLc.js","assets/esm-BsMifGQp.js","assets/dist-COSKLo5z.js","assets/dist-DrHtXPGL.js","assets/dist-B9RYylgx.js","assets/index.es-DIrPvWY2.js","assets/alchemy-provider-2577f5a5-ntGkKicn.js","assets/alchemy-provider-2577f5a5-BcNqkBoG.js","assets/alchemy-websocket-provider-ee041890-BIFYCTOL.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-CeHT2SHa.js","assets/secp256k1-BLJYvsMx.js","assets/esm-Z0ickUIe.js","assets/dist-Hvy5zC5S.js","assets/dist-CSLi5U3z.js","assets/dist-CXsOgG9U.js","assets/index.es-CVi7BUAt.js","assets/alchemy-provider-2577f5a5-ArLrMiTP.js","assets/alchemy-provider-2577f5a5-B-XA-BsI.js","assets/alchemy-websocket-provider-ee041890-DTTJy8sf.js"])))=>i.map(i=>d[i]);
 var __create = Object.create;
 var __defProp$1 = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -16953,7 +16953,7 @@ async function call$2(client, args) {
 	} catch (err) {
 		const data$1 = getRevertErrorData(err);
 		const { offchainLookup, offchainLookupSignature } = await __vitePreload(async () => {
-			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-oovzyH7D.js");
+			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-myMGE_bS.js");
 			return {
 				offchainLookup: offchainLookup$1,
 				offchainLookupSignature: offchainLookupSignature$1
@@ -17454,7 +17454,7 @@ function publicKeyToAddress(publicKey) {
 async function recoverPublicKey({ hash: hash$3, signature }) {
 	const hashHex = isHex(hash$3) ? hash$3 : toHex$2(hash$3);
 	const { secp256k1: secp256k1$1 } = await __vitePreload(async () => {
-		const { secp256k1: secp256k1$2 } = await import("./secp256k1-DOiWRE5S.js");
+		const { secp256k1: secp256k1$2 } = await import("./secp256k1-CeHT2SHa.js");
 		return { secp256k1: secp256k1$2 };
 	}, __vite__mapDeps([0,1]));
 	return `0x${(() => {
@@ -23304,7 +23304,7 @@ function safe(parameters = {}) {
 			if (!provider_) {
 				const { default: SDK } = await (() => {
 					try {
-						return __vitePreload(() => import("./esm-BsMifGQp.js"), __vite__mapDeps([2,3]));
+						return __vitePreload(() => import("./esm-Z0ickUIe.js"), __vite__mapDeps([2,3]));
 					} catch {
 						throw new Error("dependency \"@safe-global/safe-apps-sdk\" not found");
 					}
@@ -23315,7 +23315,7 @@ function safe(parameters = {}) {
 				provider_ = new (await ((async () => {
 					const Provider$1 = await (() => {
 						try {
-							return __vitePreload(() => import("./dist-DrHtXPGL.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
+							return __vitePreload(() => import("./dist-CSLi5U3z.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
 						} catch {
 							throw new Error("dependency \"@safe-global/safe-apps-provider\" not found");
 						}
@@ -23480,7 +23480,7 @@ function walletConnect(parameters) {
 				if (!optionalChains.length) return;
 				const { EthereumProvider: EthereumProvider$1 } = await (() => {
 					try {
-						return __vitePreload(() => import("./dist-B9RYylgx.js"), __vite__mapDeps([5,6,1]));
+						return __vitePreload(() => import("./dist-CXsOgG9U.js"), __vite__mapDeps([5,6,1]));
 					} catch {
 						throw new Error("dependency \"@walletconnect/ethereum-provider\" not found");
 					}
@@ -84241,14 +84241,14 @@ var AlchemyConfig = class {
 	}
 	getProvider() {
 		if (!this._baseAlchemyProvider) this._baseAlchemyProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-ntGkKicn.js"), __vite__mapDeps([7,8]));
+			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-ArLrMiTP.js"), __vite__mapDeps([7,8]));
 			return new AlchemyProvider$1(this);
 		}))();
 		return this._baseAlchemyProvider;
 	}
 	getWebSocketProvider() {
 		if (!this._baseAlchemyWssProvider) this._baseAlchemyWssProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-BIFYCTOL.js"), __vite__mapDeps([9,8]));
+			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-DTTJy8sf.js"), __vite__mapDeps([9,8]));
 			return new AlchemyWebSocketProvider(this);
 		}))();
 		return this._baseAlchemyWssProvider;
@@ -94717,19 +94717,32 @@ var useHegicStrike = (period, chosenLiqPrice) => {
 		"useHegicStrike"
 	], async () => {
 		const { HegicLimitView } = contracts$1.view;
-		const strikePrice = Calculator_default.calcProtectionStrike(assetPrice, curLiqPrice);
-		const strategy = HegicUtils_default.getStrategy(assetPrice, period, strikePrice);
-		const request = getLimitViewRequest(amount, period, strikePrice, strategy);
-		const [priceAndLimits] = await HegicLimitView.getPriceAndLimits([request]);
-		const strike$1 = {
-			strategy,
-			amount,
-			period,
-			strike: strikePrice,
-			isCall: false,
-			liquidity: priceAndLimits.available,
-			premium: bring1eTokenToDefault(priceAndLimits.positivePNL, HegicConstants_default.TOKEN)
-		};
+		const requests = [];
+		const dataArr = [];
+		for (let coef = STRIKE_MAX_CHANGE_COEF; coef > 0; coef -= .01) {
+			const strikePrice = Calculator_default.calcProtectionStrike(assetPrice, curLiqPrice, coef);
+			const strategy = HegicUtils_default.getStrategy(assetPrice, period, strikePrice);
+			const request = getLimitViewRequest(amount, period, strikePrice, strategy);
+			requests.push(request);
+			dataArr.push({
+				strikePrice,
+				strategy
+			});
+		}
+		const strikes = (await HegicLimitView.getPriceAndLimits(requests)).map((limit, i$13) => {
+			const { strikePrice, strategy } = dataArr[i$13];
+			return {
+				strategy,
+				amount,
+				period,
+				strike: strikePrice,
+				isCall: false,
+				liquidity: limit.available,
+				premium: bring1eTokenToDefault(limit.positivePNL, HegicConstants_default.TOKEN)
+			};
+		});
+		const strike$1 = strikes.find((strike$2) => strike$2.liquidity > 0n);
+		console.log(strikes);
 		console.log("Strike data:", strike$1);
 		return strike$1;
 	}, getSwrConfig(1 * MINUTE));
