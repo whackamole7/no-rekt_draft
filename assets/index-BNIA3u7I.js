@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-BKU48qcc.js","assets/secp256k1-D-gaSnzD.js","assets/esm-CEBLQWa8.js","assets/dist-DDWRpbKw.js","assets/dist-BMmqbsbs.js","assets/dist-DzW2YNxz.js","assets/index.es-RNIZ6jkv.js","assets/alchemy-provider-2577f5a5-DANd8cb-.js","assets/alchemy-provider-2577f5a5-D9Z3vgoy.js","assets/alchemy-websocket-provider-ee041890-DNt2Cfth.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-fWhYxSLN.js","assets/secp256k1-DesfAReV.js","assets/esm-1X2y3zxl.js","assets/dist-CAdukzlU.js","assets/dist-DpBs1MDm.js","assets/dist-Du4x7vw5.js","assets/index.es-KZOZORaJ.js","assets/alchemy-provider-2577f5a5-DW8lV7pk.js","assets/alchemy-provider-2577f5a5-B6RLjyP8.js","assets/alchemy-websocket-provider-ee041890-DhOZLDE1.js"])))=>i.map(i=>d[i]);
 var __create = Object.create;
 var __defProp$1 = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -16953,7 +16953,7 @@ async function call$2(client, args) {
 	} catch (err) {
 		const data$1 = getRevertErrorData(err);
 		const { offchainLookup, offchainLookupSignature } = await __vitePreload(async () => {
-			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-CDTTsNw2.js");
+			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-D6-W5OkC.js");
 			return {
 				offchainLookup: offchainLookup$1,
 				offchainLookupSignature: offchainLookupSignature$1
@@ -17454,7 +17454,7 @@ function publicKeyToAddress(publicKey) {
 async function recoverPublicKey({ hash: hash$3, signature }) {
 	const hashHex = isHex(hash$3) ? hash$3 : toHex$2(hash$3);
 	const { secp256k1: secp256k1$1 } = await __vitePreload(async () => {
-		const { secp256k1: secp256k1$2 } = await import("./secp256k1-BKU48qcc.js");
+		const { secp256k1: secp256k1$2 } = await import("./secp256k1-fWhYxSLN.js");
 		return { secp256k1: secp256k1$2 };
 	}, __vite__mapDeps([0,1]));
 	return `0x${(() => {
@@ -22635,9 +22635,9 @@ var require_use_sync_external_store_shim_production$1 = /* @__PURE__ */ __common
 	function is$3(x$8, y$9) {
 		return x$8 === y$9 && (0 !== x$8 || 1 / x$8 === 1 / y$9) || x$8 !== x$8 && y$9 !== y$9;
 	}
-	var objectIs$2 = "function" === typeof Object.is ? Object.is : is$3, useState$30 = React$9.useState, useEffect$44 = React$9.useEffect, useLayoutEffect$8 = React$9.useLayoutEffect, useDebugValue$3 = React$9.useDebugValue;
+	var objectIs$2 = "function" === typeof Object.is ? Object.is : is$3, useState$31 = React$9.useState, useEffect$44 = React$9.useEffect, useLayoutEffect$8 = React$9.useLayoutEffect, useDebugValue$3 = React$9.useDebugValue;
 	function useSyncExternalStore$2$6(subscribe$1, getSnapshot) {
-		var value = getSnapshot(), _useState = useState$30({ inst: {
+		var value = getSnapshot(), _useState = useState$31({ inst: {
 			value,
 			getSnapshot
 		} }), inst = _useState[0].inst, forceUpdate = _useState[1];
@@ -23304,7 +23304,7 @@ function safe(parameters = {}) {
 			if (!provider_) {
 				const { default: SDK } = await (() => {
 					try {
-						return __vitePreload(() => import("./esm-CEBLQWa8.js"), __vite__mapDeps([2,3]));
+						return __vitePreload(() => import("./esm-1X2y3zxl.js"), __vite__mapDeps([2,3]));
 					} catch {
 						throw new Error("dependency \"@safe-global/safe-apps-sdk\" not found");
 					}
@@ -23315,7 +23315,7 @@ function safe(parameters = {}) {
 				provider_ = new (await ((async () => {
 					const Provider$1 = await (() => {
 						try {
-							return __vitePreload(() => import("./dist-BMmqbsbs.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
+							return __vitePreload(() => import("./dist-DpBs1MDm.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
 						} catch {
 							throw new Error("dependency \"@safe-global/safe-apps-provider\" not found");
 						}
@@ -23480,7 +23480,7 @@ function walletConnect(parameters) {
 				if (!optionalChains.length) return;
 				const { EthereumProvider: EthereumProvider$1 } = await (() => {
 					try {
-						return __vitePreload(() => import("./dist-DzW2YNxz.js"), __vite__mapDeps([5,6,1]));
+						return __vitePreload(() => import("./dist-Du4x7vw5.js"), __vite__mapDeps([5,6,1]));
 					} catch {
 						throw new Error("dependency \"@walletconnect/ethereum-provider\" not found");
 					}
@@ -84241,14 +84241,14 @@ var AlchemyConfig = class {
 	}
 	getProvider() {
 		if (!this._baseAlchemyProvider) this._baseAlchemyProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-DANd8cb-.js"), __vite__mapDeps([7,8]));
+			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-DW8lV7pk.js"), __vite__mapDeps([7,8]));
 			return new AlchemyProvider$1(this);
 		}))();
 		return this._baseAlchemyProvider;
 	}
 	getWebSocketProvider() {
 		if (!this._baseAlchemyWssProvider) this._baseAlchemyWssProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-DNt2Cfth.js"), __vite__mapDeps([9,8]));
+			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-DhOZLDE1.js"), __vite__mapDeps([9,8]));
 			return new AlchemyWebSocketProvider(this);
 		}))();
 		return this._baseAlchemyWssProvider;
@@ -86420,9 +86420,9 @@ var require_use_sync_external_store_shim_production = /* @__PURE__ */ __commonJS
 	function is$1(x$8, y$9) {
 		return x$8 === y$9 && (0 !== x$8 || 1 / x$8 === 1 / y$9) || x$8 !== x$8 && y$9 !== y$9;
 	}
-	var objectIs = "function" === typeof Object.is ? Object.is : is$1, useState$23 = React$4.useState, useEffect$25 = React$4.useEffect, useLayoutEffect$4 = React$4.useLayoutEffect, useDebugValue$1 = React$4.useDebugValue;
+	var objectIs = "function" === typeof Object.is ? Object.is : is$1, useState$24 = React$4.useState, useEffect$25 = React$4.useEffect, useLayoutEffect$4 = React$4.useLayoutEffect, useDebugValue$1 = React$4.useDebugValue;
 	function useSyncExternalStore$2(subscribe$1, getSnapshot) {
-		var value = getSnapshot(), _useState = useState$23({ inst: {
+		var value = getSnapshot(), _useState = useState$24({ inst: {
 			value,
 			getSnapshot
 		} }), inst = _useState[0].inst, forceUpdate = _useState[1];
@@ -87143,7 +87143,8 @@ var Calculator = {
 	calcAvailableToBorrow: calcAvailableToBorrow$1,
 	calcProtectionLevel,
 	calcLiqPrice,
-	calcProtectionStrike
+	calcProtectionStrike,
+	calcProtectionAmount
 };
 function calcEquity$1(accountValue, debt) {
 	return accountValue - debt;
@@ -87171,6 +87172,14 @@ var _calcLiqPrice = (balance, debt, options$2, ltvCoeffs) => {
 };
 function calcProtectionStrike(assetPrice, curLiqPrice, strikeChangeCoef = STRIKE_MAX_CHANGE_COEF) {
 	return maxBigInt(multiplyBigIntByNumber(curLiqPrice, STRIKE_COEF), ceilBigInt(divBigIntByNumber(multiplyBigIntByNumber(assetPrice, 1 - strikeChangeCoef), 10)) * 10n);
+}
+function calcProtectionAmount(account, options$2, chosenLiqPrice, strike = void 0) {
+	const { balance, debt, ltvCoeffs } = account;
+	const optionsAmountSum = sumObjectValues(options$2, "amount");
+	const optionsASSum = options$2.reduce((sum$2, opt) => {
+		return sum$2 + multiplyBigInts(opt.strike, opt.amount);
+	}, 0n);
+	return divBigInts(multiplyBigInts(debt, ltvCoeffs.red) - optionsASSum - multiplyBigInts(chosenLiqPrice, balance - optionsAmountSum), strike - chosenLiqPrice);
 }
 var Calculator_default = Calculator;
 var Account = {
@@ -94682,25 +94691,21 @@ function cleanEscapedString(input) {
 	if (!matched) return input;
 	return matched[1].replace(doubleQuoteRegExp, "'");
 }
-var useProtectionAmount = (chosenLiqPrice) => {
+var useProtectionAmount = (chosenLiqPrice, strike = void 0) => {
 	const account = useAccount_default();
 	const options$2 = useHegicOptions_default();
 	const assetPrice = useAssetPrice();
 	const curLiqPrice = useCurLiqPrice();
 	return (0, import_react.useMemo)(() => {
 		if (!isEverySufficient(account, assetPrice, curLiqPrice, chosenLiqPrice, options$2)) return;
-		const { balance, debt, ltvCoeffs } = account;
-		const strike = Calculator_default.calcProtectionStrike(assetPrice, curLiqPrice);
-		const optionsAmountSum = sumObjectValues(options$2, "amount");
-		const optionsASSum = options$2.reduce((sum$2, opt) => {
-			return sum$2 + multiplyBigInts(opt.strike, opt.amount);
-		}, 0n);
-		return divBigInts(multiplyBigInts(debt, ltvCoeffs.red) - optionsASSum - multiplyBigInts(chosenLiqPrice, balance - optionsAmountSum), strike - chosenLiqPrice);
+		strike = strike ?? Calculator_default.calcProtectionStrike(assetPrice, curLiqPrice);
+		return Calculator_default.calcProtectionAmount(account, options$2, chosenLiqPrice, strike);
 	}, [
 		account,
 		assetPrice,
 		curLiqPrice,
-		chosenLiqPrice
+		chosenLiqPrice,
+		strike
 	]);
 };
 var useProtectionAmount_default = useProtectionAmount;
@@ -94708,40 +94713,47 @@ var useHegicStrike = (period, chosenLiqPrice) => {
 	const contracts$1 = useContracts_default();
 	const assetPrice = useAssetPrice();
 	const curLiqPrice = useCurLiqPrice();
-	const amount = useProtectionAmount_default(chosenLiqPrice);
+	const [strikePrice, setStrikePrice] = (0, import_react.useState)(void 0);
+	const amount = useProtectionAmount_default(chosenLiqPrice, strikePrice);
 	const { data: strike, error: strikeError } = useSWR(contracts$1 && assetPrice && curLiqPrice && period && chosenLiqPrice && [
 		assetPrice,
 		curLiqPrice,
 		chosenLiqPrice,
 		period,
+		amount,
 		"useHegicStrike"
 	], async () => {
 		const { HegicLimitView } = contracts$1.view;
 		const requests = [];
 		const dataArr = [];
 		for (let coef = STRIKE_MAX_CHANGE_COEF; coef > 0; coef -= .01) {
-			const strikePrice = Calculator_default.calcProtectionStrike(assetPrice, curLiqPrice, coef);
-			const strategy = HegicUtils_default.getStrategy(assetPrice, period, strikePrice);
-			const request = getLimitViewRequest(amount, period, strikePrice, strategy);
+			const strikePrice$1 = Calculator_default.calcProtectionStrike(assetPrice, curLiqPrice, coef);
+			const strategy = HegicUtils_default.getStrategy(assetPrice, period, strikePrice$1);
+			const request = getLimitViewRequest(amount, period, strikePrice$1, strategy);
 			requests.push(request);
 			dataArr.push({
-				strikePrice,
+				strikePrice: strikePrice$1,
 				strategy
 			});
 		}
 		const strikes = (await HegicLimitView.getPriceAndLimits(requests)).map((limit, i$13) => {
-			const { strikePrice, strategy } = dataArr[i$13];
+			const { strikePrice: strikePrice$1, strategy } = dataArr[i$13];
 			return {
 				strategy,
 				amount,
 				period,
-				strike: strikePrice,
+				strike: strikePrice$1,
 				isCall: false,
 				liquidity: limit.available,
 				premium: bring1eTokenToDefault(limit.positivePNL, HegicConstants_default.TOKEN)
 			};
 		});
 		const strike$1 = strikes.find((strike$2) => strike$2.liquidity >= amount) ?? strikes[0];
+		if (isUndefined(strikePrice)) {
+			if (!strike$1.liquidity) return strike$1;
+			setStrikePrice(strike$1.strike);
+			return;
+		}
 		console.log("Found Strikes:\n", strikes);
 		console.log("Chosen Strike:\n", strike$1);
 		return strike$1;
@@ -112191,9 +112203,6 @@ var ProtectionModal = ({ isOpen, setIsOpen }) => {
 var BuyStep = ({ chosenLiqPrice, setChosenLiqPrice, period, setPeriod, cost, setCost, paymentMethod, setPaymentMethod, isSubmitting, setIsSubmitting, goForth }) => {
 	const contracts$1 = useContracts_default();
 	const account = useAccount_default();
-	useAssetPrice();
-	useCurLiqPrice();
-	useProtectionAmount_default(chosenLiqPrice);
 	const { OneClickOptions } = contracts$1?.view ?? {};
 	const [type, setType] = (0, import_react.useState)(Types.OPTION);
 	const isOption = type === Types.OPTION;
@@ -112499,21 +112508,19 @@ var LiqPriceInput = ({ setChosenLiqPrice }) => {
 };
 var CollateralTip = ({ chosenLiqPrice, estCollateral, estOptions }) => {
 	const liqPrice = useLiqPrice_default(estCollateral, void 0, estOptions);
-	if (!isEverySufficient(chosenLiqPrice, liqPrice, estCollateral)) return null;
-	const liqPriceStr = formatDollarStr(liqPrice);
-	const chosenLiqPriceStr = formatDollarStr(chosenLiqPrice);
-	if (liqPriceStr === chosenLiqPriceStr) return null;
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Notification_default, {
+	const getText = (liqPrice$1, chosenLiqPrice$1) => {
+		const defaultText = "Paying from collateral reduces your collateral balance, raising the final liquidation price above your target.";
+		if (!isEverySufficient(chosenLiqPrice$1, liqPrice$1, estCollateral, estOptions)) return defaultText;
+		const liqPriceStr = formatDollarStr(liqPrice$1);
+		const chosenLiqPriceStr = formatDollarStr(chosenLiqPrice$1);
+		if (liqPriceStr === chosenLiqPriceStr) return defaultText;
+		return `Paying from collateral reduces your collateral balance, raising the final liquidation price to ${liqPriceStr} instead of your ${chosenLiqPriceStr} target.`;
+	};
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Notification_default, {
 		className: "ProtectionModal__collateral-tip",
 		color: "blue",
 		type: "info",
-		children: [
-			"Paying from collateral reduces your collateral balance, raising the final liquidation price to ",
-			liqPriceStr,
-			" instead of your ",
-			chosenLiqPriceStr,
-			" target."
-		]
+		children: getText(liqPrice, chosenLiqPrice)
 	});
 };
 var ModalMetrics = ({ chosenLiqPrice, cost, paymentMethod, estLtv, setEstLtv, estOption }) => {
