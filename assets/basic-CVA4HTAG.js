@@ -1,11 +1,11 @@
-import "./_esm-C_3kRTRO.js";
-import "./secp256k1-C9Qyws6m.js";
-import { J as require_dijkstra, cn as __commonJSMin, pn as __toESM } from "./index-DXMx5dpb.js";
-import { C as SnackController, D as AppKitError, E as AssetController, H as ErrorUtil, J as ConstantsUtil$1, M as StorageUtil, N as ConstantsUtil, T as AssetUtil, b as ConnectorUtil, c as ConnectionController, g as ModalController, h as ThemeController, j as CoreHelperUtil, k as OptionsController, l as ConnectionControllerUtil, m as ConnectorController, n as ChainController, t as ApiController, v as EventsController, x as WalletUtil, y as RouterController } from "./ApiController-Q--2euJ8.js";
-import "./ccip-Dij4YIcS.js";
-import { S as i$1, _ as b, a as elementStyles, i as UiHelperUtil, m as A, p as i, r as customElement, s as resetStyles, t as HelpersUtil, u as css, v as j, y as w } from "./HelpersUtil-Cvfut02t.js";
-import { a as t, c as n, i as i$2, o, r as e$1, s as r, t as networkSvgMd } from "./wui-list-item-BlCsgicq.js";
-import { t as CaipNetworksUtil } from "./CaipNetworkUtil-DOUbBE2P.js";
+import "./_esm-CsO4ZCaP.js";
+import "./secp256k1-D8ssd4b1.js";
+import { J as require_dijkstra, cn as __commonJSMin, pn as __toESM } from "./index-CS1ADdNQ.js";
+import { C as SnackController, D as AppKitError, E as AssetController, H as ErrorUtil, J as ConstantsUtil$1, M as StorageUtil, N as ConstantsUtil, T as AssetUtil, b as ConnectorUtil, c as ConnectionController, g as ModalController, h as ThemeController, j as CoreHelperUtil, k as OptionsController, l as ConnectionControllerUtil, m as ConnectorController, n as ChainController, t as ApiController, v as EventsController, x as WalletUtil, y as RouterController } from "./ApiController-ar1TEXa7.js";
+import "./ccip-WvoOsRkC.js";
+import { S as i$1, _ as b, a as elementStyles, i as UiHelperUtil, m as A, p as i, r as customElement, s as resetStyles, t as HelpersUtil, u as css, v as j, y as w } from "./HelpersUtil--wN7rShj.js";
+import { a as t, c as n, i as i$2, o, r as e$1, s as r, t as networkSvgMd } from "./wui-list-item-TkVWDC_E.js";
+import { t as CaipNetworksUtil } from "./CaipNetworkUtil-BLZ6QQPx.js";
 var __decorate$28 = function(decorators, target, key, desc) {
 	var c$2 = arguments.length, r$3 = c$2 < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d$1;
 	if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r$3 = Reflect.decorate(decorators, target, key, desc);

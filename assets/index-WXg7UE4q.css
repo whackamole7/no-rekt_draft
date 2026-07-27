@@ -1409,7 +1409,6 @@
   margin-bottom: 15px;
 }
 .ProtectionModal__chart {
-  position: relative;
   height: 350px;
   grid-column: 1/2;
   grid-row: 2/3;
@@ -1418,24 +1417,12 @@
   border-radius: 20px;
   padding: 0;
 }
-.ProtectionModal__chart .Spinner {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
 .ProtectionModal__chart .LiqPriceChart {
   height: 100%;
   background-color: transparent;
   border: none;
   border-radius: 0;
   padding: 0;
-}
-.ProtectionModal__chart .Muted {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
 }
 .ProtectionModal__body {
   grid-column: 2/3;

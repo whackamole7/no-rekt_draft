@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-D90GqTFv.js","assets/secp256k1-C9Qyws6m.js","assets/esm-DdTrKa2I.js","assets/dist-BmMTIs6g.js","assets/dist-D39bhpY0.js","assets/dist-BhHDhVI4.js","assets/index.es-xAH2djEo.js","assets/alchemy-provider-2577f5a5-JGEdhqkb.js","assets/alchemy-provider-2577f5a5-DI_rV95N.js","assets/alchemy-websocket-provider-ee041890-CQapyFsL.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-EtU_9b8a.js","assets/secp256k1-D8ssd4b1.js","assets/esm--XLLuuMS.js","assets/dist-CxcY89MN.js","assets/dist-5_mV0axn.js","assets/dist-DU2xI7oN.js","assets/index.es-CFUxXm3l.js","assets/alchemy-provider-2577f5a5-DZFZX9So.js","assets/alchemy-provider-2577f5a5-B1qZ0GNH.js","assets/alchemy-websocket-provider-ee041890-62q7I8pk.js"])))=>i.map(i=>d[i]);
 var __create = Object.create;
 var __defProp$1 = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -16953,7 +16953,7 @@ async function call$2(client, args) {
 	} catch (err) {
 		const data$1 = getRevertErrorData(err);
 		const { offchainLookup, offchainLookupSignature } = await __vitePreload(async () => {
-			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-BP06iKKE.js");
+			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-DX_xZSAR.js");
 			return {
 				offchainLookup: offchainLookup$1,
 				offchainLookupSignature: offchainLookupSignature$1
@@ -17454,7 +17454,7 @@ function publicKeyToAddress(publicKey) {
 async function recoverPublicKey({ hash: hash$3, signature }) {
 	const hashHex = isHex(hash$3) ? hash$3 : toHex$2(hash$3);
 	const { secp256k1: secp256k1$1 } = await __vitePreload(async () => {
-		const { secp256k1: secp256k1$2 } = await import("./secp256k1-D90GqTFv.js");
+		const { secp256k1: secp256k1$2 } = await import("./secp256k1-EtU_9b8a.js");
 		return { secp256k1: secp256k1$2 };
 	}, __vite__mapDeps([0,1]));
 	return `0x${(() => {
@@ -23304,7 +23304,7 @@ function safe(parameters = {}) {
 			if (!provider_) {
 				const { default: SDK } = await (() => {
 					try {
-						return __vitePreload(() => import("./esm-DdTrKa2I.js"), __vite__mapDeps([2,3]));
+						return __vitePreload(() => import("./esm--XLLuuMS.js"), __vite__mapDeps([2,3]));
 					} catch {
 						throw new Error("dependency \"@safe-global/safe-apps-sdk\" not found");
 					}
@@ -23315,7 +23315,7 @@ function safe(parameters = {}) {
 				provider_ = new (await ((async () => {
 					const Provider$1 = await (() => {
 						try {
-							return __vitePreload(() => import("./dist-D39bhpY0.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
+							return __vitePreload(() => import("./dist-5_mV0axn.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
 						} catch {
 							throw new Error("dependency \"@safe-global/safe-apps-provider\" not found");
 						}
@@ -23480,7 +23480,7 @@ function walletConnect(parameters) {
 				if (!optionalChains.length) return;
 				const { EthereumProvider: EthereumProvider$1 } = await (() => {
 					try {
-						return __vitePreload(() => import("./dist-BhHDhVI4.js"), __vite__mapDeps([5,6,1]));
+						return __vitePreload(() => import("./dist-DU2xI7oN.js"), __vite__mapDeps([5,6,1]));
 					} catch {
 						throw new Error("dependency \"@walletconnect/ethereum-provider\" not found");
 					}
@@ -84241,14 +84241,14 @@ var AlchemyConfig = class {
 	}
 	getProvider() {
 		if (!this._baseAlchemyProvider) this._baseAlchemyProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-JGEdhqkb.js"), __vite__mapDeps([7,8]));
+			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-DZFZX9So.js"), __vite__mapDeps([7,8]));
 			return new AlchemyProvider$1(this);
 		}))();
 		return this._baseAlchemyProvider;
 	}
 	getWebSocketProvider() {
 		if (!this._baseAlchemyWssProvider) this._baseAlchemyWssProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-CQapyFsL.js"), __vite__mapDeps([9,8]));
+			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-62q7I8pk.js"), __vite__mapDeps([9,8]));
 			return new AlchemyWebSocketProvider(this);
 		}))();
 		return this._baseAlchemyWssProvider;
@@ -90849,11 +90849,12 @@ var queryTransferEvent = async (contracts$1, optionId) => {
 	return events[0];
 };
 var useHegicOptions_default = useHegicOptions;
-var useLiqPrice = (estBalance = void 0, estDebt = void 0, estOptions = void 0) => {
+var useLiqPrice = (estBalance = void 0, estDebt = void 0, estOptions = void 0, isLoading = false) => {
 	const account = useAccount_default();
 	const curOptions = useHegicOptions_default();
 	return (0, import_react.useMemo)(() => {
-		const { isLoading, hasError } = getIsLoadingAndErrorForMultiple(account, curOptions);
+		const { isLoading: isAccountLoading, hasError } = getIsLoadingAndErrorForMultiple(account, curOptions);
+		isLoading = isLoading || isAccountLoading;
 		if (isLoading) return;
 		if (hasError) return null;
 		const balance = estBalance ?? account.balance;
@@ -90872,11 +90873,12 @@ const useCurLiqPrice = () => {
 	return useLiqPrice();
 };
 var useLiqPrice_default = useLiqPrice;
-var LiqPriceChange = ({ estBalance = void 0, estDebt = void 0, estOptions = void 0 }) => {
+var LiqPriceChange = ({ estBalance = void 0, estDebt = void 0, estOptions = void 0, isLoading = false }) => {
 	const liqPrice = useCurLiqPrice();
 	const _estLiqPrice = useLiqPrice_default(estBalance, estDebt, estOptions);
 	const estLiqPrice = isEveryInsufficient(estBalance, estDebt, estOptions) ? null : _estLiqPrice;
-	const { isLoading, hasError } = getIsLoadingAndError(liqPrice);
+	const { isLoading: isLiqPriceLoading, hasError } = getIsLoadingAndError(liqPrice);
+	isLoading = isLoading || isLiqPriceLoading;
 	if (isLoading) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Spinner_default, {});
 	if (hasError) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, { children: "Error" });
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
@@ -109885,15 +109887,16 @@ var ye = (0, import_react.forwardRef)((function(e$13, o$8) {
 	});
 }));
 var formatAssetPriceStr = (str) => formatDollarStr(bigIntFromString(str));
-var LiqPriceChart = ({ estOptions = void 0, isSmall = false }) => {
+var LiqPriceChart = ({ estOptions = void 0, estBalance = void 0, isLoading = false, isSmall = false }) => {
 	const account = useAccount_default();
 	const assetPrice = useAssetPrice();
 	const _curLiqPrice = useCurLiqPrice();
 	const curLiqPrice = account?.debt ? _curLiqPrice : void 0;
-	const _estLiqPrice = useLiqPrice_default(void 0, void 0, estOptions);
+	const _estLiqPrice = useLiqPrice_default(estBalance, void 0, estOptions);
 	const estLiqPrice = estOptions ? _estLiqPrice : isUndefined(estOptions) ? void 0 : null;
 	const isMobile$1 = useIsMobile_default(1200);
-	const { isLoading, hasError } = getIsLoadingAndErrorForMultiple(assetPrice, _curLiqPrice);
+	const { isLoading: arePricesLoading, hasError } = getIsLoadingAndErrorForMultiple(assetPrice, _curLiqPrice);
+	isLoading = isLoading || arePricesLoading;
 	if (isLoading) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 		className: "LiqPriceChart box",
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SpinnerBig_default, {})
@@ -112193,13 +112196,17 @@ var ProtectionModal = ({ isOpen, setIsOpen }) => {
 var BuyStep = ({ chosenLiqPrice, setChosenLiqPrice, period, setPeriod, cost, setCost, paymentMethod, setPaymentMethod, isSubmitting, setIsSubmitting, goForth }) => {
 	const contracts$1 = useContracts_default();
 	const account = useAccount_default();
+	const options$2 = useHegicOptions_default();
 	const { OneClickOptions } = contracts$1?.view ?? {};
 	const [type, setType] = (0, import_react.useState)(Types.OPTION);
-	const isOption = type === Types.OPTION;
-	const isWallet = paymentMethod === PaymentMethods.WALLET;
 	const [isApproved, setIsApproved] = (0, import_react.useState)(void 0);
 	const [estLtv, setEstLtv] = (0, import_react.useState)(null);
+	const [estCollateral, setEstCollateral] = (0, import_react.useState)(null);
+	const [estOptions, setEstOptions] = (0, import_react.useState)(null);
 	const strike = useHegicStrike_default(period, chosenLiqPrice);
+	const isOption = type === Types.OPTION;
+	const [isCollateral, isWallet] = [paymentMethod === PaymentMethods.COLLATERAL, paymentMethod === PaymentMethods.WALLET];
+	const { isLoading: isLiqPriceLoading } = getIsLoadingAndErrorForMultiple(estCollateral, estOptions, cost);
 	const Approver = useApprover_default(OneClickOptions?.address, "USDC", setIsApproved);
 	(0, import_react.useEffect)(() => {
 		if (!isWallet) return;
@@ -112210,6 +112217,18 @@ var BuyStep = ({ chosenLiqPrice, setChosenLiqPrice, period, setPeriod, cost, set
 		if (isWallet && cost) Approver.update(cost);
 		else setIsApproved(void 0);
 	}, [paymentMethod]);
+	(0, import_react.useEffect)(() => {
+		const { isLoading } = getIsLoadingAndError(options$2);
+		if (isLoading) {
+			setEstOptions(void 0);
+			return;
+		}
+		if (!options$2 || !strike) {
+			setEstOptions(null);
+			return;
+		}
+		setEstOptions([...options$2, strike]);
+	}, [strike, options$2]);
 	const getError = () => {
 		if (!isSufficient(chosenLiqPrice)) return "Choose Liq.Price";
 		if (!period) return "Choose period";
@@ -112250,7 +112269,10 @@ var BuyStep = ({ chosenLiqPrice, setChosenLiqPrice, period, setPeriod, cost, set
 		className: "ProtectionModal__buy",
 		children: [
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { children: "Buy Protection" }),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Chart, { estOption: strike }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Chart, {
+				estOptions,
+				estCollateral
+			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 				className: "ProtectionModal__body",
 				children: [
@@ -112270,13 +112292,20 @@ var BuyStep = ({ chosenLiqPrice, setChosenLiqPrice, period, setPeriod, cost, set
 						method: paymentMethod,
 						setMethod: setPaymentMethod
 					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ModalMetrics, {
+					isCollateral && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CollateralTip, {
 						chosenLiqPrice,
+						estCollateral,
+						estOptions
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ModalMetrics, {
 						cost,
 						paymentMethod,
+						estOptions,
+						estCollateral,
+						setEstCollateral,
 						estLtv,
 						setEstLtv,
-						estOption: strike
+						isLiqPriceLoading
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TxModal_default.Button, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
 						type: isWallet && isApproved === false ? "green" : "primary",
@@ -112358,17 +112387,17 @@ var ReviewStep = ({ period, cost, isSubmitting, handleClick, goBack }) => {
 		]
 	});
 };
-var Chart = ({ estOption }) => {
-	const options$2 = useHegicOptions_default();
-	const { isLoading } = getIsLoadingAndError(options$2);
+var Chart = ({ estOptions, estCollateral }) => {
 	const [isModalOpening, setIsModalOpening] = (0, import_react.useState)(true);
 	(0, import_react.useEffect)(() => {
 		setTimeout(() => setIsModalOpening(false), 300);
 	}, []);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 		className: "ProtectionModal__chart",
-		children: isLoading || isModalOpening ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Spinner_default, {}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceChart_default, {
-			estOptions: estOption ? [...options$2, estOption] : null,
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceChart_default, {
+			estBalance: estCollateral,
+			estOptions,
+			isLoading: isModalOpening,
 			isSmall: true
 		})
 	});
@@ -112513,21 +112542,11 @@ var CollateralTip = ({ chosenLiqPrice, estCollateral, estOptions }) => {
 		children: getText(liqPrice, chosenLiqPrice)
 	});
 };
-var ModalMetrics = ({ chosenLiqPrice, cost, paymentMethod, estLtv, setEstLtv, estOption }) => {
+var ModalMetrics = ({ cost, paymentMethod, estCollateral, setEstCollateral, estOptions, estLtv, setEstLtv, isLiqPriceLoading }) => {
 	const account = useAccount_default();
 	const contracts$1 = useContracts_default();
-	const options$2 = useHegicOptions_default();
 	const slippage = useSlippage();
-	const [estCollateral, setEstCollateral] = (0, import_react.useState)(null);
-	const [estOptions, setEstOptions] = (0, import_react.useState)(null);
 	const isCollateral = paymentMethod === PaymentMethods.COLLATERAL;
-	(0, import_react.useEffect)(() => {
-		if (!options$2 || !estOption) {
-			setEstOptions(null);
-			return;
-		}
-		setEstOptions([...options$2, estOption]);
-	}, [estOption, options$2]);
 	const updateEstCollateral = async () => {
 		setEstCollateral(void 0);
 		const collateralPaid = await swapUsdcToEth(contracts$1, cost, slippage);
@@ -112538,91 +112557,85 @@ var ModalMetrics = ({ chosenLiqPrice, cost, paymentMethod, estLtv, setEstLtv, es
 		setEstLtv(await Ltv_default.queryLtvAfterProtect(account, cost, paymentMethod));
 	};
 	(0, import_react.useEffect)(() => {
+		const { isLoading } = getIsLoadingAndError(cost);
 		if (!account || !cost) {
-			setEstCollateral(null);
-			setEstLtv(null);
+			setEstCollateral(isLoading ? void 0 : null);
+			setEstLtv(isLoading ? void 0 : null);
 			return;
 		}
 		updateEstCollateral();
 		updateEstLtv();
 	}, [cost]);
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
-		isCollateral && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CollateralTip, {
-			chosenLiqPrice,
-			estCollateral,
-			estOptions
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Metrics_default, { children: [
+		isCollateral && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "Metrics__row",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "Metrics__row-title",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CollateralStr_default, {})
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "Metrics__row-value",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmountChange_default, {
+					curAmount: account?.balance,
+					estAmount: estCollateral,
+					symbol: "ETH"
+				})
+			})]
 		}),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Metrics_default, { children: [
-			isCollateral && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "Metrics__row",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "Metrics__row-title",
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CollateralStr_default, {})
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "Metrics__row-value",
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmountChange_default, {
-						curAmount: account?.balance,
-						estAmount: estCollateral,
-						symbol: "ETH"
-					})
-				})]
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "Metrics__row",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "Metrics__row-title",
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Tip_default, {
-						tooltipId: "ProtectionModal_liq-price-tooltip",
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceChange_default.Title, {})
-					})
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "Metrics__row-value",
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceChange_default, {
-						estBalance: isCollateral ? estCollateral : void 0,
-						estOptions
-					})
-				})]
-			}),
-			isCollateral && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "Metrics__row",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "Metrics__row-title",
-					children: "LtV Change"
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "Metrics__row-value",
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LtvChange_default, { estLtv })
-				})]
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "Metrics__row",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "Metrics__row-title",
-					children: "Total Cost of Protection"
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "Metrics__row-value",
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmount_default, { value: cost })
-				})]
-			}),
-			isCollateral && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "Metrics__row",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "Metrics__row-title",
-					children: "Slippage Control"
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "Metrics__row-value",
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Slippage_default, {})
-				})]
-			})
-		] }),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Tooltip_default, {
-			id: "ProtectionModal_liq-price-tooltip",
-			children: [
-				"If your collateral’s price drops to this level, ",
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
-				"it will be automatically sold to repay your debt. Buying protection can lower this price or remove it entirely"
-			]
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "Metrics__row",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "Metrics__row-title",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Tip_default, {
+					tooltipId: "ProtectionModal_liq-price-tooltip",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceChange_default.Title, {})
+				})
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "Metrics__row-value",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceChange_default, {
+					estBalance: isCollateral ? estCollateral : null,
+					estOptions,
+					isLoading: isLiqPriceLoading
+				})
+			})]
+		}),
+		isCollateral && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "Metrics__row",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "Metrics__row-title",
+				children: "LtV Change"
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "Metrics__row-value",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LtvChange_default, { estLtv })
+			})]
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "Metrics__row",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "Metrics__row-title",
+				children: "Total Cost of Protection"
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "Metrics__row-value",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmount_default, { value: cost })
+			})]
+		}),
+		isCollateral && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "Metrics__row",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "Metrics__row-title",
+				children: "Slippage Control"
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "Metrics__row-value",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Slippage_default, {})
+			})]
 		})
-	] });
+	] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Tooltip_default, {
+		id: "ProtectionModal_liq-price-tooltip",
+		children: [
+			"If your collateral’s price drops to this level, ",
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
+			"it will be automatically sold to repay your debt. Buying protection can lower this price or remove it entirely"
+		]
+	})] });
 };
 var ProtectionModal_default = ProtectionModal;
 var ClaimModal = ({ isOpen, setIsOpen, position: position$1, setPosition }) => {
