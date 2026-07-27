@@ -1,13 +1,13 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/features-lWyq12_-.js","assets/secp256k1-BLJYvsMx.js","assets/index-CCMZfQB0.js","assets/index-YtCr_wS8.css","assets/ApiController-DNYfYiu-.js","assets/ccip-z27ll_x5.js","assets/_esm-CycyiF5l.js","assets/basic-CMFNXzT1.js","assets/HelpersUtil-B2cVKr8e.js","assets/wui-list-item-DlSBtMBP.js","assets/CaipNetworkUtil-B7jTgIs2.js","assets/w3m-modal-DsUmmJDi.js","assets/index.es-CVi7BUAt.js","assets/AlertController-e878YVSu.js"])))=>i.map(i=>d[i]);
-import "./_esm-CycyiF5l.js";
-import "./secp256k1-BLJYvsMx.js";
-import { I as Ge, R as Ue, b as esm_default } from "./index.es-CVi7BUAt.js";
-import { tt as __vitePreload } from "./index-CCMZfQB0.js";
-import { C as SnackController, F as ONRAMP_PROVIDERS, I as subscribeKey, J as ConstantsUtil, L as proxy, M as StorageUtil, N as ConstantsUtil$1, O as withErrorBoundary, P as MELD_PUBLIC_KEY, R as subscribe, S as BlockchainApiController, T as AssetUtil, U as UserRejectedRequestError, V as isSafe, W as ParseUtil, _ as PublicStateController, a as ProviderController, b as ConnectorUtil, c as ConnectionController, g as ModalController, h as ThemeController, j as CoreHelperUtil, k as OptionsController, l as ConnectionControllerUtil, m as ConnectorController, n as ChainController, o as AdapterController, p as getPreferredAccountType, q as NetworkUtil, r as SendController, t as ApiController, v as EventsController, x as WalletUtil, y as RouterController } from "./ApiController-DNYfYiu-.js";
-import "./ccip-z27ll_x5.js";
-import { c as setColorTheme, l as setThemeVariables, n as ConstantsUtil$2, t as HelpersUtil } from "./HelpersUtil-B2cVKr8e.js";
-import { n as SIWXUtil, r as N, t as AlertController } from "./AlertController-e878YVSu.js";
-import { t as CaipNetworksUtil } from "./CaipNetworkUtil-B7jTgIs2.js";
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/features-C2G8b60U.js","assets/secp256k1-B7b9P3_s.js","assets/index-CuR1lcRi.js","assets/index-YtCr_wS8.css","assets/ApiController-DOw1Et3h.js","assets/ccip-CdNlIYR9.js","assets/_esm-C4rb1Xb_.js","assets/basic-Cn3IqIgg.js","assets/HelpersUtil-Biq_4DOj.js","assets/wui-list-item-BeOqMcsQ.js","assets/CaipNetworkUtil-BlvxLFim.js","assets/w3m-modal-DS5O_0Ni.js","assets/index.es-K4l64sQL.js","assets/AlertController-BakUXUKH.js"])))=>i.map(i=>d[i]);
+import "./_esm-C4rb1Xb_.js";
+import "./secp256k1-B7b9P3_s.js";
+import { I as Ge, R as Ue, b as esm_default } from "./index.es-K4l64sQL.js";
+import { tt as __vitePreload } from "./index-CuR1lcRi.js";
+import { C as SnackController, F as ONRAMP_PROVIDERS, I as subscribeKey, J as ConstantsUtil, L as proxy, M as StorageUtil, N as ConstantsUtil$1, O as withErrorBoundary, P as MELD_PUBLIC_KEY, R as subscribe, S as BlockchainApiController, T as AssetUtil, U as UserRejectedRequestError, V as isSafe, W as ParseUtil, _ as PublicStateController, a as ProviderController, b as ConnectorUtil, c as ConnectionController, g as ModalController, h as ThemeController, j as CoreHelperUtil, k as OptionsController, l as ConnectionControllerUtil, m as ConnectorController, n as ChainController, o as AdapterController, p as getPreferredAccountType, q as NetworkUtil, r as SendController, t as ApiController, v as EventsController, x as WalletUtil, y as RouterController } from "./ApiController-DOw1Et3h.js";
+import "./ccip-CdNlIYR9.js";
+import { c as setColorTheme, l as setThemeVariables, n as ConstantsUtil$2, t as HelpersUtil } from "./HelpersUtil-Biq_4DOj.js";
+import { n as SIWXUtil, r as N, t as AlertController } from "./AlertController-BakUXUKH.js";
+import { t as CaipNetworksUtil } from "./CaipNetworkUtil-BlvxLFim.js";
 const USDC_CURRENCY_DEFAULT = {
 	id: "2b92315d-eab7-5bef-84fa-089a131333f5",
 	name: "USD Coin",
@@ -1755,7 +1755,7 @@ var AppKitBaseClient = class {
 		if (OptionsController.state.remoteFeatures?.email || Array.isArray(OptionsController.state.remoteFeatures?.socials) && OptionsController.state.remoteFeatures?.socials.length > 0) await this.checkAllowedOrigins();
 		if (OptionsController.state.features?.reownAuthentication || OptionsController.state.remoteFeatures?.reownAuthentication) {
 			const { ReownAuthentication } = await __vitePreload(async () => {
-				const { ReownAuthentication: ReownAuthentication$1 } = await import("./features-lWyq12_-.js");
+				const { ReownAuthentication: ReownAuthentication$1 } = await import("./features-C2G8b60U.js");
 				return { ReownAuthentication: ReownAuthentication$1 };
 			}, __vite__mapDeps([0,1,2,3,4,5,6]));
 			const currentSIWX = OptionsController.state.siwx;
@@ -3118,8 +3118,8 @@ var AppKit = class extends AppKitBaseClient {
 	}
 	async injectModalUi() {
 		if (!isInitialized && CoreHelperUtil.isClient()) {
-			await __vitePreload(() => import("./basic-CMFNXzT1.js"), __vite__mapDeps([7,2,3,8,4,5,9,1,6,10]));
-			await __vitePreload(() => import("./w3m-modal-DsUmmJDi.js"), __vite__mapDeps([11,8,4,2,3,5,9,12,1,13,6]));
+			await __vitePreload(() => import("./basic-Cn3IqIgg.js"), __vite__mapDeps([7,2,3,8,4,5,9,1,6,10]));
+			await __vitePreload(() => import("./w3m-modal-DS5O_0Ni.js"), __vite__mapDeps([11,8,4,2,3,5,9,12,1,13,6]));
 			if (!document.querySelector("w3m-modal")) {
 				const modal = document.createElement("w3m-modal");
 				if (!OptionsController.state.disableAppend && !OptionsController.state.enableEmbedded) document.body.insertAdjacentElement("beforeend", modal);
