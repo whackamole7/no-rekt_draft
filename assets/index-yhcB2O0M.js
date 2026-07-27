@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-EtU_9b8a.js","assets/secp256k1-D8ssd4b1.js","assets/esm--XLLuuMS.js","assets/dist-CxcY89MN.js","assets/dist-5_mV0axn.js","assets/dist-DU2xI7oN.js","assets/index.es-CFUxXm3l.js","assets/alchemy-provider-2577f5a5-DZFZX9So.js","assets/alchemy-provider-2577f5a5-B1qZ0GNH.js","assets/alchemy-websocket-provider-ee041890-62q7I8pk.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-CJTbRTFW.js","assets/secp256k1-B5wVl2Kv.js","assets/esm-Co5ZlCOL.js","assets/dist-1yy8kIH0.js","assets/dist-Js8Ke09F.js","assets/dist-BQYAofJE.js","assets/index.es-BLOqYW3s.js","assets/alchemy-provider-2577f5a5-twoBC-3B.js","assets/alchemy-provider-2577f5a5-ChzN0XcS.js","assets/alchemy-websocket-provider-ee041890-8KFRU6Nd.js"])))=>i.map(i=>d[i]);
 var __create = Object.create;
 var __defProp$1 = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -16953,7 +16953,7 @@ async function call$2(client, args) {
 	} catch (err) {
 		const data$1 = getRevertErrorData(err);
 		const { offchainLookup, offchainLookupSignature } = await __vitePreload(async () => {
-			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-DX_xZSAR.js");
+			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-CrfT-lZY.js");
 			return {
 				offchainLookup: offchainLookup$1,
 				offchainLookupSignature: offchainLookupSignature$1
@@ -17454,7 +17454,7 @@ function publicKeyToAddress(publicKey) {
 async function recoverPublicKey({ hash: hash$3, signature }) {
 	const hashHex = isHex(hash$3) ? hash$3 : toHex$2(hash$3);
 	const { secp256k1: secp256k1$1 } = await __vitePreload(async () => {
-		const { secp256k1: secp256k1$2 } = await import("./secp256k1-EtU_9b8a.js");
+		const { secp256k1: secp256k1$2 } = await import("./secp256k1-CJTbRTFW.js");
 		return { secp256k1: secp256k1$2 };
 	}, __vite__mapDeps([0,1]));
 	return `0x${(() => {
@@ -23304,7 +23304,7 @@ function safe(parameters = {}) {
 			if (!provider_) {
 				const { default: SDK } = await (() => {
 					try {
-						return __vitePreload(() => import("./esm--XLLuuMS.js"), __vite__mapDeps([2,3]));
+						return __vitePreload(() => import("./esm-Co5ZlCOL.js"), __vite__mapDeps([2,3]));
 					} catch {
 						throw new Error("dependency \"@safe-global/safe-apps-sdk\" not found");
 					}
@@ -23315,7 +23315,7 @@ function safe(parameters = {}) {
 				provider_ = new (await ((async () => {
 					const Provider$1 = await (() => {
 						try {
-							return __vitePreload(() => import("./dist-5_mV0axn.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
+							return __vitePreload(() => import("./dist-Js8Ke09F.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
 						} catch {
 							throw new Error("dependency \"@safe-global/safe-apps-provider\" not found");
 						}
@@ -23480,7 +23480,7 @@ function walletConnect(parameters) {
 				if (!optionalChains.length) return;
 				const { EthereumProvider: EthereumProvider$1 } = await (() => {
 					try {
-						return __vitePreload(() => import("./dist-DU2xI7oN.js"), __vite__mapDeps([5,6,1]));
+						return __vitePreload(() => import("./dist-BQYAofJE.js"), __vite__mapDeps([5,6,1]));
 					} catch {
 						throw new Error("dependency \"@walletconnect/ethereum-provider\" not found");
 					}
@@ -84241,14 +84241,14 @@ var AlchemyConfig = class {
 	}
 	getProvider() {
 		if (!this._baseAlchemyProvider) this._baseAlchemyProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-DZFZX9So.js"), __vite__mapDeps([7,8]));
+			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-twoBC-3B.js"), __vite__mapDeps([7,8]));
 			return new AlchemyProvider$1(this);
 		}))();
 		return this._baseAlchemyProvider;
 	}
 	getWebSocketProvider() {
 		if (!this._baseAlchemyWssProvider) this._baseAlchemyWssProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-62q7I8pk.js"), __vite__mapDeps([9,8]));
+			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-8KFRU6Nd.js"), __vite__mapDeps([9,8]));
 			return new AlchemyWebSocketProvider(this);
 		}))();
 		return this._baseAlchemyWssProvider;
@@ -112271,7 +112271,8 @@ var BuyStep = ({ chosenLiqPrice, setChosenLiqPrice, period, setPeriod, cost, set
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { children: "Buy Protection" }),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Chart, {
 				estOptions,
-				estCollateral
+				estCollateral,
+				isLiqPriceLoading
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 				className: "ProtectionModal__body",
@@ -112387,8 +112388,17 @@ var ReviewStep = ({ period, cost, isSubmitting, handleClick, goBack }) => {
 		]
 	});
 };
-var Chart = ({ estOptions, estCollateral }) => {
+var Chart = ({ estOptions, estCollateral, isLiqPriceLoading }) => {
+	const [_estOptions, _setEstOptions] = (0, import_react.useState)(estOptions);
+	const [_estCollateral, _setEstCollateral] = (0, import_react.useState)(estCollateral);
 	const [isModalOpening, setIsModalOpening] = (0, import_react.useState)(true);
+	(0, import_react.useEffect)(() => {
+		if (!isLiqPriceLoading) {
+			console.log("tick");
+			_setEstCollateral(estCollateral);
+			_setEstOptions(estOptions);
+		}
+	}, [isLiqPriceLoading]);
 	(0, import_react.useEffect)(() => {
 		setTimeout(() => setIsModalOpening(false), 300);
 	}, []);
@@ -112396,7 +112406,7 @@ var Chart = ({ estOptions, estCollateral }) => {
 		className: "ProtectionModal__chart",
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceChart_default, {
 			estBalance: estCollateral,
-			estOptions,
+			estOptions: _estOptions,
 			isLoading: isModalOpening,
 			isSmall: true
 		})
