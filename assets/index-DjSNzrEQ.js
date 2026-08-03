@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-9_SCFaTm.js","assets/secp256k1-rm5R4AY8.js","assets/esm--RC2SXyo.js","assets/dist-DbfOLKkT.js","assets/dist-B_aqWvGa.js","assets/dist-BkYck4yq.js","assets/index.es-GQePCV_z.js","assets/alchemy-provider-2577f5a5-BT_BnpdH.js","assets/alchemy-provider-2577f5a5-CJ5KvN-9.js","assets/alchemy-websocket-provider-ee041890-DkzSmpex.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-C3jl9CBS.js","assets/secp256k1-CngFZu4d.js","assets/esm-DD1UE76s.js","assets/dist-C6Jo-etk.js","assets/dist-D3MnBGu_.js","assets/dist-CgG5m5k0.js","assets/index.es-Dw2xFpYS.js","assets/alchemy-provider-2577f5a5-BrSD4cBs.js","assets/alchemy-provider-2577f5a5-Cs6ZbeD4.js","assets/alchemy-websocket-provider-ee041890-B-qIB__r.js"])))=>i.map(i=>d[i]);
 var __create = Object.create;
 var __defProp$1 = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -16953,7 +16953,7 @@ async function call$2(client, args) {
 	} catch (err) {
 		const data$1 = getRevertErrorData(err);
 		const { offchainLookup, offchainLookupSignature } = await __vitePreload(async () => {
-			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-CsdziadR.js");
+			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-47SDwu_s.js");
 			return {
 				offchainLookup: offchainLookup$1,
 				offchainLookupSignature: offchainLookupSignature$1
@@ -17454,7 +17454,7 @@ function publicKeyToAddress(publicKey) {
 async function recoverPublicKey({ hash: hash$3, signature }) {
 	const hashHex = isHex(hash$3) ? hash$3 : toHex$2(hash$3);
 	const { secp256k1: secp256k1$1 } = await __vitePreload(async () => {
-		const { secp256k1: secp256k1$2 } = await import("./secp256k1-9_SCFaTm.js");
+		const { secp256k1: secp256k1$2 } = await import("./secp256k1-C3jl9CBS.js");
 		return { secp256k1: secp256k1$2 };
 	}, __vite__mapDeps([0,1]));
 	return `0x${(() => {
@@ -22692,7 +22692,7 @@ var require_with_selector_production = /* @__PURE__ */ __commonJSMin(((exports) 
 	function is$3(x$9, y$10) {
 		return x$9 === y$10 && (0 !== x$9 || 1 / x$9 === 1 / y$10) || x$9 !== x$9 && y$10 !== y$10;
 	}
-	var objectIs$1 = "function" === typeof Object.is ? Object.is : is$3, useSyncExternalStore$6 = shim$1.useSyncExternalStore, useRef$24 = React$8.useRef, useEffect$44 = React$8.useEffect, useMemo$25 = React$8.useMemo, useDebugValue$2 = React$8.useDebugValue;
+	var objectIs$1 = "function" === typeof Object.is ? Object.is : is$3, useSyncExternalStore$6 = shim$1.useSyncExternalStore, useRef$24 = React$8.useRef, useEffect$44 = React$8.useEffect, useMemo$26 = React$8.useMemo, useDebugValue$2 = React$8.useDebugValue;
 	exports.useSyncExternalStoreWithSelector = function(subscribe$1, getSnapshot, getServerSnapshot, selector, isEqual$4) {
 		var instRef = useRef$24(null);
 		if (null === instRef.current) {
@@ -22702,7 +22702,7 @@ var require_with_selector_production = /* @__PURE__ */ __commonJSMin(((exports) 
 			};
 			instRef.current = inst;
 		} else inst = instRef.current;
-		instRef = useMemo$25(function() {
+		instRef = useMemo$26(function() {
 			function memoizedSelector(nextSnapshot) {
 				if (!hasMemo) {
 					hasMemo = !0;
@@ -23304,7 +23304,7 @@ function safe(parameters = {}) {
 			if (!provider_) {
 				const { default: SDK } = await (() => {
 					try {
-						return __vitePreload(() => import("./esm--RC2SXyo.js"), __vite__mapDeps([2,3]));
+						return __vitePreload(() => import("./esm-DD1UE76s.js"), __vite__mapDeps([2,3]));
 					} catch {
 						throw new Error("dependency \"@safe-global/safe-apps-sdk\" not found");
 					}
@@ -23315,7 +23315,7 @@ function safe(parameters = {}) {
 				provider_ = new (await ((async () => {
 					const Provider$1 = await (() => {
 						try {
-							return __vitePreload(() => import("./dist-B_aqWvGa.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
+							return __vitePreload(() => import("./dist-D3MnBGu_.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
 						} catch {
 							throw new Error("dependency \"@safe-global/safe-apps-provider\" not found");
 						}
@@ -23480,7 +23480,7 @@ function walletConnect(parameters) {
 				if (!optionalChains.length) return;
 				const { EthereumProvider: EthereumProvider$1 } = await (() => {
 					try {
-						return __vitePreload(() => import("./dist-BkYck4yq.js"), __vite__mapDeps([5,6,1]));
+						return __vitePreload(() => import("./dist-CgG5m5k0.js"), __vite__mapDeps([5,6,1]));
 					} catch {
 						throw new Error("dependency \"@walletconnect/ethereum-provider\" not found");
 					}
@@ -84472,14 +84472,14 @@ var AlchemyConfig = class {
 	}
 	getProvider() {
 		if (!this._baseAlchemyProvider) this._baseAlchemyProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-BT_BnpdH.js"), __vite__mapDeps([7,8]));
+			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-BrSD4cBs.js"), __vite__mapDeps([7,8]));
 			return new AlchemyProvider$1(this);
 		}))();
 		return this._baseAlchemyProvider;
 	}
 	getWebSocketProvider() {
 		if (!this._baseAlchemyWssProvider) this._baseAlchemyWssProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-DkzSmpex.js"), __vite__mapDeps([9,8]));
+			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-B-qIB__r.js"), __vite__mapDeps([9,8]));
 			return new AlchemyWebSocketProvider(this);
 		}))();
 		return this._baseAlchemyWssProvider;
@@ -109875,7 +109875,8 @@ var ye = (0, import_react.forwardRef)((function(e$14, o$9) {
 	"defaultHeight",
 	"onResize",
 	"debounceResize"
-], Me = (0, import_react.forwardRef)((function(e$14, o$9) {
+];
+(0, import_react.forwardRef)((function(e$14, o$9) {
 	var i$13 = e$14.defaultWidth, n$13 = e$14.defaultHeight, t$11 = e$14.onResize, r$14 = e$14.debounceResize, a$8 = _$2(e$14, xe);
 	return (0, import_jsx_runtime.jsx)($r, {
 		defaultWidth: i$13,
@@ -109890,7 +109891,8 @@ var ye = (0, import_react.forwardRef)((function(e$14, o$9) {
 			}, a$8, { ref: o$9 }));
 		}
 	});
-})), Ce = [
+}));
+var Ce = [
 	"isInteractive",
 	"renderWrapper",
 	"theme"
@@ -110139,161 +110141,6 @@ var ye = (0, import_react.forwardRef)((function(e$14, o$9) {
 		}
 	});
 }));
-var formatAssetPriceStr = (str) => formatDollarStr(bigIntFromString(str));
-var LiqPriceChart = ({ estOptions = void 0, estBalance = void 0, isLoading = false, isSmall = false }) => {
-	const account = useAccount_default();
-	const assetPrice = useAssetPrice();
-	const _curLiqPrice = useCurLiqPrice();
-	const curLiqPrice = account?.debt ? _curLiqPrice : void 0;
-	const _estLiqPrice = useLiqPrice_default(estBalance, void 0, estOptions);
-	const estLiqPrice = estOptions ? _estLiqPrice : isUndefined(estOptions) ? void 0 : null;
-	const isMobile$1 = useIsMobile_default(1200);
-	const { isLoading: arePricesLoading, hasError } = getIsLoadingAndErrorForMultiple(assetPrice, _curLiqPrice);
-	isLoading = isLoading || arePricesLoading;
-	if (isLoading) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: "LiqPriceChart box",
-		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SpinnerBig_default, {})
-	});
-	if (hasError) return null;
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: "LiqPriceChart box",
-		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Me, {
-			data: getLineData(assetPrice, isSmall),
-			enableGridX: false,
-			enableGridY: false,
-			pointSize: 0,
-			lineWidth: 0,
-			curve: "linear",
-			animate: false,
-			enableTouchCrosshair: true,
-			useMesh: true,
-			markers: getMarkers(assetPrice, curLiqPrice, estLiqPrice, isSmall),
-			tooltip: _Tooltip,
-			xScale: {
-				min: "auto",
-				max: "auto",
-				type: "linear",
-				round: false
-			},
-			yScale: {
-				min: 0,
-				max: "auto",
-				type: "linear",
-				round: false
-			},
-			axisBottom: {
-				tickSize: 0,
-				tickValues: 0
-			},
-			axisLeft: {
-				legend: "Asset price",
-				legendOffset: -80,
-				tickSize: 12,
-				tickPadding: 10,
-				format: formatAssetPriceStr
-			},
-			crosshairType: "top-left",
-			margin: {
-				top: 30,
-				right: isSmall || isMobile$1 ? 30 : 45,
-				bottom: 35,
-				left: isSmall || isMobile$1 ? 100 : 105
-			},
-			theme: {
-				axis: {
-					ticks: {
-						line: { stroke: Colors.BORDER_COLOR },
-						text: {
-							fontSize: 12,
-							fill: Colors.LGRAY
-						}
-					},
-					legend: { text: {
-						fill: Colors.LGRAY,
-						opacity: .4
-					} },
-					domain: { line: {
-						stroke: Colors.BORDER_COLOR,
-						strokeWidth: 1
-					} }
-				},
-				crosshair: { line: { stroke: Colors.LGRAY } },
-				tooltip: {
-					basic: { color: Colors.WHITE },
-					container: {
-						backgroundColor: Colors.VIOLET_2,
-						borderRadius: 5
-					}
-				}
-			}
-		})
-	});
-};
-var _Tooltip = ({ point: point$5 }) => {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: "LiqPriceChart__tooltip",
-		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "LiqPriceChart__tooltip-line",
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Price:" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: formatAssetPriceStr(point$5.data.y) })]
-		})
-	});
-};
-var getLineData = (curAssetPrice, isChartSmall) => {
-	const step = bigIntFromString(5);
-	const [minPrice, maxPrice] = [0n, curAssetPrice + bigIntFromString(isChartSmall ? 200 : 500)];
-	const data = [];
-	for (let price = minPrice; price <= maxPrice; price += step) {
-		const point$5 = {
-			x: 0,
-			y: stringFromBigInt(price)
-		};
-		data.push(point$5);
-	}
-	return [{
-		id: "main",
-		data
-	}];
-};
-var getMarkers = (assetPrice, curLiqPrice, estLiqPrice, isChartSmall) => {
-	const hasEstLiqPrice = isSufficient(estLiqPrice);
-	const isEstLiqPriceExpected = hasEstLiqPrice || estLiqPrice === null;
-	const markers = [{
-		axis: "y",
-		legend: (isChartSmall ? "" : "Cur.Price: ") + formatDollarStr(assetPrice),
-		legendPosition: isEstLiqPriceExpected ? "top-left" : "top-right",
-		value: Number(stringFromBigInt(assetPrice)),
-		lineStyle: {
-			stroke: "#454061",
-			strokeDasharray: "6 6"
-		},
-		textStyle: {
-			fontSize: 12,
-			fill: Colors.DGRAY
-		}
-	}];
-	[curLiqPrice, estLiqPrice].filter(isSufficient).forEach((liqPrice, i$13) => {
-		const isCurrent = i$13 === 0;
-		const liqPriceMarker = {
-			axis: "y",
-			legend: `${isCurrent ? `${isEstLiqPriceExpected ? "Cur. " : ""}Liq.Price` : "Est. Liq.Price"}: ${formatDollarStr(liqPrice)}`,
-			legendPosition: isEstLiqPriceExpected ? isCurrent ? "top-right" : "bottom-right" : "bottom-right",
-			value: Number(stringFromBigInt(liqPrice)),
-			lineStyle: {
-				stroke: Colors.RED,
-				opacity: hasEstLiqPrice && isCurrent ? .5 : .7,
-				strokeDasharray: "6 6"
-			},
-			textStyle: {
-				fontSize: 12,
-				fill: Colors.RED,
-				opacity: hasEstLiqPrice && isCurrent ? .7 : 1
-			}
-		};
-		markers.push(liqPriceMarker);
-	});
-	return markers;
-};
-var LiqPriceChart_default = LiqPriceChart;
 var hint_default = "data:image/svg+xml,%3csvg%20width='16'%20height='16'%20viewBox='0%200%2016%2016'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3ccircle%20cx='8'%20cy='8'%20r='7'%20fill='%231D1446'/%3e%3cpath%20fill-rule='evenodd'%20clip-rule='evenodd'%20d='M6.31309%206.30533C6.12606%206.30533%205.97459%206.14733%206.00357%205.96067C6.18467%204.82667%207.03815%204%208.51924%204C10.001%204%2011%204.90667%2011%206.14333C11%207.03933%2010.5621%207.66867%209.82119%208.12533C9.09679%208.56467%208.89%208.87067%208.89%209.46533V9.48533C8.89%209.57374%208.85531%209.65852%208.79356%209.72104C8.73181%209.78355%208.64805%209.81867%208.56072%209.81867H8.05364C7.96688%209.81867%207.88362%209.78401%207.82196%209.72222C7.76031%209.66042%207.72523%209.57649%207.72436%209.48867L7.72239%209.35533C7.69407%208.54133%208.03652%208.02133%208.80571%207.54733C9.48401%207.126%209.7257%206.79067%209.7257%206.19533C9.7257%205.54267%209.22652%205.06333%208.45733%205.06333C7.79285%205.06333%207.33121%205.416%207.18106%205.998C7.13759%206.16733%206.99798%206.30533%206.82544%206.30533H6.31309ZM8.30257%2012C8.71219%2012%209.02369%2011.684%209.02369%2011.2733C9.02369%2010.8613%208.71219%2010.5453%208.30257%2010.5453C7.90349%2010.5453%207.58673%2010.8613%207.58673%2011.2727C7.58673%2011.684%207.90349%2012%208.30257%2012Z'%20fill='%239A94B8'/%3e%3c/svg%3e";
 var Tip = ({ tooltipId, tooltipContent = void 0, children }) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
@@ -112374,6000 +112221,6 @@ var Tooltip = ({ children, ...props }) => {
 	});
 };
 var Tooltip_default = Tooltip;
-var import_classnames$11 = /* @__PURE__ */ __toESM(require_classnames(), 1);
-var Types = {
-	OPTION: "option",
-	AUTO_SHORT: "auto-short"
-};
-var ProtectionModal = ({ isOpen, setIsOpen }) => {
-	const [chosenLiqPrice, setChosenLiqPrice] = (0, import_react.useState)(null);
-	const [period, setPeriod] = (0, import_react.useState)(null);
-	const strike = useHegicStrike_default(period, chosenLiqPrice);
-	const [cost, setCost] = (0, import_react.useState)(null);
-	const [paymentMethod, setPaymentMethod] = (0, import_react.useState)(PaymentMethods.COLLATERAL);
-	const slippage = useSlippage();
-	const [step, setStep] = (0, import_react.useState)(0);
-	const [txResult, setTxResult] = (0, import_react.useState)(void 0);
-	const [isSubmitting, setIsSubmitting] = (0, import_react.useState)(false);
-	const { buyProtection } = useProtocolActions_default();
-	const mutateAccount = useAccountMutate();
-	const mutateOptions = useHegicOptionsMutate();
-	const txSuccessData = {
-		title: "NoRekt Protection activated!",
-		text: "Your NoRekt protection is now active. You can view the details and manage your coverage in your dashboard"
-	};
-	const txErrorData = {
-		title: "Action failed",
-		text: "Something went wrong while activating protection"
-	};
-	const handleClick = async () => {
-		sendTx_default(buyProtection(strike, cost, paymentMethod, slippage), `Activated protection to drop liq.price to ${formatDollarStr(chosenLiqPrice)}.`, setIsSubmitting, ({ tx }) => {
-			setTxResult({
-				...txSuccessData,
-				hash: tx.hash
-			});
-			mutateAccount();
-			mutateOptions();
-		}, (e$14) => setTxResult({
-			...txErrorData,
-			error: e$14
-		}));
-	};
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TxModal_default, {
-		className: "ProtectionModal",
-		isOpen,
-		setIsOpen,
-		txResult,
-		setTxResult,
-		reset: () => {
-			setStep(0);
-			setChosenLiqPrice(null);
-			setPeriod(null);
-			setCost(null);
-		},
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(BuyStep, {
-			chosenLiqPrice,
-			setChosenLiqPrice,
-			period,
-			setPeriod,
-			cost,
-			setCost,
-			paymentMethod,
-			setPaymentMethod,
-			strike,
-			isSubmitting,
-			setIsSubmitting,
-			goForth: () => setStep(1)
-		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ReviewStep, {
-			period,
-			cost,
-			isSubmitting,
-			handleClick,
-			goBack: () => setStep(0)
-		})][step]
-	});
-};
-var BuyStep = ({ chosenLiqPrice, setChosenLiqPrice, period, setPeriod, cost, setCost, paymentMethod, setPaymentMethod, strike, isSubmitting, setIsSubmitting, goForth }) => {
-	const contracts$1 = useContracts_default();
-	const account = useAccount_default();
-	const options$2 = useHegicOptions_default();
-	const { OneClickOptions } = contracts$1?.view ?? {};
-	const [type, setType] = (0, import_react.useState)(Types.OPTION);
-	const [isApproved, setIsApproved] = (0, import_react.useState)(void 0);
-	const [estLtv, setEstLtv] = (0, import_react.useState)(null);
-	const [estCollateral, setEstCollateral] = (0, import_react.useState)(null);
-	const [estOptions, setEstOptions] = (0, import_react.useState)(null);
-	const isOption = type === Types.OPTION;
-	const [isCollateral, isWallet] = [paymentMethod === PaymentMethods.COLLATERAL, paymentMethod === PaymentMethods.WALLET];
-	const { isLoading: isLiqPriceLoading } = getIsLoadingAndErrorForMultiple(estCollateral, estOptions, cost);
-	const Approver = useApprover_default(OneClickOptions?.address, "USDC", setIsApproved);
-	(0, import_react.useEffect)(() => {
-		if (!isWallet) return;
-		if (cost) Approver.update(cost);
-		else setIsApproved(void 0);
-	}, [cost]);
-	(0, import_react.useEffect)(() => {
-		if (isWallet && cost) Approver.update(cost);
-		else setIsApproved(void 0);
-	}, [paymentMethod]);
-	(0, import_react.useEffect)(() => {
-		const { isLoading } = getIsLoadingAndError(options$2);
-		if (isLoading) {
-			setEstOptions(void 0);
-			return;
-		}
-		if (!options$2 || !strike) {
-			setEstOptions(null);
-			return;
-		}
-		setEstOptions([...options$2, strike]);
-	}, [strike, options$2]);
-	const getError = () => {
-		if (!isSufficient(chosenLiqPrice)) return "Choose Liq.Price";
-		if (!period) return "Choose period";
-		const { isLoading } = getIsLoadingAndErrorForMultiple(strike, cost, estLtv);
-		const { hasError } = getIsLoadingAndError(strike);
-		if (isLoading) return ButtonLabels.LOADING;
-		if (hasError) return ButtonLabels.ERROR;
-		if (!strike.isLiquid) return "No liquidity";
-		const estLtvZone = Ltv_default.getZone(account, estLtv);
-		if (!isWallet && estLtvZone !== Ltv_default.Zones.GREEN) return ErrorMsg.LOW_LTV;
-		const { isApprovedLoading } = getIsLoadingAndError(isApproved, "approved");
-		if (isWallet && isApprovedLoading) return ButtonLabels.LOADING;
-		if (isSubmitting) {
-			if (isWallet && !isApproved) return ButtonLabels.APPROVING;
-			return ButtonLabels.SUBMITTING;
-		}
-	};
-	const getBtnText = () => {
-		const error = getError();
-		if (error) return error;
-		if (isWallet && !isApproved) return "Approve to Buy Protection";
-		return "Continue";
-	};
-	const getIsDisabled = () => {
-		const error = getError();
-		return Boolean(error);
-	};
-	const handleClick = () => {
-		if (isWallet && !isApproved) {
-			setIsSubmitting(true);
-			return Approver.approve(cost).finally(() => {
-				setIsSubmitting(false);
-				Approver.update(cost);
-			});
-		} else goForth();
-	};
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: "ProtectionModal__buy",
-		children: [
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { children: "Buy Protection" }),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Chart$1, {
-				estOptions,
-				estCollateral: isCollateral ? estCollateral : null,
-				isLiqPriceLoading
-			}, isCollateral),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "ProtectionModal__body",
-				children: [
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TypeRadio, {
-						type,
-						setType
-					}),
-					isOption && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(OptionInputs, {
-						chosenLiqPrice,
-						setChosenLiqPrice,
-						period,
-						setPeriod,
-						setCost,
-						strike
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaymentMethod_default, {
-						method: paymentMethod,
-						setMethod: setPaymentMethod
-					}),
-					isCollateral && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CollateralWarning, {
-						chosenLiqPrice,
-						estCollateral,
-						estOptions,
-						isLiqPriceLoading
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ModalMetrics, {
-						cost,
-						paymentMethod,
-						estOptions,
-						estCollateral,
-						setEstCollateral,
-						estLtv,
-						setEstLtv,
-						isLiqPriceLoading
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TxModal_default.Button, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
-						type: isWallet && isApproved === false ? "green" : "primary",
-						onClick: handleClick,
-						isDisabled: getIsDisabled(),
-						children: getBtnText()
-					}) })
-				]
-			})
-		]
-	});
-};
-var ReviewStep = ({ period, cost, isSubmitting, handleClick, goBack }) => {
-	const [isAgreed, setIsAgreed] = (0, import_react.useState)(false);
-	const expDate = format(Date.now() + period, "dd/MM/yyyy, HH:mm", { in: utc });
-	const getError = () => {
-		if (isSubmitting) return ButtonLabels.SUBMITTING;
-	};
-	const getBtnText = () => {
-		const error = getError();
-		if (error) return error;
-		return "Buy Protection";
-	};
-	const getIsDisabled = () => {
-		if (!isAgreed) return true;
-		const error = getError();
-		return Boolean(error);
-	};
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: "ProtectionModal__review",
-		children: [
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { children: "Review Protection Terms" }),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Metrics_default, { children: [
-				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "Metrics__row",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "Metrics__row-title",
-						children: "Period of Protection"
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "Metrics__row-value",
-						children: [daysFromMs(period), " Days"]
-					})]
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "Metrics__row",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "Metrics__row-title",
-						children: "Protection Exp. Date"
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "Metrics__row-value _exp-date",
-						children: [expDate, /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "UTC" })]
-					})]
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "Metrics__row",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "Metrics__row-title",
-						children: "Protection Cost"
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "Metrics__row-value",
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmount_default, { value: cost })
-					})]
-				})
-			] }),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Checkbox_default, {
-				isChecked: isAgreed,
-				setIsChecked: setIsAgreed,
-				children: "I agree to the terms and understand the costs"
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(TxModal_default.Buttons, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
-				type: "tertiary",
-				onClick: goBack,
-				children: "Back"
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
-				isDisabled: getIsDisabled(),
-				onClick: handleClick,
-				children: getBtnText()
-			})] })
-		]
-	});
-};
-var Chart$1 = ({ estOptions, estCollateral, isLiqPriceLoading }) => {
-	const [_estOptions, _setEstOptions] = (0, import_react.useState)(estOptions);
-	const [_estCollateral, _setEstCollateral] = (0, import_react.useState)(estCollateral);
-	const [isModalOpening, setIsModalOpening] = (0, import_react.useState)(true);
-	(0, import_react.useEffect)(() => {
-		if (!isLiqPriceLoading) {
-			_setEstCollateral(estCollateral);
-			_setEstOptions(estOptions);
-		}
-	}, [isLiqPriceLoading]);
-	(0, import_react.useEffect)(() => {
-		setTimeout(() => setIsModalOpening(false), 300);
-	}, []);
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: "ProtectionModal__chart",
-		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceChart_default, {
-			estBalance: _estCollateral,
-			estOptions: _estOptions,
-			isLoading: isModalOpening,
-			isSmall: true
-		})
-	});
-};
-var TypeRadio = ({ type, setType }) => {
-	const types$1 = [{
-		value: Types.OPTION,
-		node: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Tip_default, {
-			tooltipId: "ProtectionModal_option-tooltip",
-			children: "Option"
-		})
-	}, {
-		value: Types.AUTO_SHORT,
-		node: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-			"aria-description": "Coming soon!",
-			children: "Auto-short"
-		}),
-		isDisabled: true
-	}];
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Field_default, {
-		className: "ProtectionModal__type",
-		children: [
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "Field__title",
-				children: "Choose protection type"
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "Field__content",
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Radio_default, {
-					id: "ProtectionModal_type_radio",
-					items: types$1,
-					value: type,
-					setValue: setType
-				})
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Tooltip_default, {
-				id: "ProtectionModal_option-tooltip",
-				children: "Powered by American-style Hegic Options: exercise any time before expiration. If you don’t, they’re auto-exercised 30 min before expiry so you don’t lose any payout."
-			})
-		]
-	});
-};
-var OptionInputs = ({ chosenLiqPrice, setChosenLiqPrice, period, setPeriod, setCost, strike }) => {
-	const [minPeriodDays, maxPeriodDays] = [HegicConstants_default.EXPIRY_PERIODS_DAYS[0], getLast(HegicConstants_default.EXPIRY_PERIODS_DAYS)];
-	const [periodDays, setPeriodDays] = (0, import_react.useState)(minPeriodDays);
-	const slippage = useSlippage();
-	const updateCost = async () => {
-		setCost(getBigIntWithSlippage(strike.premium, slippage));
-	};
-	useDebounce(() => {
-		setPeriod(msInDays(periodDays));
-	}, 200, [periodDays]);
-	(0, import_react.useEffect)(() => {
-		if (isSufficient(chosenLiqPrice) && strike) updateCost();
-		else if (strike === null || !isSufficient(chosenLiqPrice)) setCost(null);
-		else if (isUndefined) setCost(void 0);
-	}, [
-		chosenLiqPrice,
-		strike,
-		slippage
-	]);
-	const getExpStr = () => {
-		if (!isSufficient(period)) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, {});
-		return format(Date.now() + period, "d MMM, HH:mm");
-	};
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: "ProtectionModal__option-inputs",
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceInput, { setChosenLiqPrice }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: (0, import_classnames$11.default)("ProtectionModal__period", isSufficient(period) && "_active"),
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "ProtectionModal__period-head",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: "Period" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "_result",
-					children: [periodDays, " Days"]
-				})]
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "ProtectionModal__period-slider",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Slider_default, {
-					value: periodDays,
-					setValue: setPeriodDays,
-					min: minPeriodDays,
-					max: maxPeriodDays,
-					step: 1
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "ProtectionModal__period-exp",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: "Expiration Date" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "_result",
-						children: getExpStr()
-					})]
-				})]
-			})]
-		})]
-	});
-};
-var LiqPriceInput = ({ setChosenLiqPrice }) => {
-	const assetPrice = useAssetPrice();
-	const curLiqPrice = useCurLiqPrice();
-	const [chosenLiqPriceStr, setChosenLiqPriceStr] = (0, import_react.useState)("");
-	const [minLiqPrice, maxLiqPrice] = (0, import_react.useMemo)(() => [0n, floorBigInt(multiplyBigIntByNumber(curLiqPrice ?? assetPrice ?? 0n, 2 - STRIKE_COEF))], [curLiqPrice, assetPrice]);
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: "ProtectionModal__liq-price Field",
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-			className: "ProtectionModal__liq-price-title Field__title",
-			children: "Liquidation Price"
-		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "ProtectionModal__liq-price-slider Field__content",
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Slider_default, {
-				value: Number(strFromInputString(chosenLiqPriceStr)),
-				setValue: (val) => {
-					setChosenLiqPriceStr(inputStringFromStr(val));
-				},
-				min: Number(stringFromBigInt(minLiqPrice)),
-				max: Number(stringFromBigInt(maxLiqPrice)),
-				step: 10
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Input_default, {
-				valueStrState: [chosenLiqPriceStr, setChosenLiqPriceStr],
-				setValue: setChosenLiqPrice,
-				debounce: 200,
-				maxData: {
-					value: maxLiqPrice,
-					isHidden: true
-				},
-				isZeroSufficient: true
-			})]
-		})]
-	});
-};
-var CollateralWarning = ({ chosenLiqPrice, estCollateral, estOptions, isLiqPriceLoading = false }) => {
-	const liqPrice = useLiqPrice_default(estCollateral, void 0, estOptions);
-	const getText = (liqPrice$1, chosenLiqPrice$1) => {
-		const defaultText = "Paying from collateral reduces your collateral balance, raising the final liquidation price above your target.";
-		if (isLiqPriceLoading || !isEverySufficient(chosenLiqPrice$1, liqPrice$1, estCollateral, estOptions)) return defaultText;
-		const liqPriceStr = formatDollarStr(liqPrice$1);
-		const chosenLiqPriceStr = formatDollarStr(chosenLiqPrice$1);
-		if (liqPriceStr === chosenLiqPriceStr) return defaultText;
-		return `Paying from collateral reduces your collateral balance, raising the final liquidation price to ${liqPriceStr} instead of your ${chosenLiqPriceStr} target.`;
-	};
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Notification_default, {
-		className: "ProtectionModal__collateral-tip",
-		color: "blue",
-		type: "info",
-		children: getText(liqPrice, chosenLiqPrice)
-	});
-};
-var ModalMetrics = ({ cost, paymentMethod, estCollateral, setEstCollateral, estOptions, estLtv, setEstLtv, isLiqPriceLoading }) => {
-	const account = useAccount_default();
-	const contracts$1 = useContracts_default();
-	const slippage = useSlippage();
-	const isCollateral = paymentMethod === PaymentMethods.COLLATERAL;
-	const updateEstCollateral = async () => {
-		setEstCollateral(void 0);
-		const collateralPaid = await swapUsdcToEth(contracts$1, cost, slippage);
-		setEstCollateral(account.balance - collateralPaid);
-	};
-	const updateEstLtv = async () => {
-		setEstLtv(void 0);
-		setEstLtv(await Ltv_default.queryLtvAfterProtect(account, cost, paymentMethod));
-	};
-	(0, import_react.useEffect)(() => {
-		const { isLoading } = getIsLoadingAndError(cost);
-		if (!account || !cost) {
-			setEstCollateral(isLoading ? void 0 : null);
-			setEstLtv(isLoading ? void 0 : null);
-			return;
-		}
-		updateEstCollateral();
-		updateEstLtv();
-	}, [cost]);
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Metrics_default, { children: [
-		isCollateral && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "Metrics__row",
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "Metrics__row-title",
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CollateralStr_default, {})
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "Metrics__row-value",
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmountChange_default, {
-					curAmount: account?.balance,
-					estAmount: estCollateral,
-					symbol: "ETH"
-				})
-			})]
-		}),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "Metrics__row",
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "Metrics__row-title",
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Tip_default, {
-					tooltipId: "ProtectionModal_liq-price-tooltip",
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceChange_default.Title, {})
-				})
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "Metrics__row-value",
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceChange_default, {
-					estBalance: isCollateral ? estCollateral : null,
-					estOptions,
-					isLoading: isLiqPriceLoading
-				})
-			})]
-		}),
-		isCollateral && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "Metrics__row",
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "Metrics__row-title",
-				children: "LtV Change"
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "Metrics__row-value",
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LtvChange_default, { estLtv })
-			})]
-		}),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "Metrics__row",
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "Metrics__row-title",
-				children: "Total Cost of Protection"
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "Metrics__row-value",
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmount_default, { value: cost })
-			})]
-		}),
-		isCollateral && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "Metrics__row",
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "Metrics__row-title",
-				children: "Slippage Control"
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "Metrics__row-value",
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Slippage_default, {})
-			})]
-		})
-	] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Tooltip_default, {
-		id: "ProtectionModal_liq-price-tooltip",
-		children: [
-			"If your collateral’s price drops to this level, ",
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
-			"it will be automatically sold to repay your debt. Buying protection can lower this price or remove it entirely"
-		]
-	})] });
-};
-var ProtectionModal_default = ProtectionModal;
-var ClaimModal = ({ isOpen, setIsOpen, position: position$1, setPosition }) => {
-	const account = useAccount_default();
-	const options$2 = useHegicOptions_default();
-	const [estLtv, setEstLtv] = (0, import_react.useState)(null);
-	const [estDebt, setEstDebt] = (0, import_react.useState)(null);
-	const [estOptions, setEstOptions] = (0, import_react.useState)(null);
-	const [isSubmitting, setIsSubmitting] = (0, import_react.useState)(false);
-	const [txResult, setTxResult] = (0, import_react.useState)(void 0);
-	const { claim } = useProtocolActions_default();
-	const mutateAccount = useAccountMutate();
-	const mutateOptions = useHegicOptionsMutate();
-	const txSuccessData = {
-		title: "Claim confirmed!",
-		text: "Your claim has been submitted successfully"
-	};
-	const txErrorData = {
-		title: "Action failed",
-		text: "Something went wrong while claiming your profit"
-	};
-	(0, import_react.useEffect)(() => {
-		if (!account || !position$1) {
-			setEstDebt(null);
-			setEstLtv(null);
-			return;
-		}
-		updateEstDebt();
-		updateEstLtv();
-	}, [position$1]);
-	(0, import_react.useEffect)(() => {
-		if (!options$2 || !position$1) {
-			setEstOptions(null);
-			return;
-		}
-		setEstOptions(options$2.filter((opt) => opt.id !== position$1.id));
-	}, [position$1, options$2]);
-	const getError = () => {
-		if (isSubmitting) return ButtonLabels.SUBMITTING;
-	};
-	const getBtnText = () => {
-		const error = getError();
-		if (error) return error;
-		return "Claim";
-	};
-	const getIsDisabled = () => {
-		const error = getError();
-		return Boolean(error);
-	};
-	const handleClick = async () => {
-		const { id: id$2, profit } = position$1;
-		sendTx_default(claim(id$2, profit), `Claimed ${inputStringFromBigInt(profit)} USDC.`, setIsSubmitting, ({ tx }) => {
-			setTxResult({
-				...txSuccessData,
-				hash: tx.hash
-			});
-			mutateAccount();
-			mutateOptions();
-		}, (e$14) => setTxResult({
-			...txErrorData,
-			error: e$14
-		}));
-	};
-	const updateEstLtv = () => {
-		const repayAmount = minBigInt(position$1.profit, account.debt);
-		setEstLtv(Ltv_default.calcLtvAfterRepay(account, repayAmount));
-	};
-	const updateEstDebt = () => {
-		const repayAmount = minBigInt(position$1.profit, account.debt);
-		setEstDebt(account.debt - repayAmount);
-	};
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(TxModal_default, {
-		className: "ClaimModal",
-		isOpen,
-		setIsOpen,
-		txResult,
-		setTxResult,
-		reset: () => setPosition(null),
-		children: [
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { children: "Claim" }),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Metrics_default, {
-				isBoxed: false,
-				children: [
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "Metrics__row",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "Metrics__row-title",
-							children: "Info"
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "Metrics__row-value _info-value",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Hedge Contract" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmount_default, {
-								symbol: position$1?.asset,
-								value: position$1?.amount
-							})]
-						})]
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "Metrics__row",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "Metrics__row-title",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceChange_default.Title, {})
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "Metrics__row-value",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceChange_default, {
-								estDebt,
-								estOptions
-							})
-						})]
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "Metrics__row",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "Metrics__row-title",
-							children: "Debt change"
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "Metrics__row-value",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmountChange_default, {
-								curAmount: account?.debt,
-								estAmount: estDebt
-							})
-						})]
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "Metrics__row",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "Metrics__row-title",
-							children: "LtV change"
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "Metrics__row-value",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LtvChange_default, { estLtv })
-						})]
-					})
-				]
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TxModal_default.Button, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
-				onClick: handleClick,
-				isDisabled: getIsDisabled(),
-				children: getBtnText()
-			}) })
-		]
-	});
-};
-var ClaimModal_default = ClaimModal;
-var _DashboardContext = (0, import_react.createContext)({});
-var DashboardContext = ({ children }) => {
-	const [isCreateModalOpen, setIsCreateModalOpen] = (0, import_react.useState)(false);
-	const [isSupplyModalOpen, setIsSupplyModalOpen] = (0, import_react.useState)(false);
-	const [isWithdrawModalOpen, setIsWithdrawModalOpen] = (0, import_react.useState)(false);
-	const [isBorrowModalOpen, setIsBorrowModalOpen] = (0, import_react.useState)(false);
-	const [isRepayModalOpen, setIsRepayModalOpen] = (0, import_react.useState)(false);
-	const [isProtectionModalOpen, setIsProtectionModalOpen] = (0, import_react.useState)(false);
-	const [isClaimModalOpen, setIsClaimModalOpen] = (0, import_react.useState)(false);
-	const [claimModalPosition, setClaimModalPosition] = (0, import_react.useState)(null);
-	const data = {
-		isCreateModalOpen,
-		setIsCreateModalOpen,
-		openCreateModal: () => setIsCreateModalOpen(true),
-		isSupplyModalOpen,
-		setIsSupplyModalOpen,
-		openSupplyModal: () => setIsSupplyModalOpen(true),
-		isWithdrawModalOpen,
-		setIsWithdrawModalOpen,
-		openWithdrawModal: () => setIsWithdrawModalOpen(true),
-		isBorrowModalOpen,
-		setIsBorrowModalOpen,
-		openBorrowModal: () => setIsBorrowModalOpen(true),
-		isRepayModalOpen,
-		setIsRepayModalOpen,
-		openRepayModal: () => setIsRepayModalOpen(true),
-		isProtectionModalOpen,
-		setIsProtectionModalOpen,
-		openProtectionModal: () => setIsProtectionModalOpen(true),
-		isClaimModalOpen,
-		setIsClaimModalOpen,
-		openClaimModal: (position$1) => {
-			setClaimModalPosition(position$1);
-			setIsClaimModalOpen(true);
-		}
-	};
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(_DashboardContext.Provider, {
-		value: data,
-		children: [
-			children,
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CreateAccountModal_default, {
-				isOpen: isCreateModalOpen,
-				setIsOpen: setIsCreateModalOpen
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SupplyModal_default, {
-				isOpen: isSupplyModalOpen,
-				setIsOpen: setIsSupplyModalOpen
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(WithdrawModal_default, {
-				isOpen: isWithdrawModalOpen,
-				setIsOpen: setIsWithdrawModalOpen
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(BorrowModal_default, {
-				isOpen: isBorrowModalOpen,
-				setIsOpen: setIsBorrowModalOpen
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(RepayModal_default, {
-				isOpen: isRepayModalOpen,
-				setIsOpen: setIsRepayModalOpen
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProtectionModal_default, {
-				isOpen: isProtectionModalOpen,
-				setIsOpen: setIsProtectionModalOpen
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ClaimModal_default, {
-				isOpen: isClaimModalOpen,
-				setIsOpen: setIsClaimModalOpen,
-				position: claimModalPosition,
-				setPosition: setClaimModalPosition
-			})
-		]
-	});
-};
-const useDashboardContext = () => {
-	return (0, import_react.useContext)(_DashboardContext);
-};
-var DashboardContext_default = DashboardContext;
-var GetStarted = () => {
-	const { openCreateModal } = useDashboardContext();
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: "GetStarted box",
-		children: [
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
-				className: "GetStarted__title",
-				children: "Ready to get started?"
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "GetStarted__text text",
-				children: "Create your Lending Account now"
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
-				className: "GetStarted__button",
-				onClick: openCreateModal,
-				children: "Create account"
-			})
-		]
-	});
-};
-var GetStarted_default = GetStarted;
-function toPrimitive(t$11, r$14) {
-	if ("object" != _typeof(t$11) || !t$11) return t$11;
-	var e$14 = t$11[Symbol.toPrimitive];
-	if (void 0 !== e$14) {
-		var i$13 = e$14.call(t$11, r$14 || "default");
-		if ("object" != _typeof(i$13)) return i$13;
-		throw new TypeError("@@toPrimitive must return a primitive value.");
-	}
-	return ("string" === r$14 ? String : Number)(t$11);
-}
-function toPropertyKey(t$11) {
-	var i$13 = toPrimitive(t$11, "string");
-	return "symbol" == _typeof(i$13) ? i$13 : i$13 + "";
-}
-function _defineProperty(e$14, r$14, t$11) {
-	return (r$14 = toPropertyKey(r$14)) in e$14 ? Object.defineProperty(e$14, r$14, {
-		value: t$11,
-		enumerable: !0,
-		configurable: !0,
-		writable: !0
-	}) : e$14[r$14] = t$11, e$14;
-}
-function ownKeys(e$14, r$14) {
-	var t$11 = Object.keys(e$14);
-	if (Object.getOwnPropertySymbols) {
-		var o$9 = Object.getOwnPropertySymbols(e$14);
-		r$14 && (o$9 = o$9.filter(function(r$15) {
-			return Object.getOwnPropertyDescriptor(e$14, r$15).enumerable;
-		})), t$11.push.apply(t$11, o$9);
-	}
-	return t$11;
-}
-function _objectSpread2(e$14) {
-	for (var r$14 = 1; r$14 < arguments.length; r$14++) {
-		var t$11 = null != arguments[r$14] ? arguments[r$14] : {};
-		r$14 % 2 ? ownKeys(Object(t$11), !0).forEach(function(r$15) {
-			_defineProperty(e$14, r$15, t$11[r$15]);
-		}) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e$14, Object.getOwnPropertyDescriptors(t$11)) : ownKeys(Object(t$11)).forEach(function(r$15) {
-			Object.defineProperty(e$14, r$15, Object.getOwnPropertyDescriptor(t$11, r$15));
-		});
-	}
-	return e$14;
-}
-function _objectWithoutPropertiesLoose(r$14, e$14) {
-	if (null == r$14) return {};
-	var t$11 = {};
-	for (var n$13 in r$14) if ({}.hasOwnProperty.call(r$14, n$13)) {
-		if (-1 !== e$14.indexOf(n$13)) continue;
-		t$11[n$13] = r$14[n$13];
-	}
-	return t$11;
-}
-function _objectWithoutProperties(e$14, t$11) {
-	if (null == e$14) return {};
-	var o$9, r$14, i$13 = _objectWithoutPropertiesLoose(e$14, t$11);
-	if (Object.getOwnPropertySymbols) {
-		var n$13 = Object.getOwnPropertySymbols(e$14);
-		for (r$14 = 0; r$14 < n$13.length; r$14++) o$9 = n$13[r$14], -1 === t$11.indexOf(o$9) && {}.propertyIsEnumerable.call(e$14, o$9) && (i$13[o$9] = e$14[o$9]);
-	}
-	return i$13;
-}
-var _excluded$6 = [
-	"defaultInputValue",
-	"defaultMenuIsOpen",
-	"defaultValue",
-	"inputValue",
-	"menuIsOpen",
-	"onChange",
-	"onInputChange",
-	"onMenuClose",
-	"onMenuOpen",
-	"value"
-];
-function useStateManager(_ref$1) {
-	var _ref$defaultInputValu = _ref$1.defaultInputValue, defaultInputValue = _ref$defaultInputValu === void 0 ? "" : _ref$defaultInputValu, _ref$defaultMenuIsOpe = _ref$1.defaultMenuIsOpen, defaultMenuIsOpen = _ref$defaultMenuIsOpe === void 0 ? false : _ref$defaultMenuIsOpe, _ref$defaultValue = _ref$1.defaultValue, defaultValue = _ref$defaultValue === void 0 ? null : _ref$defaultValue, propsInputValue = _ref$1.inputValue, propsMenuIsOpen = _ref$1.menuIsOpen, propsOnChange = _ref$1.onChange, propsOnInputChange = _ref$1.onInputChange, propsOnMenuClose = _ref$1.onMenuClose, propsOnMenuOpen = _ref$1.onMenuOpen, propsValue = _ref$1.value, restSelectProps = _objectWithoutProperties(_ref$1, _excluded$6);
-	var _useState2 = _slicedToArray((0, import_react.useState)(propsInputValue !== void 0 ? propsInputValue : defaultInputValue), 2), stateInputValue = _useState2[0], setStateInputValue = _useState2[1];
-	var _useState4 = _slicedToArray((0, import_react.useState)(propsMenuIsOpen !== void 0 ? propsMenuIsOpen : defaultMenuIsOpen), 2), stateMenuIsOpen = _useState4[0], setStateMenuIsOpen = _useState4[1];
-	var _useState6 = _slicedToArray((0, import_react.useState)(propsValue !== void 0 ? propsValue : defaultValue), 2), stateValue = _useState6[0], setStateValue = _useState6[1];
-	var onChange = (0, import_react.useCallback)(function(value$1, actionMeta) {
-		if (typeof propsOnChange === "function") propsOnChange(value$1, actionMeta);
-		setStateValue(value$1);
-	}, [propsOnChange]);
-	var onInputChange = (0, import_react.useCallback)(function(value$1, actionMeta) {
-		var newValue;
-		if (typeof propsOnInputChange === "function") newValue = propsOnInputChange(value$1, actionMeta);
-		setStateInputValue(newValue !== void 0 ? newValue : value$1);
-	}, [propsOnInputChange]);
-	var onMenuOpen = (0, import_react.useCallback)(function() {
-		if (typeof propsOnMenuOpen === "function") propsOnMenuOpen();
-		setStateMenuIsOpen(true);
-	}, [propsOnMenuOpen]);
-	var onMenuClose = (0, import_react.useCallback)(function() {
-		if (typeof propsOnMenuClose === "function") propsOnMenuClose();
-		setStateMenuIsOpen(false);
-	}, [propsOnMenuClose]);
-	var inputValue = propsInputValue !== void 0 ? propsInputValue : stateInputValue;
-	var menuIsOpen = propsMenuIsOpen !== void 0 ? propsMenuIsOpen : stateMenuIsOpen;
-	var value = propsValue !== void 0 ? propsValue : stateValue;
-	return _objectSpread2(_objectSpread2({}, restSelectProps), {}, {
-		inputValue,
-		menuIsOpen,
-		onChange,
-		onInputChange,
-		onMenuClose,
-		onMenuOpen,
-		value
-	});
-}
-function _extends() {
-	return _extends = Object.assign ? Object.assign.bind() : function(n$13) {
-		for (var e$14 = 1; e$14 < arguments.length; e$14++) {
-			var t$11 = arguments[e$14];
-			for (var r$14 in t$11) ({}).hasOwnProperty.call(t$11, r$14) && (n$13[r$14] = t$11[r$14]);
-		}
-		return n$13;
-	}, _extends.apply(null, arguments);
-}
-function _classCallCheck(a$8, n$13) {
-	if (!(a$8 instanceof n$13)) throw new TypeError("Cannot call a class as a function");
-}
-function _defineProperties(e$14, r$14) {
-	for (var t$11 = 0; t$11 < r$14.length; t$11++) {
-		var o$9 = r$14[t$11];
-		o$9.enumerable = o$9.enumerable || !1, o$9.configurable = !0, "value" in o$9 && (o$9.writable = !0), Object.defineProperty(e$14, toPropertyKey(o$9.key), o$9);
-	}
-}
-function _createClass(e$14, r$14, t$11) {
-	return r$14 && _defineProperties(e$14.prototype, r$14), t$11 && _defineProperties(e$14, t$11), Object.defineProperty(e$14, "prototype", { writable: !1 }), e$14;
-}
-function _setPrototypeOf(t$11, e$14) {
-	return _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function(t$12, e$15) {
-		return t$12.__proto__ = e$15, t$12;
-	}, _setPrototypeOf(t$11, e$14);
-}
-function _inherits(t$11, e$14) {
-	if ("function" != typeof e$14 && null !== e$14) throw new TypeError("Super expression must either be null or a function");
-	t$11.prototype = Object.create(e$14 && e$14.prototype, { constructor: {
-		value: t$11,
-		writable: !0,
-		configurable: !0
-	} }), Object.defineProperty(t$11, "prototype", { writable: !1 }), e$14 && _setPrototypeOf(t$11, e$14);
-}
-function _getPrototypeOf(t$11) {
-	return _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function(t$12) {
-		return t$12.__proto__ || Object.getPrototypeOf(t$12);
-	}, _getPrototypeOf(t$11);
-}
-function _isNativeReflectConstruct() {
-	try {
-		var t$11 = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function() {}));
-	} catch (t$12) {}
-	return (_isNativeReflectConstruct = function _isNativeReflectConstruct$1() {
-		return !!t$11;
-	})();
-}
-function _assertThisInitialized(e$14) {
-	if (void 0 === e$14) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-	return e$14;
-}
-function _possibleConstructorReturn(t$11, e$14) {
-	if (e$14 && ("object" == _typeof(e$14) || "function" == typeof e$14)) return e$14;
-	if (void 0 !== e$14) throw new TypeError("Derived constructors may only return object or undefined");
-	return _assertThisInitialized(t$11);
-}
-function _createSuper(t$11) {
-	var r$14 = _isNativeReflectConstruct();
-	return function() {
-		var e$14, o$9 = _getPrototypeOf(t$11);
-		if (r$14) {
-			var s$7 = _getPrototypeOf(this).constructor;
-			e$14 = Reflect.construct(o$9, arguments, s$7);
-		} else e$14 = o$9.apply(this, arguments);
-		return _possibleConstructorReturn(this, e$14);
-	};
-}
-function _arrayWithoutHoles(r$14) {
-	if (Array.isArray(r$14)) return _arrayLikeToArray(r$14);
-}
-function _iterableToArray(r$14) {
-	if ("undefined" != typeof Symbol && null != r$14[Symbol.iterator] || null != r$14["@@iterator"]) return Array.from(r$14);
-}
-function _nonIterableSpread() {
-	throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-}
-function _toConsumableArray(r$14) {
-	return _arrayWithoutHoles(r$14) || _iterableToArray(r$14) || _unsupportedIterableToArray(r$14) || _nonIterableSpread();
-}
-var isDevelopment$2 = false;
-function sheetForTag(tag) {
-	if (tag.sheet) return tag.sheet;
-	/* istanbul ignore next */
-	for (var i$13 = 0; i$13 < document.styleSheets.length; i$13++) if (document.styleSheets[i$13].ownerNode === tag) return document.styleSheets[i$13];
-}
-function createStyleElement(options$2) {
-	var tag = document.createElement("style");
-	tag.setAttribute("data-emotion", options$2.key);
-	if (options$2.nonce !== void 0) tag.setAttribute("nonce", options$2.nonce);
-	tag.appendChild(document.createTextNode(""));
-	tag.setAttribute("data-s", "");
-	return tag;
-}
-var StyleSheet = /* @__PURE__ */ function() {
-	function StyleSheet$1(options$2) {
-		var _this = this;
-		this._insertTag = function(tag) {
-			var before$1;
-			if (_this.tags.length === 0) if (_this.insertionPoint) before$1 = _this.insertionPoint.nextSibling;
-			else if (_this.prepend) before$1 = _this.container.firstChild;
-			else before$1 = _this.before;
-			else before$1 = _this.tags[_this.tags.length - 1].nextSibling;
-			_this.container.insertBefore(tag, before$1);
-			_this.tags.push(tag);
-		};
-		this.isSpeedy = options$2.speedy === void 0 ? !isDevelopment$2 : options$2.speedy;
-		this.tags = [];
-		this.ctr = 0;
-		this.nonce = options$2.nonce;
-		this.key = options$2.key;
-		this.container = options$2.container;
-		this.prepend = options$2.prepend;
-		this.insertionPoint = options$2.insertionPoint;
-		this.before = null;
-	}
-	var _proto = StyleSheet$1.prototype;
-	_proto.hydrate = function hydrate$1(nodes) {
-		nodes.forEach(this._insertTag);
-	};
-	_proto.insert = function insert(rule) {
-		if (this.ctr % (this.isSpeedy ? 65e3 : 1) === 0) this._insertTag(createStyleElement(this));
-		var tag = this.tags[this.tags.length - 1];
-		if (this.isSpeedy) {
-			var sheet = sheetForTag(tag);
-			try {
-				sheet.insertRule(rule, sheet.cssRules.length);
-			} catch (e$14) {}
-		} else tag.appendChild(document.createTextNode(rule));
-		this.ctr++;
-	};
-	_proto.flush = function flush$1() {
-		this.tags.forEach(function(tag) {
-			var _tag$parentNode;
-			return (_tag$parentNode = tag.parentNode) == null ? void 0 : _tag$parentNode.removeChild(tag);
-		});
-		this.tags = [];
-		this.ctr = 0;
-	};
-	return StyleSheet$1;
-}();
-var MS = "-ms-";
-var MOZ = "-moz-";
-var WEBKIT = "-webkit-";
-var COMMENT = "comm";
-var RULESET = "rule";
-var DECLARATION = "decl";
-var IMPORT = "@import";
-var KEYFRAMES = "@keyframes";
-var LAYER = "@layer";
-var abs = Math.abs;
-var from = String.fromCharCode;
-var assign = Object.assign;
-function hash(value, length$1) {
-	return charat(value, 0) ^ 45 ? (((length$1 << 2 ^ charat(value, 0)) << 2 ^ charat(value, 1)) << 2 ^ charat(value, 2)) << 2 ^ charat(value, 3) : 0;
-}
-function trim(value) {
-	return value.trim();
-}
-function match(value, pattern) {
-	return (value = pattern.exec(value)) ? value[0] : value;
-}
-function replace(value, pattern, replacement) {
-	return value.replace(pattern, replacement);
-}
-function indexof(value, search) {
-	return value.indexOf(search);
-}
-function charat(value, index$6) {
-	return value.charCodeAt(index$6) | 0;
-}
-function substr(value, begin, end) {
-	return value.slice(begin, end);
-}
-function strlen(value) {
-	return value.length;
-}
-function sizeof(value) {
-	return value.length;
-}
-function append(value, array) {
-	return array.push(value), value;
-}
-function combine(array, callback) {
-	return array.map(callback).join("");
-}
-var line = 1;
-var column = 1;
-var length = 0;
-var position = 0;
-var character = 0;
-var characters = "";
-function node(value, root$4, parent, type, props, children, length$1) {
-	return {
-		value,
-		root: root$4,
-		parent,
-		type,
-		props,
-		children,
-		line,
-		column,
-		length: length$1,
-		return: ""
-	};
-}
-function copy(root$4, props) {
-	return assign(node("", null, null, "", null, null, 0), root$4, { length: -root$4.length }, props);
-}
-function char() {
-	return character;
-}
-function prev() {
-	character = position > 0 ? charat(characters, --position) : 0;
-	if (column--, character === 10) column = 1, line--;
-	return character;
-}
-function next() {
-	character = position < length ? charat(characters, position++) : 0;
-	if (column++, character === 10) column = 1, line++;
-	return character;
-}
-function peek() {
-	return charat(characters, position);
-}
-function caret() {
-	return position;
-}
-function slice(begin, end) {
-	return substr(characters, begin, end);
-}
-function token(type) {
-	switch (type) {
-		case 0:
-		case 9:
-		case 10:
-		case 13:
-		case 32: return 5;
-		case 33:
-		case 43:
-		case 44:
-		case 47:
-		case 62:
-		case 64:
-		case 126:
-		case 59:
-		case 123:
-		case 125: return 4;
-		case 58: return 3;
-		case 34:
-		case 39:
-		case 40:
-		case 91: return 2;
-		case 41:
-		case 93: return 1;
-	}
-	return 0;
-}
-function alloc(value) {
-	return line = column = 1, length = strlen(characters = value), position = 0, [];
-}
-function dealloc(value) {
-	return characters = "", value;
-}
-function delimit(type) {
-	return trim(slice(position - 1, delimiter(type === 91 ? type + 2 : type === 40 ? type + 1 : type)));
-}
-function whitespace(type) {
-	while (character = peek()) if (character < 33) next();
-	else break;
-	return token(type) > 2 || token(character) > 3 ? "" : " ";
-}
-function escaping(index$6, count) {
-	while (--count && next()) if (character < 48 || character > 102 || character > 57 && character < 65 || character > 70 && character < 97) break;
-	return slice(index$6, caret() + (count < 6 && peek() == 32 && next() == 32));
-}
-function delimiter(type) {
-	while (next()) switch (character) {
-		case type: return position;
-		case 34:
-		case 39:
-			if (type !== 34 && type !== 39) delimiter(character);
-			break;
-		case 40:
-			if (type === 41) delimiter(type);
-			break;
-		case 92:
-			next();
-			break;
-	}
-	return position;
-}
-function commenter(type, index$6) {
-	while (next()) if (type + character === 57) break;
-	else if (type + character === 84 && peek() === 47) break;
-	return "/*" + slice(index$6, position - 1) + "*" + from(type === 47 ? type : next());
-}
-function identifier(index$6) {
-	while (!token(peek())) next();
-	return slice(index$6, position);
-}
-function compile(value) {
-	return dealloc(parse("", null, null, null, [""], value = alloc(value), 0, [0], value));
-}
-function parse(value, root$4, parent, rule, rules, rulesets, pseudo, points, declarations) {
-	var index$6 = 0;
-	var offset$3 = 0;
-	var length$1 = pseudo;
-	var atrule = 0;
-	var property$2 = 0;
-	var previous = 0;
-	var variable = 1;
-	var scanning = 1;
-	var ampersand = 1;
-	var character$1 = 0;
-	var type = "";
-	var props = rules;
-	var children = rulesets;
-	var reference = rule;
-	var characters$1 = type;
-	while (scanning) switch (previous = character$1, character$1 = next()) {
-		case 40: if (previous != 108 && charat(characters$1, length$1 - 1) == 58) {
-			if (indexof(characters$1 += replace(delimit(character$1), "&", "&\f"), "&\f") != -1) ampersand = -1;
-			break;
-		}
-		case 34:
-		case 39:
-		case 91:
-			characters$1 += delimit(character$1);
-			break;
-		case 9:
-		case 10:
-		case 13:
-		case 32:
-			characters$1 += whitespace(previous);
-			break;
-		case 92:
-			characters$1 += escaping(caret() - 1, 7);
-			continue;
-		case 47:
-			switch (peek()) {
-				case 42:
-				case 47:
-					append(comment(commenter(next(), caret()), root$4, parent), declarations);
-					break;
-				default: characters$1 += "/";
-			}
-			break;
-		case 123 * variable: points[index$6++] = strlen(characters$1) * ampersand;
-		case 125 * variable:
-		case 59:
-		case 0:
-			switch (character$1) {
-				case 0:
-				case 125: scanning = 0;
-				case 59 + offset$3:
-					if (ampersand == -1) characters$1 = replace(characters$1, /\f/g, "");
-					if (property$2 > 0 && strlen(characters$1) - length$1) append(property$2 > 32 ? declaration(characters$1 + ";", rule, parent, length$1 - 1) : declaration(replace(characters$1, " ", "") + ";", rule, parent, length$1 - 2), declarations);
-					break;
-				case 59: characters$1 += ";";
-				default:
-					append(reference = ruleset(characters$1, root$4, parent, index$6, offset$3, rules, points, type, props = [], children = [], length$1), rulesets);
-					if (character$1 === 123) if (offset$3 === 0) parse(characters$1, root$4, reference, reference, props, rulesets, length$1, points, children);
-					else switch (atrule === 99 && charat(characters$1, 3) === 110 ? 100 : atrule) {
-						case 100:
-						case 108:
-						case 109:
-						case 115:
-							parse(value, reference, reference, rule && append(ruleset(value, reference, reference, 0, 0, rules, points, type, rules, props = [], length$1), children), rules, children, length$1, points, rule ? props : children);
-							break;
-						default: parse(characters$1, reference, reference, reference, [""], children, 0, points, children);
-					}
-			}
-			index$6 = offset$3 = property$2 = 0, variable = ampersand = 1, type = characters$1 = "", length$1 = pseudo;
-			break;
-		case 58: length$1 = 1 + strlen(characters$1), property$2 = previous;
-		default:
-			if (variable < 1) {
-				if (character$1 == 123) --variable;
-				else if (character$1 == 125 && variable++ == 0 && prev() == 125) continue;
-			}
-			switch (characters$1 += from(character$1), character$1 * variable) {
-				case 38:
-					ampersand = offset$3 > 0 ? 1 : (characters$1 += "\f", -1);
-					break;
-				case 44:
-					points[index$6++] = (strlen(characters$1) - 1) * ampersand, ampersand = 1;
-					break;
-				case 64:
-					if (peek() === 45) characters$1 += delimit(next());
-					atrule = peek(), offset$3 = length$1 = strlen(type = characters$1 += identifier(caret())), character$1++;
-					break;
-				case 45: if (previous === 45 && strlen(characters$1) == 2) variable = 0;
-			}
-	}
-	return rulesets;
-}
-function ruleset(value, root$4, parent, index$6, offset$3, rules, points, type, props, children, length$1) {
-	var post = offset$3 - 1;
-	var rule = offset$3 === 0 ? rules : [""];
-	var size$6 = sizeof(rule);
-	for (var i$13 = 0, j$11 = 0, k$9 = 0; i$13 < index$6; ++i$13) for (var x$9 = 0, y$10 = substr(value, post + 1, post = abs(j$11 = points[i$13])), z$11 = value; x$9 < size$6; ++x$9) if (z$11 = trim(j$11 > 0 ? rule[x$9] + " " + y$10 : replace(y$10, /&\f/g, rule[x$9]))) props[k$9++] = z$11;
-	return node(value, root$4, parent, offset$3 === 0 ? RULESET : type, props, children, length$1);
-}
-function comment(value, root$4, parent) {
-	return node(value, root$4, parent, COMMENT, from(char()), substr(value, 2, -2), 0);
-}
-function declaration(value, root$4, parent, length$1) {
-	return node(value, root$4, parent, DECLARATION, substr(value, 0, length$1), substr(value, length$1 + 1, -1), length$1);
-}
-function serialize(children, callback) {
-	var output$1 = "";
-	var length$1 = sizeof(children);
-	for (var i$13 = 0; i$13 < length$1; i$13++) output$1 += callback(children[i$13], i$13, children, callback) || "";
-	return output$1;
-}
-function stringify(element, index$6, children, callback) {
-	switch (element.type) {
-		case LAYER: if (element.children.length) break;
-		case IMPORT:
-		case DECLARATION: return element.return = element.return || element.value;
-		case COMMENT: return "";
-		case KEYFRAMES: return element.return = element.value + "{" + serialize(element.children, callback) + "}";
-		case RULESET: element.value = element.props.join(",");
-	}
-	return strlen(children = serialize(element.children, callback)) ? element.return = element.value + "{" + children + "}" : "";
-}
-function middleware(collection) {
-	var length$1 = sizeof(collection);
-	return function(element, index$6, children, callback) {
-		var output$1 = "";
-		for (var i$13 = 0; i$13 < length$1; i$13++) output$1 += collection[i$13](element, index$6, children, callback) || "";
-		return output$1;
-	};
-}
-function rulesheet(callback) {
-	return function(element) {
-		if (!element.root) {
-			if (element = element.return) callback(element);
-		}
-	};
-}
-function memoize(fn$3) {
-	var cache$1 = Object.create(null);
-	return function(arg) {
-		if (cache$1[arg] === void 0) cache$1[arg] = fn$3(arg);
-		return cache$1[arg];
-	};
-}
-var identifierWithPointTracking = function identifierWithPointTracking$1(begin, points, index$6) {
-	var previous = 0;
-	var character$1 = 0;
-	while (true) {
-		previous = character$1;
-		character$1 = peek();
-		if (previous === 38 && character$1 === 12) points[index$6] = 1;
-		if (token(character$1)) break;
-		next();
-	}
-	return slice(begin, position);
-};
-var toRules = function toRules$1(parsed, points) {
-	var index$6 = -1;
-	var character$1 = 44;
-	do
-		switch (token(character$1)) {
-			case 0:
-				if (character$1 === 38 && peek() === 12) points[index$6] = 1;
-				parsed[index$6] += identifierWithPointTracking(position - 1, points, index$6);
-				break;
-			case 2:
-				parsed[index$6] += delimit(character$1);
-				break;
-			case 4: if (character$1 === 44) {
-				parsed[++index$6] = peek() === 58 ? "&\f" : "";
-				points[index$6] = parsed[index$6].length;
-				break;
-			}
-			default: parsed[index$6] += from(character$1);
-		}
-	while (character$1 = next());
-	return parsed;
-};
-var getRules = function getRules$1(value, points) {
-	return dealloc(toRules(alloc(value), points));
-};
-var fixedElements = /* @__PURE__ */ new WeakMap();
-var compat = function compat$1(element) {
-	if (element.type !== "rule" || !element.parent || element.length < 1) return;
-	var value = element.value;
-	var parent = element.parent;
-	var isImplicitRule = element.column === parent.column && element.line === parent.line;
-	while (parent.type !== "rule") {
-		parent = parent.parent;
-		if (!parent) return;
-	}
-	if (element.props.length === 1 && value.charCodeAt(0) !== 58 && !fixedElements.get(parent)) return;
-	if (isImplicitRule) return;
-	fixedElements.set(element, true);
-	var points = [];
-	var rules = getRules(value, points);
-	var parentRules = parent.props;
-	for (var i$13 = 0, k$9 = 0; i$13 < rules.length; i$13++) for (var j$11 = 0; j$11 < parentRules.length; j$11++, k$9++) element.props[k$9] = points[i$13] ? rules[i$13].replace(/&\f/g, parentRules[j$11]) : parentRules[j$11] + " " + rules[i$13];
-};
-var removeLabel = function removeLabel$1(element) {
-	if (element.type === "decl") {
-		var value = element.value;
-		if (value.charCodeAt(0) === 108 && value.charCodeAt(2) === 98) {
-			element["return"] = "";
-			element.value = "";
-		}
-	}
-};
-function prefix(value, length$1) {
-	switch (hash(value, length$1)) {
-		case 5103: return WEBKIT + "print-" + value + value;
-		case 5737:
-		case 4201:
-		case 3177:
-		case 3433:
-		case 1641:
-		case 4457:
-		case 2921:
-		case 5572:
-		case 6356:
-		case 5844:
-		case 3191:
-		case 6645:
-		case 3005:
-		case 6391:
-		case 5879:
-		case 5623:
-		case 6135:
-		case 4599:
-		case 4855:
-		case 4215:
-		case 6389:
-		case 5109:
-		case 5365:
-		case 5621:
-		case 3829: return WEBKIT + value + value;
-		case 5349:
-		case 4246:
-		case 4810:
-		case 6968:
-		case 2756: return WEBKIT + value + MOZ + value + MS + value + value;
-		case 6828:
-		case 4268: return WEBKIT + value + MS + value + value;
-		case 6165: return WEBKIT + value + MS + "flex-" + value + value;
-		case 5187: return WEBKIT + value + replace(value, /(\w+).+(:[^]+)/, WEBKIT + "box-$1$2" + MS + "flex-$1$2") + value;
-		case 5443: return WEBKIT + value + MS + "flex-item-" + replace(value, /flex-|-self/, "") + value;
-		case 4675: return WEBKIT + value + MS + "flex-line-pack" + replace(value, /align-content|flex-|-self/, "") + value;
-		case 5548: return WEBKIT + value + MS + replace(value, "shrink", "negative") + value;
-		case 5292: return WEBKIT + value + MS + replace(value, "basis", "preferred-size") + value;
-		case 6060: return WEBKIT + "box-" + replace(value, "-grow", "") + WEBKIT + value + MS + replace(value, "grow", "positive") + value;
-		case 4554: return WEBKIT + replace(value, /([^-])(transform)/g, "$1" + WEBKIT + "$2") + value;
-		case 6187: return replace(replace(replace(value, /(zoom-|grab)/, WEBKIT + "$1"), /(image-set)/, WEBKIT + "$1"), value, "") + value;
-		case 5495:
-		case 3959: return replace(value, /(image-set\([^]*)/, WEBKIT + "$1$`$1");
-		case 4968: return replace(replace(value, /(.+:)(flex-)?(.*)/, WEBKIT + "box-pack:$3" + MS + "flex-pack:$3"), /s.+-b[^;]+/, "justify") + WEBKIT + value + value;
-		case 4095:
-		case 3583:
-		case 4068:
-		case 2532: return replace(value, /(.+)-inline(.+)/, WEBKIT + "$1$2") + value;
-		case 8116:
-		case 7059:
-		case 5753:
-		case 5535:
-		case 5445:
-		case 5701:
-		case 4933:
-		case 4677:
-		case 5533:
-		case 5789:
-		case 5021:
-		case 4765:
-			if (strlen(value) - 1 - length$1 > 6) switch (charat(value, length$1 + 1)) {
-				case 109: if (charat(value, length$1 + 4) !== 45) break;
-				case 102: return replace(value, /(.+:)(.+)-([^]+)/, "$1" + WEBKIT + "$2-$3$1" + MOZ + (charat(value, length$1 + 3) == 108 ? "$3" : "$2-$3")) + value;
-				case 115: return ~indexof(value, "stretch") ? prefix(replace(value, "stretch", "fill-available"), length$1) + value : value;
-			}
-			break;
-		case 4949: if (charat(value, length$1 + 1) !== 115) break;
-		case 6444:
-			switch (charat(value, strlen(value) - 3 - (~indexof(value, "!important") && 10))) {
-				case 107: return replace(value, ":", ":" + WEBKIT) + value;
-				case 101: return replace(value, /(.+:)([^;!]+)(;|!.+)?/, "$1" + WEBKIT + (charat(value, 14) === 45 ? "inline-" : "") + "box$3$1" + WEBKIT + "$2$3$1" + MS + "$2box$3") + value;
-			}
-			break;
-		case 5936:
-			switch (charat(value, length$1 + 11)) {
-				case 114: return WEBKIT + value + MS + replace(value, /[svh]\w+-[tblr]{2}/, "tb") + value;
-				case 108: return WEBKIT + value + MS + replace(value, /[svh]\w+-[tblr]{2}/, "tb-rl") + value;
-				case 45: return WEBKIT + value + MS + replace(value, /[svh]\w+-[tblr]{2}/, "lr") + value;
-			}
-			return WEBKIT + value + MS + value + value;
-	}
-	return value;
-}
-var defaultStylisPlugins = [function prefixer(element, index$6, children, callback) {
-	if (element.length > -1) {
-		if (!element["return"]) switch (element.type) {
-			case DECLARATION:
-				element["return"] = prefix(element.value, element.length);
-				break;
-			case KEYFRAMES: return serialize([copy(element, { value: replace(element.value, "@", "@" + WEBKIT) })], callback);
-			case RULESET: if (element.length) return combine(element.props, function(value) {
-				switch (match(value, /(::plac\w+|:read-\w+)/)) {
-					case ":read-only":
-					case ":read-write": return serialize([copy(element, { props: [replace(value, /:(read-\w+)/, ":" + MOZ + "$1")] })], callback);
-					case "::placeholder": return serialize([
-						copy(element, { props: [replace(value, /:(plac\w+)/, ":" + WEBKIT + "input-$1")] }),
-						copy(element, { props: [replace(value, /:(plac\w+)/, ":" + MOZ + "$1")] }),
-						copy(element, { props: [replace(value, /:(plac\w+)/, MS + "input-$1")] })
-					], callback);
-				}
-				return "";
-			});
-		}
-	}
-}];
-var createCache = function createCache$2(options$2) {
-	var key = options$2.key;
-	if (key === "css") {
-		var ssrStyles = document.querySelectorAll("style[data-emotion]:not([data-s])");
-		Array.prototype.forEach.call(ssrStyles, function(node$1) {
-			if (node$1.getAttribute("data-emotion").indexOf(" ") === -1) return;
-			document.head.appendChild(node$1);
-			node$1.setAttribute("data-s", "");
-		});
-	}
-	var stylisPlugins = options$2.stylisPlugins || defaultStylisPlugins;
-	var inserted = {};
-	var container;
-	var nodesToHydrate = [];
-	container = options$2.container || document.head;
-	Array.prototype.forEach.call(document.querySelectorAll("style[data-emotion^=\"" + key + " \"]"), function(node$1) {
-		var attrib = node$1.getAttribute("data-emotion").split(" ");
-		for (var i$13 = 1; i$13 < attrib.length; i$13++) inserted[attrib[i$13]] = true;
-		nodesToHydrate.push(node$1);
-	});
-	var _insert;
-	var omnipresentPlugins = [compat, removeLabel];
-	var currentSheet;
-	var finalizingPlugins = [stringify, rulesheet(function(rule) {
-		currentSheet.insert(rule);
-	})];
-	var serializer = middleware(omnipresentPlugins.concat(stylisPlugins, finalizingPlugins));
-	var stylis = function stylis$1(styles$1) {
-		return serialize(compile(styles$1), serializer);
-	};
-	_insert = function insert(selector, serialized, sheet, shouldCache) {
-		currentSheet = sheet;
-		stylis(selector ? selector + "{" + serialized.styles + "}" : serialized.styles);
-		if (shouldCache) cache$1.inserted[serialized.name] = true;
-	};
-	var cache$1 = {
-		key,
-		sheet: new StyleSheet({
-			key,
-			container,
-			nonce: options$2.nonce,
-			speedy: options$2.speedy,
-			prepend: options$2.prepend,
-			insertionPoint: options$2.insertionPoint
-		}),
-		nonce: options$2.nonce,
-		inserted,
-		registered: {},
-		insert: _insert
-	};
-	cache$1.sheet.hydrate(nodesToHydrate);
-	return cache$1;
-};
-var isBrowser = true;
-function getRegisteredStyles(registered, registeredStyles, classNames$3) {
-	var rawClassName = "";
-	classNames$3.split(" ").forEach(function(className) {
-		if (registered[className] !== void 0) registeredStyles.push(registered[className] + ";");
-		else if (className) rawClassName += className + " ";
-	});
-	return rawClassName;
-}
-var registerStyles = function registerStyles$1(cache$1, serialized, isStringTag) {
-	var className = cache$1.key + "-" + serialized.name;
-	if ((isStringTag === false || isBrowser === false) && cache$1.registered[className] === void 0) cache$1.registered[className] = serialized.styles;
-};
-var insertStyles = function insertStyles$1(cache$1, serialized, isStringTag) {
-	registerStyles(cache$1, serialized, isStringTag);
-	var className = cache$1.key + "-" + serialized.name;
-	if (cache$1.inserted[serialized.name] === void 0) {
-		var current = serialized;
-		do {
-			cache$1.insert(serialized === current ? "." + className : "", current, cache$1.sheet, true);
-			current = current.next;
-		} while (current !== void 0);
-	}
-};
-function murmur2(str) {
-	var h$4 = 0;
-	var k$9, i$13 = 0, len$1 = str.length;
-	for (; len$1 >= 4; ++i$13, len$1 -= 4) {
-		k$9 = str.charCodeAt(i$13) & 255 | (str.charCodeAt(++i$13) & 255) << 8 | (str.charCodeAt(++i$13) & 255) << 16 | (str.charCodeAt(++i$13) & 255) << 24;
-		k$9 = (k$9 & 65535) * 1540483477 + ((k$9 >>> 16) * 59797 << 16);
-		k$9 ^= k$9 >>> 24;
-		h$4 = (k$9 & 65535) * 1540483477 + ((k$9 >>> 16) * 59797 << 16) ^ (h$4 & 65535) * 1540483477 + ((h$4 >>> 16) * 59797 << 16);
-	}
-	switch (len$1) {
-		case 3: h$4 ^= (str.charCodeAt(i$13 + 2) & 255) << 16;
-		case 2: h$4 ^= (str.charCodeAt(i$13 + 1) & 255) << 8;
-		case 1:
-			h$4 ^= str.charCodeAt(i$13) & 255;
-			h$4 = (h$4 & 65535) * 1540483477 + ((h$4 >>> 16) * 59797 << 16);
-	}
-	h$4 ^= h$4 >>> 13;
-	h$4 = (h$4 & 65535) * 1540483477 + ((h$4 >>> 16) * 59797 << 16);
-	return ((h$4 ^ h$4 >>> 15) >>> 0).toString(36);
-}
-var unitlessKeys = {
-	animationIterationCount: 1,
-	aspectRatio: 1,
-	borderImageOutset: 1,
-	borderImageSlice: 1,
-	borderImageWidth: 1,
-	boxFlex: 1,
-	boxFlexGroup: 1,
-	boxOrdinalGroup: 1,
-	columnCount: 1,
-	columns: 1,
-	flex: 1,
-	flexGrow: 1,
-	flexPositive: 1,
-	flexShrink: 1,
-	flexNegative: 1,
-	flexOrder: 1,
-	gridRow: 1,
-	gridRowEnd: 1,
-	gridRowSpan: 1,
-	gridRowStart: 1,
-	gridColumn: 1,
-	gridColumnEnd: 1,
-	gridColumnSpan: 1,
-	gridColumnStart: 1,
-	msGridRow: 1,
-	msGridRowSpan: 1,
-	msGridColumn: 1,
-	msGridColumnSpan: 1,
-	fontWeight: 1,
-	lineHeight: 1,
-	opacity: 1,
-	order: 1,
-	orphans: 1,
-	scale: 1,
-	tabSize: 1,
-	widows: 1,
-	zIndex: 1,
-	zoom: 1,
-	WebkitLineClamp: 1,
-	fillOpacity: 1,
-	floodOpacity: 1,
-	stopOpacity: 1,
-	strokeDasharray: 1,
-	strokeDashoffset: 1,
-	strokeMiterlimit: 1,
-	strokeOpacity: 1,
-	strokeWidth: 1
-};
-var isDevelopment$1 = false;
-var hyphenateRegex = /[A-Z]|^ms/g;
-var animationRegex = /_EMO_([^_]+?)_([^]*?)_EMO_/g;
-var isCustomProperty = function isCustomProperty$1(property$2) {
-	return property$2.charCodeAt(1) === 45;
-};
-var isProcessableValue = function isProcessableValue$1(value) {
-	return value != null && typeof value !== "boolean";
-};
-var processStyleName = /* @__PURE__ */ memoize(function(styleName) {
-	return isCustomProperty(styleName) ? styleName : styleName.replace(hyphenateRegex, "-$&").toLowerCase();
-});
-var processStyleValue = function processStyleValue$1(key, value) {
-	switch (key) {
-		case "animation":
-		case "animationName": if (typeof value === "string") return value.replace(animationRegex, function(match$2, p1, p2) {
-			cursor = {
-				name: p1,
-				styles: p2,
-				next: cursor
-			};
-			return p1;
-		});
-	}
-	if (unitlessKeys[key] !== 1 && !isCustomProperty(key) && typeof value === "number" && value !== 0) return value + "px";
-	return value;
-};
-var noComponentSelectorMessage = "Component selectors can only be used in conjunction with @emotion/babel-plugin, the swc Emotion plugin, or another Emotion-aware compiler transform.";
-function handleInterpolation(mergedProps, registered, interpolation) {
-	if (interpolation == null) return "";
-	var componentSelector = interpolation;
-	if (componentSelector.__emotion_styles !== void 0) return componentSelector;
-	switch (typeof interpolation) {
-		case "boolean": return "";
-		case "object":
-			var keyframes$3 = interpolation;
-			if (keyframes$3.anim === 1) {
-				cursor = {
-					name: keyframes$3.name,
-					styles: keyframes$3.styles,
-					next: cursor
-				};
-				return keyframes$3.name;
-			}
-			var serializedStyles = interpolation;
-			if (serializedStyles.styles !== void 0) {
-				var next$1 = serializedStyles.next;
-				if (next$1 !== void 0) while (next$1 !== void 0) {
-					cursor = {
-						name: next$1.name,
-						styles: next$1.styles,
-						next: cursor
-					};
-					next$1 = next$1.next;
-				}
-				return serializedStyles.styles + ";";
-			}
-			return createStringFromObject(mergedProps, registered, interpolation);
-		case "function":
-			if (mergedProps !== void 0) {
-				var previousCursor = cursor;
-				var result = interpolation(mergedProps);
-				cursor = previousCursor;
-				return handleInterpolation(mergedProps, registered, result);
-			}
-			break;
-	}
-	var asString = interpolation;
-	if (registered == null) return asString;
-	var cached = registered[asString];
-	return cached !== void 0 ? cached : asString;
-}
-function createStringFromObject(mergedProps, registered, obj) {
-	var string = "";
-	if (Array.isArray(obj)) for (var i$13 = 0; i$13 < obj.length; i$13++) string += handleInterpolation(mergedProps, registered, obj[i$13]) + ";";
-	else for (var key in obj) {
-		var value = obj[key];
-		if (typeof value !== "object") {
-			var asString = value;
-			if (registered != null && registered[asString] !== void 0) string += key + "{" + registered[asString] + "}";
-			else if (isProcessableValue(asString)) string += processStyleName(key) + ":" + processStyleValue(key, asString) + ";";
-		} else {
-			if (key === "NO_COMPONENT_SELECTOR" && isDevelopment$1) throw new Error(noComponentSelectorMessage);
-			if (Array.isArray(value) && typeof value[0] === "string" && (registered == null || registered[value[0]] === void 0)) {
-				for (var _i$1 = 0; _i$1 < value.length; _i$1++) if (isProcessableValue(value[_i$1])) string += processStyleName(key) + ":" + processStyleValue(key, value[_i$1]) + ";";
-			} else {
-				var interpolated = handleInterpolation(mergedProps, registered, value);
-				switch (key) {
-					case "animation":
-					case "animationName":
-						string += processStyleName(key) + ":" + interpolated + ";";
-						break;
-					default: string += key + "{" + interpolated + "}";
-				}
-			}
-		}
-	}
-	return string;
-}
-var labelPattern = /label:\s*([^\s;{]+)\s*(;|$)/g;
-var cursor;
-function serializeStyles(args, registered, mergedProps) {
-	if (args.length === 1 && typeof args[0] === "object" && args[0] !== null && args[0].styles !== void 0) return args[0];
-	var stringMode = true;
-	var styles$1 = "";
-	cursor = void 0;
-	var strings = args[0];
-	if (strings == null || strings.raw === void 0) {
-		stringMode = false;
-		styles$1 += handleInterpolation(mergedProps, registered, strings);
-	} else styles$1 += strings[0];
-	for (var i$13 = 1; i$13 < args.length; i$13++) {
-		styles$1 += handleInterpolation(mergedProps, registered, args[i$13]);
-		if (stringMode) styles$1 += strings[i$13];
-	}
-	labelPattern.lastIndex = 0;
-	var identifierName = "";
-	var match$2;
-	while ((match$2 = labelPattern.exec(styles$1)) !== null) identifierName += "-" + match$2[1];
-	return {
-		name: murmur2(styles$1) + identifierName,
-		styles: styles$1,
-		next: cursor
-	};
-}
-var syncFallback = function syncFallback$1(create) {
-	return create();
-};
-var useInsertionEffect = import_react.useInsertionEffect ? import_react.useInsertionEffect : false;
-var useInsertionEffectAlwaysWithSyncFallback = useInsertionEffect || syncFallback;
-useInsertionEffect || import_react.useLayoutEffect;
-var EmotionCacheContext = /* @__PURE__ */ import_react.createContext(typeof HTMLElement !== "undefined" ? /* @__PURE__ */ createCache({ key: "css" }) : null);
-EmotionCacheContext.Provider;
-var withEmotionCache = function withEmotionCache$1(func) {
-	return /* @__PURE__ */ (0, import_react.forwardRef)(function(props, ref) {
-		return func(props, (0, import_react.useContext)(EmotionCacheContext), ref);
-	});
-};
-var ThemeContext = /* @__PURE__ */ import_react.createContext({});
-var hasOwn = {}.hasOwnProperty;
-var typePropName = "__EMOTION_TYPE_PLEASE_DO_NOT_USE__";
-var createEmotionProps = function createEmotionProps$1(type, props) {
-	var newProps = {};
-	for (var _key in props) if (hasOwn.call(props, _key)) newProps[_key] = props[_key];
-	newProps[typePropName] = type;
-	return newProps;
-};
-var Insertion = function Insertion$1(_ref$1) {
-	var cache$1 = _ref$1.cache, serialized = _ref$1.serialized, isStringTag = _ref$1.isStringTag;
-	registerStyles(cache$1, serialized, isStringTag);
-	useInsertionEffectAlwaysWithSyncFallback(function() {
-		return insertStyles(cache$1, serialized, isStringTag);
-	});
-	return null;
-};
-var Emotion$1 = /* @__PURE__ */ withEmotionCache(function(props, cache$1, ref) {
-	var cssProp = props.css;
-	if (typeof cssProp === "string" && cache$1.registered[cssProp] !== void 0) cssProp = cache$1.registered[cssProp];
-	var WrappedComponent = props[typePropName];
-	var registeredStyles = [cssProp];
-	var className = "";
-	if (typeof props.className === "string") className = getRegisteredStyles(cache$1.registered, registeredStyles, props.className);
-	else if (props.className != null) className = props.className + " ";
-	var serialized = serializeStyles(registeredStyles, void 0, import_react.useContext(ThemeContext));
-	className += cache$1.key + "-" + serialized.name;
-	var newProps = {};
-	for (var _key2 in props) if (hasOwn.call(props, _key2) && _key2 !== "css" && _key2 !== typePropName && true) newProps[_key2] = props[_key2];
-	newProps.className = className;
-	if (ref) newProps.ref = ref;
-	return /* @__PURE__ */ import_react.createElement(import_react.Fragment, null, /* @__PURE__ */ import_react.createElement(Insertion, {
-		cache: cache$1,
-		serialized,
-		isStringTag: typeof WrappedComponent === "string"
-	}), /* @__PURE__ */ import_react.createElement(WrappedComponent, newProps));
-});
-require_hoist_non_react_statics_cjs();
-var jsx = function jsx$4(type, props) {
-	var args = arguments;
-	if (props == null || !hasOwn.call(props, "css")) return import_react.createElement.apply(void 0, args);
-	var argsLength = args.length;
-	var createElementArgArray = new Array(argsLength);
-	createElementArgArray[0] = Emotion$1;
-	createElementArgArray[1] = createEmotionProps(type, props);
-	for (var i$13 = 2; i$13 < argsLength; i$13++) createElementArgArray[i$13] = args[i$13];
-	return import_react.createElement.apply(null, createElementArgArray);
-};
-(function(_jsx$74) {
-	var JSX;
-	(function(_JSX) {})(JSX || (JSX = _jsx$74.JSX || (_jsx$74.JSX = {})));
-})(jsx || (jsx = {}));
-function css$2() {
-	for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) args[_key] = arguments[_key];
-	return serializeStyles(args);
-}
-function keyframes() {
-	var insertable = css$2.apply(void 0, arguments);
-	var name = "animation-" + insertable.name;
-	return {
-		name,
-		styles: "@keyframes " + name + "{" + insertable.styles + "}",
-		anim: 1,
-		toString: function toString$5() {
-			return "_EMO_" + this.name + "_" + this.styles + "_EMO_";
-		}
-	};
-}
-function _taggedTemplateLiteral(e$14, t$11) {
-	return t$11 || (t$11 = e$14.slice(0)), Object.freeze(Object.defineProperties(e$14, { raw: { value: Object.freeze(t$11) } }));
-}
-var min = Math.min;
-var max = Math.max;
-var round = Math.round;
-var floor = Math.floor;
-var createCoords = (v$7) => ({
-	x: v$7,
-	y: v$7
-});
-function rectToClientRect(rect) {
-	const { x: x$9, y: y$10, width, height } = rect;
-	return {
-		width,
-		height,
-		top: y$10,
-		left: x$9,
-		right: x$9 + width,
-		bottom: y$10 + height,
-		x: x$9,
-		y: y$10
-	};
-}
-function hasWindow() {
-	return typeof window !== "undefined";
-}
-function getNodeName(node$1) {
-	if (isNode(node$1)) return (node$1.nodeName || "").toLowerCase();
-	return "#document";
-}
-function getWindow(node$1) {
-	var _node$ownerDocument;
-	return (node$1 == null || (_node$ownerDocument = node$1.ownerDocument) == null ? void 0 : _node$ownerDocument.defaultView) || window;
-}
-function getDocumentElement(node$1) {
-	var _ref$1;
-	return (_ref$1 = (isNode(node$1) ? node$1.ownerDocument : node$1.document) || window.document) == null ? void 0 : _ref$1.documentElement;
-}
-function isNode(value) {
-	if (!hasWindow()) return false;
-	return value instanceof Node || value instanceof getWindow(value).Node;
-}
-function isElement(value) {
-	if (!hasWindow()) return false;
-	return value instanceof Element || value instanceof getWindow(value).Element;
-}
-function isHTMLElement(value) {
-	if (!hasWindow()) return false;
-	return value instanceof HTMLElement || value instanceof getWindow(value).HTMLElement;
-}
-function isShadowRoot(value) {
-	if (!hasWindow() || typeof ShadowRoot === "undefined") return false;
-	return value instanceof ShadowRoot || value instanceof getWindow(value).ShadowRoot;
-}
-var invalidOverflowDisplayValues = /* @__PURE__ */ new Set(["inline", "contents"]);
-function isOverflowElement(element) {
-	const { overflow, overflowX, overflowY, display } = getComputedStyle$1(element);
-	return /auto|scroll|overlay|hidden|clip/.test(overflow + overflowY + overflowX) && !invalidOverflowDisplayValues.has(display);
-}
-function isWebKit() {
-	if (typeof CSS === "undefined" || !CSS.supports) return false;
-	return CSS.supports("-webkit-backdrop-filter", "none");
-}
-var lastTraversableNodeNames = /* @__PURE__ */ new Set([
-	"html",
-	"body",
-	"#document"
-]);
-function isLastTraversableNode(node$1) {
-	return lastTraversableNodeNames.has(getNodeName(node$1));
-}
-function getComputedStyle$1(element) {
-	return getWindow(element).getComputedStyle(element);
-}
-function getParentNode(node$1) {
-	if (getNodeName(node$1) === "html") return node$1;
-	const result = node$1.assignedSlot || node$1.parentNode || isShadowRoot(node$1) && node$1.host || getDocumentElement(node$1);
-	return isShadowRoot(result) ? result.host : result;
-}
-function getNearestOverflowAncestor(node$1) {
-	const parentNode = getParentNode(node$1);
-	if (isLastTraversableNode(parentNode)) return node$1.ownerDocument ? node$1.ownerDocument.body : node$1.body;
-	if (isHTMLElement(parentNode) && isOverflowElement(parentNode)) return parentNode;
-	return getNearestOverflowAncestor(parentNode);
-}
-function getOverflowAncestors(node$1, list, traverseIframes) {
-	var _node$ownerDocument2;
-	if (list === void 0) list = [];
-	if (traverseIframes === void 0) traverseIframes = true;
-	const scrollableAncestor = getNearestOverflowAncestor(node$1);
-	const isBody = scrollableAncestor === ((_node$ownerDocument2 = node$1.ownerDocument) == null ? void 0 : _node$ownerDocument2.body);
-	const win = getWindow(scrollableAncestor);
-	if (isBody) {
-		const frameElement = getFrameElement(win);
-		return list.concat(win, win.visualViewport || [], isOverflowElement(scrollableAncestor) ? scrollableAncestor : [], frameElement && traverseIframes ? getOverflowAncestors(frameElement) : []);
-	}
-	return list.concat(scrollableAncestor, getOverflowAncestors(scrollableAncestor, [], traverseIframes));
-}
-function getFrameElement(win) {
-	return win.parent && Object.getPrototypeOf(win.parent) ? win.frameElement : null;
-}
-function getCssDimensions(element) {
-	const css$3 = getComputedStyle$1(element);
-	let width = parseFloat(css$3.width) || 0;
-	let height = parseFloat(css$3.height) || 0;
-	const hasOffset = isHTMLElement(element);
-	const offsetWidth = hasOffset ? element.offsetWidth : width;
-	const offsetHeight = hasOffset ? element.offsetHeight : height;
-	const shouldFallback = round(width) !== offsetWidth || round(height) !== offsetHeight;
-	if (shouldFallback) {
-		width = offsetWidth;
-		height = offsetHeight;
-	}
-	return {
-		width,
-		height,
-		$: shouldFallback
-	};
-}
-function unwrapElement(element) {
-	return !isElement(element) ? element.contextElement : element;
-}
-function getScale(element) {
-	const domElement = unwrapElement(element);
-	if (!isHTMLElement(domElement)) return createCoords(1);
-	const rect = domElement.getBoundingClientRect();
-	const { width, height, $: $$5 } = getCssDimensions(domElement);
-	let x$9 = ($$5 ? round(rect.width) : rect.width) / width;
-	let y$10 = ($$5 ? round(rect.height) : rect.height) / height;
-	if (!x$9 || !Number.isFinite(x$9)) x$9 = 1;
-	if (!y$10 || !Number.isFinite(y$10)) y$10 = 1;
-	return {
-		x: x$9,
-		y: y$10
-	};
-}
-var noOffsets = /* @__PURE__ */ createCoords(0);
-function getVisualOffsets(element) {
-	const win = getWindow(element);
-	if (!isWebKit() || !win.visualViewport) return noOffsets;
-	return {
-		x: win.visualViewport.offsetLeft,
-		y: win.visualViewport.offsetTop
-	};
-}
-function shouldAddVisualOffsets(element, isFixed, floatingOffsetParent) {
-	if (isFixed === void 0) isFixed = false;
-	if (!floatingOffsetParent || isFixed && floatingOffsetParent !== getWindow(element)) return false;
-	return isFixed;
-}
-function getBoundingClientRect(element, includeScale, isFixedStrategy, offsetParent) {
-	if (includeScale === void 0) includeScale = false;
-	if (isFixedStrategy === void 0) isFixedStrategy = false;
-	const clientRect = element.getBoundingClientRect();
-	const domElement = unwrapElement(element);
-	let scale$2 = createCoords(1);
-	if (includeScale) if (offsetParent) {
-		if (isElement(offsetParent)) scale$2 = getScale(offsetParent);
-	} else scale$2 = getScale(element);
-	const visualOffsets = shouldAddVisualOffsets(domElement, isFixedStrategy, offsetParent) ? getVisualOffsets(domElement) : createCoords(0);
-	let x$9 = (clientRect.left + visualOffsets.x) / scale$2.x;
-	let y$10 = (clientRect.top + visualOffsets.y) / scale$2.y;
-	let width = clientRect.width / scale$2.x;
-	let height = clientRect.height / scale$2.y;
-	if (domElement) {
-		const win = getWindow(domElement);
-		const offsetWin = offsetParent && isElement(offsetParent) ? getWindow(offsetParent) : offsetParent;
-		let currentWin = win;
-		let currentIFrame = getFrameElement(currentWin);
-		while (currentIFrame && offsetParent && offsetWin !== currentWin) {
-			const iframeScale = getScale(currentIFrame);
-			const iframeRect = currentIFrame.getBoundingClientRect();
-			const css$3 = getComputedStyle$1(currentIFrame);
-			const left = iframeRect.left + (currentIFrame.clientLeft + parseFloat(css$3.paddingLeft)) * iframeScale.x;
-			const top = iframeRect.top + (currentIFrame.clientTop + parseFloat(css$3.paddingTop)) * iframeScale.y;
-			x$9 *= iframeScale.x;
-			y$10 *= iframeScale.y;
-			width *= iframeScale.x;
-			height *= iframeScale.y;
-			x$9 += left;
-			y$10 += top;
-			currentWin = getWindow(currentIFrame);
-			currentIFrame = getFrameElement(currentWin);
-		}
-	}
-	return rectToClientRect({
-		width,
-		height,
-		x: x$9,
-		y: y$10
-	});
-}
-function rectsAreEqual(a$8, b$12) {
-	return a$8.x === b$12.x && a$8.y === b$12.y && a$8.width === b$12.width && a$8.height === b$12.height;
-}
-function observeMove(element, onMove) {
-	let io$1 = null;
-	let timeoutId;
-	const root$4 = getDocumentElement(element);
-	function cleanup() {
-		var _io;
-		clearTimeout(timeoutId);
-		(_io = io$1) == null || _io.disconnect();
-		io$1 = null;
-	}
-	function refresh$1(skip, threshold) {
-		if (skip === void 0) skip = false;
-		if (threshold === void 0) threshold = 1;
-		cleanup();
-		const elementRectForRootMargin = element.getBoundingClientRect();
-		const { left, top, width, height } = elementRectForRootMargin;
-		if (!skip) onMove();
-		if (!width || !height) return;
-		const insetTop = floor(top);
-		const insetRight = floor(root$4.clientWidth - (left + width));
-		const insetBottom = floor(root$4.clientHeight - (top + height));
-		const insetLeft = floor(left);
-		const options$2 = {
-			rootMargin: -insetTop + "px " + -insetRight + "px " + -insetBottom + "px " + -insetLeft + "px",
-			threshold: max(0, min(1, threshold)) || 1
-		};
-		let isFirstUpdate = true;
-		function handleObserve(entries) {
-			const ratio = entries[0].intersectionRatio;
-			if (ratio !== threshold) {
-				if (!isFirstUpdate) return refresh$1();
-				if (!ratio) timeoutId = setTimeout(() => {
-					refresh$1(false, 1e-7);
-				}, 1e3);
-				else refresh$1(false, ratio);
-			}
-			if (ratio === 1 && !rectsAreEqual(elementRectForRootMargin, element.getBoundingClientRect())) refresh$1();
-			isFirstUpdate = false;
-		}
-		try {
-			io$1 = new IntersectionObserver(handleObserve, {
-				...options$2,
-				root: root$4.ownerDocument
-			});
-		} catch (_e$1) {
-			io$1 = new IntersectionObserver(handleObserve, options$2);
-		}
-		io$1.observe(element);
-	}
-	refresh$1(true);
-	return cleanup;
-}
-function autoUpdate(reference, floating, update$2, options$2) {
-	if (options$2 === void 0) options$2 = {};
-	const { ancestorScroll = true, ancestorResize = true, elementResize = typeof ResizeObserver === "function", layoutShift = typeof IntersectionObserver === "function", animationFrame = false } = options$2;
-	const referenceEl = unwrapElement(reference);
-	const ancestors = ancestorScroll || ancestorResize ? [...referenceEl ? getOverflowAncestors(referenceEl) : [], ...getOverflowAncestors(floating)] : [];
-	ancestors.forEach((ancestor) => {
-		ancestorScroll && ancestor.addEventListener("scroll", update$2, { passive: true });
-		ancestorResize && ancestor.addEventListener("resize", update$2);
-	});
-	const cleanupIo = referenceEl && layoutShift ? observeMove(referenceEl, update$2) : null;
-	let reobserveFrame = -1;
-	let resizeObserver = null;
-	if (elementResize) {
-		resizeObserver = new ResizeObserver((_ref$1) => {
-			let [firstEntry] = _ref$1;
-			if (firstEntry && firstEntry.target === referenceEl && resizeObserver) {
-				resizeObserver.unobserve(floating);
-				cancelAnimationFrame(reobserveFrame);
-				reobserveFrame = requestAnimationFrame(() => {
-					var _resizeObserver;
-					(_resizeObserver = resizeObserver) == null || _resizeObserver.observe(floating);
-				});
-			}
-			update$2();
-		});
-		if (referenceEl && !animationFrame) resizeObserver.observe(referenceEl);
-		resizeObserver.observe(floating);
-	}
-	let frameId;
-	let prevRefRect = animationFrame ? getBoundingClientRect(reference) : null;
-	if (animationFrame) frameLoop$1();
-	function frameLoop$1() {
-		const nextRefRect = getBoundingClientRect(reference);
-		if (prevRefRect && !rectsAreEqual(prevRefRect, nextRefRect)) update$2();
-		prevRefRect = nextRefRect;
-		frameId = requestAnimationFrame(frameLoop$1);
-	}
-	update$2();
-	return () => {
-		var _resizeObserver2;
-		ancestors.forEach((ancestor) => {
-			ancestorScroll && ancestor.removeEventListener("scroll", update$2);
-			ancestorResize && ancestor.removeEventListener("resize", update$2);
-		});
-		cleanupIo?.();
-		(_resizeObserver2 = resizeObserver) == null || _resizeObserver2.disconnect();
-		resizeObserver = null;
-		if (animationFrame) cancelAnimationFrame(frameId);
-	};
-}
-var index = import_react.useLayoutEffect;
-var import_react_dom$1 = require_react_dom();
-var _excluded$4 = [
-	"className",
-	"clearValue",
-	"cx",
-	"getStyles",
-	"getClassNames",
-	"getValue",
-	"hasValue",
-	"isMulti",
-	"isRtl",
-	"options",
-	"selectOption",
-	"selectProps",
-	"setValue",
-	"theme"
-];
-var noop = function noop$13() {};
-function applyPrefixToName(prefix$4, name) {
-	if (!name) return prefix$4;
-	else if (name[0] === "-") return prefix$4 + name;
-	else return prefix$4 + "__" + name;
-}
-function classNames(prefix$4, state) {
-	for (var _len = arguments.length, classNameList = new Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) classNameList[_key - 2] = arguments[_key];
-	var arr = [].concat(classNameList);
-	if (state && prefix$4) {
-		for (var key in state) if (state.hasOwnProperty(key) && state[key]) arr.push("".concat(applyPrefixToName(prefix$4, key)));
-	}
-	return arr.filter(function(i$13) {
-		return i$13;
-	}).map(function(i$13) {
-		return String(i$13).trim();
-	}).join(" ");
-}
-var cleanValue = function cleanValue$1(value) {
-	if (isArray(value)) return value.filter(Boolean);
-	if (_typeof(value) === "object" && value !== null) return [value];
-	return [];
-};
-var cleanCommonProps = function cleanCommonProps$1(props) {
-	props.className;
-	props.clearValue;
-	props.cx;
-	props.getStyles;
-	props.getClassNames;
-	props.getValue;
-	props.hasValue;
-	props.isMulti;
-	props.isRtl;
-	props.options;
-	props.selectOption;
-	props.selectProps;
-	props.setValue;
-	props.theme;
-	return _objectSpread2({}, _objectWithoutProperties(props, _excluded$4));
-};
-var getStyleProps = function getStyleProps$1(props, name, classNamesState) {
-	var cx$28 = props.cx, getStyles = props.getStyles, getClassNames = props.getClassNames, className = props.className;
-	return {
-		css: getStyles(name, props),
-		className: cx$28(classNamesState !== null && classNamesState !== void 0 ? classNamesState : {}, getClassNames(name, props), className)
-	};
-};
-function isDocumentElement(el) {
-	return [
-		document.documentElement,
-		document.body,
-		window
-	].indexOf(el) > -1;
-}
-function normalizedHeight(el) {
-	if (isDocumentElement(el)) return window.innerHeight;
-	return el.clientHeight;
-}
-function getScrollTop(el) {
-	if (isDocumentElement(el)) return window.pageYOffset;
-	return el.scrollTop;
-}
-function scrollTo(el, top) {
-	if (isDocumentElement(el)) {
-		window.scrollTo(0, top);
-		return;
-	}
-	el.scrollTop = top;
-}
-function getScrollParent(element) {
-	var style$1 = getComputedStyle(element);
-	var excludeStaticParent = style$1.position === "absolute";
-	var overflowRx = /(auto|scroll)/;
-	if (style$1.position === "fixed") return document.documentElement;
-	for (var parent = element; parent = parent.parentElement;) {
-		style$1 = getComputedStyle(parent);
-		if (excludeStaticParent && style$1.position === "static") continue;
-		if (overflowRx.test(style$1.overflow + style$1.overflowY + style$1.overflowX)) return parent;
-	}
-	return document.documentElement;
-}
-function easeOutCubic(t$11, b$12, c$12, d$7) {
-	return c$12 * ((t$11 = t$11 / d$7 - 1) * t$11 * t$11 + 1) + b$12;
-}
-function animatedScrollTo(element, to$3) {
-	var duration = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : 200;
-	var callback = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : noop;
-	var start$1 = getScrollTop(element);
-	var change = to$3 - start$1;
-	var increment = 10;
-	var currentTime = 0;
-	function animateScroll() {
-		currentTime += increment;
-		scrollTo(element, easeOutCubic(currentTime, start$1, change, duration));
-		if (currentTime < duration) window.requestAnimationFrame(animateScroll);
-		else callback(element);
-	}
-	animateScroll();
-}
-function scrollIntoView(menuEl, focusedEl) {
-	var menuRect = menuEl.getBoundingClientRect();
-	var focusedRect = focusedEl.getBoundingClientRect();
-	var overScroll = focusedEl.offsetHeight / 3;
-	if (focusedRect.bottom + overScroll > menuRect.bottom) scrollTo(menuEl, Math.min(focusedEl.offsetTop + focusedEl.clientHeight - menuEl.offsetHeight + overScroll, menuEl.scrollHeight));
-	else if (focusedRect.top - overScroll < menuRect.top) scrollTo(menuEl, Math.max(focusedEl.offsetTop - overScroll, 0));
-}
-function getBoundingClientObj(element) {
-	var rect = element.getBoundingClientRect();
-	return {
-		bottom: rect.bottom,
-		height: rect.height,
-		left: rect.left,
-		right: rect.right,
-		top: rect.top,
-		width: rect.width
-	};
-}
-function isTouchCapable() {
-	try {
-		document.createEvent("TouchEvent");
-		return true;
-	} catch (e$14) {
-		return false;
-	}
-}
-function isMobileDevice() {
-	try {
-		return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-	} catch (e$14) {
-		return false;
-	}
-}
-var passiveOptionAccessed = false;
-var options = { get passive() {
-	return passiveOptionAccessed = true;
-} };
-var w$1 = typeof window !== "undefined" ? window : {};
-if (w$1.addEventListener && w$1.removeEventListener) {
-	w$1.addEventListener("p", noop, options);
-	w$1.removeEventListener("p", noop, false);
-}
-var supportsPassiveEvents = passiveOptionAccessed;
-function notNullish(item) {
-	return item != null;
-}
-function isArray(arg) {
-	return Array.isArray(arg);
-}
-function valueTernary(isMulti, multiValue, singleValue) {
-	return isMulti ? multiValue : singleValue;
-}
-function singleValueAsValue(singleValue) {
-	return singleValue;
-}
-function multiValueAsValue(multiValue) {
-	return multiValue;
-}
-var removeProps = function removeProps$1(propsObj) {
-	for (var _len2 = arguments.length, properties = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) properties[_key2 - 1] = arguments[_key2];
-	return Object.entries(propsObj).filter(function(_ref$1) {
-		var key = _slicedToArray(_ref$1, 1)[0];
-		return !properties.includes(key);
-	}).reduce(function(newProps, _ref3) {
-		var _ref4 = _slicedToArray(_ref3, 2), key = _ref4[0];
-		newProps[key] = _ref4[1];
-		return newProps;
-	}, {});
-};
-var _excluded$3 = ["children", "innerProps"], _excluded2$1 = ["children", "innerProps"];
-function getMenuPlacement(_ref$1) {
-	var preferredMaxHeight = _ref$1.maxHeight, menuEl = _ref$1.menuEl, minHeight = _ref$1.minHeight, preferredPlacement = _ref$1.placement, shouldScroll = _ref$1.shouldScroll, isFixedPosition = _ref$1.isFixedPosition, controlHeight = _ref$1.controlHeight;
-	var scrollParent = getScrollParent(menuEl);
-	var defaultState = {
-		placement: "bottom",
-		maxHeight: preferredMaxHeight
-	};
-	if (!menuEl || !menuEl.offsetParent) return defaultState;
-	var scrollHeight = scrollParent.getBoundingClientRect().height;
-	var _menuEl$getBoundingCl = menuEl.getBoundingClientRect(), menuBottom = _menuEl$getBoundingCl.bottom, menuHeight = _menuEl$getBoundingCl.height, menuTop = _menuEl$getBoundingCl.top;
-	var containerTop = menuEl.offsetParent.getBoundingClientRect().top;
-	var viewHeight = isFixedPosition ? window.innerHeight : normalizedHeight(scrollParent);
-	var scrollTop = getScrollTop(scrollParent);
-	var marginBottom = parseInt(getComputedStyle(menuEl).marginBottom, 10);
-	var marginTop = parseInt(getComputedStyle(menuEl).marginTop, 10);
-	var viewSpaceAbove = containerTop - marginTop;
-	var viewSpaceBelow = viewHeight - menuTop;
-	var scrollSpaceAbove = viewSpaceAbove + scrollTop;
-	var scrollSpaceBelow = scrollHeight - scrollTop - menuTop;
-	var scrollDown = menuBottom - viewHeight + scrollTop + marginBottom;
-	var scrollUp = scrollTop + menuTop - marginTop;
-	var scrollDuration = 160;
-	switch (preferredPlacement) {
-		case "auto":
-		case "bottom":
-			if (viewSpaceBelow >= menuHeight) return {
-				placement: "bottom",
-				maxHeight: preferredMaxHeight
-			};
-			if (scrollSpaceBelow >= menuHeight && !isFixedPosition) {
-				if (shouldScroll) animatedScrollTo(scrollParent, scrollDown, scrollDuration);
-				return {
-					placement: "bottom",
-					maxHeight: preferredMaxHeight
-				};
-			}
-			if (!isFixedPosition && scrollSpaceBelow >= minHeight || isFixedPosition && viewSpaceBelow >= minHeight) {
-				if (shouldScroll) animatedScrollTo(scrollParent, scrollDown, scrollDuration);
-				return {
-					placement: "bottom",
-					maxHeight: isFixedPosition ? viewSpaceBelow - marginBottom : scrollSpaceBelow - marginBottom
-				};
-			}
-			if (preferredPlacement === "auto" || isFixedPosition) {
-				var _constrainedHeight = preferredMaxHeight;
-				var spaceAbove = isFixedPosition ? viewSpaceAbove : scrollSpaceAbove;
-				if (spaceAbove >= minHeight) _constrainedHeight = Math.min(spaceAbove - marginBottom - controlHeight, preferredMaxHeight);
-				return {
-					placement: "top",
-					maxHeight: _constrainedHeight
-				};
-			}
-			if (preferredPlacement === "bottom") {
-				if (shouldScroll) scrollTo(scrollParent, scrollDown);
-				return {
-					placement: "bottom",
-					maxHeight: preferredMaxHeight
-				};
-			}
-			break;
-		case "top":
-			if (viewSpaceAbove >= menuHeight) return {
-				placement: "top",
-				maxHeight: preferredMaxHeight
-			};
-			if (scrollSpaceAbove >= menuHeight && !isFixedPosition) {
-				if (shouldScroll) animatedScrollTo(scrollParent, scrollUp, scrollDuration);
-				return {
-					placement: "top",
-					maxHeight: preferredMaxHeight
-				};
-			}
-			if (!isFixedPosition && scrollSpaceAbove >= minHeight || isFixedPosition && viewSpaceAbove >= minHeight) {
-				var _constrainedHeight2 = preferredMaxHeight;
-				if (!isFixedPosition && scrollSpaceAbove >= minHeight || isFixedPosition && viewSpaceAbove >= minHeight) _constrainedHeight2 = isFixedPosition ? viewSpaceAbove - marginTop : scrollSpaceAbove - marginTop;
-				if (shouldScroll) animatedScrollTo(scrollParent, scrollUp, scrollDuration);
-				return {
-					placement: "top",
-					maxHeight: _constrainedHeight2
-				};
-			}
-			return {
-				placement: "bottom",
-				maxHeight: preferredMaxHeight
-			};
-		default: throw new Error("Invalid placement provided \"".concat(preferredPlacement, "\"."));
-	}
-	return defaultState;
-}
-function alignToControl(placement) {
-	return placement ? {
-		bottom: "top",
-		top: "bottom"
-	}[placement] : "bottom";
-}
-var coercePlacement = function coercePlacement$1(p$7) {
-	return p$7 === "auto" ? "bottom" : p$7;
-};
-var menuCSS = function menuCSS$1(_ref2$3, unstyled) {
-	var _objectSpread2$2;
-	var placement = _ref2$3.placement, _ref2$theme = _ref2$3.theme, borderRadius$1 = _ref2$theme.borderRadius, spacing = _ref2$theme.spacing, colors$2 = _ref2$theme.colors;
-	return _objectSpread2((_objectSpread2$2 = { label: "menu" }, _defineProperty(_objectSpread2$2, alignToControl(placement), "100%"), _defineProperty(_objectSpread2$2, "position", "absolute"), _defineProperty(_objectSpread2$2, "width", "100%"), _defineProperty(_objectSpread2$2, "zIndex", 1), _objectSpread2$2), unstyled ? {} : {
-		backgroundColor: colors$2.neutral0,
-		borderRadius: borderRadius$1,
-		boxShadow: "0 0 0 1px hsla(0, 0%, 0%, 0.1), 0 4px 11px hsla(0, 0%, 0%, 0.1)",
-		marginBottom: spacing.menuGutter,
-		marginTop: spacing.menuGutter
-	});
-};
-var PortalPlacementContext = /* @__PURE__ */ (0, import_react.createContext)(null);
-var MenuPlacer = function MenuPlacer$1(props) {
-	var children = props.children, minMenuHeight = props.minMenuHeight, maxMenuHeight = props.maxMenuHeight, menuPlacement = props.menuPlacement, menuPosition = props.menuPosition, menuShouldScrollIntoView = props.menuShouldScrollIntoView, theme = props.theme;
-	var setPortalPlacement = ((0, import_react.useContext)(PortalPlacementContext) || {}).setPortalPlacement;
-	var ref = (0, import_react.useRef)(null);
-	var _useState2 = _slicedToArray((0, import_react.useState)(maxMenuHeight), 2), maxHeight = _useState2[0], setMaxHeight = _useState2[1];
-	var _useState4 = _slicedToArray((0, import_react.useState)(null), 2), placement = _useState4[0], setPlacement = _useState4[1];
-	var controlHeight = theme.spacing.controlHeight;
-	index(function() {
-		var menuEl = ref.current;
-		if (!menuEl) return;
-		var isFixedPosition = menuPosition === "fixed";
-		var state = getMenuPlacement({
-			maxHeight: maxMenuHeight,
-			menuEl,
-			minHeight: minMenuHeight,
-			placement: menuPlacement,
-			shouldScroll: menuShouldScrollIntoView && !isFixedPosition,
-			isFixedPosition,
-			controlHeight
-		});
-		setMaxHeight(state.maxHeight);
-		setPlacement(state.placement);
-		setPortalPlacement === null || setPortalPlacement === void 0 || setPortalPlacement(state.placement);
-	}, [
-		maxMenuHeight,
-		menuPlacement,
-		menuPosition,
-		menuShouldScrollIntoView,
-		minMenuHeight,
-		setPortalPlacement,
-		controlHeight
-	]);
-	return children({
-		ref,
-		placerProps: _objectSpread2(_objectSpread2({}, props), {}, {
-			placement: placement || coercePlacement(menuPlacement),
-			maxHeight
-		})
-	});
-};
-var Menu$1 = function Menu(props) {
-	var children = props.children, innerRef = props.innerRef, innerProps = props.innerProps;
-	return jsx("div", _extends({}, getStyleProps(props, "menu", { menu: true }), { ref: innerRef }, innerProps), children);
-};
-var menuListCSS = function menuListCSS$1(_ref4, unstyled) {
-	var maxHeight = _ref4.maxHeight, baseUnit$1 = _ref4.theme.spacing.baseUnit;
-	return _objectSpread2({
-		maxHeight,
-		overflowY: "auto",
-		position: "relative",
-		WebkitOverflowScrolling: "touch"
-	}, unstyled ? {} : {
-		paddingBottom: baseUnit$1,
-		paddingTop: baseUnit$1
-	});
-};
-var MenuList$1 = function MenuList$2(props) {
-	var children = props.children, innerProps = props.innerProps, innerRef = props.innerRef, isMulti = props.isMulti;
-	return jsx("div", _extends({}, getStyleProps(props, "menuList", {
-		"menu-list": true,
-		"menu-list--is-multi": isMulti
-	}), { ref: innerRef }, innerProps), children);
-};
-var noticeCSS = function noticeCSS$1(_ref5, unstyled) {
-	var _ref5$theme = _ref5.theme, baseUnit$1 = _ref5$theme.spacing.baseUnit, colors$2 = _ref5$theme.colors;
-	return _objectSpread2({ textAlign: "center" }, unstyled ? {} : {
-		color: colors$2.neutral40,
-		padding: "".concat(baseUnit$1 * 2, "px ").concat(baseUnit$1 * 3, "px")
-	});
-};
-var noOptionsMessageCSS = noticeCSS;
-var loadingMessageCSS = noticeCSS;
-var NoOptionsMessage = function NoOptionsMessage$1(_ref6) {
-	var _ref6$children = _ref6.children, children = _ref6$children === void 0 ? "No options" : _ref6$children, innerProps = _ref6.innerProps;
-	return jsx("div", _extends({}, getStyleProps(_objectSpread2(_objectSpread2({}, _objectWithoutProperties(_ref6, _excluded$3)), {}, {
-		children,
-		innerProps
-	}), "noOptionsMessage", {
-		"menu-notice": true,
-		"menu-notice--no-options": true
-	}), innerProps), children);
-};
-var LoadingMessage = function LoadingMessage$1(_ref7) {
-	var _ref7$children = _ref7.children, children = _ref7$children === void 0 ? "Loading..." : _ref7$children, innerProps = _ref7.innerProps;
-	return jsx("div", _extends({}, getStyleProps(_objectSpread2(_objectSpread2({}, _objectWithoutProperties(_ref7, _excluded2$1)), {}, {
-		children,
-		innerProps
-	}), "loadingMessage", {
-		"menu-notice": true,
-		"menu-notice--loading": true
-	}), innerProps), children);
-};
-var menuPortalCSS = function menuPortalCSS$1(_ref8) {
-	var rect = _ref8.rect, offset$3 = _ref8.offset, position$1 = _ref8.position;
-	return {
-		left: rect.left,
-		position: position$1,
-		top: offset$3,
-		width: rect.width,
-		zIndex: 1
-	};
-};
-var MenuPortal = function MenuPortal$1(props) {
-	var appendTo = props.appendTo, children = props.children, controlElement = props.controlElement, innerProps = props.innerProps, menuPlacement = props.menuPlacement, menuPosition = props.menuPosition;
-	var menuPortalRef = (0, import_react.useRef)(null);
-	var cleanupRef = (0, import_react.useRef)(null);
-	var _useState6 = _slicedToArray((0, import_react.useState)(coercePlacement(menuPlacement)), 2), placement = _useState6[0], setPortalPlacement = _useState6[1];
-	var portalPlacementContext = (0, import_react.useMemo)(function() {
-		return { setPortalPlacement };
-	}, []);
-	var _useState8 = _slicedToArray((0, import_react.useState)(null), 2), computedPosition = _useState8[0], setComputedPosition = _useState8[1];
-	var updateComputedPosition = (0, import_react.useCallback)(function() {
-		if (!controlElement) return;
-		var rect = getBoundingClientObj(controlElement);
-		var scrollDistance = menuPosition === "fixed" ? 0 : window.pageYOffset;
-		var offset$3 = rect[placement] + scrollDistance;
-		if (offset$3 !== (computedPosition === null || computedPosition === void 0 ? void 0 : computedPosition.offset) || rect.left !== (computedPosition === null || computedPosition === void 0 ? void 0 : computedPosition.rect.left) || rect.width !== (computedPosition === null || computedPosition === void 0 ? void 0 : computedPosition.rect.width)) setComputedPosition({
-			offset: offset$3,
-			rect
-		});
-	}, [
-		controlElement,
-		menuPosition,
-		placement,
-		computedPosition === null || computedPosition === void 0 ? void 0 : computedPosition.offset,
-		computedPosition === null || computedPosition === void 0 ? void 0 : computedPosition.rect.left,
-		computedPosition === null || computedPosition === void 0 ? void 0 : computedPosition.rect.width
-	]);
-	index(function() {
-		updateComputedPosition();
-	}, [updateComputedPosition]);
-	var runAutoUpdate = (0, import_react.useCallback)(function() {
-		if (typeof cleanupRef.current === "function") {
-			cleanupRef.current();
-			cleanupRef.current = null;
-		}
-		if (controlElement && menuPortalRef.current) cleanupRef.current = autoUpdate(controlElement, menuPortalRef.current, updateComputedPosition, { elementResize: "ResizeObserver" in window });
-	}, [controlElement, updateComputedPosition]);
-	index(function() {
-		runAutoUpdate();
-	}, [runAutoUpdate]);
-	var setMenuPortalElement = (0, import_react.useCallback)(function(menuPortalElement) {
-		menuPortalRef.current = menuPortalElement;
-		runAutoUpdate();
-	}, [runAutoUpdate]);
-	if (!appendTo && menuPosition !== "fixed" || !computedPosition) return null;
-	var menuWrapper = jsx("div", _extends({ ref: setMenuPortalElement }, getStyleProps(_objectSpread2(_objectSpread2({}, props), {}, {
-		offset: computedPosition.offset,
-		position: menuPosition,
-		rect: computedPosition.rect
-	}), "menuPortal", { "menu-portal": true }), innerProps), children);
-	return jsx(PortalPlacementContext.Provider, { value: portalPlacementContext }, appendTo ? /* @__PURE__ */ (0, import_react_dom$1.createPortal)(menuWrapper, appendTo) : menuWrapper);
-};
-var containerCSS = function containerCSS$1(_ref$1) {
-	var isDisabled = _ref$1.isDisabled;
-	return {
-		label: "container",
-		direction: _ref$1.isRtl ? "rtl" : void 0,
-		pointerEvents: isDisabled ? "none" : void 0,
-		position: "relative"
-	};
-};
-var SelectContainer = function SelectContainer$1(props) {
-	var children = props.children, innerProps = props.innerProps, isDisabled = props.isDisabled, isRtl = props.isRtl;
-	return jsx("div", _extends({}, getStyleProps(props, "container", {
-		"--is-disabled": isDisabled,
-		"--is-rtl": isRtl
-	}), innerProps), children);
-};
-var valueContainerCSS = function valueContainerCSS$1(_ref2$3, unstyled) {
-	var spacing = _ref2$3.theme.spacing, isMulti = _ref2$3.isMulti, hasValue$1 = _ref2$3.hasValue, controlShouldRenderValue = _ref2$3.selectProps.controlShouldRenderValue;
-	return _objectSpread2({
-		alignItems: "center",
-		display: isMulti && hasValue$1 && controlShouldRenderValue ? "flex" : "grid",
-		flex: 1,
-		flexWrap: "wrap",
-		WebkitOverflowScrolling: "touch",
-		position: "relative",
-		overflow: "hidden"
-	}, unstyled ? {} : { padding: "".concat(spacing.baseUnit / 2, "px ").concat(spacing.baseUnit * 2, "px") });
-};
-var ValueContainer = function ValueContainer$1(props) {
-	var children = props.children, innerProps = props.innerProps, isMulti = props.isMulti, hasValue$1 = props.hasValue;
-	return jsx("div", _extends({}, getStyleProps(props, "valueContainer", {
-		"value-container": true,
-		"value-container--is-multi": isMulti,
-		"value-container--has-value": hasValue$1
-	}), innerProps), children);
-};
-var indicatorsContainerCSS = function indicatorsContainerCSS$1() {
-	return {
-		alignItems: "center",
-		alignSelf: "stretch",
-		display: "flex",
-		flexShrink: 0
-	};
-};
-var IndicatorsContainer = function IndicatorsContainer$1(props) {
-	var children = props.children, innerProps = props.innerProps;
-	return jsx("div", _extends({}, getStyleProps(props, "indicatorsContainer", { indicators: true }), innerProps), children);
-};
-var _templateObject;
-var _excluded$2 = ["size"], _excluded2 = [
-	"innerProps",
-	"isRtl",
-	"size"
-];
-var _ref2$2 = {
-	name: "8mmkcg",
-	styles: "display:inline-block;fill:currentColor;line-height:1;stroke:currentColor;stroke-width:0"
-};
-var Svg = function Svg$1(_ref$1) {
-	var size$6 = _ref$1.size, props = _objectWithoutProperties(_ref$1, _excluded$2);
-	return jsx("svg", _extends({
-		height: size$6,
-		width: size$6,
-		viewBox: "0 0 20 20",
-		"aria-hidden": "true",
-		focusable: "false",
-		css: _ref2$2
-	}, props));
-};
-var CrossIcon = function CrossIcon$1(props) {
-	return jsx(Svg, _extends({ size: 20 }, props), jsx("path", { d: "M14.348 14.849c-0.469 0.469-1.229 0.469-1.697 0l-2.651-3.030-2.651 3.029c-0.469 0.469-1.229 0.469-1.697 0-0.469-0.469-0.469-1.229 0-1.697l2.758-3.15-2.759-3.152c-0.469-0.469-0.469-1.228 0-1.697s1.228-0.469 1.697 0l2.652 3.031 2.651-3.031c0.469-0.469 1.228-0.469 1.697 0s0.469 1.229 0 1.697l-2.758 3.152 2.758 3.15c0.469 0.469 0.469 1.229 0 1.698z" }));
-};
-var DownChevron = function DownChevron$1(props) {
-	return jsx(Svg, _extends({ size: 20 }, props), jsx("path", { d: "M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z" }));
-};
-var baseCSS = function baseCSS$1(_ref3, unstyled) {
-	var isFocused = _ref3.isFocused, _ref3$theme = _ref3.theme, baseUnit$1 = _ref3$theme.spacing.baseUnit, colors$2 = _ref3$theme.colors;
-	return _objectSpread2({
-		label: "indicatorContainer",
-		display: "flex",
-		transition: "color 150ms"
-	}, unstyled ? {} : {
-		color: isFocused ? colors$2.neutral60 : colors$2.neutral20,
-		padding: baseUnit$1 * 2,
-		":hover": { color: isFocused ? colors$2.neutral80 : colors$2.neutral40 }
-	});
-};
-var dropdownIndicatorCSS = baseCSS;
-var DropdownIndicator$1 = function DropdownIndicator$2(props) {
-	var children = props.children, innerProps = props.innerProps;
-	return jsx("div", _extends({}, getStyleProps(props, "dropdownIndicator", {
-		indicator: true,
-		"dropdown-indicator": true
-	}), innerProps), children || jsx(DownChevron, null));
-};
-var clearIndicatorCSS = baseCSS;
-var ClearIndicator = function ClearIndicator$1(props) {
-	var children = props.children, innerProps = props.innerProps;
-	return jsx("div", _extends({}, getStyleProps(props, "clearIndicator", {
-		indicator: true,
-		"clear-indicator": true
-	}), innerProps), children || jsx(CrossIcon, null));
-};
-var indicatorSeparatorCSS = function indicatorSeparatorCSS$1(_ref4, unstyled) {
-	var isDisabled = _ref4.isDisabled, _ref4$theme = _ref4.theme, baseUnit$1 = _ref4$theme.spacing.baseUnit, colors$2 = _ref4$theme.colors;
-	return _objectSpread2({
-		label: "indicatorSeparator",
-		alignSelf: "stretch",
-		width: 1
-	}, unstyled ? {} : {
-		backgroundColor: isDisabled ? colors$2.neutral10 : colors$2.neutral20,
-		marginBottom: baseUnit$1 * 2,
-		marginTop: baseUnit$1 * 2
-	});
-};
-var IndicatorSeparator = function IndicatorSeparator$1(props) {
-	var innerProps = props.innerProps;
-	return jsx("span", _extends({}, innerProps, getStyleProps(props, "indicatorSeparator", { "indicator-separator": true })));
-};
-var loadingDotAnimations = keyframes(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  0%, 80%, 100% { opacity: 0; }\n  40% { opacity: 1; }\n"])));
-var loadingIndicatorCSS = function loadingIndicatorCSS$1(_ref5, unstyled) {
-	var isFocused = _ref5.isFocused, size$6 = _ref5.size, _ref5$theme = _ref5.theme, colors$2 = _ref5$theme.colors, baseUnit$1 = _ref5$theme.spacing.baseUnit;
-	return _objectSpread2({
-		label: "loadingIndicator",
-		display: "flex",
-		transition: "color 150ms",
-		alignSelf: "center",
-		fontSize: size$6,
-		lineHeight: 1,
-		marginRight: size$6,
-		textAlign: "center",
-		verticalAlign: "middle"
-	}, unstyled ? {} : {
-		color: isFocused ? colors$2.neutral60 : colors$2.neutral20,
-		padding: baseUnit$1 * 2
-	});
-};
-var LoadingDot = function LoadingDot$1(_ref6) {
-	var delay$1 = _ref6.delay, offset$3 = _ref6.offset;
-	return jsx("span", { css: /* @__PURE__ */ css$2({
-		animation: "".concat(loadingDotAnimations, " 1s ease-in-out ").concat(delay$1, "ms infinite;"),
-		backgroundColor: "currentColor",
-		borderRadius: "1em",
-		display: "inline-block",
-		marginLeft: offset$3 ? "1em" : void 0,
-		height: "1em",
-		verticalAlign: "top",
-		width: "1em"
-	}, "", "") });
-};
-var LoadingIndicator = function LoadingIndicator$1(_ref7) {
-	var innerProps = _ref7.innerProps, isRtl = _ref7.isRtl, _ref7$size = _ref7.size, size$6 = _ref7$size === void 0 ? 4 : _ref7$size;
-	return jsx("div", _extends({}, getStyleProps(_objectSpread2(_objectSpread2({}, _objectWithoutProperties(_ref7, _excluded2)), {}, {
-		innerProps,
-		isRtl,
-		size: size$6
-	}), "loadingIndicator", {
-		indicator: true,
-		"loading-indicator": true
-	}), innerProps), jsx(LoadingDot, {
-		delay: 0,
-		offset: isRtl
-	}), jsx(LoadingDot, {
-		delay: 160,
-		offset: true
-	}), jsx(LoadingDot, {
-		delay: 320,
-		offset: !isRtl
-	}));
-};
-var css$1 = function css$3(_ref$1, unstyled) {
-	var isDisabled = _ref$1.isDisabled, isFocused = _ref$1.isFocused, _ref$theme = _ref$1.theme, colors$2 = _ref$theme.colors, borderRadius$1 = _ref$theme.borderRadius, spacing = _ref$theme.spacing;
-	return _objectSpread2({
-		label: "control",
-		alignItems: "center",
-		cursor: "default",
-		display: "flex",
-		flexWrap: "wrap",
-		justifyContent: "space-between",
-		minHeight: spacing.controlHeight,
-		outline: "0 !important",
-		position: "relative",
-		transition: "all 100ms"
-	}, unstyled ? {} : {
-		backgroundColor: isDisabled ? colors$2.neutral5 : colors$2.neutral0,
-		borderColor: isDisabled ? colors$2.neutral10 : isFocused ? colors$2.primary : colors$2.neutral20,
-		borderRadius: borderRadius$1,
-		borderStyle: "solid",
-		borderWidth: 1,
-		boxShadow: isFocused ? "0 0 0 1px ".concat(colors$2.primary) : void 0,
-		"&:hover": { borderColor: isFocused ? colors$2.primary : colors$2.neutral30 }
-	});
-};
-var Control$1 = function Control(props) {
-	var children = props.children, isDisabled = props.isDisabled, isFocused = props.isFocused, innerRef = props.innerRef, innerProps = props.innerProps, menuIsOpen = props.menuIsOpen;
-	return jsx("div", _extends({ ref: innerRef }, getStyleProps(props, "control", {
-		control: true,
-		"control--is-disabled": isDisabled,
-		"control--is-focused": isFocused,
-		"control--menu-is-open": menuIsOpen
-	}), innerProps, { "aria-disabled": isDisabled || void 0 }), children);
-};
-var _excluded$1 = ["data"];
-var groupCSS = function groupCSS$1(_ref$1, unstyled) {
-	var spacing = _ref$1.theme.spacing;
-	return unstyled ? {} : {
-		paddingBottom: spacing.baseUnit * 2,
-		paddingTop: spacing.baseUnit * 2
-	};
-};
-var Group = function Group$2(props) {
-	var children = props.children, cx$28 = props.cx, getStyles = props.getStyles, getClassNames = props.getClassNames, Heading = props.Heading, headingProps = props.headingProps, innerProps = props.innerProps, label = props.label, theme = props.theme, selectProps = props.selectProps;
-	return jsx("div", _extends({}, getStyleProps(props, "group", { group: true }), innerProps), jsx(Heading, _extends({}, headingProps, {
-		selectProps,
-		theme,
-		getStyles,
-		getClassNames,
-		cx: cx$28
-	}), label), jsx("div", null, children));
-};
-var groupHeadingCSS = function groupHeadingCSS$1(_ref2$3, unstyled) {
-	var _ref2$theme = _ref2$3.theme, colors$2 = _ref2$theme.colors, spacing = _ref2$theme.spacing;
-	return _objectSpread2({
-		label: "group",
-		cursor: "default",
-		display: "block"
-	}, unstyled ? {} : {
-		color: colors$2.neutral40,
-		fontSize: "75%",
-		fontWeight: 500,
-		marginBottom: "0.25em",
-		paddingLeft: spacing.baseUnit * 3,
-		paddingRight: spacing.baseUnit * 3,
-		textTransform: "uppercase"
-	});
-};
-var GroupHeading = function GroupHeading$1(props) {
-	var _cleanCommonProps = cleanCommonProps(props);
-	_cleanCommonProps.data;
-	var innerProps = _objectWithoutProperties(_cleanCommonProps, _excluded$1);
-	return jsx("div", _extends({}, getStyleProps(props, "groupHeading", { "group-heading": true }), innerProps));
-};
-var Group$1 = Group;
-var _excluded$5 = [
-	"innerRef",
-	"isDisabled",
-	"isHidden",
-	"inputClassName"
-];
-var inputCSS = function inputCSS$1(_ref$1, unstyled) {
-	var isDisabled = _ref$1.isDisabled, value = _ref$1.value, _ref$theme = _ref$1.theme, spacing = _ref$theme.spacing, colors$2 = _ref$theme.colors;
-	return _objectSpread2(_objectSpread2({
-		visibility: isDisabled ? "hidden" : "visible",
-		transform: value ? "translateZ(0)" : ""
-	}, containerStyle), unstyled ? {} : {
-		margin: spacing.baseUnit / 2,
-		paddingBottom: spacing.baseUnit / 2,
-		paddingTop: spacing.baseUnit / 2,
-		color: colors$2.neutral80
-	});
-};
-var spacingStyle = {
-	gridArea: "1 / 2",
-	font: "inherit",
-	minWidth: "2px",
-	border: 0,
-	margin: 0,
-	outline: 0,
-	padding: 0
-};
-var containerStyle = {
-	flex: "1 1 auto",
-	display: "inline-grid",
-	gridArea: "1 / 1 / 2 / 3",
-	gridTemplateColumns: "0 min-content",
-	"&:after": _objectSpread2({
-		content: "attr(data-value) \" \"",
-		visibility: "hidden",
-		whiteSpace: "pre"
-	}, spacingStyle)
-};
-var inputStyle = function inputStyle$1(isHidden) {
-	return _objectSpread2({
-		label: "input",
-		color: "inherit",
-		background: 0,
-		opacity: isHidden ? 0 : 1,
-		width: "100%"
-	}, spacingStyle);
-};
-var Input$1 = function Input$2(props) {
-	var cx$28 = props.cx, value = props.value;
-	var _cleanCommonProps = cleanCommonProps(props), innerRef = _cleanCommonProps.innerRef, isDisabled = _cleanCommonProps.isDisabled, isHidden = _cleanCommonProps.isHidden, inputClassName = _cleanCommonProps.inputClassName, innerProps = _objectWithoutProperties(_cleanCommonProps, _excluded$5);
-	return jsx("div", _extends({}, getStyleProps(props, "input", { "input-container": true }), { "data-value": value || "" }), jsx("input", _extends({
-		className: cx$28({ input: true }, inputClassName),
-		ref: innerRef,
-		style: inputStyle(isHidden),
-		disabled: isDisabled
-	}, innerProps)));
-};
-var multiValueCSS = function multiValueCSS$1(_ref$1, unstyled) {
-	var _ref$theme = _ref$1.theme, spacing = _ref$theme.spacing, borderRadius$1 = _ref$theme.borderRadius, colors$2 = _ref$theme.colors;
-	return _objectSpread2({
-		label: "multiValue",
-		display: "flex",
-		minWidth: 0
-	}, unstyled ? {} : {
-		backgroundColor: colors$2.neutral10,
-		borderRadius: borderRadius$1 / 2,
-		margin: spacing.baseUnit / 2
-	});
-};
-var multiValueLabelCSS = function multiValueLabelCSS$1(_ref2$3, unstyled) {
-	var _ref2$theme = _ref2$3.theme, borderRadius$1 = _ref2$theme.borderRadius, colors$2 = _ref2$theme.colors, cropWithEllipsis = _ref2$3.cropWithEllipsis;
-	return _objectSpread2({
-		overflow: "hidden",
-		textOverflow: cropWithEllipsis || cropWithEllipsis === void 0 ? "ellipsis" : void 0,
-		whiteSpace: "nowrap"
-	}, unstyled ? {} : {
-		borderRadius: borderRadius$1 / 2,
-		color: colors$2.neutral80,
-		fontSize: "85%",
-		padding: 3,
-		paddingLeft: 6
-	});
-};
-var multiValueRemoveCSS = function multiValueRemoveCSS$1(_ref3, unstyled) {
-	var _ref3$theme = _ref3.theme, spacing = _ref3$theme.spacing, borderRadius$1 = _ref3$theme.borderRadius, colors$2 = _ref3$theme.colors, isFocused = _ref3.isFocused;
-	return _objectSpread2({
-		alignItems: "center",
-		display: "flex"
-	}, unstyled ? {} : {
-		borderRadius: borderRadius$1 / 2,
-		backgroundColor: isFocused ? colors$2.dangerLight : void 0,
-		paddingLeft: spacing.baseUnit,
-		paddingRight: spacing.baseUnit,
-		":hover": {
-			backgroundColor: colors$2.dangerLight,
-			color: colors$2.danger
-		}
-	});
-};
-var MultiValueGeneric = function MultiValueGeneric$1(_ref4) {
-	var children = _ref4.children, innerProps = _ref4.innerProps;
-	return jsx("div", innerProps, children);
-};
-var MultiValueContainer = MultiValueGeneric;
-var MultiValueLabel = MultiValueGeneric;
-function MultiValueRemove(_ref5) {
-	var children = _ref5.children, innerProps = _ref5.innerProps;
-	return jsx("div", _extends({ role: "button" }, innerProps), children || jsx(CrossIcon, { size: 14 }));
-}
-var MultiValue$1 = function MultiValue(props) {
-	var children = props.children, components$1 = props.components, data = props.data, innerProps = props.innerProps, isDisabled = props.isDisabled, removeProps$1 = props.removeProps, selectProps = props.selectProps;
-	var Container$9 = components$1.Container, Label = components$1.Label, Remove = components$1.Remove;
-	return jsx(Container$9, {
-		data,
-		innerProps: _objectSpread2(_objectSpread2({}, getStyleProps(props, "multiValue", {
-			"multi-value": true,
-			"multi-value--is-disabled": isDisabled
-		})), innerProps),
-		selectProps
-	}, jsx(Label, {
-		data,
-		innerProps: _objectSpread2({}, getStyleProps(props, "multiValueLabel", { "multi-value__label": true })),
-		selectProps
-	}, children), jsx(Remove, {
-		data,
-		innerProps: _objectSpread2(_objectSpread2({}, getStyleProps(props, "multiValueRemove", { "multi-value__remove": true })), {}, { "aria-label": "Remove ".concat(children || "option") }, removeProps$1),
-		selectProps
-	}));
-};
-var optionCSS = function optionCSS$1(_ref$1, unstyled) {
-	var isDisabled = _ref$1.isDisabled, isFocused = _ref$1.isFocused, isSelected = _ref$1.isSelected, _ref$theme = _ref$1.theme, spacing = _ref$theme.spacing, colors$2 = _ref$theme.colors;
-	return _objectSpread2({
-		label: "option",
-		cursor: "default",
-		display: "block",
-		fontSize: "inherit",
-		width: "100%",
-		userSelect: "none",
-		WebkitTapHighlightColor: "rgba(0, 0, 0, 0)"
-	}, unstyled ? {} : {
-		backgroundColor: isSelected ? colors$2.primary : isFocused ? colors$2.primary25 : "transparent",
-		color: isDisabled ? colors$2.neutral20 : isSelected ? colors$2.neutral0 : "inherit",
-		padding: "".concat(spacing.baseUnit * 2, "px ").concat(spacing.baseUnit * 3, "px"),
-		":active": { backgroundColor: !isDisabled ? isSelected ? colors$2.primary : colors$2.primary50 : void 0 }
-	});
-};
-var Option$1 = function Option$2(props) {
-	var children = props.children, isDisabled = props.isDisabled, isFocused = props.isFocused, isSelected = props.isSelected, innerRef = props.innerRef, innerProps = props.innerProps;
-	return jsx("div", _extends({}, getStyleProps(props, "option", {
-		option: true,
-		"option--is-disabled": isDisabled,
-		"option--is-focused": isFocused,
-		"option--is-selected": isSelected
-	}), {
-		ref: innerRef,
-		"aria-disabled": isDisabled
-	}, innerProps), children);
-};
-var placeholderCSS = function placeholderCSS$1(_ref$1, unstyled) {
-	var _ref$theme = _ref$1.theme, spacing = _ref$theme.spacing, colors$2 = _ref$theme.colors;
-	return _objectSpread2({
-		label: "placeholder",
-		gridArea: "1 / 1 / 2 / 3"
-	}, unstyled ? {} : {
-		color: colors$2.neutral50,
-		marginLeft: spacing.baseUnit / 2,
-		marginRight: spacing.baseUnit / 2
-	});
-};
-var Placeholder$1 = function Placeholder(props) {
-	var children = props.children, innerProps = props.innerProps;
-	return jsx("div", _extends({}, getStyleProps(props, "placeholder", { placeholder: true }), innerProps), children);
-};
-var css = function css$3(_ref$1, unstyled) {
-	var isDisabled = _ref$1.isDisabled, _ref$theme = _ref$1.theme, spacing = _ref$theme.spacing, colors$2 = _ref$theme.colors;
-	return _objectSpread2({
-		label: "singleValue",
-		gridArea: "1 / 1 / 2 / 3",
-		maxWidth: "100%",
-		overflow: "hidden",
-		textOverflow: "ellipsis",
-		whiteSpace: "nowrap"
-	}, unstyled ? {} : {
-		color: isDisabled ? colors$2.neutral40 : colors$2.neutral80,
-		marginLeft: spacing.baseUnit / 2,
-		marginRight: spacing.baseUnit / 2
-	});
-};
-var components = {
-	ClearIndicator,
-	Control: Control$1,
-	DropdownIndicator: DropdownIndicator$1,
-	DownChevron,
-	CrossIcon,
-	Group: Group$1,
-	GroupHeading,
-	IndicatorsContainer,
-	IndicatorSeparator,
-	Input: Input$1,
-	LoadingIndicator,
-	Menu: Menu$1,
-	MenuList: MenuList$1,
-	MenuPortal,
-	LoadingMessage,
-	NoOptionsMessage,
-	MultiValue: MultiValue$1,
-	MultiValueContainer,
-	MultiValueLabel,
-	MultiValueRemove,
-	Option: Option$1,
-	Placeholder: Placeholder$1,
-	SelectContainer,
-	SingleValue: function SingleValue(props) {
-		var children = props.children, isDisabled = props.isDisabled, innerProps = props.innerProps;
-		return jsx("div", _extends({}, getStyleProps(props, "singleValue", {
-			"single-value": true,
-			"single-value--is-disabled": isDisabled
-		}), innerProps), children);
-	},
-	ValueContainer
-};
-var defaultComponents = function defaultComponents$1(props) {
-	return _objectSpread2(_objectSpread2({}, components), props.components);
-};
-var safeIsNaN = Number.isNaN || function ponyfill(value) {
-	return typeof value === "number" && value !== value;
-};
-function isEqual(first, second$2) {
-	if (first === second$2) return true;
-	if (safeIsNaN(first) && safeIsNaN(second$2)) return true;
-	return false;
-}
-function areInputsEqual(newInputs, lastInputs) {
-	if (newInputs.length !== lastInputs.length) return false;
-	for (var i$13 = 0; i$13 < newInputs.length; i$13++) if (!isEqual(newInputs[i$13], lastInputs[i$13])) return false;
-	return true;
-}
-function memoizeOne(resultFn, isEqual$4) {
-	if (isEqual$4 === void 0) isEqual$4 = areInputsEqual;
-	var cache$1 = null;
-	function memoized$1() {
-		var newArgs = [];
-		for (var _i$1 = 0; _i$1 < arguments.length; _i$1++) newArgs[_i$1] = arguments[_i$1];
-		if (cache$1 && cache$1.lastThis === this && isEqual$4(newArgs, cache$1.lastArgs)) return cache$1.lastResult;
-		var lastResult = resultFn.apply(this, newArgs);
-		cache$1 = {
-			lastResult,
-			lastArgs: newArgs,
-			lastThis: this
-		};
-		return lastResult;
-	}
-	memoized$1.clear = function clear() {
-		cache$1 = null;
-	};
-	return memoized$1;
-}
-var _ref = {
-	name: "7pg0cj-a11yText",
-	styles: "label:a11yText;z-index:9999;border:0;clip:rect(1px, 1px, 1px, 1px);height:1px;width:1px;position:absolute;overflow:hidden;padding:0;white-space:nowrap"
-};
-var A11yText$1 = function A11yText(props) {
-	return jsx("span", _extends({ css: _ref }, props));
-};
-var defaultAriaLiveMessages = {
-	guidance: function guidance(props) {
-		var isSearchable = props.isSearchable, isMulti = props.isMulti, tabSelectsValue = props.tabSelectsValue, context = props.context, isInitialFocus = props.isInitialFocus;
-		switch (context) {
-			case "menu": return "Use Up and Down to choose options, press Enter to select the currently focused option, press Escape to exit the menu".concat(tabSelectsValue ? ", press Tab to select the option and exit the menu" : "", ".");
-			case "input": return isInitialFocus ? "".concat(props["aria-label"] || "Select", " is focused ").concat(isSearchable ? ",type to refine list" : "", ", press Down to open the menu, ").concat(isMulti ? " press left to focus selected values" : "") : "";
-			case "value": return "Use left and right to toggle between focused values, press Backspace to remove the currently focused value";
-			default: return "";
-		}
-	},
-	onChange: function onChange(props) {
-		var action = props.action, _props$label = props.label, label = _props$label === void 0 ? "" : _props$label, labels = props.labels, isDisabled = props.isDisabled;
-		switch (action) {
-			case "deselect-option":
-			case "pop-value":
-			case "remove-value": return "option ".concat(label, ", deselected.");
-			case "clear": return "All selected options have been cleared.";
-			case "initial-input-focus": return "option".concat(labels.length > 1 ? "s" : "", " ").concat(labels.join(","), ", selected.");
-			case "select-option": return isDisabled ? "option ".concat(label, " is disabled. Select another option.") : "option ".concat(label, ", selected.");
-			default: return "";
-		}
-	},
-	onFocus: function onFocus(props) {
-		var context = props.context, focused = props.focused, options$2 = props.options, _props$label2 = props.label, label = _props$label2 === void 0 ? "" : _props$label2, selectValue = props.selectValue, isDisabled = props.isDisabled, isSelected = props.isSelected, isAppleDevice$1 = props.isAppleDevice;
-		var getArrayIndex = function getArrayIndex$1(arr, item) {
-			return arr && arr.length ? "".concat(arr.indexOf(item) + 1, " of ").concat(arr.length) : "";
-		};
-		if (context === "value" && selectValue) return "value ".concat(label, " focused, ").concat(getArrayIndex(selectValue, focused), ".");
-		if (context === "menu" && isAppleDevice$1) {
-			var disabled = isDisabled ? " disabled" : "";
-			var status = "".concat(isSelected ? " selected" : "").concat(disabled);
-			return "".concat(label).concat(status, ", ").concat(getArrayIndex(options$2, focused), ".");
-		}
-		return "";
-	},
-	onFilter: function onFilter(props) {
-		var inputValue = props.inputValue, resultsMessage = props.resultsMessage;
-		return "".concat(resultsMessage).concat(inputValue ? " for search term " + inputValue : "", ".");
-	}
-};
-var LiveRegion$1 = function LiveRegion(props) {
-	var ariaSelection = props.ariaSelection, focusedOption = props.focusedOption, focusedValue = props.focusedValue, focusableOptions = props.focusableOptions, isFocused = props.isFocused, selectValue = props.selectValue, selectProps = props.selectProps, id$2 = props.id, isAppleDevice$1 = props.isAppleDevice;
-	var ariaLiveMessages = selectProps.ariaLiveMessages, getOptionLabel$2 = selectProps.getOptionLabel, inputValue = selectProps.inputValue, isMulti = selectProps.isMulti, isOptionDisabled$1 = selectProps.isOptionDisabled, isSearchable = selectProps.isSearchable, menuIsOpen = selectProps.menuIsOpen, options$2 = selectProps.options, screenReaderStatus = selectProps.screenReaderStatus, tabSelectsValue = selectProps.tabSelectsValue, isLoading = selectProps.isLoading;
-	var ariaLabel = selectProps["aria-label"];
-	var ariaLive = selectProps["aria-live"];
-	var messages = (0, import_react.useMemo)(function() {
-		return _objectSpread2(_objectSpread2({}, defaultAriaLiveMessages), ariaLiveMessages || {});
-	}, [ariaLiveMessages]);
-	var ariaSelected = (0, import_react.useMemo)(function() {
-		var message$1 = "";
-		if (ariaSelection && messages.onChange) {
-			var option = ariaSelection.option, selectedOptions = ariaSelection.options, removedValue = ariaSelection.removedValue, removedValues = ariaSelection.removedValues, value = ariaSelection.value;
-			var selected = removedValue || option || function asOption(val) {
-				return !Array.isArray(val) ? val : null;
-			}(value);
-			var label = selected ? getOptionLabel$2(selected) : "";
-			var multiSelected = selectedOptions || removedValues || void 0;
-			var labels = multiSelected ? multiSelected.map(getOptionLabel$2) : [];
-			var onChangeProps = _objectSpread2({
-				isDisabled: selected && isOptionDisabled$1(selected, selectValue),
-				label,
-				labels
-			}, ariaSelection);
-			message$1 = messages.onChange(onChangeProps);
-		}
-		return message$1;
-	}, [
-		ariaSelection,
-		messages,
-		isOptionDisabled$1,
-		selectValue,
-		getOptionLabel$2
-	]);
-	var ariaFocused = (0, import_react.useMemo)(function() {
-		var focusMsg = "";
-		var focused = focusedOption || focusedValue;
-		var isSelected = !!(focusedOption && selectValue && selectValue.includes(focusedOption));
-		if (focused && messages.onFocus) {
-			var onFocusProps = {
-				focused,
-				label: getOptionLabel$2(focused),
-				isDisabled: isOptionDisabled$1(focused, selectValue),
-				isSelected,
-				options: focusableOptions,
-				context: focused === focusedOption ? "menu" : "value",
-				selectValue,
-				isAppleDevice: isAppleDevice$1
-			};
-			focusMsg = messages.onFocus(onFocusProps);
-		}
-		return focusMsg;
-	}, [
-		focusedOption,
-		focusedValue,
-		getOptionLabel$2,
-		isOptionDisabled$1,
-		messages,
-		focusableOptions,
-		selectValue,
-		isAppleDevice$1
-	]);
-	var ariaResults = (0, import_react.useMemo)(function() {
-		var resultsMsg = "";
-		if (menuIsOpen && options$2.length && !isLoading && messages.onFilter) {
-			var resultsMessage = screenReaderStatus({ count: focusableOptions.length });
-			resultsMsg = messages.onFilter({
-				inputValue,
-				resultsMessage
-			});
-		}
-		return resultsMsg;
-	}, [
-		focusableOptions,
-		inputValue,
-		menuIsOpen,
-		messages,
-		options$2,
-		screenReaderStatus,
-		isLoading
-	]);
-	var isInitialFocus = (ariaSelection === null || ariaSelection === void 0 ? void 0 : ariaSelection.action) === "initial-input-focus";
-	var ariaGuidance = (0, import_react.useMemo)(function() {
-		var guidanceMsg = "";
-		if (messages.guidance) {
-			var context = focusedValue ? "value" : menuIsOpen ? "menu" : "input";
-			guidanceMsg = messages.guidance({
-				"aria-label": ariaLabel,
-				context,
-				isDisabled: focusedOption && isOptionDisabled$1(focusedOption, selectValue),
-				isMulti,
-				isSearchable,
-				tabSelectsValue,
-				isInitialFocus
-			});
-		}
-		return guidanceMsg;
-	}, [
-		ariaLabel,
-		focusedOption,
-		focusedValue,
-		isMulti,
-		isOptionDisabled$1,
-		isSearchable,
-		menuIsOpen,
-		messages,
-		selectValue,
-		tabSelectsValue,
-		isInitialFocus
-	]);
-	var ScreenReaderText = jsx(import_react.Fragment, null, jsx("span", { id: "aria-selection" }, ariaSelected), jsx("span", { id: "aria-focused" }, ariaFocused), jsx("span", { id: "aria-results" }, ariaResults), jsx("span", { id: "aria-guidance" }, ariaGuidance));
-	return jsx(import_react.Fragment, null, jsx(A11yText$1, { id: id$2 }, isInitialFocus && ScreenReaderText), jsx(A11yText$1, {
-		"aria-live": ariaLive,
-		"aria-atomic": "false",
-		"aria-relevant": "additions text",
-		role: "log"
-	}, isFocused && !isInitialFocus && ScreenReaderText));
-};
-var diacritics = [
-	{
-		base: "A",
-		letters: "AⒶＡÀÁÂẦẤẪẨÃĀĂẰẮẴẲȦǠÄǞẢÅǺǍȀȂẠẬẶḀĄȺⱯ"
-	},
-	{
-		base: "AA",
-		letters: "Ꜳ"
-	},
-	{
-		base: "AE",
-		letters: "ÆǼǢ"
-	},
-	{
-		base: "AO",
-		letters: "Ꜵ"
-	},
-	{
-		base: "AU",
-		letters: "Ꜷ"
-	},
-	{
-		base: "AV",
-		letters: "ꜸꜺ"
-	},
-	{
-		base: "AY",
-		letters: "Ꜽ"
-	},
-	{
-		base: "B",
-		letters: "BⒷＢḂḄḆɃƂƁ"
-	},
-	{
-		base: "C",
-		letters: "CⒸＣĆĈĊČÇḈƇȻꜾ"
-	},
-	{
-		base: "D",
-		letters: "DⒹＤḊĎḌḐḒḎĐƋƊƉꝹ"
-	},
-	{
-		base: "DZ",
-		letters: "ǱǄ"
-	},
-	{
-		base: "Dz",
-		letters: "ǲǅ"
-	},
-	{
-		base: "E",
-		letters: "EⒺＥÈÉÊỀẾỄỂẼĒḔḖĔĖËẺĚȄȆẸỆȨḜĘḘḚƐƎ"
-	},
-	{
-		base: "F",
-		letters: "FⒻＦḞƑꝻ"
-	},
-	{
-		base: "G",
-		letters: "GⒼＧǴĜḠĞĠǦĢǤƓꞠꝽꝾ"
-	},
-	{
-		base: "H",
-		letters: "HⒽＨĤḢḦȞḤḨḪĦⱧⱵꞍ"
-	},
-	{
-		base: "I",
-		letters: "IⒾＩÌÍÎĨĪĬİÏḮỈǏȈȊỊĮḬƗ"
-	},
-	{
-		base: "J",
-		letters: "JⒿＪĴɈ"
-	},
-	{
-		base: "K",
-		letters: "KⓀＫḰǨḲĶḴƘⱩꝀꝂꝄꞢ"
-	},
-	{
-		base: "L",
-		letters: "LⓁＬĿĹĽḶḸĻḼḺŁȽⱢⱠꝈꝆꞀ"
-	},
-	{
-		base: "LJ",
-		letters: "Ǉ"
-	},
-	{
-		base: "Lj",
-		letters: "ǈ"
-	},
-	{
-		base: "M",
-		letters: "MⓂＭḾṀṂⱮƜ"
-	},
-	{
-		base: "N",
-		letters: "NⓃＮǸŃÑṄŇṆŅṊṈȠƝꞐꞤ"
-	},
-	{
-		base: "NJ",
-		letters: "Ǌ"
-	},
-	{
-		base: "Nj",
-		letters: "ǋ"
-	},
-	{
-		base: "O",
-		letters: "OⓄＯÒÓÔỒỐỖỔÕṌȬṎŌṐṒŎȮȰÖȪỎŐǑȌȎƠỜỚỠỞỢỌỘǪǬØǾƆƟꝊꝌ"
-	},
-	{
-		base: "OI",
-		letters: "Ƣ"
-	},
-	{
-		base: "OO",
-		letters: "Ꝏ"
-	},
-	{
-		base: "OU",
-		letters: "Ȣ"
-	},
-	{
-		base: "P",
-		letters: "PⓅＰṔṖƤⱣꝐꝒꝔ"
-	},
-	{
-		base: "Q",
-		letters: "QⓆＱꝖꝘɊ"
-	},
-	{
-		base: "R",
-		letters: "RⓇＲŔṘŘȐȒṚṜŖṞɌⱤꝚꞦꞂ"
-	},
-	{
-		base: "S",
-		letters: "SⓈＳẞŚṤŜṠŠṦṢṨȘŞⱾꞨꞄ"
-	},
-	{
-		base: "T",
-		letters: "TⓉＴṪŤṬȚŢṰṮŦƬƮȾꞆ"
-	},
-	{
-		base: "TZ",
-		letters: "Ꜩ"
-	},
-	{
-		base: "U",
-		letters: "UⓊＵÙÚÛŨṸŪṺŬÜǛǗǕǙỦŮŰǓȔȖƯỪỨỮỬỰỤṲŲṶṴɄ"
-	},
-	{
-		base: "V",
-		letters: "VⓋＶṼṾƲꝞɅ"
-	},
-	{
-		base: "VY",
-		letters: "Ꝡ"
-	},
-	{
-		base: "W",
-		letters: "WⓌＷẀẂŴẆẄẈⱲ"
-	},
-	{
-		base: "X",
-		letters: "XⓍＸẊẌ"
-	},
-	{
-		base: "Y",
-		letters: "YⓎＹỲÝŶỸȲẎŸỶỴƳɎỾ"
-	},
-	{
-		base: "Z",
-		letters: "ZⓏＺŹẐŻŽẒẔƵȤⱿⱫꝢ"
-	},
-	{
-		base: "a",
-		letters: "aⓐａẚàáâầấẫẩãāăằắẵẳȧǡäǟảåǻǎȁȃạậặḁąⱥɐ"
-	},
-	{
-		base: "aa",
-		letters: "ꜳ"
-	},
-	{
-		base: "ae",
-		letters: "æǽǣ"
-	},
-	{
-		base: "ao",
-		letters: "ꜵ"
-	},
-	{
-		base: "au",
-		letters: "ꜷ"
-	},
-	{
-		base: "av",
-		letters: "ꜹꜻ"
-	},
-	{
-		base: "ay",
-		letters: "ꜽ"
-	},
-	{
-		base: "b",
-		letters: "bⓑｂḃḅḇƀƃɓ"
-	},
-	{
-		base: "c",
-		letters: "cⓒｃćĉċčçḉƈȼꜿↄ"
-	},
-	{
-		base: "d",
-		letters: "dⓓｄḋďḍḑḓḏđƌɖɗꝺ"
-	},
-	{
-		base: "dz",
-		letters: "ǳǆ"
-	},
-	{
-		base: "e",
-		letters: "eⓔｅèéêềếễểẽēḕḗĕėëẻěȅȇẹệȩḝęḙḛɇɛǝ"
-	},
-	{
-		base: "f",
-		letters: "fⓕｆḟƒꝼ"
-	},
-	{
-		base: "g",
-		letters: "gⓖｇǵĝḡğġǧģǥɠꞡᵹꝿ"
-	},
-	{
-		base: "h",
-		letters: "hⓗｈĥḣḧȟḥḩḫẖħⱨⱶɥ"
-	},
-	{
-		base: "hv",
-		letters: "ƕ"
-	},
-	{
-		base: "i",
-		letters: "iⓘｉìíîĩīĭïḯỉǐȉȋịįḭɨı"
-	},
-	{
-		base: "j",
-		letters: "jⓙｊĵǰɉ"
-	},
-	{
-		base: "k",
-		letters: "kⓚｋḱǩḳķḵƙⱪꝁꝃꝅꞣ"
-	},
-	{
-		base: "l",
-		letters: "lⓛｌŀĺľḷḹļḽḻſłƚɫⱡꝉꞁꝇ"
-	},
-	{
-		base: "lj",
-		letters: "ǉ"
-	},
-	{
-		base: "m",
-		letters: "mⓜｍḿṁṃɱɯ"
-	},
-	{
-		base: "n",
-		letters: "nⓝｎǹńñṅňṇņṋṉƞɲŉꞑꞥ"
-	},
-	{
-		base: "nj",
-		letters: "ǌ"
-	},
-	{
-		base: "o",
-		letters: "oⓞｏòóôồốỗổõṍȭṏōṑṓŏȯȱöȫỏőǒȍȏơờớỡởợọộǫǭøǿɔꝋꝍɵ"
-	},
-	{
-		base: "oi",
-		letters: "ƣ"
-	},
-	{
-		base: "ou",
-		letters: "ȣ"
-	},
-	{
-		base: "oo",
-		letters: "ꝏ"
-	},
-	{
-		base: "p",
-		letters: "pⓟｐṕṗƥᵽꝑꝓꝕ"
-	},
-	{
-		base: "q",
-		letters: "qⓠｑɋꝗꝙ"
-	},
-	{
-		base: "r",
-		letters: "rⓡｒŕṙřȑȓṛṝŗṟɍɽꝛꞧꞃ"
-	},
-	{
-		base: "s",
-		letters: "sⓢｓßśṥŝṡšṧṣṩșşȿꞩꞅẛ"
-	},
-	{
-		base: "t",
-		letters: "tⓣｔṫẗťṭțţṱṯŧƭʈⱦꞇ"
-	},
-	{
-		base: "tz",
-		letters: "ꜩ"
-	},
-	{
-		base: "u",
-		letters: "uⓤｕùúûũṹūṻŭüǜǘǖǚủůűǔȕȗưừứữửựụṳųṷṵʉ"
-	},
-	{
-		base: "v",
-		letters: "vⓥｖṽṿʋꝟʌ"
-	},
-	{
-		base: "vy",
-		letters: "ꝡ"
-	},
-	{
-		base: "w",
-		letters: "wⓦｗẁẃŵẇẅẘẉⱳ"
-	},
-	{
-		base: "x",
-		letters: "xⓧｘẋẍ"
-	},
-	{
-		base: "y",
-		letters: "yⓨｙỳýŷỹȳẏÿỷẙỵƴɏỿ"
-	},
-	{
-		base: "z",
-		letters: "zⓩｚźẑżžẓẕƶȥɀⱬꝣ"
-	}
-];
-var anyDiacritic = new RegExp("[" + diacritics.map(function(d$7) {
-	return d$7.letters;
-}).join("") + "]", "g");
-var diacriticToBase = {};
-for (var i = 0; i < diacritics.length; i++) {
-	var diacritic = diacritics[i];
-	for (var j$1 = 0; j$1 < diacritic.letters.length; j$1++) diacriticToBase[diacritic.letters[j$1]] = diacritic.base;
-}
-var stripDiacritics = function stripDiacritics$1(str) {
-	return str.replace(anyDiacritic, function(match$2) {
-		return diacriticToBase[match$2];
-	});
-};
-var memoizedStripDiacriticsForInput = memoizeOne(stripDiacritics);
-var trimString = function trimString$1(str) {
-	return str.replace(/^\s+|\s+$/g, "");
-};
-var defaultStringify = function defaultStringify$1(option) {
-	return "".concat(option.label, " ").concat(option.value);
-};
-var createFilter = function createFilter$1(config$1) {
-	return function(option, rawInput) {
-		if (option.data.__isNew__) return true;
-		var _ignoreCase$ignoreAcc = _objectSpread2({
-			ignoreCase: true,
-			ignoreAccents: true,
-			stringify: defaultStringify,
-			trim: true,
-			matchFrom: "any"
-		}, config$1), ignoreCase = _ignoreCase$ignoreAcc.ignoreCase, ignoreAccents = _ignoreCase$ignoreAcc.ignoreAccents, stringify$4 = _ignoreCase$ignoreAcc.stringify, trim$3 = _ignoreCase$ignoreAcc.trim, matchFrom = _ignoreCase$ignoreAcc.matchFrom;
-		var input = trim$3 ? trimString(rawInput) : rawInput;
-		var candidate = trim$3 ? trimString(stringify$4(option)) : stringify$4(option);
-		if (ignoreCase) {
-			input = input.toLowerCase();
-			candidate = candidate.toLowerCase();
-		}
-		if (ignoreAccents) {
-			input = memoizedStripDiacriticsForInput(input);
-			candidate = stripDiacritics(candidate);
-		}
-		return matchFrom === "start" ? candidate.substr(0, input.length) === input : candidate.indexOf(input) > -1;
-	};
-};
-var _excluded = ["innerRef"];
-function DummyInput(_ref$1) {
-	var innerRef = _ref$1.innerRef;
-	var filteredProps = removeProps(_objectWithoutProperties(_ref$1, _excluded), "onExited", "in", "enter", "exit", "appear");
-	return jsx("input", _extends({ ref: innerRef }, filteredProps, { css: /* @__PURE__ */ css$2({
-		label: "dummyInput",
-		background: 0,
-		border: 0,
-		caretColor: "transparent",
-		fontSize: "inherit",
-		gridArea: "1 / 1 / 2 / 3",
-		outline: 0,
-		padding: 0,
-		width: 1,
-		color: "transparent",
-		left: -100,
-		opacity: 0,
-		position: "relative",
-		transform: "scale(.01)"
-	}, "", "") }));
-}
-var cancelScroll = function cancelScroll$1(event) {
-	if (event.cancelable) event.preventDefault();
-	event.stopPropagation();
-};
-function useScrollCapture(_ref$1) {
-	var isEnabled = _ref$1.isEnabled, onBottomArrive = _ref$1.onBottomArrive, onBottomLeave = _ref$1.onBottomLeave, onTopArrive = _ref$1.onTopArrive, onTopLeave = _ref$1.onTopLeave;
-	var isBottom = (0, import_react.useRef)(false);
-	var isTop = (0, import_react.useRef)(false);
-	var touchStart = (0, import_react.useRef)(0);
-	var scrollTarget = (0, import_react.useRef)(null);
-	var handleEventDelta = (0, import_react.useCallback)(function(event, delta) {
-		if (scrollTarget.current === null) return;
-		var _scrollTarget$current = scrollTarget.current, scrollTop = _scrollTarget$current.scrollTop, scrollHeight = _scrollTarget$current.scrollHeight, clientHeight = _scrollTarget$current.clientHeight;
-		var target = scrollTarget.current;
-		var isDeltaPositive = delta > 0;
-		var availableScroll = scrollHeight - clientHeight - scrollTop;
-		var shouldCancelScroll = false;
-		if (availableScroll > delta && isBottom.current) {
-			if (onBottomLeave) onBottomLeave(event);
-			isBottom.current = false;
-		}
-		if (isDeltaPositive && isTop.current) {
-			if (onTopLeave) onTopLeave(event);
-			isTop.current = false;
-		}
-		if (isDeltaPositive && delta > availableScroll) {
-			if (onBottomArrive && !isBottom.current) onBottomArrive(event);
-			target.scrollTop = scrollHeight;
-			shouldCancelScroll = true;
-			isBottom.current = true;
-		} else if (!isDeltaPositive && -delta > scrollTop) {
-			if (onTopArrive && !isTop.current) onTopArrive(event);
-			target.scrollTop = 0;
-			shouldCancelScroll = true;
-			isTop.current = true;
-		}
-		if (shouldCancelScroll) cancelScroll(event);
-	}, [
-		onBottomArrive,
-		onBottomLeave,
-		onTopArrive,
-		onTopLeave
-	]);
-	var onWheel = (0, import_react.useCallback)(function(event) {
-		handleEventDelta(event, event.deltaY);
-	}, [handleEventDelta]);
-	var onTouchStart = (0, import_react.useCallback)(function(event) {
-		touchStart.current = event.changedTouches[0].clientY;
-	}, []);
-	var onTouchMove = (0, import_react.useCallback)(function(event) {
-		handleEventDelta(event, touchStart.current - event.changedTouches[0].clientY);
-	}, [handleEventDelta]);
-	var startListening = (0, import_react.useCallback)(function(el) {
-		if (!el) return;
-		var notPassive = supportsPassiveEvents ? { passive: false } : false;
-		el.addEventListener("wheel", onWheel, notPassive);
-		el.addEventListener("touchstart", onTouchStart, notPassive);
-		el.addEventListener("touchmove", onTouchMove, notPassive);
-	}, [
-		onTouchMove,
-		onTouchStart,
-		onWheel
-	]);
-	var stopListening = (0, import_react.useCallback)(function(el) {
-		if (!el) return;
-		el.removeEventListener("wheel", onWheel, false);
-		el.removeEventListener("touchstart", onTouchStart, false);
-		el.removeEventListener("touchmove", onTouchMove, false);
-	}, [
-		onTouchMove,
-		onTouchStart,
-		onWheel
-	]);
-	(0, import_react.useEffect)(function() {
-		if (!isEnabled) return;
-		var element = scrollTarget.current;
-		startListening(element);
-		return function() {
-			stopListening(element);
-		};
-	}, [
-		isEnabled,
-		startListening,
-		stopListening
-	]);
-	return function(element) {
-		scrollTarget.current = element;
-	};
-}
-var STYLE_KEYS = [
-	"boxSizing",
-	"height",
-	"overflow",
-	"paddingRight",
-	"position"
-];
-var LOCK_STYLES = {
-	boxSizing: "border-box",
-	overflow: "hidden",
-	position: "relative",
-	height: "100%"
-};
-function preventTouchMove(e$14) {
-	if (e$14.cancelable) e$14.preventDefault();
-}
-function allowTouchMove(e$14) {
-	e$14.stopPropagation();
-}
-function preventInertiaScroll() {
-	var top = this.scrollTop;
-	var totalScroll = this.scrollHeight;
-	var currentScroll = top + this.offsetHeight;
-	if (top === 0) this.scrollTop = 1;
-	else if (currentScroll === totalScroll) this.scrollTop = top - 1;
-}
-function isTouchDevice() {
-	return "ontouchstart" in window || navigator.maxTouchPoints;
-}
-var canUseDOM = !!(typeof window !== "undefined" && window.document && window.document.createElement);
-var activeScrollLocks = 0;
-var listenerOptions = {
-	capture: false,
-	passive: false
-};
-function useScrollLock(_ref$1) {
-	var isEnabled = _ref$1.isEnabled, _ref$accountForScroll = _ref$1.accountForScrollbars, accountForScrollbars = _ref$accountForScroll === void 0 ? true : _ref$accountForScroll;
-	var originalStyles = (0, import_react.useRef)({});
-	var scrollTarget = (0, import_react.useRef)(null);
-	var addScrollLock = (0, import_react.useCallback)(function(touchScrollTarget) {
-		if (!canUseDOM) return;
-		var target = document.body;
-		var targetStyle = target && target.style;
-		if (accountForScrollbars) STYLE_KEYS.forEach(function(key) {
-			var val = targetStyle && targetStyle[key];
-			originalStyles.current[key] = val;
-		});
-		if (accountForScrollbars && activeScrollLocks < 1) {
-			var currentPadding = parseInt(originalStyles.current.paddingRight, 10) || 0;
-			var clientWidth = document.body ? document.body.clientWidth : 0;
-			var adjustedPadding = window.innerWidth - clientWidth + currentPadding || 0;
-			Object.keys(LOCK_STYLES).forEach(function(key) {
-				var val = LOCK_STYLES[key];
-				if (targetStyle) targetStyle[key] = val;
-			});
-			if (targetStyle) targetStyle.paddingRight = "".concat(adjustedPadding, "px");
-		}
-		if (target && isTouchDevice()) {
-			target.addEventListener("touchmove", preventTouchMove, listenerOptions);
-			if (touchScrollTarget) {
-				touchScrollTarget.addEventListener("touchstart", preventInertiaScroll, listenerOptions);
-				touchScrollTarget.addEventListener("touchmove", allowTouchMove, listenerOptions);
-			}
-		}
-		activeScrollLocks += 1;
-	}, [accountForScrollbars]);
-	var removeScrollLock = (0, import_react.useCallback)(function(touchScrollTarget) {
-		if (!canUseDOM) return;
-		var target = document.body;
-		var targetStyle = target && target.style;
-		activeScrollLocks = Math.max(activeScrollLocks - 1, 0);
-		if (accountForScrollbars && activeScrollLocks < 1) STYLE_KEYS.forEach(function(key) {
-			var val = originalStyles.current[key];
-			if (targetStyle) targetStyle[key] = val;
-		});
-		if (target && isTouchDevice()) {
-			target.removeEventListener("touchmove", preventTouchMove, listenerOptions);
-			if (touchScrollTarget) {
-				touchScrollTarget.removeEventListener("touchstart", preventInertiaScroll, listenerOptions);
-				touchScrollTarget.removeEventListener("touchmove", allowTouchMove, listenerOptions);
-			}
-		}
-	}, [accountForScrollbars]);
-	(0, import_react.useEffect)(function() {
-		if (!isEnabled) return;
-		var element = scrollTarget.current;
-		addScrollLock(element);
-		return function() {
-			removeScrollLock(element);
-		};
-	}, [
-		isEnabled,
-		addScrollLock,
-		removeScrollLock
-	]);
-	return function(element) {
-		scrollTarget.current = element;
-	};
-}
-var blurSelectInput = function blurSelectInput$1(event) {
-	var element = event.target;
-	return element.ownerDocument.activeElement && element.ownerDocument.activeElement.blur();
-};
-var _ref2$1 = {
-	name: "1kfdb0e",
-	styles: "position:fixed;left:0;bottom:0;right:0;top:0"
-};
-function ScrollManager(_ref$1) {
-	var children = _ref$1.children, lockEnabled = _ref$1.lockEnabled, _ref$captureEnabled = _ref$1.captureEnabled, captureEnabled = _ref$captureEnabled === void 0 ? true : _ref$captureEnabled, onBottomArrive = _ref$1.onBottomArrive, onBottomLeave = _ref$1.onBottomLeave, onTopArrive = _ref$1.onTopArrive, onTopLeave = _ref$1.onTopLeave;
-	var setScrollCaptureTarget = useScrollCapture({
-		isEnabled: captureEnabled,
-		onBottomArrive,
-		onBottomLeave,
-		onTopArrive,
-		onTopLeave
-	});
-	var setScrollLockTarget = useScrollLock({ isEnabled: lockEnabled });
-	return jsx(import_react.Fragment, null, lockEnabled && jsx("div", {
-		onClick: blurSelectInput,
-		css: _ref2$1
-	}), children(function targetRef(element) {
-		setScrollCaptureTarget(element);
-		setScrollLockTarget(element);
-	}));
-}
-var _ref2 = {
-	name: "1a0ro4n-requiredInput",
-	styles: "label:requiredInput;opacity:0;pointer-events:none;position:absolute;bottom:0;left:0;right:0;width:100%"
-};
-var RequiredInput$1 = function RequiredInput(_ref$1) {
-	var name = _ref$1.name, onFocus = _ref$1.onFocus;
-	return jsx("input", {
-		required: true,
-		name,
-		tabIndex: -1,
-		"aria-hidden": "true",
-		onFocus,
-		css: _ref2,
-		value: "",
-		onChange: function onChange() {}
-	});
-};
-function testPlatform(re$6) {
-	var _window$navigator$use;
-	return typeof window !== "undefined" && window.navigator != null ? re$6.test(((_window$navigator$use = window.navigator["userAgentData"]) === null || _window$navigator$use === void 0 ? void 0 : _window$navigator$use.platform) || window.navigator.platform) : false;
-}
-function isIPhone() {
-	return testPlatform(/^iPhone/i);
-}
-function isMac() {
-	return testPlatform(/^Mac/i);
-}
-function isIPad() {
-	return testPlatform(/^iPad/i) || isMac() && navigator.maxTouchPoints > 1;
-}
-function isIOS() {
-	return isIPhone() || isIPad();
-}
-function isAppleDevice() {
-	return isMac() || isIOS();
-}
-var formatGroupLabel = function formatGroupLabel$1(group) {
-	return group.label;
-};
-var getOptionLabel$1 = function getOptionLabel$2(option) {
-	return option.label;
-};
-var getOptionValue$1 = function getOptionValue$2(option) {
-	return option.value;
-};
-var isOptionDisabled = function isOptionDisabled$1(option) {
-	return !!option.isDisabled;
-};
-var defaultStyles = {
-	clearIndicator: clearIndicatorCSS,
-	container: containerCSS,
-	control: css$1,
-	dropdownIndicator: dropdownIndicatorCSS,
-	group: groupCSS,
-	groupHeading: groupHeadingCSS,
-	indicatorsContainer: indicatorsContainerCSS,
-	indicatorSeparator: indicatorSeparatorCSS,
-	input: inputCSS,
-	loadingIndicator: loadingIndicatorCSS,
-	loadingMessage: loadingMessageCSS,
-	menu: menuCSS,
-	menuList: menuListCSS,
-	menuPortal: menuPortalCSS,
-	multiValue: multiValueCSS,
-	multiValueLabel: multiValueLabelCSS,
-	multiValueRemove: multiValueRemoveCSS,
-	noOptionsMessage: noOptionsMessageCSS,
-	option: optionCSS,
-	placeholder: placeholderCSS,
-	singleValue: css,
-	valueContainer: valueContainerCSS
-};
-var colors = {
-	primary: "#2684FF",
-	primary75: "#4C9AFF",
-	primary50: "#B2D4FF",
-	primary25: "#DEEBFF",
-	danger: "#DE350B",
-	dangerLight: "#FFBDAD",
-	neutral0: "hsl(0, 0%, 100%)",
-	neutral5: "hsl(0, 0%, 95%)",
-	neutral10: "hsl(0, 0%, 90%)",
-	neutral20: "hsl(0, 0%, 80%)",
-	neutral30: "hsl(0, 0%, 70%)",
-	neutral40: "hsl(0, 0%, 60%)",
-	neutral50: "hsl(0, 0%, 50%)",
-	neutral60: "hsl(0, 0%, 40%)",
-	neutral70: "hsl(0, 0%, 30%)",
-	neutral80: "hsl(0, 0%, 20%)",
-	neutral90: "hsl(0, 0%, 10%)"
-};
-var borderRadius = 4;
-var baseUnit = 4;
-var defaultTheme = {
-	borderRadius,
-	colors,
-	spacing: {
-		baseUnit,
-		controlHeight: 38,
-		menuGutter: baseUnit * 2
-	}
-};
-var defaultProps = {
-	"aria-live": "polite",
-	backspaceRemovesValue: true,
-	blurInputOnSelect: isTouchCapable(),
-	captureMenuScroll: !isTouchCapable(),
-	classNames: {},
-	closeMenuOnSelect: true,
-	closeMenuOnScroll: false,
-	components: {},
-	controlShouldRenderValue: true,
-	escapeClearsValue: false,
-	filterOption: createFilter(),
-	formatGroupLabel,
-	getOptionLabel: getOptionLabel$1,
-	getOptionValue: getOptionValue$1,
-	isDisabled: false,
-	isLoading: false,
-	isMulti: false,
-	isRtl: false,
-	isSearchable: true,
-	isOptionDisabled,
-	loadingMessage: function loadingMessage() {
-		return "Loading...";
-	},
-	maxMenuHeight: 300,
-	minMenuHeight: 140,
-	menuIsOpen: false,
-	menuPlacement: "bottom",
-	menuPosition: "absolute",
-	menuShouldBlockScroll: false,
-	menuShouldScrollIntoView: !isMobileDevice(),
-	noOptionsMessage: function noOptionsMessage() {
-		return "No options";
-	},
-	openMenuOnFocus: false,
-	openMenuOnClick: true,
-	options: [],
-	pageSize: 5,
-	placeholder: "Select...",
-	screenReaderStatus: function screenReaderStatus(_ref$1) {
-		var count = _ref$1.count;
-		return "".concat(count, " result").concat(count !== 1 ? "s" : "", " available");
-	},
-	styles: {},
-	tabIndex: 0,
-	tabSelectsValue: true,
-	unstyled: false
-};
-function toCategorizedOption(props, option, selectValue, index$6) {
-	return {
-		type: "option",
-		data: option,
-		isDisabled: _isOptionDisabled(props, option, selectValue),
-		isSelected: _isOptionSelected(props, option, selectValue),
-		label: getOptionLabel(props, option),
-		value: getOptionValue(props, option),
-		index: index$6
-	};
-}
-function buildCategorizedOptions(props, selectValue) {
-	return props.options.map(function(groupOrOption, groupOrOptionIndex) {
-		if ("options" in groupOrOption) {
-			var categorizedOptions = groupOrOption.options.map(function(option, optionIndex) {
-				return toCategorizedOption(props, option, selectValue, optionIndex);
-			}).filter(function(categorizedOption$1) {
-				return isFocusable(props, categorizedOption$1);
-			});
-			return categorizedOptions.length > 0 ? {
-				type: "group",
-				data: groupOrOption,
-				options: categorizedOptions,
-				index: groupOrOptionIndex
-			} : void 0;
-		}
-		var categorizedOption = toCategorizedOption(props, groupOrOption, selectValue, groupOrOptionIndex);
-		return isFocusable(props, categorizedOption) ? categorizedOption : void 0;
-	}).filter(notNullish);
-}
-function buildFocusableOptionsFromCategorizedOptions(categorizedOptions) {
-	return categorizedOptions.reduce(function(optionsAccumulator, categorizedOption) {
-		if (categorizedOption.type === "group") optionsAccumulator.push.apply(optionsAccumulator, _toConsumableArray(categorizedOption.options.map(function(option) {
-			return option.data;
-		})));
-		else optionsAccumulator.push(categorizedOption.data);
-		return optionsAccumulator;
-	}, []);
-}
-function buildFocusableOptionsWithIds(categorizedOptions, optionId) {
-	return categorizedOptions.reduce(function(optionsAccumulator, categorizedOption) {
-		if (categorizedOption.type === "group") optionsAccumulator.push.apply(optionsAccumulator, _toConsumableArray(categorizedOption.options.map(function(option) {
-			return {
-				data: option.data,
-				id: "".concat(optionId, "-").concat(categorizedOption.index, "-").concat(option.index)
-			};
-		})));
-		else optionsAccumulator.push({
-			data: categorizedOption.data,
-			id: "".concat(optionId, "-").concat(categorizedOption.index)
-		});
-		return optionsAccumulator;
-	}, []);
-}
-function buildFocusableOptions(props, selectValue) {
-	return buildFocusableOptionsFromCategorizedOptions(buildCategorizedOptions(props, selectValue));
-}
-function isFocusable(props, categorizedOption) {
-	var _props$inputValue = props.inputValue, inputValue = _props$inputValue === void 0 ? "" : _props$inputValue;
-	var data = categorizedOption.data, isSelected = categorizedOption.isSelected, label = categorizedOption.label, value = categorizedOption.value;
-	return (!shouldHideSelectedOptions(props) || !isSelected) && _filterOption(props, {
-		label,
-		value,
-		data
-	}, inputValue);
-}
-function getNextFocusedValue(state, nextSelectValue) {
-	var focusedValue = state.focusedValue;
-	var lastFocusedIndex = state.selectValue.indexOf(focusedValue);
-	if (lastFocusedIndex > -1) {
-		if (nextSelectValue.indexOf(focusedValue) > -1) return focusedValue;
-		else if (lastFocusedIndex < nextSelectValue.length) return nextSelectValue[lastFocusedIndex];
-	}
-	return null;
-}
-function getNextFocusedOption(state, options$2) {
-	var lastFocusedOption = state.focusedOption;
-	return lastFocusedOption && options$2.indexOf(lastFocusedOption) > -1 ? lastFocusedOption : options$2[0];
-}
-var getFocusedOptionId = function getFocusedOptionId$1(focusableOptionsWithIds, focusedOption) {
-	var _focusableOptionsWith;
-	return ((_focusableOptionsWith = focusableOptionsWithIds.find(function(option) {
-		return option.data === focusedOption;
-	})) === null || _focusableOptionsWith === void 0 ? void 0 : _focusableOptionsWith.id) || null;
-};
-var getOptionLabel = function getOptionLabel$2(props, data) {
-	return props.getOptionLabel(data);
-};
-var getOptionValue = function getOptionValue$2(props, data) {
-	return props.getOptionValue(data);
-};
-function _isOptionDisabled(props, option, selectValue) {
-	return typeof props.isOptionDisabled === "function" ? props.isOptionDisabled(option, selectValue) : false;
-}
-function _isOptionSelected(props, option, selectValue) {
-	if (selectValue.indexOf(option) > -1) return true;
-	if (typeof props.isOptionSelected === "function") return props.isOptionSelected(option, selectValue);
-	var candidate = getOptionValue(props, option);
-	return selectValue.some(function(i$13) {
-		return getOptionValue(props, i$13) === candidate;
-	});
-}
-function _filterOption(props, option, inputValue) {
-	return props.filterOption ? props.filterOption(option, inputValue) : true;
-}
-var shouldHideSelectedOptions = function shouldHideSelectedOptions$1(props) {
-	var hideSelectedOptions = props.hideSelectedOptions, isMulti = props.isMulti;
-	if (hideSelectedOptions === void 0) return isMulti;
-	return hideSelectedOptions;
-};
-var instanceId = 1;
-var Select = /* @__PURE__ */ function(_Component) {
-	_inherits(Select$1, _Component);
-	var _super = _createSuper(Select$1);
-	function Select$1(_props) {
-		var _this;
-		_classCallCheck(this, Select$1);
-		_this = _super.call(this, _props);
-		_this.state = {
-			ariaSelection: null,
-			focusedOption: null,
-			focusedOptionId: null,
-			focusableOptionsWithIds: [],
-			focusedValue: null,
-			inputIsHidden: false,
-			isFocused: false,
-			selectValue: [],
-			clearFocusValueOnUpdate: false,
-			prevWasFocused: false,
-			inputIsHiddenAfterUpdate: void 0,
-			prevProps: void 0,
-			instancePrefix: "",
-			isAppleDevice: false
-		};
-		_this.blockOptionHover = false;
-		_this.isComposing = false;
-		_this.commonProps = void 0;
-		_this.initialTouchX = 0;
-		_this.initialTouchY = 0;
-		_this.openAfterFocus = false;
-		_this.scrollToFocusedOptionOnUpdate = false;
-		_this.userIsDragging = void 0;
-		_this.controlRef = null;
-		_this.getControlRef = function(ref) {
-			_this.controlRef = ref;
-		};
-		_this.focusedOptionRef = null;
-		_this.getFocusedOptionRef = function(ref) {
-			_this.focusedOptionRef = ref;
-		};
-		_this.menuListRef = null;
-		_this.getMenuListRef = function(ref) {
-			_this.menuListRef = ref;
-		};
-		_this.inputRef = null;
-		_this.getInputRef = function(ref) {
-			_this.inputRef = ref;
-		};
-		_this.focus = _this.focusInput;
-		_this.blur = _this.blurInput;
-		_this.onChange = function(newValue, actionMeta) {
-			var _this$props = _this.props, onChange = _this$props.onChange;
-			actionMeta.name = _this$props.name;
-			_this.ariaOnChange(newValue, actionMeta);
-			onChange(newValue, actionMeta);
-		};
-		_this.setValue = function(newValue, action, option) {
-			var _this$props2 = _this.props, closeMenuOnSelect = _this$props2.closeMenuOnSelect, isMulti = _this$props2.isMulti, inputValue = _this$props2.inputValue;
-			_this.onInputChange("", {
-				action: "set-value",
-				prevInputValue: inputValue
-			});
-			if (closeMenuOnSelect) {
-				_this.setState({ inputIsHiddenAfterUpdate: !isMulti });
-				_this.onMenuClose();
-			}
-			_this.setState({ clearFocusValueOnUpdate: true });
-			_this.onChange(newValue, {
-				action,
-				option
-			});
-		};
-		_this.selectOption = function(newValue) {
-			var _this$props3 = _this.props, blurInputOnSelect = _this$props3.blurInputOnSelect, isMulti = _this$props3.isMulti, name = _this$props3.name;
-			var selectValue = _this.state.selectValue;
-			var deselected = isMulti && _this.isOptionSelected(newValue, selectValue);
-			var isDisabled = _this.isOptionDisabled(newValue, selectValue);
-			if (deselected) {
-				var candidate = _this.getOptionValue(newValue);
-				_this.setValue(multiValueAsValue(selectValue.filter(function(i$13) {
-					return _this.getOptionValue(i$13) !== candidate;
-				})), "deselect-option", newValue);
-			} else if (!isDisabled) if (isMulti) _this.setValue(multiValueAsValue([].concat(_toConsumableArray(selectValue), [newValue])), "select-option", newValue);
-			else _this.setValue(singleValueAsValue(newValue), "select-option");
-			else {
-				_this.ariaOnChange(singleValueAsValue(newValue), {
-					action: "select-option",
-					option: newValue,
-					name
-				});
-				return;
-			}
-			if (blurInputOnSelect) _this.blurInput();
-		};
-		_this.removeValue = function(removedValue) {
-			var isMulti = _this.props.isMulti;
-			var selectValue = _this.state.selectValue;
-			var candidate = _this.getOptionValue(removedValue);
-			var newValueArray = selectValue.filter(function(i$13) {
-				return _this.getOptionValue(i$13) !== candidate;
-			});
-			var newValue = valueTernary(isMulti, newValueArray, newValueArray[0] || null);
-			_this.onChange(newValue, {
-				action: "remove-value",
-				removedValue
-			});
-			_this.focusInput();
-		};
-		_this.clearValue = function() {
-			var selectValue = _this.state.selectValue;
-			_this.onChange(valueTernary(_this.props.isMulti, [], null), {
-				action: "clear",
-				removedValues: selectValue
-			});
-		};
-		_this.popValue = function() {
-			var isMulti = _this.props.isMulti;
-			var selectValue = _this.state.selectValue;
-			var lastSelectedValue = selectValue[selectValue.length - 1];
-			var newValueArray = selectValue.slice(0, selectValue.length - 1);
-			var newValue = valueTernary(isMulti, newValueArray, newValueArray[0] || null);
-			if (lastSelectedValue) _this.onChange(newValue, {
-				action: "pop-value",
-				removedValue: lastSelectedValue
-			});
-		};
-		_this.getFocusedOptionId = function(focusedOption) {
-			return getFocusedOptionId(_this.state.focusableOptionsWithIds, focusedOption);
-		};
-		_this.getFocusableOptionsWithIds = function() {
-			return buildFocusableOptionsWithIds(buildCategorizedOptions(_this.props, _this.state.selectValue), _this.getElementId("option"));
-		};
-		_this.getValue = function() {
-			return _this.state.selectValue;
-		};
-		_this.cx = function() {
-			for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) args[_key] = arguments[_key];
-			return classNames.apply(void 0, [_this.props.classNamePrefix].concat(args));
-		};
-		_this.getOptionLabel = function(data) {
-			return getOptionLabel(_this.props, data);
-		};
-		_this.getOptionValue = function(data) {
-			return getOptionValue(_this.props, data);
-		};
-		_this.getStyles = function(key, props) {
-			var unstyled = _this.props.unstyled;
-			var base = defaultStyles[key](props, unstyled);
-			base.boxSizing = "border-box";
-			var custom$1 = _this.props.styles[key];
-			return custom$1 ? custom$1(base, props) : base;
-		};
-		_this.getClassNames = function(key, props) {
-			var _this$props$className, _this$props$className2;
-			return (_this$props$className = (_this$props$className2 = _this.props.classNames)[key]) === null || _this$props$className === void 0 ? void 0 : _this$props$className.call(_this$props$className2, props);
-		};
-		_this.getElementId = function(element) {
-			return "".concat(_this.state.instancePrefix, "-").concat(element);
-		};
-		_this.getComponents = function() {
-			return defaultComponents(_this.props);
-		};
-		_this.buildCategorizedOptions = function() {
-			return buildCategorizedOptions(_this.props, _this.state.selectValue);
-		};
-		_this.getCategorizedOptions = function() {
-			return _this.props.menuIsOpen ? _this.buildCategorizedOptions() : [];
-		};
-		_this.buildFocusableOptions = function() {
-			return buildFocusableOptionsFromCategorizedOptions(_this.buildCategorizedOptions());
-		};
-		_this.getFocusableOptions = function() {
-			return _this.props.menuIsOpen ? _this.buildFocusableOptions() : [];
-		};
-		_this.ariaOnChange = function(value, actionMeta) {
-			_this.setState({ ariaSelection: _objectSpread2({ value }, actionMeta) });
-		};
-		_this.onMenuMouseDown = function(event) {
-			if (event.button !== 0) return;
-			event.stopPropagation();
-			event.preventDefault();
-			_this.focusInput();
-		};
-		_this.onMenuMouseMove = function(event) {
-			_this.blockOptionHover = false;
-		};
-		_this.onControlMouseDown = function(event) {
-			if (event.defaultPrevented) return;
-			var openMenuOnClick = _this.props.openMenuOnClick;
-			if (!_this.state.isFocused) {
-				if (openMenuOnClick) _this.openAfterFocus = true;
-				_this.focusInput();
-			} else if (!_this.props.menuIsOpen) {
-				if (openMenuOnClick) _this.openMenu("first");
-			} else if (event.target.tagName !== "INPUT" && event.target.tagName !== "TEXTAREA") _this.onMenuClose();
-			if (event.target.tagName !== "INPUT" && event.target.tagName !== "TEXTAREA") event.preventDefault();
-		};
-		_this.onDropdownIndicatorMouseDown = function(event) {
-			if (event && event.type === "mousedown" && event.button !== 0) return;
-			if (_this.props.isDisabled) return;
-			var _this$props4 = _this.props, isMulti = _this$props4.isMulti, menuIsOpen = _this$props4.menuIsOpen;
-			_this.focusInput();
-			if (menuIsOpen) {
-				_this.setState({ inputIsHiddenAfterUpdate: !isMulti });
-				_this.onMenuClose();
-			} else _this.openMenu("first");
-			event.preventDefault();
-		};
-		_this.onClearIndicatorMouseDown = function(event) {
-			if (event && event.type === "mousedown" && event.button !== 0) return;
-			_this.clearValue();
-			event.preventDefault();
-			_this.openAfterFocus = false;
-			if (event.type === "touchend") _this.focusInput();
-			else setTimeout(function() {
-				return _this.focusInput();
-			});
-		};
-		_this.onScroll = function(event) {
-			if (typeof _this.props.closeMenuOnScroll === "boolean") {
-				if (event.target instanceof HTMLElement && isDocumentElement(event.target)) _this.props.onMenuClose();
-			} else if (typeof _this.props.closeMenuOnScroll === "function") {
-				if (_this.props.closeMenuOnScroll(event)) _this.props.onMenuClose();
-			}
-		};
-		_this.onCompositionStart = function() {
-			_this.isComposing = true;
-		};
-		_this.onCompositionEnd = function() {
-			_this.isComposing = false;
-		};
-		_this.onTouchStart = function(_ref2$3) {
-			var touches = _ref2$3.touches;
-			var touch = touches && touches.item(0);
-			if (!touch) return;
-			_this.initialTouchX = touch.clientX;
-			_this.initialTouchY = touch.clientY;
-			_this.userIsDragging = false;
-		};
-		_this.onTouchMove = function(_ref3) {
-			var touches = _ref3.touches;
-			var touch = touches && touches.item(0);
-			if (!touch) return;
-			var deltaX = Math.abs(touch.clientX - _this.initialTouchX);
-			var deltaY = Math.abs(touch.clientY - _this.initialTouchY);
-			var moveThreshold = 5;
-			_this.userIsDragging = deltaX > moveThreshold || deltaY > moveThreshold;
-		};
-		_this.onTouchEnd = function(event) {
-			if (_this.userIsDragging) return;
-			if (_this.controlRef && !_this.controlRef.contains(event.target) && _this.menuListRef && !_this.menuListRef.contains(event.target)) _this.blurInput();
-			_this.initialTouchX = 0;
-			_this.initialTouchY = 0;
-		};
-		_this.onControlTouchEnd = function(event) {
-			if (_this.userIsDragging) return;
-			_this.onControlMouseDown(event);
-		};
-		_this.onClearIndicatorTouchEnd = function(event) {
-			if (_this.userIsDragging) return;
-			_this.onClearIndicatorMouseDown(event);
-		};
-		_this.onDropdownIndicatorTouchEnd = function(event) {
-			if (_this.userIsDragging) return;
-			_this.onDropdownIndicatorMouseDown(event);
-		};
-		_this.handleInputChange = function(event) {
-			var prevInputValue = _this.props.inputValue;
-			var inputValue = event.currentTarget.value;
-			_this.setState({ inputIsHiddenAfterUpdate: false });
-			_this.onInputChange(inputValue, {
-				action: "input-change",
-				prevInputValue
-			});
-			if (!_this.props.menuIsOpen) _this.onMenuOpen();
-		};
-		_this.onInputFocus = function(event) {
-			if (_this.props.onFocus) _this.props.onFocus(event);
-			_this.setState({
-				inputIsHiddenAfterUpdate: false,
-				isFocused: true
-			});
-			if (_this.openAfterFocus || _this.props.openMenuOnFocus) _this.openMenu("first");
-			_this.openAfterFocus = false;
-		};
-		_this.onInputBlur = function(event) {
-			var prevInputValue = _this.props.inputValue;
-			if (_this.menuListRef && _this.menuListRef.contains(document.activeElement)) {
-				_this.inputRef.focus();
-				return;
-			}
-			if (_this.props.onBlur) _this.props.onBlur(event);
-			_this.onInputChange("", {
-				action: "input-blur",
-				prevInputValue
-			});
-			_this.onMenuClose();
-			_this.setState({
-				focusedValue: null,
-				isFocused: false
-			});
-		};
-		_this.onOptionHover = function(focusedOption) {
-			if (_this.blockOptionHover || _this.state.focusedOption === focusedOption) return;
-			var focusedOptionIndex = _this.getFocusableOptions().indexOf(focusedOption);
-			_this.setState({
-				focusedOption,
-				focusedOptionId: focusedOptionIndex > -1 ? _this.getFocusedOptionId(focusedOption) : null
-			});
-		};
-		_this.shouldHideSelectedOptions = function() {
-			return shouldHideSelectedOptions(_this.props);
-		};
-		_this.onValueInputFocus = function(e$14) {
-			e$14.preventDefault();
-			e$14.stopPropagation();
-			_this.focus();
-		};
-		_this.onKeyDown = function(event) {
-			var _this$props5 = _this.props, isMulti = _this$props5.isMulti, backspaceRemovesValue = _this$props5.backspaceRemovesValue, escapeClearsValue = _this$props5.escapeClearsValue, inputValue = _this$props5.inputValue, isClearable = _this$props5.isClearable, isDisabled = _this$props5.isDisabled, menuIsOpen = _this$props5.menuIsOpen, onKeyDown = _this$props5.onKeyDown, tabSelectsValue = _this$props5.tabSelectsValue, openMenuOnFocus = _this$props5.openMenuOnFocus;
-			var _this$state = _this.state, focusedOption = _this$state.focusedOption, focusedValue = _this$state.focusedValue, selectValue = _this$state.selectValue;
-			if (isDisabled) return;
-			if (typeof onKeyDown === "function") {
-				onKeyDown(event);
-				if (event.defaultPrevented) return;
-			}
-			_this.blockOptionHover = true;
-			switch (event.key) {
-				case "ArrowLeft":
-					if (!isMulti || inputValue) return;
-					_this.focusValue("previous");
-					break;
-				case "ArrowRight":
-					if (!isMulti || inputValue) return;
-					_this.focusValue("next");
-					break;
-				case "Delete":
-				case "Backspace":
-					if (inputValue) return;
-					if (focusedValue) _this.removeValue(focusedValue);
-					else {
-						if (!backspaceRemovesValue) return;
-						if (isMulti) _this.popValue();
-						else if (isClearable) _this.clearValue();
-					}
-					break;
-				case "Tab":
-					if (_this.isComposing) return;
-					if (event.shiftKey || !menuIsOpen || !tabSelectsValue || !focusedOption || openMenuOnFocus && _this.isOptionSelected(focusedOption, selectValue)) return;
-					_this.selectOption(focusedOption);
-					break;
-				case "Enter":
-					if (event.keyCode === 229) break;
-					if (menuIsOpen) {
-						if (!focusedOption) return;
-						if (_this.isComposing) return;
-						_this.selectOption(focusedOption);
-						break;
-					}
-					return;
-				case "Escape":
-					if (menuIsOpen) {
-						_this.setState({ inputIsHiddenAfterUpdate: false });
-						_this.onInputChange("", {
-							action: "menu-close",
-							prevInputValue: inputValue
-						});
-						_this.onMenuClose();
-					} else if (isClearable && escapeClearsValue) _this.clearValue();
-					break;
-				case " ":
-					if (inputValue) return;
-					if (!menuIsOpen) {
-						_this.openMenu("first");
-						break;
-					}
-					if (!focusedOption) return;
-					_this.selectOption(focusedOption);
-					break;
-				case "ArrowUp":
-					if (menuIsOpen) _this.focusOption("up");
-					else _this.openMenu("last");
-					break;
-				case "ArrowDown":
-					if (menuIsOpen) _this.focusOption("down");
-					else _this.openMenu("first");
-					break;
-				case "PageUp":
-					if (!menuIsOpen) return;
-					_this.focusOption("pageup");
-					break;
-				case "PageDown":
-					if (!menuIsOpen) return;
-					_this.focusOption("pagedown");
-					break;
-				case "Home":
-					if (!menuIsOpen) return;
-					_this.focusOption("first");
-					break;
-				case "End":
-					if (!menuIsOpen) return;
-					_this.focusOption("last");
-					break;
-				default: return;
-			}
-			event.preventDefault();
-		};
-		_this.state.instancePrefix = "react-select-" + (_this.props.instanceId || ++instanceId);
-		_this.state.selectValue = cleanValue(_props.value);
-		if (_props.menuIsOpen && _this.state.selectValue.length) {
-			var focusableOptionsWithIds = _this.getFocusableOptionsWithIds();
-			var focusableOptions = _this.buildFocusableOptions();
-			var optionIndex = focusableOptions.indexOf(_this.state.selectValue[0]);
-			_this.state.focusableOptionsWithIds = focusableOptionsWithIds;
-			_this.state.focusedOption = focusableOptions[optionIndex];
-			_this.state.focusedOptionId = getFocusedOptionId(focusableOptionsWithIds, focusableOptions[optionIndex]);
-		}
-		return _this;
-	}
-	_createClass(Select$1, [
-		{
-			key: "componentDidMount",
-			value: function componentDidMount() {
-				this.startListeningComposition();
-				this.startListeningToTouch();
-				if (this.props.closeMenuOnScroll && document && document.addEventListener) document.addEventListener("scroll", this.onScroll, true);
-				if (this.props.autoFocus) this.focusInput();
-				if (this.props.menuIsOpen && this.state.focusedOption && this.menuListRef && this.focusedOptionRef) scrollIntoView(this.menuListRef, this.focusedOptionRef);
-				if (isAppleDevice()) this.setState({ isAppleDevice: true });
-			}
-		},
-		{
-			key: "componentDidUpdate",
-			value: function componentDidUpdate(prevProps) {
-				var _this$props6 = this.props, isDisabled = _this$props6.isDisabled, menuIsOpen = _this$props6.menuIsOpen;
-				var isFocused = this.state.isFocused;
-				if (isFocused && !isDisabled && prevProps.isDisabled || isFocused && menuIsOpen && !prevProps.menuIsOpen) this.focusInput();
-				if (isFocused && isDisabled && !prevProps.isDisabled) this.setState({ isFocused: false }, this.onMenuClose);
-				else if (!isFocused && !isDisabled && prevProps.isDisabled && this.inputRef === document.activeElement) this.setState({ isFocused: true });
-				if (this.menuListRef && this.focusedOptionRef && this.scrollToFocusedOptionOnUpdate) {
-					scrollIntoView(this.menuListRef, this.focusedOptionRef);
-					this.scrollToFocusedOptionOnUpdate = false;
-				}
-			}
-		},
-		{
-			key: "componentWillUnmount",
-			value: function componentWillUnmount() {
-				this.stopListeningComposition();
-				this.stopListeningToTouch();
-				document.removeEventListener("scroll", this.onScroll, true);
-			}
-		},
-		{
-			key: "onMenuOpen",
-			value: function onMenuOpen() {
-				this.props.onMenuOpen();
-			}
-		},
-		{
-			key: "onMenuClose",
-			value: function onMenuClose() {
-				this.onInputChange("", {
-					action: "menu-close",
-					prevInputValue: this.props.inputValue
-				});
-				this.props.onMenuClose();
-			}
-		},
-		{
-			key: "onInputChange",
-			value: function onInputChange(newValue, actionMeta) {
-				this.props.onInputChange(newValue, actionMeta);
-			}
-		},
-		{
-			key: "focusInput",
-			value: function focusInput() {
-				if (!this.inputRef) return;
-				this.inputRef.focus();
-			}
-		},
-		{
-			key: "blurInput",
-			value: function blurInput() {
-				if (!this.inputRef) return;
-				this.inputRef.blur();
-			}
-		},
-		{
-			key: "openMenu",
-			value: function openMenu(focusOption) {
-				var _this2 = this;
-				var _this$state2 = this.state, selectValue = _this$state2.selectValue, isFocused = _this$state2.isFocused;
-				var focusableOptions = this.buildFocusableOptions();
-				var openAtIndex = focusOption === "first" ? 0 : focusableOptions.length - 1;
-				if (!this.props.isMulti) {
-					var selectedIndex = focusableOptions.indexOf(selectValue[0]);
-					if (selectedIndex > -1) openAtIndex = selectedIndex;
-				}
-				this.scrollToFocusedOptionOnUpdate = !(isFocused && this.menuListRef);
-				this.setState({
-					inputIsHiddenAfterUpdate: false,
-					focusedValue: null,
-					focusedOption: focusableOptions[openAtIndex],
-					focusedOptionId: this.getFocusedOptionId(focusableOptions[openAtIndex])
-				}, function() {
-					return _this2.onMenuOpen();
-				});
-			}
-		},
-		{
-			key: "focusValue",
-			value: function focusValue(direction) {
-				var _this$state3 = this.state, selectValue = _this$state3.selectValue, focusedValue = _this$state3.focusedValue;
-				if (!this.props.isMulti) return;
-				this.setState({ focusedOption: null });
-				var focusedIndex = selectValue.indexOf(focusedValue);
-				if (!focusedValue) focusedIndex = -1;
-				var lastIndex = selectValue.length - 1;
-				var nextFocus = -1;
-				if (!selectValue.length) return;
-				switch (direction) {
-					case "previous":
-						if (focusedIndex === 0) nextFocus = 0;
-						else if (focusedIndex === -1) nextFocus = lastIndex;
-						else nextFocus = focusedIndex - 1;
-						break;
-					case "next":
-						if (focusedIndex > -1 && focusedIndex < lastIndex) nextFocus = focusedIndex + 1;
-						break;
-				}
-				this.setState({
-					inputIsHidden: nextFocus !== -1,
-					focusedValue: selectValue[nextFocus]
-				});
-			}
-		},
-		{
-			key: "focusOption",
-			value: function focusOption() {
-				var direction = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : "first";
-				var pageSize = this.props.pageSize;
-				var focusedOption = this.state.focusedOption;
-				var options$2 = this.getFocusableOptions();
-				if (!options$2.length) return;
-				var nextFocus = 0;
-				var focusedIndex = options$2.indexOf(focusedOption);
-				if (!focusedOption) focusedIndex = -1;
-				if (direction === "up") nextFocus = focusedIndex > 0 ? focusedIndex - 1 : options$2.length - 1;
-				else if (direction === "down") nextFocus = (focusedIndex + 1) % options$2.length;
-				else if (direction === "pageup") {
-					nextFocus = focusedIndex - pageSize;
-					if (nextFocus < 0) nextFocus = 0;
-				} else if (direction === "pagedown") {
-					nextFocus = focusedIndex + pageSize;
-					if (nextFocus > options$2.length - 1) nextFocus = options$2.length - 1;
-				} else if (direction === "last") nextFocus = options$2.length - 1;
-				this.scrollToFocusedOptionOnUpdate = true;
-				this.setState({
-					focusedOption: options$2[nextFocus],
-					focusedValue: null,
-					focusedOptionId: this.getFocusedOptionId(options$2[nextFocus])
-				});
-			}
-		},
-		{
-			key: "getTheme",
-			value: function getTheme() {
-				if (!this.props.theme) return defaultTheme;
-				if (typeof this.props.theme === "function") return this.props.theme(defaultTheme);
-				return _objectSpread2(_objectSpread2({}, defaultTheme), this.props.theme);
-			}
-		},
-		{
-			key: "getCommonProps",
-			value: function getCommonProps() {
-				var clearValue = this.clearValue, cx$28 = this.cx, getStyles = this.getStyles, getClassNames = this.getClassNames, getValue$4 = this.getValue, selectOption = this.selectOption, setValue = this.setValue, props = this.props;
-				var isMulti = props.isMulti, isRtl = props.isRtl, options$2 = props.options;
-				return {
-					clearValue,
-					cx: cx$28,
-					getStyles,
-					getClassNames,
-					getValue: getValue$4,
-					hasValue: this.hasValue(),
-					isMulti,
-					isRtl,
-					options: options$2,
-					selectOption,
-					selectProps: props,
-					setValue,
-					theme: this.getTheme()
-				};
-			}
-		},
-		{
-			key: "hasValue",
-			value: function hasValue$1() {
-				return this.state.selectValue.length > 0;
-			}
-		},
-		{
-			key: "hasOptions",
-			value: function hasOptions() {
-				return !!this.getFocusableOptions().length;
-			}
-		},
-		{
-			key: "isClearable",
-			value: function isClearable() {
-				var _this$props7 = this.props, isClearable$1 = _this$props7.isClearable, isMulti = _this$props7.isMulti;
-				if (isClearable$1 === void 0) return isMulti;
-				return isClearable$1;
-			}
-		},
-		{
-			key: "isOptionDisabled",
-			value: function isOptionDisabled$1(option, selectValue) {
-				return _isOptionDisabled(this.props, option, selectValue);
-			}
-		},
-		{
-			key: "isOptionSelected",
-			value: function isOptionSelected(option, selectValue) {
-				return _isOptionSelected(this.props, option, selectValue);
-			}
-		},
-		{
-			key: "filterOption",
-			value: function filterOption(option, inputValue) {
-				return _filterOption(this.props, option, inputValue);
-			}
-		},
-		{
-			key: "formatOptionLabel",
-			value: function formatOptionLabel(data, context) {
-				if (typeof this.props.formatOptionLabel === "function") {
-					var _inputValue = this.props.inputValue;
-					var _selectValue = this.state.selectValue;
-					return this.props.formatOptionLabel(data, {
-						context,
-						inputValue: _inputValue,
-						selectValue: _selectValue
-					});
-				} else return this.getOptionLabel(data);
-			}
-		},
-		{
-			key: "formatGroupLabel",
-			value: function formatGroupLabel$1(data) {
-				return this.props.formatGroupLabel(data);
-			}
-		},
-		{
-			key: "startListeningComposition",
-			value: function startListeningComposition() {
-				if (document && document.addEventListener) {
-					document.addEventListener("compositionstart", this.onCompositionStart, false);
-					document.addEventListener("compositionend", this.onCompositionEnd, false);
-				}
-			}
-		},
-		{
-			key: "stopListeningComposition",
-			value: function stopListeningComposition() {
-				if (document && document.removeEventListener) {
-					document.removeEventListener("compositionstart", this.onCompositionStart);
-					document.removeEventListener("compositionend", this.onCompositionEnd);
-				}
-			}
-		},
-		{
-			key: "startListeningToTouch",
-			value: function startListeningToTouch() {
-				if (document && document.addEventListener) {
-					document.addEventListener("touchstart", this.onTouchStart, false);
-					document.addEventListener("touchmove", this.onTouchMove, false);
-					document.addEventListener("touchend", this.onTouchEnd, false);
-				}
-			}
-		},
-		{
-			key: "stopListeningToTouch",
-			value: function stopListeningToTouch() {
-				if (document && document.removeEventListener) {
-					document.removeEventListener("touchstart", this.onTouchStart);
-					document.removeEventListener("touchmove", this.onTouchMove);
-					document.removeEventListener("touchend", this.onTouchEnd);
-				}
-			}
-		},
-		{
-			key: "renderInput",
-			value: function renderInput() {
-				var _this$props8 = this.props, isDisabled = _this$props8.isDisabled, isSearchable = _this$props8.isSearchable, inputId = _this$props8.inputId, inputValue = _this$props8.inputValue, tabIndex = _this$props8.tabIndex, form = _this$props8.form, menuIsOpen = _this$props8.menuIsOpen, required = _this$props8.required;
-				var Input$2 = this.getComponents().Input;
-				var _this$state4 = this.state, inputIsHidden = _this$state4.inputIsHidden, ariaSelection = _this$state4.ariaSelection;
-				var commonProps = this.commonProps;
-				var id$2 = inputId || this.getElementId("input");
-				var ariaAttributes = _objectSpread2(_objectSpread2(_objectSpread2({
-					"aria-autocomplete": "list",
-					"aria-expanded": menuIsOpen,
-					"aria-haspopup": true,
-					"aria-errormessage": this.props["aria-errormessage"],
-					"aria-invalid": this.props["aria-invalid"],
-					"aria-label": this.props["aria-label"],
-					"aria-labelledby": this.props["aria-labelledby"],
-					"aria-required": required,
-					role: "combobox",
-					"aria-activedescendant": this.state.isAppleDevice ? void 0 : this.state.focusedOptionId || ""
-				}, menuIsOpen && { "aria-controls": this.getElementId("listbox") }), !isSearchable && { "aria-readonly": true }), this.hasValue() ? (ariaSelection === null || ariaSelection === void 0 ? void 0 : ariaSelection.action) === "initial-input-focus" && { "aria-describedby": this.getElementId("live-region") } : { "aria-describedby": this.getElementId("placeholder") });
-				if (!isSearchable) return /* @__PURE__ */ import_react.createElement(DummyInput, _extends({
-					id: id$2,
-					innerRef: this.getInputRef,
-					onBlur: this.onInputBlur,
-					onChange: noop,
-					onFocus: this.onInputFocus,
-					disabled: isDisabled,
-					tabIndex,
-					inputMode: "none",
-					form,
-					value: ""
-				}, ariaAttributes));
-				return /* @__PURE__ */ import_react.createElement(Input$2, _extends({}, commonProps, {
-					autoCapitalize: "none",
-					autoComplete: "off",
-					autoCorrect: "off",
-					id: id$2,
-					innerRef: this.getInputRef,
-					isDisabled,
-					isHidden: inputIsHidden,
-					onBlur: this.onInputBlur,
-					onChange: this.handleInputChange,
-					onFocus: this.onInputFocus,
-					spellCheck: "false",
-					tabIndex,
-					form,
-					type: "text",
-					value: inputValue
-				}, ariaAttributes));
-			}
-		},
-		{
-			key: "renderPlaceholderOrValue",
-			value: function renderPlaceholderOrValue() {
-				var _this3 = this;
-				var _this$getComponents2 = this.getComponents(), MultiValue = _this$getComponents2.MultiValue, MultiValueContainer$1 = _this$getComponents2.MultiValueContainer, MultiValueLabel$1 = _this$getComponents2.MultiValueLabel, MultiValueRemove$1 = _this$getComponents2.MultiValueRemove, SingleValue = _this$getComponents2.SingleValue, Placeholder = _this$getComponents2.Placeholder;
-				var commonProps = this.commonProps;
-				var _this$props9 = this.props, controlShouldRenderValue = _this$props9.controlShouldRenderValue, isDisabled = _this$props9.isDisabled, isMulti = _this$props9.isMulti, inputValue = _this$props9.inputValue, placeholder = _this$props9.placeholder;
-				var _this$state5 = this.state, selectValue = _this$state5.selectValue, focusedValue = _this$state5.focusedValue, isFocused = _this$state5.isFocused;
-				if (!this.hasValue() || !controlShouldRenderValue) return inputValue ? null : /* @__PURE__ */ import_react.createElement(Placeholder, _extends({}, commonProps, {
-					key: "placeholder",
-					isDisabled,
-					isFocused,
-					innerProps: { id: this.getElementId("placeholder") }
-				}), placeholder);
-				if (isMulti) return selectValue.map(function(opt, index$6) {
-					var isOptionFocused = opt === focusedValue;
-					var key = "".concat(_this3.getOptionLabel(opt), "-").concat(_this3.getOptionValue(opt));
-					return /* @__PURE__ */ import_react.createElement(MultiValue, _extends({}, commonProps, {
-						components: {
-							Container: MultiValueContainer$1,
-							Label: MultiValueLabel$1,
-							Remove: MultiValueRemove$1
-						},
-						isFocused: isOptionFocused,
-						isDisabled,
-						key,
-						index: index$6,
-						removeProps: {
-							onClick: function onClick() {
-								return _this3.removeValue(opt);
-							},
-							onTouchEnd: function onTouchEnd() {
-								return _this3.removeValue(opt);
-							},
-							onMouseDown: function onMouseDown(e$14) {
-								e$14.preventDefault();
-							}
-						},
-						data: opt
-					}), _this3.formatOptionLabel(opt, "value"));
-				});
-				if (inputValue) return null;
-				var singleValue = selectValue[0];
-				return /* @__PURE__ */ import_react.createElement(SingleValue, _extends({}, commonProps, {
-					data: singleValue,
-					isDisabled
-				}), this.formatOptionLabel(singleValue, "value"));
-			}
-		},
-		{
-			key: "renderClearIndicator",
-			value: function renderClearIndicator() {
-				var ClearIndicator$1 = this.getComponents().ClearIndicator;
-				var commonProps = this.commonProps;
-				var _this$props10 = this.props, isDisabled = _this$props10.isDisabled, isLoading = _this$props10.isLoading;
-				var isFocused = this.state.isFocused;
-				if (!this.isClearable() || !ClearIndicator$1 || isDisabled || !this.hasValue() || isLoading) return null;
-				var innerProps = {
-					onMouseDown: this.onClearIndicatorMouseDown,
-					onTouchEnd: this.onClearIndicatorTouchEnd,
-					"aria-hidden": "true"
-				};
-				return /* @__PURE__ */ import_react.createElement(ClearIndicator$1, _extends({}, commonProps, {
-					innerProps,
-					isFocused
-				}));
-			}
-		},
-		{
-			key: "renderLoadingIndicator",
-			value: function renderLoadingIndicator() {
-				var LoadingIndicator$1 = this.getComponents().LoadingIndicator;
-				var commonProps = this.commonProps;
-				var _this$props11 = this.props, isDisabled = _this$props11.isDisabled, isLoading = _this$props11.isLoading;
-				var isFocused = this.state.isFocused;
-				if (!LoadingIndicator$1 || !isLoading) return null;
-				return /* @__PURE__ */ import_react.createElement(LoadingIndicator$1, _extends({}, commonProps, {
-					innerProps: { "aria-hidden": "true" },
-					isDisabled,
-					isFocused
-				}));
-			}
-		},
-		{
-			key: "renderIndicatorSeparator",
-			value: function renderIndicatorSeparator() {
-				var _this$getComponents5 = this.getComponents(), DropdownIndicator$2 = _this$getComponents5.DropdownIndicator, IndicatorSeparator$1 = _this$getComponents5.IndicatorSeparator;
-				if (!DropdownIndicator$2 || !IndicatorSeparator$1) return null;
-				var commonProps = this.commonProps;
-				var isDisabled = this.props.isDisabled;
-				var isFocused = this.state.isFocused;
-				return /* @__PURE__ */ import_react.createElement(IndicatorSeparator$1, _extends({}, commonProps, {
-					isDisabled,
-					isFocused
-				}));
-			}
-		},
-		{
-			key: "renderDropdownIndicator",
-			value: function renderDropdownIndicator() {
-				var DropdownIndicator$2 = this.getComponents().DropdownIndicator;
-				if (!DropdownIndicator$2) return null;
-				var commonProps = this.commonProps;
-				var isDisabled = this.props.isDisabled;
-				var isFocused = this.state.isFocused;
-				var innerProps = {
-					onMouseDown: this.onDropdownIndicatorMouseDown,
-					onTouchEnd: this.onDropdownIndicatorTouchEnd,
-					"aria-hidden": "true"
-				};
-				return /* @__PURE__ */ import_react.createElement(DropdownIndicator$2, _extends({}, commonProps, {
-					innerProps,
-					isDisabled,
-					isFocused
-				}));
-			}
-		},
-		{
-			key: "renderMenu",
-			value: function renderMenu() {
-				var _this4 = this;
-				var _this$getComponents7 = this.getComponents(), Group$2 = _this$getComponents7.Group, GroupHeading$1 = _this$getComponents7.GroupHeading, Menu = _this$getComponents7.Menu, MenuList$2 = _this$getComponents7.MenuList, MenuPortal$1 = _this$getComponents7.MenuPortal, LoadingMessage$1 = _this$getComponents7.LoadingMessage, NoOptionsMessage$1 = _this$getComponents7.NoOptionsMessage, Option$2 = _this$getComponents7.Option;
-				var commonProps = this.commonProps;
-				var focusedOption = this.state.focusedOption;
-				var _this$props12 = this.props, captureMenuScroll = _this$props12.captureMenuScroll, inputValue = _this$props12.inputValue, isLoading = _this$props12.isLoading, loadingMessage = _this$props12.loadingMessage, minMenuHeight = _this$props12.minMenuHeight, maxMenuHeight = _this$props12.maxMenuHeight, menuIsOpen = _this$props12.menuIsOpen, menuPlacement = _this$props12.menuPlacement, menuPosition = _this$props12.menuPosition, menuPortalTarget = _this$props12.menuPortalTarget, menuShouldBlockScroll = _this$props12.menuShouldBlockScroll, menuShouldScrollIntoView = _this$props12.menuShouldScrollIntoView, noOptionsMessage = _this$props12.noOptionsMessage, onMenuScrollToTop = _this$props12.onMenuScrollToTop, onMenuScrollToBottom = _this$props12.onMenuScrollToBottom;
-				if (!menuIsOpen) return null;
-				var render = function render$1(props, id$2) {
-					var type = props.type, data = props.data, isDisabled = props.isDisabled, isSelected = props.isSelected, label = props.label, value = props.value;
-					var isFocused = focusedOption === data;
-					var onHover = isDisabled ? void 0 : function() {
-						return _this4.onOptionHover(data);
-					};
-					var onSelect = isDisabled ? void 0 : function() {
-						return _this4.selectOption(data);
-					};
-					var optionId = "".concat(_this4.getElementId("option"), "-").concat(id$2);
-					var innerProps = {
-						id: optionId,
-						onClick: onSelect,
-						onMouseMove: onHover,
-						onMouseOver: onHover,
-						tabIndex: -1,
-						role: "option",
-						"aria-selected": _this4.state.isAppleDevice ? void 0 : isSelected
-					};
-					return /* @__PURE__ */ import_react.createElement(Option$2, _extends({}, commonProps, {
-						innerProps,
-						data,
-						isDisabled,
-						isSelected,
-						key: optionId,
-						label,
-						type,
-						value,
-						isFocused,
-						innerRef: isFocused ? _this4.getFocusedOptionRef : void 0
-					}), _this4.formatOptionLabel(props.data, "menu"));
-				};
-				var menuUI;
-				if (this.hasOptions()) menuUI = this.getCategorizedOptions().map(function(item) {
-					if (item.type === "group") {
-						var _data = item.data, options$2 = item.options, groupIndex = item.index;
-						var groupId = "".concat(_this4.getElementId("group"), "-").concat(groupIndex);
-						var headingId = "".concat(groupId, "-heading");
-						return /* @__PURE__ */ import_react.createElement(Group$2, _extends({}, commonProps, {
-							key: groupId,
-							data: _data,
-							options: options$2,
-							Heading: GroupHeading$1,
-							headingProps: {
-								id: headingId,
-								data: item.data
-							},
-							label: _this4.formatGroupLabel(item.data)
-						}), item.options.map(function(option) {
-							return render(option, "".concat(groupIndex, "-").concat(option.index));
-						}));
-					} else if (item.type === "option") return render(item, "".concat(item.index));
-				});
-				else if (isLoading) {
-					var message$1 = loadingMessage({ inputValue });
-					if (message$1 === null) return null;
-					menuUI = /* @__PURE__ */ import_react.createElement(LoadingMessage$1, commonProps, message$1);
-				} else {
-					var _message = noOptionsMessage({ inputValue });
-					if (_message === null) return null;
-					menuUI = /* @__PURE__ */ import_react.createElement(NoOptionsMessage$1, commonProps, _message);
-				}
-				var menuPlacementProps = {
-					minMenuHeight,
-					maxMenuHeight,
-					menuPlacement,
-					menuPosition,
-					menuShouldScrollIntoView
-				};
-				var menuElement = /* @__PURE__ */ import_react.createElement(MenuPlacer, _extends({}, commonProps, menuPlacementProps), function(_ref4) {
-					var ref = _ref4.ref, _ref4$placerProps = _ref4.placerProps, placement = _ref4$placerProps.placement, maxHeight = _ref4$placerProps.maxHeight;
-					return /* @__PURE__ */ import_react.createElement(Menu, _extends({}, commonProps, menuPlacementProps, {
-						innerRef: ref,
-						innerProps: {
-							onMouseDown: _this4.onMenuMouseDown,
-							onMouseMove: _this4.onMenuMouseMove
-						},
-						isLoading,
-						placement
-					}), /* @__PURE__ */ import_react.createElement(ScrollManager, {
-						captureEnabled: captureMenuScroll,
-						onTopArrive: onMenuScrollToTop,
-						onBottomArrive: onMenuScrollToBottom,
-						lockEnabled: menuShouldBlockScroll
-					}, function(scrollTargetRef) {
-						return /* @__PURE__ */ import_react.createElement(MenuList$2, _extends({}, commonProps, {
-							innerRef: function innerRef(instance) {
-								_this4.getMenuListRef(instance);
-								scrollTargetRef(instance);
-							},
-							innerProps: {
-								role: "listbox",
-								"aria-multiselectable": commonProps.isMulti,
-								id: _this4.getElementId("listbox")
-							},
-							isLoading,
-							maxHeight,
-							focusedOption
-						}), menuUI);
-					}));
-				});
-				return menuPortalTarget || menuPosition === "fixed" ? /* @__PURE__ */ import_react.createElement(MenuPortal$1, _extends({}, commonProps, {
-					appendTo: menuPortalTarget,
-					controlElement: this.controlRef,
-					menuPlacement,
-					menuPosition
-				}), menuElement) : menuElement;
-			}
-		},
-		{
-			key: "renderFormField",
-			value: function renderFormField() {
-				var _this5 = this;
-				var _this$props13 = this.props, delimiter$1 = _this$props13.delimiter, isDisabled = _this$props13.isDisabled, isMulti = _this$props13.isMulti, name = _this$props13.name, required = _this$props13.required;
-				var selectValue = this.state.selectValue;
-				if (required && !this.hasValue() && !isDisabled) return /* @__PURE__ */ import_react.createElement(RequiredInput$1, {
-					name,
-					onFocus: this.onValueInputFocus
-				});
-				if (!name || isDisabled) return;
-				if (isMulti) if (delimiter$1) {
-					var value = selectValue.map(function(opt) {
-						return _this5.getOptionValue(opt);
-					}).join(delimiter$1);
-					return /* @__PURE__ */ import_react.createElement("input", {
-						name,
-						type: "hidden",
-						value
-					});
-				} else {
-					var input = selectValue.length > 0 ? selectValue.map(function(opt, i$13) {
-						return /* @__PURE__ */ import_react.createElement("input", {
-							key: "i-".concat(i$13),
-							name,
-							type: "hidden",
-							value: _this5.getOptionValue(opt)
-						});
-					}) : /* @__PURE__ */ import_react.createElement("input", {
-						name,
-						type: "hidden",
-						value: ""
-					});
-					return /* @__PURE__ */ import_react.createElement("div", null, input);
-				}
-				else {
-					var _value = selectValue[0] ? this.getOptionValue(selectValue[0]) : "";
-					return /* @__PURE__ */ import_react.createElement("input", {
-						name,
-						type: "hidden",
-						value: _value
-					});
-				}
-			}
-		},
-		{
-			key: "renderLiveRegion",
-			value: function renderLiveRegion() {
-				var commonProps = this.commonProps;
-				var _this$state6 = this.state, ariaSelection = _this$state6.ariaSelection, focusedOption = _this$state6.focusedOption, focusedValue = _this$state6.focusedValue, isFocused = _this$state6.isFocused, selectValue = _this$state6.selectValue;
-				var focusableOptions = this.getFocusableOptions();
-				return /* @__PURE__ */ import_react.createElement(LiveRegion$1, _extends({}, commonProps, {
-					id: this.getElementId("live-region"),
-					ariaSelection,
-					focusedOption,
-					focusedValue,
-					isFocused,
-					selectValue,
-					focusableOptions,
-					isAppleDevice: this.state.isAppleDevice
-				}));
-			}
-		},
-		{
-			key: "render",
-			value: function render() {
-				var _this$getComponents8 = this.getComponents(), Control = _this$getComponents8.Control, IndicatorsContainer$1 = _this$getComponents8.IndicatorsContainer, SelectContainer$1 = _this$getComponents8.SelectContainer, ValueContainer$1 = _this$getComponents8.ValueContainer;
-				var _this$props14 = this.props, className = _this$props14.className, id$2 = _this$props14.id, isDisabled = _this$props14.isDisabled, menuIsOpen = _this$props14.menuIsOpen;
-				var isFocused = this.state.isFocused;
-				var commonProps = this.commonProps = this.getCommonProps();
-				return /* @__PURE__ */ import_react.createElement(SelectContainer$1, _extends({}, commonProps, {
-					className,
-					innerProps: {
-						id: id$2,
-						onKeyDown: this.onKeyDown
-					},
-					isDisabled,
-					isFocused
-				}), this.renderLiveRegion(), /* @__PURE__ */ import_react.createElement(Control, _extends({}, commonProps, {
-					innerRef: this.getControlRef,
-					innerProps: {
-						onMouseDown: this.onControlMouseDown,
-						onTouchEnd: this.onControlTouchEnd
-					},
-					isDisabled,
-					isFocused,
-					menuIsOpen
-				}), /* @__PURE__ */ import_react.createElement(ValueContainer$1, _extends({}, commonProps, { isDisabled }), this.renderPlaceholderOrValue(), this.renderInput()), /* @__PURE__ */ import_react.createElement(IndicatorsContainer$1, _extends({}, commonProps, { isDisabled }), this.renderClearIndicator(), this.renderLoadingIndicator(), this.renderIndicatorSeparator(), this.renderDropdownIndicator())), this.renderMenu(), this.renderFormField());
-			}
-		}
-	], [{
-		key: "getDerivedStateFromProps",
-		value: function getDerivedStateFromProps(props, state) {
-			var prevProps = state.prevProps, clearFocusValueOnUpdate = state.clearFocusValueOnUpdate, inputIsHiddenAfterUpdate = state.inputIsHiddenAfterUpdate, ariaSelection = state.ariaSelection, isFocused = state.isFocused, prevWasFocused = state.prevWasFocused, instancePrefix = state.instancePrefix;
-			var options$2 = props.options, value = props.value, menuIsOpen = props.menuIsOpen, inputValue = props.inputValue, isMulti = props.isMulti;
-			var selectValue = cleanValue(value);
-			var newMenuOptionsState = {};
-			if (prevProps && (value !== prevProps.value || options$2 !== prevProps.options || menuIsOpen !== prevProps.menuIsOpen || inputValue !== prevProps.inputValue)) {
-				var focusableOptions = menuIsOpen ? buildFocusableOptions(props, selectValue) : [];
-				var focusableOptionsWithIds = menuIsOpen ? buildFocusableOptionsWithIds(buildCategorizedOptions(props, selectValue), "".concat(instancePrefix, "-option")) : [];
-				var focusedValue = clearFocusValueOnUpdate ? getNextFocusedValue(state, selectValue) : null;
-				var focusedOption = getNextFocusedOption(state, focusableOptions);
-				newMenuOptionsState = {
-					selectValue,
-					focusedOption,
-					focusedOptionId: getFocusedOptionId(focusableOptionsWithIds, focusedOption),
-					focusableOptionsWithIds,
-					focusedValue,
-					clearFocusValueOnUpdate: false
-				};
-			}
-			var newInputIsHiddenState = inputIsHiddenAfterUpdate != null && props !== prevProps ? {
-				inputIsHidden: inputIsHiddenAfterUpdate,
-				inputIsHiddenAfterUpdate: void 0
-			} : {};
-			var newAriaSelection = ariaSelection;
-			var hasKeptFocus = isFocused && prevWasFocused;
-			if (isFocused && !hasKeptFocus) {
-				newAriaSelection = {
-					value: valueTernary(isMulti, selectValue, selectValue[0] || null),
-					options: selectValue,
-					action: "initial-input-focus"
-				};
-				hasKeptFocus = !prevWasFocused;
-			}
-			if ((ariaSelection === null || ariaSelection === void 0 ? void 0 : ariaSelection.action) === "initial-input-focus") newAriaSelection = null;
-			return _objectSpread2(_objectSpread2(_objectSpread2({}, newMenuOptionsState), newInputIsHiddenState), {}, {
-				prevProps: props,
-				ariaSelection: newAriaSelection,
-				prevWasFocused: hasKeptFocus
-			});
-		}
-	}]);
-	return Select$1;
-}(import_react.Component);
-Select.defaultProps = defaultProps;
-require_react_dom();
-var StateManagedSelect$1 = /* @__PURE__ */ (0, import_react.forwardRef)(function(props, ref) {
-	var baseSelectProps = useStateManager(props);
-	return /* @__PURE__ */ import_react.createElement(Select, _extends({ ref }, baseSelectProps));
-});
-var import_classnames$10 = /* @__PURE__ */ __toESM(require_classnames(), 1);
-var DropdownSvg = ({ className }) => {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
-		className: (0, import_classnames$10.default)("DropdownSvg", className),
-		xmlns: "http://www.w3.org/2000/svg",
-		width: "14",
-		height: "7",
-		viewBox: "0 0 14 7",
-		fill: "none",
-		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-			d: "M13 1.00003L7.00003 6.00003L1.00003 1.00003",
-			stroke: "white",
-			strokeWidth: "2",
-			strokeLinecap: "round",
-			strokeLinejoin: "round"
-		})
-	});
-};
-var DropdownSvg_default = DropdownSvg;
-var import_classnames$9 = /* @__PURE__ */ __toESM(require_classnames(), 1);
-var Selector = ({ className, options: options$2, defaultValue, defaultOption, isDisabled, onChange, ...props }) => {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(StateManagedSelect$1, {
-		unstyled: true,
-		options: options$2,
-		defaultValue: defaultOption ?? findDefaultOption(defaultValue, options$2) ?? options$2[0],
-		onChange,
-		className: (0, import_classnames$9.default)("Selector", className),
-		classNamePrefix: "Selector",
-		isClearable: false,
-		isSearchable: false,
-		isDisabled: !options$2.length || isDisabled,
-		...props,
-		components: {
-			DropdownIndicator,
-			...props.components
-		}
-	});
-};
-var DropdownIndicator = (props) => {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(components.DropdownIndicator, {
-		...props,
-		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(DropdownSvg_default, {})
-	});
-};
-var findDefaultOption = (value, options$2) => {
-	return options$2.find((opt) => opt.value === value);
-};
-var Selector_default = Selector;
-var ConfirmSvg = () => {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
-		className: "ConfirmSvg",
-		xmlns: "http://www.w3.org/2000/svg",
-		width: "12",
-		height: "10",
-		viewBox: "0 0 12 10",
-		fill: "none",
-		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-			d: "M1 5.2667L4.33333 9.00003L11 1.00003",
-			stroke: "white",
-			strokeWidth: "2",
-			strokeLinecap: "round",
-			strokeLinejoin: "round"
-		})
-	});
-};
-var ConfirmSvg_default = ConfirmSvg;
-var import_classnames$8 = /* @__PURE__ */ __toESM(require_classnames(), 1);
-var SelectedAccount = () => {
-	const accounts = useAccounts_default();
-	const account = useAccount_default();
-	const accountId = useAccountId_default();
-	const { setId } = useAccountState_default();
-	const { openCreateModal } = useDashboardContext();
-	if (!accounts) return null;
-	const selectorOptions = accounts.map((acc) => {
-		const { id: id$2 } = acc;
-		return {
-			value: id$2,
-			label: `#${id$2}`,
-			account: acc
-		};
-	});
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: "SelectedAccount box _sm",
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "SelectedAccount__selector",
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "SelectedAccount__selector-title text",
-				children: "Choose Lending Account"
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "SelectedAccount__selector-content",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "SelectedAccount__selector-input",
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Selector_default, {
-						options: selectorOptions,
-						isDisabled: selectorOptions.length === 1,
-						defaultValue: accountId,
-						components: {
-							Option,
-							MenuList
-						},
-						onChange: (opt) => {
-							setId(opt.value);
-						}
-					})
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
-					className: "SelectedAccount__selector-button",
-					onClick: openCreateModal,
-					children: "Create new account"
-				})]
-			})]
-		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "SelectedAccount__net-worth",
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "SelectedAccount__net-worth-title text",
-				children: "Net Worth"
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "SelectedAccount__net-worth-value",
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmount_default, {
-					value: account?.equity,
-					showsUsd: true
-				})
-			})]
-		})]
-	});
-};
-var MenuList = ({ children, ...props }) => {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(components.MenuList, {
-		...props,
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "Selector__menu-list-head",
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: "Account" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: "Balance" })]
-		}), children]
-	});
-};
-var Option = ({ value: id$2, data, isSelected, ...props }) => {
-	const { balance } = data.account;
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(components.Option, {
-		className: (0, import_classnames$8.default)(isSelected && "Selector__option--is-selected"),
-		...props,
-		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "_account",
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "_account__info",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "_account__id",
-					children: ["#", id$2]
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "_account__balance",
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmount_default, {
-						value: balance,
-						symbol: "ETH",
-						showsUsd: true
-					})
-				})]
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
-				className: "_account__button",
-				children: isSelected ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ConfirmSvg_default, {}) : "Choose"
-			})]
-		})
-	});
-};
-var SelectedAccount_default = SelectedAccount;
-var supply_default = "data:image/svg+xml,%3csvg%20width='40'%20height='40'%20viewBox='0%200%2040%2040'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_651_4592)'%3e%3crect%20width='40'%20height='40'%20rx='12'%20fill='%23212367'/%3e%3cpath%20d='M21%2010C21%209.44772%2020.5523%209%2020%209C19.4477%209%2019%209.44772%2019%2010L20%2010L21%2010ZM19.2929%2023.7071C19.6834%2024.0976%2020.3166%2024.0976%2020.7071%2023.7071L27.0711%2017.3431C27.4616%2016.9526%2027.4616%2016.3195%2027.0711%2015.9289C26.6805%2015.5384%2026.0474%2015.5384%2025.6569%2015.9289L20%2021.5858L14.3431%2015.9289C13.9526%2015.5384%2013.3195%2015.5384%2012.9289%2015.9289C12.5384%2016.3195%2012.5384%2016.9526%2012.9289%2017.3431L19.2929%2023.7071ZM20%2010L19%2010L19%2023L20%2023L21%2023L21%2010L20%2010Z'%20fill='%235069DD'/%3e%3cpath%20d='M10%2030H30'%20stroke='%235069DD'%20stroke-width='2'%20stroke-linecap='round'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_651_4592'%3e%3crect%20width='40'%20height='40'%20fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e";
-var TokenName = ({ symbol }) => {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: "TokenName",
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenIcon_default, {
-			className: "TokenName__icon",
-			symbol
-		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-			className: "TokenName__title",
-			children: symbol
-		})]
-	});
-};
-var TokenName_default = TokenName;
-var import_classnames$7 = /* @__PURE__ */ __toESM(require_classnames(), 1);
-var LendingPanel = ({ title, icon, data, btnsData, className }) => {
-	const isMobile$1 = useIsMobile_default(1200);
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: (0, import_classnames$7.default)(className, "LendingPanel", "box", "_sm"),
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "LendingPanel__head",
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "LendingPanel__icon",
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
-					src: icon,
-					alt: `${title} icon`
-				})
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "LendingPanel__title",
-				children: title
-			})]
-		}), isMobile$1 ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Mobile, {
-			data,
-			btnsData
-		}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Desktop, {
-			data,
-			btnsData
-		})]
-	});
-};
-var Desktop = ({ data, btnsData }) => {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("table", {
-		className: "LendingPanel__table",
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("tr", { children: [Object.keys(data).map((key) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: key }, key)), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", {})] }) }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("tbody", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("tr", { children: [Object.keys(data).map((key) => {
-			const value = data[key];
-			return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: value }, key);
-		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-			className: "LendingPanel__buttons _table",
-			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Buttons, { btnsData })
-		}) })] }) })]
-	});
-};
-var Mobile = ({ data, btnsData }) => {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: "LendingPanel__info",
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-			className: "LendingPanel__info-rows",
-			children: Object.keys(data).map((key) => {
-				const value = data[key];
-				return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "LendingPanel__info-row",
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "LendingPanel__info-row-title",
-						children: key
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "LendingPanel__info-row-value",
-						children: value
-					})]
-				}, key);
-			})
-		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-			className: "LendingPanel__buttons _info",
-			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Buttons, { btnsData })
-		})]
-	});
-};
-var Buttons = ({ btnsData }) => {
-	const { primary, secondary } = btnsData;
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
-		size: "small",
-		onClick: primary.handleClick,
-		children: primary.name
-	}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
-		type: "secondary",
-		size: "small",
-		onClick: secondary.handleClick,
-		isDisabled: secondary.isDisabled,
-		children: secondary.name
-	})] });
-};
-var LendingPanel_default = LendingPanel;
-var Supply = () => {
-	const account = useAccount_default();
-	const { openSupplyModal, openWithdrawModal } = useDashboardContext();
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LendingPanel_default, {
-		className: "Supply",
-		title: "Supply",
-		icon: supply_default,
-		data: {
-			Asset: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenName_default, { symbol: "ETH" }),
-			Supplied: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmount_default, {
-				symbol: "ETH",
-				value: account?.balance,
-				showsUsd: true
-			}),
-			APY: "0%"
-		},
-		btnsData: {
-			primary: {
-				name: "Supply",
-				handleClick: openSupplyModal
-			},
-			secondary: {
-				name: "Withdraw",
-				handleClick: openWithdrawModal,
-				isDisabled: !account?.balance
-			}
-		}
-	});
-};
-var Supply_default = Supply;
-var borrow_default = "data:image/svg+xml,%3csvg%20width='40'%20height='40'%20viewBox='0%200%2040%2040'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_93_681)'%3e%3crect%20width='40'%20height='40'%20rx='12'%20fill='%23212367'/%3e%3ccircle%20opacity='0.5'%20cx='20'%20cy='20'%20r='10'%20fill='%235069DD'/%3e%3cpath%20d='M20%2010C14.4771%2010%2010%2014.4771%2010%2020C10%2025.5229%2014.4771%2030%2020%2030C25.5229%2030%2030%2025.5229%2030%2020C30%2014.4771%2025.5229%2010%2020%2010ZM20.8635%2025.4218V26.8302H19.5163V25.4376C17.3056%2025.1349%2016.3376%2023.3184%2016.3376%2023.3184L17.7136%2022.1673C17.7136%2022.1673%2018.5923%2023.6968%2020.1816%2023.6968C21.0596%2023.6968%2021.7256%2023.2269%2021.7256%2022.424C21.7256%2020.547%2016.6685%2020.7747%2016.6685%2017.2926C16.6685%2015.7789%2017.8657%2014.6883%2019.5156%2014.4303V13.0233H20.8628V14.4303C22.0132%2014.5817%2023.3755%2015.1871%2023.3755%2016.4896V17.4886H21.5894V17.0043C21.5894%2016.5047%2020.9529%2016.1717%2020.2408%2016.1717C19.3326%2016.1717%2018.6673%2016.6258%2018.6673%2017.2616C18.6673%2019.184%2023.7244%2018.7147%2023.7244%2022.3634C23.7244%2023.8634%2022.6042%2025.1638%2020.8635%2025.4218Z'%20fill='%235069DD'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_93_681'%3e%3crect%20width='40'%20height='40'%20fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e";
-var Borrow = () => {
-	const usdcPool = useUsdcPool_default();
-	const account = useAccount_default();
-	const { openBorrowModal, openRepayModal } = useDashboardContext();
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LendingPanel_default, {
-		className: "Borrow",
-		title: "Borrow",
-		icon: borrow_default,
-		data: {
-			Asset: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenName_default, { symbol: "USDC" }),
-			"Current Debt": /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmount_default, {
-				value: account?.debt,
-				symbol: "USDC",
-				showsUsd: true
-			}),
-			"Borrow APR": formatPercent(usdcPool?.rate, 0)
-		},
-		btnsData: {
-			primary: {
-				name: "Borrow",
-				handleClick: openBorrowModal
-			},
-			secondary: {
-				name: "Repay",
-				handleClick: openRepayModal,
-				isDisabled: !account?.debt
-			}
-		}
-	});
-};
-var Borrow_default = Borrow;
-var indicator_default = "data:image/svg+xml,%3csvg%20width='150'%20height='75'%20viewBox='0%200%20150%2075'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cmask%20id='path-1-inside-1_225_1583'%20fill='white'%3e%3cpath%20d='M145.5%2075C147.985%2075%20150.014%2072.9835%20149.865%2070.5026C149.366%2062.1914%20147.485%2054.0105%20144.291%2046.2987C140.522%2037.1993%20134.997%2028.9314%20128.033%2021.967C121.069%2015.0026%20112.801%209.47814%20103.701%205.70903C95.9895%202.51473%2087.8086%200.634229%2079.4973%200.134958C77.0165%20-0.0140692%2075%202.01472%2075%204.5C75%206.98528%2077.0171%208.98403%2079.4966%209.15335C86.6251%209.64014%2093.6375%2011.282%20100.257%2014.0239C108.265%2017.3408%20115.54%2022.2023%20121.669%2028.331C127.798%2034.4596%20132.659%2041.7354%20135.976%2049.7429C138.718%2056.3625%20140.36%2063.3749%20140.847%2070.5034C141.016%2072.9829%20143.015%2075%20145.5%2075Z'/%3e%3c/mask%3e%3cpath%20d='M145.5%2075C147.985%2075%20150.014%2072.9835%20149.865%2070.5026C149.366%2062.1914%20147.485%2054.0105%20144.291%2046.2987C140.522%2037.1993%20134.997%2028.9314%20128.033%2021.967C121.069%2015.0026%20112.801%209.47814%20103.701%205.70903C95.9895%202.51473%2087.8086%200.634229%2079.4973%200.134958C77.0165%20-0.0140692%2075%202.01472%2075%204.5C75%206.98528%2077.0171%208.98403%2079.4966%209.15335C86.6251%209.64014%2093.6375%2011.282%20100.257%2014.0239C108.265%2017.3408%20115.54%2022.2023%20121.669%2028.331C127.798%2034.4596%20132.659%2041.7354%20135.976%2049.7429C138.718%2056.3625%20140.36%2063.3749%20140.847%2070.5034C141.016%2072.9829%20143.015%2075%20145.5%2075Z'%20stroke='%2309AF8E'%20stroke-width='16'%20mask='url(%23path-1-inside-1_225_1583)'/%3e%3cmask%20id='path-2-inside-2_225_1583'%20fill='white'%3e%3cpath%20d='M72.9901%204.52865C72.9193%202.04438%2070.8452%200.0739105%2068.3697%200.293546C52.4188%201.70868%2037.3343%208.19565%2025.3353%2018.8001C23.473%2020.4459%2023.4766%2023.3067%2025.2311%2025.067C26.9856%2026.8272%2029.8253%2026.8188%2031.701%2025.1883C42.0577%2016.1851%2054.969%2010.6327%2068.6278%209.30822C71.1015%209.06836%2073.061%207.01292%2072.9901%204.52865Z'/%3e%3c/mask%3e%3cpath%20d='M72.9901%204.52865C72.9193%202.04438%2070.8452%200.0739105%2068.3697%200.293546C52.4188%201.70868%2037.3343%208.19565%2025.3353%2018.8001C23.473%2020.4459%2023.4766%2023.3067%2025.2311%2025.067C26.9856%2026.8272%2029.8253%2026.8188%2031.701%2025.1883C42.0577%2016.1851%2054.969%2010.6327%2068.6278%209.30822C71.1015%209.06836%2073.061%207.01292%2072.9901%204.52865Z'%20stroke='%23FE9673'%20stroke-width='16'%20mask='url(%23path-2-inside-2_225_1583)'/%3e%3cmask%20id='path-3-inside-3_225_1583'%20fill='white'%3e%3cpath%20d='M23.6758%2026.667C21.8666%2024.9632%2019.0068%2025.0407%2017.4144%2026.9488C7.15148%2039.2474%201.09438%2054.515%200.134763%2070.5044C-0.0141344%2072.9852%202.01472%2075.0022%204.5%2075.0021C6.98528%2075.002%208.98395%2072.9847%209.15313%2070.5052C10.0875%2056.81%2015.272%2043.7419%2023.9805%2033.1308C25.5572%2031.2097%2025.4851%2028.3709%2023.6758%2026.667Z'/%3e%3c/mask%3e%3cpath%20d='M23.6758%2026.667C21.8666%2024.9632%2019.0068%2025.0407%2017.4144%2026.9488C7.15148%2039.2474%201.09438%2054.515%200.134763%2070.5044C-0.0141344%2072.9852%202.01472%2075.0022%204.5%2075.0021C6.98528%2075.002%208.98395%2072.9847%209.15313%2070.5052C10.0875%2056.81%2015.272%2043.7419%2023.9805%2033.1308C25.5572%2031.2097%2025.4851%2028.3709%2023.6758%2026.667Z'%20stroke='%23D8563C'%20stroke-width='16'%20mask='url(%23path-3-inside-3_225_1583)'/%3e%3c/svg%3e";
-var indicator_empty_default = "data:image/svg+xml,%3csvg%20width='150'%20height='75'%20viewBox='0%200%20150%2075'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cmask%20id='path-1-inside-1_656_5058'%20fill='white'%3e%3cpath%20d='M145.5%2075C147.985%2075%20150.014%2072.9835%20149.865%2070.5026C149.366%2062.1914%20147.485%2054.0105%20144.291%2046.2987C140.522%2037.1993%20134.997%2028.9314%20128.033%2021.967C121.069%2015.0026%20112.801%209.47814%20103.701%205.70903C95.9895%202.51473%2087.8086%200.634229%2079.4973%200.134958C77.0165%20-0.0140692%2075%202.01472%2075%204.5C75%206.98528%2077.0171%208.98403%2079.4966%209.15335C86.6251%209.64014%2093.6375%2011.282%20100.257%2014.0239C108.265%2017.3408%20115.54%2022.2023%20121.669%2028.331C127.798%2034.4596%20132.659%2041.7354%20135.976%2049.7429C138.718%2056.3625%20140.36%2063.3749%20140.847%2070.5034C141.016%2072.9829%20143.015%2075%20145.5%2075Z'/%3e%3c/mask%3e%3cpath%20d='M145.5%2075C147.985%2075%20150.014%2072.9835%20149.865%2070.5026C149.366%2062.1914%20147.485%2054.0105%20144.291%2046.2987C140.522%2037.1993%20134.997%2028.9314%20128.033%2021.967C121.069%2015.0026%20112.801%209.47814%20103.701%205.70903C95.9895%202.51473%2087.8086%200.634229%2079.4973%200.134958C77.0165%20-0.0140692%2075%202.01472%2075%204.5C75%206.98528%2077.0171%208.98403%2079.4966%209.15335C86.6251%209.64014%2093.6375%2011.282%20100.257%2014.0239C108.265%2017.3408%20115.54%2022.2023%20121.669%2028.331C127.798%2034.4596%20132.659%2041.7354%20135.976%2049.7429C138.718%2056.3625%20140.36%2063.3749%20140.847%2070.5034C141.016%2072.9829%20143.015%2075%20145.5%2075Z'%20stroke='%239A94B8'%20stroke-width='16'%20mask='url(%23path-1-inside-1_656_5058)'/%3e%3cmask%20id='path-2-inside-2_656_5058'%20fill='white'%3e%3cpath%20d='M72.9901%204.52865C72.9193%202.04438%2070.8452%200.0739105%2068.3697%200.293546C52.4188%201.70868%2037.3343%208.19565%2025.3353%2018.8001C23.473%2020.4459%2023.4766%2023.3067%2025.2311%2025.067C26.9856%2026.8272%2029.8253%2026.8188%2031.701%2025.1883C42.0577%2016.1851%2054.969%2010.6327%2068.6278%209.30822C71.1015%209.06836%2073.061%207.01292%2072.9901%204.52865Z'/%3e%3c/mask%3e%3cpath%20d='M72.9901%204.52865C72.9193%202.04438%2070.8452%200.0739105%2068.3697%200.293546C52.4188%201.70868%2037.3343%208.19565%2025.3353%2018.8001C23.473%2020.4459%2023.4766%2023.3067%2025.2311%2025.067C26.9856%2026.8272%2029.8253%2026.8188%2031.701%2025.1883C42.0577%2016.1851%2054.969%2010.6327%2068.6278%209.30822C71.1015%209.06836%2073.061%207.01292%2072.9901%204.52865Z'%20stroke='%239A94B8'%20stroke-width='16'%20mask='url(%23path-2-inside-2_656_5058)'/%3e%3cmask%20id='path-3-inside-3_656_5058'%20fill='white'%3e%3cpath%20d='M23.6758%2026.667C21.8666%2024.9632%2019.0068%2025.0407%2017.4144%2026.9488C7.15148%2039.2474%201.09438%2054.515%200.134763%2070.5044C-0.0141344%2072.9852%202.01472%2075.0022%204.5%2075.0021C6.98528%2075.002%208.98395%2072.9847%209.15313%2070.5052C10.0875%2056.81%2015.272%2043.7419%2023.9805%2033.1308C25.5572%2031.2097%2025.4851%2028.3709%2023.6758%2026.667Z'/%3e%3c/mask%3e%3cpath%20d='M23.6758%2026.667C21.8666%2024.9632%2019.0068%2025.0407%2017.4144%2026.9488C7.15148%2039.2474%201.09438%2054.515%200.134763%2070.5044C-0.0141344%2072.9852%202.01472%2075.0022%204.5%2075.0021C6.98528%2075.002%208.98395%2072.9847%209.15313%2070.5052C10.0875%2056.81%2015.272%2043.7419%2023.9805%2033.1308C25.5572%2031.2097%2025.4851%2028.3709%2023.6758%2026.667Z'%20stroke='%239A94B8'%20stroke-width='16'%20mask='url(%23path-3-inside-3_656_5058)'/%3e%3c/svg%3e";
-var TickSvg = ({ ltvZone }) => {
-	const { RED: RED$1, YELLOW, GREEN: GREEN$1 } = Ltv_default.Zones;
-	const colors$2 = {
-		[RED$1]: {
-			main: Colors.RED,
-			bg: Colors.RED_2
-		},
-		[YELLOW]: {
-			main: Colors.YELLOW,
-			bg: Colors.YELLOW_2
-		},
-		[GREEN$1]: {
-			main: Colors.GREEN,
-			bg: Colors.GREEN_2
-		}
-	};
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
-		xmlns: "http://www.w3.org/2000/svg",
-		width: "16",
-		height: "16",
-		viewBox: "0 0 16 16",
-		fill: "none",
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
-			cx: "8",
-			cy: "8",
-			r: "7",
-			fill: colors$2[ltvZone].bg
-		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
-			d: "M5 8.13333L7 10L11 6",
-			stroke: colors$2[ltvZone].main,
-			strokeWidth: "1.5",
-			strokeLinecap: "round",
-			strokeLinejoin: "round"
-		})]
-	});
-};
-var TickSvg_default = TickSvg;
-var import_classnames$6 = /* @__PURE__ */ __toESM(require_classnames(), 1);
-var LtvLevel = () => {
-	const account = useAccount_default();
-	const { isLoading, hasError } = getIsLoadingAndError(account);
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: "LtvLevel ProtectionPanel__metric",
-		children: [
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "ProtectionPanel__metric-title",
-				children: "Current LtV"
-			}),
-			isLoading && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SpinnerBig_default, {}),
-			hasError && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, { children: ErrorMsg.DEFAULT }),
-			!isLoading && !hasError && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Indicator, { account })
-		]
-	});
-};
-var Indicator = ({ account }) => {
-	const { debt, ltv, ltvCoeffs } = account;
-	const ltvZone = Ltv_default.getZone(account, ltv);
-	const { RED: RED$1, YELLOW, GREEN: GREEN$1 } = Ltv_default.Zones;
-	const getPointerPosition = () => {
-		if (!debt) return {
-			left: "-6px",
-			bottom: 0
-		};
-		switch (ltvZone) {
-			case RED$1: return {
-				left: 0,
-				top: "34px"
-			};
-			case YELLOW: return {
-				left: "36px",
-				top: 0
-			};
-			case GREEN$1:
-				if (ltv > ltvCoeffs.yellow + bigIntFromString(.9)) return {
-					right: "-6px",
-					bottom: 0
-				};
-				if (ltv <= ltvCoeffs.yellow + bigIntFromString(.05)) return {
-					top: "-3px",
-					right: "47px"
-				};
-				return {
-					top: "18px",
-					right: "12px"
-				};
-		}
-	};
-	const getIndicatorText = () => {
-		if (!debt) return "No active borrowing";
-		switch (ltvZone) {
-			case RED$1: return "High Risk";
-			case YELLOW: return "Medium Risk";
-			case GREEN$1: return "Low Risk";
-		}
-	};
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: (0, import_classnames$6.default)("LtvLevel__indicator", `_${ltvZone}`, !debt && "_empty"),
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "LtvLevel__indicator-scale",
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
-				src: debt ? indicator_default : indicator_empty_default,
-				alt: "Ltv indicator scale"
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "LtvLevel__indicator-pointer",
-				style: getPointerPosition()
-			})]
-		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "LtvLevel__indicator-value",
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(LtvValue_default, { maxLtvLabel: debt ? "∞" : "0" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "LtvLevel__indicator-value-text",
-				children: [debt ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TickSvg_default, { ltvZone }) : "", getIndicatorText()]
-			})]
-		})]
-	});
-};
-var LtvLevel_default = LtvLevel;
-var shields_green_default = "data:image/svg+xml,%3csvg%20width='52'%20height='20'%20viewBox='0%200%2052%2020'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3crect%20width='52'%20height='20'%20rx='10'%20fill='%23112540'/%3e%3cpath%20d='M10%2015C9.94167%2015%209.8875%2014.9958%209.8375%2014.9873C9.7875%2014.9789%209.7375%2014.9662%209.6875%2014.9494C8.5625%2014.5696%207.66667%2013.8672%207%2012.842C6.33333%2011.8169%206%2010.7134%206%209.53165V7.13924C6%206.92827%206.0605%206.7384%206.1815%206.56962C6.3025%206.40084%206.45867%206.27848%206.65%206.20253L9.65%205.06329C9.76667%205.0211%209.88333%205%2010%205C10.1167%205%2010.2333%205.0211%2010.35%205.06329L13.35%206.20253C13.5417%206.27848%2013.698%206.40084%2013.819%206.56962C13.94%206.7384%2014.0003%206.92827%2014%207.13924V9.53165C14%2010.7131%2013.6667%2011.8165%2013%2012.842C12.3333%2013.8675%2011.4375%2014.57%2010.3125%2014.9494C10.2625%2014.9662%2010.2125%2014.9789%2010.1625%2014.9873C10.1125%2014.9958%2010.0583%2015%2010%2015Z'%20fill='%2309AF8E'/%3e%3cpath%20d='M26%2015C25.9417%2015%2025.8875%2014.9958%2025.8375%2014.9873C25.7875%2014.9789%2025.7375%2014.9662%2025.6875%2014.9494C24.5625%2014.5696%2023.6667%2013.8672%2023%2012.842C22.3333%2011.8169%2022%2010.7134%2022%209.53165V7.13924C22%206.92827%2022.0605%206.7384%2022.1815%206.56962C22.3025%206.40084%2022.4587%206.27848%2022.65%206.20253L25.65%205.06329C25.7667%205.0211%2025.8833%205%2026%205C26.1167%205%2026.2333%205.0211%2026.35%205.06329L29.35%206.20253C29.5417%206.27848%2029.698%206.40084%2029.819%206.56962C29.94%206.7384%2030.0003%206.92827%2030%207.13924V9.53165C30%2010.7131%2029.6667%2011.8165%2029%2012.842C28.3333%2013.8675%2027.4375%2014.57%2026.3125%2014.9494C26.2625%2014.9662%2026.2125%2014.9789%2026.1625%2014.9873C26.1125%2014.9958%2026.0583%2015%2026%2015Z'%20fill='%2309AF8E'/%3e%3cpath%20d='M42%2015C41.9417%2015%2041.8875%2014.9958%2041.8375%2014.9873C41.7875%2014.9789%2041.7375%2014.9662%2041.6875%2014.9494C40.5625%2014.5696%2039.6667%2013.8672%2039%2012.842C38.3333%2011.8169%2038%2010.7134%2038%209.53165V7.13924C38%206.92827%2038.0605%206.7384%2038.1815%206.56962C38.3025%206.40084%2038.4587%206.27848%2038.65%206.20253L41.65%205.06329C41.7667%205.0211%2041.8833%205%2042%205C42.1167%205%2042.2333%205.0211%2042.35%205.06329L45.35%206.20253C45.5417%206.27848%2045.698%206.40084%2045.819%206.56962C45.94%206.7384%2046.0003%206.92827%2046%207.13924V9.53165C46%2010.7131%2045.6667%2011.8165%2045%2012.842C44.3333%2013.8675%2043.4375%2014.57%2042.3125%2014.9494C42.2625%2014.9662%2042.2125%2014.9789%2042.1625%2014.9873C42.1125%2014.9958%2042.0583%2015%2042%2015Z'%20fill='%2309AF8E'/%3e%3c/svg%3e";
-var shields_yellow_default = "data:image/svg+xml,%3csvg%20width='52'%20height='20'%20viewBox='0%200%2052%2020'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3crect%20width='52'%20height='20'%20rx='10'%20fill='%232A163C'/%3e%3cpath%20d='M10%2015C9.94167%2015%209.8875%2014.9958%209.8375%2014.9873C9.7875%2014.9789%209.7375%2014.9662%209.6875%2014.9494C8.5625%2014.5696%207.66667%2013.8672%207%2012.842C6.33333%2011.8169%206%2010.7134%206%209.53165V7.13924C6%206.92827%206.0605%206.7384%206.1815%206.56962C6.3025%206.40084%206.45867%206.27848%206.65%206.20253L9.65%205.06329C9.76667%205.0211%209.88333%205%2010%205C10.1167%205%2010.2333%205.0211%2010.35%205.06329L13.35%206.20253C13.5417%206.27848%2013.698%206.40084%2013.819%206.56962C13.94%206.7384%2014.0003%206.92827%2014%207.13924V9.53165C14%2010.7131%2013.6667%2011.8165%2013%2012.842C12.3333%2013.8675%2011.4375%2014.57%2010.3125%2014.9494C10.2625%2014.9662%2010.2125%2014.9789%2010.1625%2014.9873C10.1125%2014.9958%2010.0583%2015%2010%2015Z'%20fill='%23FE9673'/%3e%3cpath%20d='M26%2015C25.9417%2015%2025.8875%2014.9958%2025.8375%2014.9873C25.7875%2014.9789%2025.7375%2014.9662%2025.6875%2014.9494C24.5625%2014.5696%2023.6667%2013.8672%2023%2012.842C22.3333%2011.8169%2022%2010.7134%2022%209.53165V7.13924C22%206.92827%2022.0605%206.7384%2022.1815%206.56962C22.3025%206.40084%2022.4587%206.27848%2022.65%206.20253L25.65%205.06329C25.7667%205.0211%2025.8833%205%2026%205C26.1167%205%2026.2333%205.0211%2026.35%205.06329L29.35%206.20253C29.5417%206.27848%2029.698%206.40084%2029.819%206.56962C29.94%206.7384%2030.0003%206.92827%2030%207.13924V9.53165C30%2010.7131%2029.6667%2011.8165%2029%2012.842C28.3333%2013.8675%2027.4375%2014.57%2026.3125%2014.9494C26.2625%2014.9662%2026.2125%2014.9789%2026.1625%2014.9873C26.1125%2014.9958%2026.0583%2015%2026%2015Z'%20fill='%23FE9673'/%3e%3cg%20opacity='0.4'%3e%3cpath%20d='M42%2015C41.9417%2015%2041.8875%2014.9958%2041.8375%2014.9873C41.7875%2014.9789%2041.7375%2014.9662%2041.6875%2014.9494C40.5625%2014.5696%2039.6667%2013.8672%2039%2012.842C38.3333%2011.8169%2038%2010.7134%2038%209.53165V7.13924C38%206.92827%2038.0605%206.7384%2038.1815%206.56962C38.3025%206.40084%2038.4587%206.27848%2038.65%206.20253L41.65%205.06329C41.7667%205.0211%2041.8833%205%2042%205C42.1167%205%2042.2333%205.0211%2042.35%205.06329L45.35%206.20253C45.5417%206.27848%2045.698%206.40084%2045.819%206.56962C45.94%206.7384%2046.0003%206.92827%2046%207.13924V9.53165C46%2010.7131%2045.6667%2011.8165%2045%2012.842C44.3333%2013.8675%2043.4375%2014.57%2042.3125%2014.9494C42.2625%2014.9662%2042.2125%2014.9789%2042.1625%2014.9873C42.1125%2014.9958%2042.0583%2015%2042%2015Z'%20fill='%23FE9673'/%3e%3c/g%3e%3c/svg%3e";
-var shields_red_default = "data:image/svg+xml,%3csvg%20width='52'%20height='20'%20viewBox='0%200%2052%2020'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3crect%20width='52'%20height='20'%20rx='10'%20fill='%23361536'/%3e%3cpath%20d='M10%2015C9.94167%2015%209.8875%2014.9958%209.8375%2014.9873C9.7875%2014.9789%209.7375%2014.9662%209.6875%2014.9494C8.5625%2014.5696%207.66667%2013.8672%207%2012.842C6.33333%2011.8169%206%2010.7134%206%209.53165V7.13924C6%206.92827%206.0605%206.7384%206.1815%206.56962C6.3025%206.40084%206.45867%206.27848%206.65%206.20253L9.65%205.06329C9.76667%205.0211%209.88333%205%2010%205C10.1167%205%2010.2333%205.0211%2010.35%205.06329L13.35%206.20253C13.5417%206.27848%2013.698%206.40084%2013.819%206.56962C13.94%206.7384%2014.0003%206.92827%2014%207.13924V9.53165C14%2010.7131%2013.6667%2011.8165%2013%2012.842C12.3333%2013.8675%2011.4375%2014.57%2010.3125%2014.9494C10.2625%2014.9662%2010.2125%2014.9789%2010.1625%2014.9873C10.1125%2014.9958%2010.0583%2015%2010%2015Z'%20fill='%23D8563C'/%3e%3cg%20opacity='0.4'%3e%3cpath%20d='M26%2015C25.9417%2015%2025.8875%2014.9958%2025.8375%2014.9873C25.7875%2014.9789%2025.7375%2014.9662%2025.6875%2014.9494C24.5625%2014.5696%2023.6667%2013.8672%2023%2012.842C22.3333%2011.8169%2022%2010.7134%2022%209.53165V7.13924C22%206.92827%2022.0605%206.7384%2022.1815%206.56962C22.3025%206.40084%2022.4587%206.27848%2022.65%206.20253L25.65%205.06329C25.7667%205.0211%2025.8833%205%2026%205C26.1167%205%2026.2333%205.0211%2026.35%205.06329L29.35%206.20253C29.5417%206.27848%2029.698%206.40084%2029.819%206.56962C29.94%206.7384%2030.0003%206.92827%2030%207.13924V9.53165C30%2010.7131%2029.6667%2011.8165%2029%2012.842C28.3333%2013.8675%2027.4375%2014.57%2026.3125%2014.9494C26.2625%2014.9662%2026.2125%2014.9789%2026.1625%2014.9873C26.1125%2014.9958%2026.0583%2015%2026%2015Z'%20fill='%23D8563C'/%3e%3c/g%3e%3cg%20opacity='0.4'%3e%3cpath%20d='M42%2015C41.9417%2015%2041.8875%2014.9958%2041.8375%2014.9873C41.7875%2014.9789%2041.7375%2014.9662%2041.6875%2014.9494C40.5625%2014.5696%2039.6667%2013.8672%2039%2012.842C38.3333%2011.8169%2038%2010.7134%2038%209.53165V7.13924C38%206.92827%2038.0605%206.7384%2038.1815%206.56962C38.3025%206.40084%2038.4587%206.27848%2038.65%206.20253L41.65%205.06329C41.7667%205.0211%2041.8833%205%2042%205C42.1167%205%2042.2333%205.0211%2042.35%205.06329L45.35%206.20253C45.5417%206.27848%2045.698%206.40084%2045.819%206.56962C45.94%206.7384%2046.0003%206.92827%2046%207.13924V9.53165C46%2010.7131%2045.6667%2011.8165%2045%2012.842C44.3333%2013.8675%2043.4375%2014.57%2042.3125%2014.9494C42.2625%2014.9662%2042.2125%2014.9789%2042.1625%2014.9873C42.1125%2014.9958%2042.0583%2015%2042%2015Z'%20fill='%23D8563C'/%3e%3c/g%3e%3c/svg%3e";
-var import_classnames$5 = /* @__PURE__ */ __toESM(require_classnames(), 1);
-var ProtectionLevel = () => {
-	const account = useAccount_default();
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: "ProtectionLevel ProtectionPanel__metric",
-		children: account?.debt ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Content$2, { account }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(NothingToProtect, {})
-	});
-};
-var Content$2 = ({ account }) => {
-	const options$2 = useHegicOptions_default();
-	const curLiqPrice = useCurLiqPrice();
-	const { openProtectionModal } = useDashboardContext();
-	const { isLoading, hasError } = getIsLoadingAndErrorForMultiple(options$2, curLiqPrice);
-	if (isLoading) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SpinnerBig_default, {});
-	if (hasError) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, { children: ErrorMsg.DEFAULT });
-	const protectionLevel = Calculator_default.calcProtectionLevel(options$2, account.balance, curLiqPrice);
-	const protectionLevelStr = formatPercent(protectionLevel, 0);
-	const levelZone = getLevelZone(protectionLevel);
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-			className: "ProtectionLevel__title ProtectionPanel__metric-title",
-			children: "Protection level"
-		}),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "ProtectionLevel__body",
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: (0, import_classnames$5.default)("ProtectionLevel__percent", `_${levelZone.name}`),
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "ProtectionLevel__percent-bar",
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-						className: "_progress",
-						style: { width: protectionLevelStr },
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: protectionLevelStr })
-					})
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "ProtectionLevel__percent-shields",
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
-						src: levelZone.icon,
-						alt: "Shields icon"
-					})
-				})]
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "ProtectionLevel__text",
-				children: levelZone.text
-			})]
-		}),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "ProtectionLevel__footer",
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "ProtectionLevel__liq",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "ProtectionLevel__liq-title",
-					children: "Liquidation Price"
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "ProtectionLevel__liq-value",
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceChange_default, {})
-				})]
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "ProtectionLevel__button",
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
-					type: "green",
-					size: "small",
-					onClick: openProtectionModal,
-					children: "Buy protection"
-				})
-			})]
-		})
-	] });
-};
-var NothingToProtect = () => {
-	const account = useAccount_default();
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: "\n					ProtectionLevel__title\n					Protection__panel-title\n					hlight\n			",
-		children: "Nothing to protect yet"
-	}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(List_default, { children: {
-		noSupply: ["To activate NoRekt protection, supply ETH and borrow USDC", "After that you'll be able to add NoRekt protection to avoid liquidation risk"],
-		noBorrow: ["You’ve supplied assets, but you haven’t borrowed USDC yet", "Borrow USDC and add protection to save your position from liquidation"]
-	}[!account?.balance ? "noSupply" : "noBorrow"].map((msg, i$13) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("li", { children: msg }, i$13)) })] });
-};
-var ZONES = [
-	{
-		name: "green",
-		breakpoint: 100,
-		text: "Strong NoRekt Coverage",
-		icon: shields_green_default
-	},
-	{
-		name: "yellow",
-		breakpoint: .7,
-		text: "Partial NoRekt Coverage",
-		icon: shields_yellow_default
-	},
-	{
-		name: "red",
-		breakpoint: .3,
-		text: "Limited NoRekt Coverage",
-		icon: shields_red_default
-	}
-];
-var getLevelZone = (protectionLevel) => {
-	const zone = ZONES.reduce((prev$1, cur) => {
-		if (bigIntFromString(cur.breakpoint) > protectionLevel) return cur;
-		else return prev$1;
-	});
-	if (protectionLevel === 0n) zone.text = "Zero NoRekt Coverage";
-	return zone;
-};
-var ProtectionLevel_default = ProtectionLevel;
-var ProtectionPanel = () => {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: "ProtectionPanel box _sm",
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(LtvLevel_default, {}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProtectionLevel_default, {})]
-	});
-};
-var ProtectionPanel_default = ProtectionPanel;
-var protection_default = "data:image/svg+xml,%3csvg%20width='40'%20height='40'%20viewBox='0%200%2040%2040'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_1622_5163)'%3e%3crect%20width='40'%20height='40'%20rx='12'%20fill='%23112540'/%3e%3cpath%20d='M20%2030C19.8833%2030%2019.775%2029.9916%2019.675%2029.9747C19.575%2029.9578%2019.475%2029.9325%2019.375%2029.8987C17.125%2029.1392%2015.3333%2027.7343%2014%2025.6841C12.6667%2023.6338%2012%2021.4268%2012%2019.0633V14.2785C12%2013.8565%2012.121%2013.4768%2012.363%2013.1392C12.605%2012.8017%2012.9173%2012.557%2013.3%2012.4051L19.3%2010.1266C19.5333%2010.0422%2019.7667%2010%2020%2010C20.2333%2010%2020.4667%2010.0422%2020.7%2010.1266L26.7%2012.4051C27.0833%2012.557%2027.396%2012.8017%2027.638%2013.1392C27.88%2013.4768%2028.0007%2013.8565%2028%2014.2785V19.0633C28%2021.4262%2027.3333%2023.6331%2026%2025.6841C24.6667%2027.735%2022.875%2029.1399%2020.625%2029.8987C20.525%2029.9325%2020.425%2029.9578%2020.325%2029.9747C20.225%2029.9916%2020.1167%2030%2020%2030Z'%20fill='%2309AF8E'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_1622_5163'%3e%3crect%20width='40'%20height='40'%20fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e";
-var import_classnames$4 = /* @__PURE__ */ __toESM(require_classnames(), 1);
-var TABLE_COLS = [
-	"Type",
-	"Amount",
-	"Period",
-	"Protection Cost",
-	"Protection Payoff",
-	""
-];
-var Protections = () => {
-	const account = useAccount_default();
-	const options$2 = useHegicOptions_default();
-	const { isLoading, hasError } = getIsLoadingAndError(options$2);
-	if (!account?.debt && !options$2?.length) return null;
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: (0, import_classnames$4.default)("Protections", "box _sm", !options$2?.length && "_no-protections"),
-		children: [
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "Protections__title",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
-					src: protection_default,
-					alt: "Green shield icon"
-				}), "Active Protections"]
-			}),
-			isLoading && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Spinner_default, {}),
-			hasError && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, { children: ErrorMsg.EXPANDED }),
-			!isLoading && !hasError && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Content$1, { positions: options$2 })
-		]
-	});
-};
-var Content$1 = ({ positions }) => {
-	const isMobile$1 = useIsMobile_default(1200);
-	if (!positions.length) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(NoProtections, {});
-	return isMobile$1 ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(_Mobile$1, { positions }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(_Desktop$1, { positions });
-};
-var NoProtections = () => {
-	const { openProtectionModal } = useDashboardContext();
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: "Protections__no-protections",
-		children: [
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { children: "Looks like you don’t have any active protections" }),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "text",
-				children: "Let’s set one up to keep you covered"
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
-				onClick: openProtectionModal,
-				children: "Buy Protection"
-			})
-		]
-	});
-};
-var _Desktop$1 = ({ positions }) => {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("table", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("tr", { children: TABLE_COLS.map((col) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: col }, col)) }) }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("tbody", { children: positions.map((pos) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("tr", { children: [
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Type, { position: pos }) }),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Amount, { position: pos }) }),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Period, { option: pos }) }),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProtectionCost, { position: pos }) }),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProtectionPayoff, { position: pos }) }),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ClaimButton, { position: pos }) })
-	] }, pos.id)) })] });
-};
-var _Mobile$1 = ({ positions }) => {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: "Protections__items",
-		children: positions.map((pos) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "Protections__item",
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Metrics_default, {
-				isBoxed: false,
-				children: [
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "Metrics__row",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "Metrics__row-title",
-							children: "Type"
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "Metrics__row-value",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Type, { position: pos })
-						})]
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "Metrics__row",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "Metrics__row-title",
-							children: "Amount"
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "Metrics__row-value",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Amount, { position: pos })
-						})]
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "Metrics__row",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "Metrics__row-title",
-							children: "Period"
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "Metrics__row-value",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Period, { option: pos })
-						})]
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "Metrics__row",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "Metrics__row-title",
-							children: "Protection Cost"
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "Metrics__row-value",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProtectionCost, { position: pos })
-						})]
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "Metrics__row",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "Metrics__row-title",
-							children: "Protection Payoff"
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "Metrics__row-value",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProtectionPayoff, { position: pos })
-						})]
-					})
-				]
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ClaimButton, { position: pos })]
-		}, pos.id))
-	});
-};
-var Type = ({ position: position$1 }) => {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Option" });
-};
-var Amount = ({ position: position$1 }) => {
-	const { amount, asset } = position$1;
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmount_default, {
-		value: amount,
-		symbol: asset
-	});
-};
-var Period = ({ option }) => {
-	const { exp, periodDays } = option;
-	const pad$4 = (n$13) => String(n$13).padStart(2, "0");
-	const [daysLeft, hoursLeft, minutesLeft] = [
-		differenceInDays(exp, Date.now()),
-		differenceInHours(exp, Date.now()) % 24,
-		differenceInMinutes(exp, Date.now()) % 60
-	].map(pad$4);
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: "Protections__period",
-		children: [
-			periodDays,
-			" Days",
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "Protections__period-timer",
-				children: ["Ends in", /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "Protections__period-timer-value",
-					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: [daysLeft, "d"] }),
-						":",
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: [hoursLeft, "h"] }),
-						":",
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: [minutesLeft, "m"] })
-					]
-				})]
-			})
-		]
-	});
-};
-var ProtectionCost = ({ position: position$1 }) => {
-	const { premium } = position$1;
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmount_default, { value: premium });
-};
-var ProtectionPayoff = ({ position: position$1 }) => {
-	const { profit } = position$1;
-	const profitStr = formatDollarStr(profit, Decimals.STABLE);
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-		className: (0, import_classnames$4.default)(profit > 0n && "positive"),
-		children: profitStr
-	});
-};
-var ClaimButton = ({ position: position$1 }) => {
-	const { openClaimModal } = useDashboardContext();
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
-		type: "green",
-		size: "small",
-		onClick: () => openClaimModal(position$1),
-		isDisabled: !position$1.profit,
-		children: "Claim"
-	});
-};
-var Protections_default = Protections;
 var OhlcvConstants_default = {
 	QUOTE_TOKEN: "USDC",
 	SOURCES: ["Oku", "Binance"],
@@ -118418,11 +112271,11 @@ var OhlcvUtils = {
 		},
 		grid: {
 			vertLines: {
-				color: Colors.LGRAY,
+				color: Colors.VIOLET_DIM,
 				style: 4
 			},
 			horzLines: {
-				color: Colors.LGRAY,
+				color: Colors.VIOLET_DIM,
 				style: 4
 			}
 		},
@@ -118442,7 +112295,7 @@ var OhlcvUtils = {
 				return format(timestamp_S * MS_IN_SECOND, "dd MMM yyyy, h:mm a");
 			},
 			priceFormatter: (price) => {
-				return "$" + roundNumber(price, 2);
+				return "$" + roundNumber(price);
 			}
 		},
 		timeScale: {
@@ -118493,15 +112346,17 @@ var useOhlcv = (dataFrequency = MIN_FREQUENCY, period = PERIOD) => {
 				ohlcv$1 = await OhlcvUtils_default.queryOhlcv(contracts$1, sourceStr, dataFrequency, period);
 				if (ohlcv$1) break;
 			} catch (e$14) {
+				ohlcv$1 = HARDCODED_DATA;
 				console.log(`Ohlcv from ${sourceStr} error: ${e$14}`);
 			}
 		}
-		if (ohlcv$1) {
-			ohlcv$1.candles.forEach((candle) => {
-				candle.time = secondsFromMs(candle.time);
-			});
-			return ohlcv$1.candles;
-		} else throw new Error(`No data.`);
+		if (ohlcv$1) return ohlcv$1.candles.map((candle) => {
+			return {
+				...candle,
+				time: secondsFromMs(candle.time)
+			};
+		});
+		else throw new Error(`No data.`);
 	}, getSwrConfig(60 * SECOND));
 	if (ohlcvError) {
 		console.log("useOhlcv error!\n", ohlcvError);
@@ -118509,8 +112364,3299 @@ var useOhlcv = (dataFrequency = MIN_FREQUENCY, period = PERIOD) => {
 	}
 	return ohlcv;
 };
+var HARDCODED_DATA = {
+	"base_currency": "ETH",
+	"quote_currency": "USDC",
+	"candles": [
+		{
+			"time": 1754351999999,
+			"open": 3497.68,
+			"high": 3737.77,
+			"low": 3491.62,
+			"close": 3721.34,
+			"volume_base": 267319.2562,
+			"volume_quote": 968821923.178306
+		},
+		{
+			"time": 1754438399999,
+			"open": 3721.2,
+			"high": 3722,
+			"low": 3545.48,
+			"close": 3612.47,
+			"volume_base": 328876.4574,
+			"volume_quote": 1190549843.16235
+		},
+		{
+			"time": 1754524799999,
+			"open": 3612.48,
+			"high": 3699.59,
+			"low": 3564.2,
+			"close": 3684.2,
+			"volume_base": 252859.0314,
+			"volume_quote": 916689089.428946
+		},
+		{
+			"time": 1754611199999,
+			"open": 3684.2,
+			"high": 3929.5,
+			"low": 3648.71,
+			"close": 3911.8,
+			"volume_base": 289964.3851,
+			"volume_quote": 1102462273.5255
+		},
+		{
+			"time": 1754697599999,
+			"open": 3911.72,
+			"high": 4071.78,
+			"low": 3881.02,
+			"close": 4011,
+			"volume_base": 223148.6794,
+			"volume_quote": 887269178.489158
+		},
+		{
+			"time": 1754783999999,
+			"open": 4011,
+			"high": 4327.3,
+			"low": 4007.59,
+			"close": 4262.25,
+			"volume_base": 223549.3292,
+			"volume_quote": 937958049.683424
+		},
+		{
+			"time": 1754870399999,
+			"open": 4262.26,
+			"high": 4334,
+			"low": 3955.45,
+			"close": 4251.83,
+			"volume_base": 155394.5058,
+			"volume_quote": 656189717.04752
+		},
+		{
+			"time": 1754956799999,
+			"open": 4251.84,
+			"high": 4368.64,
+			"low": 4166.25,
+			"close": 4224.16,
+			"volume_base": 222685.3151,
+			"volume_quote": 951902594.616843
+		},
+		{
+			"time": 1755043199999,
+			"open": 4224.16,
+			"high": 4640,
+			"low": 4219.65,
+			"close": 4590.01,
+			"volume_base": 276785.4331,
+			"volume_quote": 1226791902.52618
+		},
+		{
+			"time": 1755129599999,
+			"open": 4590.01,
+			"high": 4786.53,
+			"low": 4564.14,
+			"close": 4751.6,
+			"volume_base": 306351.0702,
+			"volume_quote": 1434631475.17467
+		},
+		{
+			"time": 1755215999999,
+			"open": 4751.87,
+			"high": 4791.31,
+			"low": 4451.4,
+			"close": 4550.2,
+			"volume_base": 356938.6344,
+			"volume_quote": 1650043393.6564
+		},
+		{
+			"time": 1755302399999,
+			"open": 4550.2,
+			"high": 4675,
+			"low": 4363.57,
+			"close": 4442.76,
+			"volume_base": 242803.4836,
+			"volume_quote": 1097172959.36931
+		},
+		{
+			"time": 1755388799999,
+			"open": 4442.75,
+			"high": 4494.76,
+			"low": 4375.99,
+			"close": 4425.2,
+			"volume_base": 107235.4904,
+			"volume_quote": 474781575.710506
+		},
+		{
+			"time": 1755475199999,
+			"open": 4425.29,
+			"high": 4578.99,
+			"low": 4397.59,
+			"close": 4475.5,
+			"volume_base": 126998.513,
+			"volume_quote": 571644091.589419
+		},
+		{
+			"time": 1755561599999,
+			"open": 4475.45,
+			"high": 4485.35,
+			"low": 4227.71,
+			"close": 4316.29,
+			"volume_base": 262356.0203,
+			"volume_quote": 1135408654.10252
+		},
+		{
+			"time": 1755647999999,
+			"open": 4315.81,
+			"high": 4358.15,
+			"low": 4067.31,
+			"close": 4075.2,
+			"volume_base": 264544.0549,
+			"volume_quote": 1115259091.66264
+		},
+		{
+			"time": 1755734399999,
+			"open": 4075.12,
+			"high": 4378.89,
+			"low": 4063.27,
+			"close": 4336.7,
+			"volume_base": 281957.2015,
+			"volume_quote": 1191428275.26424
+		},
+		{
+			"time": 1755820799999,
+			"open": 4336.79,
+			"high": 4340.79,
+			"low": 4203.85,
+			"close": 4224.89,
+			"volume_base": 130253.6973,
+			"volume_quote": 556401175.167817
+		},
+		{
+			"time": 1755907199999,
+			"open": 4224.89,
+			"high": 4887.66,
+			"low": 4207.34,
+			"close": 4830.54,
+			"volume_base": 391938.832,
+			"volume_quote": 1798962841.67646
+		},
+		{
+			"time": 1755993599999,
+			"open": 4830.54,
+			"high": 4830.54,
+			"low": 4660.01,
+			"close": 4776.9,
+			"volume_base": 129770.0012,
+			"volume_quote": 614907765.593903
+		},
+		{
+			"time": 1756079999999,
+			"open": 4777,
+			"high": 4957.17,
+			"low": 4708.63,
+			"close": 4780.09,
+			"volume_base": 237123.6903,
+			"volume_quote": 1141205809.19386
+		},
+		{
+			"time": 1756166399999,
+			"open": 4780.19,
+			"high": 4797.73,
+			"low": 4334.9,
+			"close": 4377.58,
+			"volume_base": 287921.7783,
+			"volume_quote": 1314944642.03333
+		},
+		{
+			"time": 1756252799999,
+			"open": 4377.59,
+			"high": 4635.09,
+			"low": 4312.52,
+			"close": 4601.95,
+			"volume_base": 261482.7693,
+			"volume_quote": 1172365808.52316
+		},
+		{
+			"time": 1756339199999,
+			"open": 4601.96,
+			"high": 4665,
+			"low": 4482.06,
+			"close": 4507.18,
+			"volume_base": 279577.7349,
+			"volume_quote": 1283818169.54041
+		},
+		{
+			"time": 1756425599999,
+			"open": 4507.84,
+			"high": 4635.61,
+			"low": 4428.82,
+			"close": 4511.9,
+			"volume_base": 174218.8076,
+			"volume_quote": 790480861.503302
+		},
+		{
+			"time": 1756511999999,
+			"open": 4511.82,
+			"high": 4517.93,
+			"low": 4265.31,
+			"close": 4361.07,
+			"volume_base": 238130.6963,
+			"volume_quote": 1039947905.46417
+		},
+		{
+			"time": 1756598399999,
+			"open": 4361.27,
+			"high": 4416.52,
+			"low": 4258.02,
+			"close": 4374.99,
+			"volume_base": 97450.0779,
+			"volume_quote": 424593031.380301
+		},
+		{
+			"time": 1756684799999,
+			"open": 4374.99,
+			"high": 4500,
+			"low": 4373.67,
+			"close": 4392.84,
+			"volume_base": 98477.3783,
+			"volume_quote": 438753202.486447
+		},
+		{
+			"time": 1756771199999,
+			"open": 4392.78,
+			"high": 4492.2,
+			"low": 4211,
+			"close": 4315.22,
+			"volume_base": 172769.2823,
+			"volume_quote": 754799765.462834
+		},
+		{
+			"time": 1756857599999,
+			"open": 4315.25,
+			"high": 4417.4,
+			"low": 4258.4,
+			"close": 4327.22,
+			"volume_base": 176876.9774,
+			"volume_quote": 767027702.437389
+		},
+		{
+			"time": 1756943999999,
+			"open": 4327.22,
+			"high": 4492.07,
+			"low": 4283.96,
+			"close": 4452.55,
+			"volume_base": 135438.2097,
+			"volume_quote": 595640797.118099
+		},
+		{
+			"time": 1757030399999,
+			"open": 4452.56,
+			"high": 4485,
+			"low": 4265.77,
+			"close": 4298.82,
+			"volume_base": 144792.5308,
+			"volume_quote": 631793172.700414
+		},
+		{
+			"time": 1757116799999,
+			"open": 4298.33,
+			"high": 4492,
+			"low": 4255.88,
+			"close": 4308.02,
+			"volume_base": 193284.6074,
+			"volume_quote": 842832507.985678
+		},
+		{
+			"time": 1757203199999,
+			"open": 4308.1,
+			"high": 4329.51,
+			"low": 4236,
+			"close": 4274.71,
+			"volume_base": 49508.3719,
+			"volume_quote": 212246906.040607
+		},
+		{
+			"time": 1757289599999,
+			"open": 4274.78,
+			"high": 4336.77,
+			"low": 4271,
+			"close": 4306.33,
+			"volume_base": 44212.3413,
+			"volume_quote": 190043539.025872
+		},
+		{
+			"time": 1757375999999,
+			"open": 4306.12,
+			"high": 4384.99,
+			"low": 4279.33,
+			"close": 4306.63,
+			"volume_base": 113389.5102,
+			"volume_quote": 490247439.745887
+		},
+		{
+			"time": 1757462399999,
+			"open": 4306.63,
+			"high": 4382.82,
+			"low": 4277.37,
+			"close": 4310.67,
+			"volume_base": 102727.3655,
+			"volume_quote": 443737931.402481
+		},
+		{
+			"time": 1757548799999,
+			"open": 4310.66,
+			"high": 4454.99,
+			"low": 4285.53,
+			"close": 4350.94,
+			"volume_base": 106681.1225,
+			"volume_quote": 465101496.652191
+		},
+		{
+			"time": 1757635199999,
+			"open": 4351.05,
+			"high": 4484.34,
+			"low": 4340.15,
+			"close": 4461.01,
+			"volume_base": 126429.3387,
+			"volume_quote": 559016589.55559
+		},
+		{
+			"time": 1757721599999,
+			"open": 4461.01,
+			"high": 4754.82,
+			"low": 4452.44,
+			"close": 4715.61,
+			"volume_base": 147608.3002,
+			"volume_quote": 676014648.987911
+		},
+		{
+			"time": 1757807999999,
+			"open": 4715.61,
+			"high": 4770.56,
+			"low": 4608.19,
+			"close": 4669.52,
+			"volume_base": 95349.4075,
+			"volume_quote": 446981313.594615
+		},
+		{
+			"time": 1757894399999,
+			"open": 4669.9,
+			"high": 4695.44,
+			"low": 4578.48,
+			"close": 4606.44,
+			"volume_base": 78527.3213,
+			"volume_quote": 363619025.025774
+		},
+		{
+			"time": 1757980799999,
+			"open": 4606.44,
+			"high": 4672.49,
+			"low": 4468,
+			"close": 4525.15,
+			"volume_base": 126687.7668,
+			"volume_quote": 576085730.143437
+		},
+		{
+			"time": 1758067199999,
+			"open": 4525.16,
+			"high": 4539.74,
+			"low": 4425.12,
+			"close": 4503.24,
+			"volume_base": 104871.9071,
+			"volume_quote": 470851371.131478
+		},
+		{
+			"time": 1758153599999,
+			"open": 4503.24,
+			"high": 4619,
+			"low": 4412.12,
+			"close": 4592.5,
+			"volume_base": 153102.427,
+			"volume_quote": 690002116.60892
+		},
+		{
+			"time": 1758239999999,
+			"open": 4592.5,
+			"high": 4647.3,
+			"low": 4555.72,
+			"close": 4590.13,
+			"volume_base": 93201.3222,
+			"volume_quote": 428846535.460463
+		},
+		{
+			"time": 1758326399999,
+			"open": 4590.13,
+			"high": 4623.3,
+			"low": 4438.48,
+			"close": 4471.9,
+			"volume_base": 103682.6732,
+			"volume_quote": 467777484.505423
+		},
+		{
+			"time": 1758412799999,
+			"open": 4471.91,
+			"high": 4511.94,
+			"low": 4457.41,
+			"close": 4483.42,
+			"volume_base": 42806.8556,
+			"volume_quote": 191858436.760768
+		},
+		{
+			"time": 1758499199999,
+			"open": 4483.43,
+			"high": 4501.54,
+			"low": 4445.87,
+			"close": 4447.77,
+			"volume_base": 40634.9397,
+			"volume_quote": 181859650.736759
+		},
+		{
+			"time": 1758585599999,
+			"open": 4447.78,
+			"high": 4459.18,
+			"low": 4065.98,
+			"close": 4203.11,
+			"volume_base": 206086.326,
+			"volume_quote": 870908934.358632
+		},
+		{
+			"time": 1758671999999,
+			"open": 4203.1,
+			"high": 4232.65,
+			"low": 4118.08,
+			"close": 4165.97,
+			"volume_base": 90175.7099,
+			"volume_quote": 377188374.605954
+		},
+		{
+			"time": 1758758399999,
+			"open": 4165.97,
+			"high": 4209.2,
+			"low": 4075.31,
+			"close": 4154.99,
+			"volume_base": 83959.0901,
+			"volume_quote": 349637302.029229
+		},
+		{
+			"time": 1758844799999,
+			"open": 4154.99,
+			"high": 4163.42,
+			"low": 3826,
+			"close": 3876.83,
+			"volume_base": 271113.2088,
+			"volume_quote": 1078457939.39074
+		},
+		{
+			"time": 1758931199999,
+			"open": 3876.83,
+			"high": 4071.59,
+			"low": 3870.01,
+			"close": 4035,
+			"volume_base": 166863.5853,
+			"volume_quote": 660925649.891922
+		},
+		{
+			"time": 1759017599999,
+			"open": 4035.01,
+			"high": 4041.5,
+			"low": 3975.55,
+			"close": 4021.19,
+			"volume_base": 53780.9103,
+			"volume_quote": 215770695.360544
+		},
+		{
+			"time": 1759103999999,
+			"open": 4021.19,
+			"high": 4146.9,
+			"low": 3967.61,
+			"close": 4144.2,
+			"volume_base": 79415.4513,
+			"volume_quote": 321092133.285141
+		},
+		{
+			"time": 1759190399999,
+			"open": 4144.19,
+			"high": 4239.55,
+			"low": 4084.2,
+			"close": 4218.36,
+			"volume_base": 111588.9022,
+			"volume_quote": 463753245.206745
+		},
+		{
+			"time": 1759276799999,
+			"open": 4218.3,
+			"high": 4248.29,
+			"low": 4094.3,
+			"close": 4146.64,
+			"volume_base": 116919.1902,
+			"volume_quote": 486439418.38597
+		},
+		{
+			"time": 1759363199999,
+			"open": 4146.65,
+			"high": 4359.09,
+			"low": 4125.1,
+			"close": 4350.99,
+			"volume_base": 166298.8228,
+			"volume_quote": 709408212.742933
+		},
+		{
+			"time": 1759449599999,
+			"open": 4350.99,
+			"high": 4520.6,
+			"low": 4335.65,
+			"close": 4487.97,
+			"volume_base": 156501.5582,
+			"volume_quote": 691251409.74495
+		},
+		{
+			"time": 1759535999999,
+			"open": 4487.97,
+			"high": 4596.21,
+			"low": 4431.73,
+			"close": 4517.19,
+			"volume_base": 172112.3319,
+			"volume_quote": 774784514.694146
+		},
+		{
+			"time": 1759622399999,
+			"open": 4517.2,
+			"high": 4521.94,
+			"low": 4443.38,
+			"close": 4489.81,
+			"volume_base": 62924.2871,
+			"volume_quote": 282305386.89368
+		},
+		{
+			"time": 1759708799999,
+			"open": 4489.81,
+			"high": 4619.85,
+			"low": 4469.92,
+			"close": 4516.37,
+			"volume_base": 120952.6867,
+			"volume_quote": 550026716.385483
+		},
+		{
+			"time": 1759795199999,
+			"open": 4516.36,
+			"high": 4740,
+			"low": 4489.94,
+			"close": 4686.95,
+			"volume_base": 139358.9459,
+			"volume_quote": 644539083.453558
+		},
+		{
+			"time": 1759881599999,
+			"open": 4686.95,
+			"high": 4759.28,
+			"low": 4433.75,
+			"close": 4450.75,
+			"volume_base": 192256.8698,
+			"volume_quote": 882843484.427054
+		},
+		{
+			"time": 1759967999999,
+			"open": 4450.66,
+			"high": 4560,
+			"low": 4414.2,
+			"close": 4527.86,
+			"volume_base": 130015.4539,
+			"volume_quote": 583005086.360523
+		},
+		{
+			"time": 1760054399999,
+			"open": 4527.9,
+			"high": 4533.4,
+			"low": 4267.65,
+			"close": 4371.27,
+			"volume_base": 174284.663,
+			"volume_quote": 761427621.128298
+		},
+		{
+			"time": 1760140799999,
+			"open": 4371.27,
+			"high": 4396.78,
+			"low": 3378,
+			"close": 3836.62,
+			"volume_base": 439564.4022,
+			"volume_quote": 1750157161.96231
+		},
+		{
+			"time": 1760227199999,
+			"open": 3836.62,
+			"high": 3886.48,
+			"low": 3647.24,
+			"close": 3751.09,
+			"volume_base": 272297.722,
+			"volume_quote": 1031347258.89455
+		},
+		{
+			"time": 1760313599999,
+			"open": 3751.1,
+			"high": 4201.69,
+			"low": 3698.53,
+			"close": 4156.17,
+			"volume_base": 284397.4081,
+			"volume_quote": 1130681035.34735
+		},
+		{
+			"time": 1760399999999,
+			"open": 4156.17,
+			"high": 4297,
+			"low": 4046.11,
+			"close": 4245.16,
+			"volume_base": 228266.4604,
+			"volume_quote": 950261597.942964
+		},
+		{
+			"time": 1760486399999,
+			"open": 4245.24,
+			"high": 4267.72,
+			"low": 3887,
+			"close": 4126.89,
+			"volume_base": 340888.1169,
+			"volume_quote": 1381375424.47405
+		},
+		{
+			"time": 1760572799999,
+			"open": 4126.88,
+			"high": 4220,
+			"low": 3927.98,
+			"close": 3987.79,
+			"volume_base": 223187.5756,
+			"volume_quote": 907413648.324311
+		},
+		{
+			"time": 1760659199999,
+			"open": 3987.8,
+			"high": 4087.2,
+			"low": 3827.21,
+			"close": 3895.5,
+			"volume_base": 220080.6419,
+			"volume_quote": 872509532.724102
+		},
+		{
+			"time": 1760745599999,
+			"open": 3895.5,
+			"high": 3951.72,
+			"low": 3673.8,
+			"close": 3833.19,
+			"volume_base": 272857.849,
+			"volume_quote": 1035484483.30829
+		},
+		{
+			"time": 1760831999999,
+			"open": 3833.19,
+			"high": 3932.71,
+			"low": 3820.8,
+			"close": 3890.63,
+			"volume_base": 90021.6112,
+			"volume_quote": 349431949.761854
+		},
+		{
+			"time": 1760918399999,
+			"open": 3890.63,
+			"high": 4033.12,
+			"low": 3828.06,
+			"close": 3984.31,
+			"volume_base": 133004.5331,
+			"volume_quote": 524309486.328813
+		},
+		{
+			"time": 1761004799999,
+			"open": 3984.3,
+			"high": 4088,
+			"low": 3910.56,
+			"close": 3980.86,
+			"volume_base": 141643.8035,
+			"volume_quote": 567099908.492038
+		},
+		{
+			"time": 1761091199999,
+			"open": 3980.93,
+			"high": 4112.43,
+			"low": 3841.47,
+			"close": 3875.04,
+			"volume_base": 210646.242,
+			"volume_quote": 833440543.497909
+		},
+		{
+			"time": 1761177599999,
+			"open": 3875.02,
+			"high": 3891.54,
+			"low": 3707.3,
+			"close": 3806.18,
+			"volume_base": 217919.0025,
+			"volume_quote": 832411812.537527
+		},
+		{
+			"time": 1761263999999,
+			"open": 3806.32,
+			"high": 3937.16,
+			"low": 3797.1,
+			"close": 3858.59,
+			"volume_base": 132746.6083,
+			"volume_quote": 512804749.087887
+		},
+		{
+			"time": 1761350399999,
+			"open": 3858.6,
+			"high": 4027.87,
+			"low": 3847.5,
+			"close": 3936.1,
+			"volume_base": 130464.0532,
+			"volume_quote": 513527337.627956
+		},
+		{
+			"time": 1761436799999,
+			"open": 3936.1,
+			"high": 3969.44,
+			"low": 3913.53,
+			"close": 3954.84,
+			"volume_base": 43219.706,
+			"volume_quote": 170388680.898552
+		},
+		{
+			"time": 1761523199999,
+			"open": 3954.83,
+			"high": 4179.72,
+			"low": 3915.74,
+			"close": 4159.44,
+			"volume_base": 98853.4174,
+			"volume_quote": 401231769.803872
+		},
+		{
+			"time": 1761609599999,
+			"open": 4159.45,
+			"high": 4254,
+			"low": 4095.27,
+			"close": 4120.92,
+			"volume_base": 140176.4414,
+			"volume_quote": 586281028.505318
+		},
+		{
+			"time": 1761695999999,
+			"open": 4120.8,
+			"high": 4176.12,
+			"low": 3932.03,
+			"close": 3980.36,
+			"volume_base": 151152.5019,
+			"volume_quote": 615908364.174238
+		},
+		{
+			"time": 1761782399999,
+			"open": 3980.36,
+			"high": 4037.96,
+			"low": 3841.15,
+			"close": 3904.05,
+			"volume_base": 152241.4081,
+			"volume_quote": 601709016.12481
+		},
+		{
+			"time": 1761868799999,
+			"open": 3904.05,
+			"high": 3949.79,
+			"low": 3679.11,
+			"close": 3804.96,
+			"volume_base": 152373.6916,
+			"volume_quote": 581413399.814082
+		},
+		{
+			"time": 1761955199999,
+			"open": 3805.15,
+			"high": 3904.34,
+			"low": 3796.41,
+			"close": 3847.09,
+			"volume_base": 123095.6451,
+			"volume_quote": 473847960.12819
+		},
+		{
+			"time": 1762041599999,
+			"open": 3847.1,
+			"high": 3908.4,
+			"low": 3829.75,
+			"close": 3872.96,
+			"volume_base": 42711.4799,
+			"volume_quote": 165304778.177515
+		},
+		{
+			"time": 1762127999999,
+			"open": 3872.96,
+			"high": 3917.87,
+			"low": 3838.38,
+			"close": 3906.25,
+			"volume_base": 55122.7972,
+			"volume_quote": 213696327.038767
+		},
+		{
+			"time": 1762214399999,
+			"open": 3906.26,
+			"high": 3914.64,
+			"low": 3557.98,
+			"close": 3603.78,
+			"volume_base": 215249.5917,
+			"volume_quote": 791997481.66213
+		},
+		{
+			"time": 1762300799999,
+			"open": 3603.78,
+			"high": 3654.3,
+			"low": 3055.96,
+			"close": 3286.85,
+			"volume_base": 434387.2618,
+			"volume_quote": 1462824494.788
+		},
+		{
+			"time": 1762387199999,
+			"open": 3287.01,
+			"high": 3481.87,
+			"low": 3166.11,
+			"close": 3425.03,
+			"volume_base": 223286.6447,
+			"volume_quote": 746233819.977073
+		},
+		{
+			"time": 1762473599999,
+			"open": 3424.9,
+			"high": 3456.63,
+			"low": 3243.59,
+			"close": 3313.96,
+			"volume_base": 190444.2415,
+			"volume_quote": 637651440.393011
+		},
+		{
+			"time": 1762559999999,
+			"open": 3314.04,
+			"high": 3472.62,
+			"low": 3192.31,
+			"close": 3434.4,
+			"volume_base": 193135.0664,
+			"volume_quote": 642113965.933685
+		},
+		{
+			"time": 1762646399999,
+			"open": 3434.39,
+			"high": 3486.89,
+			"low": 3355.41,
+			"close": 3401.03,
+			"volume_base": 88916.5155,
+			"volume_quote": 303882210.204841
+		},
+		{
+			"time": 1762732799999,
+			"open": 3401.04,
+			"high": 3623.75,
+			"low": 3358.37,
+			"close": 3583.08,
+			"volume_base": 113740.3291,
+			"volume_quote": 397195142.591808
+		},
+		{
+			"time": 1762819199999,
+			"open": 3583.08,
+			"high": 3658.9,
+			"low": 3506.56,
+			"close": 3567.27,
+			"volume_base": 126753.3131,
+			"volume_quote": 454175876.744046
+		},
+		{
+			"time": 1762905599999,
+			"open": 3567.26,
+			"high": 3647.73,
+			"low": 3403.99,
+			"close": 3416.88,
+			"volume_base": 143932.3696,
+			"volume_quote": 506207274.912932
+		},
+		{
+			"time": 1762991999999,
+			"open": 3417,
+			"high": 3588.4,
+			"low": 3371.5,
+			"close": 3414.98,
+			"volume_base": 138922.8147,
+			"volume_quote": 480356167.460361
+		},
+		{
+			"time": 1763078399999,
+			"open": 3414.58,
+			"high": 3565.49,
+			"low": 3153.34,
+			"close": 3230.06,
+			"volume_base": 277541.9497,
+			"volume_quote": 936978809.737813
+		},
+		{
+			"time": 1763164799999,
+			"open": 3230.15,
+			"high": 3255.66,
+			"low": 3068.16,
+			"close": 3110.78,
+			"volume_base": 266880.4107,
+			"volume_quote": 845903055.352102
+		},
+		{
+			"time": 1763251199999,
+			"open": 3110.79,
+			"high": 3229.28,
+			"low": 3108.84,
+			"close": 3166.46,
+			"volume_base": 67273.9343,
+			"volume_quote": 213484735.468994
+		},
+		{
+			"time": 1763337599999,
+			"open": 3166.46,
+			"high": 3247.11,
+			"low": 3002.41,
+			"close": 3093.25,
+			"volume_base": 165213.6264,
+			"volume_quote": 514435876.455178
+		},
+		{
+			"time": 1763423999999,
+			"open": 3093.25,
+			"high": 3221.62,
+			"low": 2956.62,
+			"close": 3028.59,
+			"volume_base": 202720.5668,
+			"volume_quote": 626161927.599913
+		},
+		{
+			"time": 1763510399999,
+			"open": 3028.6,
+			"high": 3169.05,
+			"low": 2943.34,
+			"close": 3122.66,
+			"volume_base": 209722.6678,
+			"volume_quote": 640337904.48989
+		},
+		{
+			"time": 1763596799999,
+			"open": 3122.65,
+			"high": 3124.63,
+			"low": 2870.37,
+			"close": 3023.36,
+			"volume_base": 239669.7286,
+			"volume_quote": 715657232.989047
+		},
+		{
+			"time": 1763683199999,
+			"open": 3023.37,
+			"high": 3061.89,
+			"low": 2785.24,
+			"close": 2831.61,
+			"volume_base": 245735.6277,
+			"volume_quote": 715332903.64948
+		},
+		{
+			"time": 1763769599999,
+			"open": 2831.56,
+			"high": 2883.84,
+			"low": 2620.2,
+			"close": 2764.65,
+			"volume_base": 376873.3066,
+			"volume_quote": 1031624111.44461
+		},
+		{
+			"time": 1763855999999,
+			"open": 2764.82,
+			"high": 2797.89,
+			"low": 2703.17,
+			"close": 2769.07,
+			"volume_base": 75905.7732,
+			"volume_quote": 208235431.014215
+		},
+		{
+			"time": 1763942399999,
+			"open": 2769.07,
+			"high": 2857.68,
+			"low": 2767.05,
+			"close": 2801.84,
+			"volume_base": 90468.9148,
+			"volume_quote": 254843903.026531
+		},
+		{
+			"time": 1764028799999,
+			"open": 2801.7,
+			"high": 2986.4,
+			"low": 2762.72,
+			"close": 2953.29,
+			"volume_base": 171752.3018,
+			"volume_quote": 493484452.963076
+		},
+		{
+			"time": 1764115199999,
+			"open": 2953.29,
+			"high": 2980,
+			"low": 2856.2,
+			"close": 2959.2,
+			"volume_base": 137445.1226,
+			"volume_quote": 400609427.74565
+		},
+		{
+			"time": 1764201599999,
+			"open": 2959.16,
+			"high": 3045.46,
+			"low": 2888.23,
+			"close": 3026.96,
+			"volume_base": 108338.2719,
+			"volume_quote": 321001095.943083
+		},
+		{
+			"time": 1764287999999,
+			"open": 3026.88,
+			"high": 3072.95,
+			"low": 2985.83,
+			"close": 3015.56,
+			"volume_base": 74125.8567,
+			"volume_quote": 224206706.75924
+		},
+		{
+			"time": 1764374399999,
+			"open": 3015.56,
+			"high": 3100.24,
+			"low": 2994.21,
+			"close": 3032.19,
+			"volume_base": 92106.276,
+			"volume_quote": 280390111.514643
+		},
+		{
+			"time": 1764460799999,
+			"open": 3032.1,
+			"high": 3053.74,
+			"low": 2963.08,
+			"close": 2990.25,
+			"volume_base": 49239.0242,
+			"volume_quote": 147908969.504904
+		},
+		{
+			"time": 1764547199999,
+			"open": 2990.26,
+			"high": 3053.36,
+			"low": 2976.4,
+			"close": 2992.25,
+			"volume_base": 44051.0987,
+			"volume_quote": 132999807.313714
+		},
+		{
+			"time": 1764633599999,
+			"open": 2992.2,
+			"high": 3000.51,
+			"low": 2718.35,
+			"close": 2799,
+			"volume_base": 285896.7658,
+			"volume_quote": 800031691.181457
+		},
+		{
+			"time": 1764719999999,
+			"open": 2799.19,
+			"high": 3034.91,
+			"low": 2782.64,
+			"close": 2997.19,
+			"volume_base": 155519.0948,
+			"volume_quote": 454178413.201699
+		},
+		{
+			"time": 1764806399999,
+			"open": 2997.36,
+			"high": 3215.8,
+			"low": 2986.67,
+			"close": 3189.5,
+			"volume_base": 143174.317,
+			"volume_quote": 443260626.184258
+		},
+		{
+			"time": 1764892799999,
+			"open": 3189.65,
+			"high": 3241.32,
+			"low": 3067.33,
+			"close": 3134.45,
+			"volume_base": 118835.5862,
+			"volume_quote": 377007853.318877
+		},
+		{
+			"time": 1764979199999,
+			"open": 3134.44,
+			"high": 3194.84,
+			"low": 2983.73,
+			"close": 3022.89,
+			"volume_base": 143847.5489,
+			"volume_quote": 444898641.617983
+		},
+		{
+			"time": 1765065599999,
+			"open": 3022.89,
+			"high": 3069.73,
+			"low": 3013.34,
+			"close": 3039.09,
+			"volume_base": 46482.9636,
+			"volume_quote": 141302312.715643
+		},
+		{
+			"time": 1765151999999,
+			"open": 3039.19,
+			"high": 3151.31,
+			"low": 2913,
+			"close": 3060.54,
+			"volume_base": 115531.6799,
+			"volume_quote": 351300479.984825
+		},
+		{
+			"time": 1765238399999,
+			"open": 3060.8,
+			"high": 3180.94,
+			"low": 3041.44,
+			"close": 3125.2,
+			"volume_base": 113336.4408,
+			"volume_quote": 354095200.061687
+		},
+		{
+			"time": 1765324799999,
+			"open": 3125.26,
+			"high": 3398.42,
+			"low": 3091.52,
+			"close": 3318.92,
+			"volume_base": 152839.1499,
+			"volume_quote": 496934392.373999
+		},
+		{
+			"time": 1765411199999,
+			"open": 3318.91,
+			"high": 3450,
+			"low": 3288.89,
+			"close": 3325.4,
+			"volume_base": 129017.1481,
+			"volume_quote": 432927687.822189
+		},
+		{
+			"time": 1765497599999,
+			"open": 3325.41,
+			"high": 3328.76,
+			"low": 3146.14,
+			"close": 3238.31,
+			"volume_base": 148406.7536,
+			"volume_quote": 476588388.061696
+		},
+		{
+			"time": 1765583999999,
+			"open": 3238.31,
+			"high": 3266.66,
+			"low": 3045.76,
+			"close": 3085.48,
+			"volume_base": 120766.7424,
+			"volume_quote": 380183861.61127
+		},
+		{
+			"time": 1765670399999,
+			"open": 3085.48,
+			"high": 3136.36,
+			"low": 3079.19,
+			"close": 3115.51,
+			"volume_base": 43433.7776,
+			"volume_quote": 135032439.772734
+		},
+		{
+			"time": 1765756799999,
+			"open": 3115.51,
+			"high": 3130.64,
+			"low": 3026.41,
+			"close": 3064.38,
+			"volume_base": 79991.1679,
+			"volume_quote": 247089254.384213
+		},
+		{
+			"time": 1765843199999,
+			"open": 3063.73,
+			"high": 3178.45,
+			"low": 2892.49,
+			"close": 2964.83,
+			"volume_base": 156684.556,
+			"volume_quote": 475317223.159917
+		},
+		{
+			"time": 1765929599999,
+			"open": 2964.92,
+			"high": 2982.75,
+			"low": 2877,
+			"close": 2962.03,
+			"volume_base": 119080.2796,
+			"volume_quote": 349960929.361347
+		},
+		{
+			"time": 1766015999999,
+			"open": 2962.19,
+			"high": 3030.75,
+			"low": 2790.58,
+			"close": 2833.1,
+			"volume_base": 165286.2072,
+			"volume_quote": 479589756.136361
+		},
+		{
+			"time": 1766102399999,
+			"open": 2833.14,
+			"high": 2996.55,
+			"low": 2774.35,
+			"close": 2827.23,
+			"volume_base": 182391.674,
+			"volume_quote": 525238323.091441
+		},
+		{
+			"time": 1766188799999,
+			"open": 2827.25,
+			"high": 3018.11,
+			"low": 2807.04,
+			"close": 2978.29,
+			"volume_base": 158394.1795,
+			"volume_quote": 466754026.121257
+		},
+		{
+			"time": 1766275199999,
+			"open": 2978.3,
+			"high": 2993.06,
+			"low": 2948,
+			"close": 2977.14,
+			"volume_base": 33142.2335,
+			"volume_quote": 98748119.662073
+		},
+		{
+			"time": 1766361599999,
+			"open": 2977.15,
+			"high": 3012.73,
+			"low": 2943.42,
+			"close": 3001.78,
+			"volume_base": 46659.6644,
+			"volume_quote": 139074427.004105
+		},
+		{
+			"time": 1766447999999,
+			"open": 3001.78,
+			"high": 3077,
+			"low": 2962.82,
+			"close": 3008.3,
+			"volume_base": 117306.8769,
+			"volume_quote": 355205395.20169
+		},
+		{
+			"time": 1766534399999,
+			"open": 3008.3,
+			"high": 3034.61,
+			"low": 2900,
+			"close": 2963.51,
+			"volume_base": 89605.8366,
+			"volume_quote": 264878408.289855
+		},
+		{
+			"time": 1766620799999,
+			"open": 2963.75,
+			"high": 2976.92,
+			"low": 2887.19,
+			"close": 2945.88,
+			"volume_base": 67041.7564,
+			"volume_quote": 196498068.2516
+		},
+		{
+			"time": 1766707199999,
+			"open": 2945.88,
+			"high": 2969.69,
+			"low": 2890,
+			"close": 2902.91,
+			"volume_base": 49959.0692,
+			"volume_quote": 146741423.98618
+		},
+		{
+			"time": 1766793599999,
+			"open": 2902.81,
+			"high": 2993.52,
+			"low": 2893.06,
+			"close": 2926.39,
+			"volume_base": 87683.7126,
+			"volume_quote": 258342459.828908
+		},
+		{
+			"time": 1766879999999,
+			"open": 2926.4,
+			"high": 2959.42,
+			"low": 2916.14,
+			"close": 2947.44,
+			"volume_base": 22763.2562,
+			"volume_quote": 66731651.530308
+		},
+		{
+			"time": 1766966399999,
+			"open": 2947.39,
+			"high": 2959.5,
+			"low": 2923.28,
+			"close": 2949.75,
+			"volume_base": 28413.4018,
+			"volume_quote": 83533567.007972
+		},
+		{
+			"time": 1767052799999,
+			"open": 2949.45,
+			"high": 3055.31,
+			"low": 2906.92,
+			"close": 2935.29,
+			"volume_base": 123605.3922,
+			"volume_quote": 367290407.17883
+		},
+		{
+			"time": 1767139199999,
+			"open": 2935.29,
+			"high": 3007.17,
+			"low": 2916.55,
+			"close": 2971.13,
+			"volume_base": 80279.4359,
+			"volume_quote": 238293993.847436
+		},
+		{
+			"time": 1767225599999,
+			"open": 2971.13,
+			"high": 3025.96,
+			"low": 2956.24,
+			"close": 2968.04,
+			"volume_base": 75380.1021,
+			"volume_quote": 224586647.714163
+		},
+		{
+			"time": 1767311999999,
+			"open": 2968.04,
+			"high": 3006.6,
+			"low": 2967.57,
+			"close": 3001.3,
+			"volume_base": 27792.5733,
+			"volume_quote": 82953184.084688
+		},
+		{
+			"time": 1767398399999,
+			"open": 3001.3,
+			"high": 3149.55,
+			"low": 2989.6,
+			"close": 3124.71,
+			"volume_base": 117750.277,
+			"volume_quote": 362280491.861497
+		},
+		{
+			"time": 1767484799999,
+			"open": 3124.79,
+			"high": 3135.82,
+			"low": 3075.3,
+			"close": 3126.29,
+			"volume_base": 37486.7214,
+			"volume_quote": 116438681.270781
+		},
+		{
+			"time": 1767571199999,
+			"open": 3126.28,
+			"high": 3166.23,
+			"low": 3117.64,
+			"close": 3143.88,
+			"volume_base": 47642.3482,
+			"volume_quote": 149673321.144182
+		},
+		{
+			"time": 1767657599999,
+			"open": 3143.77,
+			"high": 3266,
+			"low": 3133.93,
+			"close": 3225.68,
+			"volume_base": 100013.1358,
+			"volume_quote": 318820994.952814
+		},
+		{
+			"time": 1767743999999,
+			"open": 3225.69,
+			"high": 3308.09,
+			"low": 3179.23,
+			"close": 3296.05,
+			"volume_base": 118228.4395,
+			"volume_quote": 384073151.145716
+		},
+		{
+			"time": 1767830399999,
+			"open": 3295.98,
+			"high": 3296.08,
+			"low": 3122.38,
+			"close": 3166.37,
+			"volume_base": 113654.6054,
+			"volume_quote": 362779782.020658
+		},
+		{
+			"time": 1767916799999,
+			"open": 3166.55,
+			"high": 3182.06,
+			"low": 3051.42,
+			"close": 3104.64,
+			"volume_base": 106677.0755,
+			"volume_quote": 331525749.594501
+		},
+		{
+			"time": 1768003199999,
+			"open": 3104.65,
+			"high": 3146.27,
+			"low": 3056.1,
+			"close": 3084.83,
+			"volume_base": 89591.2262,
+			"volume_quote": 277608887.270262
+		},
+		{
+			"time": 1768089599999,
+			"open": 3084.83,
+			"high": 3100.63,
+			"low": 3075.27,
+			"close": 3083.35,
+			"volume_base": 20230.0758,
+			"volume_quote": 62447217.923016
+		},
+		{
+			"time": 1768175999999,
+			"open": 3083.34,
+			"high": 3143.75,
+			"low": 3081.21,
+			"close": 3119.63,
+			"volume_base": 35146.2686,
+			"volume_quote": 109352010.514055
+		},
+		{
+			"time": 1768262399999,
+			"open": 3119.63,
+			"high": 3168.66,
+			"low": 3062.79,
+			"close": 3092.66,
+			"volume_base": 107989.1926,
+			"volume_quote": 336657785.561596
+		},
+		{
+			"time": 1768348799999,
+			"open": 3092.67,
+			"high": 3375,
+			"low": 3088.72,
+			"close": 3324.46,
+			"volume_base": 131386.1691,
+			"volume_quote": 421051782.115918
+		},
+		{
+			"time": 1768435199999,
+			"open": 3324.46,
+			"high": 3404.2,
+			"low": 3279.25,
+			"close": 3355.62,
+			"volume_base": 161552.0887,
+			"volume_quote": 539712090.431364
+		},
+		{
+			"time": 1768521599999,
+			"open": 3355.62,
+			"high": 3384.29,
+			"low": 3273.46,
+			"close": 3318.7,
+			"volume_base": 117183.1465,
+			"volume_quote": 389248577.173525
+		},
+		{
+			"time": 1768607999999,
+			"open": 3318.71,
+			"high": 3327.16,
+			"low": 3249.13,
+			"close": 3295.44,
+			"volume_base": 75041.9665,
+			"volume_quote": 246983332.107605
+		},
+		{
+			"time": 1768694399999,
+			"open": 3295.44,
+			"high": 3330.5,
+			"low": 3283.2,
+			"close": 3309.96,
+			"volume_base": 38793.8967,
+			"volume_quote": 128437942.464156
+		},
+		{
+			"time": 1768780799999,
+			"open": 3309.91,
+			"high": 3368.32,
+			"low": 3278.27,
+			"close": 3283.35,
+			"volume_base": 57519.7311,
+			"volume_quote": 191378480.142012
+		},
+		{
+			"time": 1768867199999,
+			"open": 3283.34,
+			"high": 3284.11,
+			"low": 3164.36,
+			"close": 3188.11,
+			"volume_base": 109497.2578,
+			"volume_quote": 351718250.86045
+		},
+		{
+			"time": 1768953599999,
+			"open": 3187.96,
+			"high": 3199.01,
+			"low": 2913.23,
+			"close": 2937.1,
+			"volume_base": 156781.2584,
+			"volume_quote": 479913113.087236
+		},
+		{
+			"time": 1769039999999,
+			"open": 2937.1,
+			"high": 3068.16,
+			"low": 2864.32,
+			"close": 2980.36,
+			"volume_base": 189950.3162,
+			"volume_quote": 563980480.581984
+		},
+		{
+			"time": 1769126399999,
+			"open": 2980.39,
+			"high": 3036.17,
+			"low": 2904,
+			"close": 2950.35,
+			"volume_base": 117495.2236,
+			"volume_quote": 349160223.119086
+		},
+		{
+			"time": 1769212799999,
+			"open": 2950.35,
+			"high": 3017,
+			"low": 2888.66,
+			"close": 2953.71,
+			"volume_base": 119519.3584,
+			"volume_quote": 352072628.784472
+		},
+		{
+			"time": 1769299199999,
+			"open": 2953.71,
+			"high": 2966.66,
+			"low": 2939.87,
+			"close": 2949.56,
+			"volume_base": 25691.0992,
+			"volume_quote": 75929011.545171
+		},
+		{
+			"time": 1769385599999,
+			"open": 2949.72,
+			"high": 2956.7,
+			"low": 2784.23,
+			"close": 2814.69,
+			"volume_base": 108269.9578,
+			"volume_quote": 309528909.583059
+		},
+		{
+			"time": 1769471999999,
+			"open": 2814.69,
+			"high": 2949.23,
+			"low": 2810.01,
+			"close": 2927.77,
+			"volume_base": 165678.6839,
+			"volume_quote": 480214925.639277
+		},
+		{
+			"time": 1769558399999,
+			"open": 2927.85,
+			"high": 3032,
+			"low": 2896.68,
+			"close": 3023.01,
+			"volume_base": 109911.022,
+			"volume_quote": 324946497.036124
+		},
+		{
+			"time": 1769644799999,
+			"open": 3023.01,
+			"high": 3042.35,
+			"low": 2979.95,
+			"close": 3007.3,
+			"volume_base": 95749.1288,
+			"volume_quote": 288231779.981032
+		},
+		{
+			"time": 1769731199999,
+			"open": 3007.16,
+			"high": 3009.97,
+			"low": 2751.39,
+			"close": 2818.58,
+			"volume_base": 208062.0975,
+			"volume_quote": 592849740.72558
+		},
+		{
+			"time": 1769817599999,
+			"open": 2818.59,
+			"high": 2824.93,
+			"low": 2633.14,
+			"close": 2703.98,
+			"volume_base": 251696.036,
+			"volume_quote": 685275781.761504
+		},
+		{
+			"time": 1769903999999,
+			"open": 2703.98,
+			"high": 2711.57,
+			"low": 2250,
+			"close": 2450.03,
+			"volume_base": 372969.4281,
+			"volume_quote": 927776505.096838
+		},
+		{
+			"time": 1769990399999,
+			"open": 2450.21,
+			"high": 2474.28,
+			"low": 2220.1,
+			"close": 2268.89,
+			"volume_base": 292074.72,
+			"volume_quote": 683951941.754499
+		},
+		{
+			"time": 1770076799999,
+			"open": 2268.9,
+			"high": 2395.7,
+			"low": 2155.87,
+			"close": 2345.46,
+			"volume_base": 383836.373,
+			"volume_quote": 876152506.017493
+		},
+		{
+			"time": 1770163199999,
+			"open": 2345.59,
+			"high": 2358.45,
+			"low": 2106.64,
+			"close": 2231.19,
+			"volume_base": 412406.4984,
+			"volume_quote": 929475158.598555
+		},
+		{
+			"time": 1770249599999,
+			"open": 2231.2,
+			"high": 2293.41,
+			"low": 2072.8,
+			"close": 2144.05,
+			"volume_base": 435289.3745,
+			"volume_quote": 946770443.6384
+		},
+		{
+			"time": 1770335999999,
+			"open": 2144.05,
+			"high": 2169.8,
+			"low": 1813.93,
+			"close": 1823.87,
+			"volume_base": 716636.6123,
+			"volume_quote": 1433597455.88051
+		},
+		{
+			"time": 1770422399999,
+			"open": 1823.87,
+			"high": 2093.54,
+			"low": 1745.12,
+			"close": 2062.4,
+			"volume_base": 507143.5804,
+			"volume_quote": 984647857.851653
+		},
+		{
+			"time": 1770508799999,
+			"open": 2062.39,
+			"high": 2119.79,
+			"low": 1993.74,
+			"close": 2086.42,
+			"volume_base": 348107.0552,
+			"volume_quote": 715245377.186526
+		},
+		{
+			"time": 1770595199999,
+			"open": 2086.42,
+			"high": 2150.12,
+			"low": 2064.18,
+			"close": 2088.95,
+			"volume_base": 171764.4253,
+			"volume_quote": 361343227.738729
+		},
+		{
+			"time": 1770681599999,
+			"open": 2088.94,
+			"high": 2146.86,
+			"low": 2007.35,
+			"close": 2104.08,
+			"volume_base": 237881.7453,
+			"volume_quote": 493341486.659365
+		},
+		{
+			"time": 1770767999999,
+			"open": 2104.13,
+			"high": 2123.84,
+			"low": 1987.37,
+			"close": 2021.79,
+			"volume_base": 243148.8159,
+			"volume_quote": 491780109.43778
+		},
+		{
+			"time": 1770854399999,
+			"open": 2021.79,
+			"high": 2031.26,
+			"low": 1902.35,
+			"close": 1939.9,
+			"volume_base": 225309.7627,
+			"volume_quote": 440523413.126418
+		},
+		{
+			"time": 1770940799999,
+			"open": 1940.01,
+			"high": 2000.72,
+			"low": 1896.21,
+			"close": 1946.21,
+			"volume_base": 149092.9151,
+			"volume_quote": 290722058.139921
+		},
+		{
+			"time": 1771027199999,
+			"open": 1946.2,
+			"high": 2071.97,
+			"low": 1923.43,
+			"close": 2047.87,
+			"volume_base": 138521.468,
+			"volume_quote": 276767724.892677
+		},
+		{
+			"time": 1771113599999,
+			"open": 2047.84,
+			"high": 2106.9,
+			"low": 2041.55,
+			"close": 2086.09,
+			"volume_base": 60615.2631,
+			"volume_quote": 125864280.1074
+		},
+		{
+			"time": 1771199999999,
+			"open": 2085.72,
+			"high": 2102.4,
+			"low": 1927.6,
+			"close": 1965.6,
+			"volume_base": 164067.242,
+			"volume_quote": 330292627.838901
+		},
+		{
+			"time": 1771286399999,
+			"open": 1965.66,
+			"high": 2022.89,
+			"low": 1936.25,
+			"close": 1997.52,
+			"volume_base": 113158.2905,
+			"volume_quote": 223437532.974138
+		},
+		{
+			"time": 1771372799999,
+			"open": 1997.52,
+			"high": 2014.74,
+			"low": 1940.82,
+			"close": 1991.01,
+			"volume_base": 178193.2438,
+			"volume_quote": 352610352.343388
+		},
+		{
+			"time": 1771459199999,
+			"open": 1991.03,
+			"high": 2038.32,
+			"low": 1922.84,
+			"close": 1955.37,
+			"volume_base": 161087.5331,
+			"volume_quote": 317780845.909308
+		},
+		{
+			"time": 1771545599999,
+			"open": 1955.47,
+			"high": 1986.9,
+			"low": 1906.46,
+			"close": 1948.32,
+			"volume_base": 131815.0845,
+			"volume_quote": 255945181.389142
+		},
+		{
+			"time": 1771631999999,
+			"open": 1948.38,
+			"high": 1980,
+			"low": 1922.66,
+			"close": 1968.12,
+			"volume_base": 164863.2726,
+			"volume_quote": 322556569.538123
+		},
+		{
+			"time": 1771718399999,
+			"open": 1968.06,
+			"high": 1995.24,
+			"low": 1955.07,
+			"close": 1972.99,
+			"volume_base": 67209.4255,
+			"volume_quote": 132977009.403218
+		},
+		{
+			"time": 1771804799999,
+			"open": 1972.98,
+			"high": 1982.69,
+			"low": 1935,
+			"close": 1957.33,
+			"volume_base": 64121.2263,
+			"volume_quote": 125444085.038558
+		},
+		{
+			"time": 1771891199999,
+			"open": 1957.41,
+			"high": 1957.64,
+			"low": 1837.19,
+			"close": 1855.84,
+			"volume_base": 218458.5435,
+			"volume_quote": 413688889.839885
+		},
+		{
+			"time": 1771977599999,
+			"open": 1855.83,
+			"high": 1868.86,
+			"low": 1798.65,
+			"close": 1851.95,
+			"volume_base": 158920.8432,
+			"volume_quote": 291838246.900526
+		},
+		{
+			"time": 1772063999999,
+			"open": 1852,
+			"high": 2149.33,
+			"low": 1846.73,
+			"close": 2057.88,
+			"volume_base": 235286.8245,
+			"volume_quote": 469619536.142171
+		},
+		{
+			"time": 1772150399999,
+			"open": 2057.86,
+			"high": 2083.64,
+			"low": 1975.48,
+			"close": 2027.76,
+			"volume_base": 162848.8266,
+			"volume_quote": 331926363.462932
+		},
+		{
+			"time": 1772236799999,
+			"open": 2027.76,
+			"high": 2063.95,
+			"low": 1886.69,
+			"close": 1929.71,
+			"volume_base": 162162.3001,
+			"volume_quote": 319791797.460421
+		},
+		{
+			"time": 1772323199999,
+			"open": 1929.65,
+			"high": 1985.1,
+			"low": 1835.35,
+			"close": 1964.71,
+			"volume_base": 154913.2288,
+			"volume_quote": 294797044.534283
+		},
+		{
+			"time": 1772409599999,
+			"open": 1964.7,
+			"high": 2054.69,
+			"low": 1907.86,
+			"close": 1939.79,
+			"volume_base": 171289.8271,
+			"volume_quote": 339440749.835039
+		},
+		{
+			"time": 1772495999999,
+			"open": 1939.8,
+			"high": 2090.75,
+			"low": 1919.82,
+			"close": 2027.44,
+			"volume_base": 190033.7964,
+			"volume_quote": 379320710.887943
+		},
+		{
+			"time": 1772582399999,
+			"open": 2027.46,
+			"high": 2041.7,
+			"low": 1928.99,
+			"close": 1983.06,
+			"volume_base": 158102.1837,
+			"volume_quote": 312669254.987623
+		},
+		{
+			"time": 1772668799999,
+			"open": 1983.07,
+			"high": 2200.14,
+			"low": 1945,
+			"close": 2127.53,
+			"volume_base": 239944.6509,
+			"volume_quote": 502254780.256129
+		},
+		{
+			"time": 1772755199999,
+			"open": 2127.53,
+			"high": 2164.3,
+			"low": 2054.47,
+			"close": 2073.3,
+			"volume_base": 176556.1386,
+			"volume_quote": 371989318.717521
+		},
+		{
+			"time": 1772841599999,
+			"open": 2073.18,
+			"high": 2093.6,
+			"low": 1955.77,
+			"close": 1978.68,
+			"volume_base": 138012.6705,
+			"volume_quote": 278955516.692435
+		},
+		{
+			"time": 1772927999999,
+			"open": 1978.58,
+			"high": 1996.19,
+			"low": 1947.97,
+			"close": 1969.59,
+			"volume_base": 44867.1797,
+			"volume_quote": 88696750.816094
+		},
+		{
+			"time": 1773014399999,
+			"open": 1969.6,
+			"high": 1979.91,
+			"low": 1915.23,
+			"close": 1936.83,
+			"volume_base": 120584.1229,
+			"volume_quote": 234257511.955819
+		},
+		{
+			"time": 1773100799999,
+			"open": 1936.85,
+			"high": 2054,
+			"low": 1929.36,
+			"close": 1993.27,
+			"volume_base": 206828.4548,
+			"volume_quote": 414363604.977557
+		},
+		{
+			"time": 1773187199999,
+			"open": 1993.26,
+			"high": 2088.83,
+			"low": 1991.25,
+			"close": 2036.87,
+			"volume_base": 191951.3447,
+			"volume_quote": 393518373.516815
+		},
+		{
+			"time": 1773273599999,
+			"open": 2036.87,
+			"high": 2086.04,
+			"low": 2007.01,
+			"close": 2052.32,
+			"volume_base": 130640.0835,
+			"volume_quote": 267546452.556323
+		},
+		{
+			"time": 1773359999999,
+			"open": 2052.17,
+			"high": 2095.51,
+			"low": 2017.86,
+			"close": 2073.63,
+			"volume_base": 209027.9477,
+			"volume_quote": 431197241.101137
+		},
+		{
+			"time": 1773446399999,
+			"open": 2073.4,
+			"high": 2210.46,
+			"low": 2070.13,
+			"close": 2092.72,
+			"volume_base": 294853.6503,
+			"volume_quote": 630550930.914116
+		},
+		{
+			"time": 1773532799999,
+			"open": 2092.64,
+			"high": 2106.58,
+			"low": 2062,
+			"close": 2096.59,
+			"volume_base": 50942.2465,
+			"volume_quote": 106075976.358472
+		},
+		{
+			"time": 1773619199999,
+			"open": 2096.64,
+			"high": 2203.33,
+			"low": 2055,
+			"close": 2178.55,
+			"volume_base": 105220.0754,
+			"volume_quote": 223847639.318305
+		},
+		{
+			"time": 1773705599999,
+			"open": 2178.6,
+			"high": 2386.17,
+			"low": 2165.25,
+			"close": 2352.95,
+			"volume_base": 267380.8993,
+			"volume_quote": 609541798.663573
+		},
+		{
+			"time": 1773791999999,
+			"open": 2352.95,
+			"high": 2376.83,
+			"low": 2295.26,
+			"close": 2318.01,
+			"volume_base": 188153.8959,
+			"volume_quote": 439040881.364238
+		},
+		{
+			"time": 1773878399999,
+			"open": 2318.03,
+			"high": 2351.11,
+			"low": 2153.08,
+			"close": 2203.6,
+			"volume_base": 175924.5696,
+			"volume_quote": 393646267.088077
+		},
+		{
+			"time": 1773964799999,
+			"open": 2203.61,
+			"high": 2234.17,
+			"low": 2098.95,
+			"close": 2138.16,
+			"volume_base": 157157.0824,
+			"volume_quote": 337993977.299517
+		},
+		{
+			"time": 1774051199999,
+			"open": 2138.01,
+			"high": 2176.79,
+			"low": 2116.45,
+			"close": 2146.06,
+			"volume_base": 107439.455,
+			"volume_quote": 230003460.098728
+		},
+		{
+			"time": 1774137599999,
+			"open": 2146.06,
+			"high": 2167.97,
+			"low": 2070.39,
+			"close": 2084.74,
+			"volume_base": 40091.9635,
+			"volume_quote": 85725627.613481
+		},
+		{
+			"time": 1774223999999,
+			"open": 2084.61,
+			"high": 2126.85,
+			"low": 2025.74,
+			"close": 2053.61,
+			"volume_base": 111432.2216,
+			"volume_quote": 231639245.540659
+		},
+		{
+			"time": 1774310399999,
+			"open": 2053.74,
+			"high": 2198.35,
+			"low": 2022.54,
+			"close": 2151.62,
+			"volume_base": 232644.9637,
+			"volume_quote": 494883057.219707
+		},
+		{
+			"time": 1774396799999,
+			"open": 2151.63,
+			"high": 2175.14,
+			"low": 2102.24,
+			"close": 2155.69,
+			"volume_base": 114260.5048,
+			"volume_quote": 244529976.549272
+		},
+		{
+			"time": 1774483199999,
+			"open": 2155.73,
+			"high": 2199.12,
+			"low": 2145.38,
+			"close": 2168.68,
+			"volume_base": 110101.7003,
+			"volume_quote": 239093040.698627
+		},
+		{
+			"time": 1774569599999,
+			"open": 2168.72,
+			"high": 2171.7,
+			"low": 2033.34,
+			"close": 2059.29,
+			"volume_base": 137156.6862,
+			"volume_quote": 285225925.180054
+		},
+		{
+			"time": 1774655999999,
+			"open": 2059.39,
+			"high": 2076.32,
+			"low": 1968.09,
+			"close": 1991.95,
+			"volume_base": 174972.0316,
+			"volume_quote": 353568098.303598
+		},
+		{
+			"time": 1774742399999,
+			"open": 1991.88,
+			"high": 2046.66,
+			"low": 1982.04,
+			"close": 1993.74,
+			"volume_base": 65588.4801,
+			"volume_quote": 131580838.43964
+		},
+		{
+			"time": 1774828799999,
+			"open": 1993.75,
+			"high": 2018.67,
+			"low": 1937.62,
+			"close": 1983.52,
+			"volume_base": 81770.9606,
+			"volume_quote": 162120238.149469
+		},
+		{
+			"time": 1774915199999,
+			"open": 1983.56,
+			"high": 2084.22,
+			"low": 1979.08,
+			"close": 2025.57,
+			"volume_base": 120106.6212,
+			"volume_quote": 245200315.435198
+		},
+		{
+			"time": 1775001599999,
+			"open": 2025.58,
+			"high": 2122.48,
+			"low": 2011.3,
+			"close": 2104.36,
+			"volume_base": 178915.489,
+			"volume_quote": 370791545.111283
+		},
+		{
+			"time": 1775087999999,
+			"open": 2104.44,
+			"high": 2167.77,
+			"low": 2081,
+			"close": 2140.22,
+			"volume_base": 158766.5612,
+			"volume_quote": 338345621.776799
+		},
+		{
+			"time": 1775174399999,
+			"open": 2140.17,
+			"high": 2159.35,
+			"low": 2016.32,
+			"close": 2057.21,
+			"volume_base": 145084.9776,
+			"volume_quote": 299862715.626206
+		},
+		{
+			"time": 1775260799999,
+			"open": 2057.03,
+			"high": 2081.66,
+			"low": 2039.69,
+			"close": 2053.6,
+			"volume_base": 53073.8587,
+			"volume_quote": 109067547.361472
+		},
+		{
+			"time": 1775347199999,
+			"open": 2053.6,
+			"high": 2084.85,
+			"low": 2044.17,
+			"close": 2065.22,
+			"volume_base": 38772.037,
+			"volume_quote": 79899296.177878
+		},
+		{
+			"time": 1775433599999,
+			"open": 2065.29,
+			"high": 2122.78,
+			"low": 2019.26,
+			"close": 2109.66,
+			"volume_base": 73193.957,
+			"volume_quote": 150849325.670922
+		},
+		{
+			"time": 1775519999999,
+			"open": 2109.67,
+			"high": 2174.35,
+			"low": 2088.34,
+			"close": 2107.29,
+			"volume_base": 121932.1258,
+			"volume_quote": 260869611.9579
+		},
+		{
+			"time": 1775606399999,
+			"open": 2107.51,
+			"high": 2273.3,
+			"low": 2060.34,
+			"close": 2240.01,
+			"volume_base": 140580.0515,
+			"volume_quote": 299794498.155046
+		},
+		{
+			"time": 1775692799999,
+			"open": 2240,
+			"high": 2270.91,
+			"low": 2178.75,
+			"close": 2190.31,
+			"volume_base": 118079.3348,
+			"volume_quote": 263271889.992113
+		},
+		{
+			"time": 1775779199999,
+			"open": 2190.3,
+			"high": 2246.55,
+			"low": 2157.08,
+			"close": 2190.47,
+			"volume_base": 181074.9477,
+			"volume_quote": 397223177.851197
+		},
+		{
+			"time": 1775865599999,
+			"open": 2190.47,
+			"high": 2258.58,
+			"low": 2176.71,
+			"close": 2246.23,
+			"volume_base": 175330.3503,
+			"volume_quote": 389206248.393304
+		},
+		{
+			"time": 1775951999999,
+			"open": 2246.23,
+			"high": 2331.26,
+			"low": 2230.19,
+			"close": 2286,
+			"volume_base": 110359.4301,
+			"volume_quote": 251446552.862149
+		},
+		{
+			"time": 1776038399999,
+			"open": 2286.05,
+			"high": 2289.77,
+			"low": 2175.35,
+			"close": 2191.9,
+			"volume_base": 176630.3266,
+			"volume_quote": 390470167.855895
+		},
+		{
+			"time": 1776124799999,
+			"open": 2192.09,
+			"high": 2396,
+			"low": 2176.05,
+			"close": 2370.6,
+			"volume_base": 254713.5972,
+			"volume_quote": 573998695.240198
+		},
+		{
+			"time": 1776211199999,
+			"open": 2370.61,
+			"high": 2417.23,
+			"low": 2304.6,
+			"close": 2323.63,
+			"volume_base": 267882.3419,
+			"volume_quote": 632929968.636779
+		},
+		{
+			"time": 1776297599999,
+			"open": 2323.63,
+			"high": 2386.78,
+			"low": 2308.63,
+			"close": 2360.79,
+			"volume_base": 185220.3604,
+			"volume_quote": 433561927.924768
+		},
+		{
+			"time": 1776383999999,
+			"open": 2360.8,
+			"high": 2370.4,
+			"low": 2285.28,
+			"close": 2349.12,
+			"volume_base": 240814.4151,
+			"volume_quote": 562110320.794783
+		},
+		{
+			"time": 1776470399999,
+			"open": 2349.07,
+			"high": 2466.58,
+			"low": 2317.74,
+			"close": 2420.1,
+			"volume_base": 156447.4698,
+			"volume_quote": 374923282.631931
+		},
+		{
+			"time": 1776556799999,
+			"open": 2420.09,
+			"high": 2428.65,
+			"low": 2339.74,
+			"close": 2351.5,
+			"volume_base": 85401.5437,
+			"volume_quote": 202488951.307273
+		},
+		{
+			"time": 1776643199999,
+			"open": 2351.51,
+			"high": 2356.46,
+			"low": 2253.33,
+			"close": 2264.43,
+			"volume_base": 148179.4302,
+			"volume_quote": 342780239.14033
+		},
+		{
+			"time": 1776729599999,
+			"open": 2264.44,
+			"high": 2348.13,
+			"low": 2260.89,
+			"close": 2315.28,
+			"volume_base": 106819.6871,
+			"volume_quote": 246557785.170519
+		},
+		{
+			"time": 1776815999999,
+			"open": 2315.01,
+			"high": 2339.97,
+			"low": 2285.42,
+			"close": 2328.16,
+			"volume_base": 96354.9323,
+			"volume_quote": 222951644.59356
+		},
+		{
+			"time": 1776902399999,
+			"open": 2328.17,
+			"high": 2424.83,
+			"low": 2313.83,
+			"close": 2375.41,
+			"volume_base": 133241.7132,
+			"volume_quote": 317900955.555968
+		},
+		{
+			"time": 1776988799999,
+			"open": 2375.47,
+			"high": 2383.26,
+			"low": 2286.29,
+			"close": 2331.27,
+			"volume_base": 97719.4556,
+			"volume_quote": 227837034.005626
+		},
+		{
+			"time": 1777075199999,
+			"open": 2331.31,
+			"high": 2338.59,
+			"low": 2301.05,
+			"close": 2316.19,
+			"volume_base": 65601.6012,
+			"volume_quote": 152125230.460147
+		},
+		{
+			"time": 1777161599999,
+			"open": 2316,
+			"high": 2324.03,
+			"low": 2301.44,
+			"close": 2320.28,
+			"volume_base": 20528.0325,
+			"volume_quote": 47539117.918754
+		},
+		{
+			"time": 1777247999999,
+			"open": 2320.28,
+			"high": 2381.07,
+			"low": 2307.51,
+			"close": 2370.34,
+			"volume_base": 39318.9744,
+			"volume_quote": 92403565.258772
+		},
+		{
+			"time": 1777334399999,
+			"open": 2370.4,
+			"high": 2405.59,
+			"low": 2266,
+			"close": 2303.99,
+			"volume_base": 80054.2211,
+			"volume_quote": 186007994.301603
+		},
+		{
+			"time": 1777420799999,
+			"open": 2304,
+			"high": 2311,
+			"low": 2257.82,
+			"close": 2289.57,
+			"volume_base": 51277.0269,
+			"volume_quote": 117094431.7578
+		},
+		{
+			"time": 1777507199999,
+			"open": 2289.33,
+			"high": 2347,
+			"low": 2220,
+			"close": 2252.33,
+			"volume_base": 125909.6391,
+			"volume_quote": 287901985.642342
+		},
+		{
+			"time": 1777593599999,
+			"open": 2252.33,
+			"high": 2278.63,
+			"low": 2231.04,
+			"close": 2257.42,
+			"volume_base": 59576.12,
+			"volume_quote": 134555555.664119
+		},
+		{
+			"time": 1777679999999,
+			"open": 2257.46,
+			"high": 2325.7,
+			"low": 2256.9,
+			"close": 2295.64,
+			"volume_base": 67957.0753,
+			"volume_quote": 155908118.072621
+		},
+		{
+			"time": 1777766399999,
+			"open": 2295.64,
+			"high": 2342.85,
+			"low": 2292.74,
+			"close": 2317.08,
+			"volume_base": 30930.8813,
+			"volume_quote": 71499500.276837
+		},
+		{
+			"time": 1777852799999,
+			"open": 2317.08,
+			"high": 2356.91,
+			"low": 2297.51,
+			"close": 2322.88,
+			"volume_base": 66476.3399,
+			"volume_quote": 154812538.851047
+		},
+		{
+			"time": 1777939199999,
+			"open": 2322.88,
+			"high": 2399.7,
+			"low": 2309.21,
+			"close": 2347.32,
+			"volume_base": 217357.9729,
+			"volume_quote": 512075237.506063
+		},
+		{
+			"time": 1778025599999,
+			"open": 2347.32,
+			"high": 2400,
+			"low": 2344.95,
+			"close": 2360.77,
+			"volume_base": 134467.6571,
+			"volume_quote": 319675507.226547
+		},
+		{
+			"time": 1778111999999,
+			"open": 2360.75,
+			"high": 2423.96,
+			"low": 2337.7,
+			"close": 2351.03,
+			"volume_base": 151448.0488,
+			"volume_quote": 359745645.265324
+		},
+		{
+			"time": 1778198399999,
+			"open": 2351.03,
+			"high": 2352.73,
+			"low": 2280.07,
+			"close": 2291.21,
+			"volume_base": 152798.3578,
+			"volume_quote": 352970065.283772
+		},
+		{
+			"time": 1778284799999,
+			"open": 2291.22,
+			"high": 2321.47,
+			"low": 2265.65,
+			"close": 2307.39,
+			"volume_base": 137721.7233,
+			"volume_quote": 315500576.289038
+		},
+		{
+			"time": 1778371199999,
+			"open": 2307.4,
+			"high": 2338.5,
+			"low": 2298.39,
+			"close": 2326.61,
+			"volume_base": 72281.0943,
+			"volume_quote": 167607942.807291
+		},
+		{
+			"time": 1778457599999,
+			"open": 2326.58,
+			"high": 2382.6,
+			"low": 2311.55,
+			"close": 2371.35,
+			"volume_base": 131694.1256,
+			"volume_quote": 309004291.934478
+		},
+		{
+			"time": 1778543999999,
+			"open": 2371.21,
+			"high": 2375.13,
+			"low": 2303.69,
+			"close": 2339.77,
+			"volume_base": 139900.3691,
+			"volume_quote": 326793813.716566
+		},
+		{
+			"time": 1778630399999,
+			"open": 2339.77,
+			"high": 2340.7,
+			"low": 2256.26,
+			"close": 2275.14,
+			"volume_base": 109557.8113,
+			"volume_quote": 251008052.412716
+		},
+		{
+			"time": 1778716799999,
+			"open": 2274.96,
+			"high": 2323.2,
+			"low": 2233.84,
+			"close": 2258.31,
+			"volume_base": 117460.0242,
+			"volume_quote": 267502810.133711
+		},
+		{
+			"time": 1778803199999,
+			"open": 2258.31,
+			"high": 2319.36,
+			"low": 2238.05,
+			"close": 2283.46,
+			"volume_base": 120858.9352,
+			"volume_quote": 275605156.265417
+		},
+		{
+			"time": 1778889599999,
+			"open": 2283.47,
+			"high": 2300.47,
+			"low": 2204.53,
+			"close": 2223.77,
+			"volume_base": 127303.7418,
+			"volume_quote": 285451282.517628
+		},
+		{
+			"time": 1778975999999,
+			"open": 2223.91,
+			"high": 2230.86,
+			"low": 2161,
+			"close": 2180.16,
+			"volume_base": 67319.8699,
+			"volume_quote": 147312028.801718
+		},
+		{
+			"time": 1779062399999,
+			"open": 2180.32,
+			"high": 2197.79,
+			"low": 2093.2,
+			"close": 2130.25,
+			"volume_base": 67481.7784,
+			"volume_quote": 146148158.920423
+		},
+		{
+			"time": 1779148799999,
+			"open": 2130.25,
+			"high": 2157,
+			"low": 2077.01,
+			"close": 2129.12,
+			"volume_base": 148939.7407,
+			"volume_quote": 315290334.251512
+		},
+		{
+			"time": 1779235199999,
+			"open": 2129.13,
+			"high": 2145.98,
+			"low": 2093.42,
+			"close": 2110.63,
+			"volume_base": 90609.0355,
+			"volume_quote": 192078713.848378
+		},
+		{
+			"time": 1779321599999,
+			"open": 2110.69,
+			"high": 2148.14,
+			"low": 2101.76,
+			"close": 2128.24,
+			"volume_base": 76223.1921,
+			"volume_quote": 162187614.477811
+		},
+		{
+			"time": 1779407999999,
+			"open": 2128.25,
+			"high": 2156.86,
+			"low": 2103.47,
+			"close": 2132.25,
+			"volume_base": 86749.4549,
+			"volume_quote": 184831381.264992
+		},
+		{
+			"time": 1779494399999,
+			"open": 2132.4,
+			"high": 2140,
+			"low": 2055.29,
+			"close": 2064.31,
+			"volume_base": 141881.5458,
+			"volume_quote": 298695532.366107
+		},
+		{
+			"time": 1779580799999,
+			"open": 2064.32,
+			"high": 2147.96,
+			"low": 2007.19,
+			"close": 2115.7,
+			"volume_base": 161819.81,
+			"volume_quote": 336123247.118477
+		},
+		{
+			"time": 1779667199999,
+			"open": 2115.7,
+			"high": 2129.72,
+			"low": 2060.65,
+			"close": 2097.85,
+			"volume_base": 99961.3905,
+			"volume_quote": 210385331.584921
+		},
+		{
+			"time": 1779753599999,
+			"open": 2097.9,
+			"high": 2140.59,
+			"low": 2090.3,
+			"close": 2111.49,
+			"volume_base": 91847.8908,
+			"volume_quote": 194075987.084684
+		},
+		{
+			"time": 1779839999999,
+			"open": 2111.48,
+			"high": 2138.84,
+			"low": 2053,
+			"close": 2071.54,
+			"volume_base": 149541.8067,
+			"volume_quote": 313622119.536656
+		},
+		{
+			"time": 1779926399999,
+			"open": 2071.79,
+			"high": 2094.71,
+			"low": 2013.33,
+			"close": 2022.5,
+			"volume_base": 119629.2912,
+			"volume_quote": 246458897.172533
+		},
+		{
+			"time": 1780012799999,
+			"open": 2022.46,
+			"high": 2027.95,
+			"low": 1965.07,
+			"close": 2007.98,
+			"volume_base": 152830.1908,
+			"volume_quote": 304794229.714481
+		},
+		{
+			"time": 1780099199999,
+			"open": 2007.89,
+			"high": 2044.25,
+			"low": 1974.46,
+			"close": 2012.56,
+			"volume_base": 118669.9678,
+			"volume_quote": 238849467.922881
+		},
+		{
+			"time": 1780185599999,
+			"open": 2012.54,
+			"high": 2029.98,
+			"low": 2000.17,
+			"close": 2020.4,
+			"volume_base": 41562.3113,
+			"volume_quote": 83904880.122791
+		},
+		{
+			"time": 1780271999999,
+			"open": 2020.4,
+			"high": 2035.91,
+			"low": 1992,
+			"close": 2005.04,
+			"volume_base": 55495.8296,
+			"volume_quote": 111728884.51312
+		},
+		{
+			"time": 1780358399999,
+			"open": 2005.05,
+			"high": 2019.39,
+			"low": 1955,
+			"close": 2004.8,
+			"volume_base": 200317.0629,
+			"volume_quote": 397585522.460074
+		},
+		{
+			"time": 1780444799999,
+			"open": 2004.8,
+			"high": 2005.12,
+			"low": 1836.17,
+			"close": 1858.14,
+			"volume_base": 283975.3905,
+			"volume_quote": 548451902.611844
+		},
+		{
+			"time": 1780531199999,
+			"open": 1858.14,
+			"high": 1891.15,
+			"low": 1767.81,
+			"close": 1811.37,
+			"volume_base": 240180.7395,
+			"volume_quote": 442817750.988645
+		},
+		{
+			"time": 1780617599999,
+			"open": 1811.37,
+			"high": 1818.66,
+			"low": 1716.23,
+			"close": 1769.41,
+			"volume_base": 280914.0726,
+			"volume_quote": 497440353.320618
+		},
+		{
+			"time": 1780703999999,
+			"open": 1769.39,
+			"high": 1773.63,
+			"low": 1539.45,
+			"close": 1583.47,
+			"volume_base": 392247.5011,
+			"volume_quote": 639623181.887494
+		},
+		{
+			"time": 1780790399999,
+			"open": 1583.5,
+			"high": 1601.28,
+			"low": 1505.34,
+			"close": 1569.35,
+			"volume_base": 307345.9713,
+			"volume_quote": 478856577.977189
+		},
+		{
+			"time": 1780876799999,
+			"open": 1569.29,
+			"high": 1720.51,
+			"low": 1563.76,
+			"close": 1690.4,
+			"volume_base": 213132.5453,
+			"volume_quote": 345754097.943602
+		},
+		{
+			"time": 1780963199999,
+			"open": 1690.31,
+			"high": 1714.43,
+			"low": 1644.71,
+			"close": 1690.32,
+			"volume_base": 209398.4191,
+			"volume_quote": 352512238.335778
+		},
+		{
+			"time": 1781049599999,
+			"open": 1690.2,
+			"high": 1696.79,
+			"low": 1613.11,
+			"close": 1638.92,
+			"volume_base": 169040.1933,
+			"volume_quote": 280605468.43928
+		},
+		{
+			"time": 1781135999999,
+			"open": 1638.93,
+			"high": 1667.17,
+			"low": 1602,
+			"close": 1620.59,
+			"volume_base": 141773.6786,
+			"volume_quote": 231277317.779304
+		},
+		{
+			"time": 1781222399999,
+			"open": 1620.47,
+			"high": 1692.19,
+			"low": 1620.47,
+			"close": 1672.3,
+			"volume_base": 128833.8448,
+			"volume_quote": 213727642.524633
+		},
+		{
+			"time": 1781308799999,
+			"open": 1672.38,
+			"high": 1690.47,
+			"low": 1650.51,
+			"close": 1665.99,
+			"volume_base": 89608.6734,
+			"volume_quote": 149574021.175735
+		},
+		{
+			"time": 1781395199999,
+			"open": 1665.98,
+			"high": 1697,
+			"low": 1661.7,
+			"close": 1680.88,
+			"volume_base": 49016.7067,
+			"volume_quote": 82117346.682648
+		},
+		{
+			"time": 1781481599999,
+			"open": 1680.91,
+			"high": 1731.7,
+			"low": 1654.18,
+			"close": 1725.24,
+			"volume_base": 75633.0771,
+			"volume_quote": 127910765.824249
+		},
+		{
+			"time": 1781567999999,
+			"open": 1725.21,
+			"high": 1848.73,
+			"low": 1709.14,
+			"close": 1795.48,
+			"volume_base": 188134.1912,
+			"volume_quote": 334979500.929702
+		},
+		{
+			"time": 1781654399999,
+			"open": 1795.49,
+			"high": 1838.88,
+			"low": 1757.45,
+			"close": 1791.89,
+			"volume_base": 139059.4537,
+			"volume_quote": 248898104.821154
+		},
+		{
+			"time": 1781740799999,
+			"open": 1791.9,
+			"high": 1809.09,
+			"low": 1724.33,
+			"close": 1749.44,
+			"volume_base": 169080.51,
+			"volume_quote": 298224966.079111
+		},
+		{
+			"time": 1781827199999,
+			"open": 1749.37,
+			"high": 1761.8,
+			"low": 1669.63,
+			"close": 1709.54,
+			"volume_base": 126476.3982,
+			"volume_quote": 217462622.16897
+		},
+		{
+			"time": 1781913599999,
+			"open": 1709.54,
+			"high": 1718.09,
+			"low": 1677.79,
+			"close": 1710,
+			"volume_base": 73476.8065,
+			"volume_quote": 124817025.398558
+		},
+		{
+			"time": 1781999999999,
+			"open": 1709.95,
+			"high": 1748.21,
+			"low": 1702.8,
+			"close": 1739.2,
+			"volume_base": 66518.6558,
+			"volume_quote": 114905503.493293
+		},
+		{
+			"time": 1782086399999,
+			"open": 1739.2,
+			"high": 1739.82,
+			"low": 1700.17,
+			"close": 1705.29,
+			"volume_base": 47370.4605,
+			"volume_quote": 81628153.979006
+		},
+		{
+			"time": 1782172799999,
+			"open": 1705.41,
+			"high": 1778.33,
+			"low": 1705.41,
+			"close": 1726.82,
+			"volume_base": 99505.3967,
+			"volume_quote": 173591576.413984
+		},
+		{
+			"time": 1782259199999,
+			"open": 1726.72,
+			"high": 1734.87,
+			"low": 1633.33,
+			"close": 1665.52,
+			"volume_base": 85077.1266,
+			"volume_quote": 142060986.351603
+		},
+		{
+			"time": 1782345599999,
+			"open": 1665.53,
+			"high": 1691.49,
+			"low": 1550.99,
+			"close": 1620.09,
+			"volume_base": 145247.3634,
+			"volume_quote": 235406229.144726
+		},
+		{
+			"time": 1782431999999,
+			"open": 1620.1,
+			"high": 1658.57,
+			"low": 1530.9,
+			"close": 1566.06,
+			"volume_base": 176696.5177,
+			"volume_quote": 281093778.938579
+		},
+		{
+			"time": 1782518399999,
+			"open": 1566.06,
+			"high": 1592.75,
+			"low": 1510.31,
+			"close": 1576.85,
+			"volume_base": 171387.1314,
+			"volume_quote": 266674458.992848
+		},
+		{
+			"time": 1782604799999,
+			"open": 1576.85,
+			"high": 1608.99,
+			"low": 1561.08,
+			"close": 1572.1,
+			"volume_base": 59891.3234,
+			"volume_quote": 94860427.010408
+		},
+		{
+			"time": 1782691199999,
+			"open": 1572.09,
+			"high": 1587.14,
+			"low": 1546.3,
+			"close": 1570.19,
+			"volume_base": 64606.4471,
+			"volume_quote": 101464021.110839
+		},
+		{
+			"time": 1782777599999,
+			"open": 1570.2,
+			"high": 1636.15,
+			"low": 1548.14,
+			"close": 1611.48,
+			"volume_base": 130669.7292,
+			"volume_quote": 207225155.517574
+		},
+		{
+			"time": 1782863999999,
+			"open": 1611.31,
+			"high": 1612.9,
+			"low": 1548.21,
+			"close": 1570.19,
+			"volume_base": 101017.4179,
+			"volume_quote": 158970517.255203
+		},
+		{
+			"time": 1782950399999,
+			"open": 1570.18,
+			"high": 1645.46,
+			"low": 1551.06,
+			"close": 1608.38,
+			"volume_base": 79124.3619,
+			"volume_quote": 126270587.877442
+		},
+		{
+			"time": 1783036799999,
+			"open": 1608.4,
+			"high": 1723.45,
+			"low": 1595.94,
+			"close": 1699.04,
+			"volume_base": 119511.0388,
+			"volume_quote": 199036201.303307
+		},
+		{
+			"time": 1783123199999,
+			"open": 1699.06,
+			"high": 1775.21,
+			"low": 1693.19,
+			"close": 1756.81,
+			"volume_base": 102353.0354,
+			"volume_quote": 177410791.690482
+		},
+		{
+			"time": 1783209599999,
+			"open": 1756.81,
+			"high": 1806.76,
+			"low": 1742.86,
+			"close": 1779.47,
+			"volume_base": 79627.218,
+			"volume_quote": 141375763.478819
+		},
+		{
+			"time": 1783295999999,
+			"open": 1779.53,
+			"high": 1806.99,
+			"low": 1747.95,
+			"close": 1784.7,
+			"volume_base": 70895.6609,
+			"volume_quote": 125648328.732973
+		},
+		{
+			"time": 1783382399999,
+			"open": 1784.73,
+			"high": 1832.53,
+			"low": 1727.71,
+			"close": 1798.71,
+			"volume_base": 119095.6423,
+			"volume_quote": 211227996.642505
+		},
+		{
+			"time": 1783468799999,
+			"open": 1798.75,
+			"high": 1812.06,
+			"low": 1756.73,
+			"close": 1770.57,
+			"volume_base": 111553.8073,
+			"volume_quote": 198778258.33752
+		},
+		{
+			"time": 1783555199999,
+			"open": 1770.42,
+			"high": 1784.18,
+			"low": 1712.09,
+			"close": 1742.43,
+			"volume_base": 120479.9715,
+			"volume_quote": 209775664.535868
+		},
+		{
+			"time": 1783641599999,
+			"open": 1742.39,
+			"high": 1761.34,
+			"low": 1720.5,
+			"close": 1744.26,
+			"volume_base": 94463.8625,
+			"volume_quote": 164665882.13817
+		},
+		{
+			"time": 1783727999999,
+			"open": 1744.27,
+			"high": 1811.45,
+			"low": 1736.65,
+			"close": 1796.1,
+			"volume_base": 110005.3392,
+			"volume_quote": 196312751.70861
+		},
+		{
+			"time": 1783814399999,
+			"open": 1796.09,
+			"high": 1829.37,
+			"low": 1785.76,
+			"close": 1786.99,
+			"volume_base": 68360.2336,
+			"volume_quote": 123548055.672439
+		},
+		{
+			"time": 1783900799999,
+			"open": 1786.94,
+			"high": 1825.92,
+			"low": 1778.63,
+			"close": 1806,
+			"volume_base": 70564.6802,
+			"volume_quote": 127387563.277176
+		},
+		{
+			"time": 1783987199999,
+			"open": 1806.05,
+			"high": 1845,
+			"low": 1748.68,
+			"close": 1774.88,
+			"volume_base": 134362.1098,
+			"volume_quote": 239926882.003461
+		},
+		{
+			"time": 1784073599999,
+			"open": 1774.79,
+			"high": 1895.73,
+			"low": 1771.66,
+			"close": 1890.8,
+			"volume_base": 155233.3755,
+			"volume_quote": 285230216.759151
+		},
+		{
+			"time": 1784159999999,
+			"open": 1891,
+			"high": 1945.23,
+			"low": 1863.49,
+			"close": 1917.17,
+			"volume_base": 132356.7176,
+			"volume_quote": 252530491.786792
+		},
+		{
+			"time": 1784246399999,
+			"open": 1917.17,
+			"high": 1928.58,
+			"low": 1856.49,
+			"close": 1863.49,
+			"volume_base": 125409.0991,
+			"volume_quote": 236866357.189209
+		},
+		{
+			"time": 1784332799999,
+			"open": 1863.36,
+			"high": 1869.83,
+			"low": 1802.16,
+			"close": 1840.92,
+			"volume_base": 90617.16,
+			"volume_quote": 166541026.8462
+		},
+		{
+			"time": 1784419199999,
+			"open": 1841.04,
+			"high": 1866.47,
+			"low": 1836.25,
+			"close": 1861.68,
+			"volume_base": 40278.3835,
+			"volume_quote": 74486452.674643
+		},
+		{
+			"time": 1784505599999,
+			"open": 1861.68,
+			"high": 1878.39,
+			"low": 1849.14,
+			"close": 1871.23,
+			"volume_base": 67767.2598,
+			"volume_quote": 126491536.500996
+		},
+		{
+			"time": 1784591999999,
+			"open": 1871.24,
+			"high": 1916.99,
+			"low": 1841.56,
+			"close": 1904.05,
+			"volume_base": 167646.4632,
+			"volume_quote": 314949089.626795
+		},
+		{
+			"time": 1784678399999,
+			"open": 1904.05,
+			"high": 1952.53,
+			"low": 1899.62,
+			"close": 1929.06,
+			"volume_base": 135860.6269,
+			"volume_quote": 261839767.432316
+		},
+		{
+			"time": 1784764799999,
+			"open": 1929.07,
+			"high": 1955.64,
+			"low": 1909.55,
+			"close": 1933.27,
+			"volume_base": 117114.0909,
+			"volume_quote": 226137718.200478
+		},
+		{
+			"time": 1784851199999,
+			"open": 1933.27,
+			"high": 1940.74,
+			"low": 1867.57,
+			"close": 1877.28,
+			"volume_base": 122023.3026,
+			"volume_quote": 232394505.642233
+		},
+		{
+			"time": 1784937599999,
+			"open": 1877.29,
+			"high": 1908.56,
+			"low": 1846.39,
+			"close": 1860,
+			"volume_base": 125367.4342,
+			"volume_quote": 234364538.368103
+		},
+		{
+			"time": 1785023999999,
+			"open": 1859.89,
+			"high": 1875.44,
+			"low": 1849.61,
+			"close": 1873.3,
+			"volume_base": 48577.3642,
+			"volume_quote": 90458929.170282
+		},
+		{
+			"time": 1785110399999,
+			"open": 1873.29,
+			"high": 1965.68,
+			"low": 1872.27,
+			"close": 1953.1,
+			"volume_base": 75956.0226,
+			"volume_quote": 145237162.441911
+		},
+		{
+			"time": 1785196799999,
+			"open": 1953.11,
+			"high": 1980.3,
+			"low": 1880.9,
+			"close": 1890.78,
+			"volume_base": 175364.9857,
+			"volume_quote": 340844818.525293
+		},
+		{
+			"time": 1785283199999,
+			"open": 1890.77,
+			"high": 1928.05,
+			"low": 1855,
+			"close": 1920.01,
+			"volume_base": 111916.0892,
+			"volume_quote": 211347599.583101
+		},
+		{
+			"time": 1785369599999,
+			"open": 1920.01,
+			"high": 1933.6,
+			"low": 1871.88,
+			"close": 1908.79,
+			"volume_base": 129095.7223,
+			"volume_quote": 246017714.261278
+		},
+		{
+			"time": 1785455999999,
+			"open": 1908.79,
+			"high": 1935.71,
+			"low": 1891.98,
+			"close": 1917.22,
+			"volume_base": 99265.8361,
+			"volume_quote": 189957831.970533
+		},
+		{
+			"time": 1785542399999,
+			"open": 1917.22,
+			"high": 1935,
+			"low": 1845.41,
+			"close": 1860.99,
+			"volume_base": 133907.119,
+			"volume_quote": 251838111.015168
+		},
+		{
+			"time": 1785628799999,
+			"open": 1860.99,
+			"high": 1874.08,
+			"low": 1820.6,
+			"close": 1843.67,
+			"volume_base": 51964.433,
+			"volume_quote": 96201132.642143
+		},
+		{
+			"time": 1785715199999,
+			"open": 1843.68,
+			"high": 1897.22,
+			"low": 1842.29,
+			"close": 1883.69,
+			"volume_base": 67186.6247,
+			"volume_quote": 125698036.855084
+		},
+		{
+			"time": 1785801599999,
+			"open": 1883.68,
+			"high": 1884.39,
+			"low": 1826.61,
+			"close": 1865.85,
+			"volume_base": 88904.1299,
+			"volume_quote": 165099738.776681
+		}
+	]
+};
 var useOhlcv_default = useOhlcv;
-function size(_a) {
+function size$1(_a) {
 	var width = _a.width, height = _a.height;
 	if (width < 0) throw new Error("Negative width is not allowed for Size");
 	if (height < 0) throw new Error("Negative height is not allowed for Size");
@@ -118592,7 +115738,7 @@ var DevicePixelContentBoxBinding = function() {
 		this._devicePixelRatioObservable = null;
 		this._canvasElementResizeObserver = null;
 		this._canvasElement = canvasElement;
-		this._canvasElementClientSize = size({
+		this._canvasElementClientSize = size$1({
 			width: this._canvasElement.clientWidth,
 			height: this._canvasElement.clientHeight
 		});
@@ -118630,7 +115776,7 @@ var DevicePixelContentBoxBinding = function() {
 	});
 	Object.defineProperty(DevicePixelContentBoxBinding$1.prototype, "bitmapSize", {
 		get: function() {
-			return size({
+			return size$1({
 				width: this.canvasElement.width,
 				height: this.canvasElement.height
 			});
@@ -118639,7 +115785,7 @@ var DevicePixelContentBoxBinding = function() {
 		configurable: true
 	});
 	DevicePixelContentBoxBinding$1.prototype.resizeCanvasElement = function(clientSize) {
-		this._canvasElementClientSize = size(clientSize);
+		this._canvasElementClientSize = size$1(clientSize);
 		this.canvasElement.style.width = "".concat(this._canvasElementClientSize.width, "px");
 		this.canvasElement.style.height = "".concat(this._canvasElementClientSize.height, "px");
 		this._invalidateBitmapSize();
@@ -118689,7 +115835,7 @@ var DevicePixelContentBoxBinding = function() {
 	};
 	DevicePixelContentBoxBinding$1.prototype._suggestNewBitmapSize = function(newSize) {
 		var oldSuggestedSize = this._suggestedBitmapSize;
-		var finalNewSize = size(this._transformBitmapSize(newSize, this._canvasElementClientSize));
+		var finalNewSize = size$1(this._transformBitmapSize(newSize, this._canvasElementClientSize));
 		var newSuggestedSize = equalSizes(this.bitmapSize, finalNewSize) ? null : finalNewSize;
 		if (oldSuggestedSize === null && newSuggestedSize === null) return;
 		if (oldSuggestedSize !== null && newSuggestedSize !== null && equalSizes(oldSuggestedSize, newSuggestedSize)) return;
@@ -118730,7 +115876,7 @@ var DevicePixelContentBoxBinding = function() {
 		if (win === null) return;
 		var ratio = (_b = (_a = this._devicePixelRatioObservable) === null || _a === void 0 ? void 0 : _a.value) !== null && _b !== void 0 ? _b : win.devicePixelRatio;
 		var canvasRects = this._canvasElement.getClientRects();
-		var newSize = canvasRects[0] !== void 0 ? predictedBitmapSize(canvasRects[0], ratio) : size({
+		var newSize = canvasRects[0] !== void 0 ? predictedBitmapSize(canvasRects[0], ratio) : size$1({
 			width: this._canvasElementClientSize.width * ratio,
 			height: this._canvasElementClientSize.height * ratio
 		});
@@ -118745,7 +115891,7 @@ var DevicePixelContentBoxBinding = function() {
 			});
 			if (!entry || !entry.devicePixelContentBoxSize || !entry.devicePixelContentBoxSize[0]) return;
 			var entrySize = entry.devicePixelContentBoxSize[0];
-			var newSize = size({
+			var newSize = size$1({
 				width: entrySize.inlineSize,
 				height: entrySize.blockSize
 			});
@@ -118776,7 +115922,7 @@ function isDevicePixelContentBoxSupported() {
 	});
 }
 function predictedBitmapSize(canvasRect, ratio) {
-	return size({
+	return size$1({
 		width: Math.round(canvasRect.left * ratio + canvasRect.width * ratio) - Math.round(canvasRect.left * ratio),
 		height: Math.round(canvasRect.top * ratio + canvasRect.height * ratio) - Math.round(canvasRect.top * ratio)
 	});
@@ -118947,7 +116093,7 @@ function v(t$11) {
 function m(t$11) {
 	return "string" == typeof t$11;
 }
-function w(t$11) {
+function w$1(t$11) {
 	return "boolean" == typeof t$11;
 }
 function M(t$11) {
@@ -119362,7 +116508,7 @@ var U$1 = class extends H {
 	}
 };
 var $$1 = /[1-9]/g;
-var j = class {
+var j$1 = class {
 	constructor() {
 		this.qt = null;
 	}
@@ -119397,7 +116543,7 @@ var j = class {
 };
 var q$1 = class {
 	constructor(t$11, i$13, n$13) {
-		this.xt = !0, this.Xt = new j(), this.Gt = {
+		this.xt = !0, this.Xt = new j$1(), this.Gt = {
 			It: !1,
 			G: "#4c525e",
 			R: "white",
@@ -120695,7 +117841,7 @@ function Ut$1(t$11) {
 }
 var $t$1 = class {
 	constructor(t$11, i$13) {
-		this.Xt = new j(), this.ta = t$11, this.ia = i$13;
+		this.Xt = new j$1(), this.ta = t$11, this.ia = i$13;
 	}
 	Tt() {
 		return this.Xt.ht({
@@ -123440,13 +120586,13 @@ var yn = class {
 		return this.av;
 	}
 	cv() {
-		return size({
+		return size$1({
 			width: this.ev.cv().width,
 			height: 1
 		});
 	}
 	dv() {
-		return size({
+		return size$1({
 			width: this.ev.dv().width,
 			height: 1 * window.devicePixelRatio
 		});
@@ -123662,12 +120808,12 @@ var zn = class {
 			this.rm || this.yt.am().Qt().mr();
 		}, this.lm = () => {
 			this.rm || this.yt.am().Qt().mr();
-		}, this.yt = i$13, this.yn = n$13, this.ko = n$13.layout, this.wd = s$7, this.om = "left" === e$14, this._m = An("normal", e$14), this.um = An("top", e$14), this.dm = An("bottom", e$14), this.lv = document.createElement("div"), this.lv.style.height = "100%", this.lv.style.overflow = "hidden", this.lv.style.width = "25px", this.lv.style.left = "0", this.lv.style.position = "relative", this.fm = Dn(this.lv, size({
+		}, this.yt = i$13, this.yn = n$13, this.ko = n$13.layout, this.wd = s$7, this.om = "left" === e$14, this._m = An("normal", e$14), this.um = An("top", e$14), this.dm = An("bottom", e$14), this.lv = document.createElement("div"), this.lv.style.height = "100%", this.lv.style.overflow = "hidden", this.lv.style.width = "25px", this.lv.style.left = "0", this.lv.style.position = "relative", this.fm = Dn(this.lv, size$1({
 			width: 16,
 			height: 16
 		})), this.fm.subscribeSuggestedBitmapSizeChanged(this.hm);
 		const r$14 = this.fm.canvasElement;
-		r$14.style.position = "absolute", r$14.style.zIndex = "1", r$14.style.left = "0", r$14.style.top = "0", this.pm = Dn(this.lv, size({
+		r$14.style.position = "absolute", r$14.style.zIndex = "1", r$14.style.left = "0", r$14.style.top = "0", this.pm = Dn(this.lv, size$1({
 			width: 16,
 			height: 16
 		})), this.pm.subscribeSuggestedBitmapSizeChanged(this.lm);
@@ -123908,7 +121054,7 @@ function Wn(t$11, i$13) {
 }
 var Hn = class Hn {
 	constructor(i$13, n$13) {
-		this.Qv = size({
+		this.Qv = size$1({
 			width: 0,
 			height: 0
 		}), this.Lm = null, this.zm = null, this.Om = null, this.Nm = null, this.Fm = !1, this.Wm = new d(), this.Hm = new d(), this.Um = 0, this.$m = !1, this.jm = null, this.qm = !1, this.Ym = null, this.Km = null, this.rm = !1, this.hm = () => {
@@ -123917,12 +121063,12 @@ var Hn = class Hn {
 			this.rm || null === this.Zm || this.sn().mr();
 		}, this.qv = i$13, this.Zm = n$13, this.Zm.fu().i(this.Gm.bind(this), this, !0), this.Xm = document.createElement("td"), this.Xm.style.padding = "0", this.Xm.style.position = "relative";
 		const s$7 = document.createElement("div");
-		s$7.style.width = "100%", s$7.style.height = "100%", s$7.style.position = "relative", s$7.style.overflow = "hidden", this.Jm = document.createElement("td"), this.Jm.style.padding = "0", this.Qm = document.createElement("td"), this.Qm.style.padding = "0", this.Xm.appendChild(s$7), this.fm = Dn(s$7, size({
+		s$7.style.width = "100%", s$7.style.height = "100%", s$7.style.position = "relative", s$7.style.overflow = "hidden", this.Jm = document.createElement("td"), this.Jm.style.padding = "0", this.Qm = document.createElement("td"), this.Qm.style.padding = "0", this.Xm.appendChild(s$7), this.fm = Dn(s$7, size$1({
 			width: 16,
 			height: 16
 		})), this.fm.subscribeSuggestedBitmapSizeChanged(this.hm);
 		const e$14 = this.fm.canvasElement;
-		e$14.style.position = "absolute", e$14.style.zIndex = "1", e$14.style.left = "0", e$14.style.top = "0", this.pm = Dn(s$7, size({
+		e$14.style.position = "absolute", e$14.style.zIndex = "1", e$14.style.left = "0", e$14.style.top = "0", this.pm = Dn(s$7, size$1({
 			width: 16,
 			height: 16
 		})), this.pm.subscribeSuggestedBitmapSizeChanged(this.lm);
@@ -124056,7 +121202,7 @@ var Hn = class Hn {
 		return null === n$13 ? null : Bi(n$13, t$11, i$13);
 	}
 	mw(i$13, n$13) {
-		u("left" === n$13 ? this.Lm : this.zm).Cm(size({
+		u("left" === n$13 ? this.Lm : this.zm).Cm(size$1({
 			width: i$13,
 			height: this.Qv.height
 		}));
@@ -124223,10 +121369,10 @@ var Hn = class Hn {
 };
 var Un = class {
 	constructor(i$13, n$13, s$7, e$14, r$14) {
-		this.xt = !0, this.Qv = size({
+		this.xt = !0, this.Qv = size$1({
 			width: 0,
 			height: 0
-		}), this.hm = () => this.km(3), this.om = "left" === i$13, this.wd = s$7.Zd, this.yn = n$13, this.Tw = e$14, this.Rw = r$14, this.lv = document.createElement("div"), this.lv.style.width = "25px", this.lv.style.height = "100%", this.lv.style.overflow = "hidden", this.fm = Dn(this.lv, size({
+		}), this.hm = () => this.km(3), this.om = "left" === i$13, this.wd = s$7.Zd, this.yn = n$13, this.Tw = e$14, this.Rw = r$14, this.lv = document.createElement("div"), this.lv.style.width = "25px", this.lv.style.height = "100%", this.lv.style.overflow = "hidden", this.fm = Dn(this.lv, size$1({
 			width: 16,
 			height: 16
 		})), this.fm.subscribeSuggestedBitmapSizeChanged(this.hm);
@@ -124275,19 +121421,19 @@ function $n(t$11) {
 var jn = $n("normal"), qn = $n("top"), Yn = $n("bottom");
 var Kn = class {
 	constructor(i$13, n$13) {
-		this.Dw = null, this.Iw = null, this.M = null, this.Vw = !1, this.Qv = size({
+		this.Dw = null, this.Iw = null, this.M = null, this.Vw = !1, this.Qv = size$1({
 			width: 0,
 			height: 0
 		}), this.Bw = new d(), this.im = new rt$1(5), this.rm = !1, this.hm = () => {
 			this.rm || this.qv.Qt().mr();
 		}, this.lm = () => {
 			this.rm || this.qv.Qt().mr();
-		}, this.qv = i$13, this.xu = n$13, this.yn = i$13.N().layout, this.Hv = document.createElement("tr"), this.Ew = document.createElement("td"), this.Ew.style.padding = "0", this.Aw = document.createElement("td"), this.Aw.style.padding = "0", this.lv = document.createElement("td"), this.lv.style.height = "25px", this.lv.style.padding = "0", this.Lw = document.createElement("div"), this.Lw.style.width = "100%", this.Lw.style.height = "100%", this.Lw.style.position = "relative", this.Lw.style.overflow = "hidden", this.lv.appendChild(this.Lw), this.fm = Dn(this.Lw, size({
+		}, this.qv = i$13, this.xu = n$13, this.yn = i$13.N().layout, this.Hv = document.createElement("tr"), this.Ew = document.createElement("td"), this.Ew.style.padding = "0", this.Aw = document.createElement("td"), this.Aw.style.padding = "0", this.lv = document.createElement("td"), this.lv.style.height = "25px", this.lv.style.padding = "0", this.Lw = document.createElement("div"), this.Lw.style.width = "100%", this.Lw.style.height = "100%", this.Lw.style.position = "relative", this.Lw.style.overflow = "hidden", this.lv.appendChild(this.Lw), this.fm = Dn(this.Lw, size$1({
 			width: 16,
 			height: 16
 		})), this.fm.subscribeSuggestedBitmapSizeChanged(this.hm);
 		const s$7 = this.fm.canvasElement;
-		s$7.style.position = "absolute", s$7.style.zIndex = "1", s$7.style.left = "0", s$7.style.top = "0", this.pm = Dn(this.Lw, size({
+		s$7.style.position = "absolute", s$7.style.zIndex = "1", s$7.style.left = "0", s$7.style.top = "0", this.pm = Dn(this.Lw, size$1({
 			width: 16,
 			height: 16
 		})), this.pm.subscribeSuggestedBitmapSizeChanged(this.lm);
@@ -124356,10 +121502,10 @@ var Kn = class {
 		return this.Bw;
 	}
 	Ww(i$13, s$7, e$14) {
-		equalSizes(this.Qv, i$13) || (this.Qv = i$13, this.rm = !0, this.fm.resizeCanvasElement(i$13), this.pm.resizeCanvasElement(i$13), this.rm = !1, this.lv.style.width = `${i$13.width}px`, this.lv.style.height = `${i$13.height}px`, this.Bw.p(i$13)), null !== this.Dw && this.Dw.Cm(size({
+		equalSizes(this.Qv, i$13) || (this.Qv = i$13, this.rm = !0, this.fm.resizeCanvasElement(i$13), this.pm.resizeCanvasElement(i$13), this.rm = !1, this.lv.style.width = `${i$13.width}px`, this.lv.style.height = `${i$13.height}px`, this.Bw.p(i$13)), null !== this.Dw && this.Dw.Cm(size$1({
 			width: s$7,
 			height: i$13.height
-		})), null !== this.Iw && this.Iw.Cm(size({
+		})), null !== this.Iw && this.Iw.Cm(size$1({
 			width: e$14,
 			height: i$13.height
 		}));
@@ -124529,11 +121675,11 @@ var Gn = class {
 		if (this.ho === n$13 && this.C_ === i$13) return;
 		const e$14 = function(i$14) {
 			const n$14 = Math.floor(i$14.width), s$8 = Math.floor(i$14.height);
-			return size({
+			return size$1({
 				width: n$14 - n$14 % 2,
 				height: s$8 - s$8 % 2
 			});
-		}(size({
+		}(size$1({
 			width: i$13,
 			height: n$13
 		}));
@@ -124639,7 +121785,7 @@ var Gn = class {
 			}
 			e$14 += t$11.height;
 		}
-		return size({
+		return size$1({
 			width: s$7,
 			height: e$14
 		});
@@ -124659,12 +121805,12 @@ var Gn = class {
 			const e$15 = this.Gw[i$14];
 			e$15.iw(this.sn.Zn()[i$14]);
 			let r$15 = 0, a$9 = 0;
-			a$9 = i$14 === this.Gw.length - 1 ? Math.ceil((d$7 - p$7) * v$7) / v$7 : Math.round(e$15.z_() * f$4 * v$7) / v$7, r$15 = Math.max(a$9, 2), p$7 += r$15, e$15.Cm(size({
+			a$9 = i$14 === this.Gw.length - 1 ? Math.ceil((d$7 - p$7) * v$7) / v$7 : Math.round(e$15.z_() * f$4 * v$7) / v$7, r$15 = Math.max(a$9, 2), p$7 += r$15, e$15.Cm(size$1({
 				width: h$4,
 				height: r$15
 			})), this.yM() && e$15.mw(n$13, "left"), this.kM() && e$15.mw(s$7, "right"), e$15.Sv() && this.sn.Id(e$15.Sv(), r$15);
 		}
-		this._M.Ww(size({
+		this._M.Ww(size$1({
 			width: l$11 ? h$4 : 0,
 			height: o$9
 		}), l$11 ? n$13 : 0, l$11 ? s$7 : 0), this.sn.N_(h$4), this.Qw !== n$13 && (this.Qw = n$13), this.tM !== s$7 && (this.tM = s$7);
@@ -125884,7 +123030,7 @@ var ne = class {
 };
 function se(t$11) {
 	return function(t$12) {
-		if (w(t$12.handleScale)) {
+		if (w$1(t$12.handleScale)) {
 			const i$14 = t$12.handleScale;
 			t$12.handleScale = {
 				axisDoubleClickReset: {
@@ -125900,16 +123046,16 @@ function se(t$11) {
 			};
 		} else if (void 0 !== t$12.handleScale) {
 			const { axisPressedMouseMove: i$14, axisDoubleClickReset: n$13 } = t$12.handleScale;
-			w(i$14) && (t$12.handleScale.axisPressedMouseMove = {
+			w$1(i$14) && (t$12.handleScale.axisPressedMouseMove = {
 				time: i$14,
 				price: i$14
-			}), w(n$13) && (t$12.handleScale.axisDoubleClickReset = {
+			}), w$1(n$13) && (t$12.handleScale.axisDoubleClickReset = {
 				time: n$13,
 				price: n$13
 			});
 		}
 		const i$13 = t$12.handleScroll;
-		w(i$13) && (t$12.handleScroll = {
+		w$1(i$13) && (t$12.handleScroll = {
 			horzTouchDrag: i$13,
 			vertTouchDrag: i$13,
 			mouseWheel: i$13,
@@ -126265,12 +123411,23 @@ var Ge = {
 	ob: (t$11, i$13) => new Ze(t$11, i$13)
 };
 ({ ...e });
-var import_classnames$3 = /* @__PURE__ */ __toESM(require_classnames(), 1);
-var Chart = ({ chartData, chartContainerRef, chartOptions, className, header, callback = () => {} }) => {
+var import_classnames$11 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var Chart$1 = ({ chartData, chartContainerRef, chartOptions, priceMarkers = [], header, callback = () => {}, className }) => {
 	(0, import_react.useEffect)(() => {
 		if (!chartData) return;
 		const chart = ae(chartContainerRef.current, chartOptions);
-		chart.addSeries(Ge, CANDLESTICK_SERIES_OPTIONS).setData(chartData);
+		const series = chart.addSeries(Ge, CANDLESTICK_SERIES_OPTIONS);
+		series.setData(chartData);
+		priceMarkers.forEach((marker) => {
+			const line$1 = {
+				price: marker.price,
+				title: marker.title,
+				color: marker.color ?? Colors.RED,
+				lineWidth: 1,
+				lineStyle: 2
+			};
+			series.createPriceLine(line$1);
+		});
 		const sizeObserver = new ResizeObserver((entries) => {
 			entries.forEach((entry) => {
 				if (entry.contentBoxSize?.[0]) {
@@ -126288,29 +123445,34 @@ var Chart = ({ chartData, chartContainerRef, chartOptions, className, header, ca
 			sizeObserver.disconnect();
 			chart.remove();
 		};
-	}, [chartData]);
+	}, [chartData, priceMarkers]);
+	const mainClass = className.split(" ")[0];
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: (0, import_classnames$3.default)("App-box", "Chart--container", `${className}--container`),
+		className: (0, import_classnames$11.default)("App-box", "Chart", className),
 		children: [header && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-			className: (0, import_classnames$3.default)("Chart__header", `${className}__header`),
+			className: (0, import_classnames$11.default)("Chart__header", `${mainClass}__header`),
 			children: header
 		}), chartData ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-			className: (0, import_classnames$3.default)("Chart", className),
+			className: (0, import_classnames$11.default)("Chart__content", `${mainClass}__content`),
 			ref: chartContainerRef
 		}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SpinnerBig_default, {})]
 	});
 };
 var CANDLESTICK_SERIES_OPTIONS = {
-	priceLineColor: Colors.CORNFLOWER,
+	priceLineColor: Colors.VIOLET,
 	downColor: Colors.RED,
 	wickDownColor: Colors.RED,
 	upColor: Colors.GREEN,
 	wickUpColor: Colors.GREEN,
+	lastValueVisible: false,
+	priceLineVisible: false,
 	borderVisible: false
 };
-var Chart_default = Chart;
-var import_classnames$2 = /* @__PURE__ */ __toESM(require_classnames(), 1);
-var AssetPriceChart = () => {
+var Chart_default = Chart$1;
+var import_classnames$10 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var AssetPriceChart = ({ estOptions = void 0, estBalance = void 0, isLoading = false }) => {
+	const account = useAccount_default();
+	const assetPrice = useAssetPrice();
 	const [dataFrequency, setDataFrequency] = useLocalStorage_default("AssetPriceChart:dataFrequency", OhlcvConstants_default.CHART_DATA_FREQUENCIES[0]);
 	const chartData = useOhlcv_default(dataFrequency);
 	const [hoveredCandle, setHoveredCandle] = (0, import_react.useState)(null);
@@ -126326,8 +123488,41 @@ var AssetPriceChart = () => {
 		chart.timeScale().applyOptions({ borderColor: Colors.BORDER_COLOR });
 		chart.subscribeCrosshairMove(onCrosshairMove);
 	};
+	const _curLiqPrice = useCurLiqPrice();
+	const curLiqPrice = account?.debt ? _curLiqPrice : void 0;
+	const _estLiqPrice = useLiqPrice_default(estBalance, void 0, estOptions);
+	const estLiqPrice = estOptions ? _estLiqPrice : isUndefined(estOptions) ? void 0 : null;
+	const { isLoading: arePricesLoading } = getIsLoadingAndError(_curLiqPrice);
+	isLoading = isLoading || arePricesLoading;
+	const liqPriceMarkers = (0, import_react.useMemo)(() => {
+		const isEstLiqPriceExpected = isSufficient(estLiqPrice) || estLiqPrice === null;
+		const data = [
+			{
+				title: "Cur.Price",
+				color: Colors.VIOLET
+			},
+			{
+				title: isEstLiqPriceExpected ? "Cur. Liq.Price" : "Liq.Price",
+				color: isEstLiqPriceExpected ? "#732617" : Colors.RED
+			},
+			{ title: "Est. Liq.Price" }
+		];
+		return [
+			assetPrice,
+			curLiqPrice,
+			estLiqPrice
+		].map((price, i$13) => {
+			if (!isSufficient(price)) return;
+			const { title, color: color$2 } = data[i$13];
+			return {
+				price: Number(stringFromBigInt(price)),
+				title,
+				color: color$2
+			};
+		}).filter(filterSufficient);
+	}, [curLiqPrice, estLiqPrice]);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Chart_default, {
-		className: "AssetPriceChart",
+		className: "AssetPriceChart box",
 		header: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChartHeader, {
 			dataFrequency,
 			setDataFrequency,
@@ -126336,6 +123531,7 @@ var AssetPriceChart = () => {
 		chartData,
 		chartContainerRef,
 		chartOptions: OhlcvUtils_default.getChartOptions(chartContainerRef),
+		priceMarkers: liqPriceMarkers,
 		callback: chartCallback
 	});
 };
@@ -126359,8 +123555,9 @@ var DataFrequencyController = ({ dataFrequency, setDataFrequency }) => {
 			const hours$1 = Math.floor(_dataFrequency / HOUR);
 			const _dataFrequencyStr = days$1 > 0 ? `${days$1}D` : hours$1 > 0 ? `${hours$1}h` : `${minutes$1}m`;
 			return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
-				className: (0, import_classnames$2.default)("AssetPriceChart__data-frequency-btn", isChosen && "_chosen"),
-				type: "stroke",
+				className: (0, import_classnames$10.default)("AssetPriceChart__data-frequency-btn", isChosen && "_chosen"),
+				type: "tertiary",
+				size: "small",
 				onClick: () => setDataFrequency(_dataFrequency),
 				children: _dataFrequencyStr
 			}, _dataFrequency);
@@ -126386,7 +123583,7 @@ var Indicators = ({ candle }) => {
 					className: "AssetPriceChart__indicators-item-name",
 					children: name[0].toUpperCase()
 				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-					className: (0, import_classnames$2.default)("AssetPriceChart__indicators-item-value", {
+					className: (0, import_classnames$10.default)("AssetPriceChart__indicators-item-value", {
 						negative: isNegative,
 						positive: !isNegative
 					}),
@@ -126397,6 +123594,6000 @@ var Indicators = ({ candle }) => {
 	});
 };
 var AssetPriceChart_default = AssetPriceChart;
+var import_classnames$9 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var Types = {
+	OPTION: "option",
+	AUTO_SHORT: "auto-short"
+};
+var ProtectionModal = ({ isOpen, setIsOpen }) => {
+	const [chosenLiqPrice, setChosenLiqPrice] = (0, import_react.useState)(null);
+	const [period, setPeriod] = (0, import_react.useState)(null);
+	const strike = useHegicStrike_default(period, chosenLiqPrice);
+	const [cost, setCost] = (0, import_react.useState)(null);
+	const [paymentMethod, setPaymentMethod] = (0, import_react.useState)(PaymentMethods.COLLATERAL);
+	const slippage = useSlippage();
+	const [step, setStep] = (0, import_react.useState)(0);
+	const [txResult, setTxResult] = (0, import_react.useState)(void 0);
+	const [isSubmitting, setIsSubmitting] = (0, import_react.useState)(false);
+	const { buyProtection } = useProtocolActions_default();
+	const mutateAccount = useAccountMutate();
+	const mutateOptions = useHegicOptionsMutate();
+	const txSuccessData = {
+		title: "NoRekt Protection activated!",
+		text: "Your NoRekt protection is now active. You can view the details and manage your coverage in your dashboard"
+	};
+	const txErrorData = {
+		title: "Action failed",
+		text: "Something went wrong while activating protection"
+	};
+	const handleClick = async () => {
+		sendTx_default(buyProtection(strike, cost, paymentMethod, slippage), `Activated protection to drop liq.price to ${formatDollarStr(chosenLiqPrice)}.`, setIsSubmitting, ({ tx }) => {
+			setTxResult({
+				...txSuccessData,
+				hash: tx.hash
+			});
+			mutateAccount();
+			mutateOptions();
+		}, (e$14) => setTxResult({
+			...txErrorData,
+			error: e$14
+		}));
+	};
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TxModal_default, {
+		className: "ProtectionModal",
+		isOpen,
+		setIsOpen,
+		txResult,
+		setTxResult,
+		reset: () => {
+			setStep(0);
+			setChosenLiqPrice(null);
+			setPeriod(null);
+			setCost(null);
+		},
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(BuyStep, {
+			chosenLiqPrice,
+			setChosenLiqPrice,
+			period,
+			setPeriod,
+			cost,
+			setCost,
+			paymentMethod,
+			setPaymentMethod,
+			strike,
+			isSubmitting,
+			setIsSubmitting,
+			goForth: () => setStep(1)
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ReviewStep, {
+			period,
+			cost,
+			isSubmitting,
+			handleClick,
+			goBack: () => setStep(0)
+		})][step]
+	});
+};
+var BuyStep = ({ chosenLiqPrice, setChosenLiqPrice, period, setPeriod, cost, setCost, paymentMethod, setPaymentMethod, strike, isSubmitting, setIsSubmitting, goForth }) => {
+	const contracts$1 = useContracts_default();
+	const account = useAccount_default();
+	const options$2 = useHegicOptions_default();
+	const { OneClickOptions } = contracts$1?.view ?? {};
+	const [type, setType] = (0, import_react.useState)(Types.OPTION);
+	const [isApproved, setIsApproved] = (0, import_react.useState)(void 0);
+	const [estLtv, setEstLtv] = (0, import_react.useState)(null);
+	const [estCollateral, setEstCollateral] = (0, import_react.useState)(null);
+	const [estOptions, setEstOptions] = (0, import_react.useState)(null);
+	const isOption = type === Types.OPTION;
+	const [isCollateral, isWallet] = [paymentMethod === PaymentMethods.COLLATERAL, paymentMethod === PaymentMethods.WALLET];
+	const { isLoading: isLiqPriceLoading } = getIsLoadingAndErrorForMultiple(estCollateral, estOptions, cost);
+	const Approver = useApprover_default(OneClickOptions?.address, "USDC", setIsApproved);
+	(0, import_react.useEffect)(() => {
+		if (!isWallet) return;
+		if (cost) Approver.update(cost);
+		else setIsApproved(void 0);
+	}, [cost]);
+	(0, import_react.useEffect)(() => {
+		if (isWallet && cost) Approver.update(cost);
+		else setIsApproved(void 0);
+	}, [paymentMethod]);
+	(0, import_react.useEffect)(() => {
+		const { isLoading } = getIsLoadingAndError(options$2);
+		if (isLoading) {
+			setEstOptions(void 0);
+			return;
+		}
+		if (!options$2 || !strike) {
+			setEstOptions(null);
+			return;
+		}
+		setEstOptions([...options$2, strike]);
+	}, [strike, options$2]);
+	const getError = () => {
+		if (!isSufficient(chosenLiqPrice)) return "Choose Liq.Price";
+		if (!period) return "Choose period";
+		const { isLoading } = getIsLoadingAndErrorForMultiple(strike, cost, estLtv);
+		const { hasError } = getIsLoadingAndError(strike);
+		if (isLoading) return ButtonLabels.LOADING;
+		if (hasError) return ButtonLabels.ERROR;
+		if (!strike.isLiquid) return "No liquidity";
+		const estLtvZone = Ltv_default.getZone(account, estLtv);
+		if (!isWallet && estLtvZone !== Ltv_default.Zones.GREEN) return ErrorMsg.LOW_LTV;
+		const { isApprovedLoading } = getIsLoadingAndError(isApproved, "approved");
+		if (isWallet && isApprovedLoading) return ButtonLabels.LOADING;
+		if (isSubmitting) {
+			if (isWallet && !isApproved) return ButtonLabels.APPROVING;
+			return ButtonLabels.SUBMITTING;
+		}
+	};
+	const getBtnText = () => {
+		const error = getError();
+		if (error) return error;
+		if (isWallet && !isApproved) return "Approve to Buy Protection";
+		return "Continue";
+	};
+	const getIsDisabled = () => {
+		const error = getError();
+		return Boolean(error);
+	};
+	const handleClick = () => {
+		if (isWallet && !isApproved) {
+			setIsSubmitting(true);
+			return Approver.approve(cost).finally(() => {
+				setIsSubmitting(false);
+				Approver.update(cost);
+			});
+		} else goForth();
+	};
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "ProtectionModal__buy",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { children: "Buy Protection" }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Chart, {
+				estOptions,
+				estCollateral: isCollateral ? estCollateral : null,
+				isLiqPriceLoading
+			}, isCollateral),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "ProtectionModal__body",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TypeRadio, {
+						type,
+						setType
+					}),
+					isOption && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(OptionInputs, {
+						chosenLiqPrice,
+						setChosenLiqPrice,
+						period,
+						setPeriod,
+						setCost,
+						strike
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaymentMethod_default, {
+						method: paymentMethod,
+						setMethod: setPaymentMethod
+					}),
+					isCollateral && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CollateralWarning, {
+						chosenLiqPrice,
+						estCollateral,
+						estOptions,
+						isLiqPriceLoading
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ModalMetrics, {
+						cost,
+						paymentMethod,
+						estOptions,
+						estCollateral,
+						setEstCollateral,
+						estLtv,
+						setEstLtv,
+						isLiqPriceLoading
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TxModal_default.Button, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
+						type: isWallet && isApproved === false ? "green" : "primary",
+						onClick: handleClick,
+						isDisabled: getIsDisabled(),
+						children: getBtnText()
+					}) })
+				]
+			})
+		]
+	});
+};
+var ReviewStep = ({ period, cost, isSubmitting, handleClick, goBack }) => {
+	const [isAgreed, setIsAgreed] = (0, import_react.useState)(false);
+	const expDate = format(Date.now() + period, "dd/MM/yyyy, HH:mm", { in: utc });
+	const getError = () => {
+		if (isSubmitting) return ButtonLabels.SUBMITTING;
+	};
+	const getBtnText = () => {
+		const error = getError();
+		if (error) return error;
+		return "Buy Protection";
+	};
+	const getIsDisabled = () => {
+		if (!isAgreed) return true;
+		const error = getError();
+		return Boolean(error);
+	};
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "ProtectionModal__review",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { children: "Review Protection Terms" }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Metrics_default, { children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "Metrics__row",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "Metrics__row-title",
+						children: "Period of Protection"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "Metrics__row-value",
+						children: [daysFromMs(period), " Days"]
+					})]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "Metrics__row",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "Metrics__row-title",
+						children: "Protection Exp. Date"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "Metrics__row-value _exp-date",
+						children: [expDate, /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "UTC" })]
+					})]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "Metrics__row",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "Metrics__row-title",
+						children: "Protection Cost"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "Metrics__row-value",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmount_default, { value: cost })
+					})]
+				})
+			] }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Checkbox_default, {
+				isChecked: isAgreed,
+				setIsChecked: setIsAgreed,
+				children: "I agree to the terms and understand the costs"
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(TxModal_default.Buttons, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
+				type: "tertiary",
+				onClick: goBack,
+				children: "Back"
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
+				isDisabled: getIsDisabled(),
+				onClick: handleClick,
+				children: getBtnText()
+			})] })
+		]
+	});
+};
+var Chart = ({ estOptions, estCollateral, isLiqPriceLoading }) => {
+	const [_estOptions, _setEstOptions] = (0, import_react.useState)(estOptions);
+	const [_estCollateral, _setEstCollateral] = (0, import_react.useState)(estCollateral);
+	const [isModalOpening, setIsModalOpening] = (0, import_react.useState)(true);
+	(0, import_react.useEffect)(() => {
+		if (!isLiqPriceLoading) {
+			_setEstCollateral(estCollateral);
+			_setEstOptions(estOptions);
+		}
+	}, [isLiqPriceLoading]);
+	(0, import_react.useEffect)(() => {
+		setTimeout(() => setIsModalOpening(false), 300);
+	}, []);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: "ProtectionModal__chart",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(AssetPriceChart_default, {
+			estBalance: _estCollateral,
+			estOptions: _estOptions,
+			isLoading: isModalOpening,
+			isSmall: true
+		})
+	});
+};
+var TypeRadio = ({ type, setType }) => {
+	const types$1 = [{
+		value: Types.OPTION,
+		node: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Tip_default, {
+			tooltipId: "ProtectionModal_option-tooltip",
+			children: "Option"
+		})
+	}, {
+		value: Types.AUTO_SHORT,
+		node: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			"aria-description": "Coming soon!",
+			children: "Auto-short"
+		}),
+		isDisabled: true
+	}];
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Field_default, {
+		className: "ProtectionModal__type",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "Field__title",
+				children: "Choose protection type"
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "Field__content",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Radio_default, {
+					id: "ProtectionModal_type_radio",
+					items: types$1,
+					value: type,
+					setValue: setType
+				})
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Tooltip_default, {
+				id: "ProtectionModal_option-tooltip",
+				children: "Powered by American-style Hegic Options: exercise any time before expiration. If you don’t, they’re auto-exercised 30 min before expiry so you don’t lose any payout."
+			})
+		]
+	});
+};
+var OptionInputs = ({ chosenLiqPrice, setChosenLiqPrice, period, setPeriod, setCost, strike }) => {
+	const [minPeriodDays, maxPeriodDays] = [HegicConstants_default.EXPIRY_PERIODS_DAYS[0], getLast(HegicConstants_default.EXPIRY_PERIODS_DAYS)];
+	const [periodDays, setPeriodDays] = (0, import_react.useState)(minPeriodDays);
+	const slippage = useSlippage();
+	const updateCost = async () => {
+		setCost(getBigIntWithSlippage(strike.premium, slippage));
+	};
+	useDebounce(() => {
+		setPeriod(msInDays(periodDays));
+	}, 200, [periodDays]);
+	(0, import_react.useEffect)(() => {
+		if (isSufficient(chosenLiqPrice) && strike) updateCost();
+		else if (strike === null || !isSufficient(chosenLiqPrice)) setCost(null);
+		else if (isUndefined) setCost(void 0);
+	}, [
+		chosenLiqPrice,
+		strike,
+		slippage
+	]);
+	const getExpStr = () => {
+		if (!isSufficient(period)) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, {});
+		return format(Date.now() + period, "d MMM, HH:mm");
+	};
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "ProtectionModal__option-inputs",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceInput, { setChosenLiqPrice }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: (0, import_classnames$9.default)("ProtectionModal__period", isSufficient(period) && "_active"),
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "ProtectionModal__period-head",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: "Period" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "_result",
+					children: [periodDays, " Days"]
+				})]
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "ProtectionModal__period-slider",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Slider_default, {
+					value: periodDays,
+					setValue: setPeriodDays,
+					min: minPeriodDays,
+					max: maxPeriodDays,
+					step: 1
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "ProtectionModal__period-exp",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: "Expiration Date" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "_result",
+						children: getExpStr()
+					})]
+				})]
+			})]
+		})]
+	});
+};
+var LiqPriceInput = ({ setChosenLiqPrice }) => {
+	const assetPrice = useAssetPrice();
+	const curLiqPrice = useCurLiqPrice();
+	const [chosenLiqPriceStr, setChosenLiqPriceStr] = (0, import_react.useState)("");
+	const [minLiqPrice, maxLiqPrice] = (0, import_react.useMemo)(() => [0n, floorBigInt(multiplyBigIntByNumber(curLiqPrice ?? assetPrice ?? 0n, 2 - STRIKE_COEF))], [curLiqPrice, assetPrice]);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "ProtectionModal__liq-price Field",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "ProtectionModal__liq-price-title Field__title",
+			children: "Liquidation Price"
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "ProtectionModal__liq-price-slider Field__content",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Slider_default, {
+				value: Number(strFromInputString(chosenLiqPriceStr)),
+				setValue: (val) => {
+					setChosenLiqPriceStr(inputStringFromStr(val));
+				},
+				min: Number(stringFromBigInt(minLiqPrice)),
+				max: Number(stringFromBigInt(maxLiqPrice)),
+				step: 10
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Input_default, {
+				valueStrState: [chosenLiqPriceStr, setChosenLiqPriceStr],
+				setValue: setChosenLiqPrice,
+				debounce: 200,
+				maxData: {
+					value: maxLiqPrice,
+					isHidden: true
+				},
+				isZeroSufficient: true
+			})]
+		})]
+	});
+};
+var CollateralWarning = ({ chosenLiqPrice, estCollateral, estOptions, isLiqPriceLoading = false }) => {
+	const liqPrice = useLiqPrice_default(estCollateral, void 0, estOptions);
+	const getText = (liqPrice$1, chosenLiqPrice$1) => {
+		const defaultText = "Paying from collateral reduces your collateral balance, raising the final liquidation price above your target.";
+		if (isLiqPriceLoading || !isEverySufficient(chosenLiqPrice$1, liqPrice$1, estCollateral, estOptions)) return defaultText;
+		const liqPriceStr = formatDollarStr(liqPrice$1);
+		const chosenLiqPriceStr = formatDollarStr(chosenLiqPrice$1);
+		if (liqPriceStr === chosenLiqPriceStr) return defaultText;
+		return `Paying from collateral reduces your collateral balance, raising the final liquidation price to ${liqPriceStr} instead of your ${chosenLiqPriceStr} target.`;
+	};
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Notification_default, {
+		className: "ProtectionModal__collateral-tip",
+		color: "blue",
+		type: "info",
+		children: getText(liqPrice, chosenLiqPrice)
+	});
+};
+var ModalMetrics = ({ cost, paymentMethod, estCollateral, setEstCollateral, estOptions, estLtv, setEstLtv, isLiqPriceLoading }) => {
+	const account = useAccount_default();
+	const contracts$1 = useContracts_default();
+	const slippage = useSlippage();
+	const isCollateral = paymentMethod === PaymentMethods.COLLATERAL;
+	const updateEstCollateral = async () => {
+		setEstCollateral(void 0);
+		const collateralPaid = await swapUsdcToEth(contracts$1, cost, slippage);
+		setEstCollateral(account.balance - collateralPaid);
+	};
+	const updateEstLtv = async () => {
+		setEstLtv(void 0);
+		setEstLtv(await Ltv_default.queryLtvAfterProtect(account, cost, paymentMethod));
+	};
+	(0, import_react.useEffect)(() => {
+		const { isLoading } = getIsLoadingAndError(cost);
+		if (!account || !cost) {
+			setEstCollateral(isLoading ? void 0 : null);
+			setEstLtv(isLoading ? void 0 : null);
+			return;
+		}
+		updateEstCollateral();
+		updateEstLtv();
+	}, [cost]);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Metrics_default, { children: [
+		isCollateral && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "Metrics__row",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "Metrics__row-title",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CollateralStr_default, {})
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "Metrics__row-value",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmountChange_default, {
+					curAmount: account?.balance,
+					estAmount: estCollateral,
+					symbol: "ETH"
+				})
+			})]
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "Metrics__row",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "Metrics__row-title",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Tip_default, {
+					tooltipId: "ProtectionModal_liq-price-tooltip",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceChange_default.Title, {})
+				})
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "Metrics__row-value",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceChange_default, {
+					estBalance: isCollateral ? estCollateral : null,
+					estOptions,
+					isLoading: isLiqPriceLoading
+				})
+			})]
+		}),
+		isCollateral && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "Metrics__row",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "Metrics__row-title",
+				children: "LtV Change"
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "Metrics__row-value",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LtvChange_default, { estLtv })
+			})]
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "Metrics__row",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "Metrics__row-title",
+				children: "Total Cost of Protection"
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "Metrics__row-value",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmount_default, { value: cost })
+			})]
+		}),
+		isCollateral && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "Metrics__row",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "Metrics__row-title",
+				children: "Slippage Control"
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "Metrics__row-value",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Slippage_default, {})
+			})]
+		})
+	] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Tooltip_default, {
+		id: "ProtectionModal_liq-price-tooltip",
+		children: [
+			"If your collateral’s price drops to this level, ",
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
+			"it will be automatically sold to repay your debt. Buying protection can lower this price or remove it entirely"
+		]
+	})] });
+};
+var ProtectionModal_default = ProtectionModal;
+var ClaimModal = ({ isOpen, setIsOpen, position: position$1, setPosition }) => {
+	const account = useAccount_default();
+	const options$2 = useHegicOptions_default();
+	const [estLtv, setEstLtv] = (0, import_react.useState)(null);
+	const [estDebt, setEstDebt] = (0, import_react.useState)(null);
+	const [estOptions, setEstOptions] = (0, import_react.useState)(null);
+	const [isSubmitting, setIsSubmitting] = (0, import_react.useState)(false);
+	const [txResult, setTxResult] = (0, import_react.useState)(void 0);
+	const { claim } = useProtocolActions_default();
+	const mutateAccount = useAccountMutate();
+	const mutateOptions = useHegicOptionsMutate();
+	const txSuccessData = {
+		title: "Claim confirmed!",
+		text: "Your claim has been submitted successfully"
+	};
+	const txErrorData = {
+		title: "Action failed",
+		text: "Something went wrong while claiming your profit"
+	};
+	(0, import_react.useEffect)(() => {
+		if (!account || !position$1) {
+			setEstDebt(null);
+			setEstLtv(null);
+			return;
+		}
+		updateEstDebt();
+		updateEstLtv();
+	}, [position$1]);
+	(0, import_react.useEffect)(() => {
+		if (!options$2 || !position$1) {
+			setEstOptions(null);
+			return;
+		}
+		setEstOptions(options$2.filter((opt) => opt.id !== position$1.id));
+	}, [position$1, options$2]);
+	const getError = () => {
+		if (isSubmitting) return ButtonLabels.SUBMITTING;
+	};
+	const getBtnText = () => {
+		const error = getError();
+		if (error) return error;
+		return "Claim";
+	};
+	const getIsDisabled = () => {
+		const error = getError();
+		return Boolean(error);
+	};
+	const handleClick = async () => {
+		const { id: id$2, profit } = position$1;
+		sendTx_default(claim(id$2, profit), `Claimed ${inputStringFromBigInt(profit)} USDC.`, setIsSubmitting, ({ tx }) => {
+			setTxResult({
+				...txSuccessData,
+				hash: tx.hash
+			});
+			mutateAccount();
+			mutateOptions();
+		}, (e$14) => setTxResult({
+			...txErrorData,
+			error: e$14
+		}));
+	};
+	const updateEstLtv = () => {
+		const repayAmount = minBigInt(position$1.profit, account.debt);
+		setEstLtv(Ltv_default.calcLtvAfterRepay(account, repayAmount));
+	};
+	const updateEstDebt = () => {
+		const repayAmount = minBigInt(position$1.profit, account.debt);
+		setEstDebt(account.debt - repayAmount);
+	};
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(TxModal_default, {
+		className: "ClaimModal",
+		isOpen,
+		setIsOpen,
+		txResult,
+		setTxResult,
+		reset: () => setPosition(null),
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { children: "Claim" }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Metrics_default, {
+				isBoxed: false,
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "Metrics__row",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "Metrics__row-title",
+							children: "Info"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "Metrics__row-value _info-value",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Hedge Contract" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmount_default, {
+								symbol: position$1?.asset,
+								value: position$1?.amount
+							})]
+						})]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "Metrics__row",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "Metrics__row-title",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceChange_default.Title, {})
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "Metrics__row-value",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceChange_default, {
+								estDebt,
+								estOptions
+							})
+						})]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "Metrics__row",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "Metrics__row-title",
+							children: "Debt change"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "Metrics__row-value",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmountChange_default, {
+								curAmount: account?.debt,
+								estAmount: estDebt
+							})
+						})]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "Metrics__row",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "Metrics__row-title",
+							children: "LtV change"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "Metrics__row-value",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LtvChange_default, { estLtv })
+						})]
+					})
+				]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TxModal_default.Button, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
+				onClick: handleClick,
+				isDisabled: getIsDisabled(),
+				children: getBtnText()
+			}) })
+		]
+	});
+};
+var ClaimModal_default = ClaimModal;
+var _DashboardContext = (0, import_react.createContext)({});
+var DashboardContext = ({ children }) => {
+	const [isCreateModalOpen, setIsCreateModalOpen] = (0, import_react.useState)(false);
+	const [isSupplyModalOpen, setIsSupplyModalOpen] = (0, import_react.useState)(false);
+	const [isWithdrawModalOpen, setIsWithdrawModalOpen] = (0, import_react.useState)(false);
+	const [isBorrowModalOpen, setIsBorrowModalOpen] = (0, import_react.useState)(false);
+	const [isRepayModalOpen, setIsRepayModalOpen] = (0, import_react.useState)(false);
+	const [isProtectionModalOpen, setIsProtectionModalOpen] = (0, import_react.useState)(false);
+	const [isClaimModalOpen, setIsClaimModalOpen] = (0, import_react.useState)(false);
+	const [claimModalPosition, setClaimModalPosition] = (0, import_react.useState)(null);
+	const data = {
+		isCreateModalOpen,
+		setIsCreateModalOpen,
+		openCreateModal: () => setIsCreateModalOpen(true),
+		isSupplyModalOpen,
+		setIsSupplyModalOpen,
+		openSupplyModal: () => setIsSupplyModalOpen(true),
+		isWithdrawModalOpen,
+		setIsWithdrawModalOpen,
+		openWithdrawModal: () => setIsWithdrawModalOpen(true),
+		isBorrowModalOpen,
+		setIsBorrowModalOpen,
+		openBorrowModal: () => setIsBorrowModalOpen(true),
+		isRepayModalOpen,
+		setIsRepayModalOpen,
+		openRepayModal: () => setIsRepayModalOpen(true),
+		isProtectionModalOpen,
+		setIsProtectionModalOpen,
+		openProtectionModal: () => setIsProtectionModalOpen(true),
+		isClaimModalOpen,
+		setIsClaimModalOpen,
+		openClaimModal: (position$1) => {
+			setClaimModalPosition(position$1);
+			setIsClaimModalOpen(true);
+		}
+	};
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(_DashboardContext.Provider, {
+		value: data,
+		children: [
+			children,
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CreateAccountModal_default, {
+				isOpen: isCreateModalOpen,
+				setIsOpen: setIsCreateModalOpen
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SupplyModal_default, {
+				isOpen: isSupplyModalOpen,
+				setIsOpen: setIsSupplyModalOpen
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(WithdrawModal_default, {
+				isOpen: isWithdrawModalOpen,
+				setIsOpen: setIsWithdrawModalOpen
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(BorrowModal_default, {
+				isOpen: isBorrowModalOpen,
+				setIsOpen: setIsBorrowModalOpen
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(RepayModal_default, {
+				isOpen: isRepayModalOpen,
+				setIsOpen: setIsRepayModalOpen
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProtectionModal_default, {
+				isOpen: isProtectionModalOpen,
+				setIsOpen: setIsProtectionModalOpen
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ClaimModal_default, {
+				isOpen: isClaimModalOpen,
+				setIsOpen: setIsClaimModalOpen,
+				position: claimModalPosition,
+				setPosition: setClaimModalPosition
+			})
+		]
+	});
+};
+const useDashboardContext = () => {
+	return (0, import_react.useContext)(_DashboardContext);
+};
+var DashboardContext_default = DashboardContext;
+var GetStarted = () => {
+	const { openCreateModal } = useDashboardContext();
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "GetStarted box",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
+				className: "GetStarted__title",
+				children: "Ready to get started?"
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "GetStarted__text text",
+				children: "Create your Lending Account now"
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
+				className: "GetStarted__button",
+				onClick: openCreateModal,
+				children: "Create account"
+			})
+		]
+	});
+};
+var GetStarted_default = GetStarted;
+function toPrimitive(t$11, r$14) {
+	if ("object" != _typeof(t$11) || !t$11) return t$11;
+	var e$14 = t$11[Symbol.toPrimitive];
+	if (void 0 !== e$14) {
+		var i$13 = e$14.call(t$11, r$14 || "default");
+		if ("object" != _typeof(i$13)) return i$13;
+		throw new TypeError("@@toPrimitive must return a primitive value.");
+	}
+	return ("string" === r$14 ? String : Number)(t$11);
+}
+function toPropertyKey(t$11) {
+	var i$13 = toPrimitive(t$11, "string");
+	return "symbol" == _typeof(i$13) ? i$13 : i$13 + "";
+}
+function _defineProperty(e$14, r$14, t$11) {
+	return (r$14 = toPropertyKey(r$14)) in e$14 ? Object.defineProperty(e$14, r$14, {
+		value: t$11,
+		enumerable: !0,
+		configurable: !0,
+		writable: !0
+	}) : e$14[r$14] = t$11, e$14;
+}
+function ownKeys(e$14, r$14) {
+	var t$11 = Object.keys(e$14);
+	if (Object.getOwnPropertySymbols) {
+		var o$9 = Object.getOwnPropertySymbols(e$14);
+		r$14 && (o$9 = o$9.filter(function(r$15) {
+			return Object.getOwnPropertyDescriptor(e$14, r$15).enumerable;
+		})), t$11.push.apply(t$11, o$9);
+	}
+	return t$11;
+}
+function _objectSpread2(e$14) {
+	for (var r$14 = 1; r$14 < arguments.length; r$14++) {
+		var t$11 = null != arguments[r$14] ? arguments[r$14] : {};
+		r$14 % 2 ? ownKeys(Object(t$11), !0).forEach(function(r$15) {
+			_defineProperty(e$14, r$15, t$11[r$15]);
+		}) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e$14, Object.getOwnPropertyDescriptors(t$11)) : ownKeys(Object(t$11)).forEach(function(r$15) {
+			Object.defineProperty(e$14, r$15, Object.getOwnPropertyDescriptor(t$11, r$15));
+		});
+	}
+	return e$14;
+}
+function _objectWithoutPropertiesLoose(r$14, e$14) {
+	if (null == r$14) return {};
+	var t$11 = {};
+	for (var n$13 in r$14) if ({}.hasOwnProperty.call(r$14, n$13)) {
+		if (-1 !== e$14.indexOf(n$13)) continue;
+		t$11[n$13] = r$14[n$13];
+	}
+	return t$11;
+}
+function _objectWithoutProperties(e$14, t$11) {
+	if (null == e$14) return {};
+	var o$9, r$14, i$13 = _objectWithoutPropertiesLoose(e$14, t$11);
+	if (Object.getOwnPropertySymbols) {
+		var n$13 = Object.getOwnPropertySymbols(e$14);
+		for (r$14 = 0; r$14 < n$13.length; r$14++) o$9 = n$13[r$14], -1 === t$11.indexOf(o$9) && {}.propertyIsEnumerable.call(e$14, o$9) && (i$13[o$9] = e$14[o$9]);
+	}
+	return i$13;
+}
+var _excluded$6 = [
+	"defaultInputValue",
+	"defaultMenuIsOpen",
+	"defaultValue",
+	"inputValue",
+	"menuIsOpen",
+	"onChange",
+	"onInputChange",
+	"onMenuClose",
+	"onMenuOpen",
+	"value"
+];
+function useStateManager(_ref$1) {
+	var _ref$defaultInputValu = _ref$1.defaultInputValue, defaultInputValue = _ref$defaultInputValu === void 0 ? "" : _ref$defaultInputValu, _ref$defaultMenuIsOpe = _ref$1.defaultMenuIsOpen, defaultMenuIsOpen = _ref$defaultMenuIsOpe === void 0 ? false : _ref$defaultMenuIsOpe, _ref$defaultValue = _ref$1.defaultValue, defaultValue = _ref$defaultValue === void 0 ? null : _ref$defaultValue, propsInputValue = _ref$1.inputValue, propsMenuIsOpen = _ref$1.menuIsOpen, propsOnChange = _ref$1.onChange, propsOnInputChange = _ref$1.onInputChange, propsOnMenuClose = _ref$1.onMenuClose, propsOnMenuOpen = _ref$1.onMenuOpen, propsValue = _ref$1.value, restSelectProps = _objectWithoutProperties(_ref$1, _excluded$6);
+	var _useState2 = _slicedToArray((0, import_react.useState)(propsInputValue !== void 0 ? propsInputValue : defaultInputValue), 2), stateInputValue = _useState2[0], setStateInputValue = _useState2[1];
+	var _useState4 = _slicedToArray((0, import_react.useState)(propsMenuIsOpen !== void 0 ? propsMenuIsOpen : defaultMenuIsOpen), 2), stateMenuIsOpen = _useState4[0], setStateMenuIsOpen = _useState4[1];
+	var _useState6 = _slicedToArray((0, import_react.useState)(propsValue !== void 0 ? propsValue : defaultValue), 2), stateValue = _useState6[0], setStateValue = _useState6[1];
+	var onChange = (0, import_react.useCallback)(function(value$1, actionMeta) {
+		if (typeof propsOnChange === "function") propsOnChange(value$1, actionMeta);
+		setStateValue(value$1);
+	}, [propsOnChange]);
+	var onInputChange = (0, import_react.useCallback)(function(value$1, actionMeta) {
+		var newValue;
+		if (typeof propsOnInputChange === "function") newValue = propsOnInputChange(value$1, actionMeta);
+		setStateInputValue(newValue !== void 0 ? newValue : value$1);
+	}, [propsOnInputChange]);
+	var onMenuOpen = (0, import_react.useCallback)(function() {
+		if (typeof propsOnMenuOpen === "function") propsOnMenuOpen();
+		setStateMenuIsOpen(true);
+	}, [propsOnMenuOpen]);
+	var onMenuClose = (0, import_react.useCallback)(function() {
+		if (typeof propsOnMenuClose === "function") propsOnMenuClose();
+		setStateMenuIsOpen(false);
+	}, [propsOnMenuClose]);
+	var inputValue = propsInputValue !== void 0 ? propsInputValue : stateInputValue;
+	var menuIsOpen = propsMenuIsOpen !== void 0 ? propsMenuIsOpen : stateMenuIsOpen;
+	var value = propsValue !== void 0 ? propsValue : stateValue;
+	return _objectSpread2(_objectSpread2({}, restSelectProps), {}, {
+		inputValue,
+		menuIsOpen,
+		onChange,
+		onInputChange,
+		onMenuClose,
+		onMenuOpen,
+		value
+	});
+}
+function _extends() {
+	return _extends = Object.assign ? Object.assign.bind() : function(n$13) {
+		for (var e$14 = 1; e$14 < arguments.length; e$14++) {
+			var t$11 = arguments[e$14];
+			for (var r$14 in t$11) ({}).hasOwnProperty.call(t$11, r$14) && (n$13[r$14] = t$11[r$14]);
+		}
+		return n$13;
+	}, _extends.apply(null, arguments);
+}
+function _classCallCheck(a$8, n$13) {
+	if (!(a$8 instanceof n$13)) throw new TypeError("Cannot call a class as a function");
+}
+function _defineProperties(e$14, r$14) {
+	for (var t$11 = 0; t$11 < r$14.length; t$11++) {
+		var o$9 = r$14[t$11];
+		o$9.enumerable = o$9.enumerable || !1, o$9.configurable = !0, "value" in o$9 && (o$9.writable = !0), Object.defineProperty(e$14, toPropertyKey(o$9.key), o$9);
+	}
+}
+function _createClass(e$14, r$14, t$11) {
+	return r$14 && _defineProperties(e$14.prototype, r$14), t$11 && _defineProperties(e$14, t$11), Object.defineProperty(e$14, "prototype", { writable: !1 }), e$14;
+}
+function _setPrototypeOf(t$11, e$14) {
+	return _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function(t$12, e$15) {
+		return t$12.__proto__ = e$15, t$12;
+	}, _setPrototypeOf(t$11, e$14);
+}
+function _inherits(t$11, e$14) {
+	if ("function" != typeof e$14 && null !== e$14) throw new TypeError("Super expression must either be null or a function");
+	t$11.prototype = Object.create(e$14 && e$14.prototype, { constructor: {
+		value: t$11,
+		writable: !0,
+		configurable: !0
+	} }), Object.defineProperty(t$11, "prototype", { writable: !1 }), e$14 && _setPrototypeOf(t$11, e$14);
+}
+function _getPrototypeOf(t$11) {
+	return _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function(t$12) {
+		return t$12.__proto__ || Object.getPrototypeOf(t$12);
+	}, _getPrototypeOf(t$11);
+}
+function _isNativeReflectConstruct() {
+	try {
+		var t$11 = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function() {}));
+	} catch (t$12) {}
+	return (_isNativeReflectConstruct = function _isNativeReflectConstruct$1() {
+		return !!t$11;
+	})();
+}
+function _assertThisInitialized(e$14) {
+	if (void 0 === e$14) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+	return e$14;
+}
+function _possibleConstructorReturn(t$11, e$14) {
+	if (e$14 && ("object" == _typeof(e$14) || "function" == typeof e$14)) return e$14;
+	if (void 0 !== e$14) throw new TypeError("Derived constructors may only return object or undefined");
+	return _assertThisInitialized(t$11);
+}
+function _createSuper(t$11) {
+	var r$14 = _isNativeReflectConstruct();
+	return function() {
+		var e$14, o$9 = _getPrototypeOf(t$11);
+		if (r$14) {
+			var s$7 = _getPrototypeOf(this).constructor;
+			e$14 = Reflect.construct(o$9, arguments, s$7);
+		} else e$14 = o$9.apply(this, arguments);
+		return _possibleConstructorReturn(this, e$14);
+	};
+}
+function _arrayWithoutHoles(r$14) {
+	if (Array.isArray(r$14)) return _arrayLikeToArray(r$14);
+}
+function _iterableToArray(r$14) {
+	if ("undefined" != typeof Symbol && null != r$14[Symbol.iterator] || null != r$14["@@iterator"]) return Array.from(r$14);
+}
+function _nonIterableSpread() {
+	throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+function _toConsumableArray(r$14) {
+	return _arrayWithoutHoles(r$14) || _iterableToArray(r$14) || _unsupportedIterableToArray(r$14) || _nonIterableSpread();
+}
+var isDevelopment$2 = false;
+function sheetForTag(tag) {
+	if (tag.sheet) return tag.sheet;
+	/* istanbul ignore next */
+	for (var i$13 = 0; i$13 < document.styleSheets.length; i$13++) if (document.styleSheets[i$13].ownerNode === tag) return document.styleSheets[i$13];
+}
+function createStyleElement(options$2) {
+	var tag = document.createElement("style");
+	tag.setAttribute("data-emotion", options$2.key);
+	if (options$2.nonce !== void 0) tag.setAttribute("nonce", options$2.nonce);
+	tag.appendChild(document.createTextNode(""));
+	tag.setAttribute("data-s", "");
+	return tag;
+}
+var StyleSheet = /* @__PURE__ */ function() {
+	function StyleSheet$1(options$2) {
+		var _this = this;
+		this._insertTag = function(tag) {
+			var before$1;
+			if (_this.tags.length === 0) if (_this.insertionPoint) before$1 = _this.insertionPoint.nextSibling;
+			else if (_this.prepend) before$1 = _this.container.firstChild;
+			else before$1 = _this.before;
+			else before$1 = _this.tags[_this.tags.length - 1].nextSibling;
+			_this.container.insertBefore(tag, before$1);
+			_this.tags.push(tag);
+		};
+		this.isSpeedy = options$2.speedy === void 0 ? !isDevelopment$2 : options$2.speedy;
+		this.tags = [];
+		this.ctr = 0;
+		this.nonce = options$2.nonce;
+		this.key = options$2.key;
+		this.container = options$2.container;
+		this.prepend = options$2.prepend;
+		this.insertionPoint = options$2.insertionPoint;
+		this.before = null;
+	}
+	var _proto = StyleSheet$1.prototype;
+	_proto.hydrate = function hydrate$1(nodes) {
+		nodes.forEach(this._insertTag);
+	};
+	_proto.insert = function insert(rule) {
+		if (this.ctr % (this.isSpeedy ? 65e3 : 1) === 0) this._insertTag(createStyleElement(this));
+		var tag = this.tags[this.tags.length - 1];
+		if (this.isSpeedy) {
+			var sheet = sheetForTag(tag);
+			try {
+				sheet.insertRule(rule, sheet.cssRules.length);
+			} catch (e$14) {}
+		} else tag.appendChild(document.createTextNode(rule));
+		this.ctr++;
+	};
+	_proto.flush = function flush$1() {
+		this.tags.forEach(function(tag) {
+			var _tag$parentNode;
+			return (_tag$parentNode = tag.parentNode) == null ? void 0 : _tag$parentNode.removeChild(tag);
+		});
+		this.tags = [];
+		this.ctr = 0;
+	};
+	return StyleSheet$1;
+}();
+var MS = "-ms-";
+var MOZ = "-moz-";
+var WEBKIT = "-webkit-";
+var COMMENT = "comm";
+var RULESET = "rule";
+var DECLARATION = "decl";
+var IMPORT = "@import";
+var KEYFRAMES = "@keyframes";
+var LAYER = "@layer";
+var abs = Math.abs;
+var from = String.fromCharCode;
+var assign = Object.assign;
+function hash(value, length$1) {
+	return charat(value, 0) ^ 45 ? (((length$1 << 2 ^ charat(value, 0)) << 2 ^ charat(value, 1)) << 2 ^ charat(value, 2)) << 2 ^ charat(value, 3) : 0;
+}
+function trim(value) {
+	return value.trim();
+}
+function match(value, pattern) {
+	return (value = pattern.exec(value)) ? value[0] : value;
+}
+function replace(value, pattern, replacement) {
+	return value.replace(pattern, replacement);
+}
+function indexof(value, search) {
+	return value.indexOf(search);
+}
+function charat(value, index$6) {
+	return value.charCodeAt(index$6) | 0;
+}
+function substr(value, begin, end) {
+	return value.slice(begin, end);
+}
+function strlen(value) {
+	return value.length;
+}
+function sizeof(value) {
+	return value.length;
+}
+function append(value, array) {
+	return array.push(value), value;
+}
+function combine(array, callback) {
+	return array.map(callback).join("");
+}
+var line = 1;
+var column = 1;
+var length = 0;
+var position = 0;
+var character = 0;
+var characters = "";
+function node(value, root$4, parent, type, props, children, length$1) {
+	return {
+		value,
+		root: root$4,
+		parent,
+		type,
+		props,
+		children,
+		line,
+		column,
+		length: length$1,
+		return: ""
+	};
+}
+function copy(root$4, props) {
+	return assign(node("", null, null, "", null, null, 0), root$4, { length: -root$4.length }, props);
+}
+function char() {
+	return character;
+}
+function prev() {
+	character = position > 0 ? charat(characters, --position) : 0;
+	if (column--, character === 10) column = 1, line--;
+	return character;
+}
+function next() {
+	character = position < length ? charat(characters, position++) : 0;
+	if (column++, character === 10) column = 1, line++;
+	return character;
+}
+function peek() {
+	return charat(characters, position);
+}
+function caret() {
+	return position;
+}
+function slice(begin, end) {
+	return substr(characters, begin, end);
+}
+function token(type) {
+	switch (type) {
+		case 0:
+		case 9:
+		case 10:
+		case 13:
+		case 32: return 5;
+		case 33:
+		case 43:
+		case 44:
+		case 47:
+		case 62:
+		case 64:
+		case 126:
+		case 59:
+		case 123:
+		case 125: return 4;
+		case 58: return 3;
+		case 34:
+		case 39:
+		case 40:
+		case 91: return 2;
+		case 41:
+		case 93: return 1;
+	}
+	return 0;
+}
+function alloc(value) {
+	return line = column = 1, length = strlen(characters = value), position = 0, [];
+}
+function dealloc(value) {
+	return characters = "", value;
+}
+function delimit(type) {
+	return trim(slice(position - 1, delimiter(type === 91 ? type + 2 : type === 40 ? type + 1 : type)));
+}
+function whitespace(type) {
+	while (character = peek()) if (character < 33) next();
+	else break;
+	return token(type) > 2 || token(character) > 3 ? "" : " ";
+}
+function escaping(index$6, count) {
+	while (--count && next()) if (character < 48 || character > 102 || character > 57 && character < 65 || character > 70 && character < 97) break;
+	return slice(index$6, caret() + (count < 6 && peek() == 32 && next() == 32));
+}
+function delimiter(type) {
+	while (next()) switch (character) {
+		case type: return position;
+		case 34:
+		case 39:
+			if (type !== 34 && type !== 39) delimiter(character);
+			break;
+		case 40:
+			if (type === 41) delimiter(type);
+			break;
+		case 92:
+			next();
+			break;
+	}
+	return position;
+}
+function commenter(type, index$6) {
+	while (next()) if (type + character === 57) break;
+	else if (type + character === 84 && peek() === 47) break;
+	return "/*" + slice(index$6, position - 1) + "*" + from(type === 47 ? type : next());
+}
+function identifier(index$6) {
+	while (!token(peek())) next();
+	return slice(index$6, position);
+}
+function compile(value) {
+	return dealloc(parse("", null, null, null, [""], value = alloc(value), 0, [0], value));
+}
+function parse(value, root$4, parent, rule, rules, rulesets, pseudo, points, declarations) {
+	var index$6 = 0;
+	var offset$3 = 0;
+	var length$1 = pseudo;
+	var atrule = 0;
+	var property$2 = 0;
+	var previous = 0;
+	var variable = 1;
+	var scanning = 1;
+	var ampersand = 1;
+	var character$1 = 0;
+	var type = "";
+	var props = rules;
+	var children = rulesets;
+	var reference = rule;
+	var characters$1 = type;
+	while (scanning) switch (previous = character$1, character$1 = next()) {
+		case 40: if (previous != 108 && charat(characters$1, length$1 - 1) == 58) {
+			if (indexof(characters$1 += replace(delimit(character$1), "&", "&\f"), "&\f") != -1) ampersand = -1;
+			break;
+		}
+		case 34:
+		case 39:
+		case 91:
+			characters$1 += delimit(character$1);
+			break;
+		case 9:
+		case 10:
+		case 13:
+		case 32:
+			characters$1 += whitespace(previous);
+			break;
+		case 92:
+			characters$1 += escaping(caret() - 1, 7);
+			continue;
+		case 47:
+			switch (peek()) {
+				case 42:
+				case 47:
+					append(comment(commenter(next(), caret()), root$4, parent), declarations);
+					break;
+				default: characters$1 += "/";
+			}
+			break;
+		case 123 * variable: points[index$6++] = strlen(characters$1) * ampersand;
+		case 125 * variable:
+		case 59:
+		case 0:
+			switch (character$1) {
+				case 0:
+				case 125: scanning = 0;
+				case 59 + offset$3:
+					if (ampersand == -1) characters$1 = replace(characters$1, /\f/g, "");
+					if (property$2 > 0 && strlen(characters$1) - length$1) append(property$2 > 32 ? declaration(characters$1 + ";", rule, parent, length$1 - 1) : declaration(replace(characters$1, " ", "") + ";", rule, parent, length$1 - 2), declarations);
+					break;
+				case 59: characters$1 += ";";
+				default:
+					append(reference = ruleset(characters$1, root$4, parent, index$6, offset$3, rules, points, type, props = [], children = [], length$1), rulesets);
+					if (character$1 === 123) if (offset$3 === 0) parse(characters$1, root$4, reference, reference, props, rulesets, length$1, points, children);
+					else switch (atrule === 99 && charat(characters$1, 3) === 110 ? 100 : atrule) {
+						case 100:
+						case 108:
+						case 109:
+						case 115:
+							parse(value, reference, reference, rule && append(ruleset(value, reference, reference, 0, 0, rules, points, type, rules, props = [], length$1), children), rules, children, length$1, points, rule ? props : children);
+							break;
+						default: parse(characters$1, reference, reference, reference, [""], children, 0, points, children);
+					}
+			}
+			index$6 = offset$3 = property$2 = 0, variable = ampersand = 1, type = characters$1 = "", length$1 = pseudo;
+			break;
+		case 58: length$1 = 1 + strlen(characters$1), property$2 = previous;
+		default:
+			if (variable < 1) {
+				if (character$1 == 123) --variable;
+				else if (character$1 == 125 && variable++ == 0 && prev() == 125) continue;
+			}
+			switch (characters$1 += from(character$1), character$1 * variable) {
+				case 38:
+					ampersand = offset$3 > 0 ? 1 : (characters$1 += "\f", -1);
+					break;
+				case 44:
+					points[index$6++] = (strlen(characters$1) - 1) * ampersand, ampersand = 1;
+					break;
+				case 64:
+					if (peek() === 45) characters$1 += delimit(next());
+					atrule = peek(), offset$3 = length$1 = strlen(type = characters$1 += identifier(caret())), character$1++;
+					break;
+				case 45: if (previous === 45 && strlen(characters$1) == 2) variable = 0;
+			}
+	}
+	return rulesets;
+}
+function ruleset(value, root$4, parent, index$6, offset$3, rules, points, type, props, children, length$1) {
+	var post = offset$3 - 1;
+	var rule = offset$3 === 0 ? rules : [""];
+	var size$6 = sizeof(rule);
+	for (var i$13 = 0, j$11 = 0, k$9 = 0; i$13 < index$6; ++i$13) for (var x$9 = 0, y$10 = substr(value, post + 1, post = abs(j$11 = points[i$13])), z$11 = value; x$9 < size$6; ++x$9) if (z$11 = trim(j$11 > 0 ? rule[x$9] + " " + y$10 : replace(y$10, /&\f/g, rule[x$9]))) props[k$9++] = z$11;
+	return node(value, root$4, parent, offset$3 === 0 ? RULESET : type, props, children, length$1);
+}
+function comment(value, root$4, parent) {
+	return node(value, root$4, parent, COMMENT, from(char()), substr(value, 2, -2), 0);
+}
+function declaration(value, root$4, parent, length$1) {
+	return node(value, root$4, parent, DECLARATION, substr(value, 0, length$1), substr(value, length$1 + 1, -1), length$1);
+}
+function serialize(children, callback) {
+	var output$1 = "";
+	var length$1 = sizeof(children);
+	for (var i$13 = 0; i$13 < length$1; i$13++) output$1 += callback(children[i$13], i$13, children, callback) || "";
+	return output$1;
+}
+function stringify(element, index$6, children, callback) {
+	switch (element.type) {
+		case LAYER: if (element.children.length) break;
+		case IMPORT:
+		case DECLARATION: return element.return = element.return || element.value;
+		case COMMENT: return "";
+		case KEYFRAMES: return element.return = element.value + "{" + serialize(element.children, callback) + "}";
+		case RULESET: element.value = element.props.join(",");
+	}
+	return strlen(children = serialize(element.children, callback)) ? element.return = element.value + "{" + children + "}" : "";
+}
+function middleware(collection) {
+	var length$1 = sizeof(collection);
+	return function(element, index$6, children, callback) {
+		var output$1 = "";
+		for (var i$13 = 0; i$13 < length$1; i$13++) output$1 += collection[i$13](element, index$6, children, callback) || "";
+		return output$1;
+	};
+}
+function rulesheet(callback) {
+	return function(element) {
+		if (!element.root) {
+			if (element = element.return) callback(element);
+		}
+	};
+}
+function memoize(fn$3) {
+	var cache$1 = Object.create(null);
+	return function(arg) {
+		if (cache$1[arg] === void 0) cache$1[arg] = fn$3(arg);
+		return cache$1[arg];
+	};
+}
+var identifierWithPointTracking = function identifierWithPointTracking$1(begin, points, index$6) {
+	var previous = 0;
+	var character$1 = 0;
+	while (true) {
+		previous = character$1;
+		character$1 = peek();
+		if (previous === 38 && character$1 === 12) points[index$6] = 1;
+		if (token(character$1)) break;
+		next();
+	}
+	return slice(begin, position);
+};
+var toRules = function toRules$1(parsed, points) {
+	var index$6 = -1;
+	var character$1 = 44;
+	do
+		switch (token(character$1)) {
+			case 0:
+				if (character$1 === 38 && peek() === 12) points[index$6] = 1;
+				parsed[index$6] += identifierWithPointTracking(position - 1, points, index$6);
+				break;
+			case 2:
+				parsed[index$6] += delimit(character$1);
+				break;
+			case 4: if (character$1 === 44) {
+				parsed[++index$6] = peek() === 58 ? "&\f" : "";
+				points[index$6] = parsed[index$6].length;
+				break;
+			}
+			default: parsed[index$6] += from(character$1);
+		}
+	while (character$1 = next());
+	return parsed;
+};
+var getRules = function getRules$1(value, points) {
+	return dealloc(toRules(alloc(value), points));
+};
+var fixedElements = /* @__PURE__ */ new WeakMap();
+var compat = function compat$1(element) {
+	if (element.type !== "rule" || !element.parent || element.length < 1) return;
+	var value = element.value;
+	var parent = element.parent;
+	var isImplicitRule = element.column === parent.column && element.line === parent.line;
+	while (parent.type !== "rule") {
+		parent = parent.parent;
+		if (!parent) return;
+	}
+	if (element.props.length === 1 && value.charCodeAt(0) !== 58 && !fixedElements.get(parent)) return;
+	if (isImplicitRule) return;
+	fixedElements.set(element, true);
+	var points = [];
+	var rules = getRules(value, points);
+	var parentRules = parent.props;
+	for (var i$13 = 0, k$9 = 0; i$13 < rules.length; i$13++) for (var j$11 = 0; j$11 < parentRules.length; j$11++, k$9++) element.props[k$9] = points[i$13] ? rules[i$13].replace(/&\f/g, parentRules[j$11]) : parentRules[j$11] + " " + rules[i$13];
+};
+var removeLabel = function removeLabel$1(element) {
+	if (element.type === "decl") {
+		var value = element.value;
+		if (value.charCodeAt(0) === 108 && value.charCodeAt(2) === 98) {
+			element["return"] = "";
+			element.value = "";
+		}
+	}
+};
+function prefix(value, length$1) {
+	switch (hash(value, length$1)) {
+		case 5103: return WEBKIT + "print-" + value + value;
+		case 5737:
+		case 4201:
+		case 3177:
+		case 3433:
+		case 1641:
+		case 4457:
+		case 2921:
+		case 5572:
+		case 6356:
+		case 5844:
+		case 3191:
+		case 6645:
+		case 3005:
+		case 6391:
+		case 5879:
+		case 5623:
+		case 6135:
+		case 4599:
+		case 4855:
+		case 4215:
+		case 6389:
+		case 5109:
+		case 5365:
+		case 5621:
+		case 3829: return WEBKIT + value + value;
+		case 5349:
+		case 4246:
+		case 4810:
+		case 6968:
+		case 2756: return WEBKIT + value + MOZ + value + MS + value + value;
+		case 6828:
+		case 4268: return WEBKIT + value + MS + value + value;
+		case 6165: return WEBKIT + value + MS + "flex-" + value + value;
+		case 5187: return WEBKIT + value + replace(value, /(\w+).+(:[^]+)/, WEBKIT + "box-$1$2" + MS + "flex-$1$2") + value;
+		case 5443: return WEBKIT + value + MS + "flex-item-" + replace(value, /flex-|-self/, "") + value;
+		case 4675: return WEBKIT + value + MS + "flex-line-pack" + replace(value, /align-content|flex-|-self/, "") + value;
+		case 5548: return WEBKIT + value + MS + replace(value, "shrink", "negative") + value;
+		case 5292: return WEBKIT + value + MS + replace(value, "basis", "preferred-size") + value;
+		case 6060: return WEBKIT + "box-" + replace(value, "-grow", "") + WEBKIT + value + MS + replace(value, "grow", "positive") + value;
+		case 4554: return WEBKIT + replace(value, /([^-])(transform)/g, "$1" + WEBKIT + "$2") + value;
+		case 6187: return replace(replace(replace(value, /(zoom-|grab)/, WEBKIT + "$1"), /(image-set)/, WEBKIT + "$1"), value, "") + value;
+		case 5495:
+		case 3959: return replace(value, /(image-set\([^]*)/, WEBKIT + "$1$`$1");
+		case 4968: return replace(replace(value, /(.+:)(flex-)?(.*)/, WEBKIT + "box-pack:$3" + MS + "flex-pack:$3"), /s.+-b[^;]+/, "justify") + WEBKIT + value + value;
+		case 4095:
+		case 3583:
+		case 4068:
+		case 2532: return replace(value, /(.+)-inline(.+)/, WEBKIT + "$1$2") + value;
+		case 8116:
+		case 7059:
+		case 5753:
+		case 5535:
+		case 5445:
+		case 5701:
+		case 4933:
+		case 4677:
+		case 5533:
+		case 5789:
+		case 5021:
+		case 4765:
+			if (strlen(value) - 1 - length$1 > 6) switch (charat(value, length$1 + 1)) {
+				case 109: if (charat(value, length$1 + 4) !== 45) break;
+				case 102: return replace(value, /(.+:)(.+)-([^]+)/, "$1" + WEBKIT + "$2-$3$1" + MOZ + (charat(value, length$1 + 3) == 108 ? "$3" : "$2-$3")) + value;
+				case 115: return ~indexof(value, "stretch") ? prefix(replace(value, "stretch", "fill-available"), length$1) + value : value;
+			}
+			break;
+		case 4949: if (charat(value, length$1 + 1) !== 115) break;
+		case 6444:
+			switch (charat(value, strlen(value) - 3 - (~indexof(value, "!important") && 10))) {
+				case 107: return replace(value, ":", ":" + WEBKIT) + value;
+				case 101: return replace(value, /(.+:)([^;!]+)(;|!.+)?/, "$1" + WEBKIT + (charat(value, 14) === 45 ? "inline-" : "") + "box$3$1" + WEBKIT + "$2$3$1" + MS + "$2box$3") + value;
+			}
+			break;
+		case 5936:
+			switch (charat(value, length$1 + 11)) {
+				case 114: return WEBKIT + value + MS + replace(value, /[svh]\w+-[tblr]{2}/, "tb") + value;
+				case 108: return WEBKIT + value + MS + replace(value, /[svh]\w+-[tblr]{2}/, "tb-rl") + value;
+				case 45: return WEBKIT + value + MS + replace(value, /[svh]\w+-[tblr]{2}/, "lr") + value;
+			}
+			return WEBKIT + value + MS + value + value;
+	}
+	return value;
+}
+var defaultStylisPlugins = [function prefixer(element, index$6, children, callback) {
+	if (element.length > -1) {
+		if (!element["return"]) switch (element.type) {
+			case DECLARATION:
+				element["return"] = prefix(element.value, element.length);
+				break;
+			case KEYFRAMES: return serialize([copy(element, { value: replace(element.value, "@", "@" + WEBKIT) })], callback);
+			case RULESET: if (element.length) return combine(element.props, function(value) {
+				switch (match(value, /(::plac\w+|:read-\w+)/)) {
+					case ":read-only":
+					case ":read-write": return serialize([copy(element, { props: [replace(value, /:(read-\w+)/, ":" + MOZ + "$1")] })], callback);
+					case "::placeholder": return serialize([
+						copy(element, { props: [replace(value, /:(plac\w+)/, ":" + WEBKIT + "input-$1")] }),
+						copy(element, { props: [replace(value, /:(plac\w+)/, ":" + MOZ + "$1")] }),
+						copy(element, { props: [replace(value, /:(plac\w+)/, MS + "input-$1")] })
+					], callback);
+				}
+				return "";
+			});
+		}
+	}
+}];
+var createCache = function createCache$2(options$2) {
+	var key = options$2.key;
+	if (key === "css") {
+		var ssrStyles = document.querySelectorAll("style[data-emotion]:not([data-s])");
+		Array.prototype.forEach.call(ssrStyles, function(node$1) {
+			if (node$1.getAttribute("data-emotion").indexOf(" ") === -1) return;
+			document.head.appendChild(node$1);
+			node$1.setAttribute("data-s", "");
+		});
+	}
+	var stylisPlugins = options$2.stylisPlugins || defaultStylisPlugins;
+	var inserted = {};
+	var container;
+	var nodesToHydrate = [];
+	container = options$2.container || document.head;
+	Array.prototype.forEach.call(document.querySelectorAll("style[data-emotion^=\"" + key + " \"]"), function(node$1) {
+		var attrib = node$1.getAttribute("data-emotion").split(" ");
+		for (var i$13 = 1; i$13 < attrib.length; i$13++) inserted[attrib[i$13]] = true;
+		nodesToHydrate.push(node$1);
+	});
+	var _insert;
+	var omnipresentPlugins = [compat, removeLabel];
+	var currentSheet;
+	var finalizingPlugins = [stringify, rulesheet(function(rule) {
+		currentSheet.insert(rule);
+	})];
+	var serializer = middleware(omnipresentPlugins.concat(stylisPlugins, finalizingPlugins));
+	var stylis = function stylis$1(styles$1) {
+		return serialize(compile(styles$1), serializer);
+	};
+	_insert = function insert(selector, serialized, sheet, shouldCache) {
+		currentSheet = sheet;
+		stylis(selector ? selector + "{" + serialized.styles + "}" : serialized.styles);
+		if (shouldCache) cache$1.inserted[serialized.name] = true;
+	};
+	var cache$1 = {
+		key,
+		sheet: new StyleSheet({
+			key,
+			container,
+			nonce: options$2.nonce,
+			speedy: options$2.speedy,
+			prepend: options$2.prepend,
+			insertionPoint: options$2.insertionPoint
+		}),
+		nonce: options$2.nonce,
+		inserted,
+		registered: {},
+		insert: _insert
+	};
+	cache$1.sheet.hydrate(nodesToHydrate);
+	return cache$1;
+};
+var isBrowser = true;
+function getRegisteredStyles(registered, registeredStyles, classNames$3) {
+	var rawClassName = "";
+	classNames$3.split(" ").forEach(function(className) {
+		if (registered[className] !== void 0) registeredStyles.push(registered[className] + ";");
+		else if (className) rawClassName += className + " ";
+	});
+	return rawClassName;
+}
+var registerStyles = function registerStyles$1(cache$1, serialized, isStringTag) {
+	var className = cache$1.key + "-" + serialized.name;
+	if ((isStringTag === false || isBrowser === false) && cache$1.registered[className] === void 0) cache$1.registered[className] = serialized.styles;
+};
+var insertStyles = function insertStyles$1(cache$1, serialized, isStringTag) {
+	registerStyles(cache$1, serialized, isStringTag);
+	var className = cache$1.key + "-" + serialized.name;
+	if (cache$1.inserted[serialized.name] === void 0) {
+		var current = serialized;
+		do {
+			cache$1.insert(serialized === current ? "." + className : "", current, cache$1.sheet, true);
+			current = current.next;
+		} while (current !== void 0);
+	}
+};
+function murmur2(str) {
+	var h$4 = 0;
+	var k$9, i$13 = 0, len$1 = str.length;
+	for (; len$1 >= 4; ++i$13, len$1 -= 4) {
+		k$9 = str.charCodeAt(i$13) & 255 | (str.charCodeAt(++i$13) & 255) << 8 | (str.charCodeAt(++i$13) & 255) << 16 | (str.charCodeAt(++i$13) & 255) << 24;
+		k$9 = (k$9 & 65535) * 1540483477 + ((k$9 >>> 16) * 59797 << 16);
+		k$9 ^= k$9 >>> 24;
+		h$4 = (k$9 & 65535) * 1540483477 + ((k$9 >>> 16) * 59797 << 16) ^ (h$4 & 65535) * 1540483477 + ((h$4 >>> 16) * 59797 << 16);
+	}
+	switch (len$1) {
+		case 3: h$4 ^= (str.charCodeAt(i$13 + 2) & 255) << 16;
+		case 2: h$4 ^= (str.charCodeAt(i$13 + 1) & 255) << 8;
+		case 1:
+			h$4 ^= str.charCodeAt(i$13) & 255;
+			h$4 = (h$4 & 65535) * 1540483477 + ((h$4 >>> 16) * 59797 << 16);
+	}
+	h$4 ^= h$4 >>> 13;
+	h$4 = (h$4 & 65535) * 1540483477 + ((h$4 >>> 16) * 59797 << 16);
+	return ((h$4 ^ h$4 >>> 15) >>> 0).toString(36);
+}
+var unitlessKeys = {
+	animationIterationCount: 1,
+	aspectRatio: 1,
+	borderImageOutset: 1,
+	borderImageSlice: 1,
+	borderImageWidth: 1,
+	boxFlex: 1,
+	boxFlexGroup: 1,
+	boxOrdinalGroup: 1,
+	columnCount: 1,
+	columns: 1,
+	flex: 1,
+	flexGrow: 1,
+	flexPositive: 1,
+	flexShrink: 1,
+	flexNegative: 1,
+	flexOrder: 1,
+	gridRow: 1,
+	gridRowEnd: 1,
+	gridRowSpan: 1,
+	gridRowStart: 1,
+	gridColumn: 1,
+	gridColumnEnd: 1,
+	gridColumnSpan: 1,
+	gridColumnStart: 1,
+	msGridRow: 1,
+	msGridRowSpan: 1,
+	msGridColumn: 1,
+	msGridColumnSpan: 1,
+	fontWeight: 1,
+	lineHeight: 1,
+	opacity: 1,
+	order: 1,
+	orphans: 1,
+	scale: 1,
+	tabSize: 1,
+	widows: 1,
+	zIndex: 1,
+	zoom: 1,
+	WebkitLineClamp: 1,
+	fillOpacity: 1,
+	floodOpacity: 1,
+	stopOpacity: 1,
+	strokeDasharray: 1,
+	strokeDashoffset: 1,
+	strokeMiterlimit: 1,
+	strokeOpacity: 1,
+	strokeWidth: 1
+};
+var isDevelopment$1 = false;
+var hyphenateRegex = /[A-Z]|^ms/g;
+var animationRegex = /_EMO_([^_]+?)_([^]*?)_EMO_/g;
+var isCustomProperty = function isCustomProperty$1(property$2) {
+	return property$2.charCodeAt(1) === 45;
+};
+var isProcessableValue = function isProcessableValue$1(value) {
+	return value != null && typeof value !== "boolean";
+};
+var processStyleName = /* @__PURE__ */ memoize(function(styleName) {
+	return isCustomProperty(styleName) ? styleName : styleName.replace(hyphenateRegex, "-$&").toLowerCase();
+});
+var processStyleValue = function processStyleValue$1(key, value) {
+	switch (key) {
+		case "animation":
+		case "animationName": if (typeof value === "string") return value.replace(animationRegex, function(match$2, p1, p2) {
+			cursor = {
+				name: p1,
+				styles: p2,
+				next: cursor
+			};
+			return p1;
+		});
+	}
+	if (unitlessKeys[key] !== 1 && !isCustomProperty(key) && typeof value === "number" && value !== 0) return value + "px";
+	return value;
+};
+var noComponentSelectorMessage = "Component selectors can only be used in conjunction with @emotion/babel-plugin, the swc Emotion plugin, or another Emotion-aware compiler transform.";
+function handleInterpolation(mergedProps, registered, interpolation) {
+	if (interpolation == null) return "";
+	var componentSelector = interpolation;
+	if (componentSelector.__emotion_styles !== void 0) return componentSelector;
+	switch (typeof interpolation) {
+		case "boolean": return "";
+		case "object":
+			var keyframes$3 = interpolation;
+			if (keyframes$3.anim === 1) {
+				cursor = {
+					name: keyframes$3.name,
+					styles: keyframes$3.styles,
+					next: cursor
+				};
+				return keyframes$3.name;
+			}
+			var serializedStyles = interpolation;
+			if (serializedStyles.styles !== void 0) {
+				var next$1 = serializedStyles.next;
+				if (next$1 !== void 0) while (next$1 !== void 0) {
+					cursor = {
+						name: next$1.name,
+						styles: next$1.styles,
+						next: cursor
+					};
+					next$1 = next$1.next;
+				}
+				return serializedStyles.styles + ";";
+			}
+			return createStringFromObject(mergedProps, registered, interpolation);
+		case "function":
+			if (mergedProps !== void 0) {
+				var previousCursor = cursor;
+				var result = interpolation(mergedProps);
+				cursor = previousCursor;
+				return handleInterpolation(mergedProps, registered, result);
+			}
+			break;
+	}
+	var asString = interpolation;
+	if (registered == null) return asString;
+	var cached = registered[asString];
+	return cached !== void 0 ? cached : asString;
+}
+function createStringFromObject(mergedProps, registered, obj) {
+	var string = "";
+	if (Array.isArray(obj)) for (var i$13 = 0; i$13 < obj.length; i$13++) string += handleInterpolation(mergedProps, registered, obj[i$13]) + ";";
+	else for (var key in obj) {
+		var value = obj[key];
+		if (typeof value !== "object") {
+			var asString = value;
+			if (registered != null && registered[asString] !== void 0) string += key + "{" + registered[asString] + "}";
+			else if (isProcessableValue(asString)) string += processStyleName(key) + ":" + processStyleValue(key, asString) + ";";
+		} else {
+			if (key === "NO_COMPONENT_SELECTOR" && isDevelopment$1) throw new Error(noComponentSelectorMessage);
+			if (Array.isArray(value) && typeof value[0] === "string" && (registered == null || registered[value[0]] === void 0)) {
+				for (var _i$1 = 0; _i$1 < value.length; _i$1++) if (isProcessableValue(value[_i$1])) string += processStyleName(key) + ":" + processStyleValue(key, value[_i$1]) + ";";
+			} else {
+				var interpolated = handleInterpolation(mergedProps, registered, value);
+				switch (key) {
+					case "animation":
+					case "animationName":
+						string += processStyleName(key) + ":" + interpolated + ";";
+						break;
+					default: string += key + "{" + interpolated + "}";
+				}
+			}
+		}
+	}
+	return string;
+}
+var labelPattern = /label:\s*([^\s;{]+)\s*(;|$)/g;
+var cursor;
+function serializeStyles(args, registered, mergedProps) {
+	if (args.length === 1 && typeof args[0] === "object" && args[0] !== null && args[0].styles !== void 0) return args[0];
+	var stringMode = true;
+	var styles$1 = "";
+	cursor = void 0;
+	var strings = args[0];
+	if (strings == null || strings.raw === void 0) {
+		stringMode = false;
+		styles$1 += handleInterpolation(mergedProps, registered, strings);
+	} else styles$1 += strings[0];
+	for (var i$13 = 1; i$13 < args.length; i$13++) {
+		styles$1 += handleInterpolation(mergedProps, registered, args[i$13]);
+		if (stringMode) styles$1 += strings[i$13];
+	}
+	labelPattern.lastIndex = 0;
+	var identifierName = "";
+	var match$2;
+	while ((match$2 = labelPattern.exec(styles$1)) !== null) identifierName += "-" + match$2[1];
+	return {
+		name: murmur2(styles$1) + identifierName,
+		styles: styles$1,
+		next: cursor
+	};
+}
+var syncFallback = function syncFallback$1(create) {
+	return create();
+};
+var useInsertionEffect = import_react.useInsertionEffect ? import_react.useInsertionEffect : false;
+var useInsertionEffectAlwaysWithSyncFallback = useInsertionEffect || syncFallback;
+useInsertionEffect || import_react.useLayoutEffect;
+var EmotionCacheContext = /* @__PURE__ */ import_react.createContext(typeof HTMLElement !== "undefined" ? /* @__PURE__ */ createCache({ key: "css" }) : null);
+EmotionCacheContext.Provider;
+var withEmotionCache = function withEmotionCache$1(func) {
+	return /* @__PURE__ */ (0, import_react.forwardRef)(function(props, ref) {
+		return func(props, (0, import_react.useContext)(EmotionCacheContext), ref);
+	});
+};
+var ThemeContext = /* @__PURE__ */ import_react.createContext({});
+var hasOwn = {}.hasOwnProperty;
+var typePropName = "__EMOTION_TYPE_PLEASE_DO_NOT_USE__";
+var createEmotionProps = function createEmotionProps$1(type, props) {
+	var newProps = {};
+	for (var _key in props) if (hasOwn.call(props, _key)) newProps[_key] = props[_key];
+	newProps[typePropName] = type;
+	return newProps;
+};
+var Insertion = function Insertion$1(_ref$1) {
+	var cache$1 = _ref$1.cache, serialized = _ref$1.serialized, isStringTag = _ref$1.isStringTag;
+	registerStyles(cache$1, serialized, isStringTag);
+	useInsertionEffectAlwaysWithSyncFallback(function() {
+		return insertStyles(cache$1, serialized, isStringTag);
+	});
+	return null;
+};
+var Emotion$1 = /* @__PURE__ */ withEmotionCache(function(props, cache$1, ref) {
+	var cssProp = props.css;
+	if (typeof cssProp === "string" && cache$1.registered[cssProp] !== void 0) cssProp = cache$1.registered[cssProp];
+	var WrappedComponent = props[typePropName];
+	var registeredStyles = [cssProp];
+	var className = "";
+	if (typeof props.className === "string") className = getRegisteredStyles(cache$1.registered, registeredStyles, props.className);
+	else if (props.className != null) className = props.className + " ";
+	var serialized = serializeStyles(registeredStyles, void 0, import_react.useContext(ThemeContext));
+	className += cache$1.key + "-" + serialized.name;
+	var newProps = {};
+	for (var _key2 in props) if (hasOwn.call(props, _key2) && _key2 !== "css" && _key2 !== typePropName && true) newProps[_key2] = props[_key2];
+	newProps.className = className;
+	if (ref) newProps.ref = ref;
+	return /* @__PURE__ */ import_react.createElement(import_react.Fragment, null, /* @__PURE__ */ import_react.createElement(Insertion, {
+		cache: cache$1,
+		serialized,
+		isStringTag: typeof WrappedComponent === "string"
+	}), /* @__PURE__ */ import_react.createElement(WrappedComponent, newProps));
+});
+require_hoist_non_react_statics_cjs();
+var jsx = function jsx$4(type, props) {
+	var args = arguments;
+	if (props == null || !hasOwn.call(props, "css")) return import_react.createElement.apply(void 0, args);
+	var argsLength = args.length;
+	var createElementArgArray = new Array(argsLength);
+	createElementArgArray[0] = Emotion$1;
+	createElementArgArray[1] = createEmotionProps(type, props);
+	for (var i$13 = 2; i$13 < argsLength; i$13++) createElementArgArray[i$13] = args[i$13];
+	return import_react.createElement.apply(null, createElementArgArray);
+};
+(function(_jsx$74) {
+	var JSX;
+	(function(_JSX) {})(JSX || (JSX = _jsx$74.JSX || (_jsx$74.JSX = {})));
+})(jsx || (jsx = {}));
+function css$2() {
+	for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) args[_key] = arguments[_key];
+	return serializeStyles(args);
+}
+function keyframes() {
+	var insertable = css$2.apply(void 0, arguments);
+	var name = "animation-" + insertable.name;
+	return {
+		name,
+		styles: "@keyframes " + name + "{" + insertable.styles + "}",
+		anim: 1,
+		toString: function toString$5() {
+			return "_EMO_" + this.name + "_" + this.styles + "_EMO_";
+		}
+	};
+}
+function _taggedTemplateLiteral(e$14, t$11) {
+	return t$11 || (t$11 = e$14.slice(0)), Object.freeze(Object.defineProperties(e$14, { raw: { value: Object.freeze(t$11) } }));
+}
+var min = Math.min;
+var max = Math.max;
+var round = Math.round;
+var floor = Math.floor;
+var createCoords = (v$7) => ({
+	x: v$7,
+	y: v$7
+});
+function rectToClientRect(rect) {
+	const { x: x$9, y: y$10, width, height } = rect;
+	return {
+		width,
+		height,
+		top: y$10,
+		left: x$9,
+		right: x$9 + width,
+		bottom: y$10 + height,
+		x: x$9,
+		y: y$10
+	};
+}
+function hasWindow() {
+	return typeof window !== "undefined";
+}
+function getNodeName(node$1) {
+	if (isNode(node$1)) return (node$1.nodeName || "").toLowerCase();
+	return "#document";
+}
+function getWindow(node$1) {
+	var _node$ownerDocument;
+	return (node$1 == null || (_node$ownerDocument = node$1.ownerDocument) == null ? void 0 : _node$ownerDocument.defaultView) || window;
+}
+function getDocumentElement(node$1) {
+	var _ref$1;
+	return (_ref$1 = (isNode(node$1) ? node$1.ownerDocument : node$1.document) || window.document) == null ? void 0 : _ref$1.documentElement;
+}
+function isNode(value) {
+	if (!hasWindow()) return false;
+	return value instanceof Node || value instanceof getWindow(value).Node;
+}
+function isElement(value) {
+	if (!hasWindow()) return false;
+	return value instanceof Element || value instanceof getWindow(value).Element;
+}
+function isHTMLElement(value) {
+	if (!hasWindow()) return false;
+	return value instanceof HTMLElement || value instanceof getWindow(value).HTMLElement;
+}
+function isShadowRoot(value) {
+	if (!hasWindow() || typeof ShadowRoot === "undefined") return false;
+	return value instanceof ShadowRoot || value instanceof getWindow(value).ShadowRoot;
+}
+var invalidOverflowDisplayValues = /* @__PURE__ */ new Set(["inline", "contents"]);
+function isOverflowElement(element) {
+	const { overflow, overflowX, overflowY, display } = getComputedStyle$1(element);
+	return /auto|scroll|overlay|hidden|clip/.test(overflow + overflowY + overflowX) && !invalidOverflowDisplayValues.has(display);
+}
+function isWebKit() {
+	if (typeof CSS === "undefined" || !CSS.supports) return false;
+	return CSS.supports("-webkit-backdrop-filter", "none");
+}
+var lastTraversableNodeNames = /* @__PURE__ */ new Set([
+	"html",
+	"body",
+	"#document"
+]);
+function isLastTraversableNode(node$1) {
+	return lastTraversableNodeNames.has(getNodeName(node$1));
+}
+function getComputedStyle$1(element) {
+	return getWindow(element).getComputedStyle(element);
+}
+function getParentNode(node$1) {
+	if (getNodeName(node$1) === "html") return node$1;
+	const result = node$1.assignedSlot || node$1.parentNode || isShadowRoot(node$1) && node$1.host || getDocumentElement(node$1);
+	return isShadowRoot(result) ? result.host : result;
+}
+function getNearestOverflowAncestor(node$1) {
+	const parentNode = getParentNode(node$1);
+	if (isLastTraversableNode(parentNode)) return node$1.ownerDocument ? node$1.ownerDocument.body : node$1.body;
+	if (isHTMLElement(parentNode) && isOverflowElement(parentNode)) return parentNode;
+	return getNearestOverflowAncestor(parentNode);
+}
+function getOverflowAncestors(node$1, list, traverseIframes) {
+	var _node$ownerDocument2;
+	if (list === void 0) list = [];
+	if (traverseIframes === void 0) traverseIframes = true;
+	const scrollableAncestor = getNearestOverflowAncestor(node$1);
+	const isBody = scrollableAncestor === ((_node$ownerDocument2 = node$1.ownerDocument) == null ? void 0 : _node$ownerDocument2.body);
+	const win = getWindow(scrollableAncestor);
+	if (isBody) {
+		const frameElement = getFrameElement(win);
+		return list.concat(win, win.visualViewport || [], isOverflowElement(scrollableAncestor) ? scrollableAncestor : [], frameElement && traverseIframes ? getOverflowAncestors(frameElement) : []);
+	}
+	return list.concat(scrollableAncestor, getOverflowAncestors(scrollableAncestor, [], traverseIframes));
+}
+function getFrameElement(win) {
+	return win.parent && Object.getPrototypeOf(win.parent) ? win.frameElement : null;
+}
+function getCssDimensions(element) {
+	const css$3 = getComputedStyle$1(element);
+	let width = parseFloat(css$3.width) || 0;
+	let height = parseFloat(css$3.height) || 0;
+	const hasOffset = isHTMLElement(element);
+	const offsetWidth = hasOffset ? element.offsetWidth : width;
+	const offsetHeight = hasOffset ? element.offsetHeight : height;
+	const shouldFallback = round(width) !== offsetWidth || round(height) !== offsetHeight;
+	if (shouldFallback) {
+		width = offsetWidth;
+		height = offsetHeight;
+	}
+	return {
+		width,
+		height,
+		$: shouldFallback
+	};
+}
+function unwrapElement(element) {
+	return !isElement(element) ? element.contextElement : element;
+}
+function getScale(element) {
+	const domElement = unwrapElement(element);
+	if (!isHTMLElement(domElement)) return createCoords(1);
+	const rect = domElement.getBoundingClientRect();
+	const { width, height, $: $$5 } = getCssDimensions(domElement);
+	let x$9 = ($$5 ? round(rect.width) : rect.width) / width;
+	let y$10 = ($$5 ? round(rect.height) : rect.height) / height;
+	if (!x$9 || !Number.isFinite(x$9)) x$9 = 1;
+	if (!y$10 || !Number.isFinite(y$10)) y$10 = 1;
+	return {
+		x: x$9,
+		y: y$10
+	};
+}
+var noOffsets = /* @__PURE__ */ createCoords(0);
+function getVisualOffsets(element) {
+	const win = getWindow(element);
+	if (!isWebKit() || !win.visualViewport) return noOffsets;
+	return {
+		x: win.visualViewport.offsetLeft,
+		y: win.visualViewport.offsetTop
+	};
+}
+function shouldAddVisualOffsets(element, isFixed, floatingOffsetParent) {
+	if (isFixed === void 0) isFixed = false;
+	if (!floatingOffsetParent || isFixed && floatingOffsetParent !== getWindow(element)) return false;
+	return isFixed;
+}
+function getBoundingClientRect(element, includeScale, isFixedStrategy, offsetParent) {
+	if (includeScale === void 0) includeScale = false;
+	if (isFixedStrategy === void 0) isFixedStrategy = false;
+	const clientRect = element.getBoundingClientRect();
+	const domElement = unwrapElement(element);
+	let scale$2 = createCoords(1);
+	if (includeScale) if (offsetParent) {
+		if (isElement(offsetParent)) scale$2 = getScale(offsetParent);
+	} else scale$2 = getScale(element);
+	const visualOffsets = shouldAddVisualOffsets(domElement, isFixedStrategy, offsetParent) ? getVisualOffsets(domElement) : createCoords(0);
+	let x$9 = (clientRect.left + visualOffsets.x) / scale$2.x;
+	let y$10 = (clientRect.top + visualOffsets.y) / scale$2.y;
+	let width = clientRect.width / scale$2.x;
+	let height = clientRect.height / scale$2.y;
+	if (domElement) {
+		const win = getWindow(domElement);
+		const offsetWin = offsetParent && isElement(offsetParent) ? getWindow(offsetParent) : offsetParent;
+		let currentWin = win;
+		let currentIFrame = getFrameElement(currentWin);
+		while (currentIFrame && offsetParent && offsetWin !== currentWin) {
+			const iframeScale = getScale(currentIFrame);
+			const iframeRect = currentIFrame.getBoundingClientRect();
+			const css$3 = getComputedStyle$1(currentIFrame);
+			const left = iframeRect.left + (currentIFrame.clientLeft + parseFloat(css$3.paddingLeft)) * iframeScale.x;
+			const top = iframeRect.top + (currentIFrame.clientTop + parseFloat(css$3.paddingTop)) * iframeScale.y;
+			x$9 *= iframeScale.x;
+			y$10 *= iframeScale.y;
+			width *= iframeScale.x;
+			height *= iframeScale.y;
+			x$9 += left;
+			y$10 += top;
+			currentWin = getWindow(currentIFrame);
+			currentIFrame = getFrameElement(currentWin);
+		}
+	}
+	return rectToClientRect({
+		width,
+		height,
+		x: x$9,
+		y: y$10
+	});
+}
+function rectsAreEqual(a$8, b$12) {
+	return a$8.x === b$12.x && a$8.y === b$12.y && a$8.width === b$12.width && a$8.height === b$12.height;
+}
+function observeMove(element, onMove) {
+	let io$1 = null;
+	let timeoutId;
+	const root$4 = getDocumentElement(element);
+	function cleanup() {
+		var _io;
+		clearTimeout(timeoutId);
+		(_io = io$1) == null || _io.disconnect();
+		io$1 = null;
+	}
+	function refresh$1(skip, threshold) {
+		if (skip === void 0) skip = false;
+		if (threshold === void 0) threshold = 1;
+		cleanup();
+		const elementRectForRootMargin = element.getBoundingClientRect();
+		const { left, top, width, height } = elementRectForRootMargin;
+		if (!skip) onMove();
+		if (!width || !height) return;
+		const insetTop = floor(top);
+		const insetRight = floor(root$4.clientWidth - (left + width));
+		const insetBottom = floor(root$4.clientHeight - (top + height));
+		const insetLeft = floor(left);
+		const options$2 = {
+			rootMargin: -insetTop + "px " + -insetRight + "px " + -insetBottom + "px " + -insetLeft + "px",
+			threshold: max(0, min(1, threshold)) || 1
+		};
+		let isFirstUpdate = true;
+		function handleObserve(entries) {
+			const ratio = entries[0].intersectionRatio;
+			if (ratio !== threshold) {
+				if (!isFirstUpdate) return refresh$1();
+				if (!ratio) timeoutId = setTimeout(() => {
+					refresh$1(false, 1e-7);
+				}, 1e3);
+				else refresh$1(false, ratio);
+			}
+			if (ratio === 1 && !rectsAreEqual(elementRectForRootMargin, element.getBoundingClientRect())) refresh$1();
+			isFirstUpdate = false;
+		}
+		try {
+			io$1 = new IntersectionObserver(handleObserve, {
+				...options$2,
+				root: root$4.ownerDocument
+			});
+		} catch (_e$1) {
+			io$1 = new IntersectionObserver(handleObserve, options$2);
+		}
+		io$1.observe(element);
+	}
+	refresh$1(true);
+	return cleanup;
+}
+function autoUpdate(reference, floating, update$2, options$2) {
+	if (options$2 === void 0) options$2 = {};
+	const { ancestorScroll = true, ancestorResize = true, elementResize = typeof ResizeObserver === "function", layoutShift = typeof IntersectionObserver === "function", animationFrame = false } = options$2;
+	const referenceEl = unwrapElement(reference);
+	const ancestors = ancestorScroll || ancestorResize ? [...referenceEl ? getOverflowAncestors(referenceEl) : [], ...getOverflowAncestors(floating)] : [];
+	ancestors.forEach((ancestor) => {
+		ancestorScroll && ancestor.addEventListener("scroll", update$2, { passive: true });
+		ancestorResize && ancestor.addEventListener("resize", update$2);
+	});
+	const cleanupIo = referenceEl && layoutShift ? observeMove(referenceEl, update$2) : null;
+	let reobserveFrame = -1;
+	let resizeObserver = null;
+	if (elementResize) {
+		resizeObserver = new ResizeObserver((_ref$1) => {
+			let [firstEntry] = _ref$1;
+			if (firstEntry && firstEntry.target === referenceEl && resizeObserver) {
+				resizeObserver.unobserve(floating);
+				cancelAnimationFrame(reobserveFrame);
+				reobserveFrame = requestAnimationFrame(() => {
+					var _resizeObserver;
+					(_resizeObserver = resizeObserver) == null || _resizeObserver.observe(floating);
+				});
+			}
+			update$2();
+		});
+		if (referenceEl && !animationFrame) resizeObserver.observe(referenceEl);
+		resizeObserver.observe(floating);
+	}
+	let frameId;
+	let prevRefRect = animationFrame ? getBoundingClientRect(reference) : null;
+	if (animationFrame) frameLoop$1();
+	function frameLoop$1() {
+		const nextRefRect = getBoundingClientRect(reference);
+		if (prevRefRect && !rectsAreEqual(prevRefRect, nextRefRect)) update$2();
+		prevRefRect = nextRefRect;
+		frameId = requestAnimationFrame(frameLoop$1);
+	}
+	update$2();
+	return () => {
+		var _resizeObserver2;
+		ancestors.forEach((ancestor) => {
+			ancestorScroll && ancestor.removeEventListener("scroll", update$2);
+			ancestorResize && ancestor.removeEventListener("resize", update$2);
+		});
+		cleanupIo?.();
+		(_resizeObserver2 = resizeObserver) == null || _resizeObserver2.disconnect();
+		resizeObserver = null;
+		if (animationFrame) cancelAnimationFrame(frameId);
+	};
+}
+var index = import_react.useLayoutEffect;
+var import_react_dom$1 = require_react_dom();
+var _excluded$4 = [
+	"className",
+	"clearValue",
+	"cx",
+	"getStyles",
+	"getClassNames",
+	"getValue",
+	"hasValue",
+	"isMulti",
+	"isRtl",
+	"options",
+	"selectOption",
+	"selectProps",
+	"setValue",
+	"theme"
+];
+var noop = function noop$13() {};
+function applyPrefixToName(prefix$4, name) {
+	if (!name) return prefix$4;
+	else if (name[0] === "-") return prefix$4 + name;
+	else return prefix$4 + "__" + name;
+}
+function classNames(prefix$4, state) {
+	for (var _len = arguments.length, classNameList = new Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) classNameList[_key - 2] = arguments[_key];
+	var arr = [].concat(classNameList);
+	if (state && prefix$4) {
+		for (var key in state) if (state.hasOwnProperty(key) && state[key]) arr.push("".concat(applyPrefixToName(prefix$4, key)));
+	}
+	return arr.filter(function(i$13) {
+		return i$13;
+	}).map(function(i$13) {
+		return String(i$13).trim();
+	}).join(" ");
+}
+var cleanValue = function cleanValue$1(value) {
+	if (isArray(value)) return value.filter(Boolean);
+	if (_typeof(value) === "object" && value !== null) return [value];
+	return [];
+};
+var cleanCommonProps = function cleanCommonProps$1(props) {
+	props.className;
+	props.clearValue;
+	props.cx;
+	props.getStyles;
+	props.getClassNames;
+	props.getValue;
+	props.hasValue;
+	props.isMulti;
+	props.isRtl;
+	props.options;
+	props.selectOption;
+	props.selectProps;
+	props.setValue;
+	props.theme;
+	return _objectSpread2({}, _objectWithoutProperties(props, _excluded$4));
+};
+var getStyleProps = function getStyleProps$1(props, name, classNamesState) {
+	var cx$28 = props.cx, getStyles = props.getStyles, getClassNames = props.getClassNames, className = props.className;
+	return {
+		css: getStyles(name, props),
+		className: cx$28(classNamesState !== null && classNamesState !== void 0 ? classNamesState : {}, getClassNames(name, props), className)
+	};
+};
+function isDocumentElement(el) {
+	return [
+		document.documentElement,
+		document.body,
+		window
+	].indexOf(el) > -1;
+}
+function normalizedHeight(el) {
+	if (isDocumentElement(el)) return window.innerHeight;
+	return el.clientHeight;
+}
+function getScrollTop(el) {
+	if (isDocumentElement(el)) return window.pageYOffset;
+	return el.scrollTop;
+}
+function scrollTo(el, top) {
+	if (isDocumentElement(el)) {
+		window.scrollTo(0, top);
+		return;
+	}
+	el.scrollTop = top;
+}
+function getScrollParent(element) {
+	var style$1 = getComputedStyle(element);
+	var excludeStaticParent = style$1.position === "absolute";
+	var overflowRx = /(auto|scroll)/;
+	if (style$1.position === "fixed") return document.documentElement;
+	for (var parent = element; parent = parent.parentElement;) {
+		style$1 = getComputedStyle(parent);
+		if (excludeStaticParent && style$1.position === "static") continue;
+		if (overflowRx.test(style$1.overflow + style$1.overflowY + style$1.overflowX)) return parent;
+	}
+	return document.documentElement;
+}
+function easeOutCubic(t$11, b$12, c$12, d$7) {
+	return c$12 * ((t$11 = t$11 / d$7 - 1) * t$11 * t$11 + 1) + b$12;
+}
+function animatedScrollTo(element, to$3) {
+	var duration = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : 200;
+	var callback = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : noop;
+	var start$1 = getScrollTop(element);
+	var change = to$3 - start$1;
+	var increment = 10;
+	var currentTime = 0;
+	function animateScroll() {
+		currentTime += increment;
+		scrollTo(element, easeOutCubic(currentTime, start$1, change, duration));
+		if (currentTime < duration) window.requestAnimationFrame(animateScroll);
+		else callback(element);
+	}
+	animateScroll();
+}
+function scrollIntoView(menuEl, focusedEl) {
+	var menuRect = menuEl.getBoundingClientRect();
+	var focusedRect = focusedEl.getBoundingClientRect();
+	var overScroll = focusedEl.offsetHeight / 3;
+	if (focusedRect.bottom + overScroll > menuRect.bottom) scrollTo(menuEl, Math.min(focusedEl.offsetTop + focusedEl.clientHeight - menuEl.offsetHeight + overScroll, menuEl.scrollHeight));
+	else if (focusedRect.top - overScroll < menuRect.top) scrollTo(menuEl, Math.max(focusedEl.offsetTop - overScroll, 0));
+}
+function getBoundingClientObj(element) {
+	var rect = element.getBoundingClientRect();
+	return {
+		bottom: rect.bottom,
+		height: rect.height,
+		left: rect.left,
+		right: rect.right,
+		top: rect.top,
+		width: rect.width
+	};
+}
+function isTouchCapable() {
+	try {
+		document.createEvent("TouchEvent");
+		return true;
+	} catch (e$14) {
+		return false;
+	}
+}
+function isMobileDevice() {
+	try {
+		return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+	} catch (e$14) {
+		return false;
+	}
+}
+var passiveOptionAccessed = false;
+var options = { get passive() {
+	return passiveOptionAccessed = true;
+} };
+var w = typeof window !== "undefined" ? window : {};
+if (w.addEventListener && w.removeEventListener) {
+	w.addEventListener("p", noop, options);
+	w.removeEventListener("p", noop, false);
+}
+var supportsPassiveEvents = passiveOptionAccessed;
+function notNullish(item) {
+	return item != null;
+}
+function isArray(arg) {
+	return Array.isArray(arg);
+}
+function valueTernary(isMulti, multiValue, singleValue) {
+	return isMulti ? multiValue : singleValue;
+}
+function singleValueAsValue(singleValue) {
+	return singleValue;
+}
+function multiValueAsValue(multiValue) {
+	return multiValue;
+}
+var removeProps = function removeProps$1(propsObj) {
+	for (var _len2 = arguments.length, properties = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) properties[_key2 - 1] = arguments[_key2];
+	return Object.entries(propsObj).filter(function(_ref$1) {
+		var key = _slicedToArray(_ref$1, 1)[0];
+		return !properties.includes(key);
+	}).reduce(function(newProps, _ref3) {
+		var _ref4 = _slicedToArray(_ref3, 2), key = _ref4[0];
+		newProps[key] = _ref4[1];
+		return newProps;
+	}, {});
+};
+var _excluded$3 = ["children", "innerProps"], _excluded2$1 = ["children", "innerProps"];
+function getMenuPlacement(_ref$1) {
+	var preferredMaxHeight = _ref$1.maxHeight, menuEl = _ref$1.menuEl, minHeight = _ref$1.minHeight, preferredPlacement = _ref$1.placement, shouldScroll = _ref$1.shouldScroll, isFixedPosition = _ref$1.isFixedPosition, controlHeight = _ref$1.controlHeight;
+	var scrollParent = getScrollParent(menuEl);
+	var defaultState = {
+		placement: "bottom",
+		maxHeight: preferredMaxHeight
+	};
+	if (!menuEl || !menuEl.offsetParent) return defaultState;
+	var scrollHeight = scrollParent.getBoundingClientRect().height;
+	var _menuEl$getBoundingCl = menuEl.getBoundingClientRect(), menuBottom = _menuEl$getBoundingCl.bottom, menuHeight = _menuEl$getBoundingCl.height, menuTop = _menuEl$getBoundingCl.top;
+	var containerTop = menuEl.offsetParent.getBoundingClientRect().top;
+	var viewHeight = isFixedPosition ? window.innerHeight : normalizedHeight(scrollParent);
+	var scrollTop = getScrollTop(scrollParent);
+	var marginBottom = parseInt(getComputedStyle(menuEl).marginBottom, 10);
+	var marginTop = parseInt(getComputedStyle(menuEl).marginTop, 10);
+	var viewSpaceAbove = containerTop - marginTop;
+	var viewSpaceBelow = viewHeight - menuTop;
+	var scrollSpaceAbove = viewSpaceAbove + scrollTop;
+	var scrollSpaceBelow = scrollHeight - scrollTop - menuTop;
+	var scrollDown = menuBottom - viewHeight + scrollTop + marginBottom;
+	var scrollUp = scrollTop + menuTop - marginTop;
+	var scrollDuration = 160;
+	switch (preferredPlacement) {
+		case "auto":
+		case "bottom":
+			if (viewSpaceBelow >= menuHeight) return {
+				placement: "bottom",
+				maxHeight: preferredMaxHeight
+			};
+			if (scrollSpaceBelow >= menuHeight && !isFixedPosition) {
+				if (shouldScroll) animatedScrollTo(scrollParent, scrollDown, scrollDuration);
+				return {
+					placement: "bottom",
+					maxHeight: preferredMaxHeight
+				};
+			}
+			if (!isFixedPosition && scrollSpaceBelow >= minHeight || isFixedPosition && viewSpaceBelow >= minHeight) {
+				if (shouldScroll) animatedScrollTo(scrollParent, scrollDown, scrollDuration);
+				return {
+					placement: "bottom",
+					maxHeight: isFixedPosition ? viewSpaceBelow - marginBottom : scrollSpaceBelow - marginBottom
+				};
+			}
+			if (preferredPlacement === "auto" || isFixedPosition) {
+				var _constrainedHeight = preferredMaxHeight;
+				var spaceAbove = isFixedPosition ? viewSpaceAbove : scrollSpaceAbove;
+				if (spaceAbove >= minHeight) _constrainedHeight = Math.min(spaceAbove - marginBottom - controlHeight, preferredMaxHeight);
+				return {
+					placement: "top",
+					maxHeight: _constrainedHeight
+				};
+			}
+			if (preferredPlacement === "bottom") {
+				if (shouldScroll) scrollTo(scrollParent, scrollDown);
+				return {
+					placement: "bottom",
+					maxHeight: preferredMaxHeight
+				};
+			}
+			break;
+		case "top":
+			if (viewSpaceAbove >= menuHeight) return {
+				placement: "top",
+				maxHeight: preferredMaxHeight
+			};
+			if (scrollSpaceAbove >= menuHeight && !isFixedPosition) {
+				if (shouldScroll) animatedScrollTo(scrollParent, scrollUp, scrollDuration);
+				return {
+					placement: "top",
+					maxHeight: preferredMaxHeight
+				};
+			}
+			if (!isFixedPosition && scrollSpaceAbove >= minHeight || isFixedPosition && viewSpaceAbove >= minHeight) {
+				var _constrainedHeight2 = preferredMaxHeight;
+				if (!isFixedPosition && scrollSpaceAbove >= minHeight || isFixedPosition && viewSpaceAbove >= minHeight) _constrainedHeight2 = isFixedPosition ? viewSpaceAbove - marginTop : scrollSpaceAbove - marginTop;
+				if (shouldScroll) animatedScrollTo(scrollParent, scrollUp, scrollDuration);
+				return {
+					placement: "top",
+					maxHeight: _constrainedHeight2
+				};
+			}
+			return {
+				placement: "bottom",
+				maxHeight: preferredMaxHeight
+			};
+		default: throw new Error("Invalid placement provided \"".concat(preferredPlacement, "\"."));
+	}
+	return defaultState;
+}
+function alignToControl(placement) {
+	return placement ? {
+		bottom: "top",
+		top: "bottom"
+	}[placement] : "bottom";
+}
+var coercePlacement = function coercePlacement$1(p$7) {
+	return p$7 === "auto" ? "bottom" : p$7;
+};
+var menuCSS = function menuCSS$1(_ref2$3, unstyled) {
+	var _objectSpread2$2;
+	var placement = _ref2$3.placement, _ref2$theme = _ref2$3.theme, borderRadius$1 = _ref2$theme.borderRadius, spacing = _ref2$theme.spacing, colors$2 = _ref2$theme.colors;
+	return _objectSpread2((_objectSpread2$2 = { label: "menu" }, _defineProperty(_objectSpread2$2, alignToControl(placement), "100%"), _defineProperty(_objectSpread2$2, "position", "absolute"), _defineProperty(_objectSpread2$2, "width", "100%"), _defineProperty(_objectSpread2$2, "zIndex", 1), _objectSpread2$2), unstyled ? {} : {
+		backgroundColor: colors$2.neutral0,
+		borderRadius: borderRadius$1,
+		boxShadow: "0 0 0 1px hsla(0, 0%, 0%, 0.1), 0 4px 11px hsla(0, 0%, 0%, 0.1)",
+		marginBottom: spacing.menuGutter,
+		marginTop: spacing.menuGutter
+	});
+};
+var PortalPlacementContext = /* @__PURE__ */ (0, import_react.createContext)(null);
+var MenuPlacer = function MenuPlacer$1(props) {
+	var children = props.children, minMenuHeight = props.minMenuHeight, maxMenuHeight = props.maxMenuHeight, menuPlacement = props.menuPlacement, menuPosition = props.menuPosition, menuShouldScrollIntoView = props.menuShouldScrollIntoView, theme = props.theme;
+	var setPortalPlacement = ((0, import_react.useContext)(PortalPlacementContext) || {}).setPortalPlacement;
+	var ref = (0, import_react.useRef)(null);
+	var _useState2 = _slicedToArray((0, import_react.useState)(maxMenuHeight), 2), maxHeight = _useState2[0], setMaxHeight = _useState2[1];
+	var _useState4 = _slicedToArray((0, import_react.useState)(null), 2), placement = _useState4[0], setPlacement = _useState4[1];
+	var controlHeight = theme.spacing.controlHeight;
+	index(function() {
+		var menuEl = ref.current;
+		if (!menuEl) return;
+		var isFixedPosition = menuPosition === "fixed";
+		var state = getMenuPlacement({
+			maxHeight: maxMenuHeight,
+			menuEl,
+			minHeight: minMenuHeight,
+			placement: menuPlacement,
+			shouldScroll: menuShouldScrollIntoView && !isFixedPosition,
+			isFixedPosition,
+			controlHeight
+		});
+		setMaxHeight(state.maxHeight);
+		setPlacement(state.placement);
+		setPortalPlacement === null || setPortalPlacement === void 0 || setPortalPlacement(state.placement);
+	}, [
+		maxMenuHeight,
+		menuPlacement,
+		menuPosition,
+		menuShouldScrollIntoView,
+		minMenuHeight,
+		setPortalPlacement,
+		controlHeight
+	]);
+	return children({
+		ref,
+		placerProps: _objectSpread2(_objectSpread2({}, props), {}, {
+			placement: placement || coercePlacement(menuPlacement),
+			maxHeight
+		})
+	});
+};
+var Menu$1 = function Menu(props) {
+	var children = props.children, innerRef = props.innerRef, innerProps = props.innerProps;
+	return jsx("div", _extends({}, getStyleProps(props, "menu", { menu: true }), { ref: innerRef }, innerProps), children);
+};
+var menuListCSS = function menuListCSS$1(_ref4, unstyled) {
+	var maxHeight = _ref4.maxHeight, baseUnit$1 = _ref4.theme.spacing.baseUnit;
+	return _objectSpread2({
+		maxHeight,
+		overflowY: "auto",
+		position: "relative",
+		WebkitOverflowScrolling: "touch"
+	}, unstyled ? {} : {
+		paddingBottom: baseUnit$1,
+		paddingTop: baseUnit$1
+	});
+};
+var MenuList$1 = function MenuList$2(props) {
+	var children = props.children, innerProps = props.innerProps, innerRef = props.innerRef, isMulti = props.isMulti;
+	return jsx("div", _extends({}, getStyleProps(props, "menuList", {
+		"menu-list": true,
+		"menu-list--is-multi": isMulti
+	}), { ref: innerRef }, innerProps), children);
+};
+var noticeCSS = function noticeCSS$1(_ref5, unstyled) {
+	var _ref5$theme = _ref5.theme, baseUnit$1 = _ref5$theme.spacing.baseUnit, colors$2 = _ref5$theme.colors;
+	return _objectSpread2({ textAlign: "center" }, unstyled ? {} : {
+		color: colors$2.neutral40,
+		padding: "".concat(baseUnit$1 * 2, "px ").concat(baseUnit$1 * 3, "px")
+	});
+};
+var noOptionsMessageCSS = noticeCSS;
+var loadingMessageCSS = noticeCSS;
+var NoOptionsMessage = function NoOptionsMessage$1(_ref6) {
+	var _ref6$children = _ref6.children, children = _ref6$children === void 0 ? "No options" : _ref6$children, innerProps = _ref6.innerProps;
+	return jsx("div", _extends({}, getStyleProps(_objectSpread2(_objectSpread2({}, _objectWithoutProperties(_ref6, _excluded$3)), {}, {
+		children,
+		innerProps
+	}), "noOptionsMessage", {
+		"menu-notice": true,
+		"menu-notice--no-options": true
+	}), innerProps), children);
+};
+var LoadingMessage = function LoadingMessage$1(_ref7) {
+	var _ref7$children = _ref7.children, children = _ref7$children === void 0 ? "Loading..." : _ref7$children, innerProps = _ref7.innerProps;
+	return jsx("div", _extends({}, getStyleProps(_objectSpread2(_objectSpread2({}, _objectWithoutProperties(_ref7, _excluded2$1)), {}, {
+		children,
+		innerProps
+	}), "loadingMessage", {
+		"menu-notice": true,
+		"menu-notice--loading": true
+	}), innerProps), children);
+};
+var menuPortalCSS = function menuPortalCSS$1(_ref8) {
+	var rect = _ref8.rect, offset$3 = _ref8.offset, position$1 = _ref8.position;
+	return {
+		left: rect.left,
+		position: position$1,
+		top: offset$3,
+		width: rect.width,
+		zIndex: 1
+	};
+};
+var MenuPortal = function MenuPortal$1(props) {
+	var appendTo = props.appendTo, children = props.children, controlElement = props.controlElement, innerProps = props.innerProps, menuPlacement = props.menuPlacement, menuPosition = props.menuPosition;
+	var menuPortalRef = (0, import_react.useRef)(null);
+	var cleanupRef = (0, import_react.useRef)(null);
+	var _useState6 = _slicedToArray((0, import_react.useState)(coercePlacement(menuPlacement)), 2), placement = _useState6[0], setPortalPlacement = _useState6[1];
+	var portalPlacementContext = (0, import_react.useMemo)(function() {
+		return { setPortalPlacement };
+	}, []);
+	var _useState8 = _slicedToArray((0, import_react.useState)(null), 2), computedPosition = _useState8[0], setComputedPosition = _useState8[1];
+	var updateComputedPosition = (0, import_react.useCallback)(function() {
+		if (!controlElement) return;
+		var rect = getBoundingClientObj(controlElement);
+		var scrollDistance = menuPosition === "fixed" ? 0 : window.pageYOffset;
+		var offset$3 = rect[placement] + scrollDistance;
+		if (offset$3 !== (computedPosition === null || computedPosition === void 0 ? void 0 : computedPosition.offset) || rect.left !== (computedPosition === null || computedPosition === void 0 ? void 0 : computedPosition.rect.left) || rect.width !== (computedPosition === null || computedPosition === void 0 ? void 0 : computedPosition.rect.width)) setComputedPosition({
+			offset: offset$3,
+			rect
+		});
+	}, [
+		controlElement,
+		menuPosition,
+		placement,
+		computedPosition === null || computedPosition === void 0 ? void 0 : computedPosition.offset,
+		computedPosition === null || computedPosition === void 0 ? void 0 : computedPosition.rect.left,
+		computedPosition === null || computedPosition === void 0 ? void 0 : computedPosition.rect.width
+	]);
+	index(function() {
+		updateComputedPosition();
+	}, [updateComputedPosition]);
+	var runAutoUpdate = (0, import_react.useCallback)(function() {
+		if (typeof cleanupRef.current === "function") {
+			cleanupRef.current();
+			cleanupRef.current = null;
+		}
+		if (controlElement && menuPortalRef.current) cleanupRef.current = autoUpdate(controlElement, menuPortalRef.current, updateComputedPosition, { elementResize: "ResizeObserver" in window });
+	}, [controlElement, updateComputedPosition]);
+	index(function() {
+		runAutoUpdate();
+	}, [runAutoUpdate]);
+	var setMenuPortalElement = (0, import_react.useCallback)(function(menuPortalElement) {
+		menuPortalRef.current = menuPortalElement;
+		runAutoUpdate();
+	}, [runAutoUpdate]);
+	if (!appendTo && menuPosition !== "fixed" || !computedPosition) return null;
+	var menuWrapper = jsx("div", _extends({ ref: setMenuPortalElement }, getStyleProps(_objectSpread2(_objectSpread2({}, props), {}, {
+		offset: computedPosition.offset,
+		position: menuPosition,
+		rect: computedPosition.rect
+	}), "menuPortal", { "menu-portal": true }), innerProps), children);
+	return jsx(PortalPlacementContext.Provider, { value: portalPlacementContext }, appendTo ? /* @__PURE__ */ (0, import_react_dom$1.createPortal)(menuWrapper, appendTo) : menuWrapper);
+};
+var containerCSS = function containerCSS$1(_ref$1) {
+	var isDisabled = _ref$1.isDisabled;
+	return {
+		label: "container",
+		direction: _ref$1.isRtl ? "rtl" : void 0,
+		pointerEvents: isDisabled ? "none" : void 0,
+		position: "relative"
+	};
+};
+var SelectContainer = function SelectContainer$1(props) {
+	var children = props.children, innerProps = props.innerProps, isDisabled = props.isDisabled, isRtl = props.isRtl;
+	return jsx("div", _extends({}, getStyleProps(props, "container", {
+		"--is-disabled": isDisabled,
+		"--is-rtl": isRtl
+	}), innerProps), children);
+};
+var valueContainerCSS = function valueContainerCSS$1(_ref2$3, unstyled) {
+	var spacing = _ref2$3.theme.spacing, isMulti = _ref2$3.isMulti, hasValue$1 = _ref2$3.hasValue, controlShouldRenderValue = _ref2$3.selectProps.controlShouldRenderValue;
+	return _objectSpread2({
+		alignItems: "center",
+		display: isMulti && hasValue$1 && controlShouldRenderValue ? "flex" : "grid",
+		flex: 1,
+		flexWrap: "wrap",
+		WebkitOverflowScrolling: "touch",
+		position: "relative",
+		overflow: "hidden"
+	}, unstyled ? {} : { padding: "".concat(spacing.baseUnit / 2, "px ").concat(spacing.baseUnit * 2, "px") });
+};
+var ValueContainer = function ValueContainer$1(props) {
+	var children = props.children, innerProps = props.innerProps, isMulti = props.isMulti, hasValue$1 = props.hasValue;
+	return jsx("div", _extends({}, getStyleProps(props, "valueContainer", {
+		"value-container": true,
+		"value-container--is-multi": isMulti,
+		"value-container--has-value": hasValue$1
+	}), innerProps), children);
+};
+var indicatorsContainerCSS = function indicatorsContainerCSS$1() {
+	return {
+		alignItems: "center",
+		alignSelf: "stretch",
+		display: "flex",
+		flexShrink: 0
+	};
+};
+var IndicatorsContainer = function IndicatorsContainer$1(props) {
+	var children = props.children, innerProps = props.innerProps;
+	return jsx("div", _extends({}, getStyleProps(props, "indicatorsContainer", { indicators: true }), innerProps), children);
+};
+var _templateObject;
+var _excluded$2 = ["size"], _excluded2 = [
+	"innerProps",
+	"isRtl",
+	"size"
+];
+var _ref2$2 = {
+	name: "8mmkcg",
+	styles: "display:inline-block;fill:currentColor;line-height:1;stroke:currentColor;stroke-width:0"
+};
+var Svg = function Svg$1(_ref$1) {
+	var size$6 = _ref$1.size, props = _objectWithoutProperties(_ref$1, _excluded$2);
+	return jsx("svg", _extends({
+		height: size$6,
+		width: size$6,
+		viewBox: "0 0 20 20",
+		"aria-hidden": "true",
+		focusable: "false",
+		css: _ref2$2
+	}, props));
+};
+var CrossIcon = function CrossIcon$1(props) {
+	return jsx(Svg, _extends({ size: 20 }, props), jsx("path", { d: "M14.348 14.849c-0.469 0.469-1.229 0.469-1.697 0l-2.651-3.030-2.651 3.029c-0.469 0.469-1.229 0.469-1.697 0-0.469-0.469-0.469-1.229 0-1.697l2.758-3.15-2.759-3.152c-0.469-0.469-0.469-1.228 0-1.697s1.228-0.469 1.697 0l2.652 3.031 2.651-3.031c0.469-0.469 1.228-0.469 1.697 0s0.469 1.229 0 1.697l-2.758 3.152 2.758 3.15c0.469 0.469 0.469 1.229 0 1.698z" }));
+};
+var DownChevron = function DownChevron$1(props) {
+	return jsx(Svg, _extends({ size: 20 }, props), jsx("path", { d: "M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z" }));
+};
+var baseCSS = function baseCSS$1(_ref3, unstyled) {
+	var isFocused = _ref3.isFocused, _ref3$theme = _ref3.theme, baseUnit$1 = _ref3$theme.spacing.baseUnit, colors$2 = _ref3$theme.colors;
+	return _objectSpread2({
+		label: "indicatorContainer",
+		display: "flex",
+		transition: "color 150ms"
+	}, unstyled ? {} : {
+		color: isFocused ? colors$2.neutral60 : colors$2.neutral20,
+		padding: baseUnit$1 * 2,
+		":hover": { color: isFocused ? colors$2.neutral80 : colors$2.neutral40 }
+	});
+};
+var dropdownIndicatorCSS = baseCSS;
+var DropdownIndicator$1 = function DropdownIndicator$2(props) {
+	var children = props.children, innerProps = props.innerProps;
+	return jsx("div", _extends({}, getStyleProps(props, "dropdownIndicator", {
+		indicator: true,
+		"dropdown-indicator": true
+	}), innerProps), children || jsx(DownChevron, null));
+};
+var clearIndicatorCSS = baseCSS;
+var ClearIndicator = function ClearIndicator$1(props) {
+	var children = props.children, innerProps = props.innerProps;
+	return jsx("div", _extends({}, getStyleProps(props, "clearIndicator", {
+		indicator: true,
+		"clear-indicator": true
+	}), innerProps), children || jsx(CrossIcon, null));
+};
+var indicatorSeparatorCSS = function indicatorSeparatorCSS$1(_ref4, unstyled) {
+	var isDisabled = _ref4.isDisabled, _ref4$theme = _ref4.theme, baseUnit$1 = _ref4$theme.spacing.baseUnit, colors$2 = _ref4$theme.colors;
+	return _objectSpread2({
+		label: "indicatorSeparator",
+		alignSelf: "stretch",
+		width: 1
+	}, unstyled ? {} : {
+		backgroundColor: isDisabled ? colors$2.neutral10 : colors$2.neutral20,
+		marginBottom: baseUnit$1 * 2,
+		marginTop: baseUnit$1 * 2
+	});
+};
+var IndicatorSeparator = function IndicatorSeparator$1(props) {
+	var innerProps = props.innerProps;
+	return jsx("span", _extends({}, innerProps, getStyleProps(props, "indicatorSeparator", { "indicator-separator": true })));
+};
+var loadingDotAnimations = keyframes(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  0%, 80%, 100% { opacity: 0; }\n  40% { opacity: 1; }\n"])));
+var loadingIndicatorCSS = function loadingIndicatorCSS$1(_ref5, unstyled) {
+	var isFocused = _ref5.isFocused, size$6 = _ref5.size, _ref5$theme = _ref5.theme, colors$2 = _ref5$theme.colors, baseUnit$1 = _ref5$theme.spacing.baseUnit;
+	return _objectSpread2({
+		label: "loadingIndicator",
+		display: "flex",
+		transition: "color 150ms",
+		alignSelf: "center",
+		fontSize: size$6,
+		lineHeight: 1,
+		marginRight: size$6,
+		textAlign: "center",
+		verticalAlign: "middle"
+	}, unstyled ? {} : {
+		color: isFocused ? colors$2.neutral60 : colors$2.neutral20,
+		padding: baseUnit$1 * 2
+	});
+};
+var LoadingDot = function LoadingDot$1(_ref6) {
+	var delay$1 = _ref6.delay, offset$3 = _ref6.offset;
+	return jsx("span", { css: /* @__PURE__ */ css$2({
+		animation: "".concat(loadingDotAnimations, " 1s ease-in-out ").concat(delay$1, "ms infinite;"),
+		backgroundColor: "currentColor",
+		borderRadius: "1em",
+		display: "inline-block",
+		marginLeft: offset$3 ? "1em" : void 0,
+		height: "1em",
+		verticalAlign: "top",
+		width: "1em"
+	}, "", "") });
+};
+var LoadingIndicator = function LoadingIndicator$1(_ref7) {
+	var innerProps = _ref7.innerProps, isRtl = _ref7.isRtl, _ref7$size = _ref7.size, size$6 = _ref7$size === void 0 ? 4 : _ref7$size;
+	return jsx("div", _extends({}, getStyleProps(_objectSpread2(_objectSpread2({}, _objectWithoutProperties(_ref7, _excluded2)), {}, {
+		innerProps,
+		isRtl,
+		size: size$6
+	}), "loadingIndicator", {
+		indicator: true,
+		"loading-indicator": true
+	}), innerProps), jsx(LoadingDot, {
+		delay: 0,
+		offset: isRtl
+	}), jsx(LoadingDot, {
+		delay: 160,
+		offset: true
+	}), jsx(LoadingDot, {
+		delay: 320,
+		offset: !isRtl
+	}));
+};
+var css$1 = function css$3(_ref$1, unstyled) {
+	var isDisabled = _ref$1.isDisabled, isFocused = _ref$1.isFocused, _ref$theme = _ref$1.theme, colors$2 = _ref$theme.colors, borderRadius$1 = _ref$theme.borderRadius, spacing = _ref$theme.spacing;
+	return _objectSpread2({
+		label: "control",
+		alignItems: "center",
+		cursor: "default",
+		display: "flex",
+		flexWrap: "wrap",
+		justifyContent: "space-between",
+		minHeight: spacing.controlHeight,
+		outline: "0 !important",
+		position: "relative",
+		transition: "all 100ms"
+	}, unstyled ? {} : {
+		backgroundColor: isDisabled ? colors$2.neutral5 : colors$2.neutral0,
+		borderColor: isDisabled ? colors$2.neutral10 : isFocused ? colors$2.primary : colors$2.neutral20,
+		borderRadius: borderRadius$1,
+		borderStyle: "solid",
+		borderWidth: 1,
+		boxShadow: isFocused ? "0 0 0 1px ".concat(colors$2.primary) : void 0,
+		"&:hover": { borderColor: isFocused ? colors$2.primary : colors$2.neutral30 }
+	});
+};
+var Control$1 = function Control(props) {
+	var children = props.children, isDisabled = props.isDisabled, isFocused = props.isFocused, innerRef = props.innerRef, innerProps = props.innerProps, menuIsOpen = props.menuIsOpen;
+	return jsx("div", _extends({ ref: innerRef }, getStyleProps(props, "control", {
+		control: true,
+		"control--is-disabled": isDisabled,
+		"control--is-focused": isFocused,
+		"control--menu-is-open": menuIsOpen
+	}), innerProps, { "aria-disabled": isDisabled || void 0 }), children);
+};
+var _excluded$1 = ["data"];
+var groupCSS = function groupCSS$1(_ref$1, unstyled) {
+	var spacing = _ref$1.theme.spacing;
+	return unstyled ? {} : {
+		paddingBottom: spacing.baseUnit * 2,
+		paddingTop: spacing.baseUnit * 2
+	};
+};
+var Group = function Group$2(props) {
+	var children = props.children, cx$28 = props.cx, getStyles = props.getStyles, getClassNames = props.getClassNames, Heading = props.Heading, headingProps = props.headingProps, innerProps = props.innerProps, label = props.label, theme = props.theme, selectProps = props.selectProps;
+	return jsx("div", _extends({}, getStyleProps(props, "group", { group: true }), innerProps), jsx(Heading, _extends({}, headingProps, {
+		selectProps,
+		theme,
+		getStyles,
+		getClassNames,
+		cx: cx$28
+	}), label), jsx("div", null, children));
+};
+var groupHeadingCSS = function groupHeadingCSS$1(_ref2$3, unstyled) {
+	var _ref2$theme = _ref2$3.theme, colors$2 = _ref2$theme.colors, spacing = _ref2$theme.spacing;
+	return _objectSpread2({
+		label: "group",
+		cursor: "default",
+		display: "block"
+	}, unstyled ? {} : {
+		color: colors$2.neutral40,
+		fontSize: "75%",
+		fontWeight: 500,
+		marginBottom: "0.25em",
+		paddingLeft: spacing.baseUnit * 3,
+		paddingRight: spacing.baseUnit * 3,
+		textTransform: "uppercase"
+	});
+};
+var GroupHeading = function GroupHeading$1(props) {
+	var _cleanCommonProps = cleanCommonProps(props);
+	_cleanCommonProps.data;
+	var innerProps = _objectWithoutProperties(_cleanCommonProps, _excluded$1);
+	return jsx("div", _extends({}, getStyleProps(props, "groupHeading", { "group-heading": true }), innerProps));
+};
+var Group$1 = Group;
+var _excluded$5 = [
+	"innerRef",
+	"isDisabled",
+	"isHidden",
+	"inputClassName"
+];
+var inputCSS = function inputCSS$1(_ref$1, unstyled) {
+	var isDisabled = _ref$1.isDisabled, value = _ref$1.value, _ref$theme = _ref$1.theme, spacing = _ref$theme.spacing, colors$2 = _ref$theme.colors;
+	return _objectSpread2(_objectSpread2({
+		visibility: isDisabled ? "hidden" : "visible",
+		transform: value ? "translateZ(0)" : ""
+	}, containerStyle), unstyled ? {} : {
+		margin: spacing.baseUnit / 2,
+		paddingBottom: spacing.baseUnit / 2,
+		paddingTop: spacing.baseUnit / 2,
+		color: colors$2.neutral80
+	});
+};
+var spacingStyle = {
+	gridArea: "1 / 2",
+	font: "inherit",
+	minWidth: "2px",
+	border: 0,
+	margin: 0,
+	outline: 0,
+	padding: 0
+};
+var containerStyle = {
+	flex: "1 1 auto",
+	display: "inline-grid",
+	gridArea: "1 / 1 / 2 / 3",
+	gridTemplateColumns: "0 min-content",
+	"&:after": _objectSpread2({
+		content: "attr(data-value) \" \"",
+		visibility: "hidden",
+		whiteSpace: "pre"
+	}, spacingStyle)
+};
+var inputStyle = function inputStyle$1(isHidden) {
+	return _objectSpread2({
+		label: "input",
+		color: "inherit",
+		background: 0,
+		opacity: isHidden ? 0 : 1,
+		width: "100%"
+	}, spacingStyle);
+};
+var Input$1 = function Input$2(props) {
+	var cx$28 = props.cx, value = props.value;
+	var _cleanCommonProps = cleanCommonProps(props), innerRef = _cleanCommonProps.innerRef, isDisabled = _cleanCommonProps.isDisabled, isHidden = _cleanCommonProps.isHidden, inputClassName = _cleanCommonProps.inputClassName, innerProps = _objectWithoutProperties(_cleanCommonProps, _excluded$5);
+	return jsx("div", _extends({}, getStyleProps(props, "input", { "input-container": true }), { "data-value": value || "" }), jsx("input", _extends({
+		className: cx$28({ input: true }, inputClassName),
+		ref: innerRef,
+		style: inputStyle(isHidden),
+		disabled: isDisabled
+	}, innerProps)));
+};
+var multiValueCSS = function multiValueCSS$1(_ref$1, unstyled) {
+	var _ref$theme = _ref$1.theme, spacing = _ref$theme.spacing, borderRadius$1 = _ref$theme.borderRadius, colors$2 = _ref$theme.colors;
+	return _objectSpread2({
+		label: "multiValue",
+		display: "flex",
+		minWidth: 0
+	}, unstyled ? {} : {
+		backgroundColor: colors$2.neutral10,
+		borderRadius: borderRadius$1 / 2,
+		margin: spacing.baseUnit / 2
+	});
+};
+var multiValueLabelCSS = function multiValueLabelCSS$1(_ref2$3, unstyled) {
+	var _ref2$theme = _ref2$3.theme, borderRadius$1 = _ref2$theme.borderRadius, colors$2 = _ref2$theme.colors, cropWithEllipsis = _ref2$3.cropWithEllipsis;
+	return _objectSpread2({
+		overflow: "hidden",
+		textOverflow: cropWithEllipsis || cropWithEllipsis === void 0 ? "ellipsis" : void 0,
+		whiteSpace: "nowrap"
+	}, unstyled ? {} : {
+		borderRadius: borderRadius$1 / 2,
+		color: colors$2.neutral80,
+		fontSize: "85%",
+		padding: 3,
+		paddingLeft: 6
+	});
+};
+var multiValueRemoveCSS = function multiValueRemoveCSS$1(_ref3, unstyled) {
+	var _ref3$theme = _ref3.theme, spacing = _ref3$theme.spacing, borderRadius$1 = _ref3$theme.borderRadius, colors$2 = _ref3$theme.colors, isFocused = _ref3.isFocused;
+	return _objectSpread2({
+		alignItems: "center",
+		display: "flex"
+	}, unstyled ? {} : {
+		borderRadius: borderRadius$1 / 2,
+		backgroundColor: isFocused ? colors$2.dangerLight : void 0,
+		paddingLeft: spacing.baseUnit,
+		paddingRight: spacing.baseUnit,
+		":hover": {
+			backgroundColor: colors$2.dangerLight,
+			color: colors$2.danger
+		}
+	});
+};
+var MultiValueGeneric = function MultiValueGeneric$1(_ref4) {
+	var children = _ref4.children, innerProps = _ref4.innerProps;
+	return jsx("div", innerProps, children);
+};
+var MultiValueContainer = MultiValueGeneric;
+var MultiValueLabel = MultiValueGeneric;
+function MultiValueRemove(_ref5) {
+	var children = _ref5.children, innerProps = _ref5.innerProps;
+	return jsx("div", _extends({ role: "button" }, innerProps), children || jsx(CrossIcon, { size: 14 }));
+}
+var MultiValue$1 = function MultiValue(props) {
+	var children = props.children, components$1 = props.components, data = props.data, innerProps = props.innerProps, isDisabled = props.isDisabled, removeProps$1 = props.removeProps, selectProps = props.selectProps;
+	var Container$9 = components$1.Container, Label = components$1.Label, Remove = components$1.Remove;
+	return jsx(Container$9, {
+		data,
+		innerProps: _objectSpread2(_objectSpread2({}, getStyleProps(props, "multiValue", {
+			"multi-value": true,
+			"multi-value--is-disabled": isDisabled
+		})), innerProps),
+		selectProps
+	}, jsx(Label, {
+		data,
+		innerProps: _objectSpread2({}, getStyleProps(props, "multiValueLabel", { "multi-value__label": true })),
+		selectProps
+	}, children), jsx(Remove, {
+		data,
+		innerProps: _objectSpread2(_objectSpread2({}, getStyleProps(props, "multiValueRemove", { "multi-value__remove": true })), {}, { "aria-label": "Remove ".concat(children || "option") }, removeProps$1),
+		selectProps
+	}));
+};
+var optionCSS = function optionCSS$1(_ref$1, unstyled) {
+	var isDisabled = _ref$1.isDisabled, isFocused = _ref$1.isFocused, isSelected = _ref$1.isSelected, _ref$theme = _ref$1.theme, spacing = _ref$theme.spacing, colors$2 = _ref$theme.colors;
+	return _objectSpread2({
+		label: "option",
+		cursor: "default",
+		display: "block",
+		fontSize: "inherit",
+		width: "100%",
+		userSelect: "none",
+		WebkitTapHighlightColor: "rgba(0, 0, 0, 0)"
+	}, unstyled ? {} : {
+		backgroundColor: isSelected ? colors$2.primary : isFocused ? colors$2.primary25 : "transparent",
+		color: isDisabled ? colors$2.neutral20 : isSelected ? colors$2.neutral0 : "inherit",
+		padding: "".concat(spacing.baseUnit * 2, "px ").concat(spacing.baseUnit * 3, "px"),
+		":active": { backgroundColor: !isDisabled ? isSelected ? colors$2.primary : colors$2.primary50 : void 0 }
+	});
+};
+var Option$1 = function Option$2(props) {
+	var children = props.children, isDisabled = props.isDisabled, isFocused = props.isFocused, isSelected = props.isSelected, innerRef = props.innerRef, innerProps = props.innerProps;
+	return jsx("div", _extends({}, getStyleProps(props, "option", {
+		option: true,
+		"option--is-disabled": isDisabled,
+		"option--is-focused": isFocused,
+		"option--is-selected": isSelected
+	}), {
+		ref: innerRef,
+		"aria-disabled": isDisabled
+	}, innerProps), children);
+};
+var placeholderCSS = function placeholderCSS$1(_ref$1, unstyled) {
+	var _ref$theme = _ref$1.theme, spacing = _ref$theme.spacing, colors$2 = _ref$theme.colors;
+	return _objectSpread2({
+		label: "placeholder",
+		gridArea: "1 / 1 / 2 / 3"
+	}, unstyled ? {} : {
+		color: colors$2.neutral50,
+		marginLeft: spacing.baseUnit / 2,
+		marginRight: spacing.baseUnit / 2
+	});
+};
+var Placeholder$1 = function Placeholder(props) {
+	var children = props.children, innerProps = props.innerProps;
+	return jsx("div", _extends({}, getStyleProps(props, "placeholder", { placeholder: true }), innerProps), children);
+};
+var css = function css$3(_ref$1, unstyled) {
+	var isDisabled = _ref$1.isDisabled, _ref$theme = _ref$1.theme, spacing = _ref$theme.spacing, colors$2 = _ref$theme.colors;
+	return _objectSpread2({
+		label: "singleValue",
+		gridArea: "1 / 1 / 2 / 3",
+		maxWidth: "100%",
+		overflow: "hidden",
+		textOverflow: "ellipsis",
+		whiteSpace: "nowrap"
+	}, unstyled ? {} : {
+		color: isDisabled ? colors$2.neutral40 : colors$2.neutral80,
+		marginLeft: spacing.baseUnit / 2,
+		marginRight: spacing.baseUnit / 2
+	});
+};
+var components = {
+	ClearIndicator,
+	Control: Control$1,
+	DropdownIndicator: DropdownIndicator$1,
+	DownChevron,
+	CrossIcon,
+	Group: Group$1,
+	GroupHeading,
+	IndicatorsContainer,
+	IndicatorSeparator,
+	Input: Input$1,
+	LoadingIndicator,
+	Menu: Menu$1,
+	MenuList: MenuList$1,
+	MenuPortal,
+	LoadingMessage,
+	NoOptionsMessage,
+	MultiValue: MultiValue$1,
+	MultiValueContainer,
+	MultiValueLabel,
+	MultiValueRemove,
+	Option: Option$1,
+	Placeholder: Placeholder$1,
+	SelectContainer,
+	SingleValue: function SingleValue(props) {
+		var children = props.children, isDisabled = props.isDisabled, innerProps = props.innerProps;
+		return jsx("div", _extends({}, getStyleProps(props, "singleValue", {
+			"single-value": true,
+			"single-value--is-disabled": isDisabled
+		}), innerProps), children);
+	},
+	ValueContainer
+};
+var defaultComponents = function defaultComponents$1(props) {
+	return _objectSpread2(_objectSpread2({}, components), props.components);
+};
+var safeIsNaN = Number.isNaN || function ponyfill(value) {
+	return typeof value === "number" && value !== value;
+};
+function isEqual(first, second$2) {
+	if (first === second$2) return true;
+	if (safeIsNaN(first) && safeIsNaN(second$2)) return true;
+	return false;
+}
+function areInputsEqual(newInputs, lastInputs) {
+	if (newInputs.length !== lastInputs.length) return false;
+	for (var i$13 = 0; i$13 < newInputs.length; i$13++) if (!isEqual(newInputs[i$13], lastInputs[i$13])) return false;
+	return true;
+}
+function memoizeOne(resultFn, isEqual$4) {
+	if (isEqual$4 === void 0) isEqual$4 = areInputsEqual;
+	var cache$1 = null;
+	function memoized$1() {
+		var newArgs = [];
+		for (var _i$1 = 0; _i$1 < arguments.length; _i$1++) newArgs[_i$1] = arguments[_i$1];
+		if (cache$1 && cache$1.lastThis === this && isEqual$4(newArgs, cache$1.lastArgs)) return cache$1.lastResult;
+		var lastResult = resultFn.apply(this, newArgs);
+		cache$1 = {
+			lastResult,
+			lastArgs: newArgs,
+			lastThis: this
+		};
+		return lastResult;
+	}
+	memoized$1.clear = function clear() {
+		cache$1 = null;
+	};
+	return memoized$1;
+}
+var _ref = {
+	name: "7pg0cj-a11yText",
+	styles: "label:a11yText;z-index:9999;border:0;clip:rect(1px, 1px, 1px, 1px);height:1px;width:1px;position:absolute;overflow:hidden;padding:0;white-space:nowrap"
+};
+var A11yText$1 = function A11yText(props) {
+	return jsx("span", _extends({ css: _ref }, props));
+};
+var defaultAriaLiveMessages = {
+	guidance: function guidance(props) {
+		var isSearchable = props.isSearchable, isMulti = props.isMulti, tabSelectsValue = props.tabSelectsValue, context = props.context, isInitialFocus = props.isInitialFocus;
+		switch (context) {
+			case "menu": return "Use Up and Down to choose options, press Enter to select the currently focused option, press Escape to exit the menu".concat(tabSelectsValue ? ", press Tab to select the option and exit the menu" : "", ".");
+			case "input": return isInitialFocus ? "".concat(props["aria-label"] || "Select", " is focused ").concat(isSearchable ? ",type to refine list" : "", ", press Down to open the menu, ").concat(isMulti ? " press left to focus selected values" : "") : "";
+			case "value": return "Use left and right to toggle between focused values, press Backspace to remove the currently focused value";
+			default: return "";
+		}
+	},
+	onChange: function onChange(props) {
+		var action = props.action, _props$label = props.label, label = _props$label === void 0 ? "" : _props$label, labels = props.labels, isDisabled = props.isDisabled;
+		switch (action) {
+			case "deselect-option":
+			case "pop-value":
+			case "remove-value": return "option ".concat(label, ", deselected.");
+			case "clear": return "All selected options have been cleared.";
+			case "initial-input-focus": return "option".concat(labels.length > 1 ? "s" : "", " ").concat(labels.join(","), ", selected.");
+			case "select-option": return isDisabled ? "option ".concat(label, " is disabled. Select another option.") : "option ".concat(label, ", selected.");
+			default: return "";
+		}
+	},
+	onFocus: function onFocus(props) {
+		var context = props.context, focused = props.focused, options$2 = props.options, _props$label2 = props.label, label = _props$label2 === void 0 ? "" : _props$label2, selectValue = props.selectValue, isDisabled = props.isDisabled, isSelected = props.isSelected, isAppleDevice$1 = props.isAppleDevice;
+		var getArrayIndex = function getArrayIndex$1(arr, item) {
+			return arr && arr.length ? "".concat(arr.indexOf(item) + 1, " of ").concat(arr.length) : "";
+		};
+		if (context === "value" && selectValue) return "value ".concat(label, " focused, ").concat(getArrayIndex(selectValue, focused), ".");
+		if (context === "menu" && isAppleDevice$1) {
+			var disabled = isDisabled ? " disabled" : "";
+			var status = "".concat(isSelected ? " selected" : "").concat(disabled);
+			return "".concat(label).concat(status, ", ").concat(getArrayIndex(options$2, focused), ".");
+		}
+		return "";
+	},
+	onFilter: function onFilter(props) {
+		var inputValue = props.inputValue, resultsMessage = props.resultsMessage;
+		return "".concat(resultsMessage).concat(inputValue ? " for search term " + inputValue : "", ".");
+	}
+};
+var LiveRegion$1 = function LiveRegion(props) {
+	var ariaSelection = props.ariaSelection, focusedOption = props.focusedOption, focusedValue = props.focusedValue, focusableOptions = props.focusableOptions, isFocused = props.isFocused, selectValue = props.selectValue, selectProps = props.selectProps, id$2 = props.id, isAppleDevice$1 = props.isAppleDevice;
+	var ariaLiveMessages = selectProps.ariaLiveMessages, getOptionLabel$2 = selectProps.getOptionLabel, inputValue = selectProps.inputValue, isMulti = selectProps.isMulti, isOptionDisabled$1 = selectProps.isOptionDisabled, isSearchable = selectProps.isSearchable, menuIsOpen = selectProps.menuIsOpen, options$2 = selectProps.options, screenReaderStatus = selectProps.screenReaderStatus, tabSelectsValue = selectProps.tabSelectsValue, isLoading = selectProps.isLoading;
+	var ariaLabel = selectProps["aria-label"];
+	var ariaLive = selectProps["aria-live"];
+	var messages = (0, import_react.useMemo)(function() {
+		return _objectSpread2(_objectSpread2({}, defaultAriaLiveMessages), ariaLiveMessages || {});
+	}, [ariaLiveMessages]);
+	var ariaSelected = (0, import_react.useMemo)(function() {
+		var message$1 = "";
+		if (ariaSelection && messages.onChange) {
+			var option = ariaSelection.option, selectedOptions = ariaSelection.options, removedValue = ariaSelection.removedValue, removedValues = ariaSelection.removedValues, value = ariaSelection.value;
+			var selected = removedValue || option || function asOption(val) {
+				return !Array.isArray(val) ? val : null;
+			}(value);
+			var label = selected ? getOptionLabel$2(selected) : "";
+			var multiSelected = selectedOptions || removedValues || void 0;
+			var labels = multiSelected ? multiSelected.map(getOptionLabel$2) : [];
+			var onChangeProps = _objectSpread2({
+				isDisabled: selected && isOptionDisabled$1(selected, selectValue),
+				label,
+				labels
+			}, ariaSelection);
+			message$1 = messages.onChange(onChangeProps);
+		}
+		return message$1;
+	}, [
+		ariaSelection,
+		messages,
+		isOptionDisabled$1,
+		selectValue,
+		getOptionLabel$2
+	]);
+	var ariaFocused = (0, import_react.useMemo)(function() {
+		var focusMsg = "";
+		var focused = focusedOption || focusedValue;
+		var isSelected = !!(focusedOption && selectValue && selectValue.includes(focusedOption));
+		if (focused && messages.onFocus) {
+			var onFocusProps = {
+				focused,
+				label: getOptionLabel$2(focused),
+				isDisabled: isOptionDisabled$1(focused, selectValue),
+				isSelected,
+				options: focusableOptions,
+				context: focused === focusedOption ? "menu" : "value",
+				selectValue,
+				isAppleDevice: isAppleDevice$1
+			};
+			focusMsg = messages.onFocus(onFocusProps);
+		}
+		return focusMsg;
+	}, [
+		focusedOption,
+		focusedValue,
+		getOptionLabel$2,
+		isOptionDisabled$1,
+		messages,
+		focusableOptions,
+		selectValue,
+		isAppleDevice$1
+	]);
+	var ariaResults = (0, import_react.useMemo)(function() {
+		var resultsMsg = "";
+		if (menuIsOpen && options$2.length && !isLoading && messages.onFilter) {
+			var resultsMessage = screenReaderStatus({ count: focusableOptions.length });
+			resultsMsg = messages.onFilter({
+				inputValue,
+				resultsMessage
+			});
+		}
+		return resultsMsg;
+	}, [
+		focusableOptions,
+		inputValue,
+		menuIsOpen,
+		messages,
+		options$2,
+		screenReaderStatus,
+		isLoading
+	]);
+	var isInitialFocus = (ariaSelection === null || ariaSelection === void 0 ? void 0 : ariaSelection.action) === "initial-input-focus";
+	var ariaGuidance = (0, import_react.useMemo)(function() {
+		var guidanceMsg = "";
+		if (messages.guidance) {
+			var context = focusedValue ? "value" : menuIsOpen ? "menu" : "input";
+			guidanceMsg = messages.guidance({
+				"aria-label": ariaLabel,
+				context,
+				isDisabled: focusedOption && isOptionDisabled$1(focusedOption, selectValue),
+				isMulti,
+				isSearchable,
+				tabSelectsValue,
+				isInitialFocus
+			});
+		}
+		return guidanceMsg;
+	}, [
+		ariaLabel,
+		focusedOption,
+		focusedValue,
+		isMulti,
+		isOptionDisabled$1,
+		isSearchable,
+		menuIsOpen,
+		messages,
+		selectValue,
+		tabSelectsValue,
+		isInitialFocus
+	]);
+	var ScreenReaderText = jsx(import_react.Fragment, null, jsx("span", { id: "aria-selection" }, ariaSelected), jsx("span", { id: "aria-focused" }, ariaFocused), jsx("span", { id: "aria-results" }, ariaResults), jsx("span", { id: "aria-guidance" }, ariaGuidance));
+	return jsx(import_react.Fragment, null, jsx(A11yText$1, { id: id$2 }, isInitialFocus && ScreenReaderText), jsx(A11yText$1, {
+		"aria-live": ariaLive,
+		"aria-atomic": "false",
+		"aria-relevant": "additions text",
+		role: "log"
+	}, isFocused && !isInitialFocus && ScreenReaderText));
+};
+var diacritics = [
+	{
+		base: "A",
+		letters: "AⒶＡÀÁÂẦẤẪẨÃĀĂẰẮẴẲȦǠÄǞẢÅǺǍȀȂẠẬẶḀĄȺⱯ"
+	},
+	{
+		base: "AA",
+		letters: "Ꜳ"
+	},
+	{
+		base: "AE",
+		letters: "ÆǼǢ"
+	},
+	{
+		base: "AO",
+		letters: "Ꜵ"
+	},
+	{
+		base: "AU",
+		letters: "Ꜷ"
+	},
+	{
+		base: "AV",
+		letters: "ꜸꜺ"
+	},
+	{
+		base: "AY",
+		letters: "Ꜽ"
+	},
+	{
+		base: "B",
+		letters: "BⒷＢḂḄḆɃƂƁ"
+	},
+	{
+		base: "C",
+		letters: "CⒸＣĆĈĊČÇḈƇȻꜾ"
+	},
+	{
+		base: "D",
+		letters: "DⒹＤḊĎḌḐḒḎĐƋƊƉꝹ"
+	},
+	{
+		base: "DZ",
+		letters: "ǱǄ"
+	},
+	{
+		base: "Dz",
+		letters: "ǲǅ"
+	},
+	{
+		base: "E",
+		letters: "EⒺＥÈÉÊỀẾỄỂẼĒḔḖĔĖËẺĚȄȆẸỆȨḜĘḘḚƐƎ"
+	},
+	{
+		base: "F",
+		letters: "FⒻＦḞƑꝻ"
+	},
+	{
+		base: "G",
+		letters: "GⒼＧǴĜḠĞĠǦĢǤƓꞠꝽꝾ"
+	},
+	{
+		base: "H",
+		letters: "HⒽＨĤḢḦȞḤḨḪĦⱧⱵꞍ"
+	},
+	{
+		base: "I",
+		letters: "IⒾＩÌÍÎĨĪĬİÏḮỈǏȈȊỊĮḬƗ"
+	},
+	{
+		base: "J",
+		letters: "JⒿＪĴɈ"
+	},
+	{
+		base: "K",
+		letters: "KⓀＫḰǨḲĶḴƘⱩꝀꝂꝄꞢ"
+	},
+	{
+		base: "L",
+		letters: "LⓁＬĿĹĽḶḸĻḼḺŁȽⱢⱠꝈꝆꞀ"
+	},
+	{
+		base: "LJ",
+		letters: "Ǉ"
+	},
+	{
+		base: "Lj",
+		letters: "ǈ"
+	},
+	{
+		base: "M",
+		letters: "MⓂＭḾṀṂⱮƜ"
+	},
+	{
+		base: "N",
+		letters: "NⓃＮǸŃÑṄŇṆŅṊṈȠƝꞐꞤ"
+	},
+	{
+		base: "NJ",
+		letters: "Ǌ"
+	},
+	{
+		base: "Nj",
+		letters: "ǋ"
+	},
+	{
+		base: "O",
+		letters: "OⓄＯÒÓÔỒỐỖỔÕṌȬṎŌṐṒŎȮȰÖȪỎŐǑȌȎƠỜỚỠỞỢỌỘǪǬØǾƆƟꝊꝌ"
+	},
+	{
+		base: "OI",
+		letters: "Ƣ"
+	},
+	{
+		base: "OO",
+		letters: "Ꝏ"
+	},
+	{
+		base: "OU",
+		letters: "Ȣ"
+	},
+	{
+		base: "P",
+		letters: "PⓅＰṔṖƤⱣꝐꝒꝔ"
+	},
+	{
+		base: "Q",
+		letters: "QⓆＱꝖꝘɊ"
+	},
+	{
+		base: "R",
+		letters: "RⓇＲŔṘŘȐȒṚṜŖṞɌⱤꝚꞦꞂ"
+	},
+	{
+		base: "S",
+		letters: "SⓈＳẞŚṤŜṠŠṦṢṨȘŞⱾꞨꞄ"
+	},
+	{
+		base: "T",
+		letters: "TⓉＴṪŤṬȚŢṰṮŦƬƮȾꞆ"
+	},
+	{
+		base: "TZ",
+		letters: "Ꜩ"
+	},
+	{
+		base: "U",
+		letters: "UⓊＵÙÚÛŨṸŪṺŬÜǛǗǕǙỦŮŰǓȔȖƯỪỨỮỬỰỤṲŲṶṴɄ"
+	},
+	{
+		base: "V",
+		letters: "VⓋＶṼṾƲꝞɅ"
+	},
+	{
+		base: "VY",
+		letters: "Ꝡ"
+	},
+	{
+		base: "W",
+		letters: "WⓌＷẀẂŴẆẄẈⱲ"
+	},
+	{
+		base: "X",
+		letters: "XⓍＸẊẌ"
+	},
+	{
+		base: "Y",
+		letters: "YⓎＹỲÝŶỸȲẎŸỶỴƳɎỾ"
+	},
+	{
+		base: "Z",
+		letters: "ZⓏＺŹẐŻŽẒẔƵȤⱿⱫꝢ"
+	},
+	{
+		base: "a",
+		letters: "aⓐａẚàáâầấẫẩãāăằắẵẳȧǡäǟảåǻǎȁȃạậặḁąⱥɐ"
+	},
+	{
+		base: "aa",
+		letters: "ꜳ"
+	},
+	{
+		base: "ae",
+		letters: "æǽǣ"
+	},
+	{
+		base: "ao",
+		letters: "ꜵ"
+	},
+	{
+		base: "au",
+		letters: "ꜷ"
+	},
+	{
+		base: "av",
+		letters: "ꜹꜻ"
+	},
+	{
+		base: "ay",
+		letters: "ꜽ"
+	},
+	{
+		base: "b",
+		letters: "bⓑｂḃḅḇƀƃɓ"
+	},
+	{
+		base: "c",
+		letters: "cⓒｃćĉċčçḉƈȼꜿↄ"
+	},
+	{
+		base: "d",
+		letters: "dⓓｄḋďḍḑḓḏđƌɖɗꝺ"
+	},
+	{
+		base: "dz",
+		letters: "ǳǆ"
+	},
+	{
+		base: "e",
+		letters: "eⓔｅèéêềếễểẽēḕḗĕėëẻěȅȇẹệȩḝęḙḛɇɛǝ"
+	},
+	{
+		base: "f",
+		letters: "fⓕｆḟƒꝼ"
+	},
+	{
+		base: "g",
+		letters: "gⓖｇǵĝḡğġǧģǥɠꞡᵹꝿ"
+	},
+	{
+		base: "h",
+		letters: "hⓗｈĥḣḧȟḥḩḫẖħⱨⱶɥ"
+	},
+	{
+		base: "hv",
+		letters: "ƕ"
+	},
+	{
+		base: "i",
+		letters: "iⓘｉìíîĩīĭïḯỉǐȉȋịįḭɨı"
+	},
+	{
+		base: "j",
+		letters: "jⓙｊĵǰɉ"
+	},
+	{
+		base: "k",
+		letters: "kⓚｋḱǩḳķḵƙⱪꝁꝃꝅꞣ"
+	},
+	{
+		base: "l",
+		letters: "lⓛｌŀĺľḷḹļḽḻſłƚɫⱡꝉꞁꝇ"
+	},
+	{
+		base: "lj",
+		letters: "ǉ"
+	},
+	{
+		base: "m",
+		letters: "mⓜｍḿṁṃɱɯ"
+	},
+	{
+		base: "n",
+		letters: "nⓝｎǹńñṅňṇņṋṉƞɲŉꞑꞥ"
+	},
+	{
+		base: "nj",
+		letters: "ǌ"
+	},
+	{
+		base: "o",
+		letters: "oⓞｏòóôồốỗổõṍȭṏōṑṓŏȯȱöȫỏőǒȍȏơờớỡởợọộǫǭøǿɔꝋꝍɵ"
+	},
+	{
+		base: "oi",
+		letters: "ƣ"
+	},
+	{
+		base: "ou",
+		letters: "ȣ"
+	},
+	{
+		base: "oo",
+		letters: "ꝏ"
+	},
+	{
+		base: "p",
+		letters: "pⓟｐṕṗƥᵽꝑꝓꝕ"
+	},
+	{
+		base: "q",
+		letters: "qⓠｑɋꝗꝙ"
+	},
+	{
+		base: "r",
+		letters: "rⓡｒŕṙřȑȓṛṝŗṟɍɽꝛꞧꞃ"
+	},
+	{
+		base: "s",
+		letters: "sⓢｓßśṥŝṡšṧṣṩșşȿꞩꞅẛ"
+	},
+	{
+		base: "t",
+		letters: "tⓣｔṫẗťṭțţṱṯŧƭʈⱦꞇ"
+	},
+	{
+		base: "tz",
+		letters: "ꜩ"
+	},
+	{
+		base: "u",
+		letters: "uⓤｕùúûũṹūṻŭüǜǘǖǚủůűǔȕȗưừứữửựụṳųṷṵʉ"
+	},
+	{
+		base: "v",
+		letters: "vⓥｖṽṿʋꝟʌ"
+	},
+	{
+		base: "vy",
+		letters: "ꝡ"
+	},
+	{
+		base: "w",
+		letters: "wⓦｗẁẃŵẇẅẘẉⱳ"
+	},
+	{
+		base: "x",
+		letters: "xⓧｘẋẍ"
+	},
+	{
+		base: "y",
+		letters: "yⓨｙỳýŷỹȳẏÿỷẙỵƴɏỿ"
+	},
+	{
+		base: "z",
+		letters: "zⓩｚźẑżžẓẕƶȥɀⱬꝣ"
+	}
+];
+var anyDiacritic = new RegExp("[" + diacritics.map(function(d$7) {
+	return d$7.letters;
+}).join("") + "]", "g");
+var diacriticToBase = {};
+for (var i = 0; i < diacritics.length; i++) {
+	var diacritic = diacritics[i];
+	for (var j = 0; j < diacritic.letters.length; j++) diacriticToBase[diacritic.letters[j]] = diacritic.base;
+}
+var stripDiacritics = function stripDiacritics$1(str) {
+	return str.replace(anyDiacritic, function(match$2) {
+		return diacriticToBase[match$2];
+	});
+};
+var memoizedStripDiacriticsForInput = memoizeOne(stripDiacritics);
+var trimString = function trimString$1(str) {
+	return str.replace(/^\s+|\s+$/g, "");
+};
+var defaultStringify = function defaultStringify$1(option) {
+	return "".concat(option.label, " ").concat(option.value);
+};
+var createFilter = function createFilter$1(config$1) {
+	return function(option, rawInput) {
+		if (option.data.__isNew__) return true;
+		var _ignoreCase$ignoreAcc = _objectSpread2({
+			ignoreCase: true,
+			ignoreAccents: true,
+			stringify: defaultStringify,
+			trim: true,
+			matchFrom: "any"
+		}, config$1), ignoreCase = _ignoreCase$ignoreAcc.ignoreCase, ignoreAccents = _ignoreCase$ignoreAcc.ignoreAccents, stringify$4 = _ignoreCase$ignoreAcc.stringify, trim$3 = _ignoreCase$ignoreAcc.trim, matchFrom = _ignoreCase$ignoreAcc.matchFrom;
+		var input = trim$3 ? trimString(rawInput) : rawInput;
+		var candidate = trim$3 ? trimString(stringify$4(option)) : stringify$4(option);
+		if (ignoreCase) {
+			input = input.toLowerCase();
+			candidate = candidate.toLowerCase();
+		}
+		if (ignoreAccents) {
+			input = memoizedStripDiacriticsForInput(input);
+			candidate = stripDiacritics(candidate);
+		}
+		return matchFrom === "start" ? candidate.substr(0, input.length) === input : candidate.indexOf(input) > -1;
+	};
+};
+var _excluded = ["innerRef"];
+function DummyInput(_ref$1) {
+	var innerRef = _ref$1.innerRef;
+	var filteredProps = removeProps(_objectWithoutProperties(_ref$1, _excluded), "onExited", "in", "enter", "exit", "appear");
+	return jsx("input", _extends({ ref: innerRef }, filteredProps, { css: /* @__PURE__ */ css$2({
+		label: "dummyInput",
+		background: 0,
+		border: 0,
+		caretColor: "transparent",
+		fontSize: "inherit",
+		gridArea: "1 / 1 / 2 / 3",
+		outline: 0,
+		padding: 0,
+		width: 1,
+		color: "transparent",
+		left: -100,
+		opacity: 0,
+		position: "relative",
+		transform: "scale(.01)"
+	}, "", "") }));
+}
+var cancelScroll = function cancelScroll$1(event) {
+	if (event.cancelable) event.preventDefault();
+	event.stopPropagation();
+};
+function useScrollCapture(_ref$1) {
+	var isEnabled = _ref$1.isEnabled, onBottomArrive = _ref$1.onBottomArrive, onBottomLeave = _ref$1.onBottomLeave, onTopArrive = _ref$1.onTopArrive, onTopLeave = _ref$1.onTopLeave;
+	var isBottom = (0, import_react.useRef)(false);
+	var isTop = (0, import_react.useRef)(false);
+	var touchStart = (0, import_react.useRef)(0);
+	var scrollTarget = (0, import_react.useRef)(null);
+	var handleEventDelta = (0, import_react.useCallback)(function(event, delta) {
+		if (scrollTarget.current === null) return;
+		var _scrollTarget$current = scrollTarget.current, scrollTop = _scrollTarget$current.scrollTop, scrollHeight = _scrollTarget$current.scrollHeight, clientHeight = _scrollTarget$current.clientHeight;
+		var target = scrollTarget.current;
+		var isDeltaPositive = delta > 0;
+		var availableScroll = scrollHeight - clientHeight - scrollTop;
+		var shouldCancelScroll = false;
+		if (availableScroll > delta && isBottom.current) {
+			if (onBottomLeave) onBottomLeave(event);
+			isBottom.current = false;
+		}
+		if (isDeltaPositive && isTop.current) {
+			if (onTopLeave) onTopLeave(event);
+			isTop.current = false;
+		}
+		if (isDeltaPositive && delta > availableScroll) {
+			if (onBottomArrive && !isBottom.current) onBottomArrive(event);
+			target.scrollTop = scrollHeight;
+			shouldCancelScroll = true;
+			isBottom.current = true;
+		} else if (!isDeltaPositive && -delta > scrollTop) {
+			if (onTopArrive && !isTop.current) onTopArrive(event);
+			target.scrollTop = 0;
+			shouldCancelScroll = true;
+			isTop.current = true;
+		}
+		if (shouldCancelScroll) cancelScroll(event);
+	}, [
+		onBottomArrive,
+		onBottomLeave,
+		onTopArrive,
+		onTopLeave
+	]);
+	var onWheel = (0, import_react.useCallback)(function(event) {
+		handleEventDelta(event, event.deltaY);
+	}, [handleEventDelta]);
+	var onTouchStart = (0, import_react.useCallback)(function(event) {
+		touchStart.current = event.changedTouches[0].clientY;
+	}, []);
+	var onTouchMove = (0, import_react.useCallback)(function(event) {
+		handleEventDelta(event, touchStart.current - event.changedTouches[0].clientY);
+	}, [handleEventDelta]);
+	var startListening = (0, import_react.useCallback)(function(el) {
+		if (!el) return;
+		var notPassive = supportsPassiveEvents ? { passive: false } : false;
+		el.addEventListener("wheel", onWheel, notPassive);
+		el.addEventListener("touchstart", onTouchStart, notPassive);
+		el.addEventListener("touchmove", onTouchMove, notPassive);
+	}, [
+		onTouchMove,
+		onTouchStart,
+		onWheel
+	]);
+	var stopListening = (0, import_react.useCallback)(function(el) {
+		if (!el) return;
+		el.removeEventListener("wheel", onWheel, false);
+		el.removeEventListener("touchstart", onTouchStart, false);
+		el.removeEventListener("touchmove", onTouchMove, false);
+	}, [
+		onTouchMove,
+		onTouchStart,
+		onWheel
+	]);
+	(0, import_react.useEffect)(function() {
+		if (!isEnabled) return;
+		var element = scrollTarget.current;
+		startListening(element);
+		return function() {
+			stopListening(element);
+		};
+	}, [
+		isEnabled,
+		startListening,
+		stopListening
+	]);
+	return function(element) {
+		scrollTarget.current = element;
+	};
+}
+var STYLE_KEYS = [
+	"boxSizing",
+	"height",
+	"overflow",
+	"paddingRight",
+	"position"
+];
+var LOCK_STYLES = {
+	boxSizing: "border-box",
+	overflow: "hidden",
+	position: "relative",
+	height: "100%"
+};
+function preventTouchMove(e$14) {
+	if (e$14.cancelable) e$14.preventDefault();
+}
+function allowTouchMove(e$14) {
+	e$14.stopPropagation();
+}
+function preventInertiaScroll() {
+	var top = this.scrollTop;
+	var totalScroll = this.scrollHeight;
+	var currentScroll = top + this.offsetHeight;
+	if (top === 0) this.scrollTop = 1;
+	else if (currentScroll === totalScroll) this.scrollTop = top - 1;
+}
+function isTouchDevice() {
+	return "ontouchstart" in window || navigator.maxTouchPoints;
+}
+var canUseDOM = !!(typeof window !== "undefined" && window.document && window.document.createElement);
+var activeScrollLocks = 0;
+var listenerOptions = {
+	capture: false,
+	passive: false
+};
+function useScrollLock(_ref$1) {
+	var isEnabled = _ref$1.isEnabled, _ref$accountForScroll = _ref$1.accountForScrollbars, accountForScrollbars = _ref$accountForScroll === void 0 ? true : _ref$accountForScroll;
+	var originalStyles = (0, import_react.useRef)({});
+	var scrollTarget = (0, import_react.useRef)(null);
+	var addScrollLock = (0, import_react.useCallback)(function(touchScrollTarget) {
+		if (!canUseDOM) return;
+		var target = document.body;
+		var targetStyle = target && target.style;
+		if (accountForScrollbars) STYLE_KEYS.forEach(function(key) {
+			var val = targetStyle && targetStyle[key];
+			originalStyles.current[key] = val;
+		});
+		if (accountForScrollbars && activeScrollLocks < 1) {
+			var currentPadding = parseInt(originalStyles.current.paddingRight, 10) || 0;
+			var clientWidth = document.body ? document.body.clientWidth : 0;
+			var adjustedPadding = window.innerWidth - clientWidth + currentPadding || 0;
+			Object.keys(LOCK_STYLES).forEach(function(key) {
+				var val = LOCK_STYLES[key];
+				if (targetStyle) targetStyle[key] = val;
+			});
+			if (targetStyle) targetStyle.paddingRight = "".concat(adjustedPadding, "px");
+		}
+		if (target && isTouchDevice()) {
+			target.addEventListener("touchmove", preventTouchMove, listenerOptions);
+			if (touchScrollTarget) {
+				touchScrollTarget.addEventListener("touchstart", preventInertiaScroll, listenerOptions);
+				touchScrollTarget.addEventListener("touchmove", allowTouchMove, listenerOptions);
+			}
+		}
+		activeScrollLocks += 1;
+	}, [accountForScrollbars]);
+	var removeScrollLock = (0, import_react.useCallback)(function(touchScrollTarget) {
+		if (!canUseDOM) return;
+		var target = document.body;
+		var targetStyle = target && target.style;
+		activeScrollLocks = Math.max(activeScrollLocks - 1, 0);
+		if (accountForScrollbars && activeScrollLocks < 1) STYLE_KEYS.forEach(function(key) {
+			var val = originalStyles.current[key];
+			if (targetStyle) targetStyle[key] = val;
+		});
+		if (target && isTouchDevice()) {
+			target.removeEventListener("touchmove", preventTouchMove, listenerOptions);
+			if (touchScrollTarget) {
+				touchScrollTarget.removeEventListener("touchstart", preventInertiaScroll, listenerOptions);
+				touchScrollTarget.removeEventListener("touchmove", allowTouchMove, listenerOptions);
+			}
+		}
+	}, [accountForScrollbars]);
+	(0, import_react.useEffect)(function() {
+		if (!isEnabled) return;
+		var element = scrollTarget.current;
+		addScrollLock(element);
+		return function() {
+			removeScrollLock(element);
+		};
+	}, [
+		isEnabled,
+		addScrollLock,
+		removeScrollLock
+	]);
+	return function(element) {
+		scrollTarget.current = element;
+	};
+}
+var blurSelectInput = function blurSelectInput$1(event) {
+	var element = event.target;
+	return element.ownerDocument.activeElement && element.ownerDocument.activeElement.blur();
+};
+var _ref2$1 = {
+	name: "1kfdb0e",
+	styles: "position:fixed;left:0;bottom:0;right:0;top:0"
+};
+function ScrollManager(_ref$1) {
+	var children = _ref$1.children, lockEnabled = _ref$1.lockEnabled, _ref$captureEnabled = _ref$1.captureEnabled, captureEnabled = _ref$captureEnabled === void 0 ? true : _ref$captureEnabled, onBottomArrive = _ref$1.onBottomArrive, onBottomLeave = _ref$1.onBottomLeave, onTopArrive = _ref$1.onTopArrive, onTopLeave = _ref$1.onTopLeave;
+	var setScrollCaptureTarget = useScrollCapture({
+		isEnabled: captureEnabled,
+		onBottomArrive,
+		onBottomLeave,
+		onTopArrive,
+		onTopLeave
+	});
+	var setScrollLockTarget = useScrollLock({ isEnabled: lockEnabled });
+	return jsx(import_react.Fragment, null, lockEnabled && jsx("div", {
+		onClick: blurSelectInput,
+		css: _ref2$1
+	}), children(function targetRef(element) {
+		setScrollCaptureTarget(element);
+		setScrollLockTarget(element);
+	}));
+}
+var _ref2 = {
+	name: "1a0ro4n-requiredInput",
+	styles: "label:requiredInput;opacity:0;pointer-events:none;position:absolute;bottom:0;left:0;right:0;width:100%"
+};
+var RequiredInput$1 = function RequiredInput(_ref$1) {
+	var name = _ref$1.name, onFocus = _ref$1.onFocus;
+	return jsx("input", {
+		required: true,
+		name,
+		tabIndex: -1,
+		"aria-hidden": "true",
+		onFocus,
+		css: _ref2,
+		value: "",
+		onChange: function onChange() {}
+	});
+};
+function testPlatform(re$6) {
+	var _window$navigator$use;
+	return typeof window !== "undefined" && window.navigator != null ? re$6.test(((_window$navigator$use = window.navigator["userAgentData"]) === null || _window$navigator$use === void 0 ? void 0 : _window$navigator$use.platform) || window.navigator.platform) : false;
+}
+function isIPhone() {
+	return testPlatform(/^iPhone/i);
+}
+function isMac() {
+	return testPlatform(/^Mac/i);
+}
+function isIPad() {
+	return testPlatform(/^iPad/i) || isMac() && navigator.maxTouchPoints > 1;
+}
+function isIOS() {
+	return isIPhone() || isIPad();
+}
+function isAppleDevice() {
+	return isMac() || isIOS();
+}
+var formatGroupLabel = function formatGroupLabel$1(group) {
+	return group.label;
+};
+var getOptionLabel$1 = function getOptionLabel$2(option) {
+	return option.label;
+};
+var getOptionValue$1 = function getOptionValue$2(option) {
+	return option.value;
+};
+var isOptionDisabled = function isOptionDisabled$1(option) {
+	return !!option.isDisabled;
+};
+var defaultStyles = {
+	clearIndicator: clearIndicatorCSS,
+	container: containerCSS,
+	control: css$1,
+	dropdownIndicator: dropdownIndicatorCSS,
+	group: groupCSS,
+	groupHeading: groupHeadingCSS,
+	indicatorsContainer: indicatorsContainerCSS,
+	indicatorSeparator: indicatorSeparatorCSS,
+	input: inputCSS,
+	loadingIndicator: loadingIndicatorCSS,
+	loadingMessage: loadingMessageCSS,
+	menu: menuCSS,
+	menuList: menuListCSS,
+	menuPortal: menuPortalCSS,
+	multiValue: multiValueCSS,
+	multiValueLabel: multiValueLabelCSS,
+	multiValueRemove: multiValueRemoveCSS,
+	noOptionsMessage: noOptionsMessageCSS,
+	option: optionCSS,
+	placeholder: placeholderCSS,
+	singleValue: css,
+	valueContainer: valueContainerCSS
+};
+var colors = {
+	primary: "#2684FF",
+	primary75: "#4C9AFF",
+	primary50: "#B2D4FF",
+	primary25: "#DEEBFF",
+	danger: "#DE350B",
+	dangerLight: "#FFBDAD",
+	neutral0: "hsl(0, 0%, 100%)",
+	neutral5: "hsl(0, 0%, 95%)",
+	neutral10: "hsl(0, 0%, 90%)",
+	neutral20: "hsl(0, 0%, 80%)",
+	neutral30: "hsl(0, 0%, 70%)",
+	neutral40: "hsl(0, 0%, 60%)",
+	neutral50: "hsl(0, 0%, 50%)",
+	neutral60: "hsl(0, 0%, 40%)",
+	neutral70: "hsl(0, 0%, 30%)",
+	neutral80: "hsl(0, 0%, 20%)",
+	neutral90: "hsl(0, 0%, 10%)"
+};
+var borderRadius = 4;
+var baseUnit = 4;
+var defaultTheme = {
+	borderRadius,
+	colors,
+	spacing: {
+		baseUnit,
+		controlHeight: 38,
+		menuGutter: baseUnit * 2
+	}
+};
+var defaultProps = {
+	"aria-live": "polite",
+	backspaceRemovesValue: true,
+	blurInputOnSelect: isTouchCapable(),
+	captureMenuScroll: !isTouchCapable(),
+	classNames: {},
+	closeMenuOnSelect: true,
+	closeMenuOnScroll: false,
+	components: {},
+	controlShouldRenderValue: true,
+	escapeClearsValue: false,
+	filterOption: createFilter(),
+	formatGroupLabel,
+	getOptionLabel: getOptionLabel$1,
+	getOptionValue: getOptionValue$1,
+	isDisabled: false,
+	isLoading: false,
+	isMulti: false,
+	isRtl: false,
+	isSearchable: true,
+	isOptionDisabled,
+	loadingMessage: function loadingMessage() {
+		return "Loading...";
+	},
+	maxMenuHeight: 300,
+	minMenuHeight: 140,
+	menuIsOpen: false,
+	menuPlacement: "bottom",
+	menuPosition: "absolute",
+	menuShouldBlockScroll: false,
+	menuShouldScrollIntoView: !isMobileDevice(),
+	noOptionsMessage: function noOptionsMessage() {
+		return "No options";
+	},
+	openMenuOnFocus: false,
+	openMenuOnClick: true,
+	options: [],
+	pageSize: 5,
+	placeholder: "Select...",
+	screenReaderStatus: function screenReaderStatus(_ref$1) {
+		var count = _ref$1.count;
+		return "".concat(count, " result").concat(count !== 1 ? "s" : "", " available");
+	},
+	styles: {},
+	tabIndex: 0,
+	tabSelectsValue: true,
+	unstyled: false
+};
+function toCategorizedOption(props, option, selectValue, index$6) {
+	return {
+		type: "option",
+		data: option,
+		isDisabled: _isOptionDisabled(props, option, selectValue),
+		isSelected: _isOptionSelected(props, option, selectValue),
+		label: getOptionLabel(props, option),
+		value: getOptionValue(props, option),
+		index: index$6
+	};
+}
+function buildCategorizedOptions(props, selectValue) {
+	return props.options.map(function(groupOrOption, groupOrOptionIndex) {
+		if ("options" in groupOrOption) {
+			var categorizedOptions = groupOrOption.options.map(function(option, optionIndex) {
+				return toCategorizedOption(props, option, selectValue, optionIndex);
+			}).filter(function(categorizedOption$1) {
+				return isFocusable(props, categorizedOption$1);
+			});
+			return categorizedOptions.length > 0 ? {
+				type: "group",
+				data: groupOrOption,
+				options: categorizedOptions,
+				index: groupOrOptionIndex
+			} : void 0;
+		}
+		var categorizedOption = toCategorizedOption(props, groupOrOption, selectValue, groupOrOptionIndex);
+		return isFocusable(props, categorizedOption) ? categorizedOption : void 0;
+	}).filter(notNullish);
+}
+function buildFocusableOptionsFromCategorizedOptions(categorizedOptions) {
+	return categorizedOptions.reduce(function(optionsAccumulator, categorizedOption) {
+		if (categorizedOption.type === "group") optionsAccumulator.push.apply(optionsAccumulator, _toConsumableArray(categorizedOption.options.map(function(option) {
+			return option.data;
+		})));
+		else optionsAccumulator.push(categorizedOption.data);
+		return optionsAccumulator;
+	}, []);
+}
+function buildFocusableOptionsWithIds(categorizedOptions, optionId) {
+	return categorizedOptions.reduce(function(optionsAccumulator, categorizedOption) {
+		if (categorizedOption.type === "group") optionsAccumulator.push.apply(optionsAccumulator, _toConsumableArray(categorizedOption.options.map(function(option) {
+			return {
+				data: option.data,
+				id: "".concat(optionId, "-").concat(categorizedOption.index, "-").concat(option.index)
+			};
+		})));
+		else optionsAccumulator.push({
+			data: categorizedOption.data,
+			id: "".concat(optionId, "-").concat(categorizedOption.index)
+		});
+		return optionsAccumulator;
+	}, []);
+}
+function buildFocusableOptions(props, selectValue) {
+	return buildFocusableOptionsFromCategorizedOptions(buildCategorizedOptions(props, selectValue));
+}
+function isFocusable(props, categorizedOption) {
+	var _props$inputValue = props.inputValue, inputValue = _props$inputValue === void 0 ? "" : _props$inputValue;
+	var data = categorizedOption.data, isSelected = categorizedOption.isSelected, label = categorizedOption.label, value = categorizedOption.value;
+	return (!shouldHideSelectedOptions(props) || !isSelected) && _filterOption(props, {
+		label,
+		value,
+		data
+	}, inputValue);
+}
+function getNextFocusedValue(state, nextSelectValue) {
+	var focusedValue = state.focusedValue;
+	var lastFocusedIndex = state.selectValue.indexOf(focusedValue);
+	if (lastFocusedIndex > -1) {
+		if (nextSelectValue.indexOf(focusedValue) > -1) return focusedValue;
+		else if (lastFocusedIndex < nextSelectValue.length) return nextSelectValue[lastFocusedIndex];
+	}
+	return null;
+}
+function getNextFocusedOption(state, options$2) {
+	var lastFocusedOption = state.focusedOption;
+	return lastFocusedOption && options$2.indexOf(lastFocusedOption) > -1 ? lastFocusedOption : options$2[0];
+}
+var getFocusedOptionId = function getFocusedOptionId$1(focusableOptionsWithIds, focusedOption) {
+	var _focusableOptionsWith;
+	return ((_focusableOptionsWith = focusableOptionsWithIds.find(function(option) {
+		return option.data === focusedOption;
+	})) === null || _focusableOptionsWith === void 0 ? void 0 : _focusableOptionsWith.id) || null;
+};
+var getOptionLabel = function getOptionLabel$2(props, data) {
+	return props.getOptionLabel(data);
+};
+var getOptionValue = function getOptionValue$2(props, data) {
+	return props.getOptionValue(data);
+};
+function _isOptionDisabled(props, option, selectValue) {
+	return typeof props.isOptionDisabled === "function" ? props.isOptionDisabled(option, selectValue) : false;
+}
+function _isOptionSelected(props, option, selectValue) {
+	if (selectValue.indexOf(option) > -1) return true;
+	if (typeof props.isOptionSelected === "function") return props.isOptionSelected(option, selectValue);
+	var candidate = getOptionValue(props, option);
+	return selectValue.some(function(i$13) {
+		return getOptionValue(props, i$13) === candidate;
+	});
+}
+function _filterOption(props, option, inputValue) {
+	return props.filterOption ? props.filterOption(option, inputValue) : true;
+}
+var shouldHideSelectedOptions = function shouldHideSelectedOptions$1(props) {
+	var hideSelectedOptions = props.hideSelectedOptions, isMulti = props.isMulti;
+	if (hideSelectedOptions === void 0) return isMulti;
+	return hideSelectedOptions;
+};
+var instanceId = 1;
+var Select = /* @__PURE__ */ function(_Component) {
+	_inherits(Select$1, _Component);
+	var _super = _createSuper(Select$1);
+	function Select$1(_props) {
+		var _this;
+		_classCallCheck(this, Select$1);
+		_this = _super.call(this, _props);
+		_this.state = {
+			ariaSelection: null,
+			focusedOption: null,
+			focusedOptionId: null,
+			focusableOptionsWithIds: [],
+			focusedValue: null,
+			inputIsHidden: false,
+			isFocused: false,
+			selectValue: [],
+			clearFocusValueOnUpdate: false,
+			prevWasFocused: false,
+			inputIsHiddenAfterUpdate: void 0,
+			prevProps: void 0,
+			instancePrefix: "",
+			isAppleDevice: false
+		};
+		_this.blockOptionHover = false;
+		_this.isComposing = false;
+		_this.commonProps = void 0;
+		_this.initialTouchX = 0;
+		_this.initialTouchY = 0;
+		_this.openAfterFocus = false;
+		_this.scrollToFocusedOptionOnUpdate = false;
+		_this.userIsDragging = void 0;
+		_this.controlRef = null;
+		_this.getControlRef = function(ref) {
+			_this.controlRef = ref;
+		};
+		_this.focusedOptionRef = null;
+		_this.getFocusedOptionRef = function(ref) {
+			_this.focusedOptionRef = ref;
+		};
+		_this.menuListRef = null;
+		_this.getMenuListRef = function(ref) {
+			_this.menuListRef = ref;
+		};
+		_this.inputRef = null;
+		_this.getInputRef = function(ref) {
+			_this.inputRef = ref;
+		};
+		_this.focus = _this.focusInput;
+		_this.blur = _this.blurInput;
+		_this.onChange = function(newValue, actionMeta) {
+			var _this$props = _this.props, onChange = _this$props.onChange;
+			actionMeta.name = _this$props.name;
+			_this.ariaOnChange(newValue, actionMeta);
+			onChange(newValue, actionMeta);
+		};
+		_this.setValue = function(newValue, action, option) {
+			var _this$props2 = _this.props, closeMenuOnSelect = _this$props2.closeMenuOnSelect, isMulti = _this$props2.isMulti, inputValue = _this$props2.inputValue;
+			_this.onInputChange("", {
+				action: "set-value",
+				prevInputValue: inputValue
+			});
+			if (closeMenuOnSelect) {
+				_this.setState({ inputIsHiddenAfterUpdate: !isMulti });
+				_this.onMenuClose();
+			}
+			_this.setState({ clearFocusValueOnUpdate: true });
+			_this.onChange(newValue, {
+				action,
+				option
+			});
+		};
+		_this.selectOption = function(newValue) {
+			var _this$props3 = _this.props, blurInputOnSelect = _this$props3.blurInputOnSelect, isMulti = _this$props3.isMulti, name = _this$props3.name;
+			var selectValue = _this.state.selectValue;
+			var deselected = isMulti && _this.isOptionSelected(newValue, selectValue);
+			var isDisabled = _this.isOptionDisabled(newValue, selectValue);
+			if (deselected) {
+				var candidate = _this.getOptionValue(newValue);
+				_this.setValue(multiValueAsValue(selectValue.filter(function(i$13) {
+					return _this.getOptionValue(i$13) !== candidate;
+				})), "deselect-option", newValue);
+			} else if (!isDisabled) if (isMulti) _this.setValue(multiValueAsValue([].concat(_toConsumableArray(selectValue), [newValue])), "select-option", newValue);
+			else _this.setValue(singleValueAsValue(newValue), "select-option");
+			else {
+				_this.ariaOnChange(singleValueAsValue(newValue), {
+					action: "select-option",
+					option: newValue,
+					name
+				});
+				return;
+			}
+			if (blurInputOnSelect) _this.blurInput();
+		};
+		_this.removeValue = function(removedValue) {
+			var isMulti = _this.props.isMulti;
+			var selectValue = _this.state.selectValue;
+			var candidate = _this.getOptionValue(removedValue);
+			var newValueArray = selectValue.filter(function(i$13) {
+				return _this.getOptionValue(i$13) !== candidate;
+			});
+			var newValue = valueTernary(isMulti, newValueArray, newValueArray[0] || null);
+			_this.onChange(newValue, {
+				action: "remove-value",
+				removedValue
+			});
+			_this.focusInput();
+		};
+		_this.clearValue = function() {
+			var selectValue = _this.state.selectValue;
+			_this.onChange(valueTernary(_this.props.isMulti, [], null), {
+				action: "clear",
+				removedValues: selectValue
+			});
+		};
+		_this.popValue = function() {
+			var isMulti = _this.props.isMulti;
+			var selectValue = _this.state.selectValue;
+			var lastSelectedValue = selectValue[selectValue.length - 1];
+			var newValueArray = selectValue.slice(0, selectValue.length - 1);
+			var newValue = valueTernary(isMulti, newValueArray, newValueArray[0] || null);
+			if (lastSelectedValue) _this.onChange(newValue, {
+				action: "pop-value",
+				removedValue: lastSelectedValue
+			});
+		};
+		_this.getFocusedOptionId = function(focusedOption) {
+			return getFocusedOptionId(_this.state.focusableOptionsWithIds, focusedOption);
+		};
+		_this.getFocusableOptionsWithIds = function() {
+			return buildFocusableOptionsWithIds(buildCategorizedOptions(_this.props, _this.state.selectValue), _this.getElementId("option"));
+		};
+		_this.getValue = function() {
+			return _this.state.selectValue;
+		};
+		_this.cx = function() {
+			for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) args[_key] = arguments[_key];
+			return classNames.apply(void 0, [_this.props.classNamePrefix].concat(args));
+		};
+		_this.getOptionLabel = function(data) {
+			return getOptionLabel(_this.props, data);
+		};
+		_this.getOptionValue = function(data) {
+			return getOptionValue(_this.props, data);
+		};
+		_this.getStyles = function(key, props) {
+			var unstyled = _this.props.unstyled;
+			var base = defaultStyles[key](props, unstyled);
+			base.boxSizing = "border-box";
+			var custom$1 = _this.props.styles[key];
+			return custom$1 ? custom$1(base, props) : base;
+		};
+		_this.getClassNames = function(key, props) {
+			var _this$props$className, _this$props$className2;
+			return (_this$props$className = (_this$props$className2 = _this.props.classNames)[key]) === null || _this$props$className === void 0 ? void 0 : _this$props$className.call(_this$props$className2, props);
+		};
+		_this.getElementId = function(element) {
+			return "".concat(_this.state.instancePrefix, "-").concat(element);
+		};
+		_this.getComponents = function() {
+			return defaultComponents(_this.props);
+		};
+		_this.buildCategorizedOptions = function() {
+			return buildCategorizedOptions(_this.props, _this.state.selectValue);
+		};
+		_this.getCategorizedOptions = function() {
+			return _this.props.menuIsOpen ? _this.buildCategorizedOptions() : [];
+		};
+		_this.buildFocusableOptions = function() {
+			return buildFocusableOptionsFromCategorizedOptions(_this.buildCategorizedOptions());
+		};
+		_this.getFocusableOptions = function() {
+			return _this.props.menuIsOpen ? _this.buildFocusableOptions() : [];
+		};
+		_this.ariaOnChange = function(value, actionMeta) {
+			_this.setState({ ariaSelection: _objectSpread2({ value }, actionMeta) });
+		};
+		_this.onMenuMouseDown = function(event) {
+			if (event.button !== 0) return;
+			event.stopPropagation();
+			event.preventDefault();
+			_this.focusInput();
+		};
+		_this.onMenuMouseMove = function(event) {
+			_this.blockOptionHover = false;
+		};
+		_this.onControlMouseDown = function(event) {
+			if (event.defaultPrevented) return;
+			var openMenuOnClick = _this.props.openMenuOnClick;
+			if (!_this.state.isFocused) {
+				if (openMenuOnClick) _this.openAfterFocus = true;
+				_this.focusInput();
+			} else if (!_this.props.menuIsOpen) {
+				if (openMenuOnClick) _this.openMenu("first");
+			} else if (event.target.tagName !== "INPUT" && event.target.tagName !== "TEXTAREA") _this.onMenuClose();
+			if (event.target.tagName !== "INPUT" && event.target.tagName !== "TEXTAREA") event.preventDefault();
+		};
+		_this.onDropdownIndicatorMouseDown = function(event) {
+			if (event && event.type === "mousedown" && event.button !== 0) return;
+			if (_this.props.isDisabled) return;
+			var _this$props4 = _this.props, isMulti = _this$props4.isMulti, menuIsOpen = _this$props4.menuIsOpen;
+			_this.focusInput();
+			if (menuIsOpen) {
+				_this.setState({ inputIsHiddenAfterUpdate: !isMulti });
+				_this.onMenuClose();
+			} else _this.openMenu("first");
+			event.preventDefault();
+		};
+		_this.onClearIndicatorMouseDown = function(event) {
+			if (event && event.type === "mousedown" && event.button !== 0) return;
+			_this.clearValue();
+			event.preventDefault();
+			_this.openAfterFocus = false;
+			if (event.type === "touchend") _this.focusInput();
+			else setTimeout(function() {
+				return _this.focusInput();
+			});
+		};
+		_this.onScroll = function(event) {
+			if (typeof _this.props.closeMenuOnScroll === "boolean") {
+				if (event.target instanceof HTMLElement && isDocumentElement(event.target)) _this.props.onMenuClose();
+			} else if (typeof _this.props.closeMenuOnScroll === "function") {
+				if (_this.props.closeMenuOnScroll(event)) _this.props.onMenuClose();
+			}
+		};
+		_this.onCompositionStart = function() {
+			_this.isComposing = true;
+		};
+		_this.onCompositionEnd = function() {
+			_this.isComposing = false;
+		};
+		_this.onTouchStart = function(_ref2$3) {
+			var touches = _ref2$3.touches;
+			var touch = touches && touches.item(0);
+			if (!touch) return;
+			_this.initialTouchX = touch.clientX;
+			_this.initialTouchY = touch.clientY;
+			_this.userIsDragging = false;
+		};
+		_this.onTouchMove = function(_ref3) {
+			var touches = _ref3.touches;
+			var touch = touches && touches.item(0);
+			if (!touch) return;
+			var deltaX = Math.abs(touch.clientX - _this.initialTouchX);
+			var deltaY = Math.abs(touch.clientY - _this.initialTouchY);
+			var moveThreshold = 5;
+			_this.userIsDragging = deltaX > moveThreshold || deltaY > moveThreshold;
+		};
+		_this.onTouchEnd = function(event) {
+			if (_this.userIsDragging) return;
+			if (_this.controlRef && !_this.controlRef.contains(event.target) && _this.menuListRef && !_this.menuListRef.contains(event.target)) _this.blurInput();
+			_this.initialTouchX = 0;
+			_this.initialTouchY = 0;
+		};
+		_this.onControlTouchEnd = function(event) {
+			if (_this.userIsDragging) return;
+			_this.onControlMouseDown(event);
+		};
+		_this.onClearIndicatorTouchEnd = function(event) {
+			if (_this.userIsDragging) return;
+			_this.onClearIndicatorMouseDown(event);
+		};
+		_this.onDropdownIndicatorTouchEnd = function(event) {
+			if (_this.userIsDragging) return;
+			_this.onDropdownIndicatorMouseDown(event);
+		};
+		_this.handleInputChange = function(event) {
+			var prevInputValue = _this.props.inputValue;
+			var inputValue = event.currentTarget.value;
+			_this.setState({ inputIsHiddenAfterUpdate: false });
+			_this.onInputChange(inputValue, {
+				action: "input-change",
+				prevInputValue
+			});
+			if (!_this.props.menuIsOpen) _this.onMenuOpen();
+		};
+		_this.onInputFocus = function(event) {
+			if (_this.props.onFocus) _this.props.onFocus(event);
+			_this.setState({
+				inputIsHiddenAfterUpdate: false,
+				isFocused: true
+			});
+			if (_this.openAfterFocus || _this.props.openMenuOnFocus) _this.openMenu("first");
+			_this.openAfterFocus = false;
+		};
+		_this.onInputBlur = function(event) {
+			var prevInputValue = _this.props.inputValue;
+			if (_this.menuListRef && _this.menuListRef.contains(document.activeElement)) {
+				_this.inputRef.focus();
+				return;
+			}
+			if (_this.props.onBlur) _this.props.onBlur(event);
+			_this.onInputChange("", {
+				action: "input-blur",
+				prevInputValue
+			});
+			_this.onMenuClose();
+			_this.setState({
+				focusedValue: null,
+				isFocused: false
+			});
+		};
+		_this.onOptionHover = function(focusedOption) {
+			if (_this.blockOptionHover || _this.state.focusedOption === focusedOption) return;
+			var focusedOptionIndex = _this.getFocusableOptions().indexOf(focusedOption);
+			_this.setState({
+				focusedOption,
+				focusedOptionId: focusedOptionIndex > -1 ? _this.getFocusedOptionId(focusedOption) : null
+			});
+		};
+		_this.shouldHideSelectedOptions = function() {
+			return shouldHideSelectedOptions(_this.props);
+		};
+		_this.onValueInputFocus = function(e$14) {
+			e$14.preventDefault();
+			e$14.stopPropagation();
+			_this.focus();
+		};
+		_this.onKeyDown = function(event) {
+			var _this$props5 = _this.props, isMulti = _this$props5.isMulti, backspaceRemovesValue = _this$props5.backspaceRemovesValue, escapeClearsValue = _this$props5.escapeClearsValue, inputValue = _this$props5.inputValue, isClearable = _this$props5.isClearable, isDisabled = _this$props5.isDisabled, menuIsOpen = _this$props5.menuIsOpen, onKeyDown = _this$props5.onKeyDown, tabSelectsValue = _this$props5.tabSelectsValue, openMenuOnFocus = _this$props5.openMenuOnFocus;
+			var _this$state = _this.state, focusedOption = _this$state.focusedOption, focusedValue = _this$state.focusedValue, selectValue = _this$state.selectValue;
+			if (isDisabled) return;
+			if (typeof onKeyDown === "function") {
+				onKeyDown(event);
+				if (event.defaultPrevented) return;
+			}
+			_this.blockOptionHover = true;
+			switch (event.key) {
+				case "ArrowLeft":
+					if (!isMulti || inputValue) return;
+					_this.focusValue("previous");
+					break;
+				case "ArrowRight":
+					if (!isMulti || inputValue) return;
+					_this.focusValue("next");
+					break;
+				case "Delete":
+				case "Backspace":
+					if (inputValue) return;
+					if (focusedValue) _this.removeValue(focusedValue);
+					else {
+						if (!backspaceRemovesValue) return;
+						if (isMulti) _this.popValue();
+						else if (isClearable) _this.clearValue();
+					}
+					break;
+				case "Tab":
+					if (_this.isComposing) return;
+					if (event.shiftKey || !menuIsOpen || !tabSelectsValue || !focusedOption || openMenuOnFocus && _this.isOptionSelected(focusedOption, selectValue)) return;
+					_this.selectOption(focusedOption);
+					break;
+				case "Enter":
+					if (event.keyCode === 229) break;
+					if (menuIsOpen) {
+						if (!focusedOption) return;
+						if (_this.isComposing) return;
+						_this.selectOption(focusedOption);
+						break;
+					}
+					return;
+				case "Escape":
+					if (menuIsOpen) {
+						_this.setState({ inputIsHiddenAfterUpdate: false });
+						_this.onInputChange("", {
+							action: "menu-close",
+							prevInputValue: inputValue
+						});
+						_this.onMenuClose();
+					} else if (isClearable && escapeClearsValue) _this.clearValue();
+					break;
+				case " ":
+					if (inputValue) return;
+					if (!menuIsOpen) {
+						_this.openMenu("first");
+						break;
+					}
+					if (!focusedOption) return;
+					_this.selectOption(focusedOption);
+					break;
+				case "ArrowUp":
+					if (menuIsOpen) _this.focusOption("up");
+					else _this.openMenu("last");
+					break;
+				case "ArrowDown":
+					if (menuIsOpen) _this.focusOption("down");
+					else _this.openMenu("first");
+					break;
+				case "PageUp":
+					if (!menuIsOpen) return;
+					_this.focusOption("pageup");
+					break;
+				case "PageDown":
+					if (!menuIsOpen) return;
+					_this.focusOption("pagedown");
+					break;
+				case "Home":
+					if (!menuIsOpen) return;
+					_this.focusOption("first");
+					break;
+				case "End":
+					if (!menuIsOpen) return;
+					_this.focusOption("last");
+					break;
+				default: return;
+			}
+			event.preventDefault();
+		};
+		_this.state.instancePrefix = "react-select-" + (_this.props.instanceId || ++instanceId);
+		_this.state.selectValue = cleanValue(_props.value);
+		if (_props.menuIsOpen && _this.state.selectValue.length) {
+			var focusableOptionsWithIds = _this.getFocusableOptionsWithIds();
+			var focusableOptions = _this.buildFocusableOptions();
+			var optionIndex = focusableOptions.indexOf(_this.state.selectValue[0]);
+			_this.state.focusableOptionsWithIds = focusableOptionsWithIds;
+			_this.state.focusedOption = focusableOptions[optionIndex];
+			_this.state.focusedOptionId = getFocusedOptionId(focusableOptionsWithIds, focusableOptions[optionIndex]);
+		}
+		return _this;
+	}
+	_createClass(Select$1, [
+		{
+			key: "componentDidMount",
+			value: function componentDidMount() {
+				this.startListeningComposition();
+				this.startListeningToTouch();
+				if (this.props.closeMenuOnScroll && document && document.addEventListener) document.addEventListener("scroll", this.onScroll, true);
+				if (this.props.autoFocus) this.focusInput();
+				if (this.props.menuIsOpen && this.state.focusedOption && this.menuListRef && this.focusedOptionRef) scrollIntoView(this.menuListRef, this.focusedOptionRef);
+				if (isAppleDevice()) this.setState({ isAppleDevice: true });
+			}
+		},
+		{
+			key: "componentDidUpdate",
+			value: function componentDidUpdate(prevProps) {
+				var _this$props6 = this.props, isDisabled = _this$props6.isDisabled, menuIsOpen = _this$props6.menuIsOpen;
+				var isFocused = this.state.isFocused;
+				if (isFocused && !isDisabled && prevProps.isDisabled || isFocused && menuIsOpen && !prevProps.menuIsOpen) this.focusInput();
+				if (isFocused && isDisabled && !prevProps.isDisabled) this.setState({ isFocused: false }, this.onMenuClose);
+				else if (!isFocused && !isDisabled && prevProps.isDisabled && this.inputRef === document.activeElement) this.setState({ isFocused: true });
+				if (this.menuListRef && this.focusedOptionRef && this.scrollToFocusedOptionOnUpdate) {
+					scrollIntoView(this.menuListRef, this.focusedOptionRef);
+					this.scrollToFocusedOptionOnUpdate = false;
+				}
+			}
+		},
+		{
+			key: "componentWillUnmount",
+			value: function componentWillUnmount() {
+				this.stopListeningComposition();
+				this.stopListeningToTouch();
+				document.removeEventListener("scroll", this.onScroll, true);
+			}
+		},
+		{
+			key: "onMenuOpen",
+			value: function onMenuOpen() {
+				this.props.onMenuOpen();
+			}
+		},
+		{
+			key: "onMenuClose",
+			value: function onMenuClose() {
+				this.onInputChange("", {
+					action: "menu-close",
+					prevInputValue: this.props.inputValue
+				});
+				this.props.onMenuClose();
+			}
+		},
+		{
+			key: "onInputChange",
+			value: function onInputChange(newValue, actionMeta) {
+				this.props.onInputChange(newValue, actionMeta);
+			}
+		},
+		{
+			key: "focusInput",
+			value: function focusInput() {
+				if (!this.inputRef) return;
+				this.inputRef.focus();
+			}
+		},
+		{
+			key: "blurInput",
+			value: function blurInput() {
+				if (!this.inputRef) return;
+				this.inputRef.blur();
+			}
+		},
+		{
+			key: "openMenu",
+			value: function openMenu(focusOption) {
+				var _this2 = this;
+				var _this$state2 = this.state, selectValue = _this$state2.selectValue, isFocused = _this$state2.isFocused;
+				var focusableOptions = this.buildFocusableOptions();
+				var openAtIndex = focusOption === "first" ? 0 : focusableOptions.length - 1;
+				if (!this.props.isMulti) {
+					var selectedIndex = focusableOptions.indexOf(selectValue[0]);
+					if (selectedIndex > -1) openAtIndex = selectedIndex;
+				}
+				this.scrollToFocusedOptionOnUpdate = !(isFocused && this.menuListRef);
+				this.setState({
+					inputIsHiddenAfterUpdate: false,
+					focusedValue: null,
+					focusedOption: focusableOptions[openAtIndex],
+					focusedOptionId: this.getFocusedOptionId(focusableOptions[openAtIndex])
+				}, function() {
+					return _this2.onMenuOpen();
+				});
+			}
+		},
+		{
+			key: "focusValue",
+			value: function focusValue(direction) {
+				var _this$state3 = this.state, selectValue = _this$state3.selectValue, focusedValue = _this$state3.focusedValue;
+				if (!this.props.isMulti) return;
+				this.setState({ focusedOption: null });
+				var focusedIndex = selectValue.indexOf(focusedValue);
+				if (!focusedValue) focusedIndex = -1;
+				var lastIndex = selectValue.length - 1;
+				var nextFocus = -1;
+				if (!selectValue.length) return;
+				switch (direction) {
+					case "previous":
+						if (focusedIndex === 0) nextFocus = 0;
+						else if (focusedIndex === -1) nextFocus = lastIndex;
+						else nextFocus = focusedIndex - 1;
+						break;
+					case "next":
+						if (focusedIndex > -1 && focusedIndex < lastIndex) nextFocus = focusedIndex + 1;
+						break;
+				}
+				this.setState({
+					inputIsHidden: nextFocus !== -1,
+					focusedValue: selectValue[nextFocus]
+				});
+			}
+		},
+		{
+			key: "focusOption",
+			value: function focusOption() {
+				var direction = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : "first";
+				var pageSize = this.props.pageSize;
+				var focusedOption = this.state.focusedOption;
+				var options$2 = this.getFocusableOptions();
+				if (!options$2.length) return;
+				var nextFocus = 0;
+				var focusedIndex = options$2.indexOf(focusedOption);
+				if (!focusedOption) focusedIndex = -1;
+				if (direction === "up") nextFocus = focusedIndex > 0 ? focusedIndex - 1 : options$2.length - 1;
+				else if (direction === "down") nextFocus = (focusedIndex + 1) % options$2.length;
+				else if (direction === "pageup") {
+					nextFocus = focusedIndex - pageSize;
+					if (nextFocus < 0) nextFocus = 0;
+				} else if (direction === "pagedown") {
+					nextFocus = focusedIndex + pageSize;
+					if (nextFocus > options$2.length - 1) nextFocus = options$2.length - 1;
+				} else if (direction === "last") nextFocus = options$2.length - 1;
+				this.scrollToFocusedOptionOnUpdate = true;
+				this.setState({
+					focusedOption: options$2[nextFocus],
+					focusedValue: null,
+					focusedOptionId: this.getFocusedOptionId(options$2[nextFocus])
+				});
+			}
+		},
+		{
+			key: "getTheme",
+			value: function getTheme() {
+				if (!this.props.theme) return defaultTheme;
+				if (typeof this.props.theme === "function") return this.props.theme(defaultTheme);
+				return _objectSpread2(_objectSpread2({}, defaultTheme), this.props.theme);
+			}
+		},
+		{
+			key: "getCommonProps",
+			value: function getCommonProps() {
+				var clearValue = this.clearValue, cx$28 = this.cx, getStyles = this.getStyles, getClassNames = this.getClassNames, getValue$4 = this.getValue, selectOption = this.selectOption, setValue = this.setValue, props = this.props;
+				var isMulti = props.isMulti, isRtl = props.isRtl, options$2 = props.options;
+				return {
+					clearValue,
+					cx: cx$28,
+					getStyles,
+					getClassNames,
+					getValue: getValue$4,
+					hasValue: this.hasValue(),
+					isMulti,
+					isRtl,
+					options: options$2,
+					selectOption,
+					selectProps: props,
+					setValue,
+					theme: this.getTheme()
+				};
+			}
+		},
+		{
+			key: "hasValue",
+			value: function hasValue$1() {
+				return this.state.selectValue.length > 0;
+			}
+		},
+		{
+			key: "hasOptions",
+			value: function hasOptions() {
+				return !!this.getFocusableOptions().length;
+			}
+		},
+		{
+			key: "isClearable",
+			value: function isClearable() {
+				var _this$props7 = this.props, isClearable$1 = _this$props7.isClearable, isMulti = _this$props7.isMulti;
+				if (isClearable$1 === void 0) return isMulti;
+				return isClearable$1;
+			}
+		},
+		{
+			key: "isOptionDisabled",
+			value: function isOptionDisabled$1(option, selectValue) {
+				return _isOptionDisabled(this.props, option, selectValue);
+			}
+		},
+		{
+			key: "isOptionSelected",
+			value: function isOptionSelected(option, selectValue) {
+				return _isOptionSelected(this.props, option, selectValue);
+			}
+		},
+		{
+			key: "filterOption",
+			value: function filterOption(option, inputValue) {
+				return _filterOption(this.props, option, inputValue);
+			}
+		},
+		{
+			key: "formatOptionLabel",
+			value: function formatOptionLabel(data, context) {
+				if (typeof this.props.formatOptionLabel === "function") {
+					var _inputValue = this.props.inputValue;
+					var _selectValue = this.state.selectValue;
+					return this.props.formatOptionLabel(data, {
+						context,
+						inputValue: _inputValue,
+						selectValue: _selectValue
+					});
+				} else return this.getOptionLabel(data);
+			}
+		},
+		{
+			key: "formatGroupLabel",
+			value: function formatGroupLabel$1(data) {
+				return this.props.formatGroupLabel(data);
+			}
+		},
+		{
+			key: "startListeningComposition",
+			value: function startListeningComposition() {
+				if (document && document.addEventListener) {
+					document.addEventListener("compositionstart", this.onCompositionStart, false);
+					document.addEventListener("compositionend", this.onCompositionEnd, false);
+				}
+			}
+		},
+		{
+			key: "stopListeningComposition",
+			value: function stopListeningComposition() {
+				if (document && document.removeEventListener) {
+					document.removeEventListener("compositionstart", this.onCompositionStart);
+					document.removeEventListener("compositionend", this.onCompositionEnd);
+				}
+			}
+		},
+		{
+			key: "startListeningToTouch",
+			value: function startListeningToTouch() {
+				if (document && document.addEventListener) {
+					document.addEventListener("touchstart", this.onTouchStart, false);
+					document.addEventListener("touchmove", this.onTouchMove, false);
+					document.addEventListener("touchend", this.onTouchEnd, false);
+				}
+			}
+		},
+		{
+			key: "stopListeningToTouch",
+			value: function stopListeningToTouch() {
+				if (document && document.removeEventListener) {
+					document.removeEventListener("touchstart", this.onTouchStart);
+					document.removeEventListener("touchmove", this.onTouchMove);
+					document.removeEventListener("touchend", this.onTouchEnd);
+				}
+			}
+		},
+		{
+			key: "renderInput",
+			value: function renderInput() {
+				var _this$props8 = this.props, isDisabled = _this$props8.isDisabled, isSearchable = _this$props8.isSearchable, inputId = _this$props8.inputId, inputValue = _this$props8.inputValue, tabIndex = _this$props8.tabIndex, form = _this$props8.form, menuIsOpen = _this$props8.menuIsOpen, required = _this$props8.required;
+				var Input$2 = this.getComponents().Input;
+				var _this$state4 = this.state, inputIsHidden = _this$state4.inputIsHidden, ariaSelection = _this$state4.ariaSelection;
+				var commonProps = this.commonProps;
+				var id$2 = inputId || this.getElementId("input");
+				var ariaAttributes = _objectSpread2(_objectSpread2(_objectSpread2({
+					"aria-autocomplete": "list",
+					"aria-expanded": menuIsOpen,
+					"aria-haspopup": true,
+					"aria-errormessage": this.props["aria-errormessage"],
+					"aria-invalid": this.props["aria-invalid"],
+					"aria-label": this.props["aria-label"],
+					"aria-labelledby": this.props["aria-labelledby"],
+					"aria-required": required,
+					role: "combobox",
+					"aria-activedescendant": this.state.isAppleDevice ? void 0 : this.state.focusedOptionId || ""
+				}, menuIsOpen && { "aria-controls": this.getElementId("listbox") }), !isSearchable && { "aria-readonly": true }), this.hasValue() ? (ariaSelection === null || ariaSelection === void 0 ? void 0 : ariaSelection.action) === "initial-input-focus" && { "aria-describedby": this.getElementId("live-region") } : { "aria-describedby": this.getElementId("placeholder") });
+				if (!isSearchable) return /* @__PURE__ */ import_react.createElement(DummyInput, _extends({
+					id: id$2,
+					innerRef: this.getInputRef,
+					onBlur: this.onInputBlur,
+					onChange: noop,
+					onFocus: this.onInputFocus,
+					disabled: isDisabled,
+					tabIndex,
+					inputMode: "none",
+					form,
+					value: ""
+				}, ariaAttributes));
+				return /* @__PURE__ */ import_react.createElement(Input$2, _extends({}, commonProps, {
+					autoCapitalize: "none",
+					autoComplete: "off",
+					autoCorrect: "off",
+					id: id$2,
+					innerRef: this.getInputRef,
+					isDisabled,
+					isHidden: inputIsHidden,
+					onBlur: this.onInputBlur,
+					onChange: this.handleInputChange,
+					onFocus: this.onInputFocus,
+					spellCheck: "false",
+					tabIndex,
+					form,
+					type: "text",
+					value: inputValue
+				}, ariaAttributes));
+			}
+		},
+		{
+			key: "renderPlaceholderOrValue",
+			value: function renderPlaceholderOrValue() {
+				var _this3 = this;
+				var _this$getComponents2 = this.getComponents(), MultiValue = _this$getComponents2.MultiValue, MultiValueContainer$1 = _this$getComponents2.MultiValueContainer, MultiValueLabel$1 = _this$getComponents2.MultiValueLabel, MultiValueRemove$1 = _this$getComponents2.MultiValueRemove, SingleValue = _this$getComponents2.SingleValue, Placeholder = _this$getComponents2.Placeholder;
+				var commonProps = this.commonProps;
+				var _this$props9 = this.props, controlShouldRenderValue = _this$props9.controlShouldRenderValue, isDisabled = _this$props9.isDisabled, isMulti = _this$props9.isMulti, inputValue = _this$props9.inputValue, placeholder = _this$props9.placeholder;
+				var _this$state5 = this.state, selectValue = _this$state5.selectValue, focusedValue = _this$state5.focusedValue, isFocused = _this$state5.isFocused;
+				if (!this.hasValue() || !controlShouldRenderValue) return inputValue ? null : /* @__PURE__ */ import_react.createElement(Placeholder, _extends({}, commonProps, {
+					key: "placeholder",
+					isDisabled,
+					isFocused,
+					innerProps: { id: this.getElementId("placeholder") }
+				}), placeholder);
+				if (isMulti) return selectValue.map(function(opt, index$6) {
+					var isOptionFocused = opt === focusedValue;
+					var key = "".concat(_this3.getOptionLabel(opt), "-").concat(_this3.getOptionValue(opt));
+					return /* @__PURE__ */ import_react.createElement(MultiValue, _extends({}, commonProps, {
+						components: {
+							Container: MultiValueContainer$1,
+							Label: MultiValueLabel$1,
+							Remove: MultiValueRemove$1
+						},
+						isFocused: isOptionFocused,
+						isDisabled,
+						key,
+						index: index$6,
+						removeProps: {
+							onClick: function onClick() {
+								return _this3.removeValue(opt);
+							},
+							onTouchEnd: function onTouchEnd() {
+								return _this3.removeValue(opt);
+							},
+							onMouseDown: function onMouseDown(e$14) {
+								e$14.preventDefault();
+							}
+						},
+						data: opt
+					}), _this3.formatOptionLabel(opt, "value"));
+				});
+				if (inputValue) return null;
+				var singleValue = selectValue[0];
+				return /* @__PURE__ */ import_react.createElement(SingleValue, _extends({}, commonProps, {
+					data: singleValue,
+					isDisabled
+				}), this.formatOptionLabel(singleValue, "value"));
+			}
+		},
+		{
+			key: "renderClearIndicator",
+			value: function renderClearIndicator() {
+				var ClearIndicator$1 = this.getComponents().ClearIndicator;
+				var commonProps = this.commonProps;
+				var _this$props10 = this.props, isDisabled = _this$props10.isDisabled, isLoading = _this$props10.isLoading;
+				var isFocused = this.state.isFocused;
+				if (!this.isClearable() || !ClearIndicator$1 || isDisabled || !this.hasValue() || isLoading) return null;
+				var innerProps = {
+					onMouseDown: this.onClearIndicatorMouseDown,
+					onTouchEnd: this.onClearIndicatorTouchEnd,
+					"aria-hidden": "true"
+				};
+				return /* @__PURE__ */ import_react.createElement(ClearIndicator$1, _extends({}, commonProps, {
+					innerProps,
+					isFocused
+				}));
+			}
+		},
+		{
+			key: "renderLoadingIndicator",
+			value: function renderLoadingIndicator() {
+				var LoadingIndicator$1 = this.getComponents().LoadingIndicator;
+				var commonProps = this.commonProps;
+				var _this$props11 = this.props, isDisabled = _this$props11.isDisabled, isLoading = _this$props11.isLoading;
+				var isFocused = this.state.isFocused;
+				if (!LoadingIndicator$1 || !isLoading) return null;
+				return /* @__PURE__ */ import_react.createElement(LoadingIndicator$1, _extends({}, commonProps, {
+					innerProps: { "aria-hidden": "true" },
+					isDisabled,
+					isFocused
+				}));
+			}
+		},
+		{
+			key: "renderIndicatorSeparator",
+			value: function renderIndicatorSeparator() {
+				var _this$getComponents5 = this.getComponents(), DropdownIndicator$2 = _this$getComponents5.DropdownIndicator, IndicatorSeparator$1 = _this$getComponents5.IndicatorSeparator;
+				if (!DropdownIndicator$2 || !IndicatorSeparator$1) return null;
+				var commonProps = this.commonProps;
+				var isDisabled = this.props.isDisabled;
+				var isFocused = this.state.isFocused;
+				return /* @__PURE__ */ import_react.createElement(IndicatorSeparator$1, _extends({}, commonProps, {
+					isDisabled,
+					isFocused
+				}));
+			}
+		},
+		{
+			key: "renderDropdownIndicator",
+			value: function renderDropdownIndicator() {
+				var DropdownIndicator$2 = this.getComponents().DropdownIndicator;
+				if (!DropdownIndicator$2) return null;
+				var commonProps = this.commonProps;
+				var isDisabled = this.props.isDisabled;
+				var isFocused = this.state.isFocused;
+				var innerProps = {
+					onMouseDown: this.onDropdownIndicatorMouseDown,
+					onTouchEnd: this.onDropdownIndicatorTouchEnd,
+					"aria-hidden": "true"
+				};
+				return /* @__PURE__ */ import_react.createElement(DropdownIndicator$2, _extends({}, commonProps, {
+					innerProps,
+					isDisabled,
+					isFocused
+				}));
+			}
+		},
+		{
+			key: "renderMenu",
+			value: function renderMenu() {
+				var _this4 = this;
+				var _this$getComponents7 = this.getComponents(), Group$2 = _this$getComponents7.Group, GroupHeading$1 = _this$getComponents7.GroupHeading, Menu = _this$getComponents7.Menu, MenuList$2 = _this$getComponents7.MenuList, MenuPortal$1 = _this$getComponents7.MenuPortal, LoadingMessage$1 = _this$getComponents7.LoadingMessage, NoOptionsMessage$1 = _this$getComponents7.NoOptionsMessage, Option$2 = _this$getComponents7.Option;
+				var commonProps = this.commonProps;
+				var focusedOption = this.state.focusedOption;
+				var _this$props12 = this.props, captureMenuScroll = _this$props12.captureMenuScroll, inputValue = _this$props12.inputValue, isLoading = _this$props12.isLoading, loadingMessage = _this$props12.loadingMessage, minMenuHeight = _this$props12.minMenuHeight, maxMenuHeight = _this$props12.maxMenuHeight, menuIsOpen = _this$props12.menuIsOpen, menuPlacement = _this$props12.menuPlacement, menuPosition = _this$props12.menuPosition, menuPortalTarget = _this$props12.menuPortalTarget, menuShouldBlockScroll = _this$props12.menuShouldBlockScroll, menuShouldScrollIntoView = _this$props12.menuShouldScrollIntoView, noOptionsMessage = _this$props12.noOptionsMessage, onMenuScrollToTop = _this$props12.onMenuScrollToTop, onMenuScrollToBottom = _this$props12.onMenuScrollToBottom;
+				if (!menuIsOpen) return null;
+				var render = function render$1(props, id$2) {
+					var type = props.type, data = props.data, isDisabled = props.isDisabled, isSelected = props.isSelected, label = props.label, value = props.value;
+					var isFocused = focusedOption === data;
+					var onHover = isDisabled ? void 0 : function() {
+						return _this4.onOptionHover(data);
+					};
+					var onSelect = isDisabled ? void 0 : function() {
+						return _this4.selectOption(data);
+					};
+					var optionId = "".concat(_this4.getElementId("option"), "-").concat(id$2);
+					var innerProps = {
+						id: optionId,
+						onClick: onSelect,
+						onMouseMove: onHover,
+						onMouseOver: onHover,
+						tabIndex: -1,
+						role: "option",
+						"aria-selected": _this4.state.isAppleDevice ? void 0 : isSelected
+					};
+					return /* @__PURE__ */ import_react.createElement(Option$2, _extends({}, commonProps, {
+						innerProps,
+						data,
+						isDisabled,
+						isSelected,
+						key: optionId,
+						label,
+						type,
+						value,
+						isFocused,
+						innerRef: isFocused ? _this4.getFocusedOptionRef : void 0
+					}), _this4.formatOptionLabel(props.data, "menu"));
+				};
+				var menuUI;
+				if (this.hasOptions()) menuUI = this.getCategorizedOptions().map(function(item) {
+					if (item.type === "group") {
+						var _data = item.data, options$2 = item.options, groupIndex = item.index;
+						var groupId = "".concat(_this4.getElementId("group"), "-").concat(groupIndex);
+						var headingId = "".concat(groupId, "-heading");
+						return /* @__PURE__ */ import_react.createElement(Group$2, _extends({}, commonProps, {
+							key: groupId,
+							data: _data,
+							options: options$2,
+							Heading: GroupHeading$1,
+							headingProps: {
+								id: headingId,
+								data: item.data
+							},
+							label: _this4.formatGroupLabel(item.data)
+						}), item.options.map(function(option) {
+							return render(option, "".concat(groupIndex, "-").concat(option.index));
+						}));
+					} else if (item.type === "option") return render(item, "".concat(item.index));
+				});
+				else if (isLoading) {
+					var message$1 = loadingMessage({ inputValue });
+					if (message$1 === null) return null;
+					menuUI = /* @__PURE__ */ import_react.createElement(LoadingMessage$1, commonProps, message$1);
+				} else {
+					var _message = noOptionsMessage({ inputValue });
+					if (_message === null) return null;
+					menuUI = /* @__PURE__ */ import_react.createElement(NoOptionsMessage$1, commonProps, _message);
+				}
+				var menuPlacementProps = {
+					minMenuHeight,
+					maxMenuHeight,
+					menuPlacement,
+					menuPosition,
+					menuShouldScrollIntoView
+				};
+				var menuElement = /* @__PURE__ */ import_react.createElement(MenuPlacer, _extends({}, commonProps, menuPlacementProps), function(_ref4) {
+					var ref = _ref4.ref, _ref4$placerProps = _ref4.placerProps, placement = _ref4$placerProps.placement, maxHeight = _ref4$placerProps.maxHeight;
+					return /* @__PURE__ */ import_react.createElement(Menu, _extends({}, commonProps, menuPlacementProps, {
+						innerRef: ref,
+						innerProps: {
+							onMouseDown: _this4.onMenuMouseDown,
+							onMouseMove: _this4.onMenuMouseMove
+						},
+						isLoading,
+						placement
+					}), /* @__PURE__ */ import_react.createElement(ScrollManager, {
+						captureEnabled: captureMenuScroll,
+						onTopArrive: onMenuScrollToTop,
+						onBottomArrive: onMenuScrollToBottom,
+						lockEnabled: menuShouldBlockScroll
+					}, function(scrollTargetRef) {
+						return /* @__PURE__ */ import_react.createElement(MenuList$2, _extends({}, commonProps, {
+							innerRef: function innerRef(instance) {
+								_this4.getMenuListRef(instance);
+								scrollTargetRef(instance);
+							},
+							innerProps: {
+								role: "listbox",
+								"aria-multiselectable": commonProps.isMulti,
+								id: _this4.getElementId("listbox")
+							},
+							isLoading,
+							maxHeight,
+							focusedOption
+						}), menuUI);
+					}));
+				});
+				return menuPortalTarget || menuPosition === "fixed" ? /* @__PURE__ */ import_react.createElement(MenuPortal$1, _extends({}, commonProps, {
+					appendTo: menuPortalTarget,
+					controlElement: this.controlRef,
+					menuPlacement,
+					menuPosition
+				}), menuElement) : menuElement;
+			}
+		},
+		{
+			key: "renderFormField",
+			value: function renderFormField() {
+				var _this5 = this;
+				var _this$props13 = this.props, delimiter$1 = _this$props13.delimiter, isDisabled = _this$props13.isDisabled, isMulti = _this$props13.isMulti, name = _this$props13.name, required = _this$props13.required;
+				var selectValue = this.state.selectValue;
+				if (required && !this.hasValue() && !isDisabled) return /* @__PURE__ */ import_react.createElement(RequiredInput$1, {
+					name,
+					onFocus: this.onValueInputFocus
+				});
+				if (!name || isDisabled) return;
+				if (isMulti) if (delimiter$1) {
+					var value = selectValue.map(function(opt) {
+						return _this5.getOptionValue(opt);
+					}).join(delimiter$1);
+					return /* @__PURE__ */ import_react.createElement("input", {
+						name,
+						type: "hidden",
+						value
+					});
+				} else {
+					var input = selectValue.length > 0 ? selectValue.map(function(opt, i$13) {
+						return /* @__PURE__ */ import_react.createElement("input", {
+							key: "i-".concat(i$13),
+							name,
+							type: "hidden",
+							value: _this5.getOptionValue(opt)
+						});
+					}) : /* @__PURE__ */ import_react.createElement("input", {
+						name,
+						type: "hidden",
+						value: ""
+					});
+					return /* @__PURE__ */ import_react.createElement("div", null, input);
+				}
+				else {
+					var _value = selectValue[0] ? this.getOptionValue(selectValue[0]) : "";
+					return /* @__PURE__ */ import_react.createElement("input", {
+						name,
+						type: "hidden",
+						value: _value
+					});
+				}
+			}
+		},
+		{
+			key: "renderLiveRegion",
+			value: function renderLiveRegion() {
+				var commonProps = this.commonProps;
+				var _this$state6 = this.state, ariaSelection = _this$state6.ariaSelection, focusedOption = _this$state6.focusedOption, focusedValue = _this$state6.focusedValue, isFocused = _this$state6.isFocused, selectValue = _this$state6.selectValue;
+				var focusableOptions = this.getFocusableOptions();
+				return /* @__PURE__ */ import_react.createElement(LiveRegion$1, _extends({}, commonProps, {
+					id: this.getElementId("live-region"),
+					ariaSelection,
+					focusedOption,
+					focusedValue,
+					isFocused,
+					selectValue,
+					focusableOptions,
+					isAppleDevice: this.state.isAppleDevice
+				}));
+			}
+		},
+		{
+			key: "render",
+			value: function render() {
+				var _this$getComponents8 = this.getComponents(), Control = _this$getComponents8.Control, IndicatorsContainer$1 = _this$getComponents8.IndicatorsContainer, SelectContainer$1 = _this$getComponents8.SelectContainer, ValueContainer$1 = _this$getComponents8.ValueContainer;
+				var _this$props14 = this.props, className = _this$props14.className, id$2 = _this$props14.id, isDisabled = _this$props14.isDisabled, menuIsOpen = _this$props14.menuIsOpen;
+				var isFocused = this.state.isFocused;
+				var commonProps = this.commonProps = this.getCommonProps();
+				return /* @__PURE__ */ import_react.createElement(SelectContainer$1, _extends({}, commonProps, {
+					className,
+					innerProps: {
+						id: id$2,
+						onKeyDown: this.onKeyDown
+					},
+					isDisabled,
+					isFocused
+				}), this.renderLiveRegion(), /* @__PURE__ */ import_react.createElement(Control, _extends({}, commonProps, {
+					innerRef: this.getControlRef,
+					innerProps: {
+						onMouseDown: this.onControlMouseDown,
+						onTouchEnd: this.onControlTouchEnd
+					},
+					isDisabled,
+					isFocused,
+					menuIsOpen
+				}), /* @__PURE__ */ import_react.createElement(ValueContainer$1, _extends({}, commonProps, { isDisabled }), this.renderPlaceholderOrValue(), this.renderInput()), /* @__PURE__ */ import_react.createElement(IndicatorsContainer$1, _extends({}, commonProps, { isDisabled }), this.renderClearIndicator(), this.renderLoadingIndicator(), this.renderIndicatorSeparator(), this.renderDropdownIndicator())), this.renderMenu(), this.renderFormField());
+			}
+		}
+	], [{
+		key: "getDerivedStateFromProps",
+		value: function getDerivedStateFromProps(props, state) {
+			var prevProps = state.prevProps, clearFocusValueOnUpdate = state.clearFocusValueOnUpdate, inputIsHiddenAfterUpdate = state.inputIsHiddenAfterUpdate, ariaSelection = state.ariaSelection, isFocused = state.isFocused, prevWasFocused = state.prevWasFocused, instancePrefix = state.instancePrefix;
+			var options$2 = props.options, value = props.value, menuIsOpen = props.menuIsOpen, inputValue = props.inputValue, isMulti = props.isMulti;
+			var selectValue = cleanValue(value);
+			var newMenuOptionsState = {};
+			if (prevProps && (value !== prevProps.value || options$2 !== prevProps.options || menuIsOpen !== prevProps.menuIsOpen || inputValue !== prevProps.inputValue)) {
+				var focusableOptions = menuIsOpen ? buildFocusableOptions(props, selectValue) : [];
+				var focusableOptionsWithIds = menuIsOpen ? buildFocusableOptionsWithIds(buildCategorizedOptions(props, selectValue), "".concat(instancePrefix, "-option")) : [];
+				var focusedValue = clearFocusValueOnUpdate ? getNextFocusedValue(state, selectValue) : null;
+				var focusedOption = getNextFocusedOption(state, focusableOptions);
+				newMenuOptionsState = {
+					selectValue,
+					focusedOption,
+					focusedOptionId: getFocusedOptionId(focusableOptionsWithIds, focusedOption),
+					focusableOptionsWithIds,
+					focusedValue,
+					clearFocusValueOnUpdate: false
+				};
+			}
+			var newInputIsHiddenState = inputIsHiddenAfterUpdate != null && props !== prevProps ? {
+				inputIsHidden: inputIsHiddenAfterUpdate,
+				inputIsHiddenAfterUpdate: void 0
+			} : {};
+			var newAriaSelection = ariaSelection;
+			var hasKeptFocus = isFocused && prevWasFocused;
+			if (isFocused && !hasKeptFocus) {
+				newAriaSelection = {
+					value: valueTernary(isMulti, selectValue, selectValue[0] || null),
+					options: selectValue,
+					action: "initial-input-focus"
+				};
+				hasKeptFocus = !prevWasFocused;
+			}
+			if ((ariaSelection === null || ariaSelection === void 0 ? void 0 : ariaSelection.action) === "initial-input-focus") newAriaSelection = null;
+			return _objectSpread2(_objectSpread2(_objectSpread2({}, newMenuOptionsState), newInputIsHiddenState), {}, {
+				prevProps: props,
+				ariaSelection: newAriaSelection,
+				prevWasFocused: hasKeptFocus
+			});
+		}
+	}]);
+	return Select$1;
+}(import_react.Component);
+Select.defaultProps = defaultProps;
+require_react_dom();
+var StateManagedSelect$1 = /* @__PURE__ */ (0, import_react.forwardRef)(function(props, ref) {
+	var baseSelectProps = useStateManager(props);
+	return /* @__PURE__ */ import_react.createElement(Select, _extends({ ref }, baseSelectProps));
+});
+var import_classnames$8 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var DropdownSvg = ({ className }) => {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
+		className: (0, import_classnames$8.default)("DropdownSvg", className),
+		xmlns: "http://www.w3.org/2000/svg",
+		width: "14",
+		height: "7",
+		viewBox: "0 0 14 7",
+		fill: "none",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
+			d: "M13 1.00003L7.00003 6.00003L1.00003 1.00003",
+			stroke: "white",
+			strokeWidth: "2",
+			strokeLinecap: "round",
+			strokeLinejoin: "round"
+		})
+	});
+};
+var DropdownSvg_default = DropdownSvg;
+var import_classnames$7 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var Selector = ({ className, options: options$2, defaultValue, defaultOption, isDisabled, onChange, ...props }) => {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(StateManagedSelect$1, {
+		unstyled: true,
+		options: options$2,
+		defaultValue: defaultOption ?? findDefaultOption(defaultValue, options$2) ?? options$2[0],
+		onChange,
+		className: (0, import_classnames$7.default)("Selector", className),
+		classNamePrefix: "Selector",
+		isClearable: false,
+		isSearchable: false,
+		isDisabled: !options$2.length || isDisabled,
+		...props,
+		components: {
+			DropdownIndicator,
+			...props.components
+		}
+	});
+};
+var DropdownIndicator = (props) => {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(components.DropdownIndicator, {
+		...props,
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(DropdownSvg_default, {})
+	});
+};
+var findDefaultOption = (value, options$2) => {
+	return options$2.find((opt) => opt.value === value);
+};
+var Selector_default = Selector;
+var ConfirmSvg = () => {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
+		className: "ConfirmSvg",
+		xmlns: "http://www.w3.org/2000/svg",
+		width: "12",
+		height: "10",
+		viewBox: "0 0 12 10",
+		fill: "none",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
+			d: "M1 5.2667L4.33333 9.00003L11 1.00003",
+			stroke: "white",
+			strokeWidth: "2",
+			strokeLinecap: "round",
+			strokeLinejoin: "round"
+		})
+	});
+};
+var ConfirmSvg_default = ConfirmSvg;
+var import_classnames$6 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var SelectedAccount = () => {
+	const accounts = useAccounts_default();
+	const account = useAccount_default();
+	const accountId = useAccountId_default();
+	const { setId } = useAccountState_default();
+	const { openCreateModal } = useDashboardContext();
+	if (!accounts) return null;
+	const selectorOptions = accounts.map((acc) => {
+		const { id: id$2 } = acc;
+		return {
+			value: id$2,
+			label: `#${id$2}`,
+			account: acc
+		};
+	});
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "SelectedAccount box _sm",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "SelectedAccount__selector",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "SelectedAccount__selector-title text",
+				children: "Choose Lending Account"
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "SelectedAccount__selector-content",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "SelectedAccount__selector-input",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Selector_default, {
+						options: selectorOptions,
+						isDisabled: selectorOptions.length === 1,
+						defaultValue: accountId,
+						components: {
+							Option,
+							MenuList
+						},
+						onChange: (opt) => {
+							setId(opt.value);
+						}
+					})
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
+					className: "SelectedAccount__selector-button",
+					onClick: openCreateModal,
+					children: "Create new account"
+				})]
+			})]
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "SelectedAccount__net-worth",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "SelectedAccount__net-worth-title text",
+				children: "Net Worth"
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "SelectedAccount__net-worth-value",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmount_default, {
+					value: account?.equity,
+					showsUsd: true
+				})
+			})]
+		})]
+	});
+};
+var MenuList = ({ children, ...props }) => {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(components.MenuList, {
+		...props,
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "Selector__menu-list-head",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: "Account" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: "Balance" })]
+		}), children]
+	});
+};
+var Option = ({ value: id$2, data, isSelected, ...props }) => {
+	const { balance } = data.account;
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(components.Option, {
+		className: (0, import_classnames$6.default)(isSelected && "Selector__option--is-selected"),
+		...props,
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "_account",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "_account__info",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "_account__id",
+					children: ["#", id$2]
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "_account__balance",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmount_default, {
+						value: balance,
+						symbol: "ETH",
+						showsUsd: true
+					})
+				})]
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
+				className: "_account__button",
+				children: isSelected ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ConfirmSvg_default, {}) : "Choose"
+			})]
+		})
+	});
+};
+var SelectedAccount_default = SelectedAccount;
+var supply_default = "data:image/svg+xml,%3csvg%20width='40'%20height='40'%20viewBox='0%200%2040%2040'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_651_4592)'%3e%3crect%20width='40'%20height='40'%20rx='12'%20fill='%23212367'/%3e%3cpath%20d='M21%2010C21%209.44772%2020.5523%209%2020%209C19.4477%209%2019%209.44772%2019%2010L20%2010L21%2010ZM19.2929%2023.7071C19.6834%2024.0976%2020.3166%2024.0976%2020.7071%2023.7071L27.0711%2017.3431C27.4616%2016.9526%2027.4616%2016.3195%2027.0711%2015.9289C26.6805%2015.5384%2026.0474%2015.5384%2025.6569%2015.9289L20%2021.5858L14.3431%2015.9289C13.9526%2015.5384%2013.3195%2015.5384%2012.9289%2015.9289C12.5384%2016.3195%2012.5384%2016.9526%2012.9289%2017.3431L19.2929%2023.7071ZM20%2010L19%2010L19%2023L20%2023L21%2023L21%2010L20%2010Z'%20fill='%235069DD'/%3e%3cpath%20d='M10%2030H30'%20stroke='%235069DD'%20stroke-width='2'%20stroke-linecap='round'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_651_4592'%3e%3crect%20width='40'%20height='40'%20fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e";
+var TokenName = ({ symbol }) => {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "TokenName",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenIcon_default, {
+			className: "TokenName__icon",
+			symbol
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "TokenName__title",
+			children: symbol
+		})]
+	});
+};
+var TokenName_default = TokenName;
+var import_classnames$5 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var LendingPanel = ({ title, icon, data, btnsData, className }) => {
+	const isMobile$1 = useIsMobile_default(1200);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: (0, import_classnames$5.default)(className, "LendingPanel", "box", "_sm"),
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "LendingPanel__head",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "LendingPanel__icon",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+					src: icon,
+					alt: `${title} icon`
+				})
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "LendingPanel__title",
+				children: title
+			})]
+		}), isMobile$1 ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Mobile, {
+			data,
+			btnsData
+		}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Desktop, {
+			data,
+			btnsData
+		})]
+	});
+};
+var Desktop = ({ data, btnsData }) => {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("table", {
+		className: "LendingPanel__table",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("tr", { children: [Object.keys(data).map((key) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: key }, key)), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", {})] }) }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("tbody", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("tr", { children: [Object.keys(data).map((key) => {
+			const value = data[key];
+			return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: value }, key);
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "LendingPanel__buttons _table",
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Buttons, { btnsData })
+		}) })] }) })]
+	});
+};
+var Mobile = ({ data, btnsData }) => {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "LendingPanel__info",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "LendingPanel__info-rows",
+			children: Object.keys(data).map((key) => {
+				const value = data[key];
+				return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "LendingPanel__info-row",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "LendingPanel__info-row-title",
+						children: key
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "LendingPanel__info-row-value",
+						children: value
+					})]
+				}, key);
+			})
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "LendingPanel__buttons _info",
+			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Buttons, { btnsData })
+		})]
+	});
+};
+var Buttons = ({ btnsData }) => {
+	const { primary, secondary } = btnsData;
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
+		size: "small",
+		onClick: primary.handleClick,
+		children: primary.name
+	}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
+		type: "secondary",
+		size: "small",
+		onClick: secondary.handleClick,
+		isDisabled: secondary.isDisabled,
+		children: secondary.name
+	})] });
+};
+var LendingPanel_default = LendingPanel;
+var Supply = () => {
+	const account = useAccount_default();
+	const { openSupplyModal, openWithdrawModal } = useDashboardContext();
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LendingPanel_default, {
+		className: "Supply",
+		title: "Supply",
+		icon: supply_default,
+		data: {
+			Asset: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenName_default, { symbol: "ETH" }),
+			Supplied: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmount_default, {
+				symbol: "ETH",
+				value: account?.balance,
+				showsUsd: true
+			}),
+			APY: "0%"
+		},
+		btnsData: {
+			primary: {
+				name: "Supply",
+				handleClick: openSupplyModal
+			},
+			secondary: {
+				name: "Withdraw",
+				handleClick: openWithdrawModal,
+				isDisabled: !account?.balance
+			}
+		}
+	});
+};
+var Supply_default = Supply;
+var borrow_default = "data:image/svg+xml,%3csvg%20width='40'%20height='40'%20viewBox='0%200%2040%2040'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_93_681)'%3e%3crect%20width='40'%20height='40'%20rx='12'%20fill='%23212367'/%3e%3ccircle%20opacity='0.5'%20cx='20'%20cy='20'%20r='10'%20fill='%235069DD'/%3e%3cpath%20d='M20%2010C14.4771%2010%2010%2014.4771%2010%2020C10%2025.5229%2014.4771%2030%2020%2030C25.5229%2030%2030%2025.5229%2030%2020C30%2014.4771%2025.5229%2010%2020%2010ZM20.8635%2025.4218V26.8302H19.5163V25.4376C17.3056%2025.1349%2016.3376%2023.3184%2016.3376%2023.3184L17.7136%2022.1673C17.7136%2022.1673%2018.5923%2023.6968%2020.1816%2023.6968C21.0596%2023.6968%2021.7256%2023.2269%2021.7256%2022.424C21.7256%2020.547%2016.6685%2020.7747%2016.6685%2017.2926C16.6685%2015.7789%2017.8657%2014.6883%2019.5156%2014.4303V13.0233H20.8628V14.4303C22.0132%2014.5817%2023.3755%2015.1871%2023.3755%2016.4896V17.4886H21.5894V17.0043C21.5894%2016.5047%2020.9529%2016.1717%2020.2408%2016.1717C19.3326%2016.1717%2018.6673%2016.6258%2018.6673%2017.2616C18.6673%2019.184%2023.7244%2018.7147%2023.7244%2022.3634C23.7244%2023.8634%2022.6042%2025.1638%2020.8635%2025.4218Z'%20fill='%235069DD'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_93_681'%3e%3crect%20width='40'%20height='40'%20fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e";
+var Borrow = () => {
+	const usdcPool = useUsdcPool_default();
+	const account = useAccount_default();
+	const { openBorrowModal, openRepayModal } = useDashboardContext();
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LendingPanel_default, {
+		className: "Borrow",
+		title: "Borrow",
+		icon: borrow_default,
+		data: {
+			Asset: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenName_default, { symbol: "USDC" }),
+			"Current Debt": /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmount_default, {
+				value: account?.debt,
+				symbol: "USDC",
+				showsUsd: true
+			}),
+			"Borrow APR": formatPercent(usdcPool?.rate, 0)
+		},
+		btnsData: {
+			primary: {
+				name: "Borrow",
+				handleClick: openBorrowModal
+			},
+			secondary: {
+				name: "Repay",
+				handleClick: openRepayModal,
+				isDisabled: !account?.debt
+			}
+		}
+	});
+};
+var Borrow_default = Borrow;
+var indicator_default = "data:image/svg+xml,%3csvg%20width='150'%20height='75'%20viewBox='0%200%20150%2075'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cmask%20id='path-1-inside-1_225_1583'%20fill='white'%3e%3cpath%20d='M145.5%2075C147.985%2075%20150.014%2072.9835%20149.865%2070.5026C149.366%2062.1914%20147.485%2054.0105%20144.291%2046.2987C140.522%2037.1993%20134.997%2028.9314%20128.033%2021.967C121.069%2015.0026%20112.801%209.47814%20103.701%205.70903C95.9895%202.51473%2087.8086%200.634229%2079.4973%200.134958C77.0165%20-0.0140692%2075%202.01472%2075%204.5C75%206.98528%2077.0171%208.98403%2079.4966%209.15335C86.6251%209.64014%2093.6375%2011.282%20100.257%2014.0239C108.265%2017.3408%20115.54%2022.2023%20121.669%2028.331C127.798%2034.4596%20132.659%2041.7354%20135.976%2049.7429C138.718%2056.3625%20140.36%2063.3749%20140.847%2070.5034C141.016%2072.9829%20143.015%2075%20145.5%2075Z'/%3e%3c/mask%3e%3cpath%20d='M145.5%2075C147.985%2075%20150.014%2072.9835%20149.865%2070.5026C149.366%2062.1914%20147.485%2054.0105%20144.291%2046.2987C140.522%2037.1993%20134.997%2028.9314%20128.033%2021.967C121.069%2015.0026%20112.801%209.47814%20103.701%205.70903C95.9895%202.51473%2087.8086%200.634229%2079.4973%200.134958C77.0165%20-0.0140692%2075%202.01472%2075%204.5C75%206.98528%2077.0171%208.98403%2079.4966%209.15335C86.6251%209.64014%2093.6375%2011.282%20100.257%2014.0239C108.265%2017.3408%20115.54%2022.2023%20121.669%2028.331C127.798%2034.4596%20132.659%2041.7354%20135.976%2049.7429C138.718%2056.3625%20140.36%2063.3749%20140.847%2070.5034C141.016%2072.9829%20143.015%2075%20145.5%2075Z'%20stroke='%2309AF8E'%20stroke-width='16'%20mask='url(%23path-1-inside-1_225_1583)'/%3e%3cmask%20id='path-2-inside-2_225_1583'%20fill='white'%3e%3cpath%20d='M72.9901%204.52865C72.9193%202.04438%2070.8452%200.0739105%2068.3697%200.293546C52.4188%201.70868%2037.3343%208.19565%2025.3353%2018.8001C23.473%2020.4459%2023.4766%2023.3067%2025.2311%2025.067C26.9856%2026.8272%2029.8253%2026.8188%2031.701%2025.1883C42.0577%2016.1851%2054.969%2010.6327%2068.6278%209.30822C71.1015%209.06836%2073.061%207.01292%2072.9901%204.52865Z'/%3e%3c/mask%3e%3cpath%20d='M72.9901%204.52865C72.9193%202.04438%2070.8452%200.0739105%2068.3697%200.293546C52.4188%201.70868%2037.3343%208.19565%2025.3353%2018.8001C23.473%2020.4459%2023.4766%2023.3067%2025.2311%2025.067C26.9856%2026.8272%2029.8253%2026.8188%2031.701%2025.1883C42.0577%2016.1851%2054.969%2010.6327%2068.6278%209.30822C71.1015%209.06836%2073.061%207.01292%2072.9901%204.52865Z'%20stroke='%23FE9673'%20stroke-width='16'%20mask='url(%23path-2-inside-2_225_1583)'/%3e%3cmask%20id='path-3-inside-3_225_1583'%20fill='white'%3e%3cpath%20d='M23.6758%2026.667C21.8666%2024.9632%2019.0068%2025.0407%2017.4144%2026.9488C7.15148%2039.2474%201.09438%2054.515%200.134763%2070.5044C-0.0141344%2072.9852%202.01472%2075.0022%204.5%2075.0021C6.98528%2075.002%208.98395%2072.9847%209.15313%2070.5052C10.0875%2056.81%2015.272%2043.7419%2023.9805%2033.1308C25.5572%2031.2097%2025.4851%2028.3709%2023.6758%2026.667Z'/%3e%3c/mask%3e%3cpath%20d='M23.6758%2026.667C21.8666%2024.9632%2019.0068%2025.0407%2017.4144%2026.9488C7.15148%2039.2474%201.09438%2054.515%200.134763%2070.5044C-0.0141344%2072.9852%202.01472%2075.0022%204.5%2075.0021C6.98528%2075.002%208.98395%2072.9847%209.15313%2070.5052C10.0875%2056.81%2015.272%2043.7419%2023.9805%2033.1308C25.5572%2031.2097%2025.4851%2028.3709%2023.6758%2026.667Z'%20stroke='%23D8563C'%20stroke-width='16'%20mask='url(%23path-3-inside-3_225_1583)'/%3e%3c/svg%3e";
+var indicator_empty_default = "data:image/svg+xml,%3csvg%20width='150'%20height='75'%20viewBox='0%200%20150%2075'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cmask%20id='path-1-inside-1_656_5058'%20fill='white'%3e%3cpath%20d='M145.5%2075C147.985%2075%20150.014%2072.9835%20149.865%2070.5026C149.366%2062.1914%20147.485%2054.0105%20144.291%2046.2987C140.522%2037.1993%20134.997%2028.9314%20128.033%2021.967C121.069%2015.0026%20112.801%209.47814%20103.701%205.70903C95.9895%202.51473%2087.8086%200.634229%2079.4973%200.134958C77.0165%20-0.0140692%2075%202.01472%2075%204.5C75%206.98528%2077.0171%208.98403%2079.4966%209.15335C86.6251%209.64014%2093.6375%2011.282%20100.257%2014.0239C108.265%2017.3408%20115.54%2022.2023%20121.669%2028.331C127.798%2034.4596%20132.659%2041.7354%20135.976%2049.7429C138.718%2056.3625%20140.36%2063.3749%20140.847%2070.5034C141.016%2072.9829%20143.015%2075%20145.5%2075Z'/%3e%3c/mask%3e%3cpath%20d='M145.5%2075C147.985%2075%20150.014%2072.9835%20149.865%2070.5026C149.366%2062.1914%20147.485%2054.0105%20144.291%2046.2987C140.522%2037.1993%20134.997%2028.9314%20128.033%2021.967C121.069%2015.0026%20112.801%209.47814%20103.701%205.70903C95.9895%202.51473%2087.8086%200.634229%2079.4973%200.134958C77.0165%20-0.0140692%2075%202.01472%2075%204.5C75%206.98528%2077.0171%208.98403%2079.4966%209.15335C86.6251%209.64014%2093.6375%2011.282%20100.257%2014.0239C108.265%2017.3408%20115.54%2022.2023%20121.669%2028.331C127.798%2034.4596%20132.659%2041.7354%20135.976%2049.7429C138.718%2056.3625%20140.36%2063.3749%20140.847%2070.5034C141.016%2072.9829%20143.015%2075%20145.5%2075Z'%20stroke='%239A94B8'%20stroke-width='16'%20mask='url(%23path-1-inside-1_656_5058)'/%3e%3cmask%20id='path-2-inside-2_656_5058'%20fill='white'%3e%3cpath%20d='M72.9901%204.52865C72.9193%202.04438%2070.8452%200.0739105%2068.3697%200.293546C52.4188%201.70868%2037.3343%208.19565%2025.3353%2018.8001C23.473%2020.4459%2023.4766%2023.3067%2025.2311%2025.067C26.9856%2026.8272%2029.8253%2026.8188%2031.701%2025.1883C42.0577%2016.1851%2054.969%2010.6327%2068.6278%209.30822C71.1015%209.06836%2073.061%207.01292%2072.9901%204.52865Z'/%3e%3c/mask%3e%3cpath%20d='M72.9901%204.52865C72.9193%202.04438%2070.8452%200.0739105%2068.3697%200.293546C52.4188%201.70868%2037.3343%208.19565%2025.3353%2018.8001C23.473%2020.4459%2023.4766%2023.3067%2025.2311%2025.067C26.9856%2026.8272%2029.8253%2026.8188%2031.701%2025.1883C42.0577%2016.1851%2054.969%2010.6327%2068.6278%209.30822C71.1015%209.06836%2073.061%207.01292%2072.9901%204.52865Z'%20stroke='%239A94B8'%20stroke-width='16'%20mask='url(%23path-2-inside-2_656_5058)'/%3e%3cmask%20id='path-3-inside-3_656_5058'%20fill='white'%3e%3cpath%20d='M23.6758%2026.667C21.8666%2024.9632%2019.0068%2025.0407%2017.4144%2026.9488C7.15148%2039.2474%201.09438%2054.515%200.134763%2070.5044C-0.0141344%2072.9852%202.01472%2075.0022%204.5%2075.0021C6.98528%2075.002%208.98395%2072.9847%209.15313%2070.5052C10.0875%2056.81%2015.272%2043.7419%2023.9805%2033.1308C25.5572%2031.2097%2025.4851%2028.3709%2023.6758%2026.667Z'/%3e%3c/mask%3e%3cpath%20d='M23.6758%2026.667C21.8666%2024.9632%2019.0068%2025.0407%2017.4144%2026.9488C7.15148%2039.2474%201.09438%2054.515%200.134763%2070.5044C-0.0141344%2072.9852%202.01472%2075.0022%204.5%2075.0021C6.98528%2075.002%208.98395%2072.9847%209.15313%2070.5052C10.0875%2056.81%2015.272%2043.7419%2023.9805%2033.1308C25.5572%2031.2097%2025.4851%2028.3709%2023.6758%2026.667Z'%20stroke='%239A94B8'%20stroke-width='16'%20mask='url(%23path-3-inside-3_656_5058)'/%3e%3c/svg%3e";
+var TickSvg = ({ ltvZone }) => {
+	const { RED: RED$1, YELLOW, GREEN: GREEN$1 } = Ltv_default.Zones;
+	const colors$2 = {
+		[RED$1]: {
+			main: Colors.RED,
+			bg: Colors.RED_2
+		},
+		[YELLOW]: {
+			main: Colors.YELLOW,
+			bg: Colors.YELLOW_2
+		},
+		[GREEN$1]: {
+			main: Colors.GREEN,
+			bg: Colors.GREEN_2
+		}
+	};
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", {
+		xmlns: "http://www.w3.org/2000/svg",
+		width: "16",
+		height: "16",
+		viewBox: "0 0 16 16",
+		fill: "none",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", {
+			cx: "8",
+			cy: "8",
+			r: "7",
+			fill: colors$2[ltvZone].bg
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
+			d: "M5 8.13333L7 10L11 6",
+			stroke: colors$2[ltvZone].main,
+			strokeWidth: "1.5",
+			strokeLinecap: "round",
+			strokeLinejoin: "round"
+		})]
+	});
+};
+var TickSvg_default = TickSvg;
+var import_classnames$4 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var LtvLevel = () => {
+	const account = useAccount_default();
+	const { isLoading, hasError } = getIsLoadingAndError(account);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "LtvLevel ProtectionPanel__metric",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "ProtectionPanel__metric-title",
+				children: "Current LtV"
+			}),
+			isLoading && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SpinnerBig_default, {}),
+			hasError && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, { children: ErrorMsg.DEFAULT }),
+			!isLoading && !hasError && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Indicator, { account })
+		]
+	});
+};
+var Indicator = ({ account }) => {
+	const { debt, ltv, ltvCoeffs } = account;
+	const ltvZone = Ltv_default.getZone(account, ltv);
+	const { RED: RED$1, YELLOW, GREEN: GREEN$1 } = Ltv_default.Zones;
+	const getPointerPosition = () => {
+		if (!debt) return {
+			left: "-6px",
+			bottom: 0
+		};
+		switch (ltvZone) {
+			case RED$1: return {
+				left: 0,
+				top: "34px"
+			};
+			case YELLOW: return {
+				left: "36px",
+				top: 0
+			};
+			case GREEN$1:
+				if (ltv > ltvCoeffs.yellow + bigIntFromString(.9)) return {
+					right: "-6px",
+					bottom: 0
+				};
+				if (ltv <= ltvCoeffs.yellow + bigIntFromString(.05)) return {
+					top: "-3px",
+					right: "47px"
+				};
+				return {
+					top: "18px",
+					right: "12px"
+				};
+		}
+	};
+	const getIndicatorText = () => {
+		if (!debt) return "No active borrowing";
+		switch (ltvZone) {
+			case RED$1: return "High Risk";
+			case YELLOW: return "Medium Risk";
+			case GREEN$1: return "Low Risk";
+		}
+	};
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: (0, import_classnames$4.default)("LtvLevel__indicator", `_${ltvZone}`, !debt && "_empty"),
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "LtvLevel__indicator-scale",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+				src: debt ? indicator_default : indicator_empty_default,
+				alt: "Ltv indicator scale"
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "LtvLevel__indicator-pointer",
+				style: getPointerPosition()
+			})]
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "LtvLevel__indicator-value",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(LtvValue_default, { maxLtvLabel: debt ? "∞" : "0" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "LtvLevel__indicator-value-text",
+				children: [debt ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TickSvg_default, { ltvZone }) : "", getIndicatorText()]
+			})]
+		})]
+	});
+};
+var LtvLevel_default = LtvLevel;
+var shields_green_default = "data:image/svg+xml,%3csvg%20width='52'%20height='20'%20viewBox='0%200%2052%2020'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3crect%20width='52'%20height='20'%20rx='10'%20fill='%23112540'/%3e%3cpath%20d='M10%2015C9.94167%2015%209.8875%2014.9958%209.8375%2014.9873C9.7875%2014.9789%209.7375%2014.9662%209.6875%2014.9494C8.5625%2014.5696%207.66667%2013.8672%207%2012.842C6.33333%2011.8169%206%2010.7134%206%209.53165V7.13924C6%206.92827%206.0605%206.7384%206.1815%206.56962C6.3025%206.40084%206.45867%206.27848%206.65%206.20253L9.65%205.06329C9.76667%205.0211%209.88333%205%2010%205C10.1167%205%2010.2333%205.0211%2010.35%205.06329L13.35%206.20253C13.5417%206.27848%2013.698%206.40084%2013.819%206.56962C13.94%206.7384%2014.0003%206.92827%2014%207.13924V9.53165C14%2010.7131%2013.6667%2011.8165%2013%2012.842C12.3333%2013.8675%2011.4375%2014.57%2010.3125%2014.9494C10.2625%2014.9662%2010.2125%2014.9789%2010.1625%2014.9873C10.1125%2014.9958%2010.0583%2015%2010%2015Z'%20fill='%2309AF8E'/%3e%3cpath%20d='M26%2015C25.9417%2015%2025.8875%2014.9958%2025.8375%2014.9873C25.7875%2014.9789%2025.7375%2014.9662%2025.6875%2014.9494C24.5625%2014.5696%2023.6667%2013.8672%2023%2012.842C22.3333%2011.8169%2022%2010.7134%2022%209.53165V7.13924C22%206.92827%2022.0605%206.7384%2022.1815%206.56962C22.3025%206.40084%2022.4587%206.27848%2022.65%206.20253L25.65%205.06329C25.7667%205.0211%2025.8833%205%2026%205C26.1167%205%2026.2333%205.0211%2026.35%205.06329L29.35%206.20253C29.5417%206.27848%2029.698%206.40084%2029.819%206.56962C29.94%206.7384%2030.0003%206.92827%2030%207.13924V9.53165C30%2010.7131%2029.6667%2011.8165%2029%2012.842C28.3333%2013.8675%2027.4375%2014.57%2026.3125%2014.9494C26.2625%2014.9662%2026.2125%2014.9789%2026.1625%2014.9873C26.1125%2014.9958%2026.0583%2015%2026%2015Z'%20fill='%2309AF8E'/%3e%3cpath%20d='M42%2015C41.9417%2015%2041.8875%2014.9958%2041.8375%2014.9873C41.7875%2014.9789%2041.7375%2014.9662%2041.6875%2014.9494C40.5625%2014.5696%2039.6667%2013.8672%2039%2012.842C38.3333%2011.8169%2038%2010.7134%2038%209.53165V7.13924C38%206.92827%2038.0605%206.7384%2038.1815%206.56962C38.3025%206.40084%2038.4587%206.27848%2038.65%206.20253L41.65%205.06329C41.7667%205.0211%2041.8833%205%2042%205C42.1167%205%2042.2333%205.0211%2042.35%205.06329L45.35%206.20253C45.5417%206.27848%2045.698%206.40084%2045.819%206.56962C45.94%206.7384%2046.0003%206.92827%2046%207.13924V9.53165C46%2010.7131%2045.6667%2011.8165%2045%2012.842C44.3333%2013.8675%2043.4375%2014.57%2042.3125%2014.9494C42.2625%2014.9662%2042.2125%2014.9789%2042.1625%2014.9873C42.1125%2014.9958%2042.0583%2015%2042%2015Z'%20fill='%2309AF8E'/%3e%3c/svg%3e";
+var shields_yellow_default = "data:image/svg+xml,%3csvg%20width='52'%20height='20'%20viewBox='0%200%2052%2020'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3crect%20width='52'%20height='20'%20rx='10'%20fill='%232A163C'/%3e%3cpath%20d='M10%2015C9.94167%2015%209.8875%2014.9958%209.8375%2014.9873C9.7875%2014.9789%209.7375%2014.9662%209.6875%2014.9494C8.5625%2014.5696%207.66667%2013.8672%207%2012.842C6.33333%2011.8169%206%2010.7134%206%209.53165V7.13924C6%206.92827%206.0605%206.7384%206.1815%206.56962C6.3025%206.40084%206.45867%206.27848%206.65%206.20253L9.65%205.06329C9.76667%205.0211%209.88333%205%2010%205C10.1167%205%2010.2333%205.0211%2010.35%205.06329L13.35%206.20253C13.5417%206.27848%2013.698%206.40084%2013.819%206.56962C13.94%206.7384%2014.0003%206.92827%2014%207.13924V9.53165C14%2010.7131%2013.6667%2011.8165%2013%2012.842C12.3333%2013.8675%2011.4375%2014.57%2010.3125%2014.9494C10.2625%2014.9662%2010.2125%2014.9789%2010.1625%2014.9873C10.1125%2014.9958%2010.0583%2015%2010%2015Z'%20fill='%23FE9673'/%3e%3cpath%20d='M26%2015C25.9417%2015%2025.8875%2014.9958%2025.8375%2014.9873C25.7875%2014.9789%2025.7375%2014.9662%2025.6875%2014.9494C24.5625%2014.5696%2023.6667%2013.8672%2023%2012.842C22.3333%2011.8169%2022%2010.7134%2022%209.53165V7.13924C22%206.92827%2022.0605%206.7384%2022.1815%206.56962C22.3025%206.40084%2022.4587%206.27848%2022.65%206.20253L25.65%205.06329C25.7667%205.0211%2025.8833%205%2026%205C26.1167%205%2026.2333%205.0211%2026.35%205.06329L29.35%206.20253C29.5417%206.27848%2029.698%206.40084%2029.819%206.56962C29.94%206.7384%2030.0003%206.92827%2030%207.13924V9.53165C30%2010.7131%2029.6667%2011.8165%2029%2012.842C28.3333%2013.8675%2027.4375%2014.57%2026.3125%2014.9494C26.2625%2014.9662%2026.2125%2014.9789%2026.1625%2014.9873C26.1125%2014.9958%2026.0583%2015%2026%2015Z'%20fill='%23FE9673'/%3e%3cg%20opacity='0.4'%3e%3cpath%20d='M42%2015C41.9417%2015%2041.8875%2014.9958%2041.8375%2014.9873C41.7875%2014.9789%2041.7375%2014.9662%2041.6875%2014.9494C40.5625%2014.5696%2039.6667%2013.8672%2039%2012.842C38.3333%2011.8169%2038%2010.7134%2038%209.53165V7.13924C38%206.92827%2038.0605%206.7384%2038.1815%206.56962C38.3025%206.40084%2038.4587%206.27848%2038.65%206.20253L41.65%205.06329C41.7667%205.0211%2041.8833%205%2042%205C42.1167%205%2042.2333%205.0211%2042.35%205.06329L45.35%206.20253C45.5417%206.27848%2045.698%206.40084%2045.819%206.56962C45.94%206.7384%2046.0003%206.92827%2046%207.13924V9.53165C46%2010.7131%2045.6667%2011.8165%2045%2012.842C44.3333%2013.8675%2043.4375%2014.57%2042.3125%2014.9494C42.2625%2014.9662%2042.2125%2014.9789%2042.1625%2014.9873C42.1125%2014.9958%2042.0583%2015%2042%2015Z'%20fill='%23FE9673'/%3e%3c/g%3e%3c/svg%3e";
+var shields_red_default = "data:image/svg+xml,%3csvg%20width='52'%20height='20'%20viewBox='0%200%2052%2020'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3crect%20width='52'%20height='20'%20rx='10'%20fill='%23361536'/%3e%3cpath%20d='M10%2015C9.94167%2015%209.8875%2014.9958%209.8375%2014.9873C9.7875%2014.9789%209.7375%2014.9662%209.6875%2014.9494C8.5625%2014.5696%207.66667%2013.8672%207%2012.842C6.33333%2011.8169%206%2010.7134%206%209.53165V7.13924C6%206.92827%206.0605%206.7384%206.1815%206.56962C6.3025%206.40084%206.45867%206.27848%206.65%206.20253L9.65%205.06329C9.76667%205.0211%209.88333%205%2010%205C10.1167%205%2010.2333%205.0211%2010.35%205.06329L13.35%206.20253C13.5417%206.27848%2013.698%206.40084%2013.819%206.56962C13.94%206.7384%2014.0003%206.92827%2014%207.13924V9.53165C14%2010.7131%2013.6667%2011.8165%2013%2012.842C12.3333%2013.8675%2011.4375%2014.57%2010.3125%2014.9494C10.2625%2014.9662%2010.2125%2014.9789%2010.1625%2014.9873C10.1125%2014.9958%2010.0583%2015%2010%2015Z'%20fill='%23D8563C'/%3e%3cg%20opacity='0.4'%3e%3cpath%20d='M26%2015C25.9417%2015%2025.8875%2014.9958%2025.8375%2014.9873C25.7875%2014.9789%2025.7375%2014.9662%2025.6875%2014.9494C24.5625%2014.5696%2023.6667%2013.8672%2023%2012.842C22.3333%2011.8169%2022%2010.7134%2022%209.53165V7.13924C22%206.92827%2022.0605%206.7384%2022.1815%206.56962C22.3025%206.40084%2022.4587%206.27848%2022.65%206.20253L25.65%205.06329C25.7667%205.0211%2025.8833%205%2026%205C26.1167%205%2026.2333%205.0211%2026.35%205.06329L29.35%206.20253C29.5417%206.27848%2029.698%206.40084%2029.819%206.56962C29.94%206.7384%2030.0003%206.92827%2030%207.13924V9.53165C30%2010.7131%2029.6667%2011.8165%2029%2012.842C28.3333%2013.8675%2027.4375%2014.57%2026.3125%2014.9494C26.2625%2014.9662%2026.2125%2014.9789%2026.1625%2014.9873C26.1125%2014.9958%2026.0583%2015%2026%2015Z'%20fill='%23D8563C'/%3e%3c/g%3e%3cg%20opacity='0.4'%3e%3cpath%20d='M42%2015C41.9417%2015%2041.8875%2014.9958%2041.8375%2014.9873C41.7875%2014.9789%2041.7375%2014.9662%2041.6875%2014.9494C40.5625%2014.5696%2039.6667%2013.8672%2039%2012.842C38.3333%2011.8169%2038%2010.7134%2038%209.53165V7.13924C38%206.92827%2038.0605%206.7384%2038.1815%206.56962C38.3025%206.40084%2038.4587%206.27848%2038.65%206.20253L41.65%205.06329C41.7667%205.0211%2041.8833%205%2042%205C42.1167%205%2042.2333%205.0211%2042.35%205.06329L45.35%206.20253C45.5417%206.27848%2045.698%206.40084%2045.819%206.56962C45.94%206.7384%2046.0003%206.92827%2046%207.13924V9.53165C46%2010.7131%2045.6667%2011.8165%2045%2012.842C44.3333%2013.8675%2043.4375%2014.57%2042.3125%2014.9494C42.2625%2014.9662%2042.2125%2014.9789%2042.1625%2014.9873C42.1125%2014.9958%2042.0583%2015%2042%2015Z'%20fill='%23D8563C'/%3e%3c/g%3e%3c/svg%3e";
+var import_classnames$3 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var ProtectionLevel = () => {
+	const account = useAccount_default();
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: "ProtectionLevel ProtectionPanel__metric",
+		children: account?.debt ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Content$2, { account }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(NothingToProtect, {})
+	});
+};
+var Content$2 = ({ account }) => {
+	const options$2 = useHegicOptions_default();
+	const curLiqPrice = useCurLiqPrice();
+	const { openProtectionModal } = useDashboardContext();
+	const { isLoading, hasError } = getIsLoadingAndErrorForMultiple(options$2, curLiqPrice);
+	if (isLoading) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SpinnerBig_default, {});
+	if (hasError) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, { children: ErrorMsg.DEFAULT });
+	const protectionLevel = Calculator_default.calcProtectionLevel(options$2, account.balance, curLiqPrice);
+	const protectionLevelStr = formatPercent(protectionLevel, 0);
+	const levelZone = getLevelZone(protectionLevel);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "ProtectionLevel__title ProtectionPanel__metric-title",
+			children: "Protection level"
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "ProtectionLevel__body",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: (0, import_classnames$3.default)("ProtectionLevel__percent", `_${levelZone.name}`),
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "ProtectionLevel__percent-bar",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "_progress",
+						style: { width: protectionLevelStr },
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: protectionLevelStr })
+					})
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "ProtectionLevel__percent-shields",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+						src: levelZone.icon,
+						alt: "Shields icon"
+					})
+				})]
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "ProtectionLevel__text",
+				children: levelZone.text
+			})]
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "ProtectionLevel__footer",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "ProtectionLevel__liq",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "ProtectionLevel__liq-title",
+					children: "Liquidation Price"
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "ProtectionLevel__liq-value",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceChange_default, {})
+				})]
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "ProtectionLevel__button",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
+					type: "green",
+					size: "small",
+					onClick: openProtectionModal,
+					children: "Buy protection"
+				})
+			})]
+		})
+	] });
+};
+var NothingToProtect = () => {
+	const account = useAccount_default();
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: "\n					ProtectionLevel__title\n					Protection__panel-title\n					hlight\n			",
+		children: "Nothing to protect yet"
+	}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(List_default, { children: {
+		noSupply: ["To activate NoRekt protection, supply ETH and borrow USDC", "After that you'll be able to add NoRekt protection to avoid liquidation risk"],
+		noBorrow: ["You’ve supplied assets, but you haven’t borrowed USDC yet", "Borrow USDC and add protection to save your position from liquidation"]
+	}[!account?.balance ? "noSupply" : "noBorrow"].map((msg, i$13) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("li", { children: msg }, i$13)) })] });
+};
+var ZONES = [
+	{
+		name: "green",
+		breakpoint: 100,
+		text: "Strong NoRekt Coverage",
+		icon: shields_green_default
+	},
+	{
+		name: "yellow",
+		breakpoint: .7,
+		text: "Partial NoRekt Coverage",
+		icon: shields_yellow_default
+	},
+	{
+		name: "red",
+		breakpoint: .3,
+		text: "Limited NoRekt Coverage",
+		icon: shields_red_default
+	}
+];
+var getLevelZone = (protectionLevel) => {
+	const zone = ZONES.reduce((prev$1, cur) => {
+		if (bigIntFromString(cur.breakpoint) > protectionLevel) return cur;
+		else return prev$1;
+	});
+	if (protectionLevel === 0n) zone.text = "Zero NoRekt Coverage";
+	return zone;
+};
+var ProtectionLevel_default = ProtectionLevel;
+var ProtectionPanel = () => {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "ProtectionPanel box _sm",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(LtvLevel_default, {}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProtectionLevel_default, {})]
+	});
+};
+var ProtectionPanel_default = ProtectionPanel;
+var protection_default = "data:image/svg+xml,%3csvg%20width='40'%20height='40'%20viewBox='0%200%2040%2040'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_1622_5163)'%3e%3crect%20width='40'%20height='40'%20rx='12'%20fill='%23112540'/%3e%3cpath%20d='M20%2030C19.8833%2030%2019.775%2029.9916%2019.675%2029.9747C19.575%2029.9578%2019.475%2029.9325%2019.375%2029.8987C17.125%2029.1392%2015.3333%2027.7343%2014%2025.6841C12.6667%2023.6338%2012%2021.4268%2012%2019.0633V14.2785C12%2013.8565%2012.121%2013.4768%2012.363%2013.1392C12.605%2012.8017%2012.9173%2012.557%2013.3%2012.4051L19.3%2010.1266C19.5333%2010.0422%2019.7667%2010%2020%2010C20.2333%2010%2020.4667%2010.0422%2020.7%2010.1266L26.7%2012.4051C27.0833%2012.557%2027.396%2012.8017%2027.638%2013.1392C27.88%2013.4768%2028.0007%2013.8565%2028%2014.2785V19.0633C28%2021.4262%2027.3333%2023.6331%2026%2025.6841C24.6667%2027.735%2022.875%2029.1399%2020.625%2029.8987C20.525%2029.9325%2020.425%2029.9578%2020.325%2029.9747C20.225%2029.9916%2020.1167%2030%2020%2030Z'%20fill='%2309AF8E'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_1622_5163'%3e%3crect%20width='40'%20height='40'%20fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e";
+var import_classnames$2 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var TABLE_COLS = [
+	"Type",
+	"Amount",
+	"Period",
+	"Protection Cost",
+	"Protection Payoff",
+	""
+];
+var Protections = () => {
+	const account = useAccount_default();
+	const options$2 = useHegicOptions_default();
+	const { isLoading, hasError } = getIsLoadingAndError(options$2);
+	if (!account?.debt && !options$2?.length) return null;
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: (0, import_classnames$2.default)("Protections", "box _sm", !options$2?.length && "_no-protections"),
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "Protections__title",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+					src: protection_default,
+					alt: "Green shield icon"
+				}), "Active Protections"]
+			}),
+			isLoading && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Spinner_default, {}),
+			hasError && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, { children: ErrorMsg.EXPANDED }),
+			!isLoading && !hasError && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Content$1, { positions: options$2 })
+		]
+	});
+};
+var Content$1 = ({ positions }) => {
+	const isMobile$1 = useIsMobile_default(1200);
+	if (!positions.length) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(NoProtections, {});
+	return isMobile$1 ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(_Mobile$1, { positions }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(_Desktop$1, { positions });
+};
+var NoProtections = () => {
+	const { openProtectionModal } = useDashboardContext();
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "Protections__no-protections",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { children: "Looks like you don’t have any active protections" }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+				className: "text",
+				children: "Let’s set one up to keep you covered"
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
+				onClick: openProtectionModal,
+				children: "Buy Protection"
+			})
+		]
+	});
+};
+var _Desktop$1 = ({ positions }) => {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("table", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("tr", { children: TABLE_COLS.map((col) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: col }, col)) }) }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("tbody", { children: positions.map((pos) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("tr", { children: [
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Type, { position: pos }) }),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Amount, { position: pos }) }),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Period, { option: pos }) }),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProtectionCost, { position: pos }) }),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProtectionPayoff, { position: pos }) }),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ClaimButton, { position: pos }) })
+	] }, pos.id)) })] });
+};
+var _Mobile$1 = ({ positions }) => {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: "Protections__items",
+		children: positions.map((pos) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "Protections__item",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Metrics_default, {
+				isBoxed: false,
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "Metrics__row",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "Metrics__row-title",
+							children: "Type"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "Metrics__row-value",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Type, { position: pos })
+						})]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "Metrics__row",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "Metrics__row-title",
+							children: "Amount"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "Metrics__row-value",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Amount, { position: pos })
+						})]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "Metrics__row",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "Metrics__row-title",
+							children: "Period"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "Metrics__row-value",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Period, { option: pos })
+						})]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "Metrics__row",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "Metrics__row-title",
+							children: "Protection Cost"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "Metrics__row-value",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProtectionCost, { position: pos })
+						})]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "Metrics__row",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "Metrics__row-title",
+							children: "Protection Payoff"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "Metrics__row-value",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProtectionPayoff, { position: pos })
+						})]
+					})
+				]
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ClaimButton, { position: pos })]
+		}, pos.id))
+	});
+};
+var Type = ({ position: position$1 }) => {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Option" });
+};
+var Amount = ({ position: position$1 }) => {
+	const { amount, asset } = position$1;
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmount_default, {
+		value: amount,
+		symbol: asset
+	});
+};
+var Period = ({ option }) => {
+	const { exp, periodDays } = option;
+	const pad$4 = (n$13) => String(n$13).padStart(2, "0");
+	const [daysLeft, hoursLeft, minutesLeft] = [
+		differenceInDays(exp, Date.now()),
+		differenceInHours(exp, Date.now()) % 24,
+		differenceInMinutes(exp, Date.now()) % 60
+	].map(pad$4);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "Protections__period",
+		children: [
+			periodDays,
+			" Days",
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "Protections__period-timer",
+				children: ["Ends in", /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "Protections__period-timer-value",
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: [daysLeft, "d"] }),
+						":",
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: [hoursLeft, "h"] }),
+						":",
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: [minutesLeft, "m"] })
+					]
+				})]
+			})
+		]
+	});
+};
+var ProtectionCost = ({ position: position$1 }) => {
+	const { premium } = position$1;
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmount_default, { value: premium });
+};
+var ProtectionPayoff = ({ position: position$1 }) => {
+	const { profit } = position$1;
+	const profitStr = formatDollarStr(profit, Decimals.STABLE);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+		className: (0, import_classnames$2.default)(profit > 0n && "positive"),
+		children: profitStr
+	});
+};
+var ClaimButton = ({ position: position$1 }) => {
+	const { openClaimModal } = useDashboardContext();
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
+		type: "green",
+		size: "small",
+		onClick: () => openClaimModal(position$1),
+		isDisabled: !position$1.profit,
+		children: "Claim"
+	});
+};
+var Protections_default = Protections;
 var Dashboard = () => {
 	const { isConnected: isConnected$1 } = useWallet_default();
 	const accounts = useAccounts_default();

@@ -212,6 +212,9 @@
   .positive {
     color: #09AF8E;
   }
+  .negative {
+    color: #D8563C;
+  }
   .anim_fancy {
     position: relative;
   }
@@ -1631,6 +1634,65 @@ div.react-tooltip-arrow {
   div.react-tooltip {
     max-width: 320px;
   }
+}.AssetPriceChart {
+  height: 435px;
+  display: flex;
+  flex-direction: column;
+  grid-column: 1/13;
+  padding-right: 0;
+  padding-left: 0;
+  overflow: hidden;
+}
+.AssetPriceChart .SpinnerBig {
+  position: absolute;
+  left: 50%;
+  top: calc(50% - 15px);
+  transform: translate(-50%, -50%);
+  margin: 0;
+}
+.AssetPriceChart__content {
+  flex: 1;
+}
+.AssetPriceChart__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: 15px;
+  row-gap: 10px;
+}
+.AssetPriceChart__data-frequency {
+  display: flex;
+  column-gap: 5px;
+}
+.AssetPriceChart__data-frequency-btn {
+  width: auto;
+  font-size: 13px;
+  padding: 5px 10px;
+}
+.AssetPriceChart__data-frequency-btn._chosen {
+  border-color: #8E3ECD;
+}
+.AssetPriceChart__indicators {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 7px;
+  font-size: 13px;
+}
+.AssetPriceChart__indicators-item {
+  display: flex;
+  column-gap: 3px;
+}
+.AssetPriceChart #tv-attr-logo {
+  opacity: 0.2;
+}.Chart {
+  position: relative;
+  padding: 0;
+  padding-bottom: 10px;
+}
+.Chart__header {
+  padding: 8px 10px;
+  background-color: #1D1446;
+  border-bottom: 1px solid rgba(172, 169, 187, 0.08);
 }.ClaimModal .Metrics ._info-value {
   display: flex;
   align-items: center;
