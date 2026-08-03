@@ -1946,9 +1946,6 @@ div.react-tooltip-arrow {
   column-gap: 20px;
   grid-column: 1/5;
 }
-.LtvLevel .Spinner {
-  width: 150px;
-}
 .LtvLevel__indicator {
   margin-bottom: -15px;
   margin-left: auto;
@@ -2271,7 +2268,7 @@ div.react-tooltip-arrow {
   background-color: #1D1446;
   border: 1px solid rgba(172, 169, 187, 0.08);
   border-radius: 20px;
-  padding: 25px;
+  padding: 25px 65px 25px 25px;
 }
 .Docs__item-descr {
   color: #9A94B8;
@@ -2327,7 +2324,7 @@ div.react-tooltip-arrow {
   }
   .Docs__item {
     height: 130px;
-    padding: 20px;
+    padding: 20px 60px 20px 20px;
   }
   .Docs__item-icon {
     right: 20px;
@@ -2337,7 +2334,7 @@ div.react-tooltip-arrow {
 @media (max-width: 480px) {
   .Docs__item {
     height: 100px;
-    padding: 15px;
+    padding: 15px 55px 15px 15px;
   }
   .Docs__item-title {
     font-size: 15px;
