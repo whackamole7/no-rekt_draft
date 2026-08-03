@@ -1419,8 +1419,9 @@
   border: 1px solid rgba(172, 169, 187, 0.08);
   border-radius: 20px;
   padding: 0;
+  overflow: hidden;
 }
-.ProtectionModal__chart .LiqPriceChart {
+.ProtectionModal__chart .LiqPriceChart, .ProtectionModal__chart .AssetPriceChart {
   height: 100%;
   background-color: transparent;
   border: none;
