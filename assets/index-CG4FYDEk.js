@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-Dx-Jjdtu.js","assets/secp256k1-LSdw_HHI.js","assets/esm-DaIpbdpM.js","assets/dist-DWrZl0Mk.js","assets/dist-arrZernw.js","assets/dist-B7US8mCx.js","assets/index.es-Vdg45H57.js","assets/alchemy-provider-2577f5a5-C15jdWfr.js","assets/alchemy-provider-2577f5a5-BdHr2Joj.js","assets/alchemy-websocket-provider-ee041890-Bd1_DM1m.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-BiNdUQsE.js","assets/secp256k1-DFs3JTvx.js","assets/esm-DNyAbjCz.js","assets/dist-Bacjxlsz.js","assets/dist-DSlC7ipx.js","assets/dist-DnAGd75d.js","assets/index.es-DO1AWufR.js","assets/alchemy-provider-2577f5a5-D5UN3cwl.js","assets/alchemy-provider-2577f5a5-CrAJql3s.js","assets/alchemy-websocket-provider-ee041890-C1ib49dg.js"])))=>i.map(i=>d[i]);
 var __create = Object.create;
 var __defProp$1 = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -16953,7 +16953,7 @@ async function call$2(client, args) {
 	} catch (err) {
 		const data$1 = getRevertErrorData(err);
 		const { offchainLookup, offchainLookupSignature } = await __vitePreload(async () => {
-			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-9jLdv359.js");
+			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-DEqXD3S6.js");
 			return {
 				offchainLookup: offchainLookup$1,
 				offchainLookupSignature: offchainLookupSignature$1
@@ -17454,7 +17454,7 @@ function publicKeyToAddress(publicKey) {
 async function recoverPublicKey({ hash: hash$3, signature }) {
 	const hashHex = isHex(hash$3) ? hash$3 : toHex$2(hash$3);
 	const { secp256k1: secp256k1$1 } = await __vitePreload(async () => {
-		const { secp256k1: secp256k1$2 } = await import("./secp256k1-Dx-Jjdtu.js");
+		const { secp256k1: secp256k1$2 } = await import("./secp256k1-BiNdUQsE.js");
 		return { secp256k1: secp256k1$2 };
 	}, __vite__mapDeps([0,1]));
 	return `0x${(() => {
@@ -23304,7 +23304,7 @@ function safe(parameters = {}) {
 			if (!provider_) {
 				const { default: SDK } = await (() => {
 					try {
-						return __vitePreload(() => import("./esm-DaIpbdpM.js"), __vite__mapDeps([2,3]));
+						return __vitePreload(() => import("./esm-DNyAbjCz.js"), __vite__mapDeps([2,3]));
 					} catch {
 						throw new Error("dependency \"@safe-global/safe-apps-sdk\" not found");
 					}
@@ -23315,7 +23315,7 @@ function safe(parameters = {}) {
 				provider_ = new (await ((async () => {
 					const Provider$1 = await (() => {
 						try {
-							return __vitePreload(() => import("./dist-arrZernw.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
+							return __vitePreload(() => import("./dist-DSlC7ipx.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
 						} catch {
 							throw new Error("dependency \"@safe-global/safe-apps-provider\" not found");
 						}
@@ -23480,7 +23480,7 @@ function walletConnect(parameters) {
 				if (!optionalChains.length) return;
 				const { EthereumProvider: EthereumProvider$1 } = await (() => {
 					try {
-						return __vitePreload(() => import("./dist-B7US8mCx.js"), __vite__mapDeps([5,6,1]));
+						return __vitePreload(() => import("./dist-DnAGd75d.js"), __vite__mapDeps([5,6,1]));
 					} catch {
 						throw new Error("dependency \"@walletconnect/ethereum-provider\" not found");
 					}
@@ -53971,6 +53971,7 @@ const Colors = {
 	GREEN_2: "#112540",
 	RED: "#D8563C",
 	RED_2: "#361536",
+	RED_DARK: "#732617",
 	YELLOW: "#FE9673",
 	YELLOW_2: "#2A163C",
 	BLUE: "#5069DD",
@@ -53981,6 +53982,7 @@ const Colors = {
 	WHITE: "#FFFFFF",
 	LGRAY: "#9A94B8",
 	DGRAY: "#776fa0",
+	DDGRAY: "#4D476B",
 	BG_COLOR: "#0D0534",
 	BORDER_COLOR: "rgba(172, 169, 187, 0.08)",
 	MODAL_OVERLAY_COLOR: "rgba(13, 11, 58, 0.7)"
@@ -84472,14 +84474,14 @@ var AlchemyConfig = class {
 	}
 	getProvider() {
 		if (!this._baseAlchemyProvider) this._baseAlchemyProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-C15jdWfr.js"), __vite__mapDeps([7,8]));
+			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-D5UN3cwl.js"), __vite__mapDeps([7,8]));
 			return new AlchemyProvider$1(this);
 		}))();
 		return this._baseAlchemyProvider;
 	}
 	getWebSocketProvider() {
 		if (!this._baseAlchemyWssProvider) this._baseAlchemyWssProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-Bd1_DM1m.js"), __vite__mapDeps([9,8]));
+			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-C1ib49dg.js"), __vite__mapDeps([9,8]));
 			return new AlchemyWebSocketProvider(this);
 		}))();
 		return this._baseAlchemyWssProvider;
@@ -123470,7 +123472,7 @@ var CANDLESTICK_SERIES_OPTIONS = {
 };
 var Chart_default = Chart$1;
 var import_classnames$10 = /* @__PURE__ */ __toESM(require_classnames(), 1);
-var AssetPriceChart = ({ estOptions = void 0, estBalance = void 0, isLoading = false }) => {
+var AssetPriceChart = ({ estOptions = void 0, estBalance = void 0, isLoading = false, isSmall = false }) => {
 	const account = useAccount_default();
 	const assetPrice = useAssetPrice();
 	const [dataFrequency, setDataFrequency] = useLocalStorage_default("AssetPriceChart:dataFrequency", OhlcvConstants_default.CHART_DATA_FREQUENCIES[0]);
@@ -123492,25 +123494,34 @@ var AssetPriceChart = ({ estOptions = void 0, estBalance = void 0, isLoading = f
 	const curLiqPrice = account?.debt ? _curLiqPrice : void 0;
 	const _estLiqPrice = useLiqPrice_default(estBalance, void 0, estOptions);
 	const estLiqPrice = estOptions ? _estLiqPrice : isUndefined(estOptions) ? void 0 : null;
-	const { isLoading: arePricesLoading } = getIsLoadingAndError(_curLiqPrice);
+	const _unsafeLiqPrice = useLiqPrice_default(void 0, void 0, []);
+	const unsafeLiqPrice = _unsafeLiqPrice === curLiqPrice ? void 0 : _unsafeLiqPrice;
+	const { isLoading: arePricesLoading } = getIsLoadingAndErrorForMultiple(_curLiqPrice, _estLiqPrice, _unsafeLiqPrice);
 	isLoading = isLoading || arePricesLoading;
 	const liqPriceMarkers = (0, import_react.useMemo)(() => {
 		const isEstLiqPriceExpected = isSufficient(estLiqPrice) || estLiqPrice === null;
+		const liqPriceLabel = isSmall ? "Liq.Price" : "Liquidation Price";
+		const curLabel = isSmall ? "Cur." : "Current";
 		const data = [
 			{
-				title: "Cur.Price",
+				title: `${curLabel} Price`,
 				color: Colors.VIOLET
 			},
 			{
-				title: isEstLiqPriceExpected ? "Cur. Liq.Price" : "Liq.Price",
-				color: isEstLiqPriceExpected ? "#732617" : Colors.RED
+				title: `${curLabel} ${liqPriceLabel}`,
+				color: isEstLiqPriceExpected ? Colors.RED_DARK : Colors.RED
 			},
-			{ title: "Est. Liq.Price" }
+			{ title: `New ${liqPriceLabel}` },
+			{
+				title: `${liqPriceLabel} Without Protection`,
+				color: Colors.DDGRAY
+			}
 		];
 		return [
 			assetPrice,
 			curLiqPrice,
-			estLiqPrice
+			estLiqPrice,
+			unsafeLiqPrice
 		].map((price, i$13) => {
 			if (!isSufficient(price)) return;
 			const { title, color: color$2 } = data[i$13];
@@ -123520,7 +123531,11 @@ var AssetPriceChart = ({ estOptions = void 0, estBalance = void 0, isLoading = f
 				color: color$2
 			};
 		}).filter(filterSufficient);
-	}, [curLiqPrice, estLiqPrice]);
+	}, [
+		curLiqPrice,
+		estLiqPrice,
+		unsafeLiqPrice
+	]);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Chart_default, {
 		className: "AssetPriceChart box",
 		header: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChartHeader, {
@@ -124010,6 +124025,7 @@ var LiqPriceInput = ({ setChosenLiqPrice }) => {
 };
 var CollateralWarning = ({ chosenLiqPrice, estCollateral, estOptions, isLiqPriceLoading = false }) => {
 	const liqPrice = useLiqPrice_default(estCollateral, void 0, estOptions);
+	if (liqPrice < chosenLiqPrice) return null;
 	const getText = (liqPrice$1, chosenLiqPrice$1) => {
 		const defaultText = "Paying from collateral reduces your collateral balance, raising the final liquidation price above your target.";
 		if (isLiqPriceLoading || !isEverySufficient(chosenLiqPrice$1, liqPrice$1, estCollateral, estOptions)) return defaultText;
