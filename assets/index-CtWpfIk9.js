@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-BiNdUQsE.js","assets/secp256k1-DFs3JTvx.js","assets/esm-DNyAbjCz.js","assets/dist-Bacjxlsz.js","assets/dist-DSlC7ipx.js","assets/dist-DnAGd75d.js","assets/index.es-DO1AWufR.js","assets/alchemy-provider-2577f5a5-D5UN3cwl.js","assets/alchemy-provider-2577f5a5-CrAJql3s.js","assets/alchemy-websocket-provider-ee041890-C1ib49dg.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-D-PxTurW.js","assets/secp256k1-DWKeHRIh.js","assets/esm-DA2Ttvem.js","assets/dist-5yQCdMgt.js","assets/dist-CWzsUUS5.js","assets/dist-py17s8R1.js","assets/index.es-BREkL7mC.js","assets/alchemy-provider-2577f5a5-D7AH5fwY.js","assets/alchemy-provider-2577f5a5-C1mxjDfS.js","assets/alchemy-websocket-provider-ee041890-DKKw-Gh-.js"])))=>i.map(i=>d[i]);
 var __create = Object.create;
 var __defProp$1 = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -16953,7 +16953,7 @@ async function call$2(client, args) {
 	} catch (err) {
 		const data$1 = getRevertErrorData(err);
 		const { offchainLookup, offchainLookupSignature } = await __vitePreload(async () => {
-			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-DEqXD3S6.js");
+			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-a7LFg5Cv.js");
 			return {
 				offchainLookup: offchainLookup$1,
 				offchainLookupSignature: offchainLookupSignature$1
@@ -17454,7 +17454,7 @@ function publicKeyToAddress(publicKey) {
 async function recoverPublicKey({ hash: hash$3, signature }) {
 	const hashHex = isHex(hash$3) ? hash$3 : toHex$2(hash$3);
 	const { secp256k1: secp256k1$1 } = await __vitePreload(async () => {
-		const { secp256k1: secp256k1$2 } = await import("./secp256k1-BiNdUQsE.js");
+		const { secp256k1: secp256k1$2 } = await import("./secp256k1-D-PxTurW.js");
 		return { secp256k1: secp256k1$2 };
 	}, __vite__mapDeps([0,1]));
 	return `0x${(() => {
@@ -23304,7 +23304,7 @@ function safe(parameters = {}) {
 			if (!provider_) {
 				const { default: SDK } = await (() => {
 					try {
-						return __vitePreload(() => import("./esm-DNyAbjCz.js"), __vite__mapDeps([2,3]));
+						return __vitePreload(() => import("./esm-DA2Ttvem.js"), __vite__mapDeps([2,3]));
 					} catch {
 						throw new Error("dependency \"@safe-global/safe-apps-sdk\" not found");
 					}
@@ -23315,7 +23315,7 @@ function safe(parameters = {}) {
 				provider_ = new (await ((async () => {
 					const Provider$1 = await (() => {
 						try {
-							return __vitePreload(() => import("./dist-DSlC7ipx.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
+							return __vitePreload(() => import("./dist-CWzsUUS5.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
 						} catch {
 							throw new Error("dependency \"@safe-global/safe-apps-provider\" not found");
 						}
@@ -23480,7 +23480,7 @@ function walletConnect(parameters) {
 				if (!optionalChains.length) return;
 				const { EthereumProvider: EthereumProvider$1 } = await (() => {
 					try {
-						return __vitePreload(() => import("./dist-DnAGd75d.js"), __vite__mapDeps([5,6,1]));
+						return __vitePreload(() => import("./dist-py17s8R1.js"), __vite__mapDeps([5,6,1]));
 					} catch {
 						throw new Error("dependency \"@walletconnect/ethereum-provider\" not found");
 					}
@@ -84474,14 +84474,14 @@ var AlchemyConfig = class {
 	}
 	getProvider() {
 		if (!this._baseAlchemyProvider) this._baseAlchemyProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-D5UN3cwl.js"), __vite__mapDeps([7,8]));
+			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-D7AH5fwY.js"), __vite__mapDeps([7,8]));
 			return new AlchemyProvider$1(this);
 		}))();
 		return this._baseAlchemyProvider;
 	}
 	getWebSocketProvider() {
 		if (!this._baseAlchemyWssProvider) this._baseAlchemyWssProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-C1ib49dg.js"), __vite__mapDeps([9,8]));
+			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-DKKw-Gh-.js"), __vite__mapDeps([9,8]));
 			return new AlchemyWebSocketProvider(this);
 		}))();
 		return this._baseAlchemyWssProvider;
@@ -87257,7 +87257,430 @@ const secondsFromMs = (ms$1) => {
 };
 var HegicStrategyAdaptive_abi_default = /* @__PURE__ */ JSON.parse("[{\"inputs\":[{\"internalType\":\"contract AggregatorV3Interface\",\"name\":\"_priceProvider\",\"type\":\"address\"},{\"internalType\":\"contract IPremiumCalculator\",\"name\":\"_pricer\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_limit\",\"type\":\"uint256\"},{\"internalType\":\"uint8\",\"name\":\"_spotDecimals\",\"type\":\"uint8\"},{\"internalType\":\"uint16[2]\",\"name\":\"_strikeLimits\",\"type\":\"uint16[2]\"},{\"internalType\":\"uint48[2]\",\"name\":\"periodLimits\",\"type\":\"uint48[2]\"},{\"internalType\":\"uint48\",\"name\":\"_exerciseWindowDuration\",\"type\":\"uint48\"},{\"internalType\":\"contract LimitController\",\"name\":\"_limitController\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"negativepnl\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"positivepnl\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"period\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bytes[]\",\"name\":\"additional\",\"type\":\"bytes[]\"}],\"name\":\"Acquired\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"previousAdminRole\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"newAdminRole\",\"type\":\"bytes32\"}],\"name\":\"RoleAdminChanged\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"RoleGranted\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"RoleRevoked\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"limit\",\"type\":\"uint256\"}],\"name\":\"SetLimit\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"DEFAULT_ADMIN_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"period\",\"type\":\"uint256\"},{\"internalType\":\"bytes[]\",\"name\":\"additional\",\"type\":\"bytes[]\"}],\"name\":\"calculateNegativepnlAndPositivepnl\",\"outputs\":[{\"internalType\":\"uint128\",\"name\":\"negativepnl\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"positivepnl\",\"type\":\"uint128\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"collateralizationRatio\",\"outputs\":[{\"internalType\":\"uint32\",\"name\":\"\",\"type\":\"uint32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"connect\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"holder\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"period\",\"type\":\"uint256\"},{\"internalType\":\"bytes[]\",\"name\":\"additional\",\"type\":\"bytes[]\"}],\"name\":\"create\",\"outputs\":[{\"internalType\":\"uint32\",\"name\":\"expiration\",\"type\":\"uint32\"},{\"internalType\":\"uint256\",\"name\":\"negativePNL\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"positivePNL\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"exerciseWindowDuration\",\"outputs\":[{\"internalType\":\"uint48\",\"name\":\"\",\"type\":\"uint48\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint32\",\"name\":\"period\",\"type\":\"uint32\"},{\"internalType\":\"bytes[]\",\"name\":\"additional\",\"type\":\"bytes[]\"}],\"name\":\"getAvailableContracts\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"available\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getLockedByStrategy\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"}],\"name\":\"getRoleAdmin\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"grantRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"hasRole\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"positionID\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"caller\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"isPayoffAvailable\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"limitController\",\"outputs\":[{\"internalType\":\"contract LimitController\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"lockedLimit\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"maxPeriod\",\"outputs\":[{\"internalType\":\"uint48\",\"name\":\"\",\"type\":\"uint48\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"minPeriod\",\"outputs\":[{\"internalType\":\"uint48\",\"name\":\"\",\"type\":\"uint48\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"optionID\",\"type\":\"uint256\"}],\"name\":\"payOffAmount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"profit\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"pool\",\"outputs\":[{\"internalType\":\"contract IOperationalTreasury\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"positionExpiration\",\"outputs\":[{\"internalType\":\"uint32\",\"name\":\"\",\"type\":\"uint32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"priceProvider\",\"outputs\":[{\"internalType\":\"contract AggregatorV3Interface\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"pricer\",\"outputs\":[{\"internalType\":\"contract IPremiumCalculator\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"renounceRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"revokeRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint32\",\"name\":\"value\",\"type\":\"uint32\"}],\"name\":\"setCollateralizationRatio\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"setLimit\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract LimitController\",\"name\":\"value\",\"type\":\"address\"}],\"name\":\"setLimitController\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint48[2]\",\"name\":\"periodLimits\",\"type\":\"uint48[2]\"}],\"name\":\"setPeriodLimits\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract IPremiumCalculator\",\"name\":\"value\",\"type\":\"address\"}],\"name\":\"setPricer\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint16[2]\",\"name\":\"limits\",\"type\":\"uint16[2]\"}],\"name\":\"setStrikeLimits\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"strategyData\",\"outputs\":[{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes4\",\"name\":\"interfaceId\",\"type\":\"bytes4\"}],\"name\":\"supportsInterface\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"version\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}]");
 var HegicStrategyClassic_abi_default = /* @__PURE__ */ JSON.parse("[{\"inputs\":[{\"internalType\":\"contract AggregatorV3Interface\",\"name\":\"_priceProvider\",\"type\":\"address\"},{\"internalType\":\"contract IPremiumCalculator\",\"name\":\"_pricer\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_limit\",\"type\":\"uint256\"},{\"internalType\":\"uint8\",\"name\":\"_spotDecimals\",\"type\":\"uint8\"},{\"internalType\":\"uint16\",\"name\":\"_priceScale\",\"type\":\"uint16\"},{\"internalType\":\"uint48[2]\",\"name\":\"periodLimits\",\"type\":\"uint48[2]\"},{\"internalType\":\"uint48\",\"name\":\"_exerciseWindowDuration\",\"type\":\"uint48\"},{\"internalType\":\"contract LimitController\",\"name\":\"_limitController\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"components\":[{\"internalType\":\"uint128\",\"name\":\"amount\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"strike\",\"type\":\"uint128\"}],\"indexed\":false,\"internalType\":\"struct IHegicStrategy.StrategyData\",\"name\":\"data\",\"type\":\"tuple\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"negativepnl\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"positivepnl\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"period\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bytes[]\",\"name\":\"additional\",\"type\":\"bytes[]\"}],\"name\":\"Acquired\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"previousAdminRole\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"newAdminRole\",\"type\":\"bytes32\"}],\"name\":\"RoleAdminChanged\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"RoleGranted\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"RoleRevoked\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"limit\",\"type\":\"uint256\"}],\"name\":\"SetLimit\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"DEFAULT_ADMIN_ROLE\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"period\",\"type\":\"uint256\"},{\"internalType\":\"bytes[]\",\"name\":\"\",\"type\":\"bytes[]\"}],\"name\":\"calculateNegativepnlAndPositivepnl\",\"outputs\":[{\"internalType\":\"uint128\",\"name\":\"negativepnl\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"positivepnl\",\"type\":\"uint128\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"connect\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"holder\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"period\",\"type\":\"uint256\"},{\"internalType\":\"bytes[]\",\"name\":\"additional\",\"type\":\"bytes[]\"}],\"name\":\"create\",\"outputs\":[{\"internalType\":\"uint32\",\"name\":\"expiration\",\"type\":\"uint32\"},{\"internalType\":\"uint256\",\"name\":\"negativePNL\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"positivePNL\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"exerciseWindowDuration\",\"outputs\":[{\"internalType\":\"uint48\",\"name\":\"\",\"type\":\"uint48\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint32\",\"name\":\"period\",\"type\":\"uint32\"},{\"internalType\":\"bytes[]\",\"name\":\"additional\",\"type\":\"bytes[]\"}],\"name\":\"getAvailableContracts\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"available\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getLockedByStrategy\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"}],\"name\":\"getRoleAdmin\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"grantRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"hasRole\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"positionID\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"caller\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"isPayoffAvailable\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"k\",\"outputs\":[{\"internalType\":\"uint48\",\"name\":\"\",\"type\":\"uint48\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"limitController\",\"outputs\":[{\"internalType\":\"contract LimitController\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"lockedLimit\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"maxPeriod\",\"outputs\":[{\"internalType\":\"uint48\",\"name\":\"\",\"type\":\"uint48\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"minPeriod\",\"outputs\":[{\"internalType\":\"uint48\",\"name\":\"\",\"type\":\"uint48\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"optionID\",\"type\":\"uint256\"}],\"name\":\"payOffAmount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"profit\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"pool\",\"outputs\":[{\"internalType\":\"contract IOperationalTreasury\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"positionExpiration\",\"outputs\":[{\"internalType\":\"uint32\",\"name\":\"\",\"type\":\"uint32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"priceProvider\",\"outputs\":[{\"internalType\":\"contract AggregatorV3Interface\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"pricer\",\"outputs\":[{\"internalType\":\"contract IPremiumCalculator\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"renounceRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"revokeRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint48\",\"name\":\"value\",\"type\":\"uint48\"}],\"name\":\"setK\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"setLimit\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract LimitController\",\"name\":\"value\",\"type\":\"address\"}],\"name\":\"setLimitController\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint48[2]\",\"name\":\"periodLimits\",\"type\":\"uint48[2]\"}],\"name\":\"setPeriodLimits\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract IPremiumCalculator\",\"name\":\"value\",\"type\":\"address\"}],\"name\":\"setPricer\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"strategyData\",\"outputs\":[{\"internalType\":\"uint128\",\"name\":\"amount\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"strike\",\"type\":\"uint128\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes4\",\"name\":\"interfaceId\",\"type\":\"bytes4\"}],\"name\":\"supportsInterface\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"}]");
+var HegicPriceCalculator_abi_default = [
+	{
+		"inputs": [
+			{
+				"internalType": "int256[5]",
+				"name": "initialCoefficients",
+				"type": "int256[5]"
+			},
+			{
+				"internalType": "contract AggregatorV3Interface",
+				"name": "_priceProvider",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_tokenDecimals",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			},
+			{
+				"indexed": true,
+				"internalType": "bytes32",
+				"name": "previousAdminRole",
+				"type": "bytes32"
+			},
+			{
+				"indexed": true,
+				"internalType": "bytes32",
+				"name": "newAdminRole",
+				"type": "bytes32"
+			}
+		],
+		"name": "RoleAdminChanged",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "sender",
+				"type": "address"
+			}
+		],
+		"name": "RoleGranted",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "bytes32",
+				"name": "role",
+				"type": "bytes32"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "sender",
+				"type": "address"
+			}
+		],
+		"name": "RoleRevoked",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [{
+			"indexed": false,
+			"internalType": "uint256[3]",
+			"name": "values",
+			"type": "uint256[3]"
+		}],
+		"name": "SetBorders",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [{
+			"indexed": false,
+			"internalType": "int256[5]",
+			"name": "values",
+			"type": "int256[5]"
+		}],
+		"name": "SetCoefficients",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [{
+			"indexed": false,
+			"internalType": "int256[5]",
+			"name": "values",
+			"type": "int256[5]"
+		}],
+		"name": "SetDiscountCall",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [{
+			"indexed": false,
+			"internalType": "int256[5]",
+			"name": "values",
+			"type": "int256[5]"
+		}],
+		"name": "SetDiscountPut",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [{
+			"indexed": false,
+			"internalType": "uint8",
+			"name": "values",
+			"type": "uint8"
+		}],
+		"name": "SetDiscountSpread",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [{
+			"indexed": false,
+			"internalType": "uint256",
+			"name": "value",
+			"type": "uint256"
+		}],
+		"name": "SetImpliedVolRate",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [{
+			"indexed": false,
+			"internalType": "uint256[4]",
+			"name": "values",
+			"type": "uint256[4]"
+		}],
+		"name": "SetImpliedVolRates",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [{
+			"indexed": false,
+			"internalType": "uint256",
+			"name": "min",
+			"type": "uint256"
+		}, {
+			"indexed": false,
+			"internalType": "uint256",
+			"name": "max",
+			"type": "uint256"
+		}],
+		"name": "SetPeriodLimits",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [{
+			"indexed": false,
+			"internalType": "uint256",
+			"name": "value",
+			"type": "uint256"
+		}],
+		"name": "SetSettlementFeeShare",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [{
+			"indexed": false,
+			"internalType": "uint256",
+			"name": "value",
+			"type": "uint256"
+		}],
+		"name": "SetStrikePercentage",
+		"type": "event"
+	},
+	{
+		"inputs": [],
+		"name": "DEFAULT_ADMIN_ROLE",
+		"outputs": [{
+			"internalType": "bytes32",
+			"name": "",
+			"type": "bytes32"
+		}],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "period",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "strike",
+				"type": "uint256"
+			}
+		],
+		"name": "calculatePremium",
+		"outputs": [{
+			"internalType": "uint256",
+			"name": "premium",
+			"type": "uint256"
+		}],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [{
+			"internalType": "uint256",
+			"name": "",
+			"type": "uint256"
+		}],
+		"name": "coefficients",
+		"outputs": [{
+			"internalType": "int256",
+			"name": "",
+			"type": "int256"
+		}],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [{
+			"internalType": "bytes32",
+			"name": "role",
+			"type": "bytes32"
+		}],
+		"name": "getRoleAdmin",
+		"outputs": [{
+			"internalType": "bytes32",
+			"name": "",
+			"type": "bytes32"
+		}],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [{
+			"internalType": "bytes32",
+			"name": "role",
+			"type": "bytes32"
+		}, {
+			"internalType": "address",
+			"name": "account",
+			"type": "address"
+		}],
+		"name": "grantRole",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [{
+			"internalType": "bytes32",
+			"name": "role",
+			"type": "bytes32"
+		}, {
+			"internalType": "address",
+			"name": "account",
+			"type": "address"
+		}],
+		"name": "hasRole",
+		"outputs": [{
+			"internalType": "bool",
+			"name": "",
+			"type": "bool"
+		}],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "maxPeriod",
+		"outputs": [{
+			"internalType": "uint256",
+			"name": "",
+			"type": "uint256"
+		}],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "minPeriod",
+		"outputs": [{
+			"internalType": "uint256",
+			"name": "",
+			"type": "uint256"
+		}],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "priceProvider",
+		"outputs": [{
+			"internalType": "contract AggregatorV3Interface",
+			"name": "",
+			"type": "address"
+		}],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [{
+			"internalType": "bytes32",
+			"name": "role",
+			"type": "bytes32"
+		}, {
+			"internalType": "address",
+			"name": "account",
+			"type": "address"
+		}],
+		"name": "renounceRole",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [{
+			"internalType": "bytes32",
+			"name": "role",
+			"type": "bytes32"
+		}, {
+			"internalType": "address",
+			"name": "account",
+			"type": "address"
+		}],
+		"name": "revokeRole",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [{
+			"internalType": "int256[5]",
+			"name": "values",
+			"type": "int256[5]"
+		}],
+		"name": "setCoefficients",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [{
+			"internalType": "uint256",
+			"name": "min",
+			"type": "uint256"
+		}, {
+			"internalType": "uint256",
+			"name": "max",
+			"type": "uint256"
+		}],
+		"name": "setPeriodLimits",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [{
+			"internalType": "bytes4",
+			"name": "interfaceId",
+			"type": "bytes4"
+		}],
+		"name": "supportsInterface",
+		"outputs": [{
+			"internalType": "bool",
+			"name": "",
+			"type": "bool"
+		}],
+		"stateMutability": "view",
+		"type": "function"
+	}
+];
 var EXPIRY_PERIODS_DAYS$1 = [
+	7,
+	10,
+	14,
+	21,
 	31,
 	45,
 	60,
@@ -87309,11 +87732,19 @@ var HegicConstants_default = {
 		1: [.02, .05],
 		2: [.05, .2]
 	},
+	StrategiesClassic: {
+		PUT_100_ETH_1: "0xaA0DfBFb8dA7f45BB41c0fB68B71FAEB959B22aa",
+		PUT_100_ETH_2: "0x2739A4C003080A5B3Ade22b92c3321EDa2Da3A9e",
+		PUT_100_ETH_3: "0xf711D0BC60F37cA28845BA623ccd9C635E5073A1",
+		PUT_100_ETH_4: "0x015FAA9aF7599e6cea597EBC7e7e04A149a3E992"
+	},
+	PriceCalculators: { PUT_100_ETH: "0xB72FC913e45522cD721252476fEfB7F50a65E23A" },
 	POSITION_MANAGER: "0x5fe380d68fee022d8acd42dc4d36fbfb249a76d5",
 	StrategyAbi: {
 		ADAPTIVE: HegicStrategyAdaptive_abi_default,
 		CLASSIC: HegicStrategyClassic_abi_default
-	}
+	},
+	PriceCalculator_abi: HegicPriceCalculator_abi_default
 };
 const floorNumber = (num, decimals = 0) => {
 	return Math.floor(num * 10 ** decimals) / 10 ** decimals;
@@ -89116,10 +89547,13 @@ var PaymentMethod = ({ method, setMethod }) => {
 	});
 };
 var PaymentMethod_default = PaymentMethod;
-var { EXPIRY_PERIODS_DAYS, Strategies, STRIKE_RANGE_LIMIT_MULTIPLIERS } = HegicConstants_default;
+var { EXPIRY_PERIODS_DAYS, Strategies, STRIKE_RANGE_LIMIT_MULTIPLIERS, StrategiesClassic: StrategiesClassic$1, PriceCalculators } = HegicConstants_default;
 var HegicUtils = {
 	getStrategy,
-	encodeStrike
+	encodeStrike,
+	getStrategyClassic,
+	getStrategyClassicScale,
+	getPriceCalculator
 };
 function getStrategy(assetPrice, period, strike) {
 	const strategies = _getStrategiesForPeriod(period);
@@ -89149,6 +89583,39 @@ var _getMinMaxStrikes = (strikeRangeId, assetPrice) => {
 	const [minChangeMultiplier, maxChangeMultiplier] = STRIKE_RANGE_LIMIT_MULTIPLIERS[strikeRangeId];
 	const [minChange, maxChange] = [multiplyBigIntByNumber(assetPrice, minChangeMultiplier), multiplyBigIntByNumber(assetPrice, maxChangeMultiplier)];
 	return [assetPrice - maxChange, assetPrice - minChange];
+};
+function getStrategyClassic(period) {
+	const { strategy } = _getStrategyAndKeyClassic(period);
+	return strategy;
+}
+function getStrategyClassicScale(period) {
+	const { key } = _getStrategyAndKeyClassic(period);
+	if (!key) return;
+	const [, scale$2, ,] = key.split("_");
+	return Number(scale$2);
+}
+function getPriceCalculator(strategyClassic) {
+	const [dir, scale$2, asset, _$6] = Object.keys(StrategiesClassic$1).find((key) => StrategiesClassic$1[key] === strategyClassic).split("_");
+	return PriceCalculators[[
+		dir,
+		scale$2,
+		asset
+	].join("_")];
+}
+var _getStrategyAndKeyClassic = (period) => {
+	const periodDays = daysFromMs(period, false);
+	if (periodDays < 7 || periodDays > 90) return {};
+	const keys$4 = Object.keys(StrategiesClassic$1);
+	let strategy, key;
+	if (periodDays < 14) key = keys$4[0];
+	else if (periodDays < 30) key = keys$4[1];
+	else if (periodDays < 60) key = keys$4[2];
+	else if (periodDays <= 90) key = keys$4[3];
+	strategy = StrategiesClassic$1[key];
+	return {
+		key,
+		strategy
+	};
 };
 var HegicUtils_default = HegicUtils;
 var useProtocolActions = () => {
@@ -91024,7 +91491,7 @@ var useIsMobile = (breakpoint = 768) => {
 	return width < breakpoint;
 };
 var useIsMobile_default = useIsMobile;
-var { StrategyAbi } = HegicConstants_default;
+var { StrategyAbi: StrategyAbi$1, StrategiesClassic } = HegicConstants_default;
 var useHegicOptions = () => {
 	const optionsSetup = _useHegicOptions();
 	if (optionsSetup === null) return null;
@@ -91055,15 +91522,16 @@ var _useHegicOptions = () => {
 	}
 	return optionsSetup;
 };
-var queryOption = async (contracts$1, id$2, isClassic = false) => {
+var queryOption = async (contracts$1, id$2) => {
 	const { HegicOperationalTreasury } = contracts$1.view;
 	const { state, strategy, expiration: expS, positivepnl: premium1eToken } = await HegicOperationalTreasury.lockedLiquidity(id$2);
+	const isClassic = !!Object.values(StrategiesClassic).find((strategyClassic) => strategyClassic === strategy);
 	const premium = bring1eTokenToDefault(premium1eToken, HegicConstants_default.TOKEN);
 	const exp = Number(expS) * MS_IN_SECOND;
 	if (Date.now() > exp || state === 0) return null;
 	const transferTimestamp = await queryTransferTimestamp(contracts$1, id$2);
 	const periodDays = Math.round(daysFromMs(exp - transferTimestamp, false));
-	const Strategy = new Contract(strategy, StrategyAbi[isClassic ? "CLASSIC" : "ADAPTIVE"], getAlchemyProvider());
+	const Strategy = new Contract(strategy, StrategyAbi$1[isClassic ? "CLASSIC" : "ADAPTIVE"], getAlchemyProvider());
 	let amount1eToken, strike1e8;
 	const data = await Strategy.strategyData(id$2);
 	if (isClassic) {
@@ -94965,6 +95433,7 @@ var useHegicStrike = (period, chosenLiqPrice) => {
 		chosenLiqPrice,
 		period,
 		amount,
+		strikePrice,
 		"useHegicStrike"
 	], async () => {
 		const { HegicLimitView } = contracts$1.view;
@@ -94980,7 +95449,7 @@ var useHegicStrike = (period, chosenLiqPrice) => {
 				strategy
 			});
 		}
-		const strikes = (await HegicLimitView.getPriceAndLimits(requests)).map((limit, i$13) => {
+		const strikesAdaptive = (await HegicLimitView.getPriceAndLimits(requests)).map((limit, i$13) => {
 			const { strikePrice: strikePrice$1, strategy } = dataArr[i$13];
 			const liquidity = limit.available;
 			const premium = bring1eTokenToDefault(limit.positivePNL, HegicConstants_default.TOKEN);
@@ -94995,8 +95464,10 @@ var useHegicStrike = (period, chosenLiqPrice) => {
 				premium
 			};
 		});
+		const strikeClassic = await queryStrikeClassic(assetPrice, period, amount);
+		const strikes = [...strikesAdaptive, strikeClassic];
 		const strike$1 = strikes.find((strike$2) => strike$2.isLiquid) ?? strikes[0];
-		if (isUndefined(strikePrice)) {
+		if (strikePrice !== strike$1.strike) {
 			if (!strike$1.isLiquid) return strike$1;
 			setStrikePrice(strike$1.strike);
 			return;
@@ -95018,6 +95489,38 @@ var getLimitViewRequest = (amount, period, strikePrice, strategy) => {
 		get1eToken(amount, "ETH"),
 		[HegicUtils_default.encodeStrike(strikePrice)]
 	];
+};
+var queryStrikeClassic = async (assetPrice, period, amount) => {
+	const strategy = HegicUtils_default.getStrategyClassic(period);
+	const strikePrice = calcStrikePriceClassic(HegicUtils_default.getStrategyClassicScale(period), assetPrice);
+	const [liquidity, premium] = await Promise.all([queryLiquidityClassic(period), queryPremiumClassic(period, amount)]);
+	return {
+		strategy,
+		amount,
+		period,
+		strike: strikePrice,
+		isCall: false,
+		liquidity,
+		isLiquid: liquidity >= amount,
+		premium
+	};
+};
+var { StrategyAbi, PriceCalculator_abi } = HegicConstants_default;
+var queryLiquidityClassic = async (period) => {
+	const Strategy = new Contract(HegicUtils_default.getStrategyClassic(period), StrategyAbi.CLASSIC, getAlchemyProvider());
+	const periodS = secondsFromMs(period);
+	return bring1eTokenToDefault(await Strategy.getAvailableContracts(periodS, []).catch(() => 0n), "ETH");
+};
+var queryPremiumClassic = async (period, amount) => {
+	const strategy = HegicUtils_default.getStrategyClassic(period);
+	const PriceCalculator = new Contract(HegicUtils_default.getPriceCalculator(strategy), PriceCalculator_abi, getAlchemyProvider());
+	const { TOKEN } = HegicConstants_default;
+	const amount1eToken = get1eToken(amount, "ETH");
+	const periodS = secondsFromMs(period);
+	return bring1eTokenToDefault(await PriceCalculator.calculatePremium(periodS, amount1eToken, 0), TOKEN);
+};
+var calcStrikePriceClassic = (strikeScale, assetPrice) => {
+	return floorBigInt(multiplyBigIntByNumber(assetPrice, strikeScale / 100));
 };
 var useHegicStrike_default = useHegicStrike;
 var UTCDateMini = class extends Date {
@@ -123495,7 +123998,7 @@ var AssetPriceChart = ({ estOptions = void 0, estBalance = void 0, isLoading = f
 	const _estLiqPrice = useLiqPrice_default(estBalance, void 0, estOptions);
 	const estLiqPrice = estOptions ? _estLiqPrice : isUndefined(estOptions) ? void 0 : null;
 	const _unsafeLiqPrice = useLiqPrice_default(void 0, void 0, []);
-	const unsafeLiqPrice = _unsafeLiqPrice === curLiqPrice ? void 0 : _unsafeLiqPrice;
+	const unsafeLiqPrice = _unsafeLiqPrice === curLiqPrice || isSmall ? void 0 : _unsafeLiqPrice;
 	const { isLoading: arePricesLoading } = getIsLoadingAndErrorForMultiple(_curLiqPrice, _estLiqPrice, _unsafeLiqPrice);
 	isLoading = isLoading || arePricesLoading;
 	const liqPriceMarkers = (0, import_react.useMemo)(() => {
@@ -124025,10 +124528,9 @@ var LiqPriceInput = ({ setChosenLiqPrice }) => {
 };
 var CollateralWarning = ({ chosenLiqPrice, estCollateral, estOptions, isLiqPriceLoading = false }) => {
 	const liqPrice = useLiqPrice_default(estCollateral, void 0, estOptions);
-	if (liqPrice < chosenLiqPrice) return null;
 	const getText = (liqPrice$1, chosenLiqPrice$1) => {
-		const defaultText = "Paying from collateral reduces your collateral balance, raising the final liquidation price above your target.";
-		if (isLiqPriceLoading || !isEverySufficient(chosenLiqPrice$1, liqPrice$1, estCollateral, estOptions)) return defaultText;
+		const defaultText = "Paying from collateral reduces your collateral balance, potentially raising the final liquidation price above your target.";
+		if (isLiqPriceLoading || !isEverySufficient(chosenLiqPrice$1, liqPrice$1, estCollateral, estOptions) || liqPrice$1 < chosenLiqPrice$1) return defaultText;
 		const liqPriceStr = formatDollarStr(liqPrice$1);
 		const chosenLiqPriceStr = formatDollarStr(chosenLiqPrice$1);
 		if (liqPriceStr === chosenLiqPriceStr) return defaultText;
