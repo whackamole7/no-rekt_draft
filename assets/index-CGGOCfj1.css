@@ -2726,6 +2726,10 @@ div.react-tooltip-arrow {
   .Header._mobile .Header__wallet-content {
     row-gap: 8px;
   }
+  .Header._mobile .ConnectWalletButton {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
 }.Logo {
   display: flex;
   align-items: center;

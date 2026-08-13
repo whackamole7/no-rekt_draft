@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-DStZ39TF.js","assets/secp256k1-BLgOAoBn.js","assets/esm-CdwKFdLn.js","assets/dist-CWYKbqn4.js","assets/dist-0awSjrNr.js","assets/dist-BD2_DXnq.js","assets/index.es-CI-sxHQ3.js","assets/alchemy-provider-2577f5a5--UjHBD8a.js","assets/alchemy-provider-2577f5a5-B5jSmKpZ.js","assets/alchemy-websocket-provider-ee041890-CqOrxc1a.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-Dp5tA8eK.js","assets/secp256k1-DM3SFCVi.js","assets/esm-BimyN5WH.js","assets/dist-8gzZEdK3.js","assets/dist-DaOTGgdb.js","assets/dist-D8PzVZQ2.js","assets/index.es-D1u5d0xC.js","assets/alchemy-provider-2577f5a5-BJVuqtoP.js","assets/alchemy-provider-2577f5a5-OJ8PYjcz.js","assets/alchemy-websocket-provider-ee041890-cGxBFf1M.js"])))=>i.map(i=>d[i]);
 var __create = Object.create;
 var __defProp$1 = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -16953,7 +16953,7 @@ async function call$2(client, args) {
 	} catch (err) {
 		const data$1 = getRevertErrorData(err);
 		const { offchainLookup, offchainLookupSignature } = await __vitePreload(async () => {
-			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-COrYIBhg.js");
+			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-DJtGsiro.js");
 			return {
 				offchainLookup: offchainLookup$1,
 				offchainLookupSignature: offchainLookupSignature$1
@@ -17454,7 +17454,7 @@ function publicKeyToAddress(publicKey) {
 async function recoverPublicKey({ hash: hash$3, signature }) {
 	const hashHex = isHex(hash$3) ? hash$3 : toHex$2(hash$3);
 	const { secp256k1: secp256k1$1 } = await __vitePreload(async () => {
-		const { secp256k1: secp256k1$2 } = await import("./secp256k1-DStZ39TF.js");
+		const { secp256k1: secp256k1$2 } = await import("./secp256k1-Dp5tA8eK.js");
 		return { secp256k1: secp256k1$2 };
 	}, __vite__mapDeps([0,1]));
 	return `0x${(() => {
@@ -23304,7 +23304,7 @@ function safe(parameters = {}) {
 			if (!provider_) {
 				const { default: SDK } = await (() => {
 					try {
-						return __vitePreload(() => import("./esm-CdwKFdLn.js"), __vite__mapDeps([2,3]));
+						return __vitePreload(() => import("./esm-BimyN5WH.js"), __vite__mapDeps([2,3]));
 					} catch {
 						throw new Error("dependency \"@safe-global/safe-apps-sdk\" not found");
 					}
@@ -23315,7 +23315,7 @@ function safe(parameters = {}) {
 				provider_ = new (await ((async () => {
 					const Provider$1 = await (() => {
 						try {
-							return __vitePreload(() => import("./dist-0awSjrNr.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
+							return __vitePreload(() => import("./dist-DaOTGgdb.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
 						} catch {
 							throw new Error("dependency \"@safe-global/safe-apps-provider\" not found");
 						}
@@ -23480,7 +23480,7 @@ function walletConnect(parameters) {
 				if (!optionalChains.length) return;
 				const { EthereumProvider: EthereumProvider$1 } = await (() => {
 					try {
-						return __vitePreload(() => import("./dist-BD2_DXnq.js"), __vite__mapDeps([5,6,1]));
+						return __vitePreload(() => import("./dist-D8PzVZQ2.js"), __vite__mapDeps([5,6,1]));
 					} catch {
 						throw new Error("dependency \"@walletconnect/ethereum-provider\" not found");
 					}
@@ -84474,14 +84474,14 @@ var AlchemyConfig = class {
 	}
 	getProvider() {
 		if (!this._baseAlchemyProvider) this._baseAlchemyProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5--UjHBD8a.js"), __vite__mapDeps([7,8]));
+			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-BJVuqtoP.js"), __vite__mapDeps([7,8]));
 			return new AlchemyProvider$1(this);
 		}))();
 		return this._baseAlchemyProvider;
 	}
 	getWebSocketProvider() {
 		if (!this._baseAlchemyWssProvider) this._baseAlchemyWssProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-CqOrxc1a.js"), __vite__mapDeps([9,8]));
+			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-cGxBFf1M.js"), __vite__mapDeps([9,8]));
 			return new AlchemyWebSocketProvider(this);
 		}))();
 		return this._baseAlchemyWssProvider;
@@ -88267,7 +88267,7 @@ var require_classnames = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	})();
 }));
 var import_classnames$33 = /* @__PURE__ */ __toESM(require_classnames(), 1);
-var Button = ({ type = "primary", size: size$6 = "default", isDisabled = false, className, children, ...props }) => {
+var Button = ({ type = "primary", size: size$6 = "default", isDisabled = false, gtagButtonName = void 0, className, children, onClick, ...props }) => {
 	const isFancy = type === "fancy";
 	(0, import_react.useEffect)(() => {
 		if (isFancy) animateFancyButtons();
@@ -88275,9 +88275,22 @@ var Button = ({ type = "primary", size: size$6 = "default", isDisabled = false, 
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
 		className: (0, import_classnames$33.default)(className, "Button", `_${type}`, `_${size$6}`, isFancy && "anim_fancy"),
 		disabled: isDisabled,
+		onClick: () => {
+			if (isUndefined(onClick)) return;
+			onClick();
+			if (!isUndefined(gtagButtonName)) trackClick(gtagButtonName);
+		},
 		...props,
 		children
 	});
+};
+var trackClick = (buttonName) => {
+	if (isUndefined(window.gtag)) {
+		console.error("Google Tag is not initialized!");
+		return;
+	}
+	console.log(buttonName);
+	window.gtag("event", "button_click", { button_name: buttonName });
 };
 var Button_default = Button;
 var useAccountId = () => {
@@ -91187,6 +91200,7 @@ var CreateAccountModal = ({ isOpen, setIsOpen }) => {
 				className: "CreateAccountModal__button",
 				isDisabled: getError(),
 				onClick: handleClick,
+				gtagButtonName: "create_account_tx",
 				children: getBtnText()
 			})
 		]
@@ -91715,6 +91729,7 @@ var SupplyModal = ({ isOpen, setIsOpen }) => {
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TxModal_default.Button, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
 				onClick: handleClick,
 				isDisabled: getIsDisabled(),
+				gtagButtonName: "supply_tx",
 				children: getBtnText()
 			}) })
 		]
@@ -91841,6 +91856,7 @@ var WithdrawModal = ({ isOpen, setIsOpen }) => {
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TxModal_default.Button, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
 				onClick: handleClick,
 				isDisabled: getIsDisabled(),
+				gtagButtonName: "withdraw_tx",
 				children: getBtnText()
 			}) })
 		]
@@ -92187,6 +92203,7 @@ var ReviewStep$1 = ({ borrowAmount, goBack, isSubmitting, handleClick }) => {
 		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
 			onClick: handleClick,
 			isDisabled: getIsDisabled(),
+			gtagButtonName: "borrow_tx",
 			children: getBtnText()
 		})] })
 	] });
@@ -93970,6 +93987,7 @@ var RepayModal = ({ isOpen, setIsOpen }) => {
 				type: isWallet && isApproved === false ? "green" : "primary",
 				onClick: handleClick,
 				isDisabled: getIsDisabled(),
+				gtagButtonName: isWallet && isApproved === false ? "repay_approve_tx" : "repay_tx",
 				children: getBtnText()
 			}) })
 		]
@@ -112726,15 +112744,28 @@ var Tooltip = ({ children, ...props }) => {
 	});
 };
 var Tooltip_default = Tooltip;
+var FREQUENCIES = [
+	5 * MINUTE,
+	1 * HOUR,
+	4 * HOUR,
+	1 * DAY
+];
+var PERIODS = [
+	1 * DAY,
+	7 * DAY,
+	31 * DAY,
+	1 * YEAR
+];
+var PERIODS_BY_FREQUENCY$1 = {};
+FREQUENCIES.forEach((freq, i$13) => {
+	PERIODS_BY_FREQUENCY$1[freq] = PERIODS[i$13];
+});
 var OhlcvConstants_default = {
 	QUOTE_TOKEN: "USDC",
 	SOURCES: ["Oku", "Binance"],
-	CHART_DATA_FREQUENCIES: [
-		5 * MINUTE,
-		1 * HOUR,
-		4 * HOUR,
-		1 * DAY
-	]
+	FREQUENCIES,
+	MAX_FREQUENCY: getLast(FREQUENCIES),
+	PERIODS_BY_FREQUENCY: PERIODS_BY_FREQUENCY$1
 };
 var OhlcvUtils = {
 	queryOhlcv: async (contracts$1, sourceStr, dataFrequency, period) => {
@@ -112837,11 +112868,11 @@ var queryPoolAddress = async (contracts$1) => {
 	return await UniswapFactory.getPool(ETH.address, USDC.address, .005 * 10 ** 5);
 };
 var OhlcvUtils_default = OhlcvUtils;
-var MIN_FREQUENCY = OhlcvConstants_default.CHART_DATA_FREQUENCIES[0];
-var PERIOD = 1 * YEAR;
-var useOhlcv = (dataFrequency = MIN_FREQUENCY, period = PERIOD) => {
+var { MAX_FREQUENCY, PERIODS_BY_FREQUENCY } = OhlcvConstants_default;
+var useOhlcv = (dataFrequency = MAX_FREQUENCY) => {
 	const contracts$1 = useContracts_default();
 	const assetPrice = useAssetPrice();
+	const period = PERIODS_BY_FREQUENCY[dataFrequency];
 	const { data: ohlcv, error: ohlcvError } = useSWR(contracts$1 && assetPrice && [dataFrequency, "useOhlcv"], async () => {
 		let ohlcv$1;
 		const { SOURCES } = OhlcvConstants_default;
@@ -123978,7 +124009,7 @@ var import_classnames$10 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var AssetPriceChart = ({ estOptions = void 0, estBalance = void 0, isLoading = false, isSmall = false }) => {
 	const account = useAccount_default();
 	const assetPrice = useAssetPrice();
-	const [dataFrequency, setDataFrequency] = useLocalStorage_default("AssetPriceChart:dataFrequency", OhlcvConstants_default.CHART_DATA_FREQUENCIES[0]);
+	const [dataFrequency, setDataFrequency] = useLocalStorage_default("AssetPriceChart:dataFrequency", OhlcvConstants_default.MAX_FREQUENCY);
 	const chartData = useOhlcv_default(dataFrequency);
 	const [hoveredCandle, setHoveredCandle] = (0, import_react.useState)(null);
 	const chartContainerRef = (0, import_react.useRef)();
@@ -124063,10 +124094,10 @@ var ChartHeader = ({ dataFrequency, setDataFrequency, candle }) => {
 	});
 };
 var DataFrequencyController = ({ dataFrequency, setDataFrequency }) => {
-	const { CHART_DATA_FREQUENCIES } = OhlcvConstants_default;
+	const { FREQUENCIES: FREQUENCIES$1 } = OhlcvConstants_default;
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 		className: "AssetPriceChart__data-frequency",
-		children: CHART_DATA_FREQUENCIES.map((_dataFrequency) => {
+		children: FREQUENCIES$1.map((_dataFrequency) => {
 			const isChosen = _dataFrequency === dataFrequency;
 			const days$1 = daysFromMs(_dataFrequency);
 			const minutes$1 = Math.floor(_dataFrequency / MINUTE);
@@ -124304,6 +124335,7 @@ var BuyStep = ({ chosenLiqPrice, setChosenLiqPrice, period, setPeriod, cost, set
 						type: isWallet && isApproved === false ? "green" : "primary",
 						onClick: handleClick,
 						isDisabled: getIsDisabled(),
+						gtagButtonName: isWallet && !isApproved ? "buy_protection_approve_tx" : void 0,
 						children: getBtnText()
 					}) })
 				]
@@ -124375,6 +124407,7 @@ var ReviewStep = ({ period, cost, isSubmitting, handleClick, goBack }) => {
 			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
 				isDisabled: getIsDisabled(),
 				onClick: handleClick,
+				gtagButtonName: "buy_protection_tx",
 				children: getBtnText()
 			})] })
 		]
@@ -124774,6 +124807,7 @@ var ClaimModal = ({ isOpen, setIsOpen, position: position$1, setPosition }) => {
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TxModal_default.Button, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
 				onClick: handleClick,
 				isDisabled: getIsDisabled(),
+				gtagButtonName: "claim_tx",
 				children: getBtnText()
 			}) })
 		]
@@ -124873,6 +124907,7 @@ var GetStarted = () => {
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
 				className: "GetStarted__button",
 				onClick: openCreateModal,
+				gtagButtonName: "create_first_account_modal",
 				children: "Create account"
 			})
 		]
@@ -129474,6 +129509,7 @@ var SelectedAccount = () => {
 				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
 					className: "SelectedAccount__selector-button",
 					onClick: openCreateModal,
+					gtagButtonName: "create_nth_account_modal",
 					children: "Create new account"
 				})]
 			})]
@@ -129610,12 +129646,14 @@ var Buttons = ({ btnsData }) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
 		size: "small",
 		onClick: primary.handleClick,
+		gtagButtonName: primary.gtagButtonName,
 		children: primary.name
 	}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
 		type: "secondary",
 		size: "small",
 		onClick: secondary.handleClick,
 		isDisabled: secondary.isDisabled,
+		gtagButtonName: secondary.gtagButtonName,
 		children: secondary.name
 	})] });
 };
@@ -129639,12 +129677,14 @@ var Supply = () => {
 		btnsData: {
 			primary: {
 				name: "Supply",
-				handleClick: openSupplyModal
+				handleClick: openSupplyModal,
+				gtagButtonName: "supply_modal"
 			},
 			secondary: {
 				name: "Withdraw",
 				handleClick: openWithdrawModal,
-				isDisabled: !account?.balance
+				isDisabled: !account?.balance,
+				gtagButtonName: "withdraw_modal"
 			}
 		}
 	});
@@ -129671,12 +129711,14 @@ var Borrow = () => {
 		btnsData: {
 			primary: {
 				name: "Borrow",
-				handleClick: openBorrowModal
+				handleClick: openBorrowModal,
+				gtagButtonName: "borrow_modal"
 			},
 			secondary: {
 				name: "Repay",
 				handleClick: openRepayModal,
-				isDisabled: !account?.debt
+				isDisabled: !account?.debt,
+				gtagButtonName: "repay_modal"
 			}
 		}
 	});
@@ -129866,6 +129908,7 @@ var Content$2 = ({ account }) => {
 					type: "green",
 					size: "small",
 					onClick: openProtectionModal,
+					gtagButtonName: "buy_protection_modal",
 					children: "Buy protection"
 				})
 			})]
@@ -129966,6 +130009,7 @@ var NoProtections = () => {
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
 				onClick: openProtectionModal,
+				gtagButtonName: "buy_protection_modal",
 				children: "Buy Protection"
 			})
 		]
@@ -130102,6 +130146,7 @@ var ClaimButton = ({ position: position$1 }) => {
 		size: "small",
 		onClick: () => openClaimModal(position$1),
 		isDisabled: !position$1.profit,
+		gtagButtonName: "claim_modal",
 		children: "Claim"
 	});
 };
@@ -130341,6 +130386,10 @@ var NAV_LINKS = [
 		to: "/"
 	},
 	{
+		name: "Calculator",
+		to: "https://calculator.norekt.xyz/"
+	},
+	{
 		name: "History",
 		to: "/history",
 		isDisabled: true
@@ -130406,6 +130455,11 @@ var Nav = ({ toggleIsBurgerOpen = void 0 }) => {
 				disabled: true,
 				"data-tooltip-id": "Header_nav-tooltip",
 				"data-tooltip-content": "Coming soon 🔥",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: link.name })
+			}, link.to);
+			if (link.to.startsWith("http")) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+				href: link.to,
+				className: "Header__nav-link",
 				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: link.name })
 			}, link.to);
 			return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(NavLink, {
