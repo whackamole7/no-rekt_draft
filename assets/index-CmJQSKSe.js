@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-D9ldCfH6.js","assets/secp256k1-DshyzAfb.js","assets/esm-Da_pYLki.js","assets/dist-C6dTHjTL.js","assets/dist--s4QFkM7.js","assets/dist-nXkaIh6I.js","assets/index.es-bc0MCTx5.js","assets/alchemy-provider-2577f5a5-CfsjlUEW.js","assets/alchemy-provider-2577f5a5-CgPZyM0a.js","assets/alchemy-websocket-provider-ee041890-Hdhr6DBE.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-DmjEbRS4.js","assets/secp256k1-rAafYn5I.js","assets/esm-CJ0NzgSp.js","assets/dist-V1YUoMmr.js","assets/dist-osXjfmNI.js","assets/dist-B7tr6liy.js","assets/index.es-DTfH_bJq.js","assets/alchemy-provider-2577f5a5-Dw0VY0--.js","assets/alchemy-provider-2577f5a5-DESQ25AZ.js","assets/alchemy-websocket-provider-ee041890-DscTufwi.js"])))=>i.map(i=>d[i]);
 var __create = Object.create;
 var __defProp$1 = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -16953,7 +16953,7 @@ async function call$2(client, args) {
 	} catch (err) {
 		const data$1 = getRevertErrorData(err);
 		const { offchainLookup, offchainLookupSignature } = await __vitePreload(async () => {
-			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-Csnj1Ndd.js");
+			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-DxjRIaM2.js");
 			return {
 				offchainLookup: offchainLookup$1,
 				offchainLookupSignature: offchainLookupSignature$1
@@ -17454,7 +17454,7 @@ function publicKeyToAddress(publicKey) {
 async function recoverPublicKey({ hash: hash$3, signature }) {
 	const hashHex = isHex(hash$3) ? hash$3 : toHex$2(hash$3);
 	const { secp256k1: secp256k1$1 } = await __vitePreload(async () => {
-		const { secp256k1: secp256k1$2 } = await import("./secp256k1-D9ldCfH6.js");
+		const { secp256k1: secp256k1$2 } = await import("./secp256k1-DmjEbRS4.js");
 		return { secp256k1: secp256k1$2 };
 	}, __vite__mapDeps([0,1]));
 	return `0x${(() => {
@@ -23304,7 +23304,7 @@ function safe(parameters = {}) {
 			if (!provider_) {
 				const { default: SDK } = await (() => {
 					try {
-						return __vitePreload(() => import("./esm-Da_pYLki.js"), __vite__mapDeps([2,3]));
+						return __vitePreload(() => import("./esm-CJ0NzgSp.js"), __vite__mapDeps([2,3]));
 					} catch {
 						throw new Error("dependency \"@safe-global/safe-apps-sdk\" not found");
 					}
@@ -23315,7 +23315,7 @@ function safe(parameters = {}) {
 				provider_ = new (await ((async () => {
 					const Provider$1 = await (() => {
 						try {
-							return __vitePreload(() => import("./dist--s4QFkM7.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
+							return __vitePreload(() => import("./dist-osXjfmNI.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
 						} catch {
 							throw new Error("dependency \"@safe-global/safe-apps-provider\" not found");
 						}
@@ -23480,7 +23480,7 @@ function walletConnect(parameters) {
 				if (!optionalChains.length) return;
 				const { EthereumProvider: EthereumProvider$1 } = await (() => {
 					try {
-						return __vitePreload(() => import("./dist-nXkaIh6I.js"), __vite__mapDeps([5,6,1]));
+						return __vitePreload(() => import("./dist-B7tr6liy.js"), __vite__mapDeps([5,6,1]));
 					} catch {
 						throw new Error("dependency \"@walletconnect/ethereum-provider\" not found");
 					}
@@ -84474,14 +84474,14 @@ var AlchemyConfig = class {
 	}
 	getProvider() {
 		if (!this._baseAlchemyProvider) this._baseAlchemyProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-CfsjlUEW.js"), __vite__mapDeps([7,8]));
+			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-Dw0VY0--.js"), __vite__mapDeps([7,8]));
 			return new AlchemyProvider$1(this);
 		}))();
 		return this._baseAlchemyProvider;
 	}
 	getWebSocketProvider() {
 		if (!this._baseAlchemyWssProvider) this._baseAlchemyWssProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-Hdhr6DBE.js"), __vite__mapDeps([9,8]));
+			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-DscTufwi.js"), __vite__mapDeps([9,8]));
 			return new AlchemyWebSocketProvider(this);
 		}))();
 		return this._baseAlchemyWssProvider;
@@ -87893,12 +87893,15 @@ async function queryBalance$3(accountId, contracts$1) {
 }
 async function queryLtv$1(accountId, contracts$1) {
 	const { MarginTrading } = contracts$1.view;
-	return bringToDefaultDec(await MarginTrading.getMarginAccountRatio.staticCall(accountId), 5);
+	const _ratio = bringToDefaultDec(await MarginTrading.getMarginAccountRatio.staticCall(accountId), 5);
+	return divBigInts(bigIntFromString(1), _ratio);
 }
 async function queryLtvCoeffs$1(contracts$1) {
 	const { MarginTrading } = contracts$1.view;
 	const { OneClickProxy } = contracts$1.view;
-	const [redCoeff, yellowCoeff] = await Promise.all([MarginTrading.redCoeff(), OneClickProxy.yellowCoeff()]).then((coeffs) => coeffs.map((coeff) => bringToDefaultDec(coeff, 5)));
+	const [redCoeff, yellowCoeff] = (await Promise.all([MarginTrading.redCoeff(), OneClickProxy.yellowCoeff()]).then((coeffs) => coeffs.map((coeff) => bringToDefaultDec(coeff, 5)))).map((_coef) => {
+		return divBigInts(bigIntFromString(1), _coef);
+	});
 	return {
 		red: redCoeff,
 		yellow: yellowCoeff
@@ -91391,17 +91394,17 @@ var Ltv = {
 };
 async function queryLtvAfterSupply(account, contracts$1, depositAmount) {
 	const depositAmountUSDC = await swapEthToUsdc(contracts$1, depositAmount);
-	return _calcLtv(account.value + depositAmountUSDC, account.debt);
+	return _calcLtv(account.debt, account.value + depositAmountUSDC);
 }
 async function queryLtvAfterWithdraw(account, contracts$1, withdrawAmount) {
 	const withdrawAmountUSDC = await swapEthToUsdc(contracts$1, withdrawAmount);
-	return _calcLtv(account.value - withdrawAmountUSDC, account.debt);
+	return _calcLtv(account.debt, account.value - withdrawAmountUSDC);
 }
 function calcLtvAfterBorrow(account, borrowAmount) {
-	return _calcLtv(account.value, account.debt + borrowAmount);
+	return _calcLtv(account.debt + borrowAmount, account.value);
 }
 function calcLtvAfterRepay(account, repayAmount) {
-	return _calcLtv(account.value - repayAmount, account.debt - repayAmount);
+	return _calcLtv(account.debt - repayAmount, account.value - repayAmount);
 }
 async function queryLtvAfterProtect(account, cost, paymentMethod) {
 	let estAccountValue;
@@ -91419,14 +91422,14 @@ function getZone(account, ltv) {
 	const { red, yellow } = account.ltvCoeffs;
 	const { RED: RED$1, YELLOW, GREEN: GREEN$1 } = Ltv.Zones;
 	let zone;
-	if (ltv < red) zone = RED$1;
-	else if (ltv < yellow) zone = YELLOW;
+	if (ltv >= red) zone = RED$1;
+	else if (ltv >= yellow) zone = YELLOW;
 	else zone = GREEN$1;
 	return zone;
 }
-var _calcLtv = (balance, debt) => {
-	if (debt <= 0n) return MaxUint256;
-	return divBigInts(balance, debt);
+var _calcLtv = (debt, accountValue) => {
+	if (accountValue <= 0n) return MaxUint256;
+	return divBigInts(debt, accountValue);
 };
 var Ltv_default = Ltv;
 var EternitySvg = () => {
@@ -91772,8 +91775,7 @@ var WithdrawModal = ({ isOpen, setIsOpen }) => {
 		if (!withdrawAmount) return "Enter Amount";
 		const { isLoading } = getIsLoadingAndErrorForMultiple(estLtv, account);
 		if (isLoading) return ButtonLabels.LOADING;
-		const estLtvZone = Ltv_default.getZone(account, estLtv);
-		if (estLtvZone === Ltv_default.Zones.RED || estLtvZone === Ltv_default.Zones.YELLOW) return ErrorMsg.LOW_LTV;
+		if (Ltv_default.getZone(account, estLtv) !== Ltv_default.Zones.GREEN) return ErrorMsg.LOW_LTV;
 		if (isSubmitting) return ButtonLabels.SUBMITTING;
 	};
 	const getBtnText = () => {
@@ -129781,7 +129783,7 @@ var LtvLevel = () => {
 	});
 };
 var Indicator = ({ account }) => {
-	const { debt, ltv, ltvCoeffs } = account;
+	const { debt, ltv } = account;
 	const ltvZone = Ltv_default.getZone(account, ltv);
 	const { RED: RED$1, YELLOW, GREEN: GREEN$1 } = Ltv_default.Zones;
 	const getPointerPosition = () => {
@@ -129798,19 +129800,10 @@ var Indicator = ({ account }) => {
 				left: "36px",
 				top: 0
 			};
-			case GREEN$1:
-				if (ltv > ltvCoeffs.yellow + bigIntFromString(.9)) return {
-					right: "-6px",
-					bottom: 0
-				};
-				if (ltv <= ltvCoeffs.yellow + bigIntFromString(.05)) return {
-					top: "-3px",
-					right: "47px"
-				};
-				return {
-					top: "18px",
-					right: "12px"
-				};
+			case GREEN$1: return {
+				top: "18px",
+				right: "12px"
+			};
 		}
 	};
 	const getIndicatorText = () => {
