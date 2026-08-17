@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-DmjEbRS4.js","assets/secp256k1-rAafYn5I.js","assets/esm-CJ0NzgSp.js","assets/dist-V1YUoMmr.js","assets/dist-osXjfmNI.js","assets/dist-B7tr6liy.js","assets/index.es-DTfH_bJq.js","assets/alchemy-provider-2577f5a5-Dw0VY0--.js","assets/alchemy-provider-2577f5a5-DESQ25AZ.js","assets/alchemy-websocket-provider-ee041890-DscTufwi.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-VSC_tzKM.js","assets/secp256k1-CGW6J1b4.js","assets/esm-Dhdt77Eq.js","assets/dist-UJxH6FO_.js","assets/dist-BJ6FNLEq.js","assets/dist-BRaZbmDb.js","assets/index.es-Bj67OGV3.js","assets/alchemy-provider-2577f5a5-BngfgG9a.js","assets/alchemy-provider-2577f5a5-C0aveo0h.js","assets/alchemy-websocket-provider-ee041890-CbAS3WiW.js"])))=>i.map(i=>d[i]);
 var __create = Object.create;
 var __defProp$1 = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -16953,7 +16953,7 @@ async function call$2(client, args) {
 	} catch (err) {
 		const data$1 = getRevertErrorData(err);
 		const { offchainLookup, offchainLookupSignature } = await __vitePreload(async () => {
-			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-DxjRIaM2.js");
+			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-D6iDbFJh.js");
 			return {
 				offchainLookup: offchainLookup$1,
 				offchainLookupSignature: offchainLookupSignature$1
@@ -17454,7 +17454,7 @@ function publicKeyToAddress(publicKey) {
 async function recoverPublicKey({ hash: hash$3, signature }) {
 	const hashHex = isHex(hash$3) ? hash$3 : toHex$2(hash$3);
 	const { secp256k1: secp256k1$1 } = await __vitePreload(async () => {
-		const { secp256k1: secp256k1$2 } = await import("./secp256k1-DmjEbRS4.js");
+		const { secp256k1: secp256k1$2 } = await import("./secp256k1-VSC_tzKM.js");
 		return { secp256k1: secp256k1$2 };
 	}, __vite__mapDeps([0,1]));
 	return `0x${(() => {
@@ -23304,7 +23304,7 @@ function safe(parameters = {}) {
 			if (!provider_) {
 				const { default: SDK } = await (() => {
 					try {
-						return __vitePreload(() => import("./esm-CJ0NzgSp.js"), __vite__mapDeps([2,3]));
+						return __vitePreload(() => import("./esm-Dhdt77Eq.js"), __vite__mapDeps([2,3]));
 					} catch {
 						throw new Error("dependency \"@safe-global/safe-apps-sdk\" not found");
 					}
@@ -23315,7 +23315,7 @@ function safe(parameters = {}) {
 				provider_ = new (await ((async () => {
 					const Provider$1 = await (() => {
 						try {
-							return __vitePreload(() => import("./dist-osXjfmNI.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
+							return __vitePreload(() => import("./dist-BJ6FNLEq.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
 						} catch {
 							throw new Error("dependency \"@safe-global/safe-apps-provider\" not found");
 						}
@@ -23480,7 +23480,7 @@ function walletConnect(parameters) {
 				if (!optionalChains.length) return;
 				const { EthereumProvider: EthereumProvider$1 } = await (() => {
 					try {
-						return __vitePreload(() => import("./dist-B7tr6liy.js"), __vite__mapDeps([5,6,1]));
+						return __vitePreload(() => import("./dist-BRaZbmDb.js"), __vite__mapDeps([5,6,1]));
 					} catch {
 						throw new Error("dependency \"@walletconnect/ethereum-provider\" not found");
 					}
@@ -53991,7 +53991,7 @@ const ErrorMsg = {
 	DEFAULT: "An error occurred",
 	EXPANDED: "An error occurred. Check the console for details",
 	NO_WALLET: "No wallet connected",
-	LOW_LTV: "LtV is too low"
+	LOW_LTV: "Health Ratio is too low"
 };
 const ButtonLabels = {
 	LOADING: "Please wait...",
@@ -72868,7 +72868,7 @@ var ModularSwapRouter_default = {
 	]
 };
 var OneClickNoRekt_default = {
-	address: "0x662B6ea40b2aE771469Cb0718D0b6074A00a7d43",
+	address: "0x63092db9520f1fB7b6DFBac3dd37FfD62d020fba",
 	abi: [
 		{
 			"inputs": [
@@ -84474,14 +84474,14 @@ var AlchemyConfig = class {
 	}
 	getProvider() {
 		if (!this._baseAlchemyProvider) this._baseAlchemyProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-Dw0VY0--.js"), __vite__mapDeps([7,8]));
+			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-BngfgG9a.js"), __vite__mapDeps([7,8]));
 			return new AlchemyProvider$1(this);
 		}))();
 		return this._baseAlchemyProvider;
 	}
 	getWebSocketProvider() {
 		if (!this._baseAlchemyWssProvider) this._baseAlchemyWssProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-DscTufwi.js"), __vite__mapDeps([9,8]));
+			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-CbAS3WiW.js"), __vite__mapDeps([9,8]));
 			return new AlchemyWebSocketProvider(this);
 		}))();
 		return this._baseAlchemyWssProvider;
@@ -87893,15 +87893,12 @@ async function queryBalance$3(accountId, contracts$1) {
 }
 async function queryLtv$1(accountId, contracts$1) {
 	const { MarginTrading } = contracts$1.view;
-	const _ratio = bringToDefaultDec(await MarginTrading.getMarginAccountRatio.staticCall(accountId), 5);
-	return divBigInts(bigIntFromString(1), _ratio);
+	return bringToDefaultDec(await MarginTrading.getMarginAccountRatio.staticCall(accountId), 5);
 }
 async function queryLtvCoeffs$1(contracts$1) {
 	const { MarginTrading } = contracts$1.view;
 	const { OneClickProxy } = contracts$1.view;
-	const [redCoeff, yellowCoeff] = (await Promise.all([MarginTrading.redCoeff(), OneClickProxy.yellowCoeff()]).then((coeffs) => coeffs.map((coeff) => bringToDefaultDec(coeff, 5)))).map((_coef) => {
-		return divBigInts(bigIntFromString(1), _coef);
-	});
+	const [redCoeff, yellowCoeff] = await Promise.all([MarginTrading.redCoeff(), OneClickProxy.yellowCoeff()]).then((coeffs) => coeffs.map((coeff) => bringToDefaultDec(coeff, 5)));
 	return {
 		red: redCoeff,
 		yellow: yellowCoeff
@@ -91394,17 +91391,17 @@ var Ltv = {
 };
 async function queryLtvAfterSupply(account, contracts$1, depositAmount) {
 	const depositAmountUSDC = await swapEthToUsdc(contracts$1, depositAmount);
-	return _calcLtv(account.debt, account.value + depositAmountUSDC);
+	return _calcLtv(account.value + depositAmountUSDC, account.debt);
 }
 async function queryLtvAfterWithdraw(account, contracts$1, withdrawAmount) {
 	const withdrawAmountUSDC = await swapEthToUsdc(contracts$1, withdrawAmount);
-	return _calcLtv(account.debt, account.value - withdrawAmountUSDC);
+	return _calcLtv(account.value - withdrawAmountUSDC, account.debt);
 }
 function calcLtvAfterBorrow(account, borrowAmount) {
-	return _calcLtv(account.debt + borrowAmount, account.value);
+	return _calcLtv(account.value, account.debt + borrowAmount);
 }
 function calcLtvAfterRepay(account, repayAmount) {
-	return _calcLtv(account.debt - repayAmount, account.value - repayAmount);
+	return _calcLtv(account.value - repayAmount, account.debt - repayAmount);
 }
 async function queryLtvAfterProtect(account, cost, paymentMethod) {
 	let estAccountValue;
@@ -91422,14 +91419,14 @@ function getZone(account, ltv) {
 	const { red, yellow } = account.ltvCoeffs;
 	const { RED: RED$1, YELLOW, GREEN: GREEN$1 } = Ltv.Zones;
 	let zone;
-	if (ltv >= red) zone = RED$1;
-	else if (ltv >= yellow) zone = YELLOW;
+	if (ltv < red) zone = RED$1;
+	else if (ltv < yellow) zone = YELLOW;
 	else zone = GREEN$1;
 	return zone;
 }
-var _calcLtv = (debt, accountValue) => {
-	if (accountValue <= 0n) return MaxUint256;
-	return divBigInts(debt, accountValue);
+var _calcLtv = (accountValue, debt) => {
+	if (debt <= 0n) return MaxUint256;
+	return divBigInts(accountValue, debt);
 };
 var Ltv_default = Ltv;
 var EternitySvg = () => {
@@ -91722,7 +91719,7 @@ var SupplyModal = ({ isOpen, setIsOpen }) => {
 					className: "Metrics__row",
 					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 						className: "Metrics__row-title",
-						children: "LtV"
+						children: "Health Ratio"
 					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 						className: "Metrics__row-value",
 						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LtvChange_default, { estLtv })
@@ -91775,7 +91772,8 @@ var WithdrawModal = ({ isOpen, setIsOpen }) => {
 		if (!withdrawAmount) return "Enter Amount";
 		const { isLoading } = getIsLoadingAndErrorForMultiple(estLtv, account);
 		if (isLoading) return ButtonLabels.LOADING;
-		if (Ltv_default.getZone(account, estLtv) !== Ltv_default.Zones.GREEN) return ErrorMsg.LOW_LTV;
+		const estLtvZone = Ltv_default.getZone(account, estLtv);
+		if (estLtvZone === Ltv_default.Zones.RED || estLtvZone === Ltv_default.Zones.YELLOW) return ErrorMsg.LOW_LTV;
 		if (isSubmitting) return ButtonLabels.SUBMITTING;
 	};
 	const getBtnText = () => {
@@ -91848,7 +91846,7 @@ var WithdrawModal = ({ isOpen, setIsOpen }) => {
 					className: "Metrics__row",
 					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 						className: "Metrics__row-title",
-						children: "LtV"
+						children: "Health Ratio"
 					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 						className: "Metrics__row-value",
 						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LtvChange_default, { estLtv })
@@ -94126,7 +94124,7 @@ var ModalMetrics$1 = ({ repayAmount, paymentMethod }) => {
 			className: "Metrics__row",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 				className: "Metrics__row-title",
-				children: "LtV Change"
+				children: "Health Ratio"
 			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 				className: "Metrics__row-value",
 				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LtvChange_default, { estLtv })
@@ -124638,7 +124636,7 @@ var ModalMetrics = ({ cost, paymentMethod, estCollateral, setEstCollateral, estO
 			className: "Metrics__row",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 				className: "Metrics__row-title",
-				children: "LtV Change"
+				children: "Health Ratio"
 			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 				className: "Metrics__row-value",
 				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LtvChange_default, { estLtv })
@@ -129774,7 +129772,7 @@ var LtvLevel = () => {
 		children: [
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 				className: "ProtectionPanel__metric-title",
-				children: "Current LtV"
+				children: "Health Ratio"
 			}),
 			isLoading && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SpinnerBig_default, {}),
 			hasError && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, { children: ErrorMsg.DEFAULT }),
@@ -129783,7 +129781,7 @@ var LtvLevel = () => {
 	});
 };
 var Indicator = ({ account }) => {
-	const { debt, ltv } = account;
+	const { debt, ltv, ltvCoeffs } = account;
 	const ltvZone = Ltv_default.getZone(account, ltv);
 	const { RED: RED$1, YELLOW, GREEN: GREEN$1 } = Ltv_default.Zones;
 	const getPointerPosition = () => {
@@ -129800,10 +129798,19 @@ var Indicator = ({ account }) => {
 				left: "36px",
 				top: 0
 			};
-			case GREEN$1: return {
-				top: "18px",
-				right: "12px"
-			};
+			case GREEN$1:
+				if (ltv > ltvCoeffs.yellow + bigIntFromString(.9)) return {
+					right: "-6px",
+					bottom: 0
+				};
+				if (ltv <= ltvCoeffs.yellow + bigIntFromString(.05)) return {
+					top: "-3px",
+					right: "47px"
+				};
+				return {
+					top: "18px",
+					right: "12px"
+				};
 		}
 	};
 	const getIndicatorText = () => {
@@ -129820,7 +129827,7 @@ var Indicator = ({ account }) => {
 			className: "LtvLevel__indicator-scale",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
 				src: debt ? indicator_default : indicator_empty_default,
-				alt: "Ltv indicator scale"
+				alt: "Health Ratio indicator scale"
 			}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 				className: "LtvLevel__indicator-pointer",
 				style: getPointerPosition()
