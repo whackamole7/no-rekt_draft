@@ -857,10 +857,12 @@
 }.ValueChange {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-end;
   align-items: center;
   column-gap: 8px;
   row-gap: 5px;
+}
+.ValueChange__est .TokenAmount__usd {
+  font-size: 13px;
 }
 .ValueChange._active .ValueChange__cur {
   text-decoration: line-through;
