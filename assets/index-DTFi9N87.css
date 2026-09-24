@@ -215,6 +215,19 @@
   .negative {
     color: #D8563C;
   }
+  .exp-date {
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+  }
+  .exp-date span {
+    display: block;
+    font-size: 12px;
+    color: #9A94B8;
+    background-color: rgba(172, 169, 187, 0.08);
+    border-radius: 5px;
+    padding: 0 6px;
+  }
   .anim_fancy {
     position: relative;
   }
@@ -932,8 +945,21 @@
 }
 .Metrics._boxed .Metrics__row:last-child {
   padding-bottom: 14px;
-}.BorrowModal__terms-notification {
+}.BorrowModal .AddProtectionToggle {
+  margin-bottom: 20px;
+}
+.BorrowModal__terms-notification {
   margin: 20px 0;
+}
+.BorrowModal__terms-list {
+  background-color: #130B3A;
+  border: 1px solid rgba(172, 169, 187, 0.08);
+  border-radius: 10px;
+  padding: 12px 15px 15px;
+  margin: 20px 0;
+}
+.BorrowModal__terms-list-title {
+  margin-bottom: 15px;
 }.Notification {
   display: flex;
   column-gap: 10px;
@@ -996,25 +1022,353 @@
 }
 .Checkbox input:disabled + label {
   color: #9A94B8;
-}.RepayModal__input .Field__title {
+}.Toggle {
+  display: inline-flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  column-gap: 20px;
+  cursor: pointer;
+}
+.Toggle__label {
+  color: #9A94B8;
+  transition: color 0.2s ease;
+}
+.Toggle .react-toggle-thumb {
+  top: 2px;
+  left: 2px;
+  width: 24px;
+  height: 24px;
+  background-color: #09AF8E;
+  box-shadow: none !important;
+  border: none !important;
+  opacity: 0.3;
+}
+.Toggle .react-toggle-track {
+  width: 50px;
+  height: 28px;
+  background-color: rgba(172, 169, 187, 0.08) !important;
+  border: 1px solid transparent;
+}
+.Toggle .react-toggle--checked .react-toggle-thumb {
+  left: 24px;
+  opacity: 1;
+}
+.Toggle .react-toggle--checked .react-toggle-track {
+  background-color: #112540 !important;
+}
+.Toggle .react-toggle--checked + .Toggle__label {
+  color: #ffffff;
+}
+@media (hover: hover) and (pointer: fine) {
+  .Toggle:hover .react-toggle:not(.react-toggle--checked) .react-toggle-track, .Toggle:focus-visible .react-toggle:not(.react-toggle--checked) .react-toggle-track {
+    background-color: rgba(213.2305194805, 211.7207792208, 220.7792207792, 0.08) !important;
+  }
+}.react-toggle {
+  touch-action: pan-x;
+
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.react-toggle-screenreader-only {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.react-toggle--disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  -webkit-transition: opacity 0.25s;
+  transition: opacity 0.25s;
+}
+
+.react-toggle-track {
+  width: 50px;
+  height: 24px;
+  padding: 0;
+  border-radius: 30px;
+  background-color: #4D4D4D;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.react-toggle:hover:not(.react-toggle--disabled) .react-toggle-track {
+  background-color: #000000;
+}
+
+.react-toggle--checked .react-toggle-track {
+  background-color: #19AB27;
+}
+
+.react-toggle--checked:hover:not(.react-toggle--disabled) .react-toggle-track {
+  background-color: #128D15;
+}
+
+.react-toggle-track-check {
+  position: absolute;
+  width: 14px;
+  height: 10px;
+  top: 0px;
+  bottom: 0px;
+  margin-top: auto;
+  margin-bottom: auto;
+  line-height: 0;
+  left: 8px;
+  opacity: 0;
+  -webkit-transition: opacity 0.25s ease;
+  -moz-transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease;
+}
+
+.react-toggle--checked .react-toggle-track-check {
+  opacity: 1;
+  -webkit-transition: opacity 0.25s ease;
+  -moz-transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease;
+}
+
+.react-toggle-track-x {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: 0px;
+  bottom: 0px;
+  margin-top: auto;
+  margin-bottom: auto;
+  line-height: 0;
+  right: 10px;
+  opacity: 1;
+  -webkit-transition: opacity 0.25s ease;
+  -moz-transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease;
+}
+
+.react-toggle--checked .react-toggle-track-x {
+  opacity: 0;
+}
+
+.react-toggle-thumb {
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  width: 22px;
+  height: 22px;
+  border: 1px solid #4D4D4D;
+  border-radius: 50%;
+  background-color: #FAFAFA;
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+
+  -webkit-transition: all 0.25s ease;
+  -moz-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+
+.react-toggle--checked .react-toggle-thumb {
+  left: 27px;
+  border-color: #19AB27;
+}
+
+.react-toggle--focus .react-toggle-thumb {
+  -webkit-box-shadow: 0px 0px 3px 2px #0099E0;
+  -moz-box-shadow: 0px 0px 3px 2px #0099E0;
+  box-shadow: 0px 0px 2px 3px #0099E0;
+}
+
+.react-toggle:active:not(.react-toggle--disabled) .react-toggle-thumb {
+  -webkit-box-shadow: 0px 0px 5px 5px #0099E0;
+  -moz-box-shadow: 0px 0px 5px 5px #0099E0;
+  box-shadow: 0px 0px 5px 5px #0099E0;
+}
+.AddProtectionToggle {
+  background-color: #130B3A;
+  border: 1px solid rgba(172, 169, 187, 0.08);
+  border-radius: 10px;
+  padding: 0;
+  transition: background-color 0.2s ease;
+}
+.AddProtectionToggle .Toggle {
+  width: 100%;
+  justify-content: space-between;
+  padding: 20px 15px;
+}
+.AddProtectionToggle .Toggle .react-toggle-thumb::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+  flex-shrink: 0;
+  width: 12px;
+  height: 14px;
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2214%22%20viewBox%3D%220%200%2012%2014%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M6%2014C5.9125%2014%205.83125%2013.9941%205.75625%2013.9823C5.68125%2013.9705%205.60625%2013.9527%205.53125%2013.9291C3.84375%2013.3975%202.5%2012.414%201.5%2010.9788C0.5%209.54363%200%207.99879%200%206.3443V2.99494C0%202.69958%200.0907499%202.43376%200.27225%202.19747C0.45375%201.96118%200.688%201.78987%200.975%201.68354L5.475%200.0886076C5.65%200.0295359%205.825%200%206%200C6.175%200%206.35%200.0295359%206.525%200.0886076L11.025%201.68354C11.3125%201.78987%2011.547%201.96118%2011.7285%202.19747C11.91%202.43376%2012.0005%202.69958%2012%202.99494V6.3443C12%207.99831%2011.5%209.54316%2010.5%2010.9788C9.5%2012.4145%208.15625%2013.3979%206.46875%2013.9291C6.39375%2013.9527%206.31875%2013.9705%206.24375%2013.9823C6.16875%2013.9941%206.0875%2014%206%2014Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+}
+.AddProtection {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+.AddProtection__type .Radio {
+  white-space: nowrap;
+}
+.AddProtection__type .Radio input:disabled + label {
+  position: relative;
+  overflow: hidden;
+  pointer-events: none;
+}
+.AddProtection__type .Radio input:disabled + label::before, .AddProtection__type .Radio input:disabled + label::after {
+  cursor: not-allowed;
+}
+.AddProtection__type .Radio input:disabled + label::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: block;
+  background: linear-gradient(97deg, rgba(255, 255, 255, 0.1) 4.64%, rgba(255, 255, 255, 0.05) 97.35%);
+  backdrop-filter: blur(2px);
+}
+.AddProtection__type .Radio input:disabled + label::after {
+  content: "Soon 🔥";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  color: #ffffff;
+  background-color: rgba(172, 169, 187, 0.08);
+  border-radius: 5px;
+  padding: 6px;
+}
+.AddProtection__type .Tip__button {
+  z-index: 2;
+  cursor: pointer;
+}
+.AddProtection__option-inputs .Field {
+  min-width: 125px;
+}
+.AddProtection__liq-price {
+  margin-bottom: 25px;
+}
+.AddProtection__liq-price-title {
+  margin-bottom: 0;
+}
+.AddProtection__liq-price-slider {
+  display: flex;
+  align-items: flex-end;
+  column-gap: 10px;
+}
+.AddProtection__liq-price-slider .Slider {
+  flex-grow: 1;
+  margin-bottom: 3px;
+}
+.AddProtection__liq-price-slider .Input {
+  width: 70px;
+}
+.AddProtection__liq-price-slider .Input input {
+  text-align: right;
+  padding: 10px;
+}
+.AddProtection__period-head, .AddProtection__period-exp {
   display: flex;
   align-items: center;
   justify-content: space-between;
   column-gap: 20px;
+  color: #9A94B8;
 }
-.RepayModal__input-value {
-  display: flex;
-  align-items: center;
+.AddProtection__period-head {
+  margin-bottom: 8px;
+}
+.AddProtection__period-exp {
+  font-size: 12px;
+  margin-top: 6px;
+}
+.AddProtection__period._active ._result {
   color: #ffffff;
 }
-.RepayModal__input-value span {
-  white-space: pre;
+.AddProtection .Notification {
+  background-color: #17144E;
 }
-.RepayModal__input .Checkbox {
-  margin-top: 10px;
+.AddProtection .TxModal__button {
+  margin-top: 5px;
 }
-.RepayModal .PaymentMethod {
-  margin-bottom: 20px;
+@media (max-width: 500px) {
+  .AddProtection {
+    row-gap: 15px;
+  }
+  .AddProtection__option-inputs {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+  }
+}
+@media (max-width: 380px) {
+  .AddProtection__liq-price {
+    margin-bottom: 0;
+  }
+  .AddProtection__liq-price-title {
+    margin-bottom: 8px;
+  }
+  .AddProtection__liq-price-slider {
+    flex-direction: column;
+    row-gap: 15px;
+  }
+  .AddProtection__liq-price-slider .Slider, .AddProtection__liq-price-slider .Input {
+    width: 100%;
+  }
+}.Tip {
+  display: flex;
+  align-items: center;
+  column-gap: 4px;
+}
+.Tip__button {
+  cursor: default;
+}.Slippage {
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+}
+.Slippage__input {
+  display: flex;
+  align-items: center;
+}
+.Slippage__input input {
+  width: 100%;
+  max-width: 50px;
+  min-width: 25px;
+  font-family: "Unageo", sans-serif;
+  font-size: 15px;
+  text-align: right;
+}
+.Slippage__input::after {
+  content: "%";
+  display: block;
 }.Slider__percents {
   position: relative;
   font-size: 12px;
@@ -1342,33 +1696,31 @@
   margin-left: -4px;
   border-width: 4px 4px 0;
   border-top-color: #6c6c6c;
+}.RepayModal__input .Field__title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 20px;
+}
+.RepayModal__input-value {
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+}
+.RepayModal__input-value span {
+  white-space: pre;
+}
+.RepayModal__input .Checkbox {
+  margin-top: 10px;
+}
+.RepayModal .PaymentMethod {
+  margin-bottom: 20px;
 }.InputMultiplied .Input {
   margin-bottom: 6px;
-}.Slippage {
-  display: flex;
-  align-items: center;
-  column-gap: 5px;
-}
-.Slippage__input {
-  display: flex;
-  align-items: center;
-}
-.Slippage__input input {
-  width: 100%;
-  max-width: 50px;
-  min-width: 25px;
-  font-family: "Unageo", sans-serif;
-  font-size: 15px;
-  text-align: right;
-}
-.Slippage__input::after {
-  content: "%";
-  display: block;
-}
-.ProtectionModal {
+}.BuyProtectionModal {
   width: auto;
 }
-.ProtectionModal__buy {
+.BuyProtectionModal__buy {
   width: 890px;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1376,44 +1728,28 @@
   column-gap: 30px;
   row-gap: 20px;
 }
-.ProtectionModal__buy h2 {
+.BuyProtectionModal__buy h2 {
   grid-column: 1/3;
   grid-row: 1/2;
   margin-bottom: 0;
 }
-.ProtectionModal__buy .TxModal__button {
-  margin-top: 5px;
-}
-.ProtectionModal__review, .ProtectionModal .TxModal__tx-result {
+.BuyProtectionModal__review, .BuyProtectionModal .TxModal__tx-result {
   max-width: 400px;
 }
-.ProtectionModal__review .Metrics {
+.BuyProtectionModal__review .Metrics {
   margin-bottom: 20px;
 }
-.ProtectionModal__review .Metrics ._exp-date {
-  display: flex;
-  align-items: center;
-  column-gap: 5px;
-}
-.ProtectionModal__review .Metrics ._exp-date span {
-  display: block;
-  font-size: 12px;
-  color: #9A94B8;
-  background-color: rgba(172, 169, 187, 0.08);
-  border-radius: 5px;
-  padding: 0 6px;
-}
-.ProtectionModal__review-terms {
+.BuyProtectionModal__review-terms {
   background-color: #130B3A;
   border: 1px solid rgba(172, 169, 187, 0.08);
   border-radius: 10px;
   padding: 12px 15px;
   margin-bottom: 20px;
 }
-.ProtectionModal__review-terms-title {
+.BuyProtectionModal__review-terms-title {
   margin-bottom: 15px;
 }
-.ProtectionModal__chart {
+.BuyProtectionModal__chart {
   height: 350px;
   grid-column: 1/2;
   grid-row: 2/3;
@@ -1423,219 +1759,43 @@
   padding: 0;
   overflow: hidden;
 }
-.ProtectionModal__chart .LiqPriceChart, .ProtectionModal__chart .AssetPriceChart {
+.BuyProtectionModal__chart .LiqPriceChart, .BuyProtectionModal__chart .AssetPriceChart {
   height: 100%;
   background-color: transparent;
   border: none;
   border-radius: 0;
   padding: 0;
 }
-.ProtectionModal__body {
+.BuyProtectionModal .AddProtection {
   grid-column: 2/3;
   grid-row: 2/3;
-  display: flex;
-  flex-direction: column;
-  row-gap: 20px;
-}
-.ProtectionModal__type .Radio {
-  white-space: nowrap;
-}
-.ProtectionModal__type .Radio input:disabled + label {
-  position: relative;
-  overflow: hidden;
-  pointer-events: none;
-}
-.ProtectionModal__type .Radio input:disabled + label::before, .ProtectionModal__type .Radio input:disabled + label::after {
-  cursor: not-allowed;
-}
-.ProtectionModal__type .Radio input:disabled + label::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  display: block;
-  background: linear-gradient(97deg, rgba(255, 255, 255, 0.1) 4.64%, rgba(255, 255, 255, 0.05) 97.35%);
-  backdrop-filter: blur(2px);
-}
-.ProtectionModal__type .Radio input:disabled + label::after {
-  content: "Soon 🔥";
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  color: #ffffff;
-  background-color: rgba(172, 169, 187, 0.08);
-  border-radius: 5px;
-  padding: 6px;
-}
-.ProtectionModal__type .Tip__button {
-  z-index: 2;
-  cursor: pointer;
-}
-.ProtectionModal__option-inputs .Field {
-  min-width: 125px;
-}
-.ProtectionModal__liq-price {
-  margin-bottom: 25px;
-}
-.ProtectionModal__liq-price-title {
-  margin-bottom: 0;
-}
-.ProtectionModal__liq-price-slider {
-  display: flex;
-  align-items: flex-end;
-  column-gap: 10px;
-}
-.ProtectionModal__liq-price-slider .Slider {
-  flex-grow: 1;
-  margin-bottom: 3px;
-}
-.ProtectionModal__liq-price-slider .Input {
-  width: 70px;
-}
-.ProtectionModal__liq-price-slider .Input input {
-  text-align: right;
-  padding: 10px;
-}
-.ProtectionModal__period-head, .ProtectionModal__period-exp {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  column-gap: 20px;
-  color: #9A94B8;
-}
-.ProtectionModal__period-head {
-  margin-bottom: 8px;
-}
-.ProtectionModal__period-exp {
-  font-size: 12px;
-  margin-top: 6px;
-}
-.ProtectionModal__period._active ._result {
-  color: #ffffff;
-}
-.ProtectionModal .Notification {
-  background-color: #17144E;
 }
 @media (max-width: 1200px) {
-  .ProtectionModal {
+  .BuyProtectionModal {
     width: 460px;
   }
-  .ProtectionModal__buy {
+  .BuyProtectionModal__buy {
     width: auto;
     display: flex;
     flex-direction: column;
   }
-  .ProtectionModal__review {
+  .BuyProtectionModal__review {
     max-width: none;
   }
 }
 @media (max-width: 500px) {
-  .ProtectionModal {
+  .BuyProtectionModal {
     width: 100%;
   }
-  .ProtectionModal__buy {
+  .BuyProtectionModal__buy {
     row-gap: 15px;
   }
-  .ProtectionModal__chart {
+  .BuyProtectionModal__chart {
     height: 285px;
     margin-bottom: 5px;
   }
-  .ProtectionModal__chart .LiqPriceChart {
+  .BuyProtectionModal__chart .LiqPriceChart {
     display: block;
-  }
-  .ProtectionModal__body {
-    row-gap: 15px;
-  }
-  .ProtectionModal__option-inputs {
-    display: flex;
-    flex-direction: column;
-    row-gap: 15px;
-  }
-}
-@media (max-width: 380px) {
-  .ProtectionModal__liq-price {
-    margin-bottom: 0;
-  }
-  .ProtectionModal__liq-price-title {
-    margin-bottom: 8px;
-  }
-  .ProtectionModal__liq-price-slider {
-    flex-direction: column;
-    row-gap: 15px;
-  }
-  .ProtectionModal__liq-price-slider .Slider, .ProtectionModal__liq-price-slider .Input {
-    width: 100%;
-  }
-}.LiqPriceChart {
-  position: relative;
-  height: 435px;
-  grid-column: 1/13;
-  color: #9A94B8;
-  background-color: #1D1446;
-  overflow: hidden;
-  padding: 0;
-}
-.LiqPriceChart .SpinnerBig {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  margin: 0;
-}
-.LiqPriceChart__point._current {
-  width: 15px;
-  height: 15px;
-}
-.LiqPriceChart__tooltip {
-  width: max-content;
-  color: #ffffff;
-  background-color: #130B3A;
-  border-radius: 8px;
-  padding: 7px 10px;
-}
-.LiqPriceChart__tooltip-line {
-  display: flex;
-  align-items: center;
-  column-gap: 5px;
-}
-.LiqPriceChart__tooltip-line span:first-child {
-  color: #9A94B8;
-}
-@media (max-width: 480px) {
-  .LiqPriceChart {
-    display: none;
-  }
-}.Tip {
-  display: flex;
-  align-items: center;
-  column-gap: 4px;
-}
-.Tip__button {
-  cursor: default;
-}div.react-tooltip {
-  z-index: 800;
-  max-width: 330px;
-  font-size: 15px;
-  line-height: 120%;
-  background-color: #1D1446;
-  border-radius: 10px;
-  white-space: wrap;
-  padding: 9px 12px;
-}
-div.react-tooltip__show {
-  opacity: 1;
-}
-div.react-tooltip-content-wrapper {
-  padding: 0;
-}
-div.react-tooltip-arrow {
-  display: none;
-}
-@media (max-width: 330px) {
-  div.react-tooltip {
-    max-width: 320px;
   }
 }.AssetPriceChart {
   height: 435px;
@@ -2569,6 +2729,9 @@ div.react-tooltip-arrow {
 .Header._mobile {
   column-gap: 15px;
 }
+.Header._mobile .Tooltip {
+  background-color: #130B3A;
+}
 .Header._mobile .Header__burger {
   height: 40px;
   z-index: 101;
@@ -2689,11 +2852,6 @@ div.react-tooltip-arrow {
   }
 }
 @media (max-width: 1100px) {
-  .Header._desktop .Header__nav {
-    column-gap: 20px;
-  }
-}
-@media (max-width: 992px) {
   .Header {
     border-radius: 15px;
     padding: 15px;
@@ -2742,6 +2900,29 @@ div.react-tooltip-arrow {
 @media (max-width: 480px) {
   .Logo {
     font-size: 18px;
+  }
+}div.react-tooltip {
+  z-index: 800;
+  max-width: 330px;
+  font-size: 15px;
+  line-height: 120%;
+  background-color: #1D1446;
+  border-radius: 10px;
+  white-space: wrap;
+  padding: 9px 12px;
+}
+div.react-tooltip__show {
+  opacity: 1;
+}
+div.react-tooltip-content-wrapper {
+  padding: 0;
+}
+div.react-tooltip-arrow {
+  display: none;
+}
+@media (max-width: 330px) {
+  div.react-tooltip {
+    max-width: 320px;
   }
 }.Footer {
   display: flex;
@@ -3851,4 +4032,76 @@ div.react-tooltip-arrow {
   }
 }.NotificationIcon svg {
   display: block;
+}.Banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 30px;
+  background-color: #5069DD;
+  border-radius: 10px;
+  padding: 8px;
+  margin-bottom: 20px;
+}
+.Banner__labels {
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+  cursor: default;
+}
+.Banner__label {
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+  opacity: 0.8;
+}
+.Banner__label::after {
+  content: "";
+  display: block;
+  width: 4px;
+  height: 4px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  opacity: 0.5;
+}
+.Banner__label:last-child::after {
+  display: none;
+}
+.Banner__label ._mobile {
+  display: none;
+}
+.Banner__link {
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+}
+.Banner__link span {
+  transition: opacity 0.2s ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .Banner__link:hover span, .Banner__link:focus-visible span {
+    opacity: 0.7;
+  }
+}
+@media (max-width: 768px) {
+  .Banner {
+    flex-wrap: wrap;
+    row-gap: 15px;
+  }
+  .Banner__labels {
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: 6px;
+  }
+  .Banner__label {
+    display: block;
+  }
+  .Banner__label::after {
+    display: none;
+  }
+  .Banner__label ._mobile {
+    display: inline;
+  }
+  .Banner__link {
+    margin-left: auto;
+  }
 }
