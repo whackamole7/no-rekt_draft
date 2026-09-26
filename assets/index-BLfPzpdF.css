@@ -1204,16 +1204,12 @@
   -moz-box-shadow: 0px 0px 5px 5px #0099E0;
   box-shadow: 0px 0px 5px 5px #0099E0;
 }
-.AddProtectionToggle {
-  background-color: #130B3A;
-  border: 1px solid rgba(172, 169, 187, 0.08);
-  border-radius: 10px;
-  padding: 0;
-  transition: background-color 0.2s ease;
-}
 .AddProtectionToggle .Toggle {
   width: 100%;
   justify-content: space-between;
+  background-color: #130B3A;
+  border: 1px solid rgba(172, 169, 187, 0.08);
+  border-radius: 10px;
   padding: 20px 15px;
 }
 .AddProtectionToggle .Toggle .react-toggle-thumb::before {
@@ -1228,6 +1224,67 @@
   height: 14px;
   background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2214%22%20viewBox%3D%220%200%2012%2014%22%20fill%3D%22none%22%3E%0A%20%20%3Cpath%20d%3D%22M6%2014C5.9125%2014%205.83125%2013.9941%205.75625%2013.9823C5.68125%2013.9705%205.60625%2013.9527%205.53125%2013.9291C3.84375%2013.3975%202.5%2012.414%201.5%2010.9788C0.5%209.54363%200%207.99879%200%206.3443V2.99494C0%202.69958%200.0907499%202.43376%200.27225%202.19747C0.45375%201.96118%200.688%201.78987%200.975%201.68354L5.475%200.0886076C5.65%200.0295359%205.825%200%206%200C6.175%200%206.35%200.0295359%206.525%200.0886076L11.025%201.68354C11.3125%201.78987%2011.547%201.96118%2011.7285%202.19747C11.91%202.43376%2012.0005%202.69958%2012%202.99494V6.3443C12%207.99831%2011.5%209.54316%2010.5%2010.9788C9.5%2012.4145%208.15625%2013.3979%206.46875%2013.9291C6.39375%2013.9527%206.31875%2013.9705%206.24375%2013.9823C6.16875%2013.9941%206.0875%2014%206%2014Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
   background-repeat: no-repeat;
+}
+.AddProtectionToggle__protections {
+  padding: 15px;
+}
+.AddProtectionToggle__protections-title {
+  color: #9A94B8;
+}
+.AddProtectionToggle__protections-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  column-gap: 20px;
+  row-gap: 5px;
+}
+.AddProtectionToggle__protections-item::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: rgba(172, 169, 187, 0.08);
+  margin: 10px 0 5px;
+}
+.AddProtectionToggle__protections-item > div:first-child {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: 8px;
+  row-gap: 5px;
+}
+.AddProtectionToggle._has-protections {
+  background-color: #130B3A;
+  border: 1px solid rgba(172, 169, 187, 0.08);
+  border-radius: 10px;
+  padding: 0;
+}
+.AddProtectionToggle._has-protections .Toggle {
+  width: calc(100% + 2px);
+  background-color: #1D1446;
+  padding: 10px 12px;
+  margin-left: -1px;
+  margin-bottom: -1px;
+}.OptionTimer {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  font-size: 12px;
+  color: #9A94B8;
+}
+.OptionTimer__value {
+  display: flex;
+  align-items: center;
+  column-gap: 4px;
+}
+.OptionTimer__value span {
+  display: block;
+  background-color: rgba(172, 169, 187, 0.08);
+  border: 1px solid rgba(172, 169, 187, 0.08);
+  border-radius: 4px;
+  padding: 3px 5px;
+  color: #ffffff;
 }
 .AddProtection {
   display: flex;
@@ -2397,26 +2454,8 @@
 .Protections table .Button {
   margin-left: auto;
 }
-.Protections__period-timer {
-  display: flex;
-  align-items: center;
-  column-gap: 10px;
-  font-size: 12px;
-  color: #9A94B8;
+.Protections__period .OptionTimer {
   margin-top: 4px;
-}
-.Protections__period-timer-value {
-  display: flex;
-  align-items: center;
-  column-gap: 4px;
-}
-.Protections__period-timer-value span {
-  display: block;
-  background-color: rgba(172, 169, 187, 0.08);
-  border: 1px solid rgba(172, 169, 187, 0.08);
-  border-radius: 4px;
-  padding: 3px 5px;
-  color: #ffffff;
 }
 .Protections__items {
   display: flex;
