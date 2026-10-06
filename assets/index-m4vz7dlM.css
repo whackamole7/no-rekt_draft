@@ -2234,6 +2234,7 @@
 .LtvLevel__indicator {
   margin-bottom: -15px;
   margin-left: auto;
+  margin-top: auto;
 }
 .LtvLevel__indicator-scale {
   position: relative;
