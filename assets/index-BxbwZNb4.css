@@ -2492,6 +2492,7 @@
   flex-direction: column;
   align-items: center;
   font-size: 12px;
+  transform: translateX(-50%);
 }
 .LiqChance__percent-bar-value::after {
   content: "";
