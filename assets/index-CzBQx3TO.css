@@ -2230,8 +2230,6 @@
   flex-wrap: wrap;
   column-gap: 20px;
   row-gap: 20px;
-  min-height: 144px;
-  max-height: max-content;
 }
 .LtvLevel__indicator {
   margin-bottom: -15px;
