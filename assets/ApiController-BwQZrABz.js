@@ -1,6 +1,6 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/_esm-y4AIEiwr.js","assets/index-BjPBbkLs.js","assets/index-BxbwZNb4.css","assets/secp256k1-BbXJEhqk.js","assets/_esm-JwjyRS85.js","assets/ccip-yR1Q8Nc5.js"])))=>i.map(i=>d[i]);
-import { tt as __vitePreload } from "./index-BjPBbkLs.js";
-import { C as erc20Abi, gn as formatUnits } from "./ccip-yR1Q8Nc5.js";
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/_esm-B4yIct8q.js","assets/index-Bdv1kEce.js","assets/index-BxbwZNb4.css","assets/secp256k1-Cmjtdv0F.js","assets/_esm-WLNsQigw.js","assets/ccip-DgKydobM.js"])))=>i.map(i=>d[i]);
+import { tt as __vitePreload } from "./index-Bdv1kEce.js";
+import { C as erc20Abi, gn as formatUnits } from "./ccip-DgKydobM.js";
 const HelpersUtil = { isLowerCaseMatch(str1, str2) {
 	return str1?.toLowerCase() === str2?.toLowerCase();
 } };
@@ -5624,7 +5624,7 @@ var cachedViemUtils = void 0;
 async function loadViemUtils() {
 	if (!cachedViemUtils) {
 		const { createPublicClient, http, defineChain } = await __vitePreload(async () => {
-			const { createPublicClient: createPublicClient$1, http: http$1, defineChain: defineChain$1 } = await import("./_esm-y4AIEiwr.js");
+			const { createPublicClient: createPublicClient$1, http: http$1, defineChain: defineChain$1 } = await import("./_esm-B4yIct8q.js");
 			return {
 				createPublicClient: createPublicClient$1,
 				http: http$1,

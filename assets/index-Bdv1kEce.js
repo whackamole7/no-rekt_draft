@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-BUrePDGr.js","assets/secp256k1-BbXJEhqk.js","assets/esm-QyYzX0Sp.js","assets/dist-jfjOqYSz.js","assets/dist-CJ1hPf8n.js","assets/dist-B1w8toWd.js","assets/index.es-DUugeuc6.js","assets/alchemy-provider-2577f5a5-CG0IlN0b.js","assets/alchemy-provider-2577f5a5-CUGw3XOd.js","assets/alchemy-websocket-provider-ee041890-DMzDcRzk.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-CyDR0IoO.js","assets/secp256k1-Cmjtdv0F.js","assets/esm-C4oN30JD.js","assets/dist-BIdUxbL6.js","assets/dist-CZ-rwxHA.js","assets/dist-X3tXDKps.js","assets/index.es-DraTnyPp.js","assets/alchemy-provider-2577f5a5-DmN68YNw.js","assets/alchemy-provider-2577f5a5-BJcD-XJ7.js","assets/alchemy-websocket-provider-ee041890-BvUAxzdG.js"])))=>i.map(i=>d[i]);
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -16953,7 +16953,7 @@ async function call$1(client, args) {
 	} catch (err) {
 		const data$1 = getRevertErrorData(err);
 		const { offchainLookup, offchainLookupSignature } = await __vitePreload(async () => {
-			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-yebnYYHw.js");
+			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-CMhjhgS0.js");
 			return {
 				offchainLookup: offchainLookup$1,
 				offchainLookupSignature: offchainLookupSignature$1
@@ -17454,7 +17454,7 @@ function publicKeyToAddress(publicKey) {
 async function recoverPublicKey({ hash: hash$3, signature }) {
 	const hashHex = isHex(hash$3) ? hash$3 : toHex$2(hash$3);
 	const { secp256k1: secp256k1$1 } = await __vitePreload(async () => {
-		const { secp256k1: secp256k1$2 } = await import("./secp256k1-BUrePDGr.js");
+		const { secp256k1: secp256k1$2 } = await import("./secp256k1-CyDR0IoO.js");
 		return { secp256k1: secp256k1$2 };
 	}, __vite__mapDeps([0,1]));
 	return `0x${(() => {
@@ -23304,7 +23304,7 @@ function safe(parameters = {}) {
 			if (!provider_) {
 				const { default: SDK } = await (() => {
 					try {
-						return __vitePreload(() => import("./esm-QyYzX0Sp.js"), __vite__mapDeps([2,3]));
+						return __vitePreload(() => import("./esm-C4oN30JD.js"), __vite__mapDeps([2,3]));
 					} catch {
 						throw new Error("dependency \"@safe-global/safe-apps-sdk\" not found");
 					}
@@ -23315,7 +23315,7 @@ function safe(parameters = {}) {
 				provider_ = new (await ((async () => {
 					const Provider$1 = await (() => {
 						try {
-							return __vitePreload(() => import("./dist-CJ1hPf8n.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
+							return __vitePreload(() => import("./dist-CZ-rwxHA.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
 						} catch {
 							throw new Error("dependency \"@safe-global/safe-apps-provider\" not found");
 						}
@@ -23480,7 +23480,7 @@ function walletConnect(parameters) {
 				if (!optionalChains.length) return;
 				const { EthereumProvider: EthereumProvider$1 } = await (() => {
 					try {
-						return __vitePreload(() => import("./dist-B1w8toWd.js"), __vite__mapDeps([5,6,1]));
+						return __vitePreload(() => import("./dist-X3tXDKps.js"), __vite__mapDeps([5,6,1]));
 					} catch {
 						throw new Error("dependency \"@walletconnect/ethereum-provider\" not found");
 					}
@@ -84474,14 +84474,14 @@ var AlchemyConfig = class {
 	}
 	getProvider() {
 		if (!this._baseAlchemyProvider) this._baseAlchemyProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-CG0IlN0b.js"), __vite__mapDeps([7,8]));
+			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-DmN68YNw.js"), __vite__mapDeps([7,8]));
 			return new AlchemyProvider$1(this);
 		}))();
 		return this._baseAlchemyProvider;
 	}
 	getWebSocketProvider() {
 		if (!this._baseAlchemyWssProvider) this._baseAlchemyWssProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-DMzDcRzk.js"), __vite__mapDeps([9,8]));
+			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-BvUAxzdG.js"), __vite__mapDeps([9,8]));
 			return new AlchemyWebSocketProvider(this);
 		}))();
 		return this._baseAlchemyWssProvider;
@@ -110368,7 +110368,7 @@ var ClaimModal = ({ isOpen, setIsOpen, position: position$1, setPosition }) => {
 						className: "Metrics__row",
 						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 							className: "Metrics__row-title",
-							children: "LtV change"
+							children: "Health Ratio"
 						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 							className: "Metrics__row-value",
 							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LtvChange_default, { estLtv })
@@ -115481,15 +115481,15 @@ Object.freeze({
 	source: "Binance ETHUSDT daily candles",
 	sourceUrl: "https://data-api.binance.vision/api/v3/klines",
 	from: "2019-01-01",
-	to: "2026-07-13",
+	to: "2026-10-06",
 	method: "For each daily close, measure the largest decline to a daily low during the following horizon.",
-	candleCount: 2751,
-	sourceSha256: "14ace8375c6cb2e43f2156bb91269d70506af7dd6cccc189922e4c84c5044daa",
+	candleCount: 2836,
+	sourceSha256: "f916dfc2036fe6fc8cbfba9edb03291ad67220d27cb0b27dac67792748d49ad8",
 	sampleSizes: Object.freeze({
-		"30": 2721,
-		"60": 2691,
-		"90": 2661,
-		"180": 2571
+		"30": 2806,
+		"60": 2776,
+		"90": 2746,
+		"180": 2656
 	})
 });
 var drawdowns30dBps = Object.freeze([
@@ -118213,7 +118213,92 @@ var drawdowns30dBps = Object.freeze([
 	676n,
 	965n,
 	927n,
-	1006n
+	1006n,
+	1238n,
+	1582n,
+	1567n,
+	1363n,
+	1164n,
+	1164n,
+	1316n,
+	1142n,
+	1251n,
+	931n,
+	679n,
+	356n,
+	192n,
+	163n,
+	138n,
+	390n,
+	121n,
+	77n,
+	34n,
+	255n,
+	377n,
+	404n,
+	479n,
+	327n,
+	124n,
+	43n,
+	260n,
+	210n,
+	313n,
+	19n,
+	469n,
+	599n,
+	331n,
+	108n,
+	218n,
+	268n,
+	434n,
+	560n,
+	580n,
+	300n,
+	212n,
+	282n,
+	679n,
+	372n,
+	521n,
+	464n,
+	502n,
+	218n,
+	88n,
+	301n,
+	65n,
+	86n,
+	290n,
+	265n,
+	316n,
+	329n,
+	298n,
+	104n,
+	100n,
+	86n,
+	116n,
+	69n,
+	72n,
+	19n,
+	145n,
+	62n,
+	139n,
+	8n,
+	638n,
+	276n,
+	434n,
+	507n,
+	353n,
+	600n,
+	615n,
+	354n,
+	412n,
+	250n,
+	451n,
+	257n,
+	138n,
+	593n,
+	395n,
+	490n,
+	619n
 ]);
 var drawdowns60dBps = Object.freeze([
 	2746n,
@@ -120906,7 +120991,92 @@ var drawdowns60dBps = Object.freeze([
 	3565n,
 	3382n,
 	3334n,
-	3406n
+	3406n,
+	3232n,
+	3096n,
+	2934n,
+	2931n,
+	2871n,
+	2929n,
+	2944n,
+	2712n,
+	2890n,
+	2830n,
+	2874n,
+	2739n,
+	2564n,
+	2509n,
+	2526n,
+	2555n,
+	2498n,
+	2497n,
+	1904n,
+	1695n,
+	1497n,
+	491n,
+	368n,
+	1056n,
+	1056n,
+	778n,
+	676n,
+	965n,
+	927n,
+	1006n,
+	1238n,
+	1582n,
+	1567n,
+	1363n,
+	1164n,
+	1164n,
+	1316n,
+	1142n,
+	1251n,
+	931n,
+	679n,
+	356n,
+	192n,
+	163n,
+	138n,
+	390n,
+	121n,
+	77n,
+	34n,
+	255n,
+	377n,
+	404n,
+	479n,
+	327n,
+	124n,
+	43n,
+	260n,
+	210n,
+	313n,
+	19n,
+	469n,
+	599n,
+	331n,
+	108n,
+	218n,
+	268n,
+	434n,
+	560n,
+	580n,
+	300n,
+	212n,
+	282n,
+	679n,
+	372n,
+	521n,
+	464n,
+	502n,
+	218n,
+	88n,
+	301n,
+	65n,
+	86n,
+	290n,
+	265n,
+	316n
 ]);
 var drawdowns90dBps = Object.freeze([
 	2746n,
@@ -123569,7 +123739,92 @@ var drawdowns90dBps = Object.freeze([
 	3411n,
 	3130n,
 	3645n,
-	3517n
+	3517n,
+	3620n,
+	3588n,
+	3776n,
+	3594n,
+	3347n,
+	3493n,
+	3530n,
+	3658n,
+	3539n,
+	3496n,
+	3509n,
+	3645n,
+	3464n,
+	3423n,
+	3317n,
+	3330n,
+	3441n,
+	3502n,
+	3517n,
+	3585n,
+	3622n,
+	3595n,
+	3428n,
+	3474n,
+	3528n,
+	3650n,
+	3565n,
+	3382n,
+	3334n,
+	3406n,
+	3232n,
+	3096n,
+	2934n,
+	2931n,
+	2871n,
+	2929n,
+	2944n,
+	2712n,
+	2890n,
+	2830n,
+	2874n,
+	2739n,
+	2564n,
+	2509n,
+	2526n,
+	2555n,
+	2498n,
+	2497n,
+	1904n,
+	1695n,
+	1497n,
+	491n,
+	368n,
+	1056n,
+	1056n,
+	778n,
+	676n,
+	965n,
+	927n,
+	1006n,
+	1238n,
+	1582n,
+	1567n,
+	1363n,
+	1164n,
+	1164n,
+	1316n,
+	1142n,
+	1251n,
+	931n,
+	679n,
+	356n,
+	192n,
+	163n,
+	138n,
+	390n,
+	121n,
+	77n,
+	34n,
+	255n,
+	377n,
+	404n,
+	479n,
+	327n,
+	124n
 ]);
 var drawdowns180dBps = Object.freeze([
 	2746n,
@@ -126142,7 +126397,92 @@ var drawdowns180dBps = Object.freeze([
 	5179n,
 	5136n,
 	5473n,
-	5512n
+	5512n,
+	5463n,
+	5432n,
+	5452n,
+	5415n,
+	5279n,
+	4878n,
+	4951n,
+	4901n,
+	4907n,
+	4902n,
+	4655n,
+	4862n,
+	5025n,
+	4999n,
+	4666n,
+	4439n,
+	3859n,
+	3367n,
+	3585n,
+	3259n,
+	2991n,
+	1758n,
+	2703n,
+	2786n,
+	2795n,
+	2847n,
+	2556n,
+	2243n,
+	2270n,
+	2651n,
+	2784n,
+	2344n,
+	2465n,
+	2440n,
+	2302n,
+	2275n,
+	2353n,
+	2370n,
+	2309n,
+	1889n,
+	1870n,
+	2682n,
+	2574n,
+	2198n,
+	2336n,
+	2238n,
+	2573n,
+	2406n,
+	2922n,
+	2736n,
+	2390n,
+	2355n,
+	2227n,
+	2445n,
+	2607n,
+	2662n,
+	2739n,
+	2803n,
+	2817n,
+	3088n,
+	3601n,
+	3503n,
+	3167n,
+	2957n,
+	2985n,
+	2778n,
+	2669n,
+	3003n,
+	3017n,
+	3058n,
+	2692n,
+	2444n,
+	2452n,
+	2413n,
+	2570n,
+	2849n,
+	2965n,
+	2681n,
+	2669n,
+	2710n,
+	2865n,
+	2854n,
+	3278n,
+	3125n,
+	3125n
 ]);
 const HISTORICAL_DRAWDOWNS_BPS_BY_HORIZON = Object.freeze({
 	30: drawdowns30dBps,
