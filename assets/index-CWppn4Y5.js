@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-CyDR0IoO.js","assets/secp256k1-Cmjtdv0F.js","assets/esm-C4oN30JD.js","assets/dist-BIdUxbL6.js","assets/dist-CZ-rwxHA.js","assets/dist-X3tXDKps.js","assets/index.es-DraTnyPp.js","assets/alchemy-provider-2577f5a5-DmN68YNw.js","assets/alchemy-provider-2577f5a5-BJcD-XJ7.js","assets/alchemy-websocket-provider-ee041890-BvUAxzdG.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-CKOUzT4K.js","assets/secp256k1-BuDxEOLU.js","assets/esm-BX-eQwGU.js","assets/dist-BRGIm7jk.js","assets/dist-CSm0tcfu.js","assets/dist-zGnaQKwz.js","assets/index.es-kWcosIJj.js","assets/alchemy-provider-2577f5a5-CtXhn5iW.js","assets/alchemy-provider-2577f5a5-BvzthFLe.js","assets/alchemy-websocket-provider-ee041890-gzqetWA1.js"])))=>i.map(i=>d[i]);
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -16953,7 +16953,7 @@ async function call$1(client, args) {
 	} catch (err) {
 		const data$1 = getRevertErrorData(err);
 		const { offchainLookup, offchainLookupSignature } = await __vitePreload(async () => {
-			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-CMhjhgS0.js");
+			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-lnTkpYaj.js");
 			return {
 				offchainLookup: offchainLookup$1,
 				offchainLookupSignature: offchainLookupSignature$1
@@ -17454,7 +17454,7 @@ function publicKeyToAddress(publicKey) {
 async function recoverPublicKey({ hash: hash$3, signature }) {
 	const hashHex = isHex(hash$3) ? hash$3 : toHex$2(hash$3);
 	const { secp256k1: secp256k1$1 } = await __vitePreload(async () => {
-		const { secp256k1: secp256k1$2 } = await import("./secp256k1-CyDR0IoO.js");
+		const { secp256k1: secp256k1$2 } = await import("./secp256k1-CKOUzT4K.js");
 		return { secp256k1: secp256k1$2 };
 	}, __vite__mapDeps([0,1]));
 	return `0x${(() => {
@@ -23304,7 +23304,7 @@ function safe(parameters = {}) {
 			if (!provider_) {
 				const { default: SDK } = await (() => {
 					try {
-						return __vitePreload(() => import("./esm-C4oN30JD.js"), __vite__mapDeps([2,3]));
+						return __vitePreload(() => import("./esm-BX-eQwGU.js"), __vite__mapDeps([2,3]));
 					} catch {
 						throw new Error("dependency \"@safe-global/safe-apps-sdk\" not found");
 					}
@@ -23315,7 +23315,7 @@ function safe(parameters = {}) {
 				provider_ = new (await ((async () => {
 					const Provider$1 = await (() => {
 						try {
-							return __vitePreload(() => import("./dist-CZ-rwxHA.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
+							return __vitePreload(() => import("./dist-CSm0tcfu.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
 						} catch {
 							throw new Error("dependency \"@safe-global/safe-apps-provider\" not found");
 						}
@@ -23480,7 +23480,7 @@ function walletConnect(parameters) {
 				if (!optionalChains.length) return;
 				const { EthereumProvider: EthereumProvider$1 } = await (() => {
 					try {
-						return __vitePreload(() => import("./dist-X3tXDKps.js"), __vite__mapDeps([5,6,1]));
+						return __vitePreload(() => import("./dist-zGnaQKwz.js"), __vite__mapDeps([5,6,1]));
 					} catch {
 						throw new Error("dependency \"@walletconnect/ethereum-provider\" not found");
 					}
@@ -84474,14 +84474,14 @@ var AlchemyConfig = class {
 	}
 	getProvider() {
 		if (!this._baseAlchemyProvider) this._baseAlchemyProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-DmN68YNw.js"), __vite__mapDeps([7,8]));
+			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-CtXhn5iW.js"), __vite__mapDeps([7,8]));
 			return new AlchemyProvider$1(this);
 		}))();
 		return this._baseAlchemyProvider;
 	}
 	getWebSocketProvider() {
 		if (!this._baseAlchemyWssProvider) this._baseAlchemyWssProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-BvUAxzdG.js"), __vite__mapDeps([9,8]));
+			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-gzqetWA1.js"), __vite__mapDeps([9,8]));
 			return new AlchemyWebSocketProvider(this);
 		}))();
 		return this._baseAlchemyWssProvider;
@@ -87009,6 +87009,11 @@ const filterUnique = (val, index$6, arr) => {
 };
 const filterSufficient = (val) => {
 	return isSufficient(val);
+};
+const sortNumeric = (a$4, b$6, direction = 1) => {
+	if (a$4 > b$6) return direction;
+	if (a$4 == b$6) return 0;
+	if (a$4 < b$6) return -direction;
 };
 const getMinMaxValue = (arr) => {
 	return {
@@ -91522,6 +91527,16 @@ var useIsMobile = (breakpoint = 768) => {
 	return width < breakpoint;
 };
 var useIsMobile_default = useIsMobile;
+const sortObjectsByNumericValue = (a$4, b$6, valueName, direction = 1) => {
+	const [name, subname] = valueName.split(".");
+	a$4 = a$4[name];
+	b$6 = b$6[name];
+	if (subname) {
+		a$4 = a$4 && a$4[subname];
+		b$6 = b$6 && b$6[subname];
+	}
+	return sortNumeric(a$4, b$6, direction);
+};
 var { StrategyAbi: StrategyAbi$1, StrategiesClassic } = HegicConstants_default;
 var useHegicOptions = () => {
 	const optionsSetup = _useHegicOptions();
@@ -91541,7 +91556,7 @@ var _useHegicOptions = () => {
 		if (isUndefined(accountId)) return [];
 		const { MarginAccount } = contracts$1.view;
 		const optionIds = await MarginAccount.getErc721ByContract(accountId, HegicConstants_default.POSITION_MANAGER).then((ids) => ids.map(BigInt));
-		return (await Promise.all(optionIds.map((id$2) => queryOption(contracts$1, id$2)))).filter(filterSufficient).filter((opt) => !opt.isCall);
+		return (await Promise.all(optionIds.map((id$2) => queryOption(contracts$1, id$2)))).filter(filterSufficient).filter((opt) => !opt.isCall).sort((a$4, b$6) => sortObjectsByNumericValue(a$4, b$6, "strike", -1));
 	}, getSwrConfig());
 	const optionsSetup = (0, import_react.useMemo)(() => ({
 		options: options$2,
@@ -126669,6 +126684,7 @@ var TABLE_COLS = [
 	"Type",
 	"Amount",
 	"Period",
+	"Activates At",
 	"Protection Cost",
 	"Protection Payoff",
 	""
@@ -126722,6 +126738,7 @@ var _Desktop$1 = ({ positions }) => {
 		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Type, { position: pos }) }),
 		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Amount, { position: pos }) }),
 		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Period, { option: pos }) }),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Strike, { option: pos }) }),
 		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProtectionCost, { position: pos }) }),
 		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProtectionPayoff, { position: pos }) }),
 		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ClaimButton, { position: pos }) })
@@ -126769,6 +126786,16 @@ var _Mobile$1 = ({ positions }) => {
 						className: "Metrics__row",
 						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 							className: "Metrics__row-title",
+							children: "Activates At"
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "Metrics__row-value",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Strike, { option: pos })
+						})]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "Metrics__row",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "Metrics__row-title",
 							children: "Protection Cost"
 						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 							className: "Metrics__row-value",
@@ -126801,7 +126828,7 @@ var Amount = ({ position: position$1 }) => {
 	});
 };
 var Period = ({ option }) => {
-	const { exp, periodDays } = option;
+	const { periodDays } = option;
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 		className: "Protections__period",
 		children: [
@@ -126810,6 +126837,10 @@ var Period = ({ option }) => {
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(OptionTimer_default, { option })
 		]
 	});
+};
+var Strike = ({ option }) => {
+	const { strike } = option;
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: formatDollarStr(strike) });
 };
 var ProtectionCost = ({ position: position$1 }) => {
 	const { premium } = position$1;
