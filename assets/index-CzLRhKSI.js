@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-M-OzOwFX.js","assets/secp256k1-6WLhg5no.js","assets/esm-BLwZ18tS.js","assets/dist-DuvvAz02.js","assets/dist-wrUC9Sbq.js","assets/dist-DiW08DN6.js","assets/index.es-DxUeNR6O.js","assets/alchemy-provider-2577f5a5-DVZfiAnt.js","assets/alchemy-provider-2577f5a5-DkJoCmLr.js","assets/alchemy-websocket-provider-ee041890-R8JHZi6z.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-C63zk_Y4.js","assets/secp256k1-D0NNUUuM.js","assets/esm-frHYY5Sf.js","assets/dist-C149G8Ri.js","assets/dist-DG_fS4UB.js","assets/dist-Cklyom6Z.js","assets/index.es-me8xGz_y.js","assets/alchemy-provider-2577f5a5-DAgYvjs0.js","assets/alchemy-provider-2577f5a5-CMQxEMM-.js","assets/alchemy-websocket-provider-ee041890-pIbY87tY.js"])))=>i.map(i=>d[i]);
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -16953,7 +16953,7 @@ async function call$1(client, args) {
 	} catch (err) {
 		const data$1 = getRevertErrorData(err);
 		const { offchainLookup, offchainLookupSignature } = await __vitePreload(async () => {
-			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-DET34ge1.js");
+			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-D1Kh5LuB.js");
 			return {
 				offchainLookup: offchainLookup$1,
 				offchainLookupSignature: offchainLookupSignature$1
@@ -17454,7 +17454,7 @@ function publicKeyToAddress(publicKey) {
 async function recoverPublicKey({ hash: hash$3, signature }) {
 	const hashHex = isHex(hash$3) ? hash$3 : toHex$2(hash$3);
 	const { secp256k1: secp256k1$1 } = await __vitePreload(async () => {
-		const { secp256k1: secp256k1$2 } = await import("./secp256k1-M-OzOwFX.js");
+		const { secp256k1: secp256k1$2 } = await import("./secp256k1-C63zk_Y4.js");
 		return { secp256k1: secp256k1$2 };
 	}, __vite__mapDeps([0,1]));
 	return `0x${(() => {
@@ -22635,9 +22635,9 @@ var require_use_sync_external_store_shim_production$1 = /* @__PURE__ */ __common
 	function is$3(x$4, y$5) {
 		return x$4 === y$5 && (0 !== x$4 || 1 / x$4 === 1 / y$5) || x$4 !== x$4 && y$5 !== y$5;
 	}
-	var objectIs$2 = "function" === typeof Object.is ? Object.is : is$3, useState$32 = React$9.useState, useEffect$45 = React$9.useEffect, useLayoutEffect$7 = React$9.useLayoutEffect, useDebugValue$3 = React$9.useDebugValue;
+	var objectIs$2 = "function" === typeof Object.is ? Object.is : is$3, useState$33 = React$9.useState, useEffect$45 = React$9.useEffect, useLayoutEffect$7 = React$9.useLayoutEffect, useDebugValue$3 = React$9.useDebugValue;
 	function useSyncExternalStore$2$6(subscribe$1, getSnapshot) {
-		var value = getSnapshot(), _useState = useState$32({ inst: {
+		var value = getSnapshot(), _useState = useState$33({ inst: {
 			value,
 			getSnapshot
 		} }), inst = _useState[0].inst, forceUpdate = _useState[1];
@@ -23304,7 +23304,7 @@ function safe(parameters = {}) {
 			if (!provider_) {
 				const { default: SDK } = await (() => {
 					try {
-						return __vitePreload(() => import("./esm-BLwZ18tS.js"), __vite__mapDeps([2,3]));
+						return __vitePreload(() => import("./esm-frHYY5Sf.js"), __vite__mapDeps([2,3]));
 					} catch {
 						throw new Error("dependency \"@safe-global/safe-apps-sdk\" not found");
 					}
@@ -23315,7 +23315,7 @@ function safe(parameters = {}) {
 				provider_ = new (await ((async () => {
 					const Provider$1 = await (() => {
 						try {
-							return __vitePreload(() => import("./dist-wrUC9Sbq.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
+							return __vitePreload(() => import("./dist-DG_fS4UB.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
 						} catch {
 							throw new Error("dependency \"@safe-global/safe-apps-provider\" not found");
 						}
@@ -23480,7 +23480,7 @@ function walletConnect(parameters) {
 				if (!optionalChains.length) return;
 				const { EthereumProvider: EthereumProvider$1 } = await (() => {
 					try {
-						return __vitePreload(() => import("./dist-DiW08DN6.js"), __vite__mapDeps([5,6,1]));
+						return __vitePreload(() => import("./dist-Cklyom6Z.js"), __vite__mapDeps([5,6,1]));
 					} catch {
 						throw new Error("dependency \"@walletconnect/ethereum-provider\" not found");
 					}
@@ -53975,6 +53975,7 @@ const Colors = {
 	YELLOW: "#FE9673",
 	YELLOW_2: "#2A163C",
 	BLUE: "#5069DD",
+	BLUE_2: "#17144E",
 	VIOLET: "#8E3ECD",
 	VIOLET_DIM: "#3C1B68",
 	VIOLET_1: "#1D1446",
@@ -84474,14 +84475,14 @@ var AlchemyConfig = class {
 	}
 	getProvider() {
 		if (!this._baseAlchemyProvider) this._baseAlchemyProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-DVZfiAnt.js"), __vite__mapDeps([7,8]));
+			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-DAgYvjs0.js"), __vite__mapDeps([7,8]));
 			return new AlchemyProvider$1(this);
 		}))();
 		return this._baseAlchemyProvider;
 	}
 	getWebSocketProvider() {
 		if (!this._baseAlchemyWssProvider) this._baseAlchemyWssProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-R8JHZi6z.js"), __vite__mapDeps([9,8]));
+			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-pIbY87tY.js"), __vite__mapDeps([9,8]));
 			return new AlchemyWebSocketProvider(this);
 		}))();
 		return this._baseAlchemyWssProvider;
@@ -86653,9 +86654,9 @@ var require_use_sync_external_store_shim_production = /* @__PURE__ */ __commonJS
 	function is$1(x$4, y$5) {
 		return x$4 === y$5 && (0 !== x$4 || 1 / x$4 === 1 / y$5) || x$4 !== x$4 && y$5 !== y$5;
 	}
-	var objectIs = "function" === typeof Object.is ? Object.is : is$1, useState$25 = React$4.useState, useEffect$26 = React$4.useEffect, useLayoutEffect$3 = React$4.useLayoutEffect, useDebugValue$1 = React$4.useDebugValue;
+	var objectIs = "function" === typeof Object.is ? Object.is : is$1, useState$26 = React$4.useState, useEffect$26 = React$4.useEffect, useLayoutEffect$3 = React$4.useLayoutEffect, useDebugValue$1 = React$4.useDebugValue;
 	function useSyncExternalStore$2(subscribe$1, getSnapshot) {
-		var value = getSnapshot(), _useState = useState$25({ inst: {
+		var value = getSnapshot(), _useState = useState$26({ inst: {
 			value,
 			getSnapshot
 		} }), inst = _useState[0].inst, forceUpdate = _useState[1];
@@ -88269,14 +88270,14 @@ var require_classnames = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 		else window.classNames = classNames$3;
 	})();
 }));
-var import_classnames$36 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$38 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var Button = ({ type = "primary", size: size$6 = "default", isDisabled = false, gtagEvent = void 0, className, children, onClick, ...props }) => {
 	const isFancy = type === "fancy";
 	(0, import_react.useEffect)(() => {
 		if (isFancy) animateFancyButtons();
 	}, []);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-		className: (0, import_classnames$36.default)(className, "Button", `_${type}`, `_${size$6}`, isFancy && "anim_fancy"),
+		className: (0, import_classnames$38.default)(className, "Button", `_${type}`, `_${size$6}`, isFancy && "anim_fancy"),
 		disabled: isDisabled,
 		onClick: () => {
 			if (isUndefined(onClick)) return;
@@ -88326,18 +88327,18 @@ const swapUsdcToEth = async (contracts$1, amountUSDC, slippage = void 0) => {
 	const { ETH } = Tokens;
 	return swapFromUsdc(contracts$1, amountUSDC, ETH, slippage);
 };
-var import_classnames$35 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$37 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var Field = ({ children, className }) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: (0, import_classnames$35.default)("Field", className),
+		className: (0, import_classnames$37.default)("Field", className),
 		children
 	});
 };
 var Field_default = Field;
-var import_classnames$34 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$36 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var Radio = ({ id: id$2, items: items$1, value, setValue, className }) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: (0, import_classnames$34.default)("Radio", className),
+		className: (0, import_classnames$36.default)("Radio", className),
 		children: items$1.map((item) => {
 			const itemId = `${id$2}_${item.value}`;
 			return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
@@ -89103,19 +89104,19 @@ function ImSpinner2(props) {
 		}]
 	})(props);
 }
-var import_classnames$33 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$35 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var Spinner = ({ className }) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: (0, import_classnames$33.default)("Spinner", className),
+		className: (0, import_classnames$35.default)("Spinner", className),
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ImSpinner2, { className: "Spinner__icon" })
 	});
 };
 var Spinner_default = Spinner;
-var import_classnames$32 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$34 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var TokenIcon = ({ symbol, className }) => {
 	const tokenIcon = Tokens[symbol].icon;
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: (0, import_classnames$32.default)("TokenIcon", className),
+		className: (0, import_classnames$34.default)("TokenIcon", className),
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
 			src: tokenIcon,
 			alt: `${symbol} icon`
@@ -89130,12 +89131,12 @@ var Muted = ({ children }) => {
 	});
 };
 var Muted_default = Muted;
-var import_classnames$31 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$33 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var TokenAmount = ({ value, symbol = "USDC", showsUsd = false, type = "inline" }) => {
 	const { isLoading, hasError } = getIsLoadingAndError(value);
 	const valueStr = isLoading ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Spinner_default, {}) : hasError ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, {}) : formatTokenAmount(value, symbol);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: (0, import_classnames$31.default)("TokenAmount", `_${type}`, hasError && "_error"),
+		className: (0, import_classnames$33.default)("TokenAmount", `_${type}`, hasError && "_error"),
 		children: [
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenIcon_default, {
 				className: "TokenAmount__icon",
@@ -90999,7 +91000,7 @@ var import_lib = /* @__PURE__ */ __toESM((/* @__PURE__ */ __commonJSMin(((export
 	exports.default = _Modal2.default;
 	module.exports = exports["default"];
 })))(), 1);
-var import_classnames$30 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$32 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 import_lib.default.setAppElement("#root");
 import_lib.default.defaultStyles = {};
 var Modal = ({ isOpen, setIsOpen, isObligatory = false, reset = () => {}, className, children }) => {
@@ -91024,7 +91025,7 @@ var Modal = ({ isOpen, setIsOpen, isObligatory = false, reset = () => {}, classN
 		setIsOpen(false);
 	};
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_lib.default, {
-		className: (0, import_classnames$30.default)(isScrollable && "_scrollable"),
+		className: (0, import_classnames$32.default)(isScrollable && "_scrollable"),
 		isOpen,
 		shouldCloseOnOverlayClick: false,
 		onRequestClose: closeModal,
@@ -91036,7 +91037,7 @@ var Modal = ({ isOpen, setIsOpen, isObligatory = false, reset = () => {}, classN
 			children: contentElement
 		}),
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-			className: (0, import_classnames$30.default)(className, "ReactModal__box", "box"),
+			className: (0, import_classnames$32.default)(className, "ReactModal__box", "box"),
 			ref: boxRef,
 			onMouseDown: (e$4) => e$4.stopPropagation(),
 			children
@@ -91051,11 +91052,11 @@ var Modal_default = Modal;
 var confirm_default = "data:image/svg+xml,%3csvg%20width='40'%20height='40'%20viewBox='0%200%2040%2040'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_284_1636)'%3e%3ccircle%20cx='20'%20cy='20'%20r='20'%20fill='%23112540'/%3e%3cpath%20d='M11%2019.9333L17%2026L29%2013'%20stroke='%2309AF8E'%20stroke-width='3'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_284_1636'%3e%3crect%20width='40'%20height='40'%20fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e";
 var error_default = "data:image/svg+xml,%3csvg%20width='40'%20height='40'%20viewBox='0%200%2040%2040'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_1129_5414)'%3e%3ccircle%20cx='20'%20cy='20'%20r='20'%20fill='%23361536'/%3e%3cpath%20d='M21.4969%2020L25.6868%2015.8101C25.8856%2015.6116%2025.9975%2015.3422%2025.9977%2015.0613C25.998%2014.7803%2025.8866%2014.5107%2025.6881%2014.3119C25.4896%2014.113%2025.2202%2014.0012%2024.9393%2014.0009C24.6583%2014.0007%2024.3887%2014.1121%2024.1899%2014.3106L20%2018.5005L15.8101%2014.3106C15.6113%2014.1117%2015.3416%2014%2015.0603%2014C14.7791%2014%2014.5094%2014.1117%2014.3106%2014.3106C14.1117%2014.5094%2014%2014.7791%2014%2015.0603C14%2015.3416%2014.1117%2015.6113%2014.3106%2015.8101L18.5005%2020L14.3106%2024.1899C14.1117%2024.3887%2014%2024.6584%2014%2024.9397C14%2025.2209%2014.1117%2025.4906%2014.3106%2025.6894C14.5094%2025.8883%2014.7791%2026%2015.0603%2026C15.3416%2026%2015.6113%2025.8883%2015.8101%2025.6894L20%2021.4995L24.1899%2025.6894C24.3887%2025.8883%2024.6584%2026%2024.9397%2026C25.2209%2026%2025.4906%2025.8883%2025.6894%2025.6894C25.8883%2025.4906%2026%2025.2209%2026%2024.9397C26%2024.6584%2025.8883%2024.3887%2025.6894%2024.1899L21.4969%2020Z'%20fill='%23D8563C'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_1129_5414'%3e%3crect%20width='40'%20height='40'%20fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e";
 var tick_default = "data:image/svg+xml,%3csvg%20width='12'%20height='10'%20viewBox='0%200%2012%2010'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M1%205.26667L4.33333%209L11%201'%20stroke='white'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3c/svg%3e";
-var import_classnames$29 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$31 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var TxModal = ({ isOpen, setIsOpen, reset = () => {}, txResult, setTxResult, className, children }) => {
 	const closeModal = () => setIsOpen(false);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Modal_default, {
-		className: (0, import_classnames$29.default)("TxModal", className),
+		className: (0, import_classnames$31.default)("TxModal", className),
 		isOpen,
 		setIsOpen,
 		reset: () => {
@@ -91074,7 +91075,7 @@ var TxResult = ({ result, closeModal }) => {
 	const txUrl = hash$3 ? getTxUrl(chainId, hash$3) : "";
 	const hashStr = hash$3 ? hash$3.slice(0, 5) + "..." + hash$3.slice(-4) : "";
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: (0, import_classnames$29.default)("TxModal__tx-result", error && "_error"),
+		className: (0, import_classnames$31.default)("TxModal__tx-result", error && "_error"),
 		children: [
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 				className: "TxModal__tx-result-icon",
@@ -91129,7 +91130,7 @@ var CopyButton = ({ error }) => {
 		setTimeout(() => setIsCopied(false), 2 * SECOND);
 	};
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
-		className: (0, import_classnames$29.default)("TxModal__tx-result-button", isCopied && "_copied"),
+		className: (0, import_classnames$31.default)("TxModal__tx-result-button", isCopied && "_copied"),
 		onClick: handleClick,
 		children: isCopied ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: ["Copied", /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
 			src: tick_default,
@@ -91159,10 +91160,10 @@ TxModal.Input = _Input$1;
 TxModal.Button = _Button;
 TxModal.Buttons = _Buttons;
 var TxModal_default = TxModal;
-var import_classnames$28 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$30 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var List = ({ type = "tick", children }) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("ul", {
-		className: (0, import_classnames$28.default)("List", `_${type}`),
+		className: (0, import_classnames$30.default)("List", `_${type}`),
 		children
 	});
 };
@@ -91223,7 +91224,7 @@ var CreateAccountModal = ({ isOpen, setIsOpen }) => {
 	});
 };
 var CreateAccountModal_default = CreateAccountModal;
-var import_classnames$27 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$29 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var Input = ({ setValue, valueStrState = void 0, debounce = 0, initValue = null, maxData = void 0, shouldFocus = true, isZeroSufficient = false, placeholder = "0", isDisabled = false }) => {
 	const [valueStr, setValueStr] = valueStrState ?? (0, import_react.useState)("");
 	const [isFocused, setIsFocused] = (0, import_react.useState)(false);
@@ -91252,7 +91253,7 @@ var Input = ({ setValue, valueStrState = void 0, debounce = 0, initValue = null,
 		setValueStr(inputStringFromBigInt(maxData.value, maxDecimals));
 	};
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: (0, import_classnames$27.default)("Input", isFocused && "_focused"),
+		className: (0, import_classnames$29.default)("Input", isFocused && "_focused"),
 		onClick: focusInput,
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(InputNative, {
 			ref: inputRef,
@@ -91364,13 +91365,13 @@ var ArrowChangeSvg = () => {
 	});
 };
 var ArrowChangeSvg_default = ArrowChangeSvg;
-var import_classnames$26 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$28 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var ValueChange = ({ curValue, estValue, className }) => {
 	const hasEstValue = estValue !== null;
 	const { isCurLoading } = getIsLoadingAndError(curValue, "cur");
 	const { isEstLoading } = getIsLoadingAndError(estValue, "est");
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: (0, import_classnames$26.default)("ValueChange", className, hasEstValue && "_active"),
+		className: (0, import_classnames$28.default)("ValueChange", className, hasEstValue && "_active"),
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 			className: "ValueChange__cur",
 			children: isCurLoading ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Spinner_default, {}) : curValue
@@ -91470,7 +91471,7 @@ var EternitySvg = () => {
 	});
 };
 var EternitySvg_default = EternitySvg;
-var import_classnames$25 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$27 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var LtvValue = ({ ltv = void 0, maxLtvLabel = void 0 }) => {
 	const account = useAccount_default();
 	ltv = ltv ?? account?.ltv;
@@ -91483,7 +91484,7 @@ var LtvValue = ({ ltv = void 0, maxLtvLabel = void 0 }) => {
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(EternitySvg_default, {})
 	}) : formatStable(ltv);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: (0, import_classnames$25.default)("LtvValue", `_${ltvZone}`),
+		className: (0, import_classnames$27.default)("LtvValue", `_${ltvZone}`),
 		children: ltvStr
 	});
 };
@@ -91496,10 +91497,10 @@ var LtvChange = ({ estLtv }) => {
 	});
 };
 var LtvChange_default = LtvChange;
-var import_classnames$24 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$26 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var Metrics = ({ isBoxed = true, className, children }) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: (0, import_classnames$24.default)("Metrics", isBoxed && "_boxed", className),
+		className: (0, import_classnames$26.default)("Metrics", isBoxed && "_boxed", className),
 		children
 	});
 };
@@ -91642,6 +91643,10 @@ var useLiqPrice = (estBalance = void 0, estDebt = void 0, estOptions = void 0, i
 };
 const useCurLiqPrice = () => {
 	return useLiqPrice();
+};
+const useLiqPriceAfterBorrow = (borrowAmount) => {
+	const account = useAccount_default();
+	return useLiqPrice(void 0, (0, import_react.useMemo)(() => isSufficient(account) && borrowAmount ? account.debt + borrowAmount : void 0, [account, borrowAmount]));
 };
 var useLiqPrice_default = useLiqPrice;
 var LiqPriceChange = ({ estBalance = void 0, estDebt = void 0, estOptions = void 0, isLoading = false }) => {
@@ -92023,7 +92028,7 @@ var WarningSvg = ({ color: color$1 = "red" }) => {
 	});
 };
 var WarningSvg_default = WarningSvg;
-var import_classnames$23 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$25 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var ICONS = {
 	bell: BellSvg_default,
 	warning: WarningSvg_default,
@@ -92031,7 +92036,7 @@ var ICONS = {
 };
 var Notification = ({ color: color$1 = "yellow", type = "bell", className, children }) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: (0, import_classnames$23.default)("Notification", `_${type}`, className),
+		className: (0, import_classnames$25.default)("Notification", `_${type}`, className),
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 			className: "Notification__icon",
 			children: ICONS[type]({ color: color$1 })
@@ -92042,14 +92047,14 @@ var Notification = ({ color: color$1 = "yellow", type = "bell", className, child
 	});
 };
 var Notification_default = Notification;
-var import_classnames$22 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$24 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var Checkbox = ({ isChecked, setIsChecked, isDisabled, children, className }) => {
 	const handleChange = (e$4) => {
 		const checkbox = e$4.target;
 		setIsChecked(checkbox.checked);
 	};
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: (0, import_classnames$22.default)("Checkbox", className),
+		className: (0, import_classnames$24.default)("Checkbox", className),
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", {
 			type: "checkbox",
 			checked: isChecked,
@@ -93684,12 +93689,12 @@ var OptionTimer = ({ option }) => {
 	});
 };
 var OptionTimer_default = OptionTimer;
-var import_classnames$21 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$23 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var AddProtectionToggle = ({ isChecked, onChange }) => {
 	const relevantOptions = useRelevantOptions_default();
 	const hasProtections = Boolean(relevantOptions?.length);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: (0, import_classnames$21.default)("AddProtectionToggle", hasProtections && "_has-protections"),
+		className: (0, import_classnames$23.default)("AddProtectionToggle", hasProtections && "_has-protections"),
 		children: [hasProtections && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 			className: "AddProtectionToggle__protections",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
@@ -93717,18 +93722,18 @@ var useProtectionAmount = (chosenLiqPrice, strike = void 0, borrowAmount = void 
 	const account = useAccount_default();
 	const relevantOptions = useRelevantOptions_default();
 	const assetPrice = useAssetPrice();
-	const curLiqPrice = useCurLiqPrice();
+	const liqPrice = useLiqPriceAfterBorrow(borrowAmount);
 	return (0, import_react.useMemo)(() => {
-		if (!isEverySufficient(account, relevantOptions, assetPrice, curLiqPrice, chosenLiqPrice)) return;
+		if (!isEverySufficient(account, relevantOptions, assetPrice, liqPrice, chosenLiqPrice)) return;
 		const { balance, debt, ltvCoeffs } = account;
 		const estDebt = debt + (borrowAmount ?? 0n);
-		const _strike = strike ?? Calculator_default.calcProtectionStrike(assetPrice, curLiqPrice);
+		const _strike = strike ?? Calculator_default.calcProtectionStrike(assetPrice, liqPrice);
 		return Calculator_default.calcProtectionAmount(balance, estDebt, relevantOptions, ltvCoeffs, chosenLiqPrice, _strike);
 	}, [
 		account,
 		relevantOptions,
 		assetPrice,
-		curLiqPrice,
+		liqPrice,
 		chosenLiqPrice,
 		strike,
 		borrowAmount
@@ -93739,12 +93744,12 @@ var { StrategyAbi, PriceCalculator_abi } = HegicConstants_default;
 var useHegicStrike = (period, chosenLiqPrice, borrowAmount = void 0) => {
 	const contracts$1 = useContracts_default();
 	const assetPrice = useAssetPrice();
-	const curLiqPrice = useCurLiqPrice();
+	const liqPrice = useLiqPriceAfterBorrow(borrowAmount);
 	const [strikePrice, setStrikePrice] = (0, import_react.useState)(void 0);
 	const amount = useProtectionAmount_default(chosenLiqPrice, strikePrice, borrowAmount);
-	const { data: strike, error: strikeError } = useSWR(contracts$1 && assetPrice && curLiqPrice && period && isSufficient(chosenLiqPrice) && [
+	const { data: strike, error: strikeError } = useSWR(contracts$1 && assetPrice && liqPrice && period && isSufficient(chosenLiqPrice) && [
 		assetPrice,
-		curLiqPrice,
+		liqPrice,
 		chosenLiqPrice,
 		period,
 		amount,
@@ -93755,7 +93760,7 @@ var useHegicStrike = (period, chosenLiqPrice, borrowAmount = void 0) => {
 		const requests = [];
 		const dataArr = [];
 		for (let coef = STRIKE_MAX_CHANGE_COEF; coef > 0; coef -= .01) {
-			const strikePrice$1 = Calculator_default.calcProtectionStrike(assetPrice, curLiqPrice, coef);
+			const strikePrice$1 = Calculator_default.calcProtectionStrike(assetPrice, liqPrice, coef);
 			const strategy = HegicUtils_default.getStrategy(assetPrice, period, strikePrice$1);
 			const request = getLimitViewRequest(amount, period, strikePrice$1, strategy);
 			requests.push(request);
@@ -95945,7 +95950,7 @@ var Z$1 = (0, import_react.memo)(import_react.forwardRef(({ id: t$3, anchorSelec
 		type: "base"
 	});
 });
-var import_classnames$20 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$22 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var Slippage = () => {
 	const [slippage, setSlippage] = useSlippageState();
 	const [slippagePercentStr, setSlippagePercentStr] = (0, import_react.useState)(inputStringFromBigInt(slippage * 100n));
@@ -95978,7 +95983,7 @@ var Slippage = () => {
 		if (e$4.keyCode === 13 && isFocused) inputRef.current.blur();
 	});
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: (0, import_classnames$20.default)("Slippage", isFocused && "_focused"),
+		className: (0, import_classnames$22.default)("Slippage", isFocused && "_focused"),
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 			className: "Slippage__input",
 			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(_Input, {
@@ -96532,7 +96537,7 @@ var context_default = /* @__PURE__ */ import_react.createContext({
 	classNames: {}
 });
 var UnstableContext = /* @__PURE__ */ import_react.createContext({});
-var import_classnames$19 = /* @__PURE__ */ __toESM(require_classnames());
+var import_classnames$21 = /* @__PURE__ */ __toESM(require_classnames());
 var _excluded$8 = [
 	"prefixCls",
 	"value",
@@ -96640,7 +96645,7 @@ var Handle_default = /* @__PURE__ */ import_react.forwardRef(function(props, ref
 	}
 	var handleNode = /* @__PURE__ */ import_react.createElement("div", _extends$1({
 		ref,
-		className: (0, import_classnames$19.default)(handlePrefixCls, _defineProperty$1(_defineProperty$1(_defineProperty$1({}, "".concat(handlePrefixCls, "-").concat(valueIndex + 1), valueIndex !== null && range), "".concat(handlePrefixCls, "-dragging"), dragging), "".concat(handlePrefixCls, "-dragging-delete"), draggingDelete), classNames$3.handle),
+		className: (0, import_classnames$21.default)(handlePrefixCls, _defineProperty$1(_defineProperty$1(_defineProperty$1({}, "".concat(handlePrefixCls, "-").concat(valueIndex + 1), valueIndex !== null && range), "".concat(handlePrefixCls, "-dragging"), dragging), "".concat(handlePrefixCls, "-dragging-delete"), draggingDelete), classNames$3.handle),
 		style: _objectSpread2$1(_objectSpread2$1(_objectSpread2$1({}, positionStyle), style$1), styles$1.handle)
 	}, divProps, restProps));
 	if (render) handleNode = render(handleNode, {
@@ -96727,14 +96732,14 @@ var Handles_default = /* @__PURE__ */ import_react.forwardRef(function(props, re
 		"aria-hidden": true
 	})));
 });
-var import_classnames$18 = /* @__PURE__ */ __toESM(require_classnames());
+var import_classnames$20 = /* @__PURE__ */ __toESM(require_classnames());
 var Mark_default = function Mark$1(props) {
 	var prefixCls = props.prefixCls, style$1 = props.style, children = props.children, value = props.value, _onClick = props.onClick;
 	var _React$useContext = import_react.useContext(context_default), min$2 = _React$useContext.min, max$2 = _React$useContext.max, direction = _React$useContext.direction, includedStart = _React$useContext.includedStart, includedEnd = _React$useContext.includedEnd, included = _React$useContext.included;
 	var textCls = "".concat(prefixCls, "-text");
 	var positionStyle = getDirectionStyle(direction, value, min$2, max$2);
 	return /* @__PURE__ */ import_react.createElement("span", {
-		className: (0, import_classnames$18.default)(textCls, _defineProperty$1({}, "".concat(textCls, "-active"), included && includedStart <= value && value <= includedEnd)),
+		className: (0, import_classnames$20.default)(textCls, _defineProperty$1({}, "".concat(textCls, "-active"), included && includedStart <= value && value <= includedEnd)),
 		style: _objectSpread2$1(_objectSpread2$1({}, positionStyle), style$1),
 		onMouseDown: function onMouseDown(e$4) {
 			e$4.stopPropagation();
@@ -96759,7 +96764,7 @@ var Marks_default = function Marks$1(props) {
 		}, label);
 	}));
 };
-var import_classnames$17 = /* @__PURE__ */ __toESM(require_classnames());
+var import_classnames$19 = /* @__PURE__ */ __toESM(require_classnames());
 var Dot_default = function Dot$2(props) {
 	var prefixCls = props.prefixCls, value = props.value, style$1 = props.style, activeStyle = props.activeStyle;
 	var _React$useContext = import_react.useContext(context_default), min$2 = _React$useContext.min, max$2 = _React$useContext.max, direction = _React$useContext.direction, included = _React$useContext.included, includedStart = _React$useContext.includedStart, includedEnd = _React$useContext.includedEnd;
@@ -96768,7 +96773,7 @@ var Dot_default = function Dot$2(props) {
 	var mergedStyle = _objectSpread2$1(_objectSpread2$1({}, getDirectionStyle(direction, value, min$2, max$2)), typeof style$1 === "function" ? style$1(value) : style$1);
 	if (active) mergedStyle = _objectSpread2$1(_objectSpread2$1({}, mergedStyle), typeof activeStyle === "function" ? activeStyle(value) : activeStyle);
 	return /* @__PURE__ */ import_react.createElement("span", {
-		className: (0, import_classnames$17.default)(dotClassName, _defineProperty$1({}, "".concat(dotClassName, "-active"), active)),
+		className: (0, import_classnames$19.default)(dotClassName, _defineProperty$1({}, "".concat(dotClassName, "-active"), active)),
 		style: mergedStyle
 	});
 };
@@ -96805,7 +96810,7 @@ var Steps_default = function Steps$1(props) {
 		});
 	}));
 };
-var import_classnames$16 = /* @__PURE__ */ __toESM(require_classnames());
+var import_classnames$18 = /* @__PURE__ */ __toESM(require_classnames());
 var Track_default = function Track$1(props) {
 	var prefixCls = props.prefixCls, style$1 = props.style, start = props.start, end = props.end, index$6 = props.index, onStartMove = props.onStartMove, replaceCls = props.replaceCls;
 	var _React$useContext = import_react.useContext(context_default), direction = _React$useContext.direction, min$2 = _React$useContext.min, max$2 = _React$useContext.max, disabled = _React$useContext.disabled, range = _React$useContext.range, classNames$3 = _React$useContext.classNames;
@@ -96833,7 +96838,7 @@ var Track_default = function Track$1(props) {
 			positionStyle.left = "".concat(offsetStart * 100, "%");
 			positionStyle.width = "".concat(offsetEnd * 100 - offsetStart * 100, "%");
 	}
-	var className = replaceCls || (0, import_classnames$16.default)(trackPrefixCls, _defineProperty$1(_defineProperty$1({}, "".concat(trackPrefixCls, "-").concat(index$6 + 1), index$6 !== null && range), "".concat(prefixCls, "-track-draggable"), onStartMove), classNames$3.track);
+	var className = replaceCls || (0, import_classnames$18.default)(trackPrefixCls, _defineProperty$1(_defineProperty$1({}, "".concat(trackPrefixCls, "-").concat(index$6 + 1), index$6 !== null && range), "".concat(prefixCls, "-track-draggable"), onStartMove), classNames$3.track);
 	return /* @__PURE__ */ import_react.createElement("div", {
 		className,
 		style: _objectSpread2$1(_objectSpread2$1({}, positionStyle), style$1),
@@ -96841,7 +96846,7 @@ var Track_default = function Track$1(props) {
 		onTouchStart: onInternalStartMove
 	});
 };
-var import_classnames$15 = /* @__PURE__ */ __toESM(require_classnames());
+var import_classnames$17 = /* @__PURE__ */ __toESM(require_classnames());
 var Tracks_default = function Tracks$1(props) {
 	var prefixCls = props.prefixCls, style$1 = props.style, values = props.values, startPoint = props.startPoint, onStartMove = props.onStartMove;
 	var _React$useContext = import_react.useContext(context_default), included = _React$useContext.included, range = _React$useContext.range, min$2 = _React$useContext.min, styles$1 = _React$useContext.styles, classNames$3 = _React$useContext.classNames;
@@ -96873,7 +96878,7 @@ var Tracks_default = function Tracks$1(props) {
 		prefixCls,
 		start: trackList[0].start,
 		end: trackList[trackList.length - 1].end,
-		replaceCls: (0, import_classnames$15.default)(classNames$3.tracks, "".concat(prefixCls, "-tracks")),
+		replaceCls: (0, import_classnames$17.default)(classNames$3.tracks, "".concat(prefixCls, "-tracks")),
 		style: styles$1.tracks
 	}) : null;
 	return /* @__PURE__ */ import_react.createElement(import_react.Fragment, null, tracksNode, trackList.map(function(_ref$1, index$6) {
@@ -97223,7 +97228,7 @@ function useRange(range) {
 		];
 	}, [range]);
 }
-var import_classnames$14 = /* @__PURE__ */ __toESM(require_classnames());
+var import_classnames$16 = /* @__PURE__ */ __toESM(require_classnames());
 var es_default = /* @__PURE__ */ import_react.forwardRef(function(props, ref) {
 	var _props$prefixCls = props.prefixCls, prefixCls = _props$prefixCls === void 0 ? "rc-slider" : _props$prefixCls, className = props.className, style$1 = props.style, classNames$3 = props.classNames, styles$1 = props.styles, id$2 = props.id, _props$disabled = props.disabled, disabled = _props$disabled === void 0 ? false : _props$disabled, _props$keyboard = props.keyboard, keyboard = _props$keyboard === void 0 ? true : _props$keyboard, autoFocus = props.autoFocus, onFocus = props.onFocus, onBlur = props.onBlur, _props$min = props.min, min$2 = _props$min === void 0 ? 0 : _props$min, _props$max = props.max, max$2 = _props$max === void 0 ? 100 : _props$max, _props$step = props.step, step = _props$step === void 0 ? 1 : _props$step, value = props.value, defaultValue = props.defaultValue, range = props.range, count = props.count, onChange = props.onChange, onBeforeChange = props.onBeforeChange, onAfterChange = props.onAfterChange, onChangeComplete = props.onChangeComplete, _props$allowCross = props.allowCross, allowCross = _props$allowCross === void 0 ? true : _props$allowCross, _props$pushable = props.pushable, pushable = _props$pushable === void 0 ? false : _props$pushable, reverse = props.reverse, vertical = props.vertical, _props$included = props.included, included = _props$included === void 0 ? true : _props$included, startPoint = props.startPoint, trackStyle = props.trackStyle, handleStyle = props.handleStyle, railStyle = props.railStyle, dotStyle = props.dotStyle, activeDotStyle = props.activeDotStyle, marks = props.marks, dots = props.dots, handleRender = props.handleRender, activeHandleRender = props.activeHandleRender, track$1 = props.track, _props$tabIndex = props.tabIndex, tabIndex = _props$tabIndex === void 0 ? 0 : _props$tabIndex, ariaLabelForHandle = props.ariaLabelForHandle, ariaLabelledByForHandle = props.ariaLabelledByForHandle, ariaRequired = props.ariaRequired, ariaValueTextFormatterForHandle = props.ariaValueTextFormatterForHandle;
 	var handlesRef = import_react.useRef(null);
@@ -97475,12 +97480,12 @@ var es_default = /* @__PURE__ */ import_react.forwardRef(function(props, ref) {
 	]);
 	return /* @__PURE__ */ import_react.createElement(context_default.Provider, { value: context }, /* @__PURE__ */ import_react.createElement("div", {
 		ref: containerRef,
-		className: (0, import_classnames$14.default)(prefixCls, className, _defineProperty$1(_defineProperty$1(_defineProperty$1(_defineProperty$1({}, "".concat(prefixCls, "-disabled"), disabled), "".concat(prefixCls, "-vertical"), vertical), "".concat(prefixCls, "-horizontal"), !vertical), "".concat(prefixCls, "-with-marks"), markList.length)),
+		className: (0, import_classnames$16.default)(prefixCls, className, _defineProperty$1(_defineProperty$1(_defineProperty$1(_defineProperty$1({}, "".concat(prefixCls, "-disabled"), disabled), "".concat(prefixCls, "-vertical"), vertical), "".concat(prefixCls, "-horizontal"), !vertical), "".concat(prefixCls, "-with-marks"), markList.length)),
 		style: style$1,
 		onMouseDown: onSliderMouseDown,
 		id: id$2
 	}, /* @__PURE__ */ import_react.createElement("div", {
-		className: (0, import_classnames$14.default)("".concat(prefixCls, "-rail"), classNames$3 === null || classNames$3 === void 0 ? void 0 : classNames$3.rail),
+		className: (0, import_classnames$16.default)("".concat(prefixCls, "-rail"), classNames$3 === null || classNames$3 === void 0 ? void 0 : classNames$3.rail),
 		style: _objectSpread2$1(_objectSpread2$1({}, railStyle), styles$1 === null || styles$1 === void 0 ? void 0 : styles$1.rail)
 	}), track$1 !== false && /* @__PURE__ */ import_react.createElement(Tracks_default, {
 		prefixCls,
@@ -97550,7 +97555,7 @@ var Slider = ({ value, setValue, min: min$2, max: max$2, step, isDisabled = fals
 	});
 };
 var Slider_default = Slider;
-var import_classnames$13 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$15 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var Types = {
 	OPTION: "option",
 	AUTO_SHORT: "auto-short"
@@ -97566,7 +97571,7 @@ var AddProtection = ({ chosenLiqPrice, setChosenLiqPrice, period, setPeriod, cos
 	const isOption = type === Types.OPTION;
 	const [isCollateral, isWallet] = [paymentMethod === PaymentMethods.COLLATERAL, paymentMethod === PaymentMethods.WALLET];
 	isLiqPriceLoading = isLiqPriceLoading ?? getIsLoadingAndErrorForMultiple(estCollateral, estOptions, cost).isLoading;
-	const estDebt = borrowAmount && account?.debt ? account.debt + borrowAmount : void 0;
+	const estDebt = borrowAmount && isSufficient(account?.debt) ? account.debt + borrowAmount : void 0;
 	const Approver = useApprover_default(OneClickOptions?.address, "USDC", setIsApproved);
 	(0, import_react.useEffect)(() => {
 		if (!isWallet) return;
@@ -97639,7 +97644,8 @@ var AddProtection = ({ chosenLiqPrice, setChosenLiqPrice, period, setPeriod, cos
 				period,
 				setPeriod,
 				setCost,
-				strike
+				strike,
+				borrowAmount
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(PaymentMethod_default, {
 				method: paymentMethod,
@@ -97712,7 +97718,7 @@ var TypeRadio = ({ type, setType }) => {
 		]
 	});
 };
-var OptionInputs = ({ chosenLiqPrice, setChosenLiqPrice, period, setPeriod, setCost, strike }) => {
+var OptionInputs = ({ chosenLiqPrice, setChosenLiqPrice, period, setPeriod, setCost, strike, borrowAmount = void 0 }) => {
 	const [minPeriodDays, maxPeriodDays] = [HegicConstants_default.EXPIRY_PERIODS_DAYS[0], getLast(HegicConstants_default.EXPIRY_PERIODS_DAYS)];
 	const [periodDays, setPeriodDays] = (0, import_react.useState)(minPeriodDays);
 	const slippage = useSlippage();
@@ -97737,8 +97743,11 @@ var OptionInputs = ({ chosenLiqPrice, setChosenLiqPrice, period, setPeriod, setC
 	};
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 		className: "AddProtection__option-inputs",
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceInput, { setChosenLiqPrice }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: (0, import_classnames$13.default)("AddProtection__period", isSufficient(period) && "_active"),
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(LiqPriceInput, {
+			setChosenLiqPrice,
+			borrowAmount
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: (0, import_classnames$15.default)("AddProtection__period", isSufficient(period) && "_active"),
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 				className: "AddProtection__period-head",
 				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: "Period" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
@@ -97764,11 +97773,11 @@ var OptionInputs = ({ chosenLiqPrice, setChosenLiqPrice, period, setPeriod, setC
 		})]
 	});
 };
-var LiqPriceInput = ({ setChosenLiqPrice }) => {
+var LiqPriceInput = ({ setChosenLiqPrice, borrowAmount = void 0 }) => {
 	const assetPrice = useAssetPrice();
-	const curLiqPrice = useCurLiqPrice();
+	const liqPrice = useLiqPriceAfterBorrow(borrowAmount);
 	const [chosenLiqPriceStr, setChosenLiqPriceStr] = (0, import_react.useState)("");
-	const [minLiqPrice, maxLiqPrice] = (0, import_react.useMemo)(() => [0n, floorBigInt(multiplyBigIntByNumber(curLiqPrice ?? assetPrice ?? 0n, 2 - STRIKE_COEF))], [curLiqPrice, assetPrice]);
+	const [minLiqPrice, maxLiqPrice] = (0, import_react.useMemo)(() => [0n, floorBigInt(multiplyBigIntByNumber(liqPrice ?? assetPrice ?? 0n, 2 - STRIKE_COEF))], [liqPrice, assetPrice]);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 		className: "AddProtection__liq-price Field",
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
@@ -109870,7 +109879,7 @@ var Ge = {
 	ob: (t$3, i$4) => new Ze(t$3, i$4)
 };
 ({ ...e });
-var import_classnames$12 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$14 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var Chart$1 = ({ chartData, chartContainerRef, chartOptions, priceMarkers = [], header, callback = () => {}, className }) => {
 	(0, import_react.useEffect)(() => {
 		if (!chartData) return;
@@ -109907,12 +109916,12 @@ var Chart$1 = ({ chartData, chartContainerRef, chartOptions, priceMarkers = [], 
 	}, [chartData, priceMarkers]);
 	const mainClass = className.split(" ")[0];
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: (0, import_classnames$12.default)("Chart", className),
+		className: (0, import_classnames$14.default)("Chart", className),
 		children: [header && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-			className: (0, import_classnames$12.default)("Chart__header", `${mainClass}__header`),
+			className: (0, import_classnames$14.default)("Chart__header", `${mainClass}__header`),
 			children: header
 		}), chartData ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-			className: (0, import_classnames$12.default)("Chart__content", `${mainClass}__content`),
+			className: (0, import_classnames$14.default)("Chart__content", `${mainClass}__content`),
 			ref: chartContainerRef
 		}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SpinnerBig_default, {})]
 	});
@@ -109928,7 +109937,7 @@ var CANDLESTICK_SERIES_OPTIONS = {
 	borderVisible: false
 };
 var Chart_default = Chart$1;
-var import_classnames$11 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$13 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var AssetPriceChart = ({ estOptions = void 0, estBalance = void 0, isLoading = false, isSmall = false }) => {
 	const account = useAccount_default();
 	const assetPrice = useAssetPrice();
@@ -110027,7 +110036,7 @@ var DataFrequencyController = ({ dataFrequency, setDataFrequency }) => {
 			const hours = Math.floor(_dataFrequency / HOUR);
 			const _dataFrequencyStr = days > 0 ? `${days}D` : hours > 0 ? `${hours}h` : `${minutes}m`;
 			return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
-				className: (0, import_classnames$11.default)("AssetPriceChart__data-frequency-btn", isChosen && "_chosen"),
+				className: (0, import_classnames$13.default)("AssetPriceChart__data-frequency-btn", isChosen && "_chosen"),
 				type: "tertiary",
 				size: "small",
 				onClick: () => setDataFrequency(_dataFrequency),
@@ -110055,7 +110064,7 @@ var Indicators = ({ candle }) => {
 					className: "AssetPriceChart__indicators-item-name",
 					children: name[0].toUpperCase()
 				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-					className: (0, import_classnames$11.default)("AssetPriceChart__indicators-item-value", {
+					className: (0, import_classnames$13.default)("AssetPriceChart__indicators-item-value", {
 						negative: isNegative,
 						positive: !isNegative
 					}),
@@ -111566,9 +111575,9 @@ var jsx = function jsx$4(type, props) {
 	for (var i$4 = 2; i$4 < argsLength; i$4++) createElementArgArray[i$4] = args[i$4];
 	return import_react.createElement.apply(null, createElementArgArray);
 };
-(function(_jsx$79) {
+(function(_jsx$82) {
 	var JSX;
-	(function(_JSX) {})(JSX || (JSX = _jsx$79.JSX || (_jsx$79.JSX = {})));
+	(function(_JSX) {})(JSX || (JSX = _jsx$82.JSX || (_jsx$82.JSX = {})));
 })(jsx || (jsx = {}));
 function css$2() {
 	for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) args[_key] = arguments[_key];
@@ -111943,10 +111952,10 @@ var cleanCommonProps = function cleanCommonProps$1(props) {
 	return _objectSpread2({}, _objectWithoutProperties(props, _excluded$4));
 };
 var getStyleProps = function getStyleProps$1(props, name, classNamesState) {
-	var cx$31 = props.cx, getStyles = props.getStyles, getClassNames = props.getClassNames, className = props.className;
+	var cx$33 = props.cx, getStyles = props.getStyles, getClassNames = props.getClassNames, className = props.className;
 	return {
 		css: getStyles(name, props),
-		className: cx$31(classNamesState !== null && classNamesState !== void 0 ? classNamesState : {}, getClassNames(name, props), className)
+		className: cx$33(classNamesState !== null && classNamesState !== void 0 ? classNamesState : {}, getClassNames(name, props), className)
 	};
 };
 function isDocumentElement(el) {
@@ -112545,13 +112554,13 @@ var groupCSS = function groupCSS$1(_ref$1, unstyled) {
 	};
 };
 var Group = function Group$2(props) {
-	var children = props.children, cx$31 = props.cx, getStyles = props.getStyles, getClassNames = props.getClassNames, Heading = props.Heading, headingProps = props.headingProps, innerProps = props.innerProps, label = props.label, theme = props.theme, selectProps = props.selectProps;
+	var children = props.children, cx$33 = props.cx, getStyles = props.getStyles, getClassNames = props.getClassNames, Heading = props.Heading, headingProps = props.headingProps, innerProps = props.innerProps, label = props.label, theme = props.theme, selectProps = props.selectProps;
 	return jsx("div", _extends({}, getStyleProps(props, "group", { group: true }), innerProps), jsx(Heading, _extends({}, headingProps, {
 		selectProps,
 		theme,
 		getStyles,
 		getClassNames,
-		cx: cx$31
+		cx: cx$33
 	}), label), jsx("div", null, children));
 };
 var groupHeadingCSS = function groupHeadingCSS$1(_ref2$3, unstyled) {
@@ -112625,10 +112634,10 @@ var inputStyle = function inputStyle$1(isHidden) {
 	}, spacingStyle);
 };
 var Input$1 = function Input$2(props) {
-	var cx$31 = props.cx, value = props.value;
+	var cx$33 = props.cx, value = props.value;
 	var _cleanCommonProps = cleanCommonProps(props), innerRef = _cleanCommonProps.innerRef, isDisabled = _cleanCommonProps.isDisabled, isHidden = _cleanCommonProps.isHidden, inputClassName = _cleanCommonProps.inputClassName, innerProps = _objectWithoutProperties(_cleanCommonProps, _excluded$5);
 	return jsx("div", _extends({}, getStyleProps(props, "input", { "input-container": true }), { "data-value": value || "" }), jsx("input", _extends({
-		className: cx$31({ input: true }, inputClassName),
+		className: cx$33({ input: true }, inputClassName),
 		ref: innerRef,
 		style: inputStyle(isHidden),
 		disabled: isDisabled
@@ -114451,11 +114460,11 @@ var Select = /* @__PURE__ */ function(_Component) {
 		{
 			key: "getCommonProps",
 			value: function getCommonProps() {
-				var clearValue = this.clearValue, cx$31 = this.cx, getStyles = this.getStyles, getClassNames = this.getClassNames, getValue$2 = this.getValue, selectOption = this.selectOption, setValue = this.setValue, props = this.props;
+				var clearValue = this.clearValue, cx$33 = this.cx, getStyles = this.getStyles, getClassNames = this.getClassNames, getValue$2 = this.getValue, selectOption = this.selectOption, setValue = this.setValue, props = this.props;
 				var isMulti = props.isMulti, isRtl = props.isRtl, options$2 = props.options;
 				return {
 					clearValue,
-					cx: cx$31,
+					cx: cx$33,
 					getStyles,
 					getClassNames,
 					getValue: getValue$2,
@@ -114993,10 +115002,10 @@ var StateManagedSelect$1 = /* @__PURE__ */ (0, import_react.forwardRef)(function
 	var baseSelectProps = useStateManager(props);
 	return /* @__PURE__ */ import_react.createElement(Select, _extends({ ref }, baseSelectProps));
 });
-var import_classnames$10 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$12 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var DropdownSvg = ({ className }) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
-		className: (0, import_classnames$10.default)("DropdownSvg", className),
+		className: (0, import_classnames$12.default)("DropdownSvg", className),
 		xmlns: "http://www.w3.org/2000/svg",
 		width: "14",
 		height: "7",
@@ -115012,14 +115021,14 @@ var DropdownSvg = ({ className }) => {
 	});
 };
 var DropdownSvg_default = DropdownSvg;
-var import_classnames$9 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$11 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var Selector = ({ className, options: options$2, defaultValue, defaultOption, isDisabled, onChange, ...props }) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(StateManagedSelect$1, {
 		unstyled: true,
 		options: options$2,
 		defaultValue: defaultOption ?? findDefaultOption(defaultValue, options$2) ?? options$2[0],
 		onChange,
-		className: (0, import_classnames$9.default)("Selector", className),
+		className: (0, import_classnames$11.default)("Selector", className),
 		classNamePrefix: "Selector",
 		isClearable: false,
 		isSearchable: false,
@@ -115059,7 +115068,7 @@ var ConfirmSvg = () => {
 	});
 };
 var ConfirmSvg_default = ConfirmSvg;
-var import_classnames$8 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$10 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var SelectedAccount = () => {
 	const accounts = useAccounts_default();
 	const account = useAccount_default();
@@ -115132,7 +115141,7 @@ var MenuList = ({ children, ...props }) => {
 var Option = ({ value: id$2, data, isSelected, ...props }) => {
 	const { balance } = data.account;
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(components.Option, {
-		className: (0, import_classnames$8.default)(isSelected && "Selector__option--is-selected"),
+		className: (0, import_classnames$10.default)(isSelected && "Selector__option--is-selected"),
 		...props,
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 			className: "_account",
@@ -115157,7 +115166,7 @@ var Option = ({ value: id$2, data, isSelected, ...props }) => {
 	});
 };
 var SelectedAccount_default = SelectedAccount;
-var supply_default = "data:image/svg+xml,%3csvg%20width='40'%20height='40'%20viewBox='0%200%2040%2040'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_651_4592)'%3e%3crect%20width='40'%20height='40'%20rx='12'%20fill='%23212367'/%3e%3cpath%20d='M21%2010C21%209.44772%2020.5523%209%2020%209C19.4477%209%2019%209.44772%2019%2010L20%2010L21%2010ZM19.2929%2023.7071C19.6834%2024.0976%2020.3166%2024.0976%2020.7071%2023.7071L27.0711%2017.3431C27.4616%2016.9526%2027.4616%2016.3195%2027.0711%2015.9289C26.6805%2015.5384%2026.0474%2015.5384%2025.6569%2015.9289L20%2021.5858L14.3431%2015.9289C13.9526%2015.5384%2013.3195%2015.5384%2012.9289%2015.9289C12.5384%2016.3195%2012.5384%2016.9526%2012.9289%2017.3431L19.2929%2023.7071ZM20%2010L19%2010L19%2023L20%2023L21%2023L21%2010L20%2010Z'%20fill='%235069DD'/%3e%3cpath%20d='M10%2030H30'%20stroke='%235069DD'%20stroke-width='2'%20stroke-linecap='round'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_651_4592'%3e%3crect%20width='40'%20height='40'%20fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e";
+var supply_default$1 = "data:image/svg+xml,%3csvg%20width='40'%20height='40'%20viewBox='0%200%2040%2040'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_651_4592)'%3e%3crect%20width='40'%20height='40'%20rx='12'%20fill='%23212367'/%3e%3cpath%20d='M21%2010C21%209.44772%2020.5523%209%2020%209C19.4477%209%2019%209.44772%2019%2010L20%2010L21%2010ZM19.2929%2023.7071C19.6834%2024.0976%2020.3166%2024.0976%2020.7071%2023.7071L27.0711%2017.3431C27.4616%2016.9526%2027.4616%2016.3195%2027.0711%2015.9289C26.6805%2015.5384%2026.0474%2015.5384%2025.6569%2015.9289L20%2021.5858L14.3431%2015.9289C13.9526%2015.5384%2013.3195%2015.5384%2012.9289%2015.9289C12.5384%2016.3195%2012.5384%2016.9526%2012.9289%2017.3431L19.2929%2023.7071ZM20%2010L19%2010L19%2023L20%2023L21%2023L21%2010L20%2010Z'%20fill='%235069DD'/%3e%3cpath%20d='M10%2030H30'%20stroke='%235069DD'%20stroke-width='2'%20stroke-linecap='round'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_651_4592'%3e%3crect%20width='40'%20height='40'%20fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e";
 var TokenName = ({ symbol }) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 		className: "TokenName",
@@ -115171,11 +115180,11 @@ var TokenName = ({ symbol }) => {
 	});
 };
 var TokenName_default = TokenName;
-var import_classnames$7 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$9 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var LendingPanel = ({ title, icon, data, btnsData, className }) => {
 	const isMobile$1 = useIsMobile_default(1200);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: (0, import_classnames$7.default)(className, "LendingPanel", "box", "_sm"),
+		className: (0, import_classnames$9.default)(className, "LendingPanel", "box", "_sm"),
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 			className: "LendingPanel__head",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
@@ -115256,7 +115265,7 @@ var Supply = () => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LendingPanel_default, {
 		className: "Supply",
 		title: "Supply",
-		icon: supply_default,
+		icon: supply_default$1,
 		data: {
 			Asset: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenName_default, { symbol: "ETH" }),
 			Supplied: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmount_default, {
@@ -115282,7 +115291,7 @@ var Supply = () => {
 	});
 };
 var Supply_default = Supply;
-var borrow_default = "data:image/svg+xml,%3csvg%20width='40'%20height='40'%20viewBox='0%200%2040%2040'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_93_681)'%3e%3crect%20width='40'%20height='40'%20rx='12'%20fill='%23212367'/%3e%3ccircle%20opacity='0.5'%20cx='20'%20cy='20'%20r='10'%20fill='%235069DD'/%3e%3cpath%20d='M20%2010C14.4771%2010%2010%2014.4771%2010%2020C10%2025.5229%2014.4771%2030%2020%2030C25.5229%2030%2030%2025.5229%2030%2020C30%2014.4771%2025.5229%2010%2020%2010ZM20.8635%2025.4218V26.8302H19.5163V25.4376C17.3056%2025.1349%2016.3376%2023.3184%2016.3376%2023.3184L17.7136%2022.1673C17.7136%2022.1673%2018.5923%2023.6968%2020.1816%2023.6968C21.0596%2023.6968%2021.7256%2023.2269%2021.7256%2022.424C21.7256%2020.547%2016.6685%2020.7747%2016.6685%2017.2926C16.6685%2015.7789%2017.8657%2014.6883%2019.5156%2014.4303V13.0233H20.8628V14.4303C22.0132%2014.5817%2023.3755%2015.1871%2023.3755%2016.4896V17.4886H21.5894V17.0043C21.5894%2016.5047%2020.9529%2016.1717%2020.2408%2016.1717C19.3326%2016.1717%2018.6673%2016.6258%2018.6673%2017.2616C18.6673%2019.184%2023.7244%2018.7147%2023.7244%2022.3634C23.7244%2023.8634%2022.6042%2025.1638%2020.8635%2025.4218Z'%20fill='%235069DD'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_93_681'%3e%3crect%20width='40'%20height='40'%20fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e";
+var borrow_default$1 = "data:image/svg+xml,%3csvg%20width='40'%20height='40'%20viewBox='0%200%2040%2040'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_93_681)'%3e%3crect%20width='40'%20height='40'%20rx='12'%20fill='%23212367'/%3e%3ccircle%20opacity='0.5'%20cx='20'%20cy='20'%20r='10'%20fill='%235069DD'/%3e%3cpath%20d='M20%2010C14.4771%2010%2010%2014.4771%2010%2020C10%2025.5229%2014.4771%2030%2020%2030C25.5229%2030%2030%2025.5229%2030%2020C30%2014.4771%2025.5229%2010%2020%2010ZM20.8635%2025.4218V26.8302H19.5163V25.4376C17.3056%2025.1349%2016.3376%2023.3184%2016.3376%2023.3184L17.7136%2022.1673C17.7136%2022.1673%2018.5923%2023.6968%2020.1816%2023.6968C21.0596%2023.6968%2021.7256%2023.2269%2021.7256%2022.424C21.7256%2020.547%2016.6685%2020.7747%2016.6685%2017.2926C16.6685%2015.7789%2017.8657%2014.6883%2019.5156%2014.4303V13.0233H20.8628V14.4303C22.0132%2014.5817%2023.3755%2015.1871%2023.3755%2016.4896V17.4886H21.5894V17.0043C21.5894%2016.5047%2020.9529%2016.1717%2020.2408%2016.1717C19.3326%2016.1717%2018.6673%2016.6258%2018.6673%2017.2616C18.6673%2019.184%2023.7244%2018.7147%2023.7244%2022.3634C23.7244%2023.8634%2022.6042%2025.1638%2020.8635%2025.4218Z'%20fill='%235069DD'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_93_681'%3e%3crect%20width='40'%20height='40'%20fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e";
 var Borrow = () => {
 	const usdcPool = useUsdcPool_default();
 	const account = useAccount_default();
@@ -115290,7 +115299,7 @@ var Borrow = () => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LendingPanel_default, {
 		className: "Borrow",
 		title: "Borrow",
-		icon: borrow_default,
+		icon: borrow_default$1,
 		data: {
 			Asset: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenName_default, { symbol: "USDC" }),
 			"Current Debt": /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmount_default, {
@@ -115356,7 +115365,7 @@ var TickSvg = ({ ltvZone }) => {
 	});
 };
 var TickSvg_default = TickSvg;
-var import_classnames$6 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$8 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var LtvLevel = () => {
 	const account = useAccount_default();
 	const { isLoading, hasError } = getIsLoadingAndError(account);
@@ -115415,7 +115424,7 @@ var Indicator = ({ account }) => {
 		}
 	};
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: (0, import_classnames$6.default)("LtvLevel__indicator", `_${ltvZone}`, !debt && "_empty"),
+		className: (0, import_classnames$8.default)("LtvLevel__indicator", `_${ltvZone}`, !debt && "_empty"),
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 			className: "LtvLevel__indicator-scale",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
@@ -115436,10 +115445,10 @@ var Indicator = ({ account }) => {
 };
 var LtvLevel_default = LtvLevel;
 require_classnames();
-var import_classnames$4 = /* @__PURE__ */ __toESM(require_classnames(), 1);
-var LinkArrow = ({ href, className, children }) => {
+var import_classnames$6 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var LinkArrow = ({ href, className, children, shouldApplyHoverStyle = true }) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
-		className: (0, import_classnames$4.default)("LinkArrow", className),
+		className: (0, import_classnames$6.default)("LinkArrow", shouldApplyHoverStyle && "_hover-applied", className),
 		href,
 		target: "_blank",
 		rel: "noreferrer",
@@ -126539,7 +126548,7 @@ function calculateHistoricalLiquidationChance(currentPrice, liquidationPrice, ho
 	const chanceBps = matchingWindows * BASIS_POINTS_DENOMINATOR / sampleSize;
 	return { chancePercent: Number(chanceBps) / 100 };
 }
-var import_classnames$3 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$5 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var PERIODS_DAYS = [
 	30,
 	60,
@@ -126610,11 +126619,11 @@ var Percent = ({ periodDays, setPeriodDays, chancePercent }) => {
 			className: "LiqChance__percent-periods",
 			children: PERIODS_DAYS.map((_periodDays) => {
 				return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button_default, {
-					className: (0, import_classnames$3.default)(_periodDays === periodDays && "_chosen"),
+					className: (0, import_classnames$5.default)(_periodDays === periodDays && "_chosen"),
 					size: "micro",
 					onClick: () => setPeriodDays(_periodDays),
 					children: [_periodDays, "d"]
-				});
+				}, _periodDays);
 			})
 		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 			className: "LiqChance__percent-bar",
@@ -126684,7 +126693,7 @@ var ProtectionPanel = () => {
 };
 var ProtectionPanel_default = ProtectionPanel;
 var protection_default = "data:image/svg+xml,%3csvg%20width='40'%20height='40'%20viewBox='0%200%2040%2040'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_1622_5163)'%3e%3crect%20width='40'%20height='40'%20rx='12'%20fill='%23112540'/%3e%3cpath%20d='M20%2030C19.8833%2030%2019.775%2029.9916%2019.675%2029.9747C19.575%2029.9578%2019.475%2029.9325%2019.375%2029.8987C17.125%2029.1392%2015.3333%2027.7343%2014%2025.6841C12.6667%2023.6338%2012%2021.4268%2012%2019.0633V14.2785C12%2013.8565%2012.121%2013.4768%2012.363%2013.1392C12.605%2012.8017%2012.9173%2012.557%2013.3%2012.4051L19.3%2010.1266C19.5333%2010.0422%2019.7667%2010%2020%2010C20.2333%2010%2020.4667%2010.0422%2020.7%2010.1266L26.7%2012.4051C27.0833%2012.557%2027.396%2012.8017%2027.638%2013.1392C27.88%2013.4768%2028.0007%2013.8565%2028%2014.2785V19.0633C28%2021.4262%2027.3333%2023.6331%2026%2025.6841C24.6667%2027.735%2022.875%2029.1399%2020.625%2029.8987C20.525%2029.9325%2020.425%2029.9578%2020.325%2029.9747C20.225%2029.9916%2020.1167%2030%2020%2030Z'%20fill='%2309AF8E'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_1622_5163'%3e%3crect%20width='40'%20height='40'%20fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e";
-var import_classnames$2 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var import_classnames$4 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var TABLE_COLS = [
 	"Type",
 	"Amount",
@@ -126700,7 +126709,7 @@ var Protections = () => {
 	const { isLoading, hasError } = getIsLoadingAndError(options$2);
 	if (!account?.debt && !options$2?.length) return null;
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-		className: (0, import_classnames$2.default)("Protections", "box _sm", !options$2?.length && "_no-protections"),
+		className: (0, import_classnames$4.default)("Protections", "box _sm", !options$2?.length && "_no-protections"),
 		children: [
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 				className: "Protections__title",
@@ -126855,7 +126864,7 @@ var ProtectionPayoff = ({ position: position$1 }) => {
 	const { profit } = position$1;
 	const profitStr = formatDollarStr(profit, Decimals.STABLE);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-		className: (0, import_classnames$2.default)(profit > 0n && "positive"),
+		className: (0, import_classnames$4.default)(profit > 0n && "positive"),
 		children: profitStr
 	});
 };
@@ -126981,6 +126990,510 @@ var ArrowLinkSvg = () => {
 	});
 };
 var Docs_default = Docs;
+(/* @__PURE__ */ __commonJSMin(((exports, module) => {
+	(function(e$4, a$4) {
+		"object" == typeof exports && "object" == typeof module ? module.exports = a$4(require_react()) : "function" == typeof define && define.amd ? define(["react"], a$4) : "object" == typeof exports ? exports.ReactPaginate = a$4(require_react()) : e$4.ReactPaginate = a$4(e$4.React);
+	})(exports, ((e$4) => (() => {
+		var a$4 = {
+			703: (e$5, a$5, t$4) => {
+				var r$6 = t$4(414);
+				function n$5() {}
+				function i$4() {}
+				i$4.resetWarningCache = n$5, e$5.exports = function() {
+					function e$6(e$7, a$7, t$6, n$6, i$5, s$2) {
+						if (s$2 !== r$6) {
+							var o$3 = /* @__PURE__ */ new Error("Calling PropTypes validators directly is not supported by the `prop-types` package. Use PropTypes.checkPropTypes() to call them. Read more at http://fb.me/use-check-prop-types");
+							throw o$3.name = "Invariant Violation", o$3;
+						}
+					}
+					function a$6() {
+						return e$6;
+					}
+					e$6.isRequired = e$6;
+					var t$5 = {
+						array: e$6,
+						bigint: e$6,
+						bool: e$6,
+						func: e$6,
+						number: e$6,
+						object: e$6,
+						string: e$6,
+						symbol: e$6,
+						any: e$6,
+						arrayOf: a$6,
+						element: e$6,
+						elementType: e$6,
+						instanceOf: a$6,
+						node: e$6,
+						objectOf: a$6,
+						oneOf: a$6,
+						oneOfType: a$6,
+						shape: a$6,
+						exact: a$6,
+						checkPropTypes: i$4,
+						resetWarningCache: n$5
+					};
+					return t$5.PropTypes = t$5, t$5;
+				};
+			},
+			697: (e$5, a$5, t$4) => {
+				e$5.exports = t$4(703)();
+			},
+			414: (e$5) => {
+				e$5.exports = "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED";
+			},
+			98: (a$5) => {
+				a$5.exports = e$4;
+			}
+		}, t$3 = {};
+		function r$5(e$5) {
+			var n$5 = t$3[e$5];
+			if (void 0 !== n$5) return n$5.exports;
+			var i$4 = t$3[e$5] = { exports: {} };
+			return a$4[e$5](i$4, i$4.exports, r$5), i$4.exports;
+		}
+		r$5.n = (e$5) => {
+			var a$5 = e$5 && e$5.__esModule ? () => e$5.default : () => e$5;
+			return r$5.d(a$5, { a: a$5 }), a$5;
+		}, r$5.d = (e$5, a$5) => {
+			for (var t$4 in a$5) r$5.o(a$5, t$4) && !r$5.o(e$5, t$4) && Object.defineProperty(e$5, t$4, {
+				enumerable: !0,
+				get: a$5[t$4]
+			});
+		}, r$5.o = (e$5, a$5) => Object.prototype.hasOwnProperty.call(e$5, a$5), r$5.r = (e$5) => {
+			"undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(e$5, Symbol.toStringTag, { value: "Module" }), Object.defineProperty(e$5, "__esModule", { value: !0 });
+		};
+		var n$4 = {};
+		return (() => {
+			r$5.r(n$4), r$5.d(n$4, { default: () => k$5 });
+			var e$5 = r$5(98), a$5 = r$5.n(e$5), t$4 = r$5(697), i$4 = r$5.n(t$4);
+			function s$2() {
+				return s$2 = Object.assign ? Object.assign.bind() : function(e$6) {
+					for (var a$6 = 1; a$6 < arguments.length; a$6++) {
+						var t$5 = arguments[a$6];
+						for (var r$6 in t$5) Object.prototype.hasOwnProperty.call(t$5, r$6) && (e$6[r$6] = t$5[r$6]);
+					}
+					return e$6;
+				}, s$2.apply(this, arguments);
+			}
+			var o$3 = function(e$6) {
+				var t$5 = e$6.pageClassName, r$6 = e$6.pageLinkClassName, n$5 = e$6.page, i$5 = e$6.selected, o$4 = e$6.activeClassName, l$5 = e$6.activeLinkClassName, c$6 = e$6.getEventListener, p$4 = e$6.pageSelectedHandler, u$4 = e$6.href, g$6 = e$6.extraAriaContext, d$4 = e$6.pageLabelBuilder, f$3 = e$6.rel, b$7 = e$6.ariaLabel || "Page " + n$5 + (g$6 ? " " + g$6 : ""), v$4 = null;
+				return i$5 && (v$4 = "page", b$7 = e$6.ariaLabel || "Page " + n$5 + " is your current page", t$5 = void 0 !== t$5 ? t$5 + " " + o$4 : o$4, void 0 !== r$6 ? void 0 !== l$5 && (r$6 = r$6 + " " + l$5) : r$6 = l$5), a$5().createElement("li", { className: t$5 }, a$5().createElement("a", s$2({
+					rel: f$3,
+					role: u$4 ? void 0 : "button",
+					className: r$6,
+					href: u$4,
+					tabIndex: i$5 ? "-1" : "0",
+					"aria-label": b$7,
+					"aria-current": v$4,
+					onKeyPress: p$4
+				}, c$6(p$4)), d$4(n$5)));
+			};
+			o$3.propTypes = {
+				pageSelectedHandler: i$4().func.isRequired,
+				selected: i$4().bool.isRequired,
+				pageClassName: i$4().string,
+				pageLinkClassName: i$4().string,
+				activeClassName: i$4().string,
+				activeLinkClassName: i$4().string,
+				extraAriaContext: i$4().string,
+				href: i$4().string,
+				ariaLabel: i$4().string,
+				page: i$4().number.isRequired,
+				getEventListener: i$4().func.isRequired,
+				pageLabelBuilder: i$4().func.isRequired,
+				rel: i$4().string
+			};
+			const l$4 = o$3;
+			function c$5() {
+				return c$5 = Object.assign ? Object.assign.bind() : function(e$6) {
+					for (var a$6 = 1; a$6 < arguments.length; a$6++) {
+						var t$5 = arguments[a$6];
+						for (var r$6 in t$5) Object.prototype.hasOwnProperty.call(t$5, r$6) && (e$6[r$6] = t$5[r$6]);
+					}
+					return e$6;
+				}, c$5.apply(this, arguments);
+			}
+			var p$3 = function(e$6) {
+				var t$5 = e$6.breakLabel, r$6 = e$6.breakAriaLabel, n$5 = e$6.breakClassName, i$5 = e$6.breakLinkClassName, s$3 = e$6.breakHandler, o$4 = e$6.getEventListener, l$5 = n$5 || "break";
+				return a$5().createElement("li", { className: l$5 }, a$5().createElement("a", c$5({
+					className: i$5,
+					role: "button",
+					tabIndex: "0",
+					"aria-label": r$6,
+					onKeyPress: s$3
+				}, o$4(s$3)), t$5));
+			};
+			p$3.propTypes = {
+				breakLabel: i$4().oneOfType([i$4().string, i$4().node]),
+				breakAriaLabel: i$4().string,
+				breakClassName: i$4().string,
+				breakLinkClassName: i$4().string,
+				breakHandler: i$4().func.isRequired,
+				getEventListener: i$4().func.isRequired
+			};
+			const u$3 = p$3;
+			function g$5(e$6) {
+				var a$6 = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : "";
+				return null != e$6 ? e$6 : a$6;
+			}
+			function d$3(e$6) {
+				return d$3 = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(e$7) {
+					return typeof e$7;
+				} : function(e$7) {
+					return e$7 && "function" == typeof Symbol && e$7.constructor === Symbol && e$7 !== Symbol.prototype ? "symbol" : typeof e$7;
+				}, d$3(e$6);
+			}
+			function f$2() {
+				return f$2 = Object.assign ? Object.assign.bind() : function(e$6) {
+					for (var a$6 = 1; a$6 < arguments.length; a$6++) {
+						var t$5 = arguments[a$6];
+						for (var r$6 in t$5) Object.prototype.hasOwnProperty.call(t$5, r$6) && (e$6[r$6] = t$5[r$6]);
+					}
+					return e$6;
+				}, f$2.apply(this, arguments);
+			}
+			function b$6(e$6, a$6) {
+				for (var t$5 = 0; t$5 < a$6.length; t$5++) {
+					var r$6 = a$6[t$5];
+					r$6.enumerable = r$6.enumerable || !1, r$6.configurable = !0, "value" in r$6 && (r$6.writable = !0), Object.defineProperty(e$6, r$6.key, r$6);
+				}
+			}
+			function v$3(e$6, a$6) {
+				return v$3 = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function(e$7, a$7) {
+					return e$7.__proto__ = a$7, e$7;
+				}, v$3(e$6, a$6);
+			}
+			function h$2(e$6, a$6) {
+				if (a$6 && ("object" === d$3(a$6) || "function" == typeof a$6)) return a$6;
+				if (void 0 !== a$6) throw new TypeError("Derived constructors may only return object or undefined");
+				return m$3(e$6);
+			}
+			function m$3(e$6) {
+				if (void 0 === e$6) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+				return e$6;
+			}
+			function y$5(e$6) {
+				return y$5 = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function(e$7) {
+					return e$7.__proto__ || Object.getPrototypeOf(e$7);
+				}, y$5(e$6);
+			}
+			function C$3(e$6, a$6, t$5) {
+				return a$6 in e$6 ? Object.defineProperty(e$6, a$6, {
+					value: t$5,
+					enumerable: !0,
+					configurable: !0,
+					writable: !0
+				}) : e$6[a$6] = t$5, e$6;
+			}
+			var P$4 = function(e$6) {
+				(function(e$7, a$6) {
+					if ("function" != typeof a$6 && null !== a$6) throw new TypeError("Super expression must either be null or a function");
+					e$7.prototype = Object.create(a$6 && a$6.prototype, { constructor: {
+						value: e$7,
+						writable: !0,
+						configurable: !0
+					} }), Object.defineProperty(e$7, "prototype", { writable: !1 }), a$6 && v$3(e$7, a$6);
+				})(o$4, e$6);
+				var t$5, r$6, n$5, i$5, s$3 = (n$5 = o$4, i$5 = function() {
+					if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
+					if (Reflect.construct.sham) return !1;
+					if ("function" == typeof Proxy) return !0;
+					try {
+						return Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], (function() {}))), !0;
+					} catch (e$7) {
+						return !1;
+					}
+				}(), function() {
+					var e$7, a$6 = y$5(n$5);
+					if (i$5) {
+						var t$6 = y$5(this).constructor;
+						e$7 = Reflect.construct(a$6, arguments, t$6);
+					} else e$7 = a$6.apply(this, arguments);
+					return h$2(this, e$7);
+				});
+				function o$4(e$7) {
+					var t$6, r$7;
+					return function(e$8, a$6) {
+						if (!(e$8 instanceof a$6)) throw new TypeError("Cannot call a class as a function");
+					}(this, o$4), C$3(m$3(t$6 = s$3.call(this, e$7)), "handlePreviousPage", (function(e$8) {
+						var a$6 = t$6.state.selected;
+						t$6.handleClick(e$8, null, a$6 > 0 ? a$6 - 1 : void 0, { isPrevious: !0 });
+					})), C$3(m$3(t$6), "handleNextPage", (function(e$8) {
+						var a$6 = t$6.state.selected, r$8 = t$6.props.pageCount;
+						t$6.handleClick(e$8, null, a$6 < r$8 - 1 ? a$6 + 1 : void 0, { isNext: !0 });
+					})), C$3(m$3(t$6), "handlePageSelected", (function(e$8, a$6) {
+						if (t$6.state.selected === e$8) return t$6.callActiveCallback(e$8), void t$6.handleClick(a$6, null, void 0, { isActive: !0 });
+						t$6.handleClick(a$6, null, e$8);
+					})), C$3(m$3(t$6), "handlePageChange", (function(e$8) {
+						t$6.state.selected !== e$8 && (t$6.setState({ selected: e$8 }), t$6.callCallback(e$8));
+					})), C$3(m$3(t$6), "getEventListener", (function(e$8) {
+						return C$3({}, t$6.props.eventListener, e$8);
+					})), C$3(m$3(t$6), "handleClick", (function(e$8, a$6, r$8) {
+						var n$6 = arguments.length > 3 && void 0 !== arguments[3] ? arguments[3] : {}, i$6 = n$6.isPrevious, s$4 = void 0 !== i$6 && i$6, o$5 = n$6.isNext, l$5 = void 0 !== o$5 && o$5, c$6 = n$6.isBreak, p$4 = void 0 !== c$6 && c$6, u$4 = n$6.isActive, g$6 = void 0 !== u$4 && u$4;
+						e$8.preventDefault ? e$8.preventDefault() : e$8.returnValue = !1;
+						var d$4 = t$6.state.selected, f$3 = t$6.props.onClick, b$7 = r$8;
+						if (f$3) {
+							var v$4 = f$3({
+								index: a$6,
+								selected: d$4,
+								nextSelectedPage: r$8,
+								event: e$8,
+								isPrevious: s$4,
+								isNext: l$5,
+								isBreak: p$4,
+								isActive: g$6
+							});
+							if (!1 === v$4) return;
+							Number.isInteger(v$4) && (b$7 = v$4);
+						}
+						void 0 !== b$7 && t$6.handlePageChange(b$7);
+					})), C$3(m$3(t$6), "handleBreakClick", (function(e$8, a$6) {
+						var r$8 = t$6.state.selected;
+						t$6.handleClick(a$6, e$8, r$8 < e$8 ? t$6.getForwardJump() : t$6.getBackwardJump(), { isBreak: !0 });
+					})), C$3(m$3(t$6), "callCallback", (function(e$8) {
+						void 0 !== t$6.props.onPageChange && "function" == typeof t$6.props.onPageChange && t$6.props.onPageChange({ selected: e$8 });
+					})), C$3(m$3(t$6), "callActiveCallback", (function(e$8) {
+						void 0 !== t$6.props.onPageActive && "function" == typeof t$6.props.onPageActive && t$6.props.onPageActive({ selected: e$8 });
+					})), C$3(m$3(t$6), "getElementPageRel", (function(e$8) {
+						var a$6 = t$6.state.selected, r$8 = t$6.props, n$6 = r$8.nextPageRel, i$6 = r$8.prevPageRel, s$4 = r$8.selectedPageRel;
+						return a$6 - 1 === e$8 ? i$6 : a$6 === e$8 ? s$4 : a$6 + 1 === e$8 ? n$6 : void 0;
+					})), C$3(m$3(t$6), "pagination", (function() {
+						var e$8 = [], r$8 = t$6.props, n$6 = r$8.pageRangeDisplayed, i$6 = r$8.pageCount, s$4 = r$8.marginPagesDisplayed, o$5 = r$8.breakLabel, l$5 = r$8.breakClassName, c$6 = r$8.breakLinkClassName, p$4 = r$8.breakAriaLabels, g$6 = t$6.state.selected;
+						if (i$6 <= n$6) for (var d$4 = 0; d$4 < i$6; d$4++) e$8.push(t$6.getPageElement(d$4));
+						else {
+							var f$3 = n$6 / 2, b$7 = n$6 - f$3;
+							g$6 > i$6 - n$6 / 2 ? f$3 = n$6 - (b$7 = i$6 - g$6) : g$6 < n$6 / 2 && (b$7 = n$6 - (f$3 = g$6));
+							var v$4, h$3, m$4 = function(e$9) {
+								return t$6.getPageElement(e$9);
+							}, y$6 = [];
+							for (v$4 = 0; v$4 < i$6; v$4++) {
+								var C$4 = v$4 + 1;
+								if (C$4 <= s$4) y$6.push({
+									type: "page",
+									index: v$4,
+									display: m$4(v$4)
+								});
+								else if (C$4 > i$6 - s$4) y$6.push({
+									type: "page",
+									index: v$4,
+									display: m$4(v$4)
+								});
+								else if (v$4 >= g$6 - f$3 && v$4 <= g$6 + (0 === g$6 && n$6 > 1 ? b$7 - 1 : b$7)) y$6.push({
+									type: "page",
+									index: v$4,
+									display: m$4(v$4)
+								});
+								else if (o$5 && y$6.length > 0 && y$6[y$6.length - 1].display !== h$3 && (n$6 > 0 || s$4 > 0)) {
+									var P$5 = v$4 < g$6 ? p$4.backward : p$4.forward;
+									h$3 = a$5().createElement(u$3, {
+										key: v$4,
+										breakAriaLabel: P$5,
+										breakLabel: o$5,
+										breakClassName: l$5,
+										breakLinkClassName: c$6,
+										breakHandler: t$6.handleBreakClick.bind(null, v$4),
+										getEventListener: t$6.getEventListener
+									}), y$6.push({
+										type: "break",
+										index: v$4,
+										display: h$3
+									});
+								}
+							}
+							y$6.forEach((function(a$6, t$7) {
+								var r$9 = a$6;
+								"break" === a$6.type && y$6[t$7 - 1] && "page" === y$6[t$7 - 1].type && y$6[t$7 + 1] && "page" === y$6[t$7 + 1].type && y$6[t$7 + 1].index - y$6[t$7 - 1].index <= 2 && (r$9 = {
+									type: "page",
+									index: a$6.index,
+									display: m$4(a$6.index)
+								}), e$8.push(r$9.display);
+							}));
+						}
+						return e$8;
+					})), void 0 !== e$7.initialPage && void 0 !== e$7.forcePage && console.warn("(react-paginate): Both initialPage (".concat(e$7.initialPage, ") and forcePage (").concat(e$7.forcePage, ") props are provided, which is discouraged.") + " Use exclusively forcePage prop for a controlled component.\nSee https://reactjs.org/docs/forms.html#controlled-components"), r$7 = e$7.initialPage ? e$7.initialPage : e$7.forcePage ? e$7.forcePage : 0, t$6.state = { selected: r$7 }, t$6;
+				}
+				return t$5 = o$4, (r$6 = [
+					{
+						key: "componentDidMount",
+						value: function() {
+							var e$7 = this.props, a$6 = e$7.initialPage, t$6 = e$7.disableInitialCallback, r$7 = e$7.extraAriaContext, n$6 = e$7.pageCount, i$6 = e$7.forcePage;
+							void 0 === a$6 || t$6 || this.callCallback(a$6), r$7 && console.warn("DEPRECATED (react-paginate): The extraAriaContext prop is deprecated. You should now use the ariaLabelBuilder instead."), Number.isInteger(n$6) || console.warn("(react-paginate): The pageCount prop value provided is not an integer (".concat(n$6, "). Did you forget a Math.ceil()?")), void 0 !== a$6 && a$6 > n$6 - 1 && console.warn("(react-paginate): The initialPage prop provided is greater than the maximum page index from pageCount prop (".concat(a$6, " > ").concat(n$6 - 1, ").")), void 0 !== i$6 && i$6 > n$6 - 1 && console.warn("(react-paginate): The forcePage prop provided is greater than the maximum page index from pageCount prop (".concat(i$6, " > ").concat(n$6 - 1, ")."));
+						}
+					},
+					{
+						key: "componentDidUpdate",
+						value: function(e$7) {
+							void 0 !== this.props.forcePage && this.props.forcePage !== e$7.forcePage && (this.props.forcePage > this.props.pageCount - 1 && console.warn("(react-paginate): The forcePage prop provided is greater than the maximum page index from pageCount prop (".concat(this.props.forcePage, " > ").concat(this.props.pageCount - 1, ").")), this.setState({ selected: this.props.forcePage })), Number.isInteger(e$7.pageCount) && !Number.isInteger(this.props.pageCount) && console.warn("(react-paginate): The pageCount prop value provided is not an integer (".concat(this.props.pageCount, "). Did you forget a Math.ceil()?"));
+						}
+					},
+					{
+						key: "getForwardJump",
+						value: function() {
+							var e$7 = this.state.selected, a$6 = this.props, t$6 = a$6.pageCount, r$7 = e$7 + a$6.pageRangeDisplayed;
+							return r$7 >= t$6 ? t$6 - 1 : r$7;
+						}
+					},
+					{
+						key: "getBackwardJump",
+						value: function() {
+							var e$7 = this.state.selected - this.props.pageRangeDisplayed;
+							return e$7 < 0 ? 0 : e$7;
+						}
+					},
+					{
+						key: "getElementHref",
+						value: function(e$7) {
+							var a$6 = this.props, t$6 = a$6.hrefBuilder, r$7 = a$6.pageCount, n$6 = a$6.hrefAllControls;
+							if (t$6) return n$6 || e$7 >= 0 && e$7 < r$7 ? t$6(e$7 + 1, r$7, this.state.selected) : void 0;
+						}
+					},
+					{
+						key: "ariaLabelBuilder",
+						value: function(e$7) {
+							var a$6 = e$7 === this.state.selected;
+							if (this.props.ariaLabelBuilder && e$7 >= 0 && e$7 < this.props.pageCount) {
+								var t$6 = this.props.ariaLabelBuilder(e$7 + 1, a$6);
+								return this.props.extraAriaContext && !a$6 && (t$6 = t$6 + " " + this.props.extraAriaContext), t$6;
+							}
+						}
+					},
+					{
+						key: "getPageElement",
+						value: function(e$7) {
+							var t$6 = this.state.selected, r$7 = this.props, n$6 = r$7.pageClassName, i$6 = r$7.pageLinkClassName, s$4 = r$7.activeClassName, o$5 = r$7.activeLinkClassName, c$6 = r$7.extraAriaContext, p$4 = r$7.pageLabelBuilder;
+							return a$5().createElement(l$4, {
+								key: e$7,
+								pageSelectedHandler: this.handlePageSelected.bind(null, e$7),
+								selected: t$6 === e$7,
+								rel: this.getElementPageRel(e$7),
+								pageClassName: n$6,
+								pageLinkClassName: i$6,
+								activeClassName: s$4,
+								activeLinkClassName: o$5,
+								extraAriaContext: c$6,
+								href: this.getElementHref(e$7),
+								ariaLabel: this.ariaLabelBuilder(e$7),
+								page: e$7 + 1,
+								pageLabelBuilder: p$4,
+								getEventListener: this.getEventListener
+							});
+						}
+					},
+					{
+						key: "render",
+						value: function() {
+							var e$7 = this.props.renderOnZeroPageCount;
+							if (0 === this.props.pageCount && void 0 !== e$7) return e$7 ? e$7(this.props) : e$7;
+							var t$6 = this.props, r$7 = t$6.disabledClassName, n$6 = t$6.disabledLinkClassName, i$6 = t$6.pageCount, s$4 = t$6.className, o$5 = t$6.containerClassName, l$5 = t$6.previousLabel, c$6 = t$6.previousClassName, p$4 = t$6.previousLinkClassName, u$4 = t$6.previousAriaLabel, d$4 = t$6.prevRel, b$7 = t$6.nextLabel, v$4 = t$6.nextClassName, h$3 = t$6.nextLinkClassName, m$4 = t$6.nextAriaLabel, y$6 = t$6.nextRel, C$4 = this.state.selected, P$5 = 0 === C$4, k$6 = C$4 === i$6 - 1, x$4 = "".concat(g$5(c$6)).concat(P$5 ? " ".concat(g$5(r$7)) : ""), L$4 = "".concat(g$5(v$4)).concat(k$6 ? " ".concat(g$5(r$7)) : ""), N$4 = "".concat(g$5(p$4)).concat(P$5 ? " ".concat(g$5(n$6)) : ""), O$3 = "".concat(g$5(h$3)).concat(k$6 ? " ".concat(g$5(n$6)) : ""), R$3 = P$5 ? "true" : "false", E$5 = k$6 ? "true" : "false";
+							return a$5().createElement("ul", {
+								className: s$4 || o$5,
+								role: "navigation",
+								"aria-label": "Pagination"
+							}, a$5().createElement("li", { className: x$4 }, a$5().createElement("a", f$2({
+								className: N$4,
+								href: this.getElementHref(C$4 - 1),
+								tabIndex: P$5 ? "-1" : "0",
+								role: "button",
+								onKeyPress: this.handlePreviousPage,
+								"aria-disabled": R$3,
+								"aria-label": u$4,
+								rel: d$4
+							}, this.getEventListener(this.handlePreviousPage)), l$5)), this.pagination(), a$5().createElement("li", { className: L$4 }, a$5().createElement("a", f$2({
+								className: O$3,
+								href: this.getElementHref(C$4 + 1),
+								tabIndex: k$6 ? "-1" : "0",
+								role: "button",
+								onKeyPress: this.handleNextPage,
+								"aria-disabled": E$5,
+								"aria-label": m$4,
+								rel: y$6
+							}, this.getEventListener(this.handleNextPage)), b$7)));
+						}
+					}
+				]) && b$6(t$5.prototype, r$6), Object.defineProperty(t$5, "prototype", { writable: !1 }), o$4;
+			}(e$5.Component);
+			C$3(P$4, "propTypes", {
+				pageCount: i$4().number.isRequired,
+				pageRangeDisplayed: i$4().number,
+				marginPagesDisplayed: i$4().number,
+				previousLabel: i$4().node,
+				previousAriaLabel: i$4().string,
+				prevPageRel: i$4().string,
+				prevRel: i$4().string,
+				nextLabel: i$4().node,
+				nextAriaLabel: i$4().string,
+				nextPageRel: i$4().string,
+				nextRel: i$4().string,
+				breakLabel: i$4().oneOfType([i$4().string, i$4().node]),
+				breakAriaLabels: i$4().shape({
+					forward: i$4().string,
+					backward: i$4().string
+				}),
+				hrefBuilder: i$4().func,
+				hrefAllControls: i$4().bool,
+				onPageChange: i$4().func,
+				onPageActive: i$4().func,
+				onClick: i$4().func,
+				initialPage: i$4().number,
+				forcePage: i$4().number,
+				disableInitialCallback: i$4().bool,
+				containerClassName: i$4().string,
+				className: i$4().string,
+				pageClassName: i$4().string,
+				pageLinkClassName: i$4().string,
+				pageLabelBuilder: i$4().func,
+				activeClassName: i$4().string,
+				activeLinkClassName: i$4().string,
+				previousClassName: i$4().string,
+				nextClassName: i$4().string,
+				previousLinkClassName: i$4().string,
+				nextLinkClassName: i$4().string,
+				disabledClassName: i$4().string,
+				disabledLinkClassName: i$4().string,
+				breakClassName: i$4().string,
+				breakLinkClassName: i$4().string,
+				extraAriaContext: i$4().string,
+				ariaLabelBuilder: i$4().func,
+				eventListener: i$4().string,
+				renderOnZeroPageCount: i$4().func,
+				selectedPageRel: i$4().string
+			}), C$3(P$4, "defaultProps", {
+				pageRangeDisplayed: 2,
+				marginPagesDisplayed: 3,
+				activeClassName: "selected",
+				previousLabel: "Previous",
+				previousClassName: "previous",
+				previousAriaLabel: "Previous page",
+				prevPageRel: "prev",
+				prevRel: "prev",
+				nextLabel: "Next",
+				nextClassName: "next",
+				nextAriaLabel: "Next page",
+				nextPageRel: "next",
+				nextRel: "next",
+				breakLabel: "...",
+				breakAriaLabels: {
+					forward: "Jump forward",
+					backward: "Jump backward"
+				},
+				disabledClassName: "disabled",
+				disableInitialCallback: !1,
+				pageLabelBuilder: function(e$6) {
+					return e$6;
+				},
+				eventListener: "onClick",
+				renderOnZeroPageCount: void 0,
+				selectedPageRel: "canonical",
+				hrefAllControls: !1
+			});
+			const k$5 = P$4;
+		})(), n$4;
+	})()));
+})))();
+require_classnames();
+require_classnames();
+Colors.BLUE_2, Colors.RED_2, Colors.YELLOW_2, Colors.GREEN_2, Colors.GREEN_2, Colors.VIOLET_DIM;
 var AppRoutes = () => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Routes, { children: [
 		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
@@ -128145,6 +128658,7 @@ var Banner = () => {
 			})]
 		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LinkArrow_default, {
 			className: "Banner__link",
+			shouldApplyHoverStyle: false,
 			href: "https://x.com/NoRektFi/status/2096902141772444009",
 			children: "See how it works"
 		})]
