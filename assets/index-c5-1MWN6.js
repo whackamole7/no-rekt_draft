@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-C63zk_Y4.js","assets/secp256k1-D0NNUUuM.js","assets/esm-frHYY5Sf.js","assets/dist-C149G8Ri.js","assets/dist-DG_fS4UB.js","assets/dist-Cklyom6Z.js","assets/index.es-me8xGz_y.js","assets/alchemy-provider-2577f5a5-DAgYvjs0.js","assets/alchemy-provider-2577f5a5-CMQxEMM-.js","assets/alchemy-websocket-provider-ee041890-pIbY87tY.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-Cjrap67I.js","assets/secp256k1-G63qlvPx.js","assets/esm-B9D9EK69.js","assets/dist-CpNYUcZ1.js","assets/dist-Zcggaa9D.js","assets/dist-yRNyTBHJ.js","assets/index.es-C_b_OyKS.js","assets/alchemy-provider-2577f5a5-Ctf2r1gL.js","assets/alchemy-provider-2577f5a5-CPcSIzno.js","assets/alchemy-websocket-provider-ee041890-WIt4O-zq.js"])))=>i.map(i=>d[i]);
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -16953,7 +16953,7 @@ async function call$1(client, args) {
 	} catch (err) {
 		const data$1 = getRevertErrorData(err);
 		const { offchainLookup, offchainLookupSignature } = await __vitePreload(async () => {
-			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-D1Kh5LuB.js");
+			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-gOc3fYUl.js");
 			return {
 				offchainLookup: offchainLookup$1,
 				offchainLookupSignature: offchainLookupSignature$1
@@ -17454,7 +17454,7 @@ function publicKeyToAddress(publicKey) {
 async function recoverPublicKey({ hash: hash$3, signature }) {
 	const hashHex = isHex(hash$3) ? hash$3 : toHex$2(hash$3);
 	const { secp256k1: secp256k1$1 } = await __vitePreload(async () => {
-		const { secp256k1: secp256k1$2 } = await import("./secp256k1-C63zk_Y4.js");
+		const { secp256k1: secp256k1$2 } = await import("./secp256k1-Cjrap67I.js");
 		return { secp256k1: secp256k1$2 };
 	}, __vite__mapDeps([0,1]));
 	return `0x${(() => {
@@ -22635,7 +22635,7 @@ var require_use_sync_external_store_shim_production$1 = /* @__PURE__ */ __common
 	function is$3(x$4, y$5) {
 		return x$4 === y$5 && (0 !== x$4 || 1 / x$4 === 1 / y$5) || x$4 !== x$4 && y$5 !== y$5;
 	}
-	var objectIs$2 = "function" === typeof Object.is ? Object.is : is$3, useState$33 = React$9.useState, useEffect$45 = React$9.useEffect, useLayoutEffect$7 = React$9.useLayoutEffect, useDebugValue$3 = React$9.useDebugValue;
+	var objectIs$2 = "function" === typeof Object.is ? Object.is : is$3, useState$33 = React$9.useState, useEffect$46 = React$9.useEffect, useLayoutEffect$7 = React$9.useLayoutEffect, useDebugValue$3 = React$9.useDebugValue;
 	function useSyncExternalStore$2$6(subscribe$1, getSnapshot) {
 		var value = getSnapshot(), _useState = useState$33({ inst: {
 			value,
@@ -22650,7 +22650,7 @@ var require_use_sync_external_store_shim_production$1 = /* @__PURE__ */ __common
 			value,
 			getSnapshot
 		]);
-		useEffect$45(function() {
+		useEffect$46(function() {
 			checkIfSnapshotChanged$1(inst) && forceUpdate({ inst });
 			return subscribe$1(function() {
 				checkIfSnapshotChanged$1(inst) && forceUpdate({ inst });
@@ -22692,7 +22692,7 @@ var require_with_selector_production = /* @__PURE__ */ __commonJSMin(((exports) 
 	function is$2(x$4, y$5) {
 		return x$4 === y$5 && (0 !== x$4 || 1 / x$4 === 1 / y$5) || x$4 !== x$4 && y$5 !== y$5;
 	}
-	var objectIs$1 = "function" === typeof Object.is ? Object.is : is$2, useSyncExternalStore$6 = shim$1.useSyncExternalStore, useRef$23 = React$8.useRef, useEffect$44 = React$8.useEffect, useMemo$27 = React$8.useMemo, useDebugValue$2 = React$8.useDebugValue;
+	var objectIs$1 = "function" === typeof Object.is ? Object.is : is$2, useSyncExternalStore$6 = shim$1.useSyncExternalStore, useRef$23 = React$8.useRef, useEffect$45 = React$8.useEffect, useMemo$27 = React$8.useMemo, useDebugValue$2 = React$8.useDebugValue;
 	exports.useSyncExternalStoreWithSelector = function(subscribe$1, getSnapshot, getServerSnapshot, selector, isEqual$2) {
 		var instRef = useRef$23(null);
 		if (null === instRef.current) {
@@ -22734,7 +22734,7 @@ var require_with_selector_production = /* @__PURE__ */ __commonJSMin(((exports) 
 			isEqual$2
 		]);
 		var value = useSyncExternalStore$6(subscribe$1, instRef[0], instRef[1]);
-		useEffect$44(function() {
+		useEffect$45(function() {
 			inst.hasValue = !0;
 			inst.value = value;
 		}, [value]);
@@ -23304,7 +23304,7 @@ function safe(parameters = {}) {
 			if (!provider_) {
 				const { default: SDK } = await (() => {
 					try {
-						return __vitePreload(() => import("./esm-frHYY5Sf.js"), __vite__mapDeps([2,3]));
+						return __vitePreload(() => import("./esm-B9D9EK69.js"), __vite__mapDeps([2,3]));
 					} catch {
 						throw new Error("dependency \"@safe-global/safe-apps-sdk\" not found");
 					}
@@ -23315,7 +23315,7 @@ function safe(parameters = {}) {
 				provider_ = new (await ((async () => {
 					const Provider$1 = await (() => {
 						try {
-							return __vitePreload(() => import("./dist-DG_fS4UB.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
+							return __vitePreload(() => import("./dist-Zcggaa9D.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
 						} catch {
 							throw new Error("dependency \"@safe-global/safe-apps-provider\" not found");
 						}
@@ -23480,7 +23480,7 @@ function walletConnect(parameters) {
 				if (!optionalChains.length) return;
 				const { EthereumProvider: EthereumProvider$1 } = await (() => {
 					try {
-						return __vitePreload(() => import("./dist-Cklyom6Z.js"), __vite__mapDeps([5,6,1]));
+						return __vitePreload(() => import("./dist-yRNyTBHJ.js"), __vite__mapDeps([5,6,1]));
 					} catch {
 						throw new Error("dependency \"@walletconnect/ethereum-provider\" not found");
 					}
@@ -84475,14 +84475,14 @@ var AlchemyConfig = class {
 	}
 	getProvider() {
 		if (!this._baseAlchemyProvider) this._baseAlchemyProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-DAgYvjs0.js"), __vite__mapDeps([7,8]));
+			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-Ctf2r1gL.js"), __vite__mapDeps([7,8]));
 			return new AlchemyProvider$1(this);
 		}))();
 		return this._baseAlchemyProvider;
 	}
 	getWebSocketProvider() {
 		if (!this._baseAlchemyWssProvider) this._baseAlchemyWssProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-pIbY87tY.js"), __vite__mapDeps([9,8]));
+			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-WIt4O-zq.js"), __vite__mapDeps([9,8]));
 			return new AlchemyWebSocketProvider(this);
 		}))();
 		return this._baseAlchemyWssProvider;
@@ -86654,7 +86654,7 @@ var require_use_sync_external_store_shim_production = /* @__PURE__ */ __commonJS
 	function is$1(x$4, y$5) {
 		return x$4 === y$5 && (0 !== x$4 || 1 / x$4 === 1 / y$5) || x$4 !== x$4 && y$5 !== y$5;
 	}
-	var objectIs = "function" === typeof Object.is ? Object.is : is$1, useState$26 = React$4.useState, useEffect$26 = React$4.useEffect, useLayoutEffect$3 = React$4.useLayoutEffect, useDebugValue$1 = React$4.useDebugValue;
+	var objectIs = "function" === typeof Object.is ? Object.is : is$1, useState$26 = React$4.useState, useEffect$27 = React$4.useEffect, useLayoutEffect$3 = React$4.useLayoutEffect, useDebugValue$1 = React$4.useDebugValue;
 	function useSyncExternalStore$2(subscribe$1, getSnapshot) {
 		var value = getSnapshot(), _useState = useState$26({ inst: {
 			value,
@@ -86669,7 +86669,7 @@ var require_use_sync_external_store_shim_production = /* @__PURE__ */ __commonJS
 			value,
 			getSnapshot
 		]);
-		useEffect$26(function() {
+		useEffect$27(function() {
 			checkIfSnapshotChanged(inst) && forceUpdate({ inst });
 			return subscribe$1(function() {
 				checkIfSnapshotChanged(inst) && forceUpdate({ inst });
@@ -112695,7 +112695,7 @@ function MultiValueRemove(_ref5) {
 	var children = _ref5.children, innerProps = _ref5.innerProps;
 	return jsx("div", _extends({ role: "button" }, innerProps), children || jsx(CrossIcon, { size: 14 }));
 }
-var MultiValue$1 = function MultiValue(props) {
+var MultiValue$1 = function MultiValue$2(props) {
 	var children = props.children, components$1 = props.components, data = props.data, innerProps = props.innerProps, isDisabled = props.isDisabled, removeProps$1 = props.removeProps, selectProps = props.selectProps;
 	var Container$9 = components$1.Container, Label = components$1.Label, Remove = components$1.Remove;
 	return jsx(Container$9, {
@@ -114630,7 +114630,7 @@ var Select = /* @__PURE__ */ function(_Component) {
 			key: "renderPlaceholderOrValue",
 			value: function renderPlaceholderOrValue() {
 				var _this3 = this;
-				var _this$getComponents2 = this.getComponents(), MultiValue = _this$getComponents2.MultiValue, MultiValueContainer$1 = _this$getComponents2.MultiValueContainer, MultiValueLabel$1 = _this$getComponents2.MultiValueLabel, MultiValueRemove$1 = _this$getComponents2.MultiValueRemove, SingleValue = _this$getComponents2.SingleValue, Placeholder = _this$getComponents2.Placeholder;
+				var _this$getComponents2 = this.getComponents(), MultiValue$2 = _this$getComponents2.MultiValue, MultiValueContainer$1 = _this$getComponents2.MultiValueContainer, MultiValueLabel$1 = _this$getComponents2.MultiValueLabel, MultiValueRemove$1 = _this$getComponents2.MultiValueRemove, SingleValue = _this$getComponents2.SingleValue, Placeholder = _this$getComponents2.Placeholder;
 				var commonProps = this.commonProps;
 				var _this$props9 = this.props, controlShouldRenderValue = _this$props9.controlShouldRenderValue, isDisabled = _this$props9.isDisabled, isMulti = _this$props9.isMulti, inputValue = _this$props9.inputValue, placeholder = _this$props9.placeholder;
 				var _this$state5 = this.state, selectValue = _this$state5.selectValue, focusedValue = _this$state5.focusedValue, isFocused = _this$state5.isFocused;
@@ -114643,7 +114643,7 @@ var Select = /* @__PURE__ */ function(_Component) {
 				if (isMulti) return selectValue.map(function(opt, index$6) {
 					var isOptionFocused = opt === focusedValue;
 					var key = "".concat(_this3.getOptionLabel(opt), "-").concat(_this3.getOptionValue(opt));
-					return /* @__PURE__ */ import_react.createElement(MultiValue, _extends({}, commonProps, {
+					return /* @__PURE__ */ import_react.createElement(MultiValue$2, _extends({}, commonProps, {
 						components: {
 							Container: MultiValueContainer$1,
 							Label: MultiValueLabel$1,
@@ -115022,20 +115022,30 @@ var DropdownSvg = ({ className }) => {
 };
 var DropdownSvg_default = DropdownSvg;
 var import_classnames$11 = /* @__PURE__ */ __toESM(require_classnames(), 1);
-var Selector = ({ className, options: options$2, defaultValue, defaultOption, isDisabled, onChange, ...props }) => {
+var Selector = ({ className, options: options$2, defaultValue, defaultOption, noStateStyles = false, isMulti = false, multiLabel = "All", isDisabled = false, onChange, ...props }) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(StateManagedSelect$1, {
 		unstyled: true,
 		options: options$2,
-		defaultValue: defaultOption ?? findDefaultOption(defaultValue, options$2) ?? options$2[0],
-		onChange,
-		className: (0, import_classnames$11.default)("Selector", className),
+		value: defaultOption ?? (isMulti ? filterDefaultOptionsForMulti(defaultValue, options$2) : findDefaultOption(defaultValue, options$2)) ?? (isMulti ? options$2 : options$2[0]),
+		onChange: isMulti ? (vals) => {
+			if (vals.length === 0) return;
+			return onChange(vals);
+		} : onChange,
+		className: (0, import_classnames$11.default)("Selector", !noStateStyles && "_default-state-styles", className),
 		classNamePrefix: "Selector",
 		isClearable: false,
 		isSearchable: false,
+		isMulti,
+		hideSelectedOptions: false,
+		closeMenuOnSelect: !isMulti,
 		isDisabled: !options$2.length || isDisabled,
 		...props,
 		components: {
 			DropdownIndicator,
+			MultiValue: (props$1) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(MultiValue, {
+				allLabel: multiLabel,
+				...props$1
+			}),
 			...props.components
 		}
 	});
@@ -115046,8 +115056,22 @@ var DropdownIndicator = (props) => {
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(DropdownSvg_default, {})
 	});
 };
+var MultiValue = ({ allLabel, ...props }) => {
+	const { getValue: getValue$2, options: options$2 } = props;
+	const selectedValues = getValue$2();
+	if (options$2.length > 0 && selectedValues.length === options$2.length) {
+		if (props.index !== 0) return null;
+		return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: allLabel });
+	}
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(components.MultiValue, { ...props });
+};
 var findDefaultOption = (value, options$2) => {
 	return options$2.find((opt) => opt.value === value);
+};
+var filterDefaultOptionsForMulti = (values, options$2) => {
+	return options$2.filter((opt) => {
+		return values.includes(opt.value);
+	});
 };
 var Selector_default = Selector;
 var ConfirmSvg = () => {
@@ -115097,8 +115121,9 @@ var SelectedAccount = () => {
 					className: "SelectedAccount__selector-input",
 					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Selector_default, {
 						options: selectorOptions,
-						isDisabled: selectorOptions.length === 1,
 						defaultValue: accountId,
+						noStateStyles: true,
+						isDisabled: selectorOptions.length === 1,
 						components: {
 							Option,
 							MenuList
@@ -126540,13 +126565,13 @@ function calculateHistoricalLiquidationChance(currentPrice, liquidationPrice, ho
 	if (currentPriceInteger === 0n) throw new RangeError("currentPrice must be greater than 0");
 	const historicalDrawdownsBps = HISTORICAL_DRAWDOWNS_BPS_BY_HORIZON[horizonDays];
 	const sampleSize = BigInt(historicalDrawdownsBps.length);
-	if (liquidationPriceInteger >= currentPriceInteger) return { chancePercent: 100 };
+	if (liquidationPriceInteger >= currentPriceInteger) return { chance: 1 };
 	const requiredDropNumerator = (currentPriceInteger - liquidationPriceInteger) * BASIS_POINTS_DENOMINATOR;
 	const requiredDropBps = requiredDropNumerator / currentPriceInteger + (requiredDropNumerator % currentPriceInteger === 0n ? 0n : 1n);
 	let matchingWindows = 0n;
 	for (const historicalDrawdownBps of historicalDrawdownsBps) if (historicalDrawdownBps >= requiredDropBps) matchingWindows += 1n;
 	const chanceBps = matchingWindows * BASIS_POINTS_DENOMINATOR / sampleSize;
-	return { chancePercent: Number(chanceBps) / 100 };
+	return { chance: Number(chanceBps) / 1e4 };
 }
 var import_classnames$5 = /* @__PURE__ */ __toESM(require_classnames(), 1);
 var PERIODS_DAYS = [
@@ -126567,17 +126592,17 @@ var Content$2 = () => {
 	const [periodDays, setPeriodDays] = (0, import_react.useState)(PERIODS_DAYS[0]);
 	const { openBuyProtectionModal } = useDashboardContext();
 	if (!assetPrice || !isSufficient(curLiqPrice)) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SpinnerBig_default, {});
-	const { chancePercent } = calculateHistoricalLiquidationChance(Number(stringFromBigInt(assetPrice)), Number(stringFromBigInt(curLiqPrice)), periodDays);
+	const { chance: liqChance } = calculateHistoricalLiquidationChance(Number(stringFromBigInt(assetPrice)), Number(stringFromBigInt(curLiqPrice)), periodDays);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 		className: "LiqChance__row",
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Info, { chancePercent }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Percent, {
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Info, { liqChance }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Percent, {
 			periodDays,
 			setPeriodDays,
-			chancePercent
+			liqChance
 		})]
-	}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+	}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 		className: "LiqChance__row",
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 			className: "LiqChance__controls",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 				className: "LiqChance__liq-price",
@@ -126598,21 +126623,18 @@ var Content$2 = () => {
 					children: "Buy protection"
 				})
 			})]
-		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LinkArrow_default, {
-			className: "LiqChance__docs-link",
-			href: "#!",
-			children: "How We Calculate This"
-		})]
+		})
 	})] });
 };
-var Percent = ({ periodDays, setPeriodDays, chancePercent }) => {
+var Percent = ({ periodDays, setPeriodDays, liqChance }) => {
 	const percentValueRef = (0, import_react.useRef)(null);
+	const liqChancePercent = liqChance * 100;
 	(0, import_react.useEffect)(() => {
 		if (!percentValueRef.current) return;
 		const [minTranslate, maxTranslate] = [2, 98];
-		percentValueRef.current.style.left = `${Math.min(Math.max(chancePercent, minTranslate), maxTranslate)}%`;
-	}, [chancePercent, percentValueRef]);
-	const chancePercentStr = `${chancePercent < 1 ? chancePercent : roundNumber(chancePercent)}%`;
+		percentValueRef.current.style.left = `${Math.min(Math.max(liqChancePercent, minTranslate), maxTranslate)}%`;
+	}, [liqChance, percentValueRef]);
+	const liqChancePercentStr = `${liqChancePercent < 1 ? roundNumber(liqChancePercent, 1) : roundNumber(liqChancePercent, 0)}%`;
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 		className: "LiqChance__percent",
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
@@ -126630,7 +126652,7 @@ var Percent = ({ periodDays, setPeriodDays, chancePercent }) => {
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 				className: "LiqChance__percent-bar-value",
 				ref: percentValueRef,
-				children: chancePercentStr
+				children: liqChancePercentStr
 			}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 				className: "LiqChance__percent-bar-body",
 				children: [
@@ -126642,7 +126664,7 @@ var Percent = ({ periodDays, setPeriodDays, chancePercent }) => {
 		})]
 	});
 };
-var Info = ({ chancePercent }) => {
+var Info = ({ liqChance }) => {
 	const data = {
 		low: {
 			title: "Low probability of liquidation",
@@ -126658,8 +126680,8 @@ var Info = ({ chancePercent }) => {
 		}
 	};
 	const getInfo = () => {
-		if (chancePercent < THRESHOLDS[0] * 100) return data.low;
-		else if (chancePercent < THRESHOLDS[1] * 100) return data.med;
+		if (liqChance < THRESHOLDS[0]) return data.low;
+		else if (liqChance < THRESHOLDS[1]) return data.med;
 		else return data.high;
 	};
 	const info = getInfo();
@@ -126749,8 +126771,8 @@ var NoProtections = () => {
 };
 var _Desktop$1 = ({ positions }) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("table", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("tr", { children: TABLE_COLS.map((col) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: col }, col)) }) }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("tbody", { children: positions.map((pos) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("tr", { children: [
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Type, { position: pos }) }),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Amount, { position: pos }) }),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Type$1, { position: pos }) }),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Amount$1, { position: pos }) }),
 		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Period, { option: pos }) }),
 		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Strike, { option: pos }) }),
 		/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProtectionCost, { position: pos }) }),
@@ -126773,7 +126795,7 @@ var _Mobile$1 = ({ positions }) => {
 							children: "Type"
 						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 							className: "Metrics__row-value",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Type, { position: pos })
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Type$1, { position: pos })
 						})]
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
@@ -126783,7 +126805,7 @@ var _Mobile$1 = ({ positions }) => {
 							children: "Amount"
 						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 							className: "Metrics__row-value",
-							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Amount, { position: pos })
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Amount$1, { position: pos })
 						})]
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
@@ -126831,10 +126853,10 @@ var _Mobile$1 = ({ positions }) => {
 		}, pos.id))
 	});
 };
-var Type = ({ position: position$1 }) => {
+var Type$1 = ({ position: position$1 }) => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Option" });
 };
-var Amount = ({ position: position$1 }) => {
+var Amount$1 = ({ position: position$1 }) => {
 	const { amount, asset } = position$1;
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenAmount_default, {
 		value: amount,
@@ -126990,7 +127012,64 @@ var ArrowLinkSvg = () => {
 	});
 };
 var Docs_default = Docs;
-(/* @__PURE__ */ __commonJSMin(((exports, module) => {
+const useHistoryData = (tab, page = 1, pageSize = 10, sortByNewest = true, types$1 = void 0, assets = void 0) => {
+	const history = _useHistory(tab, page, pageSize, sortByNewest, types$1, assets);
+	if (history === null) return null;
+	return history?.data;
+};
+const useHistoryPagination = (tab, pageSize = 10, types$1 = void 0, assets = void 0) => {
+	const history = _useHistory(tab, 1, pageSize, true, types$1, assets);
+	if (history === null) return null;
+	return history?.pagination;
+};
+var _useHistory = (tab, page = 1, pageSize = 10, sortByNewest = true, types$1 = void 0, assets = void 0) => {
+	const accountId = useAccountId_default();
+	const { data: history, error: historyError } = useSWR(isSufficient(accountId) && [
+		accountId,
+		tab,
+		page,
+		pageSize,
+		sortByNewest,
+		types$1,
+		assets,
+		"useHistory"
+	], async () => {
+		const url = `${API_URL}/norekt/account/${accountId}/history?${getParamsStr(tab, page, pageSize, sortByNewest, types$1, assets)}`;
+		const fetched = await fetch(url).then((data) => data.json());
+		const { isLoading, hasError } = getIsLoadingAndError(fetched);
+		if (isLoading) return;
+		if (hasError) return null;
+		return {
+			data: fetched.history,
+			pagination: fetched.pagination
+		};
+	}, getSwrConfig());
+	if (historyError) {
+		console.log("useHistory error!\n", historyError);
+		return null;
+	}
+	return history;
+};
+var getParamsStr = (tab, page, pageSize, sortByNewest = true, types$1 = void 0, assets = void 0) => {
+	return [
+		`tab=${tab.toLowerCase()}`,
+		`page=${page}`,
+		`size=${pageSize}`,
+		`sort=${sortByNewest ? "desc" : "asc"}`,
+		types$1 ? `type=${types$1.map(formatTypeStr).join(",")}` : void 0,
+		assets ? `asset=${assets.join(",")}` : void 0
+	].filter(filterSufficient).join("&");
+};
+var formatTypeStr = (_typeStr) => {
+	return _typeStr.toLowerCase().split(" ").join("_");
+};
+var supply_default = "data:image/svg+xml,%3csvg%20width='16'%20height='16'%20viewBox='0%200%2016%2016'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3ccircle%20opacity='0.05'%20cx='8'%20cy='7'%20r='7'%20fill='%23212367'/%3e%3cpath%20d='M8.5%203C8.5%202.72386%208.27614%202.5%208%202.5C7.72386%202.5%207.5%202.72386%207.5%203L8%203L8.5%203ZM7.64645%209.35355C7.84171%209.54882%208.15829%209.54882%208.35355%209.35355L11.5355%206.17157C11.7308%205.97631%2011.7308%205.65973%2011.5355%205.46447C11.3403%205.2692%2011.0237%205.2692%2010.8284%205.46447L8%208.29289L5.17157%205.46447C4.97631%205.2692%204.65973%205.2692%204.46447%205.46447C4.2692%205.65973%204.2692%205.97631%204.46447%206.17157L7.64645%209.35355ZM8%203L7.5%203L7.5%209L8%209L8.5%209L8.5%203L8%203Z'%20fill='%235069DD'/%3e%3cline%20x1='4.5'%20y1='11.5'%20x2='11.5'%20y2='11.5'%20stroke='%235069DD'%20stroke-linecap='round'/%3e%3c/svg%3e";
+var withdraw_default = "data:image/svg+xml,%3csvg%20width='16'%20height='16'%20viewBox='0%200%2016%2016'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M7.5%2012C7.5%2012.2761%207.72386%2012.5%208%2012.5C8.27614%2012.5%208.5%2012.2761%208.5%2012L8%2012L7.5%2012ZM8.35355%205.64645C8.15829%205.45118%207.84171%205.45118%207.64645%205.64645L4.46447%208.82843C4.2692%209.02369%204.2692%209.34027%204.46447%209.53553C4.65973%209.7308%204.97631%209.7308%205.17157%209.53553L8%206.70711L10.8284%209.53553C11.0237%209.7308%2011.3403%209.7308%2011.5355%209.53553C11.7308%209.34027%2011.7308%209.02369%2011.5355%208.82843L8.35355%205.64645ZM8%2012L8.5%2012L8.5%206L8%206L7.5%206L7.5%2012L8%2012Z'%20fill='%23D8563C'/%3e%3cline%20x1='11.5'%20y1='3.5'%20x2='4.5'%20y2='3.5'%20stroke='%23D8563C'%20stroke-linecap='round'/%3e%3c/svg%3e";
+var buy_protection_default = "data:image/svg+xml,%3csvg%20width='16'%20height='16'%20viewBox='0%200%2016%2016'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3ccircle%20opacity='0.5'%20cx='9.5'%20cy='9.5'%20r='2.5'%20fill='%23FE9673'/%3e%3cpath%20d='M4.49296%206.00008H11.0482L11.076%206.00092C11.3242%206.01062%2011.559%206.1201%2011.7313%206.30639C11.9036%206.49267%2011.9999%206.74125%2012%206.99993V11C12%2011.2652%2011.8989%2011.5196%2011.7188%2011.7071C11.5388%2011.8946%2011.2946%2012%2011.04%2012H4.96C4.70539%2012%204.46121%2011.8946%204.28118%2011.7071C4.10114%2011.5196%204%2011.2652%204%2011V6.99993L4.00048%206.96576L4.00208%206.93576C3.99099%206.74745%204.03118%206.5597%204.11802%206.39413C4.20487%206.22857%204.33484%206.09208%204.49296%206.00008ZM9.44%208.33328C9.27026%208.33328%209.10747%208.40352%208.98745%208.52855C8.86743%208.65357%208.8%208.82314%208.8%208.99996C8.8%209.17677%208.86743%209.34634%208.98745%209.47137C9.10747%209.59639%209.27026%209.66663%209.44%209.66663C9.60974%209.66663%209.77252%209.59639%209.89255%209.47137C10.0126%209.34634%2010.08%209.17677%2010.08%208.99996C10.08%208.82314%2010.0126%208.65357%209.89255%208.52855C9.77252%208.40352%209.60974%208.33328%209.44%208.33328ZM11.0155%204.74156C11.0372%204.82582%2011.0482%204.91267%2011.0483%204.9999L11.0482%205.49991H5.82784L9.83984%204.03405C10.0858%203.96544%2010.3478%204.00139%2010.5683%204.13401C10.7888%204.26663%2010.9496%204.48539%2011.0155%204.74156Z'%20fill='%23FE9673'/%3e%3c/svg%3e";
+var claim_default = "data:image/svg+xml,%3csvg%20width='16'%20height='16'%20viewBox='0%200%2016%2016'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M4%208.2L6.66667%2011L12%205'%20stroke='%2309AF8E'%20stroke-width='1.4'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3c/svg%3e";
+var repay_default = "data:image/svg+xml,%3csvg%20width='16'%20height='16'%20viewBox='0%200%2016%2016'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M6.93945%204.0918C7.73592%203.87554%208.57978%203.90718%209.35742%204.18359C10.0883%204.44344%2010.7263%204.90901%2011.2002%205.52051V4.875C11.2002%204.76233%2011.2446%204.65392%2011.3242%204.57422C11.4039%204.49451%2011.5123%204.4502%2011.625%204.4502C11.7377%204.4502%2011.8461%204.49451%2011.9258%204.57422C12.0054%204.65392%2012.0498%204.76233%2012.0498%204.875V7.0498H9.875C9.76231%207.0498%209.65392%207.00545%209.57422%206.92578C9.49454%206.8461%209.45023%206.73768%209.4502%206.625C9.4502%206.5123%209.49455%206.40392%209.57422%206.32422C9.65392%206.24451%209.76228%206.2002%209.875%206.2002H10.6426C10.258%205.63554%209.70393%205.20689%209.05762%204.98047C8.38192%204.74382%207.64649%204.73998%206.96875%204.9707C6.29097%205.20145%205.71029%205.6531%205.31934%206.25293C4.92838%206.85286%204.7499%207.56693%204.8125%208.28027C4.87513%208.99338%205.17482%209.66494%205.66406%2010.1875C6.15344%2010.7101%206.80419%2011.0538%207.51172%2011.1631C8.2194%2011.2723%208.94413%2011.1409%209.56836%2010.79C10.1924%2010.4392%2010.6805%209.88872%2010.9551%209.22754C10.9756%209.17525%2011.0068%209.12728%2011.0459%209.08691C11.0852%209.04638%2011.1326%209.01435%2011.1846%208.99219C11.2365%208.97007%2011.2922%208.95832%2011.3486%208.95801C11.4051%208.95773%2011.4615%208.9686%2011.5137%208.99023C11.5659%209.0119%2011.6136%209.0438%2011.6533%209.08398C11.693%209.12414%2011.7241%209.17225%2011.7451%209.22461C11.7662%209.27718%2011.7774%209.33401%2011.7764%209.39062C11.7754%209.44665%2011.7617%209.50141%2011.7393%209.55273C11.4754%2010.1878%2011.0554%2010.7466%2010.5166%2011.1738C9.97776%2011.601%209.3386%2011.884%208.66016%2011.9961C7.98166%2012.1081%207.28532%2012.0458%206.6377%2011.8145C5.99012%2011.5831%205.41199%2011.1903%204.95801%2010.6738C4.50404%2010.1573%204.18925%209.53328%204.04297%208.86133C3.8967%208.1893%203.92383%207.49061%204.12207%206.83203C4.32033%206.1736%204.68295%205.57621%205.17578%205.09668C5.6687%204.61713%206.2758%204.2719%206.93945%204.0918Z'%20fill='%2309AF8E'%20stroke='%2309AF8E'%20stroke-width='0.1'/%3e%3c/svg%3e";
+var borrow_default = "data:image/svg+xml,%3csvg%20width='16'%20height='16'%20viewBox='0%200%2016%2016'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M8.22986%207.38889C6.89194%207.06111%206.46169%206.72222%206.46169%206.19444C6.46169%205.58889%207.05697%205.16667%208.05305%205.16667C9.10216%205.16667%209.49116%205.63889%209.52652%206.33333H10.8291C10.7878%205.37778%2010.169%204.5%208.93713%204.21667V3H7.16896V4.2C6.02554%204.43333%205.10609%205.13333%205.10609%206.20556C5.10609%207.48889%206.23183%208.12778%207.87623%208.5C9.3497%208.83333%209.6444%209.32222%209.6444%209.83889C9.6444%2010.2222%209.3556%2010.8333%208.05305%2010.8333C6.8389%2010.8333%206.36149%2010.3222%206.29666%209.66667H5C5.07073%2010.8833%206.03733%2011.5667%207.16896%2011.7944V13H8.93713V11.8056C10.0864%2011.6%2011%2010.9722%2011%209.83333C11%208.25556%209.56778%207.71667%208.22986%207.38889Z'%20fill='%238E3ECD'/%3e%3c/svg%3e";
+var import_react_paginate = /* @__PURE__ */ __toESM((/* @__PURE__ */ __commonJSMin(((exports, module) => {
 	(function(e$4, a$4) {
 		"object" == typeof exports && "object" == typeof module ? module.exports = a$4(require_react()) : "function" == typeof define && define.amd ? define(["react"], a$4) : "object" == typeof exports ? exports.ReactPaginate = a$4(require_react()) : e$4.ReactPaginate = a$4(e$4.React);
 	})(exports, ((e$4) => (() => {
@@ -127490,10 +127569,406 @@ var Docs_default = Docs;
 			const k$5 = P$4;
 		})(), n$4;
 	})()));
-})))();
-require_classnames();
-require_classnames();
-Colors.BLUE_2, Colors.RED_2, Colors.YELLOW_2, Colors.GREEN_2, Colors.GREEN_2, Colors.VIOLET_DIM;
+})))(), 1);
+var import_classnames$3 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var Pagination = ({ page, setPage, pageSize, setPageSize, pageSizes, totalPages, isLoading = false, className = void 0 }) => {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: (0, import_classnames$3.default)("Pagination__container", className),
+		children: [isLoading ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Spinner_default, {}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_react_paginate.default.default, {
+			className: "Pagination",
+			previousClassName: "Pagination__prev",
+			nextClassName: "Pagination__next",
+			pageClassName: "Pagination__page",
+			nextLabel: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(NextSvg, {}),
+			previousLabel: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PrevSvg, {}),
+			pageCount: totalPages,
+			pageRangeDisplayed: 1,
+			marginPagesDisplayed: 1,
+			forcePage: page - 1,
+			onPageChange: (pageData) => {
+				const { selected } = pageData;
+				setPage(selected + 1);
+			},
+			renderOnZeroPageCount: null
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PageSizeSelector, {
+			pageSize,
+			setPageSize,
+			pageSizes
+		})]
+	});
+};
+var PageSizeSelector = ({ pageSize, setPageSize, pageSizes }) => {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Selector_default, {
+		className: "Pagination__page-size-selector",
+		defaultValue: pageSize,
+		options: pageSizes.map((pageSize$1) => {
+			return {
+				value: pageSize$1,
+				label: pageSize$1
+			};
+		}),
+		onChange: (opt) => setPageSize(opt.value)
+	});
+};
+var NextSvg = () => {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
+		xmlns: "http://www.w3.org/2000/svg",
+		width: "6",
+		height: "10",
+		viewBox: "0 0 6 10",
+		fill: "none",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
+			d: "M1.5 9L4.5 5L1.5 1",
+			stroke: "#ffffff",
+			strokeWidth: "1.6",
+			strokeLinecap: "round",
+			strokeLinejoin: "round"
+		})
+	});
+};
+var PrevSvg = () => {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
+		xmlns: "http://www.w3.org/2000/svg",
+		width: "6",
+		height: "10",
+		viewBox: "0 0 6 10",
+		fill: "none",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
+			d: "M4.5 1L1.5 5L4.5 9",
+			stroke: "#ffffff",
+			strokeWidth: "1.6",
+			strokeLinecap: "round",
+			strokeLinejoin: "round"
+		})
+	});
+};
+var Pagination_default = Pagination;
+var chevron_default = "data:image/svg+xml,%3csvg%20width='14'%20height='7'%20viewBox='0%200%2014%207'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M13%201L7.00003%206L1.00003%201'%20stroke='white'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'/%3e%3c/svg%3e";
+var import_classnames$2 = /* @__PURE__ */ __toESM(require_classnames(), 1);
+var TABS = ["Balances", "Options"];
+var BALANCES_COLS = [
+	"Type",
+	"Asset",
+	"Amount",
+	"Date",
+	"Actions"
+];
+var TYPES = {
+	Supply: {
+		color: Colors.BLUE_2,
+		icon: supply_default
+	},
+	Withdraw: {
+		color: Colors.RED_2,
+		icon: withdraw_default
+	},
+	"Buy Protection": {
+		color: Colors.YELLOW_2,
+		icon: buy_protection_default
+	},
+	"Claim": {
+		color: Colors.GREEN_2,
+		icon: claim_default
+	},
+	Repay: {
+		color: Colors.GREEN_2,
+		icon: repay_default
+	},
+	Borrow: {
+		color: Colors.VIOLET_DIM,
+		icon: borrow_default
+	}
+};
+var ASSETS = ["ETH", "USDC"];
+var PAGE_SIZES = [
+	5,
+	10,
+	20
+];
+var HistoryTable = () => {
+	const [tab, setTab] = (0, import_react.useState)(TABS[0]);
+	const [sortByNewest, toggleSortByNewest] = useToggle_default(true);
+	const [types$1, setTypes] = (0, import_react.useState)(Object.keys(TYPES));
+	const [assets, setAssets] = (0, import_react.useState)(ASSETS);
+	const [showInUTC, setShowInUTC] = useLocalStorage_default("HistoryTable:showInUTC", false);
+	const [page, setPage] = (0, import_react.useState)(1);
+	const [pageSize, setPageSize] = (0, import_react.useState)(PAGE_SIZES[1]);
+	const historyData = useHistoryData(tab, page, pageSize, sortByNewest, types$1, assets);
+	const historyPagination = useHistoryPagination(tab, pageSize, types$1, assets);
+	(0, import_react.useEffect)(() => {
+		setPage(1);
+	}, [
+		tab,
+		pageSize,
+		types$1,
+		assets
+	]);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "HistoryTable",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Controls, {
+				tab,
+				setTab,
+				types: types$1,
+				setTypes,
+				assets,
+				setAssets,
+				showInUTC,
+				setShowInUTC
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Items, {
+				historyData,
+				showInUTC,
+				toggleSortByNewest
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(_Pagination, {
+				page,
+				setPage,
+				pageSize,
+				setPageSize,
+				pageSizes: PAGE_SIZES,
+				historyPagination
+			})
+		]
+	});
+};
+var Controls = ({ tab, setTab, types: types$1, setTypes, assets, setAssets, showInUTC, setShowInUTC }) => {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "HistoryTable__controls",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "HistoryTable__controls-tabs",
+			children: TABS.map((_tab) => {
+				return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Button_default, {
+					className: (0, import_classnames$2.default)("HistoryTable__controls-tab", _tab === tab && "_active"),
+					onClick: () => setTab(_tab),
+					children: _tab
+				}, _tab);
+			})
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "HistoryTable__controls-filters",
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(TypeFilter, {
+					types: types$1,
+					setTypes
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(AssetFilter, {
+					assets,
+					setAssets
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Checkbox_default, {
+					isChecked: showInUTC,
+					setIsChecked: setShowInUTC,
+					children: "Show in UTC"
+				})
+			]
+		})]
+	});
+};
+var TypeFilter = ({ types: types$1, setTypes }) => {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Selector_default, {
+		options: Object.keys(TYPES).map((type) => ({
+			value: type,
+			label: type
+		})),
+		defaultValue: types$1,
+		isMulti: true,
+		multiLabel: "All Types",
+		placeholder: "Select Types...",
+		onChange: (opts) => {
+			setTypes(opts.map((opt) => opt.value));
+		}
+	});
+};
+var AssetFilter = ({ assets, setAssets }) => {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Selector_default, {
+		options: ASSETS.map((asset) => ({
+			value: asset,
+			label: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenName_default, { symbol: asset })
+		})),
+		defaultValue: assets,
+		isMulti: true,
+		multiLabel: "All Assets",
+		placeholder: "Select Assets...",
+		onChange: (opts) => {
+			setAssets(opts.map((opt) => opt.value));
+		}
+	});
+};
+var Items = ({ historyData, showInUTC, toggleSortByNewest }) => {
+	const { isLoading, hasError } = getIsLoadingAndError(historyData);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: (0, import_classnames$2.default)("HistoryTable__items", isLoading && "_loading", hasError && "_error"),
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("table", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("tr", { children: BALANCES_COLS.map((col) => {
+			if (col === "Date") return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
+				onClick: toggleSortByNewest,
+				children: [col, /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SortSvg, {})]
+			}) }, col);
+			return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: col }, col);
+		}) }) }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("tbody", { children: [(isLoading || hasError) && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("tr", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("td", {
+			colSpan: 100,
+			children: [isLoading && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SpinnerBig_default, {}), hasError && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, { children: ErrorMsg.EXPANDED })]
+		}) }), !isLoading && !hasError && historyData.map((item) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Item, {
+			item,
+			showInUTC
+		}, item.actionID))] })] })
+	});
+};
+var Item = ({ item, showInUTC, isDetails = false, isDetailsFirst = void 0, isDetailsLast = void 0 }) => {
+	const [isExpanded, toggleExpanded] = useToggle_default(false);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("tr", {
+		className: (0, import_classnames$2.default)("HistoryTable__item", isExpanded && "_expanded", isDetails && "_details", isDetails && (isDetailsFirst ? "_first-row" : isDetailsLast ? "_last-row" : void 0)),
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Type, {
+				item,
+				isDetails
+			}) }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Asset, { item }) }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Amount, { item }) }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Date$1, {
+				item,
+				showInUTC
+			}) }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("td", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ViewDetailsBtn, {
+				item,
+				isDetails,
+				isExpanded,
+				toggleExpanded
+			}) })
+		]
+	}), item.details?.map((details, i$4, arr) => {
+		const isFirst = i$4 === 0;
+		const isLast = i$4 === arr.length - 1;
+		return isExpanded ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Item, {
+			item: details,
+			showInUTC,
+			isDetails: true,
+			isDetailsFirst: isFirst,
+			isDetailsLast: isLast
+		}, details.step) : null;
+	})] });
+};
+var Type = ({ item, isDetails }) => {
+	const { type } = item;
+	if (isDetails) {
+		const { step } = item;
+		return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+			className: "text",
+			children: [
+				step,
+				". ",
+				type
+			]
+		});
+	}
+	const { color: color$1, icon } = TYPES[type];
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "HistoryTable__item-type",
+		style: { backgroundColor: color$1 },
+		children: [type, /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+			src: icon,
+			alt: `${type} icon`
+		})]
+	});
+};
+var Asset = ({ item }) => {
+	const { asset } = item;
+	if (!asset) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, {});
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TokenName_default, { symbol: item.asset });
+};
+var Amount = ({ item }) => {
+	const { amount: amountNum, asset } = item;
+	if (!asset) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, {});
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: formatTokenAmount(bigIntFromString(amountNum), asset) });
+};
+var Date$1 = ({ item, showInUTC }) => {
+	const { date, txHash } = item;
+	const dateStr = format(date, "dd/MM/yyyy, HH:mm", showInUTC && { in: utc });
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LinkArrow_default, {
+		href: `https://arbiscan.io/tx/${txHash}`,
+		children: dateStr
+	});
+};
+var ViewDetailsBtn = ({ item, isDetails, isExpanded, toggleExpanded }) => {
+	if (isDetails) return null;
+	if (!item.details) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, {});
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Button_default, {
+		className: "HistoryTable__item-view-details",
+		type: "secondary",
+		size: "small",
+		onClick: toggleExpanded,
+		children: [
+			isExpanded ? "Hide" : "View",
+			" details",
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+				src: chevron_default,
+				alt: "chevron down"
+			})
+		]
+	});
+};
+var _Pagination = ({ page, setPage, pageSize, setPageSize, pageSizes, historyPagination }) => {
+	const { isLoading, hasError } = getIsLoadingAndError(historyPagination);
+	if (isLoading || hasError) return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "HistoryTable__pagination",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "HistoryTable__log-counter",
+			children: "Showing ... of ... logs"
+		}), hasError ? null : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pagination_default, {
+			pageSize,
+			setPageSize,
+			pageSizes,
+			isLoading: true
+		})]
+	});
+	const { totalPages, total: totalLogs } = historyPagination;
+	let lastEntryNum = Math.min(pageSize * page, totalLogs);
+	const firstEntryNum = pageSize * page - (pageSize - 1);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "HistoryTable__pagination",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			className: "HistoryTable__log-counter",
+			children: `Showing ${totalPages > 1 ? `${firstEntryNum}-${lastEntryNum}` : totalLogs} of ${totalLogs} logs`
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pagination_default, {
+			page,
+			setPage,
+			pageSize,
+			setPageSize,
+			pageSizes,
+			totalPages
+		})]
+	});
+};
+var SortSvg = () => {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", {
+		xmlns: "http://www.w3.org/2000/svg",
+		width: "14",
+		height: "14",
+		viewBox: "0 0 14 14",
+		fill: "none",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", {
+			d: "M7 12L4 9.08333L4.60429 8.49583L7 10.8208L9.39571 8.49583L10 9.08333L7 12ZM7 2L10 4.91667L9.39571 5.50417L7 3.17917L4.60429 5.50417L4 4.91667L7 2Z",
+			fill: "#9A94B8"
+		})
+	});
+};
+var HistoryTable_default = HistoryTable;
+var History = () => {
+	const { isConnected: isConnected$1 } = useWallet_default();
+	const { isLoading, hasError } = getIsLoadingAndError(useAccount_default());
+	let errorContent;
+	if (!isConnected$1) errorContent = ErrorMsg.NO_WALLET;
+	else if (isLoading) errorContent = /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SpinnerBig_default, {});
+	else if (hasError) errorContent = ErrorMsg.EXPANDED;
+	if (errorContent) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: "box _error",
+		children: errorContent
+	});
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+		className: "History",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(HistoryTable_default, {})
+	});
+};
+var History_default = History;
 var AppRoutes = () => {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Routes, { children: [
 		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
@@ -127502,7 +127977,7 @@ var AppRoutes = () => {
 		}),
 		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
 			path: "/history",
-			element: null
+			element: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(History_default, {})
 		}),
 		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Route, {
 			path: "/docs",
@@ -127635,8 +128110,7 @@ var NAV_LINKS = [
 	},
 	{
 		name: "History",
-		to: "/history",
-		isDisabled: true
+		to: "/history"
 	},
 	{
 		name: "Docs",
