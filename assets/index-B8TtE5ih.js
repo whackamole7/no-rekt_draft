@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-Cjrap67I.js","assets/secp256k1-G63qlvPx.js","assets/esm-B9D9EK69.js","assets/dist-CpNYUcZ1.js","assets/dist-Zcggaa9D.js","assets/dist-yRNyTBHJ.js","assets/index.es-C_b_OyKS.js","assets/alchemy-provider-2577f5a5-Ctf2r1gL.js","assets/alchemy-provider-2577f5a5-CPcSIzno.js","assets/alchemy-websocket-provider-ee041890-WIt4O-zq.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-BECfys4A.js","assets/secp256k1-5XfLOJ8P.js","assets/esm-7C7hQqXT.js","assets/dist-CgYHX9-8.js","assets/dist-CKI_UquU.js","assets/dist-dbaxIwXK.js","assets/index.es-DlDR_GTA.js","assets/alchemy-provider-2577f5a5-Cdq-sgly.js","assets/alchemy-provider-2577f5a5-T3ui76qj.js","assets/alchemy-websocket-provider-ee041890-4G4qoa52.js"])))=>i.map(i=>d[i]);
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -16953,7 +16953,7 @@ async function call$1(client, args) {
 	} catch (err) {
 		const data$1 = getRevertErrorData(err);
 		const { offchainLookup, offchainLookupSignature } = await __vitePreload(async () => {
-			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-gOc3fYUl.js");
+			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-tjNP5-sd.js");
 			return {
 				offchainLookup: offchainLookup$1,
 				offchainLookupSignature: offchainLookupSignature$1
@@ -17454,7 +17454,7 @@ function publicKeyToAddress(publicKey) {
 async function recoverPublicKey({ hash: hash$3, signature }) {
 	const hashHex = isHex(hash$3) ? hash$3 : toHex$2(hash$3);
 	const { secp256k1: secp256k1$1 } = await __vitePreload(async () => {
-		const { secp256k1: secp256k1$2 } = await import("./secp256k1-Cjrap67I.js");
+		const { secp256k1: secp256k1$2 } = await import("./secp256k1-BECfys4A.js");
 		return { secp256k1: secp256k1$2 };
 	}, __vite__mapDeps([0,1]));
 	return `0x${(() => {
@@ -23304,7 +23304,7 @@ function safe(parameters = {}) {
 			if (!provider_) {
 				const { default: SDK } = await (() => {
 					try {
-						return __vitePreload(() => import("./esm-B9D9EK69.js"), __vite__mapDeps([2,3]));
+						return __vitePreload(() => import("./esm-7C7hQqXT.js"), __vite__mapDeps([2,3]));
 					} catch {
 						throw new Error("dependency \"@safe-global/safe-apps-sdk\" not found");
 					}
@@ -23315,7 +23315,7 @@ function safe(parameters = {}) {
 				provider_ = new (await ((async () => {
 					const Provider$1 = await (() => {
 						try {
-							return __vitePreload(() => import("./dist-Zcggaa9D.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
+							return __vitePreload(() => import("./dist-CKI_UquU.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
 						} catch {
 							throw new Error("dependency \"@safe-global/safe-apps-provider\" not found");
 						}
@@ -23480,7 +23480,7 @@ function walletConnect(parameters) {
 				if (!optionalChains.length) return;
 				const { EthereumProvider: EthereumProvider$1 } = await (() => {
 					try {
-						return __vitePreload(() => import("./dist-yRNyTBHJ.js"), __vite__mapDeps([5,6,1]));
+						return __vitePreload(() => import("./dist-dbaxIwXK.js"), __vite__mapDeps([5,6,1]));
 					} catch {
 						throw new Error("dependency \"@walletconnect/ethereum-provider\" not found");
 					}
@@ -84475,14 +84475,14 @@ var AlchemyConfig = class {
 	}
 	getProvider() {
 		if (!this._baseAlchemyProvider) this._baseAlchemyProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-Ctf2r1gL.js"), __vite__mapDeps([7,8]));
+			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-Cdq-sgly.js"), __vite__mapDeps([7,8]));
 			return new AlchemyProvider$1(this);
 		}))();
 		return this._baseAlchemyProvider;
 	}
 	getWebSocketProvider() {
 		if (!this._baseAlchemyWssProvider) this._baseAlchemyWssProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-WIt4O-zq.js"), __vite__mapDeps([9,8]));
+			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-4G4qoa52.js"), __vite__mapDeps([9,8]));
 			return new AlchemyWebSocketProvider(this);
 		}))();
 		return this._baseAlchemyWssProvider;
@@ -127590,7 +127590,7 @@ var Pagination = ({ page, setPage, pageSize, setPageSize, pageSizes, totalPages,
 				setPage(selected + 1);
 			},
 			renderOnZeroPageCount: null
-		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PageSizeSelector, {
+		}), totalPages !== 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PageSizeSelector, {
 			pageSize,
 			setPageSize,
 			pageSizes
@@ -127796,17 +127796,22 @@ var AssetFilter = ({ assets, setAssets }) => {
 };
 var Items = ({ historyData, showInUTC, toggleSortByNewest }) => {
 	const { isLoading, hasError } = getIsLoadingAndError(historyData);
+	const isEmpty = historyData?.length === 0;
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-		className: (0, import_classnames$2.default)("HistoryTable__items", isLoading && "_loading", hasError && "_error"),
+		className: (0, import_classnames$2.default)("HistoryTable__items", isLoading && "_loading", hasError || isEmpty && "_error"),
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("table", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("tr", { children: BALANCES_COLS.map((col) => {
 			if (col === "Date") return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
 				onClick: toggleSortByNewest,
 				children: [col, /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SortSvg, {})]
 			}) }, col);
 			return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("th", { children: col }, col);
-		}) }) }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("tbody", { children: [(isLoading || hasError) && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("tr", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("td", {
+		}) }) }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("tbody", { children: [(isLoading || hasError || isEmpty) && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("tr", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("td", {
 			colSpan: 100,
-			children: [isLoading && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SpinnerBig_default, {}), hasError && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, { children: ErrorMsg.EXPANDED })]
+			children: [
+				isLoading && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SpinnerBig_default, {}),
+				hasError && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, { children: ErrorMsg.EXPANDED }),
+				isEmpty && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Muted_default, { children: "History is empty" })
+			]
 		}) }), !isLoading && !hasError && historyData.map((item) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Item, {
 			item,
 			showInUTC
