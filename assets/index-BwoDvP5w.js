@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-BPMzmEha.js","assets/secp256k1-eoMfwysD.js","assets/esm-CTlAijwy.js","assets/dist-tu4pqsG8.js","assets/dist-C_UKSAEO.js","assets/dist-BoMR_IWu.js","assets/index.es-JJQVXMqt.js","assets/alchemy-provider-2577f5a5-DOEpkY1b.js","assets/alchemy-provider-2577f5a5-zCau0aqg.js","assets/alchemy-websocket-provider-ee041890-DQ5YumSg.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/secp256k1-BDTOMipF.js","assets/secp256k1-aQoYLyH7.js","assets/esm-CLKaGXc6.js","assets/dist-Yxk-8JHW.js","assets/dist-kjS5VjTl.js","assets/dist-CUBXg8uk.js","assets/index.es-LLJ91d8N.js","assets/alchemy-provider-2577f5a5-C-BildSk.js","assets/alchemy-provider-2577f5a5-QEsrzA53.js","assets/alchemy-websocket-provider-ee041890-COLtmFMQ.js"])))=>i.map(i=>d[i]);
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -16953,7 +16953,7 @@ async function call$1(client, args) {
 	} catch (err) {
 		const data$1 = getRevertErrorData(err);
 		const { offchainLookup, offchainLookupSignature } = await __vitePreload(async () => {
-			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-rpafkBPN.js");
+			const { offchainLookup: offchainLookup$1, offchainLookupSignature: offchainLookupSignature$1 } = await import("./ccip-CXWi-_Fd.js");
 			return {
 				offchainLookup: offchainLookup$1,
 				offchainLookupSignature: offchainLookupSignature$1
@@ -17454,7 +17454,7 @@ function publicKeyToAddress(publicKey) {
 async function recoverPublicKey({ hash: hash$3, signature }) {
 	const hashHex = isHex(hash$3) ? hash$3 : toHex$2(hash$3);
 	const { secp256k1: secp256k1$1 } = await __vitePreload(async () => {
-		const { secp256k1: secp256k1$2 } = await import("./secp256k1-BPMzmEha.js");
+		const { secp256k1: secp256k1$2 } = await import("./secp256k1-BDTOMipF.js");
 		return { secp256k1: secp256k1$2 };
 	}, __vite__mapDeps([0,1]));
 	return `0x${(() => {
@@ -23304,7 +23304,7 @@ function safe(parameters = {}) {
 			if (!provider_) {
 				const { default: SDK } = await (() => {
 					try {
-						return __vitePreload(() => import("./esm-CTlAijwy.js"), __vite__mapDeps([2,3]));
+						return __vitePreload(() => import("./esm-CLKaGXc6.js"), __vite__mapDeps([2,3]));
 					} catch {
 						throw new Error("dependency \"@safe-global/safe-apps-sdk\" not found");
 					}
@@ -23315,7 +23315,7 @@ function safe(parameters = {}) {
 				provider_ = new (await ((async () => {
 					const Provider$1 = await (() => {
 						try {
-							return __vitePreload(() => import("./dist-C_UKSAEO.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
+							return __vitePreload(() => import("./dist-kjS5VjTl.js").then(__toDynamicImportESM(1)), __vite__mapDeps([4,3]));
 						} catch {
 							throw new Error("dependency \"@safe-global/safe-apps-provider\" not found");
 						}
@@ -23480,7 +23480,7 @@ function walletConnect(parameters) {
 				if (!optionalChains.length) return;
 				const { EthereumProvider: EthereumProvider$1 } = await (() => {
 					try {
-						return __vitePreload(() => import("./dist-BoMR_IWu.js"), __vite__mapDeps([5,6,1]));
+						return __vitePreload(() => import("./dist-CUBXg8uk.js"), __vite__mapDeps([5,6,1]));
 					} catch {
 						throw new Error("dependency \"@walletconnect/ethereum-provider\" not found");
 					}
@@ -84475,14 +84475,14 @@ var AlchemyConfig = class {
 	}
 	getProvider() {
 		if (!this._baseAlchemyProvider) this._baseAlchemyProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-DOEpkY1b.js"), __vite__mapDeps([7,8]));
+			const { AlchemyProvider: AlchemyProvider$1 } = yield __vitePreload(() => import("./alchemy-provider-2577f5a5-C-BildSk.js"), __vite__mapDeps([7,8]));
 			return new AlchemyProvider$1(this);
 		}))();
 		return this._baseAlchemyProvider;
 	}
 	getWebSocketProvider() {
 		if (!this._baseAlchemyWssProvider) this._baseAlchemyWssProvider = (() => __awaiter$1(this, void 0, void 0, function* () {
-			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-DQ5YumSg.js"), __vite__mapDeps([9,8]));
+			const { AlchemyWebSocketProvider } = yield __vitePreload(() => import("./alchemy-websocket-provider-ee041890-COLtmFMQ.js"), __vite__mapDeps([9,8]));
 			return new AlchemyWebSocketProvider(this);
 		}))();
 		return this._baseAlchemyWssProvider;
@@ -102683,10 +102683,6 @@ function readSharedInputs(balance, debt, options$2, ltvCoeffs) {
 		red: ltvCoeffs.red
 	};
 }
-function assertPrevLiqPrice(prevLiqPrice) {
-	if (prevLiqPrice === void 0) return;
-	assertNonNegativeBigInt("prevLiqPrice", prevLiqPrice);
-}
 function calculateBaseLiqPrice(balance, debt, red) {
 	return debt * red / balance;
 }
@@ -102706,9 +102702,8 @@ function recalcLiqPrice(balance, debt, red, selectedOptions) {
 function selectedProtectiveOptions(options$2, liqPrice) {
 	return options$2.filter((option) => option.strike > liqPrice);
 }
-function calcLiqPrice(balance, debt, options$2, ltvCoeffs, prevLiqPrice) {
+function calcLiqPrice(balance, debt, options$2, ltvCoeffs) {
 	const inputs = readSharedInputs(balance, debt, options$2, ltvCoeffs);
-	assertPrevLiqPrice(prevLiqPrice);
 	return refineLiqPrice(inputs.balance, inputs.debt, inputs.options, inputs.red, calculateBaseLiqPrice(inputs.balance, inputs.debt, inputs.red));
 }
 function refineLiqPrice(balance, debt, options$2, red, liqPrice) {
@@ -102725,7 +102720,7 @@ function calcProtectionAmount(balance, debt, options$2, ltvCoeffs, chosenLiqPric
 	assertNonNegativeBigInt("chosenLiqPrice", chosenLiqPrice);
 	assertPositiveBigInt("strike", strike);
 	if (strike <= chosenLiqPrice) throw new RangeError("chosenLiqPrice must be below the new option strike");
-	const currentLiqPrice = calcLiqPrice(inputs.balance, inputs.debt, inputs.options, ltvCoeffs, void 0);
+	const currentLiqPrice = calcLiqPrice(inputs.balance, inputs.debt, inputs.options, ltvCoeffs);
 	if (currentLiqPrice <= 0n) return 0n;
 	const selected = selectedProtectiveOptions(inputs.options, currentLiqPrice);
 	let sumSizeStrike = 0n;
@@ -102747,7 +102742,11 @@ var useLiqPrice = (estBalance = void 0, estDebt = void 0, estOptions = void 0, i
 		isLoading = isLoading || isAccountLoading;
 		if (isLoading) return;
 		if (hasError) return null;
-		return calcLiqPrice(estBalance ?? account.balance, estDebt ?? account.debt, estOptions ?? curOptions, account.ltvCoeffs);
+		const balance = estBalance ?? account.balance;
+		const debt = estDebt ?? account.debt;
+		const options$2 = estOptions ?? curOptions;
+		if (balance === 0n) return 0n;
+		return calcLiqPrice(balance, debt, options$2, account.ltvCoeffs);
 	}, [
 		account,
 		curOptions,
